@@ -1,0 +1,1343 @@
+<!DOCTYPE html>
+<html lang="zh-cn" dir="ltr">
+    <head><meta charset='utf-8'>
+<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content="最初和最后的荣耀">
+<title>2020年“安洵杯”四川省大学生信息安全技术大赛  部分WRITEUP</title>
+
+<link rel='canonical' href='https://dorinxl.github.io/p/2020%E5%B9%B4%E5%AE%89%E6%B4%B5%E6%9D%AF%E5%9B%9B%E5%B7%9D%E7%9C%81%E5%A4%A7%E5%AD%A6%E7%94%9F%E4%BF%A1%E6%81%AF%E5%AE%89%E5%85%A8%E6%8A%80%E6%9C%AF%E5%A4%A7%E8%B5%9B-%E9%83%A8%E5%88%86writeup/'>
+
+<link rel="stylesheet" href="/scss/style.min.dfb009e658ec6e0f0f0c366b98658c0caea5123dcd2536f353c92c2581b79fb7.css"><meta property='og:title' content="2020年“安洵杯”四川省大学生信息安全技术大赛  部分WRITEUP">
+<meta property='og:description' content="最初和最后的荣耀">
+<meta property='og:url' content='https://dorinxl.github.io/p/2020%E5%B9%B4%E5%AE%89%E6%B4%B5%E6%9D%AF%E5%9B%9B%E5%B7%9D%E7%9C%81%E5%A4%A7%E5%AD%A6%E7%94%9F%E4%BF%A1%E6%81%AF%E5%AE%89%E5%85%A8%E6%8A%80%E6%9C%AF%E5%A4%A7%E8%B5%9B-%E9%83%A8%E5%88%86writeup/'>
+<meta property='og:site_name' content='荡影-DorinXL'>
+<meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:published_time' content='2020-09-08T14:36:00&#43;00:00'/><meta property='article:modified_time' content='2020-09-08T14:36:00&#43;00:00'/>
+<meta name="twitter:title" content="2020年“安洵杯”四川省大学生信息安全技术大赛  部分WRITEUP">
+<meta name="twitter:description" content="最初和最后的荣耀">
+    <link rel="shortcut icon" href="/favicon.ico" />
+
+  
+
+
+    </head>
+    <body class="
+    article-page
+    ">
+    <script>
+        (function() {
+            const colorSchemeKey = 'StackColorScheme';
+            if(!localStorage.getItem(colorSchemeKey)){
+                localStorage.setItem(colorSchemeKey, "auto");
+            }
+        })();
+    </script><script>
+    (function() {
+        const colorSchemeKey = 'StackColorScheme';
+        const colorSchemeItem = localStorage.getItem(colorSchemeKey);
+        const supportDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches === true;
+
+        if (colorSchemeItem == 'dark' || colorSchemeItem === 'auto' && supportDarkMode) {
+            
+
+            document.documentElement.dataset.scheme = 'dark';
+        } else {
+            document.documentElement.dataset.scheme = 'light';
+        }
+    })();
+</script>
+<div class="container main-container flex on-phone--column extended"><aside class="sidebar left-sidebar sticky ">
+    <button class="hamburger hamburger--spin" type="button" id="toggle-menu" aria-label="切换菜单">
+        <span class="hamburger-box">
+            <span class="hamburger-inner"></span>
+        </span>
+    </button>
+
+    <header>
+        
+            
+            <figure class="site-avatar">
+                <a href="/">
+                
+                    
+                    
+                    
+                        
+                        <img src="/img/avatar_hu6744900124519508638.png" width="300"
+                            height="283" class="site-logo" loading="lazy" alt="Avatar">
+                    
+                
+                </a>
+                
+                    <span class="emoji">🔥</span>
+                
+            </figure>
+            
+        
+        
+        <div class="site-meta">
+            <h1 class="site-name"><a href="/">荡影-DorinXL</a></h1>
+            <h2 class="site-description">缄默慎独，不破不立，事在人为</h2>
+        </div>
+    </header><ol class="menu-social">
+            
+                <li>
+                    <a 
+                        href='https://space.bilibili.com/3217550'
+                        target="_blank"
+                        title="BilBili"
+                        rel="me"
+                    >
+                        
+                        
+                            <svg  xmlns="http://www.w3.org/2000/svg"  width="24"  height="24"  viewBox="0 0 24 24"  fill="none"  stroke="currentColor"  stroke-width="2"  stroke-linecap="round"  stroke-linejoin="round"  class="icon icon-tabler icons-tabler-outline icon-tabler-brand-bilibili"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M3 10a4 4 0 0 1 4 -4h10a4 4 0 0 1 4 4v6a4 4 0 0 1 -4 4h-10a4 4 0 0 1 -4 -4v-6z" /><path d="M8 3l2 3" /><path d="M16 3l-2 3" /><path d="M9 13v-2" /><path d="M15 11v2" /></svg>
+                        
+                    </a>
+                </li>
+            
+                <li>
+                    <a 
+                        href='https://www.cnblogs.com/DorinXL/'
+                        target="_blank"
+                        title="CNblog"
+                        rel="me"
+                    >
+                        
+                        
+                            <svg  xmlns="http://www.w3.org/2000/svg"  width="24"  height="24"  viewBox="0 0 24 24"  fill="none"  stroke="currentColor"  stroke-width="2"  stroke-linecap="round"  stroke-linejoin="round"  class="icon icon-tabler icons-tabler-outline icon-tabler-brand-blogger"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M8 21h8a5 5 0 0 0 5 -5v-3a3 3 0 0 0 -3 -3h-1v-2a5 5 0 0 0 -5 -5h-4a5 5 0 0 0 -5 5v8a5 5 0 0 0 5 5z" /><path d="M7 7m0 1.5a1.5 1.5 0 0 1 1.5 -1.5h3a1.5 1.5 0 0 1 1.5 1.5v0a1.5 1.5 0 0 1 -1.5 1.5h-3a1.5 1.5 0 0 1 -1.5 -1.5z" /><path d="M7 14m0 1.5a1.5 1.5 0 0 1 1.5 -1.5h7a1.5 1.5 0 0 1 1.5 1.5v0a1.5 1.5 0 0 1 -1.5 1.5h-7a1.5 1.5 0 0 1 -1.5 -1.5z" /></svg>
+                        
+                    </a>
+                </li>
+            
+                <li>
+                    <a 
+                        href='https://github.com/DorinXL/DorinXL.github.io'
+                        target="_blank"
+                        title="GitHub"
+                        rel="me"
+                    >
+                        
+                        
+                            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-brand-github" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+  <path d="M9 19c-4.3 1.4 -4.3 -2.5 -6 -3m12 5v-3.5c0 -1 .1 -1.4 -.5 -2c2.8 -.3 5.5 -1.4 5.5 -6a4.6 4.6 0 0 0 -1.3 -3.2a4.2 4.2 0 0 0 -.1 -3.2s-1.1 -.3 -3.5 1.3a12.3 12.3 0 0 0 -6.2 0c-2.4 -1.6 -3.5 -1.3 -3.5 -1.3a4.2 4.2 0 0 0 -.1 3.2a4.6 4.6 0 0 0 -1.3 3.2c0 4.6 2.7 5.7 5.5 6c-.6 .6 -.6 1.2 -.5 2v3.5" />
+</svg>
+
+
+
+                        
+                    </a>
+                </li>
+            
+        </ol><ol class="menu" id="main-menu">
+        
+        
+        
+        <li >
+            <a href='/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-home" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <polyline points="5 12 3 12 12 3 21 12 19 12" />
+  <path d="M5 12v7a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-7" />
+  <path d="M9 21v-6a2 2 0 0 1 2 -2h2a2 2 0 0 1 2 2v6" />
+</svg>
+
+
+
+                
+                <span>主页</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/%E5%85%B3%E4%BA%8E/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-user" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="7" r="4" />
+  <path d="M6 21v-2a4 4 0 0 1 4 -4h4a4 4 0 0 1 4 4v2" />
+</svg>
+
+
+
+                
+                <span>关于</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/archives/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-archive" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <rect x="3" y="4" width="18" height="4" rx="2" />
+  <path d="M5 8v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-10" />
+  <line x1="10" y1="12" x2="14" y2="12" />
+</svg>
+
+
+
+                
+                <span>归档</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/search/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-search" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="10" cy="10" r="7" />
+  <line x1="21" y1="21" x2="15" y2="15" />
+</svg>
+
+
+
+                
+                <span>搜索</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/%E5%8F%8B%E9%93%BE/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-link" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <path d="M10 14a3.5 3.5 0 0 0 5 0l4 -4a3.5 3.5 0 0 0 -5 -5l-.5 .5" />
+  <path d="M14 10a3.5 3.5 0 0 0 -5 0l-4 4a3.5 3.5 0 0 0 5 5l.5 -.5" />
+</svg>
+
+
+
+                
+                <span>友链</span>
+            </a>
+        </li>
+        
+        <li class="menu-bottom-section">
+            <ol class="menu">
+
+                
+                    <li id="dark-mode-toggle">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-left" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="8" cy="12" r="2" />
+  <rect x="2" y="6" width="20" height="12" rx="6" />
+</svg>
+
+
+
+                        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-right" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="16" cy="12" r="2" />
+  <rect x="2" y="6" width="20" height="12" rx="6" />
+</svg>
+
+
+
+                        <span>暗色模式</span>
+                    </li>
+                
+            </ol>
+        </li>
+    </ol>
+</aside>
+
+    <aside class="sidebar right-sidebar sticky">
+        
+            
+                
+    <section class="widget archives">
+        <div class="widget-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-hash" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <line x1="5" y1="9" x2="19" y2="9" />
+  <line x1="5" y1="15" x2="19" y2="15" />
+  <line x1="11" y1="4" x2="7" y2="20" />
+  <line x1="17" y1="4" x2="13" y2="20" />
+</svg>
+
+
+
+        </div>
+        <h2 class="widget-title section-title">目录</h2>
+        
+        <div class="widget--toc">
+            <nav id="TableOfContents">
+  <ol>
+    <li><a href="#二解题情况">二、解题情况</a>
+      <ol>
+        <li><a href="#1-北二街恰醉鸡fakepwn">1 北二街恰醉鸡（fakepwn）</a></li>
+        <li><a href="#操作内容">操作内容：</a></li>
+        <li><a href="#flag值">flag值：</a></li>
+        <li><a href="#flagac3850d256c1842f-">flag{ac3850d256c1842f }</a></li>
+        <li><a href="#2-开始抑郁">2 开始抑郁</a></li>
+        <li><a href="#操作内容-1">操作内容：</a></li>
+        <li><a href="#flag值-1">flag值：</a></li>
+        <li><a href="#flag0725-2016-grandmenu-rchitecture-1335">flag{0725-2016-GRANDMENU-RCHITECTURE-1335}</a></li>
+        <li><a href="#3-国王与小麦">3 国王与小麦</a></li>
+        <li><a href="#操作内容-2">操作内容：</a></li>
+        <li><a href="#flag值-2">flag值：</a></li>
+        <li><a href="#4-yang">4 yang</a></li>
+        <li><a href="#操作内容-3">操作内容：</a></li>
+      </ol>
+    </li>
+  </ol>
+</nav>
+        </div>
+    </section>
+
+            
+        
+    </aside>
+
+
+            <main class="main full-width">
+    <article class="main-article">
+    <header class="article-header">
+
+    <div class="article-details">
+    
+    <header class="article-category">
+        
+            <a href="/categories/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8/" >
+                网络安全
+            </a>
+        
+            <a href="/categories/ctf/" >
+                CTF
+            </a>
+        
+    </header>
+    
+
+    <div class="article-title-wrapper">
+        <h2 class="article-title">
+            <a href="/p/2020%E5%B9%B4%E5%AE%89%E6%B4%B5%E6%9D%AF%E5%9B%9B%E5%B7%9D%E7%9C%81%E5%A4%A7%E5%AD%A6%E7%94%9F%E4%BF%A1%E6%81%AF%E5%AE%89%E5%85%A8%E6%8A%80%E6%9C%AF%E5%A4%A7%E8%B5%9B-%E9%83%A8%E5%88%86writeup/">2020年“安洵杯”四川省大学生信息安全技术大赛  部分WRITEUP</a>
+        </h2>
+    
+        
+        <h3 class="article-subtitle">
+            最初和最后的荣耀
+        </h3>
+        
+    </div>
+
+
+    
+    
+    
+    
+    <footer class="article-time">
+        
+            <div>
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-calendar-time" width="56" height="56" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <path d="M11.795 21h-6.795a2 2 0 0 1 -2 -2v-12a2 2 0 0 1 2 -2h12a2 2 0 0 1 2 2v4" />
+  <circle cx="18" cy="18" r="4" />
+  <path d="M15 3v4" />
+  <path d="M7 3v4" />
+  <path d="M3 11h16" />
+  <path d="M18 16.496v1.504l1 1" />
+</svg>
+                <time class="article-time--published">2020-09-08</time>
+            </div>
+	
+
+        
+
+        
+    </footer>
+    
+
+    
+
+</div>
+
+</header>
+
+    <section class="article-content">
+    
+    
+    <p><strong>2020年&quot;安洵杯&quot;四川省大学生信息安全技术大赛</strong></p>
+<p><strong>部分 WRITEUP</strong></p>
+<p><strong>一、战队信息</strong></p>
+<p>战队名称：<strong>成都理工大学二队</strong></p>
+<p>战队排名：第八名 743分</p>
+<h2 id="二解题情况">二、解题情况
+</h2><p>第一天：web两道、misc一道、pwn一道</p>
+<p>第二天：攻下两处、misc一到、密码一道</p>
+<p><strong>三、解题过程</strong></p>
+<p><strong>由于我是逆向选手，而这次逆向完全没有做出来，倒是做出来个pwn，剩下的时间就是钻misc和密码，所以我仅列出我个人做出来的题目。还望各位大佬轻喷。</strong></p>
+<h3 id="1-北二街恰醉鸡fakepwn">1 北二街恰醉鸡（fakepwn）
+</h3><h3 id="操作内容">操作内容：
+</h3><p>IDA进入main函数，找到granblue()函数，进入。</p>
+<p><img src="/p/2020%E5%B9%B4%E5%AE%89%E6%B4%B5%E6%9D%AF%E5%9B%9B%E5%B7%9D%E7%9C%81%E5%A4%A7%E5%AD%A6%E7%94%9F%E4%BF%A1%E6%81%AF%E5%AE%89%E5%85%A8%E6%8A%80%E6%9C%AF%E5%A4%A7%E8%B5%9B-%E9%83%A8%E5%88%86writeup/1858293-20200908223206966-1352347785.png"
+	width="170"
+	height="68"
+	srcset="/p/2020%E5%B9%B4%E5%AE%89%E6%B4%B5%E6%9D%AF%E5%9B%9B%E5%B7%9D%E7%9C%81%E5%A4%A7%E5%AD%A6%E7%94%9F%E4%BF%A1%E6%81%AF%E5%AE%89%E5%85%A8%E6%8A%80%E6%9C%AF%E5%A4%A7%E8%B5%9B-%E9%83%A8%E5%88%86writeup/1858293-20200908223206966-1352347785_hu16606217302720647512.png 480w, /p/2020%E5%B9%B4%E5%AE%89%E6%B4%B5%E6%9D%AF%E5%9B%9B%E5%B7%9D%E7%9C%81%E5%A4%A7%E5%AD%A6%E7%94%9F%E4%BF%A1%E6%81%AF%E5%AE%89%E5%85%A8%E6%8A%80%E6%9C%AF%E5%A4%A7%E8%B5%9B-%E9%83%A8%E5%88%86writeup/1858293-20200908223206966-1352347785_hu8102859921409897096.png 1024w"
+	loading="lazy"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="250"
+		data-flex-basis="600px"
+	
+></p>
+<p>里面有很多数据，其中一串最显眼：</p>
+<p><img src="/p/2020%E5%B9%B4%E5%AE%89%E6%B4%B5%E6%9D%AF%E5%9B%9B%E5%B7%9D%E7%9C%81%E5%A4%A7%E5%AD%A6%E7%94%9F%E4%BF%A1%E6%81%AF%E5%AE%89%E5%85%A8%E6%8A%80%E6%9C%AF%E5%A4%A7%E8%B5%9B-%E9%83%A8%E5%88%86writeup/1858293-20200908223212418-1381951914.png"
+	width="221"
+	height="510"
+	srcset="/p/2020%E5%B9%B4%E5%AE%89%E6%B4%B5%E6%9D%AF%E5%9B%9B%E5%B7%9D%E7%9C%81%E5%A4%A7%E5%AD%A6%E7%94%9F%E4%BF%A1%E6%81%AF%E5%AE%89%E5%85%A8%E6%8A%80%E6%9C%AF%E5%A4%A7%E8%B5%9B-%E9%83%A8%E5%88%86writeup/1858293-20200908223212418-1381951914_hu8201028856986287339.png 480w, /p/2020%E5%B9%B4%E5%AE%89%E6%B4%B5%E6%9D%AF%E5%9B%9B%E5%B7%9D%E7%9C%81%E5%A4%A7%E5%AD%A6%E7%94%9F%E4%BF%A1%E6%81%AF%E5%AE%89%E5%85%A8%E6%8A%80%E6%9C%AF%E5%A4%A7%E8%B5%9B-%E9%83%A8%E5%88%86writeup/1858293-20200908223212418-1381951914_hu17031471701718579158.png 1024w"
+	loading="lazy"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="43"
+		data-flex-basis="104px"
+	
+></p>
+<p>转换成字符格式：</p>
+<p><img src="/p/2020%E5%B9%B4%E5%AE%89%E6%B4%B5%E6%9D%AF%E5%9B%9B%E5%B7%9D%E7%9C%81%E5%A4%A7%E5%AD%A6%E7%94%9F%E4%BF%A1%E6%81%AF%E5%AE%89%E5%85%A8%E6%8A%80%E6%9C%AF%E5%A4%A7%E8%B5%9B-%E9%83%A8%E5%88%86writeup/1858293-20200908223213209-2001509690.png"
+	width="111"
+	height="107"
+	srcset="/p/2020%E5%B9%B4%E5%AE%89%E6%B4%B5%E6%9D%AF%E5%9B%9B%E5%B7%9D%E7%9C%81%E5%A4%A7%E5%AD%A6%E7%94%9F%E4%BF%A1%E6%81%AF%E5%AE%89%E5%85%A8%E6%8A%80%E6%9C%AF%E5%A4%A7%E8%B5%9B-%E9%83%A8%E5%88%86writeup/1858293-20200908223213209-2001509690_hu11841180098490586298.png 480w, /p/2020%E5%B9%B4%E5%AE%89%E6%B4%B5%E6%9D%AF%E5%9B%9B%E5%B7%9D%E7%9C%81%E5%A4%A7%E5%AD%A6%E7%94%9F%E4%BF%A1%E6%81%AF%E5%AE%89%E5%85%A8%E6%8A%80%E6%9C%AF%E5%A4%A7%E8%B5%9B-%E9%83%A8%E5%88%86writeup/1858293-20200908223213209-2001509690_hu871187240068468482.png 1024w"
+	loading="lazy"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="103"
+		data-flex-basis="248px"
+	
+></p>
+<p>得到flag</p>
+<h3 id="flag值">flag值：
+</h3><h3 id="flagac3850d256c1842f-">flag{ac3850d256c1842f }
+</h3><h3 id="2-开始抑郁">2 开始抑郁
+</h3><h3 id="操作内容-1">操作内容：
+</h3><p>我是真的抑郁了。</p>
+<p>开局一张图：</p>
+<p><img src="/p/2020%E5%B9%B4%E5%AE%89%E6%B4%B5%E6%9D%AF%E5%9B%9B%E5%B7%9D%E7%9C%81%E5%A4%A7%E5%AD%A6%E7%94%9F%E4%BF%A1%E6%81%AF%E5%AE%89%E5%85%A8%E6%8A%80%E6%9C%AF%E5%A4%A7%E8%B5%9B-%E9%83%A8%E5%88%86writeup/1858293-20200908223214262-269041328.png"
+	width="105"
+	height="118"
+	srcset="/p/2020%E5%B9%B4%E5%AE%89%E6%B4%B5%E6%9D%AF%E5%9B%9B%E5%B7%9D%E7%9C%81%E5%A4%A7%E5%AD%A6%E7%94%9F%E4%BF%A1%E6%81%AF%E5%AE%89%E5%85%A8%E6%8A%80%E6%9C%AF%E5%A4%A7%E8%B5%9B-%E9%83%A8%E5%88%86writeup/1858293-20200908223214262-269041328_hu641748049438018634.png 480w, /p/2020%E5%B9%B4%E5%AE%89%E6%B4%B5%E6%9D%AF%E5%9B%9B%E5%B7%9D%E7%9C%81%E5%A4%A7%E5%AD%A6%E7%94%9F%E4%BF%A1%E6%81%AF%E5%AE%89%E5%85%A8%E6%8A%80%E6%9C%AF%E5%A4%A7%E8%B5%9B-%E9%83%A8%E5%88%86writeup/1858293-20200908223214262-269041328_hu1273127943664534569.png 1024w"
+	loading="lazy"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="88"
+		data-flex-basis="213px"
+	
+></p>
+<p>一张图片这么大，必有蹊跷：</p>
+<p><img src="/p/2020%E5%B9%B4%E5%AE%89%E6%B4%B5%E6%9D%AF%E5%9B%9B%E5%B7%9D%E7%9C%81%E5%A4%A7%E5%AD%A6%E7%94%9F%E4%BF%A1%E6%81%AF%E5%AE%89%E5%85%A8%E6%8A%80%E6%9C%AF%E5%A4%A7%E8%B5%9B-%E9%83%A8%E5%88%86writeup/1858293-20200908223214911-218836370.png"
+	width="253"
+	height="68"
+	srcset="/p/2020%E5%B9%B4%E5%AE%89%E6%B4%B5%E6%9D%AF%E5%9B%9B%E5%B7%9D%E7%9C%81%E5%A4%A7%E5%AD%A6%E7%94%9F%E4%BF%A1%E6%81%AF%E5%AE%89%E5%85%A8%E6%8A%80%E6%9C%AF%E5%A4%A7%E8%B5%9B-%E9%83%A8%E5%88%86writeup/1858293-20200908223214911-218836370_hu9002891958653336723.png 480w, /p/2020%E5%B9%B4%E5%AE%89%E6%B4%B5%E6%9D%AF%E5%9B%9B%E5%B7%9D%E7%9C%81%E5%A4%A7%E5%AD%A6%E7%94%9F%E4%BF%A1%E6%81%AF%E5%AE%89%E5%85%A8%E6%8A%80%E6%9C%AF%E5%A4%A7%E8%B5%9B-%E9%83%A8%E5%88%86writeup/1858293-20200908223214911-218836370_hu2514261110147639229.png 1024w"
+	loading="lazy"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="372"
+		data-flex-basis="892px"
+	
+></p>
+<p>本来是用binwalk看看里面是什么东西，后来发现把后缀直接zip来得更快：</p>
+<p><img src="/p/2020%E5%B9%B4%E5%AE%89%E6%B4%B5%E6%9D%AF%E5%9B%9B%E5%B7%9D%E7%9C%81%E5%A4%A7%E5%AD%A6%E7%94%9F%E4%BF%A1%E6%81%AF%E5%AE%89%E5%85%A8%E6%8A%80%E6%9C%AF%E5%A4%A7%E8%B5%9B-%E9%83%A8%E5%88%86writeup/1858293-20200908223215933-133268883.png"
+	width="506"
+	height="59"
+	srcset="/p/2020%E5%B9%B4%E5%AE%89%E6%B4%B5%E6%9D%AF%E5%9B%9B%E5%B7%9D%E7%9C%81%E5%A4%A7%E5%AD%A6%E7%94%9F%E4%BF%A1%E6%81%AF%E5%AE%89%E5%85%A8%E6%8A%80%E6%9C%AF%E5%A4%A7%E8%B5%9B-%E9%83%A8%E5%88%86writeup/1858293-20200908223215933-133268883_hu12166095024038335708.png 480w, /p/2020%E5%B9%B4%E5%AE%89%E6%B4%B5%E6%9D%AF%E5%9B%9B%E5%B7%9D%E7%9C%81%E5%A4%A7%E5%AD%A6%E7%94%9F%E4%BF%A1%E6%81%AF%E5%AE%89%E5%85%A8%E6%8A%80%E6%9C%AF%E5%A4%A7%E8%B5%9B-%E9%83%A8%E5%88%86writeup/1858293-20200908223215933-133268883_hu8226271007998139400.png 1024w"
+	loading="lazy"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="857"
+		data-flex-basis="2058px"
+	
+></p>
+<p>里面是一个包和一张图，先看看图片：</p>
+<p><img src="/p/2020%E5%B9%B4%E5%AE%89%E6%B4%B5%E6%9D%AF%E5%9B%9B%E5%B7%9D%E7%9C%81%E5%A4%A7%E5%AD%A6%E7%94%9F%E4%BF%A1%E6%81%AF%E5%AE%89%E5%85%A8%E6%8A%80%E6%9C%AF%E5%A4%A7%E8%B5%9B-%E9%83%A8%E5%88%86writeup/1858293-20200908223216321-1352765408.png"
+	width="197"
+	height="76"
+	srcset="/p/2020%E5%B9%B4%E5%AE%89%E6%B4%B5%E6%9D%AF%E5%9B%9B%E5%B7%9D%E7%9C%81%E5%A4%A7%E5%AD%A6%E7%94%9F%E4%BF%A1%E6%81%AF%E5%AE%89%E5%85%A8%E6%8A%80%E6%9C%AF%E5%A4%A7%E8%B5%9B-%E9%83%A8%E5%88%86writeup/1858293-20200908223216321-1352765408_hu5311926738747311927.png 480w, /p/2020%E5%B9%B4%E5%AE%89%E6%B4%B5%E6%9D%AF%E5%9B%9B%E5%B7%9D%E7%9C%81%E5%A4%A7%E5%AD%A6%E7%94%9F%E4%BF%A1%E6%81%AF%E5%AE%89%E5%85%A8%E6%8A%80%E6%9C%AF%E5%A4%A7%E8%B5%9B-%E9%83%A8%E5%88%86writeup/1858293-20200908223216321-1352765408_hu16827505589111910675.png 1024w"
+	loading="lazy"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="259"
+		data-flex-basis="622px"
+	
+></p>
+<p>用010打开看看，果不其然文件头需要修复：</p>
+<p><img src="/p/2020%E5%B9%B4%E5%AE%89%E6%B4%B5%E6%9D%AF%E5%9B%9B%E5%B7%9D%E7%9C%81%E5%A4%A7%E5%AD%A6%E7%94%9F%E4%BF%A1%E6%81%AF%E5%AE%89%E5%85%A8%E6%8A%80%E6%9C%AF%E5%A4%A7%E8%B5%9B-%E9%83%A8%E5%88%86writeup/1858293-20200908223220866-33298590.png"
+	width="402"
+	height="50"
+	srcset="/p/2020%E5%B9%B4%E5%AE%89%E6%B4%B5%E6%9D%AF%E5%9B%9B%E5%B7%9D%E7%9C%81%E5%A4%A7%E5%AD%A6%E7%94%9F%E4%BF%A1%E6%81%AF%E5%AE%89%E5%85%A8%E6%8A%80%E6%9C%AF%E5%A4%A7%E8%B5%9B-%E9%83%A8%E5%88%86writeup/1858293-20200908223220866-33298590_hu6154527817623793942.png 480w, /p/2020%E5%B9%B4%E5%AE%89%E6%B4%B5%E6%9D%AF%E5%9B%9B%E5%B7%9D%E7%9C%81%E5%A4%A7%E5%AD%A6%E7%94%9F%E4%BF%A1%E6%81%AF%E5%AE%89%E5%85%A8%E6%8A%80%E6%9C%AF%E5%A4%A7%E8%B5%9B-%E9%83%A8%E5%88%86writeup/1858293-20200908223220866-33298590_hu13155164005190891200.png 1024w"
+	loading="lazy"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="804"
+		data-flex-basis="1929px"
+	
+></p>
+<p>修复后：</p>
+<p><img src="/p/2020%E5%B9%B4%E5%AE%89%E6%B4%B5%E6%9D%AF%E5%9B%9B%E5%B7%9D%E7%9C%81%E5%A4%A7%E5%AD%A6%E7%94%9F%E4%BF%A1%E6%81%AF%E5%AE%89%E5%85%A8%E6%8A%80%E6%9C%AF%E5%A4%A7%E8%B5%9B-%E9%83%A8%E5%88%86writeup/1858293-20200908223222524-872433129.png"
+	width="398"
+	height="56"
+	srcset="/p/2020%E5%B9%B4%E5%AE%89%E6%B4%B5%E6%9D%AF%E5%9B%9B%E5%B7%9D%E7%9C%81%E5%A4%A7%E5%AD%A6%E7%94%9F%E4%BF%A1%E6%81%AF%E5%AE%89%E5%85%A8%E6%8A%80%E6%9C%AF%E5%A4%A7%E8%B5%9B-%E9%83%A8%E5%88%86writeup/1858293-20200908223222524-872433129_hu3194985771153913474.png 480w, /p/2020%E5%B9%B4%E5%AE%89%E6%B4%B5%E6%9D%AF%E5%9B%9B%E5%B7%9D%E7%9C%81%E5%A4%A7%E5%AD%A6%E7%94%9F%E4%BF%A1%E6%81%AF%E5%AE%89%E5%85%A8%E6%8A%80%E6%9C%AF%E5%A4%A7%E8%B5%9B-%E9%83%A8%E5%88%86writeup/1858293-20200908223222524-872433129_hu385576332616163687.png 1024w"
+	loading="lazy"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="710"
+		data-flex-basis="1705px"
+	
+></p>
+<p>我们再次打开看看，图片变成了二维码：</p>
+<p><img src="/p/2020%E5%B9%B4%E5%AE%89%E6%B4%B5%E6%9D%AF%E5%9B%9B%E5%B7%9D%E7%9C%81%E5%A4%A7%E5%AD%A6%E7%94%9F%E4%BF%A1%E6%81%AF%E5%AE%89%E5%85%A8%E6%8A%80%E6%9C%AF%E5%A4%A7%E8%B5%9B-%E9%83%A8%E5%88%86writeup/1858293-20200908223224295-892476376.png"
+	width="105"
+	height="118"
+	srcset="/p/2020%E5%B9%B4%E5%AE%89%E6%B4%B5%E6%9D%AF%E5%9B%9B%E5%B7%9D%E7%9C%81%E5%A4%A7%E5%AD%A6%E7%94%9F%E4%BF%A1%E6%81%AF%E5%AE%89%E5%85%A8%E6%8A%80%E6%9C%AF%E5%A4%A7%E8%B5%9B-%E9%83%A8%E5%88%86writeup/1858293-20200908223224295-892476376_hu6918679581763080889.png 480w, /p/2020%E5%B9%B4%E5%AE%89%E6%B4%B5%E6%9D%AF%E5%9B%9B%E5%B7%9D%E7%9C%81%E5%A4%A7%E5%AD%A6%E7%94%9F%E4%BF%A1%E6%81%AF%E5%AE%89%E5%85%A8%E6%8A%80%E6%9C%AF%E5%A4%A7%E8%B5%9B-%E9%83%A8%E5%88%86writeup/1858293-20200908223224295-892476376_hu8462908076060104472.png 1024w"
+	loading="lazy"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="88"
+		data-flex-basis="213px"
+	
+></p>
+<p>扫码后得到brainfuck加密的东西：</p>
+<p><img src="/p/2020%E5%B9%B4%E5%AE%89%E6%B4%B5%E6%9D%AF%E5%9B%9B%E5%B7%9D%E7%9C%81%E5%A4%A7%E5%AD%A6%E7%94%9F%E4%BF%A1%E6%81%AF%E5%AE%89%E5%85%A8%E6%8A%80%E6%9C%AF%E5%A4%A7%E8%B5%9B-%E9%83%A8%E5%88%86writeup/1858293-20200908223239085-1224956947.png"
+	width="554"
+	height="230"
+	srcset="/p/2020%E5%B9%B4%E5%AE%89%E6%B4%B5%E6%9D%AF%E5%9B%9B%E5%B7%9D%E7%9C%81%E5%A4%A7%E5%AD%A6%E7%94%9F%E4%BF%A1%E6%81%AF%E5%AE%89%E5%85%A8%E6%8A%80%E6%9C%AF%E5%A4%A7%E8%B5%9B-%E9%83%A8%E5%88%86writeup/1858293-20200908223239085-1224956947_hu16569960905475364944.png 480w, /p/2020%E5%B9%B4%E5%AE%89%E6%B4%B5%E6%9D%AF%E5%9B%9B%E5%B7%9D%E7%9C%81%E5%A4%A7%E5%AD%A6%E7%94%9F%E4%BF%A1%E6%81%AF%E5%AE%89%E5%85%A8%E6%8A%80%E6%9C%AF%E5%A4%A7%E8%B5%9B-%E9%83%A8%E5%88%86writeup/1858293-20200908223239085-1224956947_hu14493326191283418374.png 1024w"
+	loading="lazy"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="240"
+		data-flex-basis="578px"
+	
+></p>
+<p>接着再用jsfuck解密：</p>
+<p><img src="/p/2020%E5%B9%B4%E5%AE%89%E6%B4%B5%E6%9D%AF%E5%9B%9B%E5%B7%9D%E7%9C%81%E5%A4%A7%E5%AD%A6%E7%94%9F%E4%BF%A1%E6%81%AF%E5%AE%89%E5%85%A8%E6%8A%80%E6%9C%AF%E5%A4%A7%E8%B5%9B-%E9%83%A8%E5%88%86writeup/1858293-20200908223240625-873175990.png"
+	width="554"
+	height="219"
+	srcset="/p/2020%E5%B9%B4%E5%AE%89%E6%B4%B5%E6%9D%AF%E5%9B%9B%E5%B7%9D%E7%9C%81%E5%A4%A7%E5%AD%A6%E7%94%9F%E4%BF%A1%E6%81%AF%E5%AE%89%E5%85%A8%E6%8A%80%E6%9C%AF%E5%A4%A7%E8%B5%9B-%E9%83%A8%E5%88%86writeup/1858293-20200908223240625-873175990_hu1486316451165629879.png 480w, /p/2020%E5%B9%B4%E5%AE%89%E6%B4%B5%E6%9D%AF%E5%9B%9B%E5%B7%9D%E7%9C%81%E5%A4%A7%E5%AD%A6%E7%94%9F%E4%BF%A1%E6%81%AF%E5%AE%89%E5%85%A8%E6%8A%80%E6%9C%AF%E5%A4%A7%E8%B5%9B-%E9%83%A8%E5%88%86writeup/1858293-20200908223240625-873175990_hu3062780831292884740.png 1024w"
+	loading="lazy"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="252"
+		data-flex-basis="607px"
+	
+></p>
+<p>得到一个时间：20200824152800</p>
+<p>至此，TIME.png里隐藏的信息已经被发现</p>
+<p>我们再来看另一个包，里面有一张图，还有一个加密的图片：</p>
+<p><img src="/p/2020%E5%B9%B4%E5%AE%89%E6%B4%B5%E6%9D%AF%E5%9B%9B%E5%B7%9D%E7%9C%81%E5%A4%A7%E5%AD%A6%E7%94%9F%E4%BF%A1%E6%81%AF%E5%AE%89%E5%85%A8%E6%8A%80%E6%9C%AF%E5%A4%A7%E8%B5%9B-%E9%83%A8%E5%88%86writeup/1858293-20200908223241641-885765990.png"
+	width="215"
+	height="113"
+	srcset="/p/2020%E5%B9%B4%E5%AE%89%E6%B4%B5%E6%9D%AF%E5%9B%9B%E5%B7%9D%E7%9C%81%E5%A4%A7%E5%AD%A6%E7%94%9F%E4%BF%A1%E6%81%AF%E5%AE%89%E5%85%A8%E6%8A%80%E6%9C%AF%E5%A4%A7%E8%B5%9B-%E9%83%A8%E5%88%86writeup/1858293-20200908223241641-885765990_hu13218414571194594393.png 480w, /p/2020%E5%B9%B4%E5%AE%89%E6%B4%B5%E6%9D%AF%E5%9B%9B%E5%B7%9D%E7%9C%81%E5%A4%A7%E5%AD%A6%E7%94%9F%E4%BF%A1%E6%81%AF%E5%AE%89%E5%85%A8%E6%8A%80%E6%9C%AF%E5%A4%A7%E8%B5%9B-%E9%83%A8%E5%88%86writeup/1858293-20200908223241641-885765990_hu323536971958858182.png 1024w"
+	loading="lazy"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="190"
+		data-flex-basis="456px"
+	
+></p>
+<p>考虑到刚刚得到的时间，我们把这段数字输入尝试是否正确，可惜并不对。</p>
+<p>由于我们看出这是一段时间，索性尝试一下与时间最接近的时间戳：</p>
+<p><img src="/p/2020%E5%B9%B4%E5%AE%89%E6%B4%B5%E6%9D%AF%E5%9B%9B%E5%B7%9D%E7%9C%81%E5%A4%A7%E5%AD%A6%E7%94%9F%E4%BF%A1%E6%81%AF%E5%AE%89%E5%85%A8%E6%8A%80%E6%9C%AF%E5%A4%A7%E8%B5%9B-%E9%83%A8%E5%88%86writeup/1858293-20200908223242730-1047340798.png"
+	width="554"
+	height="46"
+	srcset="/p/2020%E5%B9%B4%E5%AE%89%E6%B4%B5%E6%9D%AF%E5%9B%9B%E5%B7%9D%E7%9C%81%E5%A4%A7%E5%AD%A6%E7%94%9F%E4%BF%A1%E6%81%AF%E5%AE%89%E5%85%A8%E6%8A%80%E6%9C%AF%E5%A4%A7%E8%B5%9B-%E9%83%A8%E5%88%86writeup/1858293-20200908223242730-1047340798_hu15228177472473672364.png 480w, /p/2020%E5%B9%B4%E5%AE%89%E6%B4%B5%E6%9D%AF%E5%9B%9B%E5%B7%9D%E7%9C%81%E5%A4%A7%E5%AD%A6%E7%94%9F%E4%BF%A1%E6%81%AF%E5%AE%89%E5%85%A8%E6%8A%80%E6%9C%AF%E5%A4%A7%E8%B5%9B-%E9%83%A8%E5%88%86writeup/1858293-20200908223242730-1047340798_hu5418131765168327069.png 1024w"
+	loading="lazy"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="1204"
+		data-flex-basis="2890px"
+	
+></p>
+<p>这次正确了，拿出图片：</p>
+<p><img src="/p/2020%E5%B9%B4%E5%AE%89%E6%B4%B5%E6%9D%AF%E5%9B%9B%E5%B7%9D%E7%9C%81%E5%A4%A7%E5%AD%A6%E7%94%9F%E4%BF%A1%E6%81%AF%E5%AE%89%E5%85%A8%E6%8A%80%E6%9C%AF%E5%A4%A7%E8%B5%9B-%E9%83%A8%E5%88%86writeup/1858293-20200908223248137-830046858.png"
+	width="458"
+	height="100"
+	srcset="/p/2020%E5%B9%B4%E5%AE%89%E6%B4%B5%E6%9D%AF%E5%9B%9B%E5%B7%9D%E7%9C%81%E5%A4%A7%E5%AD%A6%E7%94%9F%E4%BF%A1%E6%81%AF%E5%AE%89%E5%85%A8%E6%8A%80%E6%9C%AF%E5%A4%A7%E8%B5%9B-%E9%83%A8%E5%88%86writeup/1858293-20200908223248137-830046858_hu15120636248454274689.png 480w, /p/2020%E5%B9%B4%E5%AE%89%E6%B4%B5%E6%9D%AF%E5%9B%9B%E5%B7%9D%E7%9C%81%E5%A4%A7%E5%AD%A6%E7%94%9F%E4%BF%A1%E6%81%AF%E5%AE%89%E5%85%A8%E6%8A%80%E6%9C%AF%E5%A4%A7%E8%B5%9B-%E9%83%A8%E5%88%86writeup/1858293-20200908223248137-830046858_hu16527256215630767629.png 1024w"
+	loading="lazy"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="458"
+		data-flex-basis="1099px"
+	
+></p>
+<p><img src="/p/2020%E5%B9%B4%E5%AE%89%E6%B4%B5%E6%9D%AF%E5%9B%9B%E5%B7%9D%E7%9C%81%E5%A4%A7%E5%AD%A6%E7%94%9F%E4%BF%A1%E6%81%AF%E5%AE%89%E5%85%A8%E6%8A%80%E6%9C%AF%E5%A4%A7%E8%B5%9B-%E9%83%A8%E5%88%86writeup/1858293-20200908223249266-2145451.png"
+	width="250"
+	height="64"
+	srcset="/p/2020%E5%B9%B4%E5%AE%89%E6%B4%B5%E6%9D%AF%E5%9B%9B%E5%B7%9D%E7%9C%81%E5%A4%A7%E5%AD%A6%E7%94%9F%E4%BF%A1%E6%81%AF%E5%AE%89%E5%85%A8%E6%8A%80%E6%9C%AF%E5%A4%A7%E8%B5%9B-%E9%83%A8%E5%88%86writeup/1858293-20200908223249266-2145451_hu8657340324578512127.png 480w, /p/2020%E5%B9%B4%E5%AE%89%E6%B4%B5%E6%9D%AF%E5%9B%9B%E5%B7%9D%E7%9C%81%E5%A4%A7%E5%AD%A6%E7%94%9F%E4%BF%A1%E6%81%AF%E5%AE%89%E5%85%A8%E6%8A%80%E6%9C%AF%E5%A4%A7%E8%B5%9B-%E9%83%A8%E5%88%86writeup/1858293-20200908223249266-2145451_hu15847122312199546758.png 1024w"
+	loading="lazy"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="390"
+		data-flex-basis="937px"
+	
+></p>
+<p>大小很大的一张图，图片是跳舞的小人，是福尔摩斯跳舞人像的密码，解读之后是：</p>
+<p>WATCHTHEVIDEO</p>
+<p>Video?哪里来的video让我看？</p>
+<p>这次需要从binwalk中取出来了，直接修改后缀不管用。</p>
+<p>从binwalk中可以提取出一张图片和一个文件夹：</p>
+<p><img src="/p/2020%E5%B9%B4%E5%AE%89%E6%B4%B5%E6%9D%AF%E5%9B%9B%E5%B7%9D%E7%9C%81%E5%A4%A7%E5%AD%A6%E7%94%9F%E4%BF%A1%E6%81%AF%E5%AE%89%E5%85%A8%E6%8A%80%E6%9C%AF%E5%A4%A7%E8%B5%9B-%E9%83%A8%E5%88%86writeup/1858293-20200908223250574-1657543504.png"
+	width="216"
+	height="118"
+	srcset="/p/2020%E5%B9%B4%E5%AE%89%E6%B4%B5%E6%9D%AF%E5%9B%9B%E5%B7%9D%E7%9C%81%E5%A4%A7%E5%AD%A6%E7%94%9F%E4%BF%A1%E6%81%AF%E5%AE%89%E5%85%A8%E6%8A%80%E6%9C%AF%E5%A4%A7%E8%B5%9B-%E9%83%A8%E5%88%86writeup/1858293-20200908223250574-1657543504_hu5565519552419958462.png 480w, /p/2020%E5%B9%B4%E5%AE%89%E6%B4%B5%E6%9D%AF%E5%9B%9B%E5%B7%9D%E7%9C%81%E5%A4%A7%E5%AD%A6%E7%94%9F%E4%BF%A1%E6%81%AF%E5%AE%89%E5%85%A8%E6%8A%80%E6%9C%AF%E5%A4%A7%E8%B5%9B-%E9%83%A8%E5%88%86writeup/1858293-20200908223250574-1657543504_hu17562453235917701881.png 1024w"
+	loading="lazy"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="183"
+		data-flex-basis="439px"
+	
+></p>
+<p>确实，这个flag.png需要修复，跟上面一样，修复之后是这个样子：</p>
+<p><img src="/p/2020%E5%B9%B4%E5%AE%89%E6%B4%B5%E6%9D%AF%E5%9B%9B%E5%B7%9D%E7%9C%81%E5%A4%A7%E5%AD%A6%E7%94%9F%E4%BF%A1%E6%81%AF%E5%AE%89%E5%85%A8%E6%8A%80%E6%9C%AF%E5%A4%A7%E8%B5%9B-%E9%83%A8%E5%88%86writeup/1858293-20200908223258584-766429684.png"
+	width="245"
+	height="215"
+	srcset="/p/2020%E5%B9%B4%E5%AE%89%E6%B4%B5%E6%9D%AF%E5%9B%9B%E5%B7%9D%E7%9C%81%E5%A4%A7%E5%AD%A6%E7%94%9F%E4%BF%A1%E6%81%AF%E5%AE%89%E5%85%A8%E6%8A%80%E6%9C%AF%E5%A4%A7%E8%B5%9B-%E9%83%A8%E5%88%86writeup/1858293-20200908223258584-766429684_hu7780746641513601019.png 480w, /p/2020%E5%B9%B4%E5%AE%89%E6%B4%B5%E6%9D%AF%E5%9B%9B%E5%B7%9D%E7%9C%81%E5%A4%A7%E5%AD%A6%E7%94%9F%E4%BF%A1%E6%81%AF%E5%AE%89%E5%85%A8%E6%8A%80%E6%9C%AF%E5%A4%A7%E8%B5%9B-%E9%83%A8%E5%88%86writeup/1858293-20200908223258584-766429684_hu11184124612703562099.png 1024w"
+	loading="lazy"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="113"
+		data-flex-basis="273px"
+	
+></p>
+<p>文件夹里是这个样子：</p>
+<p><img src="/p/2020%E5%B9%B4%E5%AE%89%E6%B4%B5%E6%9D%AF%E5%9B%9B%E5%B7%9D%E7%9C%81%E5%A4%A7%E5%AD%A6%E7%94%9F%E4%BF%A1%E6%81%AF%E5%AE%89%E5%85%A8%E6%8A%80%E6%9C%AF%E5%A4%A7%E8%B5%9B-%E9%83%A8%E5%88%86writeup/1858293-20200908223302522-745318003.png"
+	width="554"
+	height="117"
+	srcset="/p/2020%E5%B9%B4%E5%AE%89%E6%B4%B5%E6%9D%AF%E5%9B%9B%E5%B7%9D%E7%9C%81%E5%A4%A7%E5%AD%A6%E7%94%9F%E4%BF%A1%E6%81%AF%E5%AE%89%E5%85%A8%E6%8A%80%E6%9C%AF%E5%A4%A7%E8%B5%9B-%E9%83%A8%E5%88%86writeup/1858293-20200908223302522-745318003_hu4380774500660164487.png 480w, /p/2020%E5%B9%B4%E5%AE%89%E6%B4%B5%E6%9D%AF%E5%9B%9B%E5%B7%9D%E7%9C%81%E5%A4%A7%E5%AD%A6%E7%94%9F%E4%BF%A1%E6%81%AF%E5%AE%89%E5%85%A8%E6%8A%80%E6%9C%AF%E5%A4%A7%E8%B5%9B-%E9%83%A8%E5%88%86writeup/1858293-20200908223302522-745318003_hu16665005230458313224.png 1024w"
+	loading="lazy"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="473"
+		data-flex-basis="1136px"
+	
+></p>
+<p>这里卡了很久，我完全搞不懂你的名字和篮球和狗有什么联系。</p>
+<p>抑郁了，这次真的抑郁了。在中午吃饭的时候还想着球员衣服上的数字是不是和你的名字的时间轴有关系：</p>
+<p><img src="/p/2020%E5%B9%B4%E5%AE%89%E6%B4%B5%E6%9D%AF%E5%9B%9B%E5%B7%9D%E7%9C%81%E5%A4%A7%E5%AD%A6%E7%94%9F%E4%BF%A1%E6%81%AF%E5%AE%89%E5%85%A8%E6%8A%80%E6%9C%AF%E5%A4%A7%E8%B5%9B-%E9%83%A8%E5%88%86writeup/1858293-20200908223306285-2018811376.png"
+	width="311"
+	height="345"
+	srcset="/p/2020%E5%B9%B4%E5%AE%89%E6%B4%B5%E6%9D%AF%E5%9B%9B%E5%B7%9D%E7%9C%81%E5%A4%A7%E5%AD%A6%E7%94%9F%E4%BF%A1%E6%81%AF%E5%AE%89%E5%85%A8%E6%8A%80%E6%9C%AF%E5%A4%A7%E8%B5%9B-%E9%83%A8%E5%88%86writeup/1858293-20200908223306285-2018811376_hu4511974954827803025.png 480w, /p/2020%E5%B9%B4%E5%AE%89%E6%B4%B5%E6%9D%AF%E5%9B%9B%E5%B7%9D%E7%9C%81%E5%A4%A7%E5%AD%A6%E7%94%9F%E4%BF%A1%E6%81%AF%E5%AE%89%E5%85%A8%E6%8A%80%E6%9C%AF%E5%A4%A7%E8%B5%9B-%E9%83%A8%E5%88%86writeup/1858293-20200908223306285-2018811376_hu6139210014999723618.png 1024w"
+	loading="lazy"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="90"
+		data-flex-basis="216px"
+	
+></p>
+<p>看得出来大家也挺抑郁的。</p>
+<p>后来在队友的帮助下，把这只狗图的高调大，看到了了不得的东西：</p>
+<p><img src="/p/2020%E5%B9%B4%E5%AE%89%E6%B4%B5%E6%9D%AF%E5%9B%9B%E5%B7%9D%E7%9C%81%E5%A4%A7%E5%AD%A6%E7%94%9F%E4%BF%A1%E6%81%AF%E5%AE%89%E5%85%A8%E6%8A%80%E6%9C%AF%E5%A4%A7%E8%B5%9B-%E9%83%A8%E5%88%86writeup/1858293-20200908223312262-473349276.png"
+	width="397"
+	height="84"
+	srcset="/p/2020%E5%B9%B4%E5%AE%89%E6%B4%B5%E6%9D%AF%E5%9B%9B%E5%B7%9D%E7%9C%81%E5%A4%A7%E5%AD%A6%E7%94%9F%E4%BF%A1%E6%81%AF%E5%AE%89%E5%85%A8%E6%8A%80%E6%9C%AF%E5%A4%A7%E8%B5%9B-%E9%83%A8%E5%88%86writeup/1858293-20200908223312262-473349276_hu2932611120786829101.png 480w, /p/2020%E5%B9%B4%E5%AE%89%E6%B4%B5%E6%9D%AF%E5%9B%9B%E5%B7%9D%E7%9C%81%E5%A4%A7%E5%AD%A6%E7%94%9F%E4%BF%A1%E6%81%AF%E5%AE%89%E5%85%A8%E6%8A%80%E6%9C%AF%E5%A4%A7%E8%B5%9B-%E9%83%A8%E5%88%86writeup/1858293-20200908223312262-473349276_hu2662920279769580034.png 1024w"
+	loading="lazy"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="472"
+		data-flex-basis="1134px"
+	
+></p>
+<p>我直接就把这个交了，结果不对，从希望的边缘掉了下去。</p>
+<p>冷静了一下，这个如果是flag格式，球员衣服数字是时间轴，那么是不是应该在你的名字电影里找找线索呢？</p>
+<p>然后就找到了：</p>
+<p><img src="/p/2020%E5%B9%B4%E5%AE%89%E6%B4%B5%E6%9D%AF%E5%9B%9B%E5%B7%9D%E7%9C%81%E5%A4%A7%E5%AD%A6%E7%94%9F%E4%BF%A1%E6%81%AF%E5%AE%89%E5%85%A8%E6%8A%80%E6%9C%AF%E5%A4%A7%E8%B5%9B-%E9%83%A8%E5%88%86writeup/1858293-20200909142801071-1003634076.png"
+	width="554"
+	height="312"
+	srcset="/p/2020%E5%B9%B4%E5%AE%89%E6%B4%B5%E6%9D%AF%E5%9B%9B%E5%B7%9D%E7%9C%81%E5%A4%A7%E5%AD%A6%E7%94%9F%E4%BF%A1%E6%81%AF%E5%AE%89%E5%85%A8%E6%8A%80%E6%9C%AF%E5%A4%A7%E8%B5%9B-%E9%83%A8%E5%88%86writeup/1858293-20200909142801071-1003634076_hu7400227318654969312.png 480w, /p/2020%E5%B9%B4%E5%AE%89%E6%B4%B5%E6%9D%AF%E5%9B%9B%E5%B7%9D%E7%9C%81%E5%A4%A7%E5%AD%A6%E7%94%9F%E4%BF%A1%E6%81%AF%E5%AE%89%E5%85%A8%E6%8A%80%E6%9C%AF%E5%A4%A7%E8%B5%9B-%E9%83%A8%E5%88%86writeup/1858293-20200909142801071-1003634076_hu16299395046390466119.png 1024w"
+	loading="lazy"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="177"
+		data-flex-basis="426px"
+	
+></p>
+<p><img src="/p/2020%E5%B9%B4%E5%AE%89%E6%B4%B5%E6%9D%AF%E5%9B%9B%E5%B7%9D%E7%9C%81%E5%A4%A7%E5%AD%A6%E7%94%9F%E4%BF%A1%E6%81%AF%E5%AE%89%E5%85%A8%E6%8A%80%E6%9C%AF%E5%A4%A7%E8%B5%9B-%E9%83%A8%E5%88%86writeup/1858293-20200909142810631-467160458.png"
+	width="554"
+	height="312"
+	srcset="/p/2020%E5%B9%B4%E5%AE%89%E6%B4%B5%E6%9D%AF%E5%9B%9B%E5%B7%9D%E7%9C%81%E5%A4%A7%E5%AD%A6%E7%94%9F%E4%BF%A1%E6%81%AF%E5%AE%89%E5%85%A8%E6%8A%80%E6%9C%AF%E5%A4%A7%E8%B5%9B-%E9%83%A8%E5%88%86writeup/1858293-20200909142810631-467160458_hu3131688116954945180.png 480w, /p/2020%E5%B9%B4%E5%AE%89%E6%B4%B5%E6%9D%AF%E5%9B%9B%E5%B7%9D%E7%9C%81%E5%A4%A7%E5%AD%A6%E7%94%9F%E4%BF%A1%E6%81%AF%E5%AE%89%E5%85%A8%E6%8A%80%E6%9C%AF%E5%A4%A7%E8%B5%9B-%E9%83%A8%E5%88%86writeup/1858293-20200909142810631-467160458_hu13093680157005757194.png 1024w"
+	loading="lazy"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="177"
+		data-flex-basis="426px"
+	
+></p>
+<p><img src="/p/2020%E5%B9%B4%E5%AE%89%E6%B4%B5%E6%9D%AF%E5%9B%9B%E5%B7%9D%E7%9C%81%E5%A4%A7%E5%AD%A6%E7%94%9F%E4%BF%A1%E6%81%AF%E5%AE%89%E5%85%A8%E6%8A%80%E6%9C%AF%E5%A4%A7%E8%B5%9B-%E9%83%A8%E5%88%86writeup/1858293-20200909142817059-1077779911.png"
+	width="554"
+	height="313"
+	srcset="/p/2020%E5%B9%B4%E5%AE%89%E6%B4%B5%E6%9D%AF%E5%9B%9B%E5%B7%9D%E7%9C%81%E5%A4%A7%E5%AD%A6%E7%94%9F%E4%BF%A1%E6%81%AF%E5%AE%89%E5%85%A8%E6%8A%80%E6%9C%AF%E5%A4%A7%E8%B5%9B-%E9%83%A8%E5%88%86writeup/1858293-20200909142817059-1077779911_hu6586540411324461596.png 480w, /p/2020%E5%B9%B4%E5%AE%89%E6%B4%B5%E6%9D%AF%E5%9B%9B%E5%B7%9D%E7%9C%81%E5%A4%A7%E5%AD%A6%E7%94%9F%E4%BF%A1%E6%81%AF%E5%AE%89%E5%85%A8%E6%8A%80%E6%9C%AF%E5%A4%A7%E8%B5%9B-%E9%83%A8%E5%88%86writeup/1858293-20200909142817059-1077779911_hu471233325227206957.png 1024w"
+	loading="lazy"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="176"
+		data-flex-basis="424px"
+	
+></p>
+<p><img src="/p/2020%E5%B9%B4%E5%AE%89%E6%B4%B5%E6%9D%AF%E5%9B%9B%E5%B7%9D%E7%9C%81%E5%A4%A7%E5%AD%A6%E7%94%9F%E4%BF%A1%E6%81%AF%E5%AE%89%E5%85%A8%E6%8A%80%E6%9C%AF%E5%A4%A7%E8%B5%9B-%E9%83%A8%E5%88%86writeup/1858293-20200909142824025-194202023.png"
+	width="554"
+	height="312"
+	srcset="/p/2020%E5%B9%B4%E5%AE%89%E6%B4%B5%E6%9D%AF%E5%9B%9B%E5%B7%9D%E7%9C%81%E5%A4%A7%E5%AD%A6%E7%94%9F%E4%BF%A1%E6%81%AF%E5%AE%89%E5%85%A8%E6%8A%80%E6%9C%AF%E5%A4%A7%E8%B5%9B-%E9%83%A8%E5%88%86writeup/1858293-20200909142824025-194202023_hu15488310295162130247.png 480w, /p/2020%E5%B9%B4%E5%AE%89%E6%B4%B5%E6%9D%AF%E5%9B%9B%E5%B7%9D%E7%9C%81%E5%A4%A7%E5%AD%A6%E7%94%9F%E4%BF%A1%E6%81%AF%E5%AE%89%E5%85%A8%E6%8A%80%E6%9C%AF%E5%A4%A7%E8%B5%9B-%E9%83%A8%E5%88%86writeup/1858293-20200909142824025-194202023_hu2088656419290292778.png 1024w"
+	loading="lazy"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="177"
+		data-flex-basis="426px"
+	
+></p>
+<p><img src="/p/2020%E5%B9%B4%E5%AE%89%E6%B4%B5%E6%9D%AF%E5%9B%9B%E5%B7%9D%E7%9C%81%E5%A4%A7%E5%AD%A6%E7%94%9F%E4%BF%A1%E6%81%AF%E5%AE%89%E5%85%A8%E6%8A%80%E6%9C%AF%E5%A4%A7%E8%B5%9B-%E9%83%A8%E5%88%86writeup/1858293-20200909142836401-1091204569.png"
+	width="554"
+	height="312"
+	srcset="/p/2020%E5%B9%B4%E5%AE%89%E6%B4%B5%E6%9D%AF%E5%9B%9B%E5%B7%9D%E7%9C%81%E5%A4%A7%E5%AD%A6%E7%94%9F%E4%BF%A1%E6%81%AF%E5%AE%89%E5%85%A8%E6%8A%80%E6%9C%AF%E5%A4%A7%E8%B5%9B-%E9%83%A8%E5%88%86writeup/1858293-20200909142836401-1091204569_hu5553015145787527792.png 480w, /p/2020%E5%B9%B4%E5%AE%89%E6%B4%B5%E6%9D%AF%E5%9B%9B%E5%B7%9D%E7%9C%81%E5%A4%A7%E5%AD%A6%E7%94%9F%E4%BF%A1%E6%81%AF%E5%AE%89%E5%85%A8%E6%8A%80%E6%9C%AF%E5%A4%A7%E8%B5%9B-%E9%83%A8%E5%88%86writeup/1858293-20200909142836401-1091204569_hu1617868741664535939.png 1024w"
+	loading="lazy"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="177"
+		data-flex-basis="426px"
+	
+></p>
+<p>连起来就好了，注意大小写</p>
+<h3 id="flag值-1">flag值：
+</h3><h3 id="flag0725-2016-grandmenu-rchitecture-1335">flag{0725-2016-GRANDMENU-RCHITECTURE-1335}
+</h3><h3 id="3-国王与小麦">3 国王与小麦
+</h3><h3 id="操作内容-2">操作内容：
+</h3><p><img src="/p/2020%E5%B9%B4%E5%AE%89%E6%B4%B5%E6%9D%AF%E5%9B%9B%E5%B7%9D%E7%9C%81%E5%A4%A7%E5%AD%A6%E7%94%9F%E4%BF%A1%E6%81%AF%E5%AE%89%E5%85%A8%E6%8A%80%E6%9C%AF%E5%A4%A7%E8%B5%9B-%E9%83%A8%E5%88%86writeup/1858293-20200909143005163-1698602118.png"
+	width="554"
+	height="151"
+	srcset="/p/2020%E5%B9%B4%E5%AE%89%E6%B4%B5%E6%9D%AF%E5%9B%9B%E5%B7%9D%E7%9C%81%E5%A4%A7%E5%AD%A6%E7%94%9F%E4%BF%A1%E6%81%AF%E5%AE%89%E5%85%A8%E6%8A%80%E6%9C%AF%E5%A4%A7%E8%B5%9B-%E9%83%A8%E5%88%86writeup/1858293-20200909143005163-1698602118_hu17361150748567304213.png 480w, /p/2020%E5%B9%B4%E5%AE%89%E6%B4%B5%E6%9D%AF%E5%9B%9B%E5%B7%9D%E7%9C%81%E5%A4%A7%E5%AD%A6%E7%94%9F%E4%BF%A1%E6%81%AF%E5%AE%89%E5%85%A8%E6%8A%80%E6%9C%AF%E5%A4%A7%E8%B5%9B-%E9%83%A8%E5%88%86writeup/1858293-20200909143005163-1698602118_hu4091294582584746454.png 1024w"
+	loading="lazy"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="366"
+		data-flex-basis="880px"
+	
+></p>
+<p>Base91加密，解密之后：</p>
+<p><img src="/p/2020%E5%B9%B4%E5%AE%89%E6%B4%B5%E6%9D%AF%E5%9B%9B%E5%B7%9D%E7%9C%81%E5%A4%A7%E5%AD%A6%E7%94%9F%E4%BF%A1%E6%81%AF%E5%AE%89%E5%85%A8%E6%8A%80%E6%9C%AF%E5%A4%A7%E8%B5%9B-%E9%83%A8%E5%88%86writeup/1858293-20200909143017215-1376531072.png"
+	width="554"
+	height="297"
+	srcset="/p/2020%E5%B9%B4%E5%AE%89%E6%B4%B5%E6%9D%AF%E5%9B%9B%E5%B7%9D%E7%9C%81%E5%A4%A7%E5%AD%A6%E7%94%9F%E4%BF%A1%E6%81%AF%E5%AE%89%E5%85%A8%E6%8A%80%E6%9C%AF%E5%A4%A7%E8%B5%9B-%E9%83%A8%E5%88%86writeup/1858293-20200909143017215-1376531072_hu17148886918784629668.png 480w, /p/2020%E5%B9%B4%E5%AE%89%E6%B4%B5%E6%9D%AF%E5%9B%9B%E5%B7%9D%E7%9C%81%E5%A4%A7%E5%AD%A6%E7%94%9F%E4%BF%A1%E6%81%AF%E5%AE%89%E5%85%A8%E6%8A%80%E6%9C%AF%E5%A4%A7%E8%B5%9B-%E9%83%A8%E5%88%86writeup/1858293-20200909143017215-1376531072_hu4970510159281951434.png 1024w"
+	loading="lazy"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="186"
+		data-flex-basis="447px"
+	
+></p>
+<p>得到一堆数字，考虑是摩斯密码，找个牛逼网站解密：</p>
+<p><img src="/p/2020%E5%B9%B4%E5%AE%89%E6%B4%B5%E6%9D%AF%E5%9B%9B%E5%B7%9D%E7%9C%81%E5%A4%A7%E5%AD%A6%E7%94%9F%E4%BF%A1%E6%81%AF%E5%AE%89%E5%85%A8%E6%8A%80%E6%9C%AF%E5%A4%A7%E8%B5%9B-%E9%83%A8%E5%88%86writeup/1858293-20200910222159490-1434376006.png"
+	width="554"
+	height="237"
+	srcset="/p/2020%E5%B9%B4%E5%AE%89%E6%B4%B5%E6%9D%AF%E5%9B%9B%E5%B7%9D%E7%9C%81%E5%A4%A7%E5%AD%A6%E7%94%9F%E4%BF%A1%E6%81%AF%E5%AE%89%E5%85%A8%E6%8A%80%E6%9C%AF%E5%A4%A7%E8%B5%9B-%E9%83%A8%E5%88%86writeup/1858293-20200910222159490-1434376006_hu8175925199687745237.png 480w, /p/2020%E5%B9%B4%E5%AE%89%E6%B4%B5%E6%9D%AF%E5%9B%9B%E5%B7%9D%E7%9C%81%E5%A4%A7%E5%AD%A6%E7%94%9F%E4%BF%A1%E6%81%AF%E5%AE%89%E5%85%A8%E6%8A%80%E6%9C%AF%E5%A4%A7%E8%B5%9B-%E9%83%A8%E5%88%86writeup/1858293-20200910222159490-1434376006_hu5877184944442344928.png 1024w"
+	loading="lazy"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="233"
+		data-flex-basis="561px"
+	
+></p>
+<p>想想国王与小麦讲的故事，第一个格子放一袋米，第二个放前面一个格子的两倍，六十四个个子是放不完的。所以这些数字是2的各个次方！</p>
+<p>于是转换为：</p>
+<p>25,38,49,33,25,55,45,53, 12,23,12,49,23,51,5,51,23,55,13,47,28,53,60,49,25,22,
+5,25,23,54,9,33,13,35,17,61</p>
+<p>显然这也不是flag，比赛最后十分钟的时候灵感爆发，觉得这些和base64的转换表有关系，于是手动转换：</p>
+<p>ZmxhZ3t1MXMxXzFzX3Nvc18xZWFZX2JhNjR9</p>
+<p>扔进在线网站：<br>
+<img src="/p/2020%E5%B9%B4%E5%AE%89%E6%B4%B5%E6%9D%AF%E5%9B%9B%E5%B7%9D%E7%9C%81%E5%A4%A7%E5%AD%A6%E7%94%9F%E4%BF%A1%E6%81%AF%E5%AE%89%E5%85%A8%E6%8A%80%E6%9C%AF%E5%A4%A7%E8%B5%9B-%E9%83%A8%E5%88%86writeup/1858293-20200908223530008-608748964.png"
+	width="394"
+	height="249"
+	srcset="/p/2020%E5%B9%B4%E5%AE%89%E6%B4%B5%E6%9D%AF%E5%9B%9B%E5%B7%9D%E7%9C%81%E5%A4%A7%E5%AD%A6%E7%94%9F%E4%BF%A1%E6%81%AF%E5%AE%89%E5%85%A8%E6%8A%80%E6%9C%AF%E5%A4%A7%E8%B5%9B-%E9%83%A8%E5%88%86writeup/1858293-20200908223530008-608748964_hu541586760085470809.png 480w, /p/2020%E5%B9%B4%E5%AE%89%E6%B4%B5%E6%9D%AF%E5%9B%9B%E5%B7%9D%E7%9C%81%E5%A4%A7%E5%AD%A6%E7%94%9F%E4%BF%A1%E6%81%AF%E5%AE%89%E5%85%A8%E6%8A%80%E6%9C%AF%E5%A4%A7%E8%B5%9B-%E9%83%A8%E5%88%86writeup/1858293-20200908223530008-608748964_hu12261429055203574959.png 1024w"
+	loading="lazy"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="158"
+		data-flex-basis="379px"
+	
+></p>
+<p>可真是有够刺激的。</p>
+<h3 id="flag值-2">flag值：
+</h3><p>flag{u1s1_1s_sos_1eaY_ba64}</p>
+<h3 id="4-yang">4 yang
+</h3><h3 id="操作内容-3">操作内容：
+</h3><p>这个我感觉做到最后就差一步了，然鹅没做出来，就很可惜。</p>
+<p>这个歌曲是用MP3Stego写入内容了，那就用这个程序解密。</p>
+<p>然而解密需要密码，其实很简单，密码的问题已经写出来了：</p>
+<p><img src="/p/2020%E5%B9%B4%E5%AE%89%E6%B4%B5%E6%9D%AF%E5%9B%9B%E5%B7%9D%E7%9C%81%E5%A4%A7%E5%AD%A6%E7%94%9F%E4%BF%A1%E6%81%AF%E5%AE%89%E5%85%A8%E6%8A%80%E6%9C%AF%E5%A4%A7%E8%B5%9B-%E9%83%A8%E5%88%86writeup/1858293-20200908223530574-2101931936.png"
+	width="238"
+	height="173"
+	srcset="/p/2020%E5%B9%B4%E5%AE%89%E6%B4%B5%E6%9D%AF%E5%9B%9B%E5%B7%9D%E7%9C%81%E5%A4%A7%E5%AD%A6%E7%94%9F%E4%BF%A1%E6%81%AF%E5%AE%89%E5%85%A8%E6%8A%80%E6%9C%AF%E5%A4%A7%E8%B5%9B-%E9%83%A8%E5%88%86writeup/1858293-20200908223530574-2101931936_hu6907229251833427928.png 480w, /p/2020%E5%B9%B4%E5%AE%89%E6%B4%B5%E6%9D%AF%E5%9B%9B%E5%B7%9D%E7%9C%81%E5%A4%A7%E5%AD%A6%E7%94%9F%E4%BF%A1%E6%81%AF%E5%AE%89%E5%85%A8%E6%8A%80%E6%9C%AF%E5%A4%A7%E8%B5%9B-%E9%83%A8%E5%88%86writeup/1858293-20200908223530574-2101931936_hu5809765951556084810.png 1024w"
+	loading="lazy"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="137"
+		data-flex-basis="330px"
+	
+></p>
+<p>在属性里，有个i-soon chengli time，也就是在问安洵公司成立的时间，百度可以知道是2015年3月31日，也就是20150331。</p>
+<p>然后我们去解密：<br>
+<img src="/p/2020%E5%B9%B4%E5%AE%89%E6%B4%B5%E6%9D%AF%E5%9B%9B%E5%B7%9D%E7%9C%81%E5%A4%A7%E5%AD%A6%E7%94%9F%E4%BF%A1%E6%81%AF%E5%AE%89%E5%85%A8%E6%8A%80%E6%9C%AF%E5%A4%A7%E8%B5%9B-%E9%83%A8%E5%88%86writeup/1858293-20200908223531873-1977256982.png"
+	width="554"
+	height="149"
+	srcset="/p/2020%E5%B9%B4%E5%AE%89%E6%B4%B5%E6%9D%AF%E5%9B%9B%E5%B7%9D%E7%9C%81%E5%A4%A7%E5%AD%A6%E7%94%9F%E4%BF%A1%E6%81%AF%E5%AE%89%E5%85%A8%E6%8A%80%E6%9C%AF%E5%A4%A7%E8%B5%9B-%E9%83%A8%E5%88%86writeup/1858293-20200908223531873-1977256982_hu16549599128058186236.png 480w, /p/2020%E5%B9%B4%E5%AE%89%E6%B4%B5%E6%9D%AF%E5%9B%9B%E5%B7%9D%E7%9C%81%E5%A4%A7%E5%AD%A6%E7%94%9F%E4%BF%A1%E6%81%AF%E5%AE%89%E5%85%A8%E6%8A%80%E6%9C%AF%E5%A4%A7%E8%B5%9B-%E9%83%A8%E5%88%86writeup/1858293-20200908223531873-1977256982_hu5562464050690873264.png 1024w"
+	loading="lazy"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="371"
+		data-flex-basis="892px"
+	
+></p>
+<p><img src="/p/2020%E5%B9%B4%E5%AE%89%E6%B4%B5%E6%9D%AF%E5%9B%9B%E5%B7%9D%E7%9C%81%E5%A4%A7%E5%AD%A6%E7%94%9F%E4%BF%A1%E6%81%AF%E5%AE%89%E5%85%A8%E6%8A%80%E6%9C%AF%E5%A4%A7%E8%B5%9B-%E9%83%A8%E5%88%86writeup/1858293-20200908223537304-982656963.png"
+	width="554"
+	height="390"
+	srcset="/p/2020%E5%B9%B4%E5%AE%89%E6%B4%B5%E6%9D%AF%E5%9B%9B%E5%B7%9D%E7%9C%81%E5%A4%A7%E5%AD%A6%E7%94%9F%E4%BF%A1%E6%81%AF%E5%AE%89%E5%85%A8%E6%8A%80%E6%9C%AF%E5%A4%A7%E8%B5%9B-%E9%83%A8%E5%88%86writeup/1858293-20200908223537304-982656963_hu8213149800690390396.png 480w, /p/2020%E5%B9%B4%E5%AE%89%E6%B4%B5%E6%9D%AF%E5%9B%9B%E5%B7%9D%E7%9C%81%E5%A4%A7%E5%AD%A6%E7%94%9F%E4%BF%A1%E6%81%AF%E5%AE%89%E5%85%A8%E6%8A%80%E6%9C%AF%E5%A4%A7%E8%B5%9B-%E9%83%A8%E5%88%86writeup/1858293-20200908223537304-982656963_hu2190522648547789250.png 1024w"
+	loading="lazy"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="142"
+		data-flex-basis="340px"
+	
+></p>
+<p>得到与佛论禅：</p>
+<p><img src="/p/2020%E5%B9%B4%E5%AE%89%E6%B4%B5%E6%9D%AF%E5%9B%9B%E5%B7%9D%E7%9C%81%E5%A4%A7%E5%AD%A6%E7%94%9F%E4%BF%A1%E6%81%AF%E5%AE%89%E5%85%A8%E6%8A%80%E6%9C%AF%E5%A4%A7%E8%B5%9B-%E9%83%A8%E5%88%86writeup/1858293-20200908223538978-446374792.png"
+	width="554"
+	height="213"
+	srcset="/p/2020%E5%B9%B4%E5%AE%89%E6%B4%B5%E6%9D%AF%E5%9B%9B%E5%B7%9D%E7%9C%81%E5%A4%A7%E5%AD%A6%E7%94%9F%E4%BF%A1%E6%81%AF%E5%AE%89%E5%85%A8%E6%8A%80%E6%9C%AF%E5%A4%A7%E8%B5%9B-%E9%83%A8%E5%88%86writeup/1858293-20200908223538978-446374792_hu8414522647850255261.png 480w, /p/2020%E5%B9%B4%E5%AE%89%E6%B4%B5%E6%9D%AF%E5%9B%9B%E5%B7%9D%E7%9C%81%E5%A4%A7%E5%AD%A6%E7%94%9F%E4%BF%A1%E6%81%AF%E5%AE%89%E5%85%A8%E6%8A%80%E6%9C%AF%E5%A4%A7%E8%B5%9B-%E9%83%A8%E5%88%86writeup/1858293-20200908223538978-446374792_hu4697342963214690752.png 1024w"
+	loading="lazy"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="260"
+		data-flex-basis="624px"
+	
+></p>
+<p>一看是504B0304开头的，下意识感觉是个zip的压缩包数据，于是用16进制编辑器打开看看。这里折磨了半天，不知道怎么把十六进制导入，后来看着英文搞懂了，先复制好，然后再点这个：</p>
+<p><img src="/p/2020%E5%B9%B4%E5%AE%89%E6%B4%B5%E6%9D%AF%E5%9B%9B%E5%B7%9D%E7%9C%81%E5%A4%A7%E5%AD%A6%E7%94%9F%E4%BF%A1%E6%81%AF%E5%AE%89%E5%85%A8%E6%8A%80%E6%9C%AF%E5%A4%A7%E8%B5%9B-%E9%83%A8%E5%88%86writeup/1858293-20200908223541214-12625370.png"
+	width="554"
+	height="447"
+	srcset="/p/2020%E5%B9%B4%E5%AE%89%E6%B4%B5%E6%9D%AF%E5%9B%9B%E5%B7%9D%E7%9C%81%E5%A4%A7%E5%AD%A6%E7%94%9F%E4%BF%A1%E6%81%AF%E5%AE%89%E5%85%A8%E6%8A%80%E6%9C%AF%E5%A4%A7%E8%B5%9B-%E9%83%A8%E5%88%86writeup/1858293-20200908223541214-12625370_hu551938545622096268.png 480w, /p/2020%E5%B9%B4%E5%AE%89%E6%B4%B5%E6%9D%AF%E5%9B%9B%E5%B7%9D%E7%9C%81%E5%A4%A7%E5%AD%A6%E7%94%9F%E4%BF%A1%E6%81%AF%E5%AE%89%E5%85%A8%E6%8A%80%E6%9C%AF%E5%A4%A7%E8%B5%9B-%E9%83%A8%E5%88%86writeup/1858293-20200908223541214-12625370_hu17092056057060138648.png 1024w"
+	loading="lazy"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="123"
+		data-flex-basis="297px"
+	
+></p>
+<p>就产生了zip的压缩包:</p>
+<p><img src="/p/2020%E5%B9%B4%E5%AE%89%E6%B4%B5%E6%9D%AF%E5%9B%9B%E5%B7%9D%E7%9C%81%E5%A4%A7%E5%AD%A6%E7%94%9F%E4%BF%A1%E6%81%AF%E5%AE%89%E5%85%A8%E6%8A%80%E6%9C%AF%E5%A4%A7%E8%B5%9B-%E9%83%A8%E5%88%86writeup/1858293-20200908223542780-1040344603.png"
+	width="554"
+	height="356"
+	srcset="/p/2020%E5%B9%B4%E5%AE%89%E6%B4%B5%E6%9D%AF%E5%9B%9B%E5%B7%9D%E7%9C%81%E5%A4%A7%E5%AD%A6%E7%94%9F%E4%BF%A1%E6%81%AF%E5%AE%89%E5%85%A8%E6%8A%80%E6%9C%AF%E5%A4%A7%E8%B5%9B-%E9%83%A8%E5%88%86writeup/1858293-20200908223542780-1040344603_hu5281220488319994003.png 480w, /p/2020%E5%B9%B4%E5%AE%89%E6%B4%B5%E6%9D%AF%E5%9B%9B%E5%B7%9D%E7%9C%81%E5%A4%A7%E5%AD%A6%E7%94%9F%E4%BF%A1%E6%81%AF%E5%AE%89%E5%85%A8%E6%8A%80%E6%9C%AF%E5%A4%A7%E8%B5%9B-%E9%83%A8%E5%88%86writeup/1858293-20200908223542780-1040344603_hu15032714355159070488.png 1024w"
+	loading="lazy"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="155"
+		data-flex-basis="373px"
+	
+></p>
+<p>这个包是真的加密不是伪加密，用爆破工具爆破开了，然而…</p>
+<p><img src="/p/2020%E5%B9%B4%E5%AE%89%E6%B4%B5%E6%9D%AF%E5%9B%9B%E5%B7%9D%E7%9C%81%E5%A4%A7%E5%AD%A6%E7%94%9F%E4%BF%A1%E6%81%AF%E5%AE%89%E5%85%A8%E6%8A%80%E6%9C%AF%E5%A4%A7%E8%B5%9B-%E9%83%A8%E5%88%86writeup/1858293-20200908223543561-402124339.png"
+	width="545"
+	height="108"
+	srcset="/p/2020%E5%B9%B4%E5%AE%89%E6%B4%B5%E6%9D%AF%E5%9B%9B%E5%B7%9D%E7%9C%81%E5%A4%A7%E5%AD%A6%E7%94%9F%E4%BF%A1%E6%81%AF%E5%AE%89%E5%85%A8%E6%8A%80%E6%9C%AF%E5%A4%A7%E8%B5%9B-%E9%83%A8%E5%88%86writeup/1858293-20200908223543561-402124339_hu11778967037433980069.png 480w, /p/2020%E5%B9%B4%E5%AE%89%E6%B4%B5%E6%9D%AF%E5%9B%9B%E5%B7%9D%E7%9C%81%E5%A4%A7%E5%AD%A6%E7%94%9F%E4%BF%A1%E6%81%AF%E5%AE%89%E5%85%A8%E6%8A%80%E6%9C%AF%E5%A4%A7%E8%B5%9B-%E9%83%A8%E5%88%86writeup/1858293-20200908223543561-402124339_hu3985247938900507708.png 1024w"
+	loading="lazy"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="504"
+		data-flex-basis="1211px"
+	
+></p>
+<p>给了提示我还是不懂啊！</p>
+<p>呜呜呜</p>
+
+</section>
+
+
+    <footer class="article-footer">
+    
+
+    </footer>
+
+
+    
+</article>
+
+    
+
+    
+
+<aside class="related-content--wrapper">
+    <h2 class="section-title">相关文章</h2>
+    <div class="related-content">
+        <div class="flex article-list--tile">
+            
+                
+<article class="">
+    <a href="/p/%E4%B8%AA%E4%BA%BA%E5%90%91ctf%E6%AF%94%E8%B5%9B%E5%87%BA%E7%9A%84%E4%B8%80%E9%81%93%E9%80%86%E5%90%91%E6%B8%B8%E6%88%8F%E9%A2%98gametime%E9%A2%98%E8%A7%A3/">
+        
+        
+
+        <div class="article-details">
+            <h2 class="article-title">【个人向】ctf比赛出的一道逆向游戏题——GameTime题解</h2>
+        </div>
+    </a>
+</article>
+
+            
+                
+<article class="">
+    <a href="/p/handler%E8%BF%9B%E8%A1%8C%E5%A0%86%E5%8F%A0%E6%B3%A8%E5%85%A5/">
+        
+        
+
+        <div class="article-details">
+            <h2 class="article-title">HANDLER进行堆叠注入</h2>
+        </div>
+    </a>
+</article>
+
+            
+                
+<article class="">
+    <a href="/p/cdut%E7%AC%AC%E4%B8%80%E5%B1%8A%E4%BF%A1%E5%AE%89%E5%A4%A7%E6%8C%91%E6%88%98re-wp/">
+        
+        
+
+        <div class="article-details">
+            <h2 class="article-title">CDUT第一届信安大挑战Re-wp</h2>
+        </div>
+    </a>
+</article>
+
+            
+                
+<article class="">
+    <a href="/p/nu1lbook%E7%AC%AC%E4%B8%80%E7%AB%A0wp/">
+        
+        
+
+        <div class="article-details">
+            <h2 class="article-title">Nu1LBook第一章wp</h2>
+        </div>
+    </a>
+</article>
+
+            
+                
+<article class="">
+    <a href="/p/mrctfxor/">
+        
+        
+
+        <div class="article-details">
+            <h2 class="article-title">【MRCTF】Xor</h2>
+        </div>
+    </a>
+</article>
+
+            
+        </div>
+    </div>
+</aside>
+
+     
+    
+        
+    <script src="https://utteranc.es/client.js" 
+        repo="DorinXL/dorinxl.github.io"
+        issue-term="pathname"
+        
+        crossorigin="anonymous"
+        async
+        >
+</script>
+
+<style>
+    .utterances {
+        max-width: unset;
+    }
+</style>
+
+<script>
+    let utterancesLoaded = false;
+
+    function setUtterancesTheme(theme) {
+        let utterances = document.querySelector('.utterances iframe');
+        if (utterances) {
+            utterances.contentWindow.postMessage(
+                {
+                    type: 'set-theme',
+                    theme: `github-${theme}`
+                },
+                'https://utteranc.es'
+            );
+        }
+    }
+
+    addEventListener('message', event => {
+        if (event.origin !== 'https://utteranc.es') return;
+
+        
+        utterancesLoaded = true;
+        setUtterancesTheme(document.documentElement.dataset.scheme)
+    });
+
+    window.addEventListener('onColorSchemeChange', (e) => {
+        if (!utterancesLoaded) return;
+        setUtterancesTheme(e.detail)
+    })
+</script>
+
+
+    
+
+    <footer class="site-footer">
+    <section class="copyright">
+        &copy; 
+        
+        2024 荡影-DorinXL
+    </section>
+
+
+
+<section class="totalcount">
+    
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+    发表了76篇文章 · 
+    总计103.89k字
+</section>
+
+
+
+<section class="running-time">
+本博客已稳定运行
+<span id="runningdays" class="running-days"></span>
+</section>
+
+    <section class="powerby">
+        使用 <a href="https://gohugo.io/" target="_blank" rel="noopener">Hugo</a> 构建 <br />
+        主题 <b><a href="https://github.com/CaiJimmy/hugo-theme-stack" target="_blank" rel="noopener" data-version="3.26.0">Stack</a></b> 由 <a href="https://jimmycai.com" target="_blank" rel="noopener">Jimmy</a> 设计
+    </section>
+
+</footer>
+
+
+    
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+    
+    <div class="pswp__bg"></div>
+
+    
+    <div class="pswp__scroll-wrap">
+
+        
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+
+        
+        <div class="pswp__ui pswp__ui--hidden">
+
+            <div class="pswp__top-bar">
+
+                
+
+                <div class="pswp__counter"></div>
+
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+                
+                
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                        <div class="pswp__preloader__cut">
+                            <div class="pswp__preloader__donut"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div>
+            </div>
+
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div><script 
+                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.js"integrity="sha256-ePwmChbbvXbsO02lbM3HoHbSHTHFAeChekF1xKJdleo="crossorigin="anonymous"
+                defer
+                >
+            </script><script 
+                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe-ui-default.min.js"integrity="sha256-UKkzOn/w1mBxRmLLGrSeyB4e1xbrp4xylgAWb3M42pU="crossorigin="anonymous"
+                defer
+                >
+            </script><link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/default-skin/default-skin.min.css"crossorigin="anonymous"
+            ><link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.css"crossorigin="anonymous"
+            >
+
+            </main>
+        </div>
+        <script 
+                src="https://cdn.jsdelivr.net/npm/node-vibrant@3.1.6/dist/vibrant.min.js"integrity="sha256-awcR2jno4kI5X0zL8ex0vi2z&#43;KMkF24hUW8WePSA9HM="crossorigin="anonymous"
+                
+                >
+            </script><script type="text/javascript" src="/ts/main.js" defer></script>
+<script>
+    (function () {
+        const customFont = document.createElement('link');
+        customFont.href = "https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap";
+
+        customFont.type = "text/css";
+        customFont.rel = "stylesheet";
+
+        document.head.appendChild(customFont);
+    }());
+</script>
+
+<script>
+    let s1 = '2024-8-25'; 
+    s1 = new Date(s1.replace(/-/g, "/"));
+    let s2 = new Date();
+    let timeDifference = s2.getTime() - s1.getTime();
+
+    let days = Math.floor(timeDifference / (1000 * 60 * 60 * 24));
+    let hours = Math.floor((timeDifference % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+    let minutes = Math.floor((timeDifference % (1000 * 60 * 60)) / (1000 * 60));
+
+    let result = days + "天" + hours + "小时" + minutes + "分钟";
+    document.getElementById('runningdays').innerHTML = result;
+</script>
+    </body>
+</html>

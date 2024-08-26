@@ -1,0 +1,990 @@
+<!DOCTYPE html>
+<html lang="zh-cn" dir="ltr">
+    <head><meta charset='utf-8'>
+<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content="通过suctf-2016的一道题：serial-150而引发的一系列问题与解决方案： 这道题目怎么解： 本意是想通过解决这道题来学习新知识，确实">
+<title>由一道逆向题而引发，IDA调试ELF文件</title>
+
+<link rel='canonical' href='https://dorinxl.github.io/p/%E7%94%B1%E4%B8%80%E9%81%93%E9%80%86%E5%90%91%E9%A2%98%E8%80%8C%E5%BC%95%E5%8F%91ida%E8%B0%83%E8%AF%95elf%E6%96%87%E4%BB%B6/'>
+
+<link rel="stylesheet" href="/scss/style.min.dfb009e658ec6e0f0f0c366b98658c0caea5123dcd2536f353c92c2581b79fb7.css"><meta property='og:title' content="由一道逆向题而引发，IDA调试ELF文件">
+<meta property='og:description' content="通过suctf-2016的一道题：serial-150而引发的一系列问题与解决方案： 这道题目怎么解： 本意是想通过解决这道题来学习新知识，确实">
+<meta property='og:url' content='https://dorinxl.github.io/p/%E7%94%B1%E4%B8%80%E9%81%93%E9%80%86%E5%90%91%E9%A2%98%E8%80%8C%E5%BC%95%E5%8F%91ida%E8%B0%83%E8%AF%95elf%E6%96%87%E4%BB%B6/'>
+<meta property='og:site_name' content='荡影-DorinXL'>
+<meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:published_time' content='2020-04-19T10:19:00&#43;00:00'/><meta property='article:modified_time' content='2020-04-19T10:19:00&#43;00:00'/>
+<meta name="twitter:title" content="由一道逆向题而引发，IDA调试ELF文件">
+<meta name="twitter:description" content="通过suctf-2016的一道题：serial-150而引发的一系列问题与解决方案： 这道题目怎么解： 本意是想通过解决这道题来学习新知识，确实">
+    <link rel="shortcut icon" href="/favicon.ico" />
+
+  
+
+
+    </head>
+    <body class="
+    article-page
+    ">
+    <script>
+        (function() {
+            const colorSchemeKey = 'StackColorScheme';
+            if(!localStorage.getItem(colorSchemeKey)){
+                localStorage.setItem(colorSchemeKey, "auto");
+            }
+        })();
+    </script><script>
+    (function() {
+        const colorSchemeKey = 'StackColorScheme';
+        const colorSchemeItem = localStorage.getItem(colorSchemeKey);
+        const supportDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches === true;
+
+        if (colorSchemeItem == 'dark' || colorSchemeItem === 'auto' && supportDarkMode) {
+            
+
+            document.documentElement.dataset.scheme = 'dark';
+        } else {
+            document.documentElement.dataset.scheme = 'light';
+        }
+    })();
+</script>
+<div class="container main-container flex on-phone--column extended"><aside class="sidebar left-sidebar sticky ">
+    <button class="hamburger hamburger--spin" type="button" id="toggle-menu" aria-label="切换菜单">
+        <span class="hamburger-box">
+            <span class="hamburger-inner"></span>
+        </span>
+    </button>
+
+    <header>
+        
+            
+            <figure class="site-avatar">
+                <a href="/">
+                
+                    
+                    
+                    
+                        
+                        <img src="/img/avatar_hu6744900124519508638.png" width="300"
+                            height="283" class="site-logo" loading="lazy" alt="Avatar">
+                    
+                
+                </a>
+                
+                    <span class="emoji">🔥</span>
+                
+            </figure>
+            
+        
+        
+        <div class="site-meta">
+            <h1 class="site-name"><a href="/">荡影-DorinXL</a></h1>
+            <h2 class="site-description">缄默慎独，不破不立，事在人为</h2>
+        </div>
+    </header><ol class="menu-social">
+            
+                <li>
+                    <a 
+                        href='https://space.bilibili.com/3217550'
+                        target="_blank"
+                        title="BilBili"
+                        rel="me"
+                    >
+                        
+                        
+                            <svg  xmlns="http://www.w3.org/2000/svg"  width="24"  height="24"  viewBox="0 0 24 24"  fill="none"  stroke="currentColor"  stroke-width="2"  stroke-linecap="round"  stroke-linejoin="round"  class="icon icon-tabler icons-tabler-outline icon-tabler-brand-bilibili"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M3 10a4 4 0 0 1 4 -4h10a4 4 0 0 1 4 4v6a4 4 0 0 1 -4 4h-10a4 4 0 0 1 -4 -4v-6z" /><path d="M8 3l2 3" /><path d="M16 3l-2 3" /><path d="M9 13v-2" /><path d="M15 11v2" /></svg>
+                        
+                    </a>
+                </li>
+            
+                <li>
+                    <a 
+                        href='https://www.cnblogs.com/DorinXL/'
+                        target="_blank"
+                        title="CNblog"
+                        rel="me"
+                    >
+                        
+                        
+                            <svg  xmlns="http://www.w3.org/2000/svg"  width="24"  height="24"  viewBox="0 0 24 24"  fill="none"  stroke="currentColor"  stroke-width="2"  stroke-linecap="round"  stroke-linejoin="round"  class="icon icon-tabler icons-tabler-outline icon-tabler-brand-blogger"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M8 21h8a5 5 0 0 0 5 -5v-3a3 3 0 0 0 -3 -3h-1v-2a5 5 0 0 0 -5 -5h-4a5 5 0 0 0 -5 5v8a5 5 0 0 0 5 5z" /><path d="M7 7m0 1.5a1.5 1.5 0 0 1 1.5 -1.5h3a1.5 1.5 0 0 1 1.5 1.5v0a1.5 1.5 0 0 1 -1.5 1.5h-3a1.5 1.5 0 0 1 -1.5 -1.5z" /><path d="M7 14m0 1.5a1.5 1.5 0 0 1 1.5 -1.5h7a1.5 1.5 0 0 1 1.5 1.5v0a1.5 1.5 0 0 1 -1.5 1.5h-7a1.5 1.5 0 0 1 -1.5 -1.5z" /></svg>
+                        
+                    </a>
+                </li>
+            
+                <li>
+                    <a 
+                        href='https://github.com/DorinXL/DorinXL.github.io'
+                        target="_blank"
+                        title="GitHub"
+                        rel="me"
+                    >
+                        
+                        
+                            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-brand-github" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+  <path d="M9 19c-4.3 1.4 -4.3 -2.5 -6 -3m12 5v-3.5c0 -1 .1 -1.4 -.5 -2c2.8 -.3 5.5 -1.4 5.5 -6a4.6 4.6 0 0 0 -1.3 -3.2a4.2 4.2 0 0 0 -.1 -3.2s-1.1 -.3 -3.5 1.3a12.3 12.3 0 0 0 -6.2 0c-2.4 -1.6 -3.5 -1.3 -3.5 -1.3a4.2 4.2 0 0 0 -.1 3.2a4.6 4.6 0 0 0 -1.3 3.2c0 4.6 2.7 5.7 5.5 6c-.6 .6 -.6 1.2 -.5 2v3.5" />
+</svg>
+
+
+
+                        
+                    </a>
+                </li>
+            
+        </ol><ol class="menu" id="main-menu">
+        
+        
+        
+        <li >
+            <a href='/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-home" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <polyline points="5 12 3 12 12 3 21 12 19 12" />
+  <path d="M5 12v7a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-7" />
+  <path d="M9 21v-6a2 2 0 0 1 2 -2h2a2 2 0 0 1 2 2v6" />
+</svg>
+
+
+
+                
+                <span>主页</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/%E5%85%B3%E4%BA%8E/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-user" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="7" r="4" />
+  <path d="M6 21v-2a4 4 0 0 1 4 -4h4a4 4 0 0 1 4 4v2" />
+</svg>
+
+
+
+                
+                <span>关于</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/archives/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-archive" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <rect x="3" y="4" width="18" height="4" rx="2" />
+  <path d="M5 8v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-10" />
+  <line x1="10" y1="12" x2="14" y2="12" />
+</svg>
+
+
+
+                
+                <span>归档</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/search/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-search" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="10" cy="10" r="7" />
+  <line x1="21" y1="21" x2="15" y2="15" />
+</svg>
+
+
+
+                
+                <span>搜索</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/%E5%8F%8B%E9%93%BE/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-link" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <path d="M10 14a3.5 3.5 0 0 0 5 0l4 -4a3.5 3.5 0 0 0 -5 -5l-.5 .5" />
+  <path d="M14 10a3.5 3.5 0 0 0 -5 0l-4 4a3.5 3.5 0 0 0 5 5l.5 -.5" />
+</svg>
+
+
+
+                
+                <span>友链</span>
+            </a>
+        </li>
+        
+        <li class="menu-bottom-section">
+            <ol class="menu">
+
+                
+                    <li id="dark-mode-toggle">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-left" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="8" cy="12" r="2" />
+  <rect x="2" y="6" width="20" height="12" rx="6" />
+</svg>
+
+
+
+                        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-right" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="16" cy="12" r="2" />
+  <rect x="2" y="6" width="20" height="12" rx="6" />
+</svg>
+
+
+
+                        <span>暗色模式</span>
+                    </li>
+                
+            </ol>
+        </li>
+    </ol>
+</aside>
+
+    
+
+            <main class="main full-width">
+    <article class="main-article">
+    <header class="article-header">
+
+    <div class="article-details">
+    
+    <header class="article-category">
+        
+            <a href="/categories/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8/" >
+                网络安全
+            </a>
+        
+            <a href="/categories/ctf/" >
+                CTF
+            </a>
+        
+    </header>
+    
+
+    <div class="article-title-wrapper">
+        <h2 class="article-title">
+            <a href="/p/%E7%94%B1%E4%B8%80%E9%81%93%E9%80%86%E5%90%91%E9%A2%98%E8%80%8C%E5%BC%95%E5%8F%91ida%E8%B0%83%E8%AF%95elf%E6%96%87%E4%BB%B6/">由一道逆向题而引发，IDA调试ELF文件</a>
+        </h2>
+    
+        
+    </div>
+
+
+    
+    
+    
+    
+    <footer class="article-time">
+        
+            <div>
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-calendar-time" width="56" height="56" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <path d="M11.795 21h-6.795a2 2 0 0 1 -2 -2v-12a2 2 0 0 1 2 -2h12a2 2 0 0 1 2 2v4" />
+  <circle cx="18" cy="18" r="4" />
+  <path d="M15 3v4" />
+  <path d="M7 3v4" />
+  <path d="M3 11h16" />
+  <path d="M18 16.496v1.504l1 1" />
+</svg>
+                <time class="article-time--published">2020-04-19</time>
+            </div>
+	
+
+        
+
+        
+    </footer>
+    
+
+    
+
+</div>
+
+</header>
+
+    <section class="article-content">
+    
+    
+    <p>通过suctf-2016的一道题：serial-150而引发的一系列问题与解决方案：</p>
+<ol>
+<li><strong>这道题目怎么解：</strong></li>
+</ol>
+<p>本意是想通过解决这道题来学习新知识，确实学到了。</p>
+<p>IDA打开后发现无法反编译，此时我想，如果是exe的话我可以用od动态调试，可是elf该用什么呢？linux上有专门的调试工具，可我都没怎么用过。</p>
+<p>在网上搜寻wp后发现用的是IDA通过远程连接linux来调试elf文件，那么问题来了，我不会。</p>
+<ol start="2">
+<li><strong>IDA远程动态调试ELF文件</strong></li>
+</ol>
+<p>因为还没有研究《IDA Pro权威指南》，暂时跟着网上的来。</p>
+<p>综合了多家博客的方式，我也算终于摸索出来如何实现IDA远程调试ELF文件。</p>
+<p>从效果上看，IDA在我主机上运行，通过设置连接到了虚拟机的linux系统上，实现了主机调试，虚拟机运作的这么一种方式。原理暂不明白。</p>
+<p>以下是成功之后的情况：</p>
+<p><img src="/p/%E7%94%B1%E4%B8%80%E9%81%93%E9%80%86%E5%90%91%E9%A2%98%E8%80%8C%E5%BC%95%E5%8F%91ida%E8%B0%83%E8%AF%95elf%E6%96%87%E4%BB%B6/1858293-20200419181851891-1113362872.png"
+	width="741"
+	height="386"
+	srcset="/p/%E7%94%B1%E4%B8%80%E9%81%93%E9%80%86%E5%90%91%E9%A2%98%E8%80%8C%E5%BC%95%E5%8F%91ida%E8%B0%83%E8%AF%95elf%E6%96%87%E4%BB%B6/1858293-20200419181851891-1113362872_hu6774377077683776129.png 480w, /p/%E7%94%B1%E4%B8%80%E9%81%93%E9%80%86%E5%90%91%E9%A2%98%E8%80%8C%E5%BC%95%E5%8F%91ida%E8%B0%83%E8%AF%95elf%E6%96%87%E4%BB%B6/1858293-20200419181851891-1113362872_hu689808574775205573.png 1024w"
+	loading="lazy"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="191"
+		data-flex-basis="460px"
+	
+></p>
+<p><img src="/p/%E7%94%B1%E4%B8%80%E9%81%93%E9%80%86%E5%90%91%E9%A2%98%E8%80%8C%E5%BC%95%E5%8F%91ida%E8%B0%83%E8%AF%95elf%E6%96%87%E4%BB%B6/1858293-20200419181852351-1074976889.png"
+	width="548"
+	height="134"
+	srcset="/p/%E7%94%B1%E4%B8%80%E9%81%93%E9%80%86%E5%90%91%E9%A2%98%E8%80%8C%E5%BC%95%E5%8F%91ida%E8%B0%83%E8%AF%95elf%E6%96%87%E4%BB%B6/1858293-20200419181852351-1074976889_hu1605035468572077048.png 480w, /p/%E7%94%B1%E4%B8%80%E9%81%93%E9%80%86%E5%90%91%E9%A2%98%E8%80%8C%E5%BC%95%E5%8F%91ida%E8%B0%83%E8%AF%95elf%E6%96%87%E4%BB%B6/1858293-20200419181852351-1074976889_hu10880871160623633193.png 1024w"
+	loading="lazy"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="408"
+		data-flex-basis="981px"
+	
+></p>
+<p>连接的第一步：</p>
+<p><img src="/p/%E7%94%B1%E4%B8%80%E9%81%93%E9%80%86%E5%90%91%E9%A2%98%E8%80%8C%E5%BC%95%E5%8F%91ida%E8%B0%83%E8%AF%95elf%E6%96%87%E4%BB%B6/1858293-20200419181852717-1851040276.png"
+	width="576"
+	height="390"
+	srcset="/p/%E7%94%B1%E4%B8%80%E9%81%93%E9%80%86%E5%90%91%E9%A2%98%E8%80%8C%E5%BC%95%E5%8F%91ida%E8%B0%83%E8%AF%95elf%E6%96%87%E4%BB%B6/1858293-20200419181852717-1851040276_hu16477421693337181519.png 480w, /p/%E7%94%B1%E4%B8%80%E9%81%93%E9%80%86%E5%90%91%E9%A2%98%E8%80%8C%E5%BC%95%E5%8F%91ida%E8%B0%83%E8%AF%95elf%E6%96%87%E4%BB%B6/1858293-20200419181852717-1851040276_hu6712774515538210201.png 1024w"
+	loading="lazy"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="147"
+		data-flex-basis="354px"
+	
+></p>
+<p>将对应的文件复制到linux中，一个32位一个64位请自己选择。（以64位为例</p>
+<p>然后我将需要调试的文件一并复制到一个专门的文件夹：</p>
+<p><img src="/p/%E7%94%B1%E4%B8%80%E9%81%93%E9%80%86%E5%90%91%E9%A2%98%E8%80%8C%E5%BC%95%E5%8F%91ida%E8%B0%83%E8%AF%95elf%E6%96%87%E4%BB%B6/1858293-20200419181852949-2000538611.png"
+	width="282"
+	height="128"
+	srcset="/p/%E7%94%B1%E4%B8%80%E9%81%93%E9%80%86%E5%90%91%E9%A2%98%E8%80%8C%E5%BC%95%E5%8F%91ida%E8%B0%83%E8%AF%95elf%E6%96%87%E4%BB%B6/1858293-20200419181852949-2000538611_hu1989936463266499526.png 480w, /p/%E7%94%B1%E4%B8%80%E9%81%93%E9%80%86%E5%90%91%E9%A2%98%E8%80%8C%E5%BC%95%E5%8F%91ida%E8%B0%83%E8%AF%95elf%E6%96%87%E4%BB%B6/1858293-20200419181852949-2000538611_hu7519253462246213159.png 1024w"
+	loading="lazy"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="220"
+		data-flex-basis="528px"
+	
+></p>
+<p>然后在linux中运行，这里我用了【chmod 777 linux_server64】指令打开权限，然后【./linux_server64】开启服务：</p>
+<p><img src="/p/%E7%94%B1%E4%B8%80%E9%81%93%E9%80%86%E5%90%91%E9%A2%98%E8%80%8C%E5%BC%95%E5%8F%91ida%E8%B0%83%E8%AF%95elf%E6%96%87%E4%BB%B6/1858293-20200419181853164-803567829.png"
+	width="538"
+	height="86"
+	srcset="/p/%E7%94%B1%E4%B8%80%E9%81%93%E9%80%86%E5%90%91%E9%A2%98%E8%80%8C%E5%BC%95%E5%8F%91ida%E8%B0%83%E8%AF%95elf%E6%96%87%E4%BB%B6/1858293-20200419181853164-803567829_hu13404639742177045547.png 480w, /p/%E7%94%B1%E4%B8%80%E9%81%93%E9%80%86%E5%90%91%E9%A2%98%E8%80%8C%E5%BC%95%E5%8F%91ida%E8%B0%83%E8%AF%95elf%E6%96%87%E4%BB%B6/1858293-20200419181853164-803567829_hu642834632959675553.png 1024w"
+	loading="lazy"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="625"
+		data-flex-basis="1501px"
+	
+></p>
+<p>此时，linux上的步骤已经完成了。</p>
+<p>如果是第一次操作的话需要加几个步骤：</p>
+<p>【ifconfig】来找到自己虚拟机的ip地址：</p>
+<p><img src="/p/%E7%94%B1%E4%B8%80%E9%81%93%E9%80%86%E5%90%91%E9%A2%98%E8%80%8C%E5%BC%95%E5%8F%91ida%E8%B0%83%E8%AF%95elf%E6%96%87%E4%BB%B6/1858293-20200419181853391-879678766.png"
+	width="270"
+	height="68"
+	srcset="/p/%E7%94%B1%E4%B8%80%E9%81%93%E9%80%86%E5%90%91%E9%A2%98%E8%80%8C%E5%BC%95%E5%8F%91ida%E8%B0%83%E8%AF%95elf%E6%96%87%E4%BB%B6/1858293-20200419181853391-879678766_hu130896309569732098.png 480w, /p/%E7%94%B1%E4%B8%80%E9%81%93%E9%80%86%E5%90%91%E9%A2%98%E8%80%8C%E5%BC%95%E5%8F%91ida%E8%B0%83%E8%AF%95elf%E6%96%87%E4%BB%B6/1858293-20200419181853391-879678766_hu1465818517505159195.png 1024w"
+	loading="lazy"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="397"
+		data-flex-basis="952px"
+	
+></p>
+<p>我的虚拟机在这一步出现了问题，这是后面我要说的。</p>
+<p>【pwd】记录所在位置的路径：</p>
+<p><img src="/p/%E7%94%B1%E4%B8%80%E9%81%93%E9%80%86%E5%90%91%E9%A2%98%E8%80%8C%E5%BC%95%E5%8F%91ida%E8%B0%83%E8%AF%95elf%E6%96%87%E4%BB%B6/1858293-20200419181853647-1102459947.png"
+	width="265"
+	height="31"
+	srcset="/p/%E7%94%B1%E4%B8%80%E9%81%93%E9%80%86%E5%90%91%E9%A2%98%E8%80%8C%E5%BC%95%E5%8F%91ida%E8%B0%83%E8%AF%95elf%E6%96%87%E4%BB%B6/1858293-20200419181853647-1102459947_hu1314545771787809703.png 480w, /p/%E7%94%B1%E4%B8%80%E9%81%93%E9%80%86%E5%90%91%E9%A2%98%E8%80%8C%E5%BC%95%E5%8F%91ida%E8%B0%83%E8%AF%95elf%E6%96%87%E4%BB%B6/1858293-20200419181853647-1102459947_hu9712963888804280408.png 1024w"
+	loading="lazy"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="854"
+		data-flex-basis="2051px"
+	
+></p>
+<p>然后就是主机上IDA的设置了：</p>
+<p>像之前一样将文件拖入IDA，然后打开。</p>
+<p>打开之后在菜单栏：</p>
+<p><img src="/p/%E7%94%B1%E4%B8%80%E9%81%93%E9%80%86%E5%90%91%E9%A2%98%E8%80%8C%E5%BC%95%E5%8F%91ida%E8%B0%83%E8%AF%95elf%E6%96%87%E4%BB%B6/1858293-20200419181853848-741429943.png"
+	width="216"
+	height="50"
+	srcset="/p/%E7%94%B1%E4%B8%80%E9%81%93%E9%80%86%E5%90%91%E9%A2%98%E8%80%8C%E5%BC%95%E5%8F%91ida%E8%B0%83%E8%AF%95elf%E6%96%87%E4%BB%B6/1858293-20200419181853848-741429943_hu16982154216639483324.png 480w, /p/%E7%94%B1%E4%B8%80%E9%81%93%E9%80%86%E5%90%91%E9%A2%98%E8%80%8C%E5%BC%95%E5%8F%91ida%E8%B0%83%E8%AF%95elf%E6%96%87%E4%BB%B6/1858293-20200419181853848-741429943_hu11994100958829430422.png 1024w"
+	loading="lazy"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="432"
+		data-flex-basis="1036px"
+	
+>select
+debugger</p>
+<p><img src="/p/%E7%94%B1%E4%B8%80%E9%81%93%E9%80%86%E5%90%91%E9%A2%98%E8%80%8C%E5%BC%95%E5%8F%91ida%E8%B0%83%E8%AF%95elf%E6%96%87%E4%BB%B6/1858293-20200419181854079-356618477.png"
+	width="348"
+	height="314"
+	srcset="/p/%E7%94%B1%E4%B8%80%E9%81%93%E9%80%86%E5%90%91%E9%A2%98%E8%80%8C%E5%BC%95%E5%8F%91ida%E8%B0%83%E8%AF%95elf%E6%96%87%E4%BB%B6/1858293-20200419181854079-356618477_hu1740290839643894548.png 480w, /p/%E7%94%B1%E4%B8%80%E9%81%93%E9%80%86%E5%90%91%E9%A2%98%E8%80%8C%E5%BC%95%E5%8F%91ida%E8%B0%83%E8%AF%95elf%E6%96%87%E4%BB%B6/1858293-20200419181854079-356618477_hu16064772911458023344.png 1024w"
+	loading="lazy"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="110"
+		data-flex-basis="265px"
+	
+>选择remote
+linux debugger</p>
+<p><img src="/p/%E7%94%B1%E4%B8%80%E9%81%93%E9%80%86%E5%90%91%E9%A2%98%E8%80%8C%E5%BC%95%E5%8F%91ida%E8%B0%83%E8%AF%95elf%E6%96%87%E4%BB%B6/1858293-20200419181854373-1669812308.png"
+	width="290"
+	height="496"
+	srcset="/p/%E7%94%B1%E4%B8%80%E9%81%93%E9%80%86%E5%90%91%E9%A2%98%E8%80%8C%E5%BC%95%E5%8F%91ida%E8%B0%83%E8%AF%95elf%E6%96%87%E4%BB%B6/1858293-20200419181854373-1669812308_hu7453255059450121543.png 480w, /p/%E7%94%B1%E4%B8%80%E9%81%93%E9%80%86%E5%90%91%E9%A2%98%E8%80%8C%E5%BC%95%E5%8F%91ida%E8%B0%83%E8%AF%95elf%E6%96%87%E4%BB%B6/1858293-20200419181854373-1669812308_hu12180049111609604470.png 1024w"
+	loading="lazy"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="58"
+		data-flex-basis="140px"
+	
+>选择process
+options</p>
+<p>这一步就比较重要了，也比较容易出错，改写什么我都在图中标注好了。</p>
+<p><img src="/p/%E7%94%B1%E4%B8%80%E9%81%93%E9%80%86%E5%90%91%E9%A2%98%E8%80%8C%E5%BC%95%E5%8F%91ida%E8%B0%83%E8%AF%95elf%E6%96%87%E4%BB%B6/1858293-20200419181854742-821305326.png"
+	width="556"
+	height="292"
+	srcset="/p/%E7%94%B1%E4%B8%80%E9%81%93%E9%80%86%E5%90%91%E9%A2%98%E8%80%8C%E5%BC%95%E5%8F%91ida%E8%B0%83%E8%AF%95elf%E6%96%87%E4%BB%B6/1858293-20200419181854742-821305326_hu8515078260746278894.png 480w, /p/%E7%94%B1%E4%B8%80%E9%81%93%E9%80%86%E5%90%91%E9%A2%98%E8%80%8C%E5%BC%95%E5%8F%91ida%E8%B0%83%E8%AF%95elf%E6%96%87%E4%BB%B6/1858293-20200419181854742-821305326_hu8157173211644600103.png 1024w"
+	loading="lazy"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="190"
+		data-flex-basis="456px"
+	
+></p>
+<p>如果没有问题的话，我们按下F9就可以开始调试了，同时linux虚拟机上会显示连接成功的消息：</p>
+<p><img src="/p/%E7%94%B1%E4%B8%80%E9%81%93%E9%80%86%E5%90%91%E9%A2%98%E8%80%8C%E5%BC%95%E5%8F%91ida%E8%B0%83%E8%AF%95elf%E6%96%87%E4%BB%B6/1858293-20200419181854986-2089077480.png"
+	width="232"
+	height="22"
+	srcset="/p/%E7%94%B1%E4%B8%80%E9%81%93%E9%80%86%E5%90%91%E9%A2%98%E8%80%8C%E5%BC%95%E5%8F%91ida%E8%B0%83%E8%AF%95elf%E6%96%87%E4%BB%B6/1858293-20200419181854986-2089077480_hu8368291009210425773.png 480w, /p/%E7%94%B1%E4%B8%80%E9%81%93%E9%80%86%E5%90%91%E9%A2%98%E8%80%8C%E5%BC%95%E5%8F%91ida%E8%B0%83%E8%AF%95elf%E6%96%87%E4%BB%B6/1858293-20200419181854986-2089077480_hu3578306514910702300.png 1024w"
+	loading="lazy"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="1054"
+		data-flex-basis="2530px"
+	
+></p>
+<p>之后便可以开始调试了，具体怎么调试就是另一个问题了。</p>
+<p><strong>一些问题：</strong></p>
+<p><em>第一个问题：</em></p>
+<p>我遇到的第一个问题就是IDA反映了这么一段话：</p>
+<p>The file cant be loaded by the debugger plugin.</p>
+<p>Please verify that the parameters are valid.</p>
+<p>调试器插件无法加载文件，请验证参数是否有效。</p>
+<p>我解决这个问题的方法是关闭了防火墙，大概放开端口也可以解决。</p>
+<p>Ubuntu关闭防火墙：【sudo ufw disable】</p>
+<p>Ubuntu打开防火墙：【sudo ufw enable】</p>
+<p>Ubuntu开启端口：【sudo ufw allow 端口号】</p>
+<p><em>第二个问题：</em></p>
+<p><img src="/p/%E7%94%B1%E4%B8%80%E9%81%93%E9%80%86%E5%90%91%E9%A2%98%E8%80%8C%E5%BC%95%E5%8F%91ida%E8%B0%83%E8%AF%95elf%E6%96%87%E4%BB%B6/1858293-20200419181855218-1177897661.png"
+	width="514"
+	height="16"
+	srcset="/p/%E7%94%B1%E4%B8%80%E9%81%93%E9%80%86%E5%90%91%E9%A2%98%E8%80%8C%E5%BC%95%E5%8F%91ida%E8%B0%83%E8%AF%95elf%E6%96%87%E4%BB%B6/1858293-20200419181855218-1177897661_hu4585176298710701305.png 480w, /p/%E7%94%B1%E4%B8%80%E9%81%93%E9%80%86%E5%90%91%E9%A2%98%E8%80%8C%E5%BC%95%E5%8F%91ida%E8%B0%83%E8%AF%95elf%E6%96%87%E4%BB%B6/1858293-20200419181855218-1177897661_hu5136211410314530081.png 1024w"
+	loading="lazy"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="3212"
+		data-flex-basis="7710px"
+	
+></p>
+<p>这个是因为填写的ip地址不正确，至于为什么填了个这个，是因为我第一次ifconfig的时候没有ip地址…</p>
+<p><em>第三个问题：</em></p>
+<p><img src="/p/%E7%94%B1%E4%B8%80%E9%81%93%E9%80%86%E5%90%91%E9%A2%98%E8%80%8C%E5%BC%95%E5%8F%91ida%E8%B0%83%E8%AF%95elf%E6%96%87%E4%BB%B6/1858293-20200419181855404-1080253292.png"
+	width="480"
+	height="19"
+	srcset="/p/%E7%94%B1%E4%B8%80%E9%81%93%E9%80%86%E5%90%91%E9%A2%98%E8%80%8C%E5%BC%95%E5%8F%91ida%E8%B0%83%E8%AF%95elf%E6%96%87%E4%BB%B6/1858293-20200419181855404-1080253292_hu2448830128938999638.png 480w, /p/%E7%94%B1%E4%B8%80%E9%81%93%E9%80%86%E5%90%91%E9%A2%98%E8%80%8C%E5%BC%95%E5%8F%91ida%E8%B0%83%E8%AF%95elf%E6%96%87%E4%BB%B6/1858293-20200419181855404-1080253292_hu12864107637067592141.png 1024w"
+	loading="lazy"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="2526"
+		data-flex-basis="6063px"
+	
+></p>
+<p>这个也是因为输错了ip，不过这次不是localhost了，是我另外的虚拟机的。</p>
+<ol>
+<li><strong>VMware下我的Ubuntu虚拟机没有IP地址解决方案</strong></li>
+</ol>
+<p>在我尝试连接虚拟机的时候，第一次并没有填写正确的ip地址，因为根本没有给我。</p>
+<p>在网上找解决方案，看到一个人的博客里写着自己修改了开机选项，关闭了一些选项，把他们开启就好了：<a class="link" href="https://blog.csdn.net/qq_38222534/article/details/80635272"  target="_blank" rel="noopener"
+    >https://blog.csdn.net/qq_38222534/article/details/80635272</a></p>
+<p>最后，你问我这题怎么做？</p>
+<p>那得等我用熟动态调试才行。</p>
+
+</section>
+
+
+    <footer class="article-footer">
+    
+
+    </footer>
+
+
+    
+</article>
+
+    
+
+    
+
+<aside class="related-content--wrapper">
+    <h2 class="section-title">相关文章</h2>
+    <div class="related-content">
+        <div class="flex article-list--tile">
+            
+                
+<article class="">
+    <a href="/p/%E4%B8%AA%E4%BA%BA%E5%90%91ctf%E6%AF%94%E8%B5%9B%E5%87%BA%E7%9A%84%E4%B8%80%E9%81%93%E9%80%86%E5%90%91%E6%B8%B8%E6%88%8F%E9%A2%98gametime%E9%A2%98%E8%A7%A3/">
+        
+        
+
+        <div class="article-details">
+            <h2 class="article-title">【个人向】ctf比赛出的一道逆向游戏题——GameTime题解</h2>
+        </div>
+    </a>
+</article>
+
+            
+                
+<article class="">
+    <a href="/p/handler%E8%BF%9B%E8%A1%8C%E5%A0%86%E5%8F%A0%E6%B3%A8%E5%85%A5/">
+        
+        
+
+        <div class="article-details">
+            <h2 class="article-title">HANDLER进行堆叠注入</h2>
+        </div>
+    </a>
+</article>
+
+            
+                
+<article class="">
+    <a href="/p/cdut%E7%AC%AC%E4%B8%80%E5%B1%8A%E4%BF%A1%E5%AE%89%E5%A4%A7%E6%8C%91%E6%88%98re-wp/">
+        
+        
+
+        <div class="article-details">
+            <h2 class="article-title">CDUT第一届信安大挑战Re-wp</h2>
+        </div>
+    </a>
+</article>
+
+            
+                
+<article class="">
+    <a href="/p/nu1lbook%E7%AC%AC%E4%B8%80%E7%AB%A0wp/">
+        
+        
+
+        <div class="article-details">
+            <h2 class="article-title">Nu1LBook第一章wp</h2>
+        </div>
+    </a>
+</article>
+
+            
+                
+<article class="">
+    <a href="/p/mrctfxor/">
+        
+        
+
+        <div class="article-details">
+            <h2 class="article-title">【MRCTF】Xor</h2>
+        </div>
+    </a>
+</article>
+
+            
+        </div>
+    </div>
+</aside>
+
+     
+    
+        
+    <script src="https://utteranc.es/client.js" 
+        repo="DorinXL/dorinxl.github.io"
+        issue-term="pathname"
+        
+        crossorigin="anonymous"
+        async
+        >
+</script>
+
+<style>
+    .utterances {
+        max-width: unset;
+    }
+</style>
+
+<script>
+    let utterancesLoaded = false;
+
+    function setUtterancesTheme(theme) {
+        let utterances = document.querySelector('.utterances iframe');
+        if (utterances) {
+            utterances.contentWindow.postMessage(
+                {
+                    type: 'set-theme',
+                    theme: `github-${theme}`
+                },
+                'https://utteranc.es'
+            );
+        }
+    }
+
+    addEventListener('message', event => {
+        if (event.origin !== 'https://utteranc.es') return;
+
+        
+        utterancesLoaded = true;
+        setUtterancesTheme(document.documentElement.dataset.scheme)
+    });
+
+    window.addEventListener('onColorSchemeChange', (e) => {
+        if (!utterancesLoaded) return;
+        setUtterancesTheme(e.detail)
+    })
+</script>
+
+
+    
+
+    <footer class="site-footer">
+    <section class="copyright">
+        &copy; 
+        
+        2024 荡影-DorinXL
+    </section>
+
+
+
+<section class="totalcount">
+    
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+    发表了76篇文章 · 
+    总计103.89k字
+</section>
+
+
+
+<section class="running-time">
+本博客已稳定运行
+<span id="runningdays" class="running-days"></span>
+</section>
+
+    <section class="powerby">
+        使用 <a href="https://gohugo.io/" target="_blank" rel="noopener">Hugo</a> 构建 <br />
+        主题 <b><a href="https://github.com/CaiJimmy/hugo-theme-stack" target="_blank" rel="noopener" data-version="3.26.0">Stack</a></b> 由 <a href="https://jimmycai.com" target="_blank" rel="noopener">Jimmy</a> 设计
+    </section>
+
+</footer>
+
+
+    
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+    
+    <div class="pswp__bg"></div>
+
+    
+    <div class="pswp__scroll-wrap">
+
+        
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+
+        
+        <div class="pswp__ui pswp__ui--hidden">
+
+            <div class="pswp__top-bar">
+
+                
+
+                <div class="pswp__counter"></div>
+
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+                
+                
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                        <div class="pswp__preloader__cut">
+                            <div class="pswp__preloader__donut"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div>
+            </div>
+
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div><script 
+                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.js"integrity="sha256-ePwmChbbvXbsO02lbM3HoHbSHTHFAeChekF1xKJdleo="crossorigin="anonymous"
+                defer
+                >
+            </script><script 
+                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe-ui-default.min.js"integrity="sha256-UKkzOn/w1mBxRmLLGrSeyB4e1xbrp4xylgAWb3M42pU="crossorigin="anonymous"
+                defer
+                >
+            </script><link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/default-skin/default-skin.min.css"crossorigin="anonymous"
+            ><link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.css"crossorigin="anonymous"
+            >
+
+            </main>
+        </div>
+        <script 
+                src="https://cdn.jsdelivr.net/npm/node-vibrant@3.1.6/dist/vibrant.min.js"integrity="sha256-awcR2jno4kI5X0zL8ex0vi2z&#43;KMkF24hUW8WePSA9HM="crossorigin="anonymous"
+                
+                >
+            </script><script type="text/javascript" src="/ts/main.js" defer></script>
+<script>
+    (function () {
+        const customFont = document.createElement('link');
+        customFont.href = "https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap";
+
+        customFont.type = "text/css";
+        customFont.rel = "stylesheet";
+
+        document.head.appendChild(customFont);
+    }());
+</script>
+
+<script>
+    let s1 = '2024-8-25'; 
+    s1 = new Date(s1.replace(/-/g, "/"));
+    let s2 = new Date();
+    let timeDifference = s2.getTime() - s1.getTime();
+
+    let days = Math.floor(timeDifference / (1000 * 60 * 60 * 24));
+    let hours = Math.floor((timeDifference % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+    let minutes = Math.floor((timeDifference % (1000 * 60 * 60)) / (1000 * 60));
+
+    let result = days + "天" + hours + "小时" + minutes + "分钟";
+    document.getElementById('runningdays').innerHTML = result;
+</script>
+    </body>
+</html>

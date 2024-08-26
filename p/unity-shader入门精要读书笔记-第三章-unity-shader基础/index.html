@@ -1,0 +1,1169 @@
+<!DOCTYPE html>
+<html lang="zh-cn" dir="ltr">
+    <head><meta charset='utf-8'>
+<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content="Unity Shader入门精要读书笔记 第三章 Unity Shader基础 前言 Unity Shader的出现就是为了提供一个地方能够让开发者更轻松的管理着色器代码以及渲染">
+<title>Unity Shader入门精要读书笔记 第三章 Unity Shader基础</title>
+
+<link rel='canonical' href='https://dorinxl.github.io/p/unity-shader%E5%85%A5%E9%97%A8%E7%B2%BE%E8%A6%81%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0-%E7%AC%AC%E4%B8%89%E7%AB%A0-unity-shader%E5%9F%BA%E7%A1%80/'>
+
+<link rel="stylesheet" href="/scss/style.min.dfb009e658ec6e0f0f0c366b98658c0caea5123dcd2536f353c92c2581b79fb7.css"><meta property='og:title' content="Unity Shader入门精要读书笔记 第三章 Unity Shader基础">
+<meta property='og:description' content="Unity Shader入门精要读书笔记 第三章 Unity Shader基础 前言 Unity Shader的出现就是为了提供一个地方能够让开发者更轻松的管理着色器代码以及渲染">
+<meta property='og:url' content='https://dorinxl.github.io/p/unity-shader%E5%85%A5%E9%97%A8%E7%B2%BE%E8%A6%81%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0-%E7%AC%AC%E4%B8%89%E7%AB%A0-unity-shader%E5%9F%BA%E7%A1%80/'>
+<meta property='og:site_name' content='荡影-DorinXL'>
+<meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:published_time' content='2022-07-03T15:48:00&#43;00:00'/><meta property='article:modified_time' content='2022-07-03T15:48:00&#43;00:00'/>
+<meta name="twitter:title" content="Unity Shader入门精要读书笔记 第三章 Unity Shader基础">
+<meta name="twitter:description" content="Unity Shader入门精要读书笔记 第三章 Unity Shader基础 前言 Unity Shader的出现就是为了提供一个地方能够让开发者更轻松的管理着色器代码以及渲染">
+    <link rel="shortcut icon" href="/favicon.ico" />
+
+  
+
+
+    </head>
+    <body class="
+    article-page
+    ">
+    <script>
+        (function() {
+            const colorSchemeKey = 'StackColorScheme';
+            if(!localStorage.getItem(colorSchemeKey)){
+                localStorage.setItem(colorSchemeKey, "auto");
+            }
+        })();
+    </script><script>
+    (function() {
+        const colorSchemeKey = 'StackColorScheme';
+        const colorSchemeItem = localStorage.getItem(colorSchemeKey);
+        const supportDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches === true;
+
+        if (colorSchemeItem == 'dark' || colorSchemeItem === 'auto' && supportDarkMode) {
+            
+
+            document.documentElement.dataset.scheme = 'dark';
+        } else {
+            document.documentElement.dataset.scheme = 'light';
+        }
+    })();
+</script>
+<div class="container main-container flex on-phone--column extended"><aside class="sidebar left-sidebar sticky ">
+    <button class="hamburger hamburger--spin" type="button" id="toggle-menu" aria-label="切换菜单">
+        <span class="hamburger-box">
+            <span class="hamburger-inner"></span>
+        </span>
+    </button>
+
+    <header>
+        
+            
+            <figure class="site-avatar">
+                <a href="/">
+                
+                    
+                    
+                    
+                        
+                        <img src="/img/avatar_hu6744900124519508638.png" width="300"
+                            height="283" class="site-logo" loading="lazy" alt="Avatar">
+                    
+                
+                </a>
+                
+                    <span class="emoji">🔥</span>
+                
+            </figure>
+            
+        
+        
+        <div class="site-meta">
+            <h1 class="site-name"><a href="/">荡影-DorinXL</a></h1>
+            <h2 class="site-description">缄默慎独，不破不立，事在人为</h2>
+        </div>
+    </header><ol class="menu-social">
+            
+                <li>
+                    <a 
+                        href='https://space.bilibili.com/3217550'
+                        target="_blank"
+                        title="BilBili"
+                        rel="me"
+                    >
+                        
+                        
+                            <svg  xmlns="http://www.w3.org/2000/svg"  width="24"  height="24"  viewBox="0 0 24 24"  fill="none"  stroke="currentColor"  stroke-width="2"  stroke-linecap="round"  stroke-linejoin="round"  class="icon icon-tabler icons-tabler-outline icon-tabler-brand-bilibili"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M3 10a4 4 0 0 1 4 -4h10a4 4 0 0 1 4 4v6a4 4 0 0 1 -4 4h-10a4 4 0 0 1 -4 -4v-6z" /><path d="M8 3l2 3" /><path d="M16 3l-2 3" /><path d="M9 13v-2" /><path d="M15 11v2" /></svg>
+                        
+                    </a>
+                </li>
+            
+                <li>
+                    <a 
+                        href='https://www.cnblogs.com/DorinXL/'
+                        target="_blank"
+                        title="CNblog"
+                        rel="me"
+                    >
+                        
+                        
+                            <svg  xmlns="http://www.w3.org/2000/svg"  width="24"  height="24"  viewBox="0 0 24 24"  fill="none"  stroke="currentColor"  stroke-width="2"  stroke-linecap="round"  stroke-linejoin="round"  class="icon icon-tabler icons-tabler-outline icon-tabler-brand-blogger"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M8 21h8a5 5 0 0 0 5 -5v-3a3 3 0 0 0 -3 -3h-1v-2a5 5 0 0 0 -5 -5h-4a5 5 0 0 0 -5 5v8a5 5 0 0 0 5 5z" /><path d="M7 7m0 1.5a1.5 1.5 0 0 1 1.5 -1.5h3a1.5 1.5 0 0 1 1.5 1.5v0a1.5 1.5 0 0 1 -1.5 1.5h-3a1.5 1.5 0 0 1 -1.5 -1.5z" /><path d="M7 14m0 1.5a1.5 1.5 0 0 1 1.5 -1.5h7a1.5 1.5 0 0 1 1.5 1.5v0a1.5 1.5 0 0 1 -1.5 1.5h-7a1.5 1.5 0 0 1 -1.5 -1.5z" /></svg>
+                        
+                    </a>
+                </li>
+            
+                <li>
+                    <a 
+                        href='https://github.com/DorinXL/DorinXL.github.io'
+                        target="_blank"
+                        title="GitHub"
+                        rel="me"
+                    >
+                        
+                        
+                            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-brand-github" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+  <path d="M9 19c-4.3 1.4 -4.3 -2.5 -6 -3m12 5v-3.5c0 -1 .1 -1.4 -.5 -2c2.8 -.3 5.5 -1.4 5.5 -6a4.6 4.6 0 0 0 -1.3 -3.2a4.2 4.2 0 0 0 -.1 -3.2s-1.1 -.3 -3.5 1.3a12.3 12.3 0 0 0 -6.2 0c-2.4 -1.6 -3.5 -1.3 -3.5 -1.3a4.2 4.2 0 0 0 -.1 3.2a4.6 4.6 0 0 0 -1.3 3.2c0 4.6 2.7 5.7 5.5 6c-.6 .6 -.6 1.2 -.5 2v3.5" />
+</svg>
+
+
+
+                        
+                    </a>
+                </li>
+            
+        </ol><ol class="menu" id="main-menu">
+        
+        
+        
+        <li >
+            <a href='/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-home" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <polyline points="5 12 3 12 12 3 21 12 19 12" />
+  <path d="M5 12v7a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-7" />
+  <path d="M9 21v-6a2 2 0 0 1 2 -2h2a2 2 0 0 1 2 2v6" />
+</svg>
+
+
+
+                
+                <span>主页</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/%E5%85%B3%E4%BA%8E/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-user" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="7" r="4" />
+  <path d="M6 21v-2a4 4 0 0 1 4 -4h4a4 4 0 0 1 4 4v2" />
+</svg>
+
+
+
+                
+                <span>关于</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/archives/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-archive" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <rect x="3" y="4" width="18" height="4" rx="2" />
+  <path d="M5 8v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-10" />
+  <line x1="10" y1="12" x2="14" y2="12" />
+</svg>
+
+
+
+                
+                <span>归档</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/search/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-search" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="10" cy="10" r="7" />
+  <line x1="21" y1="21" x2="15" y2="15" />
+</svg>
+
+
+
+                
+                <span>搜索</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/%E5%8F%8B%E9%93%BE/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-link" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <path d="M10 14a3.5 3.5 0 0 0 5 0l4 -4a3.5 3.5 0 0 0 -5 -5l-.5 .5" />
+  <path d="M14 10a3.5 3.5 0 0 0 -5 0l-4 4a3.5 3.5 0 0 0 5 5l.5 -.5" />
+</svg>
+
+
+
+                
+                <span>友链</span>
+            </a>
+        </li>
+        
+        <li class="menu-bottom-section">
+            <ol class="menu">
+
+                
+                    <li id="dark-mode-toggle">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-left" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="8" cy="12" r="2" />
+  <rect x="2" y="6" width="20" height="12" rx="6" />
+</svg>
+
+
+
+                        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-right" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="16" cy="12" r="2" />
+  <rect x="2" y="6" width="20" height="12" rx="6" />
+</svg>
+
+
+
+                        <span>暗色模式</span>
+                    </li>
+                
+            </ol>
+        </li>
+    </ol>
+</aside>
+
+    <aside class="sidebar right-sidebar sticky">
+        
+            
+                
+    <section class="widget archives">
+        <div class="widget-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-hash" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <line x1="5" y1="9" x2="19" y2="9" />
+  <line x1="5" y1="15" x2="19" y2="15" />
+  <line x1="11" y1="4" x2="7" y2="20" />
+  <line x1="17" y1="4" x2="13" y2="20" />
+</svg>
+
+
+
+        </div>
+        <h2 class="widget-title section-title">目录</h2>
+        
+        <div class="widget--toc">
+            <nav id="TableOfContents">
+  <ol>
+    <li><a href="#前言">前言</a></li>
+    <li><a href="#31-unity-shader概述">3.1 Unity Shader概述</a>
+      <ol>
+        <li><a href="#311-材质和unity-shader">3.1.1 材质和Unity Shader</a></li>
+        <li><a href="#312-unity中的材质">3.1.2 Unity中的材质</a></li>
+        <li><a href="#313-unity中的shader">3.1.3 Unity中的Shader</a></li>
+      </ol>
+    </li>
+    <li><a href="#32-unity-shader的基础shaderlab">3.2 Unity Shader的基础：ShaderLab</a></li>
+    <li><a href="#33-unity-shader的结构">3.3 Unity Shader的结构</a>
+      <ol>
+        <li><a href="#331-给shader起名字">3.3.1 给Shader起名字</a></li>
+        <li><a href="#332-材质和unity-shader的桥梁properties">3.3.2 材质和Unity Shader的桥梁：Properties</a></li>
+        <li><a href="#333-重量级成员subshader">3.3.3 重量级成员：SubShader</a></li>
+        <li><a href="#334-留后路fallback">3.3.4 留后路：Fallback</a></li>
+        <li><a href="#335-其他语义">3.3.5 其他语义</a></li>
+      </ol>
+    </li>
+    <li><a href="#34-unity-shader的形式">3.4 Unity Shader的形式</a>
+      <ol>
+        <li><a href="#341-表面着色器">3.4.1 表面着色器</a></li>
+        <li><a href="#342-顶点片元着色器">3.4.2 顶点/片元着色器</a></li>
+        <li><a href="#343-固定函数着色器">3.4.3 固定函数着色器</a></li>
+      </ol>
+    </li>
+    <li><a href="#36-注意的地方">3.6 注意的地方</a></li>
+    <li><a href="#37-资料">3.7 资料</a></li>
+  </ol>
+</nav>
+        </div>
+    </section>
+
+            
+        
+    </aside>
+
+
+            <main class="main full-width">
+    <article class="main-article">
+    <header class="article-header">
+
+    <div class="article-details">
+    
+    <header class="article-category">
+        
+            <a href="/categories/%E6%B8%B8%E6%88%8F%E5%BC%80%E5%8F%91/" >
+                游戏开发
+            </a>
+        
+            <a href="/categories/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/" >
+                读书笔记
+            </a>
+        
+    </header>
+    
+
+    <div class="article-title-wrapper">
+        <h2 class="article-title">
+            <a href="/p/unity-shader%E5%85%A5%E9%97%A8%E7%B2%BE%E8%A6%81%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0-%E7%AC%AC%E4%B8%89%E7%AB%A0-unity-shader%E5%9F%BA%E7%A1%80/">Unity Shader入门精要读书笔记 第三章 Unity Shader基础</a>
+        </h2>
+    
+        
+    </div>
+
+
+    
+    
+    
+    
+    <footer class="article-time">
+        
+            <div>
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-calendar-time" width="56" height="56" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <path d="M11.795 21h-6.795a2 2 0 0 1 -2 -2v-12a2 2 0 0 1 2 -2h12a2 2 0 0 1 2 2v4" />
+  <circle cx="18" cy="18" r="4" />
+  <path d="M15 3v4" />
+  <path d="M7 3v4" />
+  <path d="M3 11h16" />
+  <path d="M18 16.496v1.504l1 1" />
+</svg>
+                <time class="article-time--published">2022-07-03</time>
+            </div>
+	
+
+        
+
+        
+    </footer>
+    
+
+    
+
+</div>
+
+</header>
+
+    <section class="article-content">
+    
+    
+    <h1 id="unity-shader入门精要读书笔记-第三章-unity-shader基础">Unity Shader入门精要读书笔记 第三章 Unity Shader基础
+</h1><h2 id="前言">前言
+</h2><p>Unity Shader的出现就是为了提供一个地方能够让开发者更轻松的管理着色器代码以及渲染设置，而不需要同各种shader文件一样管理多个文件、函数等。</p>
+<h2 id="31-unity-shader概述">3.1 Unity Shader概述
+</h2><h3 id="311-材质和unity-shader">3.1.1 材质和Unity Shader
+</h3><p>​	在Unity中，我们需要配合使用材质(Material)和Unity Shader才能达到需要的效果。Unity Shader定义渲染所需的代码、属性和指令，而材质允许我们自己调节这些属性，并赋给相应的模型。</p>
+<h3 id="312-unity中的材质">3.1.2 Unity中的材质
+</h3><p>​	Unity中的材质需要结合一个GameObject的mesh或者Particle Systems(粒子系统)来工作。</p>
+<h3 id="313-unity中的shader">3.1.3 Unity中的Shader
+</h3><p>​	Unity中的shader文件同渲染管线的shader不同，所以笔记中会同原著一样称为<strong>Unity Shader</strong>。</p>
+<p>​	在创建Unity Shader时，unity为我们提供了四种模板：</p>
+<p>​</p>
+<div class="table-wrapper"><table>
+<thead>
+<tr>
+<th>Standard Surface Shader</th>
+<th>产生一个包含标准光照模型的表面着色器模板</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Unlit Shader</td>
+<td>不包含光照（但包含雾效）的基本的顶点/片元着色器</td>
+</tr>
+<tr>
+<td>Image Effect Shader</td>
+<td>为各种屏幕后处理效果提供基本模板</td>
+</tr>
+<tr>
+<td>Compute Shader</td>
+<td>利用GPC的并行性来进行一些与常规渲染流水线无关的计算</td>
+</tr>
+</tbody>
+</table></div>
+<p>​	由于《入门精要》这本书重点在如何在Unity中编写顶点/片元着色器，后续学习中通常会用Unlit Shader来生成一个基本的顶点/片元着色器模板。</p>
+<p>​	单独的Unity Shader不能发挥作用，必须同材质material结合起来。其本质上是一个文本文件，Unity Shader的导入设置面板可以看到该shader的一些相关信息（例如是否是固定函数着色器(fixed function)、是否投射阴影(cast shadows)、使用的渲染队列(Render queue)、属性(properties)列表等）。</p>
+<h2 id="32-unity-shader的基础shaderlab">3.2 Unity Shader的基础：ShaderLab
+</h2><p>​	Unity专门提供了一种为Unity Shader服务的语言——<strong>ShaderLab</strong>，Unity Shader为控制渲染过程提供了一层抽象，帮助开发者更简单的完成工作。ShaderLab时Unity提供的编写Unity Shader的一种说明性语言，使用一些嵌套在花括号内的语义来描述一个Unity Shader文件的结构。类似CgFX和Direct3D Effects(.FX)语言，定义了显示一个材质所需的所有东西，而<strong>不仅是着色器代码</strong>。</p>
+<p><img src="/p/unity-shader%E5%85%A5%E9%97%A8%E7%B2%BE%E8%A6%81%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0-%E7%AC%AC%E4%B8%89%E7%AB%A0-unity-shader%E5%9F%BA%E7%A1%80/1858293-20220703234038360-2058615356.png"
+	width="763"
+	height="361"
+	srcset="/p/unity-shader%E5%85%A5%E9%97%A8%E7%B2%BE%E8%A6%81%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0-%E7%AC%AC%E4%B8%89%E7%AB%A0-unity-shader%E5%9F%BA%E7%A1%80/1858293-20220703234038360-2058615356_hu3368549788139081952.png 480w, /p/unity-shader%E5%85%A5%E9%97%A8%E7%B2%BE%E8%A6%81%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0-%E7%AC%AC%E4%B8%89%E7%AB%A0-unity-shader%E5%9F%BA%E7%A1%80/1858293-20220703234038360-2058615356_hu7538809761253536864.png 1024w"
+	loading="lazy"
+	
+		alt="image-20220702001109888"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="211"
+		data-flex-basis="507px"
+	
+></p>
+<p>​	一个Unity Shader的基础结构如下：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">Shader &#34;ShaderName&#34;{
+</span></span><span class="line"><span class="cl">	Properties{
+</span></span><span class="line"><span class="cl">		//属性
+</span></span><span class="line"><span class="cl">	}
+</span></span><span class="line"><span class="cl">	SubShader{
+</span></span><span class="line"><span class="cl">		//显卡A使用的子着色器
+</span></span><span class="line"><span class="cl">	}
+</span></span><span class="line"><span class="cl">		SubShader{
+</span></span><span class="line"><span class="cl">		//显卡B使用的子着色器
+</span></span><span class="line"><span class="cl">	}
+</span></span><span class="line"><span class="cl">	Fallback &#34;VertexLit&#34;
+</span></span><span class="line"><span class="cl">}
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>​	Unity会在背后根据使用的平台将这些结构编译成真正的代码和Shader文件，开发者只需要和Unity Shader打交道就行。</p>
+<h2 id="33-unity-shader的结构">3.3 Unity Shader的结构
+</h2><h3 id="331-给shader起名字">3.3.1 给Shader起名字
+</h3><p>​	用	<code>Shader &quot;name&quot;{ }</code>就可以给Unity Shader命名，同时会出现在材质面板的下拉列表里。</p>
+<p>​	也可以添加前缀来有序组织位置分布，例如<code>Shader &quot;Custom/MyShader&quot;{}</code>的效果如图：</p>
+<p><img src="/p/unity-shader%E5%85%A5%E9%97%A8%E7%B2%BE%E8%A6%81%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0-%E7%AC%AC%E4%B8%89%E7%AB%A0-unity-shader%E5%9F%BA%E7%A1%80/1858293-20220703234039393-605995405.png"
+	width="308"
+	height="319"
+	srcset="/p/unity-shader%E5%85%A5%E9%97%A8%E7%B2%BE%E8%A6%81%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0-%E7%AC%AC%E4%B8%89%E7%AB%A0-unity-shader%E5%9F%BA%E7%A1%80/1858293-20220703234039393-605995405_hu6505058552519215297.png 480w, /p/unity-shader%E5%85%A5%E9%97%A8%E7%B2%BE%E8%A6%81%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0-%E7%AC%AC%E4%B8%89%E7%AB%A0-unity-shader%E5%9F%BA%E7%A1%80/1858293-20220703234039393-605995405_hu11299695599508403216.png 1024w"
+	loading="lazy"
+	
+		alt="image-20220702001328694"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="96"
+		data-flex-basis="231px"
+	
+></p>
+<h3 id="332-材质和unity-shader的桥梁properties">3.3.2 材质和Unity Shader的桥梁：Properties
+</h3><p>​	Properties中包含一系列属性，这些属性会出现在材质面板中。</p>
+<p>​	其定义方式为 <code>_名字(&quot;面板属性名&quot;,类型)=默认值</code>，如：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">Properties{
+</span></span><span class="line"><span class="cl">	Name(&#34;Display name&#34;,propertyType) = DefaultValue
+</span></span><span class="line"><span class="cl">	Name(&#34;Display name&#34;,propertyType) = DefaultValue
+</span></span><span class="line"><span class="cl">	//更多属性
+</span></span><span class="line"><span class="cl">}
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>​	属性的名字通常用一个<strong>下划线</strong>开始。显示名字是出现在材质面板上的名字，同时需要指定类型和默认值。</p>
+<p>​	以下是Properties语义块支持的属性类型:</p>
+<div class="table-wrapper"><table>
+<thead>
+<tr>
+<th style="text-align:left">属性类型</th>
+<th style="text-align:left">默认值的定义语法</th>
+<th style="text-align:left">例子</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">Int</td>
+<td style="text-align:left">number</td>
+<td style="text-align:left">_Int(&ldquo;Int&rdquo;,Int) = 2</td>
+</tr>
+<tr>
+<td style="text-align:left">Float</td>
+<td style="text-align:left">number</td>
+<td style="text-align:left">_Float(&ldquo;Float&rdquo;,Float) = 1.5</td>
+</tr>
+<tr>
+<td style="text-align:left">Range(min,max)</td>
+<td style="text-align:left">number</td>
+<td style="text-align:left">_Range(&ldquo;Range&rdquo;,Range(0.0,5.0)) = 3.0</td>
+</tr>
+<tr>
+<td style="text-align:left">Color</td>
+<td style="text-align:left">(number,number,number,number)</td>
+<td style="text-align:left">_Color(&ldquo;Color&rdquo;,Color) = (1,1,1,1)</td>
+</tr>
+<tr>
+<td style="text-align:left">Vector</td>
+<td style="text-align:left">(number,number,number,number)</td>
+<td style="text-align:left">_Vector(&ldquo;Vector&rdquo;,Vector) = (6,2,3,1)</td>
+</tr>
+<tr>
+<td style="text-align:left">2D</td>
+<td style="text-align:left">&ldquo;defaulttexture&rdquo;{}</td>
+<td style="text-align:left">_2D(&ldquo;2D&rdquo;,2D) = &ldquo;&rdquo;{}</td>
+</tr>
+<tr>
+<td style="text-align:left">Cube</td>
+<td style="text-align:left">&ldquo;defaulttexture&rdquo;{}</td>
+<td style="text-align:left">_Cube(“Cube”,Cube) = &ldquo;white&rdquo;{}</td>
+</tr>
+<tr>
+<td style="text-align:left">3D</td>
+<td style="text-align:left">&ldquo;defaulttexture&rdquo;{}</td>
+<td style="text-align:left">_3D(&ldquo;3D&rdquo;,3D) = &ldquo;black&rdquo;{}</td>
+</tr>
+</tbody>
+</table></div>
+<p>​	Int、Float、Range：数字类型的属性，默认值是单独的数字。</p>
+<p>​	Color、Vector：默认值是括号包围的四维向量。</p>
+<p>​	2D、Cube、3D：默认值是字符串和花括号，字符串要么为空，要么是内置的纹理名称；花括号用于指定一些纹理属性，在Unitu5.0之后被移除。</p>
+<h3 id="333-重量级成员subshader">3.3.3 重量级成员：SubShader
+</h3><p>​	一个Unity Shader可以包含多个SubShader语义块，至少要有一个。加载unity shader时会扫描所有SubShader，选择第一个能在目标平台运行的SubShader；如果都不支持，那么使用Fallback指定的UnityShader。</p>
+<p>​	SubShader的结构如下：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span><span class="lnt">9
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">SubShader{
+</span></span><span class="line"><span class="cl">	//可选
+</span></span><span class="line"><span class="cl">	[Tags]
+</span></span><span class="line"><span class="cl">	//可选
+</span></span><span class="line"><span class="cl">	[RenderSetup]
+</span></span><span class="line"><span class="cl">	Pass{
+</span></span><span class="line"><span class="cl">	}
+</span></span><span class="line"><span class="cl">	//其他的pass
+</span></span><span class="line"><span class="cl">}
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>​	挨个介绍：</p>
+<ol>
+<li>
+<p>标签Tags和状态RenderSetup都是可选的，在SubShader中的设置会适用到所有pass。</p>
+</li>
+<li>
+<p>标签Tags是一个键值对，都是字符串，<em>代表着SubShader希望以怎样、何时来渲染此对象。</em></p>
+</li>
+<li>
+<p>状态RenderSetup可以<em>设置显卡的各种状态</em>，并应用到所有的pass。</p>
+</li>
+<li>
+<p>Pass语义块则是<em>一次<strong>完整的渲染流程</strong></em></p>
+<p>来说说Pass：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">Pass{
+</span></span><span class="line"><span class="cl">	[Name]
+</span></span><span class="line"><span class="cl">	[Tags]
+</span></span><span class="line"><span class="cl">	[RenderSetup]
+</span></span><span class="line"><span class="cl">	//code
+</span></span><span class="line"><span class="cl">}
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>显然我们可以定义pass的名称，我们也可以引用其他Unity Shader的pass，如：<code>UsePass &quot;MyShader/MYPASSNAME&quot;</code>,值得注意的是，<em>unity内部会把所有Pass名称转换为大写字母</em>，所有我们这里也要用大写字母。</p>
+<p>Pass内部也可以设置标签/渲染状态，用于告诉渲染引擎如何渲染该物体。</p>
+</li>
+</ol>
+<h3 id="334-留后路fallback">3.3.4 留后路：Fallback
+</h3><p>​	Fallback规定了当所有的SubShader都不能在显卡上运行的时候所使用的Shader。</p>
+<p>​	开发者可以关闭Fallback，但是这会影响投影的投射。因为Fallback使用的内置shader包含了一个通用的Pass，这会造成阴影投射的效果。</p>
+<h3 id="335-其他语义">3.3.5 其他语义
+</h3><p>​	比如CustomEditor语言扩展自定义编辑界面。</p>
+<p>​	比如Category语义对Unity Shader中的命令分组。</p>
+<h2 id="34-unity-shader的形式">3.4 Unity Shader的形式
+</h2><p>​	在Unity中有三种形式来编写Unity Shader：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">Shader &#34;MyShader&#34;{
+</span></span><span class="line"><span class="cl">	Properties{
+</span></span><span class="line"><span class="cl">		//所需的各种属性
+</span></span><span class="line"><span class="cl">	}
+</span></span><span class="line"><span class="cl">	SubShader{
+</span></span><span class="line"><span class="cl">		//真正意义上的Shader代码会出现在这里
+</span></span><span class="line"><span class="cl">		//表面着色器（Subface Shader） 或者
+</span></span><span class="line"><span class="cl">		//顶点/片元着色器（Vertex/Fragment Shader） 或者
+</span></span><span class="line"><span class="cl">		//固定函数着色器（Fixed Function Shader）
+</span></span><span class="line"><span class="cl">	}
+</span></span><span class="line"><span class="cl">	SubShader{
+</span></span><span class="line"><span class="cl">		//同上
+</span></span><span class="line"><span class="cl">	}
+</span></span><span class="line"><span class="cl">}
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h3 id="341-表面着色器">3.4.1 表面着色器
+</h3><p>​	**表面着色器（Sruface Shader）**是Unity自己创造的一种着色器代码类型，代码量少；本质上还是顶点/片元着色器，可以看作是Unity对顶点/片元着色器的高层抽象。</p>
+<p>​	表面着色器的价值在于Unity帮我们处理了很多光照细节。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">Shader &#34;Custom/Simple Surface shader&#34; {
+</span></span><span class="line"><span class="cl">	Subshader{
+</span></span><span class="line"><span class="cl">		Tags {&#34;RenderType&#34; = &#34;opaque&#34; }
+</span></span><span class="line"><span class="cl">		CGPROGRAM
+</span></span><span class="line"><span class="cl">		#pragma surface surf Lambert
+</span></span><span class="line"><span class="cl">		struct Input {
+</span></span><span class="line"><span class="cl">			float4 color : COLOR;
+</span></span><span class="line"><span class="cl">		};
+</span></span><span class="line"><span class="cl">		void surf ( Input IN, inout SurfaceOutput o){
+</span></span><span class="line"><span class="cl">			o.Albedo = 1;
+</span></span><span class="line"><span class="cl">		)
+</span></span><span class="line"><span class="cl">		ENDCG
+</span></span><span class="line"><span class="cl">	}
+</span></span><span class="line"><span class="cl">	Fallback &#34;Diffuse&#34;
+</span></span><span class="line"><span class="cl">}
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>​	表面着色器定义在SubShader中的<em>CGPROGRAM</em>和<em>ENDCG</em>中。不在Pass中是因为不关心有几个pass，Unity会做好Pass的事情。</p>
+<p>​	<em>CGPROGRAM</em>和<em>ENDCG</em>中的代码使用CG/HLSL编写。</p>
+<h3 id="342-顶点片元着色器">3.4.2 顶点/片元着色器
+</h3><p>​	基本同表面着色器一致，但是<em>CGPROGRAM</em>和<em>ENDCG</em>需要写在Pass内，用来定义每个Pass自己的代码。</p>
+<h3 id="343-固定函数着色器">3.4.3 固定函数着色器
+</h3><p>​	旧版本设备不支持可编程管线着色器，所以使用固定函数着色器。</p>
+<p>​	固定函数着色器使用ShaderLab语法而不是CG/HLSL。</p>
+<p>​	Unity5.2之后，所有固定函数着色器会在底层被编译成对应的顶点/片元着色器，真正意义上的固定函数着色器不复存在。</p>
+<h2 id="36-注意的地方">3.6 注意的地方
+</h2><p>​	3.6.1 Unity Shader不是Shader</p>
+<p>​	<strong>Unity Shader实际上是一个ShaderLab文件，以.shader为后缀名的文件。</strong></p>
+<p>​	Unity Shader<strong>高度封装</strong>，不需要编写特定类型的顶点/片元Shader，可以通过指令开启渲染设置，方便的修改一些属性。</p>
+<p>​	同时由于Unity Shader的高度封装，一些Shader类型和语法受限。</p>
+<p>​	3.6.2 Unity Shader和CG/HLSL的关系</p>
+<p>​	Unity Shader用ShaderLab语言编写，但是对于顶点/片元着色器会嵌套CG/HLSL代码来实现。</p>
+<h2 id="37-资料">3.7 资料
+</h2><p>​	官方文档：<a class="link" href="http://docs.unity3d.com/Manual/SL-Reference.html"  target="_blank" rel="noopener"
+    >http://docs.unity3d.com/Manual/SL-Reference.html</a></p>
+<p>​	官方简单着色器编写教程：<a class="link" href="http://docs.unity3d.com/Manual/ShaderTut1.html"  target="_blank" rel="noopener"
+    >http://docs.unity3d.com/Manual/ShaderTut1.html</a> <a class="link" href="http://docs.unity3d.com/Manual/ShaderTut1.html"  target="_blank" rel="noopener"
+    >http://docs.unity3d.com/Manual/ShaderTut1.html</a></p>
+<p>​	NVIDIA提供的CG文档：http://http.developer.nvidia.com/CG</p>
+<p>​	NVIDIA提供的系列教程：http://http.developer.nvidia.com/CGTutorial/cG_tutorial_chapter01.html</p>
+
+</section>
+
+
+    <footer class="article-footer">
+    
+
+    </footer>
+
+
+    
+</article>
+
+    
+
+    
+
+<aside class="related-content--wrapper">
+    <h2 class="section-title">相关文章</h2>
+    <div class="related-content">
+        <div class="flex article-list--tile">
+            
+                
+<article class="">
+    <a href="/p/%E7%B4%A0%E6%95%B0%E5%88%86%E5%B8%83%E7%9A%84%E5%9F%BA%E6%9C%AC%E5%AE%9A%E7%90%86%E4%B8%80/">
+        
+        
+
+        <div class="article-details">
+            <h2 class="article-title">素数分布的基本定理（一）</h2>
+        </div>
+    </a>
+</article>
+
+            
+                
+<article class="">
+    <a href="/p/%E5%87%A0%E4%B8%AA%E5%87%BD%E6%95%B0%E7%9A%84%E5%B9%B3%E5%9D%87%E9%98%B6/">
+        
+        
+
+        <div class="article-details">
+            <h2 class="article-title">几个函数的平均阶</h2>
+        </div>
+    </a>
+</article>
+
+            
+                
+<article class="">
+    <a href="/p/%E8%A7%A3%E6%9E%90%E6%95%B0%E8%AE%BA%E4%B9%8B%E6%9C%89%E9%99%90%E9%98%BF%E8%B4%9D%E5%B0%94%E7%BE%A4%E5%8F%8A%E5%85%B6%E7%89%B9%E5%BE%81%E7%8B%84%E5%88%A9%E5%85%8B%E9%9B%B7%E7%89%B9%E5%BE%81/">
+        
+        
+
+        <div class="article-details">
+            <h2 class="article-title">解析数论之有限阿贝尔群及其特征、狄利克雷特征</h2>
+        </div>
+    </a>
+</article>
+
+            
+                
+<article class="">
+    <a href="/p/%E8%A7%A3%E6%9E%90%E6%95%B0%E8%AE%BA%E4%B9%8B%E5%8E%9F%E6%A0%B9/">
+        
+        
+
+        <div class="article-details">
+            <h2 class="article-title">解析数论之原根</h2>
+        </div>
+    </a>
+</article>
+
+            
+                
+<article class="">
+    <a href="/p/%E8%A7%A3%E6%9E%90%E6%95%B0%E8%AE%BA%E4%B9%8B%E6%95%B0%E8%AE%BA%E5%87%BD%E6%95%B0%E5%85%B6%E4%B8%80/">
+        
+        
+
+        <div class="article-details">
+            <h2 class="article-title">解析数论之数论函数【其一】</h2>
+        </div>
+    </a>
+</article>
+
+            
+        </div>
+    </div>
+</aside>
+
+     
+    
+        
+    <script src="https://utteranc.es/client.js" 
+        repo="DorinXL/dorinxl.github.io"
+        issue-term="pathname"
+        
+        crossorigin="anonymous"
+        async
+        >
+</script>
+
+<style>
+    .utterances {
+        max-width: unset;
+    }
+</style>
+
+<script>
+    let utterancesLoaded = false;
+
+    function setUtterancesTheme(theme) {
+        let utterances = document.querySelector('.utterances iframe');
+        if (utterances) {
+            utterances.contentWindow.postMessage(
+                {
+                    type: 'set-theme',
+                    theme: `github-${theme}`
+                },
+                'https://utteranc.es'
+            );
+        }
+    }
+
+    addEventListener('message', event => {
+        if (event.origin !== 'https://utteranc.es') return;
+
+        
+        utterancesLoaded = true;
+        setUtterancesTheme(document.documentElement.dataset.scheme)
+    });
+
+    window.addEventListener('onColorSchemeChange', (e) => {
+        if (!utterancesLoaded) return;
+        setUtterancesTheme(e.detail)
+    })
+</script>
+
+
+    
+
+    <footer class="site-footer">
+    <section class="copyright">
+        &copy; 
+        
+        2024 荡影-DorinXL
+    </section>
+
+
+
+<section class="totalcount">
+    
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+    发表了76篇文章 · 
+    总计103.89k字
+</section>
+
+
+
+<section class="running-time">
+本博客已稳定运行
+<span id="runningdays" class="running-days"></span>
+</section>
+
+    <section class="powerby">
+        使用 <a href="https://gohugo.io/" target="_blank" rel="noopener">Hugo</a> 构建 <br />
+        主题 <b><a href="https://github.com/CaiJimmy/hugo-theme-stack" target="_blank" rel="noopener" data-version="3.26.0">Stack</a></b> 由 <a href="https://jimmycai.com" target="_blank" rel="noopener">Jimmy</a> 设计
+    </section>
+
+</footer>
+
+
+    
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+    
+    <div class="pswp__bg"></div>
+
+    
+    <div class="pswp__scroll-wrap">
+
+        
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+
+        
+        <div class="pswp__ui pswp__ui--hidden">
+
+            <div class="pswp__top-bar">
+
+                
+
+                <div class="pswp__counter"></div>
+
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+                
+                
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                        <div class="pswp__preloader__cut">
+                            <div class="pswp__preloader__donut"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div>
+            </div>
+
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div><script 
+                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.js"integrity="sha256-ePwmChbbvXbsO02lbM3HoHbSHTHFAeChekF1xKJdleo="crossorigin="anonymous"
+                defer
+                >
+            </script><script 
+                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe-ui-default.min.js"integrity="sha256-UKkzOn/w1mBxRmLLGrSeyB4e1xbrp4xylgAWb3M42pU="crossorigin="anonymous"
+                defer
+                >
+            </script><link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/default-skin/default-skin.min.css"crossorigin="anonymous"
+            ><link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.css"crossorigin="anonymous"
+            >
+
+            </main>
+        </div>
+        <script 
+                src="https://cdn.jsdelivr.net/npm/node-vibrant@3.1.6/dist/vibrant.min.js"integrity="sha256-awcR2jno4kI5X0zL8ex0vi2z&#43;KMkF24hUW8WePSA9HM="crossorigin="anonymous"
+                
+                >
+            </script><script type="text/javascript" src="/ts/main.js" defer></script>
+<script>
+    (function () {
+        const customFont = document.createElement('link');
+        customFont.href = "https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap";
+
+        customFont.type = "text/css";
+        customFont.rel = "stylesheet";
+
+        document.head.appendChild(customFont);
+    }());
+</script>
+
+<script>
+    let s1 = '2024-8-25'; 
+    s1 = new Date(s1.replace(/-/g, "/"));
+    let s2 = new Date();
+    let timeDifference = s2.getTime() - s1.getTime();
+
+    let days = Math.floor(timeDifference / (1000 * 60 * 60 * 24));
+    let hours = Math.floor((timeDifference % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+    let minutes = Math.floor((timeDifference % (1000 * 60 * 60)) / (1000 * 60));
+
+    let result = days + "天" + hours + "小时" + minutes + "分钟";
+    document.getElementById('runningdays').innerHTML = result;
+</script>
+    </body>
+</html>

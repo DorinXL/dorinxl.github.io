@@ -1,0 +1,865 @@
+<!DOCTYPE html>
+<html lang="zh-cn" dir="ltr">
+    <head><meta charset='utf-8'>
+<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content="学了几个月的unity">
+<title>【Unity】Galgame视觉小说游戏 其脚本解释器的一种实现</title>
+
+<link rel='canonical' href='https://dorinxl.github.io/p/unitygalgame%E8%A7%86%E8%A7%89%E5%B0%8F%E8%AF%B4%E6%B8%B8%E6%88%8F-%E5%85%B6%E8%84%9A%E6%9C%AC%E8%A7%A3%E9%87%8A%E5%99%A8%E7%9A%84%E4%B8%80%E7%A7%8D%E5%AE%9E%E7%8E%B0/'>
+
+<link rel="stylesheet" href="/scss/style.min.dfb009e658ec6e0f0f0c366b98658c0caea5123dcd2536f353c92c2581b79fb7.css"><meta property='og:title' content="【Unity】Galgame视觉小说游戏 其脚本解释器的一种实现">
+<meta property='og:description' content="学了几个月的unity">
+<meta property='og:url' content='https://dorinxl.github.io/p/unitygalgame%E8%A7%86%E8%A7%89%E5%B0%8F%E8%AF%B4%E6%B8%B8%E6%88%8F-%E5%85%B6%E8%84%9A%E6%9C%AC%E8%A7%A3%E9%87%8A%E5%99%A8%E7%9A%84%E4%B8%80%E7%A7%8D%E5%AE%9E%E7%8E%B0/'>
+<meta property='og:site_name' content='荡影-DorinXL'>
+<meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:published_time' content='2021-06-08T12:39:00&#43;00:00'/><meta property='article:modified_time' content='2021-06-08T12:39:00&#43;00:00'/>
+<meta name="twitter:title" content="【Unity】Galgame视觉小说游戏 其脚本解释器的一种实现">
+<meta name="twitter:description" content="学了几个月的unity">
+    <link rel="shortcut icon" href="/favicon.ico" />
+
+  
+
+
+    </head>
+    <body class="
+    article-page
+    ">
+    <script>
+        (function() {
+            const colorSchemeKey = 'StackColorScheme';
+            if(!localStorage.getItem(colorSchemeKey)){
+                localStorage.setItem(colorSchemeKey, "auto");
+            }
+        })();
+    </script><script>
+    (function() {
+        const colorSchemeKey = 'StackColorScheme';
+        const colorSchemeItem = localStorage.getItem(colorSchemeKey);
+        const supportDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches === true;
+
+        if (colorSchemeItem == 'dark' || colorSchemeItem === 'auto' && supportDarkMode) {
+            
+
+            document.documentElement.dataset.scheme = 'dark';
+        } else {
+            document.documentElement.dataset.scheme = 'light';
+        }
+    })();
+</script>
+<div class="container main-container flex on-phone--column extended"><aside class="sidebar left-sidebar sticky ">
+    <button class="hamburger hamburger--spin" type="button" id="toggle-menu" aria-label="切换菜单">
+        <span class="hamburger-box">
+            <span class="hamburger-inner"></span>
+        </span>
+    </button>
+
+    <header>
+        
+            
+            <figure class="site-avatar">
+                <a href="/">
+                
+                    
+                    
+                    
+                        
+                        <img src="/img/avatar_hu6744900124519508638.png" width="300"
+                            height="283" class="site-logo" loading="lazy" alt="Avatar">
+                    
+                
+                </a>
+                
+                    <span class="emoji">🔥</span>
+                
+            </figure>
+            
+        
+        
+        <div class="site-meta">
+            <h1 class="site-name"><a href="/">荡影-DorinXL</a></h1>
+            <h2 class="site-description">缄默慎独，不破不立，事在人为</h2>
+        </div>
+    </header><ol class="menu-social">
+            
+                <li>
+                    <a 
+                        href='https://space.bilibili.com/3217550'
+                        target="_blank"
+                        title="BilBili"
+                        rel="me"
+                    >
+                        
+                        
+                            <svg  xmlns="http://www.w3.org/2000/svg"  width="24"  height="24"  viewBox="0 0 24 24"  fill="none"  stroke="currentColor"  stroke-width="2"  stroke-linecap="round"  stroke-linejoin="round"  class="icon icon-tabler icons-tabler-outline icon-tabler-brand-bilibili"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M3 10a4 4 0 0 1 4 -4h10a4 4 0 0 1 4 4v6a4 4 0 0 1 -4 4h-10a4 4 0 0 1 -4 -4v-6z" /><path d="M8 3l2 3" /><path d="M16 3l-2 3" /><path d="M9 13v-2" /><path d="M15 11v2" /></svg>
+                        
+                    </a>
+                </li>
+            
+                <li>
+                    <a 
+                        href='https://www.cnblogs.com/DorinXL/'
+                        target="_blank"
+                        title="CNblog"
+                        rel="me"
+                    >
+                        
+                        
+                            <svg  xmlns="http://www.w3.org/2000/svg"  width="24"  height="24"  viewBox="0 0 24 24"  fill="none"  stroke="currentColor"  stroke-width="2"  stroke-linecap="round"  stroke-linejoin="round"  class="icon icon-tabler icons-tabler-outline icon-tabler-brand-blogger"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M8 21h8a5 5 0 0 0 5 -5v-3a3 3 0 0 0 -3 -3h-1v-2a5 5 0 0 0 -5 -5h-4a5 5 0 0 0 -5 5v8a5 5 0 0 0 5 5z" /><path d="M7 7m0 1.5a1.5 1.5 0 0 1 1.5 -1.5h3a1.5 1.5 0 0 1 1.5 1.5v0a1.5 1.5 0 0 1 -1.5 1.5h-3a1.5 1.5 0 0 1 -1.5 -1.5z" /><path d="M7 14m0 1.5a1.5 1.5 0 0 1 1.5 -1.5h7a1.5 1.5 0 0 1 1.5 1.5v0a1.5 1.5 0 0 1 -1.5 1.5h-7a1.5 1.5 0 0 1 -1.5 -1.5z" /></svg>
+                        
+                    </a>
+                </li>
+            
+                <li>
+                    <a 
+                        href='https://github.com/DorinXL/DorinXL.github.io'
+                        target="_blank"
+                        title="GitHub"
+                        rel="me"
+                    >
+                        
+                        
+                            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-brand-github" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+  <path d="M9 19c-4.3 1.4 -4.3 -2.5 -6 -3m12 5v-3.5c0 -1 .1 -1.4 -.5 -2c2.8 -.3 5.5 -1.4 5.5 -6a4.6 4.6 0 0 0 -1.3 -3.2a4.2 4.2 0 0 0 -.1 -3.2s-1.1 -.3 -3.5 1.3a12.3 12.3 0 0 0 -6.2 0c-2.4 -1.6 -3.5 -1.3 -3.5 -1.3a4.2 4.2 0 0 0 -.1 3.2a4.6 4.6 0 0 0 -1.3 3.2c0 4.6 2.7 5.7 5.5 6c-.6 .6 -.6 1.2 -.5 2v3.5" />
+</svg>
+
+
+
+                        
+                    </a>
+                </li>
+            
+        </ol><ol class="menu" id="main-menu">
+        
+        
+        
+        <li >
+            <a href='/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-home" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <polyline points="5 12 3 12 12 3 21 12 19 12" />
+  <path d="M5 12v7a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-7" />
+  <path d="M9 21v-6a2 2 0 0 1 2 -2h2a2 2 0 0 1 2 2v6" />
+</svg>
+
+
+
+                
+                <span>主页</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/%E5%85%B3%E4%BA%8E/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-user" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="7" r="4" />
+  <path d="M6 21v-2a4 4 0 0 1 4 -4h4a4 4 0 0 1 4 4v2" />
+</svg>
+
+
+
+                
+                <span>关于</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/archives/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-archive" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <rect x="3" y="4" width="18" height="4" rx="2" />
+  <path d="M5 8v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-10" />
+  <line x1="10" y1="12" x2="14" y2="12" />
+</svg>
+
+
+
+                
+                <span>归档</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/search/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-search" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="10" cy="10" r="7" />
+  <line x1="21" y1="21" x2="15" y2="15" />
+</svg>
+
+
+
+                
+                <span>搜索</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/%E5%8F%8B%E9%93%BE/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-link" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <path d="M10 14a3.5 3.5 0 0 0 5 0l4 -4a3.5 3.5 0 0 0 -5 -5l-.5 .5" />
+  <path d="M14 10a3.5 3.5 0 0 0 -5 0l-4 4a3.5 3.5 0 0 0 5 5l.5 -.5" />
+</svg>
+
+
+
+                
+                <span>友链</span>
+            </a>
+        </li>
+        
+        <li class="menu-bottom-section">
+            <ol class="menu">
+
+                
+                    <li id="dark-mode-toggle">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-left" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="8" cy="12" r="2" />
+  <rect x="2" y="6" width="20" height="12" rx="6" />
+</svg>
+
+
+
+                        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-right" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="16" cy="12" r="2" />
+  <rect x="2" y="6" width="20" height="12" rx="6" />
+</svg>
+
+
+
+                        <span>暗色模式</span>
+                    </li>
+                
+            </ol>
+        </li>
+    </ol>
+</aside>
+
+    <aside class="sidebar right-sidebar sticky">
+        
+            
+                
+    <section class="widget archives">
+        <div class="widget-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-hash" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <line x1="5" y1="9" x2="19" y2="9" />
+  <line x1="5" y1="15" x2="19" y2="15" />
+  <line x1="11" y1="4" x2="7" y2="20" />
+  <line x1="17" y1="4" x2="13" y2="20" />
+</svg>
+
+
+
+        </div>
+        <h2 class="widget-title section-title">目录</h2>
+        
+        <div class="widget--toc">
+            <nav id="TableOfContents">
+  <ol>
+    <li><a href="#规则与小工具">规则与小工具</a></li>
+    <li><a href="#写入excel">写入excel</a></li>
+    <li><a href="#读取excel">读取Excel</a></li>
+  </ol>
+</nav>
+        </div>
+    </section>
+
+            
+        
+    </aside>
+
+
+            <main class="main full-width">
+    <article class="main-article">
+    <header class="article-header">
+
+    <div class="article-details">
+    
+    <header class="article-category">
+        
+            <a href="/categories/%E6%B8%B8%E6%88%8F%E5%BC%80%E5%8F%91/" >
+                游戏开发
+            </a>
+        
+    </header>
+    
+
+    <div class="article-title-wrapper">
+        <h2 class="article-title">
+            <a href="/p/unitygalgame%E8%A7%86%E8%A7%89%E5%B0%8F%E8%AF%B4%E6%B8%B8%E6%88%8F-%E5%85%B6%E8%84%9A%E6%9C%AC%E8%A7%A3%E9%87%8A%E5%99%A8%E7%9A%84%E4%B8%80%E7%A7%8D%E5%AE%9E%E7%8E%B0/">【Unity】Galgame视觉小说游戏 其脚本解释器的一种实现</a>
+        </h2>
+    
+        
+        <h3 class="article-subtitle">
+            学了几个月的unity
+        </h3>
+        
+    </div>
+
+
+    
+    
+    
+    
+    <footer class="article-time">
+        
+            <div>
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-calendar-time" width="56" height="56" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <path d="M11.795 21h-6.795a2 2 0 0 1 -2 -2v-12a2 2 0 0 1 2 -2h12a2 2 0 0 1 2 2v4" />
+  <circle cx="18" cy="18" r="4" />
+  <path d="M15 3v4" />
+  <path d="M7 3v4" />
+  <path d="M3 11h16" />
+  <path d="M18 16.496v1.504l1 1" />
+</svg>
+                <time class="article-time--published">2021-06-08</time>
+            </div>
+	
+
+        
+
+        
+    </footer>
+    
+
+    
+
+</div>
+
+</header>
+
+    <section class="article-content">
+    
+    
+    <h1 id="unity脚本解释器的一种实现">【Unity】脚本解释器的一种实现
+</h1><p> </p>
+<blockquote>
+<p>Galgame引擎/框架本身就是一个解释器，解释脚本读取配置文件，进行演出。</p>
+<p>保存存档时要将当时脚本的运行状态保存下来，以便读档时继续执行，也就是脚本运行状态的序列化与反序列化。</p>
+<p>——JomiXedYu  <a class="link" href="http://www.imxqy.com/gamedev/unity/ugal.html#toc-8"  target="_blank" rel="noopener"
+    >http://www.imxqy.com/gamedev/unity/ugal.html#toc-8</a></p>
+</blockquote>
+<p> </p>
+<p>前辈所言，我深以为然。</p>
+<p>galgame的剧情，说白了就是指令操控内容。而这种文字游戏的卖点就是图像与剧情。程序显然写不出大量的剧情脚本，但是编剧也不一定会写程序。所以我决定将团队中编剧与程序彻底分离，让编剧只用excel表格就可以控制游戏流程。</p>
+<p>这样做缺点也很明显，表格之间是不存在逻辑的。只能一行一行的取出数据，执行。</p>
+<p>不过做一款视觉小说，这样的方法够用了，而且可以省下不少时间，规定一套逻辑执行语句也方便维护修改。</p>
+<p> </p>
+<h1 id="思路">思路
+</h1><p>大致来讲就是“<strong>制定规则——编剧写入excel——程序读取excel——执行</strong>”，很简单。</p>
+<p>在这个基础上我们可以添加一些其他内容，比如目前我开发的流程为：</p>
+<p><img src="/p/unitygalgame%E8%A7%86%E8%A7%89%E5%B0%8F%E8%AF%B4%E6%B8%B8%E6%88%8F-%E5%85%B6%E8%84%9A%E6%9C%AC%E8%A7%A3%E9%87%8A%E5%99%A8%E7%9A%84%E4%B8%80%E7%A7%8D%E5%AE%9E%E7%8E%B0/1858293-20210608203807228-1385463138.png"
+	width="1092"
+	height="166"
+	srcset="/p/unitygalgame%E8%A7%86%E8%A7%89%E5%B0%8F%E8%AF%B4%E6%B8%B8%E6%88%8F-%E5%85%B6%E8%84%9A%E6%9C%AC%E8%A7%A3%E9%87%8A%E5%99%A8%E7%9A%84%E4%B8%80%E7%A7%8D%E5%AE%9E%E7%8E%B0/1858293-20210608203807228-1385463138_hu6434785964173972876.png 480w, /p/unitygalgame%E8%A7%86%E8%A7%89%E5%B0%8F%E8%AF%B4%E6%B8%B8%E6%88%8F-%E5%85%B6%E8%84%9A%E6%9C%AC%E8%A7%A3%E9%87%8A%E5%99%A8%E7%9A%84%E4%B8%80%E7%A7%8D%E5%AE%9E%E7%8E%B0/1858293-20210608203807228-1385463138_hu15242380724291886223.png 1024w"
+	loading="lazy"
+	
+		alt="image-20210608202251817"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="657"
+		data-flex-basis="1578px"
+	
+></p>
+<p>我尝试写入excel一些数据，这个过程十分痛苦，就像便秘了好几天。而且会出现肉眼检查不到的错误。所以我写个小工具帮助编剧导入并保存数据到excel。</p>
+<p>关于读取数据这部分，一开始我的选择是游戏运行时读excel，但是这样做感觉很累赘，不如直接写成json然后程序去读json来的快。</p>
+<p>其实程序这方面还是有很多不足，软件的设计模式摸得不是很清楚，仍需努力（指先做出来再说）。</p>
+<p> </p>
+<h2 id="规则与小工具">规则与小工具
+</h2><p><img src="/p/unitygalgame%E8%A7%86%E8%A7%89%E5%B0%8F%E8%AF%B4%E6%B8%B8%E6%88%8F-%E5%85%B6%E8%84%9A%E6%9C%AC%E8%A7%A3%E9%87%8A%E5%99%A8%E7%9A%84%E4%B8%80%E7%A7%8D%E5%AE%9E%E7%8E%B0/1858293-20210608203807666-949828124.png"
+	width="1135"
+	height="690"
+	srcset="/p/unitygalgame%E8%A7%86%E8%A7%89%E5%B0%8F%E8%AF%B4%E6%B8%B8%E6%88%8F-%E5%85%B6%E8%84%9A%E6%9C%AC%E8%A7%A3%E9%87%8A%E5%99%A8%E7%9A%84%E4%B8%80%E7%A7%8D%E5%AE%9E%E7%8E%B0/1858293-20210608203807666-949828124_hu9613405229968905992.png 480w, /p/unitygalgame%E8%A7%86%E8%A7%89%E5%B0%8F%E8%AF%B4%E6%B8%B8%E6%88%8F-%E5%85%B6%E8%84%9A%E6%9C%AC%E8%A7%A3%E9%87%8A%E5%99%A8%E7%9A%84%E4%B8%80%E7%A7%8D%E5%AE%9E%E7%8E%B0/1858293-20210608203807666-949828124_hu15768874717462209582.png 1024w"
+	loading="lazy"
+	
+		alt="image-20210608202651494"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="164"
+		data-flex-basis="394px"
+	
+></p>
+<p>上面这张图是和编剧做好的指令规则约定以及这个小工具的界面，用选项可以帮助编剧不写入奇怪的符号或者不在范围内的规则。</p>
+<p>因为是自己写的，所以后面制定新的规则或者需求了可以很快速的修改。</p>
+<p> </p>
+<h2 id="写入excel">写入excel
+</h2><p>用微软的com组件操作excel，保存的时候直接<code>excel.Value</code>赋值。</p>
+<p>在unity中写个MenuItem，游戏运行前用<code>JsonUtility.ToJson()</code>创造j或者更新son文件。</p>
+<p> </p>
+<h2 id="读取excel">读取Excel
+</h2><p>直接<code>JsonUtility.FromJson&lt;&gt;();</code></p>
+<p>解析成一句一句话然后在游戏运行状态机需要解析的时候找到对应函数执行即可。</p>
+<p> </p>
+<h1 id="妄言妄听">妄言妄听
+</h1><p>如此这般，基本脚本解释器的思路就是这样。</p>
+<p>回看代码，深觉自身不足，无论是设计模式还是安全架构，我负责的程序只能拿个40分。</p>
+
+</section>
+
+
+    <footer class="article-footer">
+    
+
+    </footer>
+
+
+    
+</article>
+
+    
+
+    
+
+<aside class="related-content--wrapper">
+    <h2 class="section-title">相关文章</h2>
+    <div class="related-content">
+        <div class="flex article-list--tile">
+            
+                
+<article class="">
+    <a href="/p/%E4%BD%BF%E7%94%A8mixamo%E4%B8%BAobj%E6%96%87%E4%BB%B6%E7%BB%91%E9%AA%A8%E5%B9%B6%E5%AF%BC%E5%85%A5unity/">
+        
+        
+
+        <div class="article-details">
+            <h2 class="article-title">使用mixamo为obj文件绑骨并导入unity</h2>
+        </div>
+    </a>
+</article>
+
+            
+                
+<article class="">
+    <a href="/p/unity-shader%E5%85%A5%E9%97%A8%E7%B2%BE%E8%A6%81%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0-%E7%AC%AC%E4%B8%89%E7%AB%A0-unity-shader%E5%9F%BA%E7%A1%80/">
+        
+        
+
+        <div class="article-details">
+            <h2 class="article-title">Unity Shader入门精要读书笔记 第三章 Unity Shader基础</h2>
+        </div>
+    </a>
+</article>
+
+            
+                
+<article class="">
+    <a href="/p/2022javaweb%E8%AF%BE%E8%AE%BE%E5%9F%BA%E4%BA%8E%E8%B4%AD%E7%89%A9%E7%B3%BB%E7%BB%9F%E7%9A%84%E6%B8%B8%E6%88%8F%E5%8E%9F%E5%9E%8B%E8%AE%BE%E8%AE%A1/">
+        
+        
+
+        <div class="article-details">
+            <h2 class="article-title">【2022javaweb课设】基于购物系统的游戏原型设计</h2>
+        </div>
+    </a>
+</article>
+
+            
+                
+<article class="">
+    <a href="/p/%E5%BC%80%E5%8F%91%E5%A4%8D%E7%9B%982021%E7%BD%91%E6%98%93%E6%B8%B8%E6%88%8F%E9%AB%98%E6%A0%A1mini-game%E6%8C%91%E6%88%98%E8%B5%9B%E4%BD%9C%E5%93%81%E6%88%8F%E5%B9%95%E6%9C%AA%E8%90%BD/">
+        
+        
+
+        <div class="article-details">
+            <h2 class="article-title">【开发复盘】2021网易游戏高校MINI-GAME挑战赛作品《戏幕未落》</h2>
+        </div>
+    </a>
+</article>
+
+            
+                
+<article class="">
+    <a href="/p/gamejam%E6%9C%BA%E6%A0%B8%E7%BD%91booom%E6%B8%B8%E6%88%8F%E5%88%9B%E4%BD%9C%E6%8C%91%E6%88%98%E5%BC%80%E5%8F%91%E5%A4%8D%E7%9B%98/">
+        
+        
+
+        <div class="article-details">
+            <h2 class="article-title">【GameJam】机核网BOOOM游戏创作挑战开发复盘</h2>
+        </div>
+    </a>
+</article>
+
+            
+        </div>
+    </div>
+</aside>
+
+     
+    
+        
+    <script src="https://utteranc.es/client.js" 
+        repo="DorinXL/dorinxl.github.io"
+        issue-term="pathname"
+        
+        crossorigin="anonymous"
+        async
+        >
+</script>
+
+<style>
+    .utterances {
+        max-width: unset;
+    }
+</style>
+
+<script>
+    let utterancesLoaded = false;
+
+    function setUtterancesTheme(theme) {
+        let utterances = document.querySelector('.utterances iframe');
+        if (utterances) {
+            utterances.contentWindow.postMessage(
+                {
+                    type: 'set-theme',
+                    theme: `github-${theme}`
+                },
+                'https://utteranc.es'
+            );
+        }
+    }
+
+    addEventListener('message', event => {
+        if (event.origin !== 'https://utteranc.es') return;
+
+        
+        utterancesLoaded = true;
+        setUtterancesTheme(document.documentElement.dataset.scheme)
+    });
+
+    window.addEventListener('onColorSchemeChange', (e) => {
+        if (!utterancesLoaded) return;
+        setUtterancesTheme(e.detail)
+    })
+</script>
+
+
+    
+
+    <footer class="site-footer">
+    <section class="copyright">
+        &copy; 
+        
+        2024 荡影-DorinXL
+    </section>
+
+
+
+<section class="totalcount">
+    
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+    发表了76篇文章 · 
+    总计103.89k字
+</section>
+
+
+
+<section class="running-time">
+本博客已稳定运行
+<span id="runningdays" class="running-days"></span>
+</section>
+
+    <section class="powerby">
+        使用 <a href="https://gohugo.io/" target="_blank" rel="noopener">Hugo</a> 构建 <br />
+        主题 <b><a href="https://github.com/CaiJimmy/hugo-theme-stack" target="_blank" rel="noopener" data-version="3.26.0">Stack</a></b> 由 <a href="https://jimmycai.com" target="_blank" rel="noopener">Jimmy</a> 设计
+    </section>
+
+</footer>
+
+
+    
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+    
+    <div class="pswp__bg"></div>
+
+    
+    <div class="pswp__scroll-wrap">
+
+        
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+
+        
+        <div class="pswp__ui pswp__ui--hidden">
+
+            <div class="pswp__top-bar">
+
+                
+
+                <div class="pswp__counter"></div>
+
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+                
+                
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                        <div class="pswp__preloader__cut">
+                            <div class="pswp__preloader__donut"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div>
+            </div>
+
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div><script 
+                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.js"integrity="sha256-ePwmChbbvXbsO02lbM3HoHbSHTHFAeChekF1xKJdleo="crossorigin="anonymous"
+                defer
+                >
+            </script><script 
+                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe-ui-default.min.js"integrity="sha256-UKkzOn/w1mBxRmLLGrSeyB4e1xbrp4xylgAWb3M42pU="crossorigin="anonymous"
+                defer
+                >
+            </script><link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/default-skin/default-skin.min.css"crossorigin="anonymous"
+            ><link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.css"crossorigin="anonymous"
+            >
+
+            </main>
+        </div>
+        <script 
+                src="https://cdn.jsdelivr.net/npm/node-vibrant@3.1.6/dist/vibrant.min.js"integrity="sha256-awcR2jno4kI5X0zL8ex0vi2z&#43;KMkF24hUW8WePSA9HM="crossorigin="anonymous"
+                
+                >
+            </script><script type="text/javascript" src="/ts/main.js" defer></script>
+<script>
+    (function () {
+        const customFont = document.createElement('link');
+        customFont.href = "https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap";
+
+        customFont.type = "text/css";
+        customFont.rel = "stylesheet";
+
+        document.head.appendChild(customFont);
+    }());
+</script>
+
+<script>
+    let s1 = '2024-8-25'; 
+    s1 = new Date(s1.replace(/-/g, "/"));
+    let s2 = new Date();
+    let timeDifference = s2.getTime() - s1.getTime();
+
+    let days = Math.floor(timeDifference / (1000 * 60 * 60 * 24));
+    let hours = Math.floor((timeDifference % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+    let minutes = Math.floor((timeDifference % (1000 * 60 * 60)) / (1000 * 60));
+
+    let result = days + "天" + hours + "小时" + minutes + "分钟";
+    document.getElementById('runningdays').innerHTML = result;
+</script>
+    </body>
+</html>

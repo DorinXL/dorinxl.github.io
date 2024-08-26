@@ -1,0 +1,1482 @@
+<!DOCTYPE html>
+<html lang="zh-cn" dir="ltr">
+    <head><meta charset='utf-8'>
+<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content="@Coding: Typora+LaTeX @Author : DorinXL（博客） @Time : 2023/7/24 16:54 目录 Chapter1 数论函数介绍 Chapter2 数论函数的狄利克雷乘积 Chapter3 莫比乌斯反转 Chapter1 数论函数介绍 在正整数上定义的实数或复数的函数">
+<title>解析数论之数论函数【其一】</title>
+
+<link rel='canonical' href='https://dorinxl.github.io/p/%E8%A7%A3%E6%9E%90%E6%95%B0%E8%AE%BA%E4%B9%8B%E6%95%B0%E8%AE%BA%E5%87%BD%E6%95%B0%E5%85%B6%E4%B8%80/'>
+
+<link rel="stylesheet" href="/scss/style.min.dfb009e658ec6e0f0f0c366b98658c0caea5123dcd2536f353c92c2581b79fb7.css"><meta property='og:title' content="解析数论之数论函数【其一】">
+<meta property='og:description' content="@Coding: Typora+LaTeX @Author : DorinXL（博客） @Time : 2023/7/24 16:54 目录 Chapter1 数论函数介绍 Chapter2 数论函数的狄利克雷乘积 Chapter3 莫比乌斯反转 Chapter1 数论函数介绍 在正整数上定义的实数或复数的函数">
+<meta property='og:url' content='https://dorinxl.github.io/p/%E8%A7%A3%E6%9E%90%E6%95%B0%E8%AE%BA%E4%B9%8B%E6%95%B0%E8%AE%BA%E5%87%BD%E6%95%B0%E5%85%B6%E4%B8%80/'>
+<meta property='og:site_name' content='荡影-DorinXL'>
+<meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:published_time' content='2023-07-24T09:43:00&#43;00:00'/><meta property='article:modified_time' content='2023-07-24T09:43:00&#43;00:00'/>
+<meta name="twitter:title" content="解析数论之数论函数【其一】">
+<meta name="twitter:description" content="@Coding: Typora+LaTeX @Author : DorinXL（博客） @Time : 2023/7/24 16:54 目录 Chapter1 数论函数介绍 Chapter2 数论函数的狄利克雷乘积 Chapter3 莫比乌斯反转 Chapter1 数论函数介绍 在正整数上定义的实数或复数的函数">
+    <link rel="shortcut icon" href="/favicon.ico" />
+
+  
+
+
+    </head>
+    <body class="
+    article-page
+    ">
+    <script>
+        (function() {
+            const colorSchemeKey = 'StackColorScheme';
+            if(!localStorage.getItem(colorSchemeKey)){
+                localStorage.setItem(colorSchemeKey, "auto");
+            }
+        })();
+    </script><script>
+    (function() {
+        const colorSchemeKey = 'StackColorScheme';
+        const colorSchemeItem = localStorage.getItem(colorSchemeKey);
+        const supportDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches === true;
+
+        if (colorSchemeItem == 'dark' || colorSchemeItem === 'auto' && supportDarkMode) {
+            
+
+            document.documentElement.dataset.scheme = 'dark';
+        } else {
+            document.documentElement.dataset.scheme = 'light';
+        }
+    })();
+</script>
+<div class="container main-container flex on-phone--column extended"><aside class="sidebar left-sidebar sticky ">
+    <button class="hamburger hamburger--spin" type="button" id="toggle-menu" aria-label="切换菜单">
+        <span class="hamburger-box">
+            <span class="hamburger-inner"></span>
+        </span>
+    </button>
+
+    <header>
+        
+            
+            <figure class="site-avatar">
+                <a href="/">
+                
+                    
+                    
+                    
+                        
+                        <img src="/img/avatar_hu6744900124519508638.png" width="300"
+                            height="283" class="site-logo" loading="lazy" alt="Avatar">
+                    
+                
+                </a>
+                
+                    <span class="emoji">🔥</span>
+                
+            </figure>
+            
+        
+        
+        <div class="site-meta">
+            <h1 class="site-name"><a href="/">荡影-DorinXL</a></h1>
+            <h2 class="site-description">缄默慎独，不破不立，事在人为</h2>
+        </div>
+    </header><ol class="menu-social">
+            
+                <li>
+                    <a 
+                        href='https://space.bilibili.com/3217550'
+                        target="_blank"
+                        title="BilBili"
+                        rel="me"
+                    >
+                        
+                        
+                            <svg  xmlns="http://www.w3.org/2000/svg"  width="24"  height="24"  viewBox="0 0 24 24"  fill="none"  stroke="currentColor"  stroke-width="2"  stroke-linecap="round"  stroke-linejoin="round"  class="icon icon-tabler icons-tabler-outline icon-tabler-brand-bilibili"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M3 10a4 4 0 0 1 4 -4h10a4 4 0 0 1 4 4v6a4 4 0 0 1 -4 4h-10a4 4 0 0 1 -4 -4v-6z" /><path d="M8 3l2 3" /><path d="M16 3l-2 3" /><path d="M9 13v-2" /><path d="M15 11v2" /></svg>
+                        
+                    </a>
+                </li>
+            
+                <li>
+                    <a 
+                        href='https://www.cnblogs.com/DorinXL/'
+                        target="_blank"
+                        title="CNblog"
+                        rel="me"
+                    >
+                        
+                        
+                            <svg  xmlns="http://www.w3.org/2000/svg"  width="24"  height="24"  viewBox="0 0 24 24"  fill="none"  stroke="currentColor"  stroke-width="2"  stroke-linecap="round"  stroke-linejoin="round"  class="icon icon-tabler icons-tabler-outline icon-tabler-brand-blogger"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M8 21h8a5 5 0 0 0 5 -5v-3a3 3 0 0 0 -3 -3h-1v-2a5 5 0 0 0 -5 -5h-4a5 5 0 0 0 -5 5v8a5 5 0 0 0 5 5z" /><path d="M7 7m0 1.5a1.5 1.5 0 0 1 1.5 -1.5h3a1.5 1.5 0 0 1 1.5 1.5v0a1.5 1.5 0 0 1 -1.5 1.5h-3a1.5 1.5 0 0 1 -1.5 -1.5z" /><path d="M7 14m0 1.5a1.5 1.5 0 0 1 1.5 -1.5h7a1.5 1.5 0 0 1 1.5 1.5v0a1.5 1.5 0 0 1 -1.5 1.5h-7a1.5 1.5 0 0 1 -1.5 -1.5z" /></svg>
+                        
+                    </a>
+                </li>
+            
+                <li>
+                    <a 
+                        href='https://github.com/DorinXL/DorinXL.github.io'
+                        target="_blank"
+                        title="GitHub"
+                        rel="me"
+                    >
+                        
+                        
+                            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-brand-github" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+  <path d="M9 19c-4.3 1.4 -4.3 -2.5 -6 -3m12 5v-3.5c0 -1 .1 -1.4 -.5 -2c2.8 -.3 5.5 -1.4 5.5 -6a4.6 4.6 0 0 0 -1.3 -3.2a4.2 4.2 0 0 0 -.1 -3.2s-1.1 -.3 -3.5 1.3a12.3 12.3 0 0 0 -6.2 0c-2.4 -1.6 -3.5 -1.3 -3.5 -1.3a4.2 4.2 0 0 0 -.1 3.2a4.6 4.6 0 0 0 -1.3 3.2c0 4.6 2.7 5.7 5.5 6c-.6 .6 -.6 1.2 -.5 2v3.5" />
+</svg>
+
+
+
+                        
+                    </a>
+                </li>
+            
+        </ol><ol class="menu" id="main-menu">
+        
+        
+        
+        <li >
+            <a href='/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-home" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <polyline points="5 12 3 12 12 3 21 12 19 12" />
+  <path d="M5 12v7a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-7" />
+  <path d="M9 21v-6a2 2 0 0 1 2 -2h2a2 2 0 0 1 2 2v6" />
+</svg>
+
+
+
+                
+                <span>主页</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/%E5%85%B3%E4%BA%8E/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-user" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="7" r="4" />
+  <path d="M6 21v-2a4 4 0 0 1 4 -4h4a4 4 0 0 1 4 4v2" />
+</svg>
+
+
+
+                
+                <span>关于</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/archives/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-archive" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <rect x="3" y="4" width="18" height="4" rx="2" />
+  <path d="M5 8v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-10" />
+  <line x1="10" y1="12" x2="14" y2="12" />
+</svg>
+
+
+
+                
+                <span>归档</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/search/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-search" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="10" cy="10" r="7" />
+  <line x1="21" y1="21" x2="15" y2="15" />
+</svg>
+
+
+
+                
+                <span>搜索</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/%E5%8F%8B%E9%93%BE/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-link" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <path d="M10 14a3.5 3.5 0 0 0 5 0l4 -4a3.5 3.5 0 0 0 -5 -5l-.5 .5" />
+  <path d="M14 10a3.5 3.5 0 0 0 -5 0l-4 4a3.5 3.5 0 0 0 5 5l.5 -.5" />
+</svg>
+
+
+
+                
+                <span>友链</span>
+            </a>
+        </li>
+        
+        <li class="menu-bottom-section">
+            <ol class="menu">
+
+                
+                    <li id="dark-mode-toggle">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-left" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="8" cy="12" r="2" />
+  <rect x="2" y="6" width="20" height="12" rx="6" />
+</svg>
+
+
+
+                        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-right" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="16" cy="12" r="2" />
+  <rect x="2" y="6" width="20" height="12" rx="6" />
+</svg>
+
+
+
+                        <span>暗色模式</span>
+                    </li>
+                
+            </ol>
+        </li>
+    </ol>
+</aside>
+
+    <aside class="sidebar right-sidebar sticky">
+        
+            
+                
+    <section class="widget archives">
+        <div class="widget-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-hash" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <line x1="5" y1="9" x2="19" y2="9" />
+  <line x1="5" y1="15" x2="19" y2="15" />
+  <line x1="11" y1="4" x2="7" y2="20" />
+  <line x1="17" y1="4" x2="13" y2="20" />
+</svg>
+
+
+
+        </div>
+        <h2 class="widget-title section-title">目录</h2>
+        
+        <div class="widget--toc">
+            <nav id="TableOfContents">
+  <ol>
+    <li>
+      <ol>
+        <li>
+          <ol>
+            <li></li>
+          </ol>
+        </li>
+      </ol>
+    </li>
+    <li><a href="#目录">目录</a></li>
+    <li><a href="#chapter1-数论函数介绍">Chapter1 数论函数介绍</a>
+      <ol>
+        <li><a href="#section1-莫比乌斯函数mun">Section1 莫比乌斯函数$\mu(n)$</a></li>
+        <li><a href="#section2-欧拉函数varphin">Section2 欧拉函数$\varphi(n)$</a></li>
+        <li><a href="#section3-恒等函数in单位函数un">Section3 恒等函数$I(n)$、单位函数$u(n)$</a></li>
+        <li><a href="#section4-mangoldt曼戈尔特函数lambdan">Section4 Mangoldt(曼戈尔特函数)$\Lambda(n)$</a></li>
+        <li><a href="#section5-liouville刘维尔函数lambdan">Section5 Liouville(刘维尔函数)$\lambda(n)$</a></li>
+        <li><a href="#section6-除数函数sigma_alphan">Section6 除数函数$\sigma_{\alpha}(n)$</a></li>
+      </ol>
+    </li>
+    <li><a href="#chapter2-数论函数的狄利克雷乘积">Chapter2 数论函数的狄利克雷乘积</a>
+      <ol>
+        <li><a href="#section1-a-idsection1狄利克雷卷积a">Section1 <a id="section1">狄利克雷卷积</a></a></li>
+        <li><a href="#section2-狄利克雷逆">Section2 狄利克雷逆</a></li>
+      </ol>
+    </li>
+    <li><a href="#chapter3-莫比乌斯反转">Chapter3 莫比乌斯反转</a></li>
+  </ol>
+</nav>
+        </div>
+    </section>
+
+            
+        
+    </aside>
+
+
+            <main class="main full-width">
+    <article class="main-article">
+    <header class="article-header">
+
+    <div class="article-details">
+    
+    <header class="article-category">
+        
+            <a href="/categories/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/" >
+                读书笔记
+            </a>
+        
+            <a href="/categories/%E6%95%B0%E8%AE%BA/" >
+                数论
+            </a>
+        
+    </header>
+    
+
+    <div class="article-title-wrapper">
+        <h2 class="article-title">
+            <a href="/p/%E8%A7%A3%E6%9E%90%E6%95%B0%E8%AE%BA%E4%B9%8B%E6%95%B0%E8%AE%BA%E5%87%BD%E6%95%B0%E5%85%B6%E4%B8%80/">解析数论之数论函数【其一】</a>
+        </h2>
+    
+        
+    </div>
+
+
+    
+    
+    
+    
+    <footer class="article-time">
+        
+            <div>
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-calendar-time" width="56" height="56" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <path d="M11.795 21h-6.795a2 2 0 0 1 -2 -2v-12a2 2 0 0 1 2 -2h12a2 2 0 0 1 2 2v4" />
+  <circle cx="18" cy="18" r="4" />
+  <path d="M15 3v4" />
+  <path d="M7 3v4" />
+  <path d="M3 11h16" />
+  <path d="M18 16.496v1.504l1 1" />
+</svg>
+                <time class="article-time--published">2023-07-24</time>
+            </div>
+	
+
+        
+
+        
+    </footer>
+    
+
+    
+
+</div>
+
+</header>
+
+    <section class="article-content">
+    
+    
+    <blockquote>
+<h6 id="coding-typoralatex">@Coding: Typora+LaTeX
+</h6><h6 id="author--dorinxlhttpsdorinxlgiteeio博客httpswwwcnblogscomdorinxl">@Author : <a class="link" href="https://dorinxl.gitee.io/"  target="_blank" rel="noopener"
+    >DorinXL</a>（<a class="link" href="https://www.cnblogs.com/DorinXL/"  target="_blank" rel="noopener"
+    >博客</a>）
+</h6><h6 id="time--2023724-1654">@Time : 2023/7/24 16:54
+</h6></blockquote>
+<h2 id="目录">目录
+</h2><ul>
+<li>Chapter1 数论函数介绍</li>
+<li>Chapter2 数论函数的狄利克雷乘积</li>
+<li>Chapter3 莫比乌斯反转</li>
+</ul>
+<h2 id="chapter1-数论函数介绍">Chapter1 数论函数介绍
+</h2><blockquote>
+<p>在正整数上定义的实数或复数的函数称为数论函数。</p>
+</blockquote>
+<h3 id="section1-莫比乌斯函数mun">Section1 莫比乌斯函数$\mu(n)$
+</h3><ul>
+<li>
+<p><strong>Definition</strong>：
+$$
+根据算术基本定理，将大于1的自然数n分解为若干个质数乘积形式\
+n=p_1^{\alpha_1}p_2^{\alpha_2} \cdots p_k^{\alpha_k}\
+\mu(n)=
+\begin{cases}
+1,&amp;\text{if $n=1$}\
+(-1)^k,&amp;\text{if ${\alpha_1}={\alpha_2}= \cdots ={\alpha_k}=1$}\
+0,&amp;\text{otherwise}
+\end{cases}
+$$
+对于出现莫比乌斯函数的计算来说，我们更加关注于组成n的若干素数乘积，他们的幂是否都是1。</p>
+</li>
+<li>
+<p><strong>Examples</strong>:</p>
+</li>
+</ul>
+<div class="table-wrapper"><table>
+<thead>
+<tr>
+<th>n</th>
+<th>1</th>
+<th>2</th>
+<th>3</th>
+<th>4</th>
+<th>5</th>
+<th>6</th>
+<th>7</th>
+<th>8</th>
+<th>9</th>
+<th>10</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>$\mu(n)$</td>
+<td>1</td>
+<td>-1</td>
+<td>-1</td>
+<td>0</td>
+<td>-1</td>
+<td>1</td>
+<td>-1</td>
+<td>0</td>
+<td>0</td>
+<td>1</td>
+</tr>
+</tbody>
+</table></div>
+<ul>
+<li>
+<p><strong>Theorem:</strong></p>
+<ul>
+<li>Th1:如果$n\ge1$，我们有：
+$$
+\sum_{d|n}\mu(d)=[\dfrac{1}{n}]=
+\begin{cases}
+1,&amp;\text{if $n=1$}\
+0,&amp;\text{if $n&gt;1$}
+\end{cases}
+$$</li>
+</ul>
+<blockquote>
+<p><strong>Proof</strong>:</p>
+<p>对于$n=1$，显然成立。</p>
+<p>对于$n&gt;1$，将$n$分解为$n={p_1^{\alpha_1}}\cdots{p_k^{\alpha_k}}$,我们知道${p^{\alpha}}$的因子只能是$1,p,p^2,\cdots,p^\alpha$，而$n$由很多素数幂组成，在此基础上，我们只考虑那些会让$\mu$不为0的展开项，所以我们展开求和公式：
+$$
+\begin{align*}
+\sum_{d|n}\mu(d)&amp;=\mu(1)+\mu(p_1)+\cdots+\mu(p_k)\
+&amp;+\mu(p_1p_2)+\cdots+\mu(p_1p_2p_3)+\cdots+\mu(p_1\cdots p_k)\
+&amp;=1+C_{k}^{1}(-1)+C_{k}^{2}(-1)^{2}+\cdots+C_{k}^{k}(-1)^k\
+&amp;=(1-1)^k(二项式定理)\
+&amp;=0\
+\end{align*}
+$$</p>
+</blockquote>
+</li>
+<li>
+<p><strong>Note</strong>:</p>
+<blockquote>
+<p>二项式定理：
+$$
+(x+y)^n=\tbinom{n}{0}x^ny^0+\tbinom{n}{1}x^{n-1}y^1+\cdots+\tbinom{n}{n}x^0y^n
+$$</p>
+</blockquote>
+</li>
+</ul>
+<h3 id="section2-欧拉函数varphin">Section2 欧拉函数$\varphi(n)$
+</h3><ul>
+<li>
+<p><strong>Definition</strong>：</p>
+<p>欧拉函数$\varphi(n)$被定义为不大于n并且与n互素的数的个数。</p>
+</li>
+<li>
+<p><strong>Examples</strong>:</p>
+</li>
+</ul>
+<div class="table-wrapper"><table>
+<thead>
+<tr>
+<th>n</th>
+<th>1</th>
+<th>2</th>
+<th>3</th>
+<th>4</th>
+<th>5</th>
+<th>6</th>
+<th>7</th>
+<th>8</th>
+<th>9</th>
+<th>10</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>$\varphi(n)$</td>
+<td>1</td>
+<td>1</td>
+<td>2</td>
+<td>2</td>
+<td>4</td>
+<td>2</td>
+<td>6</td>
+<td>4</td>
+<td>6</td>
+<td>4</td>
+</tr>
+</tbody>
+</table></div>
+<ul>
+<li>
+<p><strong>Theorem:</strong></p>
+<ul>
+<li>Th1：如果$n\ge1$，我们有：
+$$
+\sum_{d|n}\varphi(d)=n
+$$</li>
+</ul>
+<blockquote>
+<p><strong>Proof</strong>：</p>
+<p>用$S$表示不大于$n$的集合${1,2,\cdots,n}$，接下来将$S$分解为若干个不相交的集合$A$，$A(d)={k|(k,n)=d,1\le k\le n}$。集合A里面装的是对于$n$的所有因子，在$S$的范围内与$n$的最大公因数为相同$n$的因子的数放在一起。例如对于$n=10$：
+$$
+S={1,2,3,4,5,6,7,8,9,10}\
+A(1)={1,3,7,9}\
+A(2)={2,4,6,8}\
+A(5)={5}\
+A(10)={10}\
+$$
+现在我们想用一个符号表示$A$中的符号，我们选择$f(d)$来表示$A(d)$中的个数，那么就有：
+$$
+\sum_{d|n}f(d)=n
+$$
+现在我们把$(k,n)=d,0 &lt; k \le n$转化为$(\dfrac{k}{d},\dfrac{n}{d})=1,0 &lt; \dfrac{k}{d} \le \dfrac{n}{d}$，如此一来我们就可以找到$A(d)$的数量与$\varphi(\dfrac{k}{d})$之间的关系：$f(d)=\varphi(\dfrac{n}{d})$，于是
+$$
+\sum_{d|n}\varphi(\dfrac{n}{d})=n=\sum_{d|n}\varphi(d)
+$$</p>
+</blockquote>
+<ul>
+<li>Th2：如果$n\ge1$，我们有：
+$$
+\varphi(n)=\sum_{d|n}\mu(d){\dfrac{n}{d}}
+$$</li>
+</ul>
+<blockquote>
+<p><strong>Proof</strong>:</p>
+<p>基于欧拉函数的定义我们可以将其改写为：
+$$
+\varphi(n)=\sum_{k=1}^{n}[\dfrac{1}{(n,k)}]
+$$
+我们使用莫比乌斯函数的定理来改写这个式子：
+$$
+\varphi(n)=\sum_{k=1}^{n}[\dfrac{1}{(n,k)}]=\sum_{k=1}^{n}\sum_{d|(n,k)}\mu(d)=\sum_{k=1}^{n}\sum_{d|n\d|k}\mu(d)
+$$
+如何解读上面的求和条件呢？对于n的一个固定的因子d，我们需要满足$k,1\le k \le n$是d的倍数求和。所以我们用$k=qd$代替：
+$$
+\varphi(n)=\sum_{d|n}\sum_{q=1}^{\dfrac{n}{d}}\mu(d)=\sum_{d|n}\mu(d)\sum_{q=1}^{\dfrac{n}{d}}1=\sum_{d|n}\mu(d)\dfrac{n}{d}
+$$</p>
+</blockquote>
+<ul>
+<li>Th3：如果$n&gt;1$，我们有：
+$$
+\varphi(n)=n\prod_{p|n}(1-\dfrac{1}{p})
+$$</li>
+</ul>
+<blockquote>
+<p><strong>Proof</strong>:</p>
+<p>对于$n=1$，没有素数整除$1$，这个式子没有意义。</p>
+<p>对于$n&gt;1$，令$p_1,p_2,\cdots,p_r$为n的不同素因子，那么我们有：
+$$
+\begin{align*}
+\prod_{p|n}(1-\dfrac{1}{p})&amp;=\prod_{i=1}^{n}(1-\dfrac{1}{p_i})\
+&amp;=(1-\dfrac{1}{p_1})(1-\dfrac{1}{p_2})\cdots(1-\dfrac{1}p_r{})\
+&amp;=1-\sum\dfrac{1}{p_i}+\sum\dfrac{1}{p_ip_j}-\sum\dfrac{1}{p_ip_jp_k}+\cdots+\dfrac{(-1)^k}{p_ip_2\cdots p_k}(这一行的分母可以看作n的因子，分子可以看作\mu(d)，因为如果出现素数平方幂会等于0)\
+&amp;=\sum_{d|n}\dfrac{\mu(d)}{d}
+\end{align*}
+$$
+所以有
+$$
+\varphi(n)=\sum_{d|n}\mu(d)\dfrac{n}{d}=n\sum_{d|n}\dfrac{\mu(d)}{d}=n\prod_{p|n}(1-\dfrac{1}{p})
+$$</p>
+</blockquote>
+<ul>
+<li>Th4：欧拉函数有如下性质：
+<ol>
+<li>对于素数$P$与$\alpha\ge1$,有$\varphi(P^\alpha)=p^{\alpha}-p^{\alpha-1}$。</li>
+<li>$\varphi(mn)=\varphi(m)\varphi(n)(\dfrac{d}{\varphi(d)})$，这里$d=(m,n)$。</li>
+<li>$\varphi(mn)=\varphi(m)\varphi(n)$，如果$(m,n)=1$。</li>
+<li>$a|b$得出$\varphi(a)|\varphi(b)$</li>
+<li>当$n\ge3$时，$\varphi(n)$是偶数，而且，如果$n$有$r$个不同的奇素因子时，$2^r|\varphi(n)$。</li>
+</ol>
+</li>
+</ul>
+<blockquote>
+<p><strong>Proof</strong>:</p>
+<p>4.1：在$\varphi(n)=n\prod\limits_{p|n}(1-\dfrac{1}{p})$中取$n=P^\alpha$得证。</p>
+<p>4.2：假设有$m,n$两个整数，$mn$积的每一个素因数也是$m$或者$n$的素因数，我们将$p|m,p|n$的素因子$p$遍历出来，会出现重复的因子，为了防止多余计算，我们将多出来的这些出现过的因子除去，于是结合Th3就有了下面的式子：
+$$
+\dfrac{\varphi(mn)}{mn}=\prod_{p|mn}(1-\dfrac{1}{p})=\dfrac{\prod_{p|m}(1-\dfrac{1}{p})\prod_{p|n}(1-\dfrac{1}{p})}{\prod_{p|(m,n)}(1-\dfrac{1}{p})}=\dfrac{\dfrac{\varphi(m)}{m} \dfrac{\varphi(n)}{n}}{\dfrac{\varphi(d)}{d}}
+$$
+4.3：是4.2的特殊情况</p>
+<p>4.4：由$a|b$我们得出$b=ac,1\le c \le b$，如果$c=b$，那么$a=1$，$\varphi(a)|\varphi(b)$成立。</p>
+<p>如果$c&lt;b$：
+$$
+\varphi(b)=\varphi(ac)=\varphi(a)\varphi(c)\dfrac{d}{\varphi(d)}=d\varphi(a)\dfrac{\varphi(c)}{\varphi(d)},d=(a,c)
+$$
+接下来使用归纳法，假设对所有小于$b$的整数，$\varphi(a)|\varphi(b)$成立，那么作为小于$b$的$c$自然满足这一式子，那么既然$d=(a,c),d|c$，于是就有$\varphi(d)|\varphi(c)$，于是上面式子的右侧就变成了$\varphi(a)$的倍数。于是$\varphi(a)|\varphi(b)$成立。</p>
+<p>4.5：我们假设$n是偶数，n=2^\alpha,\alpha\ge2$，那么由4.1我们知道$\varphi(n)$肯定是偶数。如果n至少有一个奇数素因子，我们写：
+$$
+\varphi(n)=n\prod_{p|n}\dfrac{p-1}{p}=\dfrac{n}{\prod_{p|n}p}\prod_{p|n}(p-1)=C(n)\prod_{p|n}(p-1)
+$$
+对于上面的式子，$C(n)$是一个整数，而$\prod_{p|n}(p-1)$是一个偶数（因为有至少一个素因子的贡献），所以$\varphi(n)$是偶数。</p>
+<p>如果$n$有$r$个不同的奇素因子时，每个素因子都能在上面的式子$\prod_{p|n}(p-1)$中提供一个因子2，于是就有$2^r|\varphi(n)$</p>
+</blockquote>
+</li>
+</ul>
+<h3 id="section3-恒等函数in单位函数un">Section3 恒等函数$I(n)$、单位函数$u(n)$
+</h3><ul>
+<li>
+<p><strong>Definition</strong>：
+$$
+I(n)=[\dfrac{1}{n}]=
+\begin{cases}
+1,&amp;\text{n=1}\
+0,&amp;\text{n&gt;1}
+\end{cases}\
+u(n)=1
+$$</p>
+</li>
+<li>
+<p><strong>Theorem:</strong></p>
+<ul>
+<li>Th1：（该定理需要前置知识狄利克雷卷积）对所有的$f$，我们有$I<em>f=f</em>I=f$</li>
+</ul>
+<blockquote>
+<p><strong>Proof</strong>：</p>
+<p>$$
+(f*I)(n)=\sum_{d|n}f(d)I(\dfrac{n}{d})=\sum_{d|n}f(d)[\dfrac{d}{n}]=f(n)
+$$</p>
+</blockquote>
+</li>
+</ul>
+<h3 id="section4-mangoldt曼戈尔特函数lambdan">Section4 Mangoldt(曼戈尔特函数)$\Lambda(n)$
+</h3><ul>
+<li>
+<p><strong>Definition</strong>：对每一个整数$n\ge1$，我们定义
+$$
+\Lambda(n)=
+\begin{cases}
+\log_{}{p}&amp;如果n=p^m,p为素数，m\ge1 \
+0&amp;其他
+\end{cases}
+$$</p>
+</li>
+<li>
+<p><strong>Examples</strong>:</p>
+</li>
+</ul>
+<div class="table-wrapper"><table>
+<thead>
+<tr>
+<th>n</th>
+<th>1</th>
+<th>2</th>
+<th>3</th>
+<th>4</th>
+<th>5</th>
+<th>6</th>
+<th>7</th>
+<th>8</th>
+<th>9</th>
+<th>10</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>$\Lambda(n)$</td>
+<td>0</td>
+<td>$\log{}{2}$</td>
+<td>$\log{}{3}$</td>
+<td>$\log{}{2}$</td>
+<td>$\log{}{5}$</td>
+<td>0</td>
+<td>$\log{}{7}$</td>
+<td>$\log{}{2}$</td>
+<td>$\log{}{3}$</td>
+<td>0</td>
+</tr>
+</tbody>
+</table></div>
+<ul>
+<li>
+<p><strong>Theorem:</strong></p>
+<ul>
+<li>Th1：若$n\ge1$，我们有
+$$
+\log{}{n}=\sum_{d|n}\Lambda(d)
+$$</li>
+</ul>
+<blockquote>
+<p><strong>Proof</strong>:</p>
+<p>$n=1$，两边都是0，成立</p>
+<p>$n&gt;1$，算术基本定理：$n=\prod\limits_{k=1}^{r}p_k^{\alpha_k}$，两边取对数：
+$$
+\log{n}=\sum_{k=1}^{r}\alpha_k\log{p_k}
+$$
+现在我们关注要证明的式子的右端$\log{}{n}=\sum_{d|n}\Lambda(d)$,对于$\Lambda()$来说，非零的项来自$p_k^{m}(m=1,2,\cdots,\alpha_k;k=1,2,\cdots,r)$，于是
+$$
+\sum_{d|n}\Lambda(d)=\sum_{k=1}^{r}\sum_{m=1}^{\alpha_k}\Lambda(p_k^m)=\sum_{k=1}^{r}\sum_{m=1}^{\alpha_k}\log{p_k}=\sum_{k=1}^{r}\alpha_k\log{p_k}=\log{n}
+$$</p>
+</blockquote>
+<ul>
+<li>Th2：若$n\ge1$，我们有
+$$
+\Lambda(n)=\sum_{d|n}\mu(d)\log{\dfrac{n}{d}}=-\sum_{d|n}\mu(d)\log{d}
+$$</li>
+</ul>
+<blockquote>
+<p><strong>Proof</strong>:</p>
+<p>对上面的定理使用莫比乌斯反转：
+$$
+\log{}{n}=\sum_{d|n}\Lambda(d)\
+\Updownarrow\
+\Lambda(d)=\sum_{d|n}\mu(d)log(\dfrac{n}{d})=\log{n}\sum_{d|n}\mu(d)-\sum_{d|n}\mu(d)\log{d}=\log{n}\cdot I(n)-\sum_{d|n}\mu(d)\log{d}
+$$
+对于所有的n，$\log{n}\cdot I(n)=0$，所以证明完毕。</p>
+</blockquote>
+</li>
+</ul>
+<h3 id="section5-liouville刘维尔函数lambdan">Section5 Liouville(刘维尔函数)$\lambda(n)$
+</h3><ul>
+<li>
+<p><strong>Definition</strong>：我们规定$\lambda(1)=1$，如果$n=p_1^{\alpha_1}\cdots p_k^{\alpha_ k}$，我们规定
+$$
+\lambda(n)=(-1)^{\alpha_1+\cdots +\alpha_k}
+$$</p>
+</li>
+<li>
+<p><strong>Theorem:</strong></p>
+<ul>
+<li>Th1：对每一个$n&gt;1$，我们有
+$$
+\sum_{d|n}\lambda(d)=
+\begin{cases}
+1&amp;\text{n是平方数}\
+0&amp;\text{其他}
+\end{cases}
+$$</li>
+</ul>
+<blockquote>
+<p><strong>Proof</strong>:</p>
+<p>令$g(n)=\sum_{d|n}\lambda(d)$,$g$是积性的。运用算术基本定理我们只需要确定$g(p^\alpha)$：
+$$
+\begin{align*}
+g(p^\alpha)&amp;=\sum_{d|p^\alpha}\lambda(d)\
+&amp;=1+\lambda(p)+\lambda(p^2)+\cdots+\lambda(p^\alpha)\
+&amp;=1-1+1-\cdots+(-1)^\alpha\
+&amp;=
+\begin{cases}
+1&amp;\text{$\alpha$是奇数}\
+0&amp;\text{$\alpha$是偶数}
+\end{cases}
+\end{align*}
+$$
+在这种情况下，$n=\prod\limits_{k=1}^{r}p_k^{\alpha_k},g(n)=\prod\limits_{k=1}^{r}g(p_k^{\alpha_k})$，如果有指数$\alpha$是奇数，那么$g(n)=0$，如果所有的$\alpha$都是偶数，那么$g(n)=1$。</p>
+</blockquote>
+</li>
+</ul>
+<h3 id="section6-除数函数sigma_alphan">Section6 除数函数$\sigma_{\alpha}(n)$
+</h3><ul>
+<li>
+<p><strong>Definition</strong>：对于实数或复数$\alpha$以及任意整数$n&gt;1$，我们规定：
+$$
+\sigma_\alpha(n)=\sum_{d|n}d^\alpha
+$$
+当$\alpha=0$时，$\sigma_{0}(n)$是n的因子个数，常用$d(n)$表示。</p>
+<p>当$\alpha=1$时，$\sigma_{1}(n)$是n的因子之和，常用$\sigma(n)$表示。</p>
+</li>
+<li>
+<p><strong>Theorem:</strong></p>
+<ul>
+<li>Th1：对$n\ge1$，我们有
+$$
+\sigma_{\alpha}^{-1}(n)=\sum_{d|n}d^{\alpha}\mu(d)\mu(\dfrac{n}{d})
+$$</li>
+</ul>
+<blockquote>
+<p><strong>Proof</strong>:</p>
+<p>证明需要狄利克雷卷积相关知识：</p>
+<p>$\sigma_{\alpha}(n)=N^\alpha * u$
+$$
+\sigma_{\alpha}^{-1}(n)=(N^\alpha * u)^{-1}=(\mu N^\alpha)<em>u^{-1}=(\mu N^\alpha)</em>\mu
+$$</p>
+</blockquote>
+<ul>
+<li>Th2：
+$$
+\sigma_{\alpha}(p^a)=
+\begin{cases}
+a+1&amp;\text{if $\alpha=1$},\
+\dfrac{p^{\alpha(a+1)}-1}{p^{\alpha}-1}&amp;\text{if $\alpha \ne 1$}
+\end{cases}
+$$</li>
+</ul>
+<blockquote>
+<p><strong>Proof</strong>:
+$$
+\sigma_{\alpha}(p^a)=1^\alpha+p^\alpha+p^{2\alpha}+\cdots+p^{a\alpha}=
+\begin{cases}
+a+1&amp;\text{if $\alpha=1$},\
+\dfrac{p^{\alpha(a+1)}-1}{p^{\alpha}-1}&amp;\text{if $\alpha \ne 1$}
+\end{cases}
+$$</p>
+</blockquote>
+</li>
+</ul>
+<h2 id="chapter2-数论函数的狄利克雷乘积">Chapter2 数论函数的狄利克雷乘积
+</h2><h3 id="section1-a-idsection1狄利克雷卷积a">Section1 <a id="section1">狄利克雷卷积</a>
+</h3><ul>
+<li>
+<p>**Definition：**如果$f$和$g$是两个数论函数，我们规定他们的狄利克雷卷积由下面的等式确定：
+$$
+h(n)=(f*g)(n)=\sum_{d|n}f(d)g(\dfrac{n}{d})
+$$
+上面的式子还可以改写成其他形式：
+$$
+h(n)=\sum_{d|n}f(d)g(\dfrac{n}{d})=\sum_{d|n}f(\frac{n}{d})g(d)=\sum_{xy=n}f(x)g(y)
+$$</p>
+</li>
+<li>
+<p><strong>Examples：</strong></p>
+<ul>
+<li>
+<p>Ex1：$\mu*u=I$</p>
+<blockquote>
+<p><strong>Proof：</strong>
+$$
+\mu*u=\sum_{d|n}\mu(d)u(\dfrac{n}{d})=\sum_{d|n}\mu(d)=I
+$$</p>
+</blockquote>
+</li>
+<li>
+<p>Ex2：$\mu*N=\varphi$</p>
+<blockquote>
+<p><strong>Proof：</strong>
+$$
+\mu*N=\sum_{d|n}\mu(d)N(\dfrac{n}{d})=\sum_{d|n}\mu(d)\dfrac{n}{d}=\varphi
+$$</p>
+</blockquote>
+</li>
+<li>
+<p>Ex3：$u*N=\sigma_1$</p>
+<blockquote>
+<p><strong>Proof：</strong>
+$$
+u*N=\sum_{d|n}u(d)N(\dfrac{n}{d})=\sum_{d|n}(d)=\sigma_1
+$$</p>
+</blockquote>
+</li>
+<li>
+<p>Ex4：$u*u=\sigma_0$</p>
+<blockquote>
+<p><strong>Proof：</strong>
+$$
+u*u=\sum_{d|n}u(d)u(\dfrac{n}{d})=\sum_{d|n}1=\sigma_0
+$$</p>
+</blockquote>
+</li>
+<li>
+<p>Ex5：$u*\varphi=N$</p>
+<blockquote>
+<p><strong>Proof：</strong>
+$$
+u*\varphi=\sum_{d|n}u(d)\varphi(\dfrac{n}{d})=\sum_{d|n}\varphi(d)=N
+$$</p>
+</blockquote>
+</li>
+</ul>
+</li>
+<li>
+<p><strong>Theorem:</strong></p>
+<ul>
+<li>Th1：狄利克雷卷积满足交换律，即$f<em>g=g</em>f$</li>
+</ul>
+<blockquote>
+<p><strong>Proof</strong>:</p>
+<p>$$
+\begin{align*}
+f<em>g&amp;=\sum_{xy=n}f(x)g(y)\
+&amp;=\sum_{xy=n}g(x)f(y)\
+&amp;=f</em>g\
+\end{align*}
+$$</p>
+</blockquote>
+<ul>
+<li>Th2：狄利克雷卷积满足结合律，即$（f<em>g）<em>h=f</em>(g</em>h)$</li>
+</ul>
+<blockquote>
+<p><strong>Proof</strong>:
+$$
+\begin{align*}
+（f<em>g）<em>h&amp;=\sum_{xy=n}(f</em>g)(x)h(y)\
+&amp;=\sum_{xy=n}\sum_{ab=x}f(a)g(b)h(y)\
+&amp;=\sum_{abc=n}f(a)g(b)h(c)\
+&amp;=f</em>(g<em>h)(展开过程同上)
+\end{align</em>}
+$$</p>
+</blockquote>
+<ul>
+<li>Th3：狄利克雷卷积满足分配律，即$f*(g+h)=f<em>g+f</em>h$</li>
+</ul>
+<blockquote>
+<p><strong>Proof</strong>:
+$$
+\begin{align*}
+f*(g+h)&amp;=\sum_{xy=n}f(x)(g+h)(y)\
+&amp;=\sum_{xy=n}f(x)(g(y)+h(y))\
+&amp;=\sum_{xy=n}f(x)g(y)+\sum_{xy=n}f(x)h(y)\
+&amp;=f<em>g+f</em>h
+\end{align*}
+$$</p>
+</blockquote>
+</li>
+</ul>
+<h3 id="section2-狄利克雷逆">Section2 狄利克雷逆
+</h3><ul>
+<li>
+<p><strong>Definition</strong>：如果$f$是一个数论函数且$f(1)\ne0$，则存在唯一的一个称为$f$的狄利克雷逆函数的数论函数，使
+$$
+f*^{-1}*f=f^{-1}*f=I
+$$</p>
+</li>
+<li>
+<p><strong>Theorem:</strong></p>
+<ul>
+<li>Th1：我们计算$f^{-1}$的递推公式：
+$$
+f^{-1}=
+\begin{cases}
+\dfrac{1}{f(1)}&amp;\text{$n=1$}\
+-\dfrac{1}{f(1)}\sum\limits_{d|n\d&lt;n}f(\dfrac{n}{d})f^{-1}(d)&amp;\text{otherwise}
+\end{cases}
+$$</li>
+</ul>
+<blockquote>
+<p><strong>Proof</strong>:</p>
+<p>对$n=1$，$(f*f^{-1})(1)=I(1)=1 \Rightarrow f^{-1}=\dfrac{1}{f(1)}$</p>
+<p>对$n\ge1$，
+$$
+\begin{align*}
+(f<em>f^{-1})(n)=\sum_{d|n}f(d)f^{-1}(\dfrac{n}{d})&amp;=0\
+f(1)f^{-1}(n)+\sum_{d|n\d&lt;n}f(\dfrac{n}{d})f^{-1}(d)&amp;=0\
+\end{align</em>}
+\f^{-1}(n)=\dfrac{-1}{f(1)}\sum_{d|n\d&lt;n}f(\dfrac{n}{d})f^{-1}(d)
+$$</p>
+</blockquote>
+<ul>
+<li>Th2：$(f*g)^{-1}=f^{-1}*g^{-1}$</li>
+</ul>
+<blockquote>
+<p><strong>Proof</strong>:
+$$
+(f<em>g)^{-1}=f^{-1}<em>g^{-1}\
+(f</em>g)</em>(f<em>g)^{-1}=f^{-1}<em>g^{-1}</em>(f</em>g)\
+I=f^{-1}<em>f</em>g<em>g^{-1}\
+I=I</em>I=I
+$$</p>
+</blockquote>
+</li>
+</ul>
+<h2 id="chapter3-莫比乌斯反转">Chapter3 莫比乌斯反转
+</h2><ul>
+<li>
+<p><strong>Definition</strong>：$f$,$g$是两个数论函数，如果有：
+$$
+f(n)=\sum_{d|n}g(d)\
+\Updownarrow\
+g(n)=\sum_{d|n}f(d)\mu(\dfrac{n}{d})
+$$</p>
+<blockquote>
+<p><strong>Proof</strong>:</p>
+<p>证明$\Downarrow$：
+$$
+f(n)=\sum_{d|n}g(d)即f=g<em>u\
+f</em>\mu=g<em>u</em>\mu=g*(u*\mu)=g<em>I=g
+$$
+证明$\Uparrow$：
+$$
+g(n)=\sum_{d|n}f(d)\mu(\dfrac{n}{d})即g=f</em>\mu\
+u<em>g=u</em>f*\mu=(u*\mu)<em>f=I</em>f=f
+$$</p>
+</blockquote>
+</li>
+</ul>
+
+</section>
+
+
+    <footer class="article-footer">
+    
+
+    </footer>
+
+
+    
+        <link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css"integrity="sha384-n8MVd4RsNIU0tAv4ct0nTaAbDJwPJzDEaqSD1odI&#43;WdtXRGWt2kTvGFasHpSy3SV"crossorigin="anonymous"
+            ><script 
+                src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"integrity="sha384-XjKyOOlGwcjNTAIQHIpgOno0Hl1YQqzUOEleOLALmuqehneUG&#43;vnGctmUb0ZY0l8"crossorigin="anonymous"
+                defer
+                >
+            </script><script 
+                src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js"integrity="sha384-&#43;VBxd3r6XgURycqtZ117nYw44OOcIax56Z4dCRWbxyPt0Koah1uHoK0o4&#43;/RRE05"crossorigin="anonymous"
+                defer
+                >
+            </script><script>
+    window.addEventListener("DOMContentLoaded", () => {
+        renderMathInElement(document.body, {
+            delimiters: [
+                { left: "$$", right: "$$", display: true },
+                { left: "$", right: "$", display: false },
+                { left: "\\(", right: "\\)", display: false },
+                { left: "\\[", right: "\\]", display: true }
+            ],
+            ignoredClasses: ["gist"]
+        });})
+</script>
+    
+</article>
+
+    
+
+    
+
+<aside class="related-content--wrapper">
+    <h2 class="section-title">相关文章</h2>
+    <div class="related-content">
+        <div class="flex article-list--tile">
+            
+                
+<article class="">
+    <a href="/p/%E7%B4%A0%E6%95%B0%E5%88%86%E5%B8%83%E7%9A%84%E5%9F%BA%E6%9C%AC%E5%AE%9A%E7%90%86%E4%B8%80/">
+        
+        
+
+        <div class="article-details">
+            <h2 class="article-title">素数分布的基本定理（一）</h2>
+        </div>
+    </a>
+</article>
+
+            
+                
+<article class="">
+    <a href="/p/%E5%87%A0%E4%B8%AA%E5%87%BD%E6%95%B0%E7%9A%84%E5%B9%B3%E5%9D%87%E9%98%B6/">
+        
+        
+
+        <div class="article-details">
+            <h2 class="article-title">几个函数的平均阶</h2>
+        </div>
+    </a>
+</article>
+
+            
+                
+<article class="">
+    <a href="/p/%E8%A7%A3%E6%9E%90%E6%95%B0%E8%AE%BA%E4%B9%8B%E6%9C%89%E9%99%90%E9%98%BF%E8%B4%9D%E5%B0%94%E7%BE%A4%E5%8F%8A%E5%85%B6%E7%89%B9%E5%BE%81%E7%8B%84%E5%88%A9%E5%85%8B%E9%9B%B7%E7%89%B9%E5%BE%81/">
+        
+        
+
+        <div class="article-details">
+            <h2 class="article-title">解析数论之有限阿贝尔群及其特征、狄利克雷特征</h2>
+        </div>
+    </a>
+</article>
+
+            
+                
+<article class="">
+    <a href="/p/%E8%A7%A3%E6%9E%90%E6%95%B0%E8%AE%BA%E4%B9%8B%E5%8E%9F%E6%A0%B9/">
+        
+        
+
+        <div class="article-details">
+            <h2 class="article-title">解析数论之原根</h2>
+        </div>
+    </a>
+</article>
+
+            
+                
+<article class="">
+    <a href="/p/unity-shader%E5%85%A5%E9%97%A8%E7%B2%BE%E8%A6%81%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0-%E7%AC%AC%E4%B8%89%E7%AB%A0-unity-shader%E5%9F%BA%E7%A1%80/">
+        
+        
+
+        <div class="article-details">
+            <h2 class="article-title">Unity Shader入门精要读书笔记 第三章 Unity Shader基础</h2>
+        </div>
+    </a>
+</article>
+
+            
+        </div>
+    </div>
+</aside>
+
+     
+    
+        
+    <script src="https://utteranc.es/client.js" 
+        repo="DorinXL/dorinxl.github.io"
+        issue-term="pathname"
+        
+        crossorigin="anonymous"
+        async
+        >
+</script>
+
+<style>
+    .utterances {
+        max-width: unset;
+    }
+</style>
+
+<script>
+    let utterancesLoaded = false;
+
+    function setUtterancesTheme(theme) {
+        let utterances = document.querySelector('.utterances iframe');
+        if (utterances) {
+            utterances.contentWindow.postMessage(
+                {
+                    type: 'set-theme',
+                    theme: `github-${theme}`
+                },
+                'https://utteranc.es'
+            );
+        }
+    }
+
+    addEventListener('message', event => {
+        if (event.origin !== 'https://utteranc.es') return;
+
+        
+        utterancesLoaded = true;
+        setUtterancesTheme(document.documentElement.dataset.scheme)
+    });
+
+    window.addEventListener('onColorSchemeChange', (e) => {
+        if (!utterancesLoaded) return;
+        setUtterancesTheme(e.detail)
+    })
+</script>
+
+
+    
+
+    <footer class="site-footer">
+    <section class="copyright">
+        &copy; 
+        
+        2024 荡影-DorinXL
+    </section>
+
+
+
+<section class="totalcount">
+    
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+    发表了76篇文章 · 
+    总计103.89k字
+</section>
+
+
+
+<section class="running-time">
+本博客已稳定运行
+<span id="runningdays" class="running-days"></span>
+</section>
+
+    <section class="powerby">
+        使用 <a href="https://gohugo.io/" target="_blank" rel="noopener">Hugo</a> 构建 <br />
+        主题 <b><a href="https://github.com/CaiJimmy/hugo-theme-stack" target="_blank" rel="noopener" data-version="3.26.0">Stack</a></b> 由 <a href="https://jimmycai.com" target="_blank" rel="noopener">Jimmy</a> 设计
+    </section>
+
+</footer>
+
+
+    
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+    
+    <div class="pswp__bg"></div>
+
+    
+    <div class="pswp__scroll-wrap">
+
+        
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+
+        
+        <div class="pswp__ui pswp__ui--hidden">
+
+            <div class="pswp__top-bar">
+
+                
+
+                <div class="pswp__counter"></div>
+
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+                
+                
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                        <div class="pswp__preloader__cut">
+                            <div class="pswp__preloader__donut"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div>
+            </div>
+
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div><script 
+                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.js"integrity="sha256-ePwmChbbvXbsO02lbM3HoHbSHTHFAeChekF1xKJdleo="crossorigin="anonymous"
+                defer
+                >
+            </script><script 
+                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe-ui-default.min.js"integrity="sha256-UKkzOn/w1mBxRmLLGrSeyB4e1xbrp4xylgAWb3M42pU="crossorigin="anonymous"
+                defer
+                >
+            </script><link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/default-skin/default-skin.min.css"crossorigin="anonymous"
+            ><link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.css"crossorigin="anonymous"
+            >
+
+            </main>
+        </div>
+        <script 
+                src="https://cdn.jsdelivr.net/npm/node-vibrant@3.1.6/dist/vibrant.min.js"integrity="sha256-awcR2jno4kI5X0zL8ex0vi2z&#43;KMkF24hUW8WePSA9HM="crossorigin="anonymous"
+                
+                >
+            </script><script type="text/javascript" src="/ts/main.js" defer></script>
+<script>
+    (function () {
+        const customFont = document.createElement('link');
+        customFont.href = "https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap";
+
+        customFont.type = "text/css";
+        customFont.rel = "stylesheet";
+
+        document.head.appendChild(customFont);
+    }());
+</script>
+
+<script>
+    let s1 = '2024-8-25'; 
+    s1 = new Date(s1.replace(/-/g, "/"));
+    let s2 = new Date();
+    let timeDifference = s2.getTime() - s1.getTime();
+
+    let days = Math.floor(timeDifference / (1000 * 60 * 60 * 24));
+    let hours = Math.floor((timeDifference % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+    let minutes = Math.floor((timeDifference % (1000 * 60 * 60)) / (1000 * 60));
+
+    let result = days + "天" + hours + "小时" + minutes + "分钟";
+    document.getElementById('runningdays').innerHTML = result;
+</script>
+    </body>
+</html>

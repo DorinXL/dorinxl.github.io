@@ -1,0 +1,1043 @@
+<!DOCTYPE html>
+<html lang="zh-cn" dir="ltr">
+    <head><meta charset='utf-8'>
+<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content="22年某个大课设用javaweb做的抽卡游戏">
+<title>【2022javaweb课设】基于购物系统的游戏原型设计</title>
+
+<link rel='canonical' href='https://dorinxl.github.io/p/2022javaweb%E8%AF%BE%E8%AE%BE%E5%9F%BA%E4%BA%8E%E8%B4%AD%E7%89%A9%E7%B3%BB%E7%BB%9F%E7%9A%84%E6%B8%B8%E6%88%8F%E5%8E%9F%E5%9E%8B%E8%AE%BE%E8%AE%A1/'>
+
+<link rel="stylesheet" href="/scss/style.min.dfb009e658ec6e0f0f0c366b98658c0caea5123dcd2536f353c92c2581b79fb7.css"><meta property='og:title' content="【2022javaweb课设】基于购物系统的游戏原型设计">
+<meta property='og:description' content="22年某个大课设用javaweb做的抽卡游戏">
+<meta property='og:url' content='https://dorinxl.github.io/p/2022javaweb%E8%AF%BE%E8%AE%BE%E5%9F%BA%E4%BA%8E%E8%B4%AD%E7%89%A9%E7%B3%BB%E7%BB%9F%E7%9A%84%E6%B8%B8%E6%88%8F%E5%8E%9F%E5%9E%8B%E8%AE%BE%E8%AE%A1/'>
+<meta property='og:site_name' content='荡影-DorinXL'>
+<meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:published_time' content='2022-05-21T14:23:00&#43;00:00'/><meta property='article:modified_time' content='2022-05-21T14:23:00&#43;00:00'/>
+<meta name="twitter:title" content="【2022javaweb课设】基于购物系统的游戏原型设计">
+<meta name="twitter:description" content="22年某个大课设用javaweb做的抽卡游戏">
+    <link rel="shortcut icon" href="/favicon.ico" />
+
+  
+
+
+    </head>
+    <body class="
+    article-page
+    ">
+    <script>
+        (function() {
+            const colorSchemeKey = 'StackColorScheme';
+            if(!localStorage.getItem(colorSchemeKey)){
+                localStorage.setItem(colorSchemeKey, "auto");
+            }
+        })();
+    </script><script>
+    (function() {
+        const colorSchemeKey = 'StackColorScheme';
+        const colorSchemeItem = localStorage.getItem(colorSchemeKey);
+        const supportDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches === true;
+
+        if (colorSchemeItem == 'dark' || colorSchemeItem === 'auto' && supportDarkMode) {
+            
+
+            document.documentElement.dataset.scheme = 'dark';
+        } else {
+            document.documentElement.dataset.scheme = 'light';
+        }
+    })();
+</script>
+<div class="container main-container flex on-phone--column extended"><aside class="sidebar left-sidebar sticky ">
+    <button class="hamburger hamburger--spin" type="button" id="toggle-menu" aria-label="切换菜单">
+        <span class="hamburger-box">
+            <span class="hamburger-inner"></span>
+        </span>
+    </button>
+
+    <header>
+        
+            
+            <figure class="site-avatar">
+                <a href="/">
+                
+                    
+                    
+                    
+                        
+                        <img src="/img/avatar_hu6744900124519508638.png" width="300"
+                            height="283" class="site-logo" loading="lazy" alt="Avatar">
+                    
+                
+                </a>
+                
+                    <span class="emoji">🔥</span>
+                
+            </figure>
+            
+        
+        
+        <div class="site-meta">
+            <h1 class="site-name"><a href="/">荡影-DorinXL</a></h1>
+            <h2 class="site-description">缄默慎独，不破不立，事在人为</h2>
+        </div>
+    </header><ol class="menu-social">
+            
+                <li>
+                    <a 
+                        href='https://space.bilibili.com/3217550'
+                        target="_blank"
+                        title="BilBili"
+                        rel="me"
+                    >
+                        
+                        
+                            <svg  xmlns="http://www.w3.org/2000/svg"  width="24"  height="24"  viewBox="0 0 24 24"  fill="none"  stroke="currentColor"  stroke-width="2"  stroke-linecap="round"  stroke-linejoin="round"  class="icon icon-tabler icons-tabler-outline icon-tabler-brand-bilibili"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M3 10a4 4 0 0 1 4 -4h10a4 4 0 0 1 4 4v6a4 4 0 0 1 -4 4h-10a4 4 0 0 1 -4 -4v-6z" /><path d="M8 3l2 3" /><path d="M16 3l-2 3" /><path d="M9 13v-2" /><path d="M15 11v2" /></svg>
+                        
+                    </a>
+                </li>
+            
+                <li>
+                    <a 
+                        href='https://www.cnblogs.com/DorinXL/'
+                        target="_blank"
+                        title="CNblog"
+                        rel="me"
+                    >
+                        
+                        
+                            <svg  xmlns="http://www.w3.org/2000/svg"  width="24"  height="24"  viewBox="0 0 24 24"  fill="none"  stroke="currentColor"  stroke-width="2"  stroke-linecap="round"  stroke-linejoin="round"  class="icon icon-tabler icons-tabler-outline icon-tabler-brand-blogger"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M8 21h8a5 5 0 0 0 5 -5v-3a3 3 0 0 0 -3 -3h-1v-2a5 5 0 0 0 -5 -5h-4a5 5 0 0 0 -5 5v8a5 5 0 0 0 5 5z" /><path d="M7 7m0 1.5a1.5 1.5 0 0 1 1.5 -1.5h3a1.5 1.5 0 0 1 1.5 1.5v0a1.5 1.5 0 0 1 -1.5 1.5h-3a1.5 1.5 0 0 1 -1.5 -1.5z" /><path d="M7 14m0 1.5a1.5 1.5 0 0 1 1.5 -1.5h7a1.5 1.5 0 0 1 1.5 1.5v0a1.5 1.5 0 0 1 -1.5 1.5h-7a1.5 1.5 0 0 1 -1.5 -1.5z" /></svg>
+                        
+                    </a>
+                </li>
+            
+                <li>
+                    <a 
+                        href='https://github.com/DorinXL/DorinXL.github.io'
+                        target="_blank"
+                        title="GitHub"
+                        rel="me"
+                    >
+                        
+                        
+                            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-brand-github" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+  <path d="M9 19c-4.3 1.4 -4.3 -2.5 -6 -3m12 5v-3.5c0 -1 .1 -1.4 -.5 -2c2.8 -.3 5.5 -1.4 5.5 -6a4.6 4.6 0 0 0 -1.3 -3.2a4.2 4.2 0 0 0 -.1 -3.2s-1.1 -.3 -3.5 1.3a12.3 12.3 0 0 0 -6.2 0c-2.4 -1.6 -3.5 -1.3 -3.5 -1.3a4.2 4.2 0 0 0 -.1 3.2a4.6 4.6 0 0 0 -1.3 3.2c0 4.6 2.7 5.7 5.5 6c-.6 .6 -.6 1.2 -.5 2v3.5" />
+</svg>
+
+
+
+                        
+                    </a>
+                </li>
+            
+        </ol><ol class="menu" id="main-menu">
+        
+        
+        
+        <li >
+            <a href='/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-home" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <polyline points="5 12 3 12 12 3 21 12 19 12" />
+  <path d="M5 12v7a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-7" />
+  <path d="M9 21v-6a2 2 0 0 1 2 -2h2a2 2 0 0 1 2 2v6" />
+</svg>
+
+
+
+                
+                <span>主页</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/%E5%85%B3%E4%BA%8E/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-user" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="7" r="4" />
+  <path d="M6 21v-2a4 4 0 0 1 4 -4h4a4 4 0 0 1 4 4v2" />
+</svg>
+
+
+
+                
+                <span>关于</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/archives/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-archive" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <rect x="3" y="4" width="18" height="4" rx="2" />
+  <path d="M5 8v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-10" />
+  <line x1="10" y1="12" x2="14" y2="12" />
+</svg>
+
+
+
+                
+                <span>归档</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/search/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-search" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="10" cy="10" r="7" />
+  <line x1="21" y1="21" x2="15" y2="15" />
+</svg>
+
+
+
+                
+                <span>搜索</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/%E5%8F%8B%E9%93%BE/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-link" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <path d="M10 14a3.5 3.5 0 0 0 5 0l4 -4a3.5 3.5 0 0 0 -5 -5l-.5 .5" />
+  <path d="M14 10a3.5 3.5 0 0 0 -5 0l-4 4a3.5 3.5 0 0 0 5 5l.5 -.5" />
+</svg>
+
+
+
+                
+                <span>友链</span>
+            </a>
+        </li>
+        
+        <li class="menu-bottom-section">
+            <ol class="menu">
+
+                
+                    <li id="dark-mode-toggle">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-left" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="8" cy="12" r="2" />
+  <rect x="2" y="6" width="20" height="12" rx="6" />
+</svg>
+
+
+
+                        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-right" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="16" cy="12" r="2" />
+  <rect x="2" y="6" width="20" height="12" rx="6" />
+</svg>
+
+
+
+                        <span>暗色模式</span>
+                    </li>
+                
+            </ol>
+        </li>
+    </ol>
+</aside>
+
+    <aside class="sidebar right-sidebar sticky">
+        
+            
+                
+    <section class="widget archives">
+        <div class="widget-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-hash" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <line x1="5" y1="9" x2="19" y2="9" />
+  <line x1="5" y1="15" x2="19" y2="15" />
+  <line x1="11" y1="4" x2="7" y2="20" />
+  <line x1="17" y1="4" x2="13" y2="20" />
+</svg>
+
+
+
+        </div>
+        <h2 class="widget-title section-title">目录</h2>
+        
+        <div class="widget--toc">
+            <nav id="TableOfContents">
+  <ol>
+    <li><a href="#会议记录">会议记录</a>
+      <ol>
+        <li><a href="#day1-2022520-晚">Day1 2022/5/20 晚</a></li>
+        <li><a href="#day2-2022521-早">Day2 2022/5/21 早</a>
+          <ol>
+            <li><a href="#今日任务">今日任务：</a></li>
+            <li><a href="#遗留问题">遗留问题：</a></li>
+          </ol>
+        </li>
+        <li><a href="#day3-2022522">Day3 2022/5/22</a>
+          <ol>
+            <li><a href="#今日任务-1">今日任务：</a></li>
+            <li><a href="#未处理">未处理：</a></li>
+          </ol>
+        </li>
+        <li><a href="#day4-2022523">Day4 2022/5/23</a>
+          <ol>
+            <li><a href="#今日任务-2">今日任务：</a></li>
+            <li><a href="#未处理-1">未处理：</a></li>
+          </ol>
+        </li>
+        <li><a href="#day5-2022524">Day5 2022/5/24</a>
+          <ol>
+            <li><a href="#今日任务-3">今日任务：</a></li>
+          </ol>
+        </li>
+        <li><a href="#day6-2022525">Day6 2022/5/25</a>
+          <ol>
+            <li><a href="#今日任务-4">今日任务：</a></li>
+          </ol>
+        </li>
+        <li><a href="#day7-2022526">Day7 2022/5/26</a>
+          <ol>
+            <li><a href="#今日任务-5">今日任务：</a></li>
+          </ol>
+        </li>
+        <li><a href="#day8-2022527">Day8 2022/5/27</a>
+          <ol>
+            <li><a href="#今日任务-6">今日任务：</a></li>
+          </ol>
+        </li>
+        <li><a href="#一些自己编的数据库">一些自己编的数据库：</a></li>
+        <li><a href="#使用的素材">使用的素材：</a></li>
+      </ol>
+    </li>
+  </ol>
+</nav>
+        </div>
+    </section>
+
+            
+        
+    </aside>
+
+
+            <main class="main full-width">
+    <article class="main-article">
+    <header class="article-header">
+
+    <div class="article-details">
+    
+    <header class="article-category">
+        
+            <a href="/categories/%E6%B8%B8%E6%88%8F%E5%BC%80%E5%8F%91/" >
+                游戏开发
+            </a>
+        
+    </header>
+    
+
+    <div class="article-title-wrapper">
+        <h2 class="article-title">
+            <a href="/p/2022javaweb%E8%AF%BE%E8%AE%BE%E5%9F%BA%E4%BA%8E%E8%B4%AD%E7%89%A9%E7%B3%BB%E7%BB%9F%E7%9A%84%E6%B8%B8%E6%88%8F%E5%8E%9F%E5%9E%8B%E8%AE%BE%E8%AE%A1/">【2022javaweb课设】基于购物系统的游戏原型设计</a>
+        </h2>
+    
+        
+        <h3 class="article-subtitle">
+            22年某个大课设用javaweb做的抽卡游戏
+        </h3>
+        
+    </div>
+
+
+    
+    
+    
+    
+    <footer class="article-time">
+        
+            <div>
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-calendar-time" width="56" height="56" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <path d="M11.795 21h-6.795a2 2 0 0 1 -2 -2v-12a2 2 0 0 1 2 -2h12a2 2 0 0 1 2 2v4" />
+  <circle cx="18" cy="18" r="4" />
+  <path d="M15 3v4" />
+  <path d="M7 3v4" />
+  <path d="M3 11h16" />
+  <path d="M18 16.496v1.504l1 1" />
+</svg>
+                <time class="article-time--published">2022-05-21</time>
+            </div>
+	
+
+        
+
+        
+    </footer>
+    
+
+    
+
+</div>
+
+</header>
+
+    <section class="article-content">
+    
+    
+    <h2 id="会议记录">会议记录
+</h2><h3 id="day1-2022520-晚">Day1 2022/5/20 晚
+</h3><p>确定小组成员。</p>
+<p>确定立项题目与方向：基于商城系统的游戏原型设计。</p>
+<h3 id="day2-2022521-早">Day2 2022/5/21 早
+</h3><h4 id="今日任务">今日任务：
+</h4><ol>
+<li>
+<p>确定开发环境</p>
+<p>前端：html+css+js,使用Bootstrap框架</p>
+<p>后端：MVC开发模式，JSP+JavaBean+Servlet</p>
+<p>Web应用服务器：tomcat 9.0.30</p>
+<p>数据库：MySQL</p>
+</li>
+<li>
+<p>功能需求分析</p>
+<ol>
+<li>前端页面需求：
+<ol>
+<li>网站欢迎页面：介绍网站作用，提供登录和注册的窗口。</li>
+<li>注册和登录界面：传递用户信息到后端服务器与数据库交互。</li>
+<li>商店页面：作为主界面显示各种道具供玩家选择，提供进入战斗页面的入口，同时可以查看个人资料、购物车。</li>
+<li>个人资料页面：弹出展示，表现一些个人信息。</li>
+<li>购物车页面：弹窗展示，展示玩家已选择的道具与效果。</li>
+<li>战斗页面：游戏在该页面展示，玩家通过购买道具增强自己的属性或是削弱对手的属性，从而赢得胜利，进入下一关卡。</li>
+</ol>
+</li>
+<li>后端需求：
+<ol>
+<li>设计数据库内容：
+<ol>
+<li>需要两个库，库PlayerAccount存放用户登陆数据与游戏数据，库GameSetting存放道具信息与敌人信息。</li>
+<li>库PlayerAccount中需要表players共一张表，表players中共number、name、password、hp、attack、defense，money七列。</li>
+<li>库GameSetting中需要prop、enemy两张表，表prop中共number、name、type、variation、cost五列，表enemy中共number、name、hp、attack、defense、gold五列。</li>
+</ol>
+</li>
+</ol>
+</li>
+</ol>
+</li>
+<li>
+<p>技术难点预处理</p>
+<ol>
+<li>同页面内弹出小窗
+<ol>
+<li>使用Bootstrap框架实现模态框。</li>
+</ol>
+</li>
+<li>servlet与jsp相互跳转时的路径
+<ol>
+<li>使用web.xml与绝对路径解决。</li>
+</ol>
+</li>
+</ol>
+</li>
+<li>
+<p>熟悉使用Github的协同工作</p>
+<ol>
+<li>在Github上创建私人项目并邀请小组成员进入。</li>
+<li>小组使用Github Desktop图形化界面进行代码的协同工作。</li>
+</ol>
+</li>
+</ol>
+<h4 id="遗留问题">遗留问题：
+</h4><ol>
+<li>将样例代码修改为所需代码。</li>
+<li>数据库更新，添加花费、金钱等重要选项。</li>
+<li>显示个人信息。</li>
+<li>购买道具后实现增益效果。</li>
+<li>开始着手对战。
+<ol>
+<li>界面构筑。</li>
+<li>玩家点击对战——提交数据到servlet——服务端返回数据——客户端表现完毕后结算。</li>
+<li>胜利则保存数据，失败则重新来过。</li>
+</ol>
+</li>
+</ol>
+<h3 id="day3-2022522">Day3 2022/5/22
+</h3><h4 id="今日任务-1">今日任务：
+</h4><ol>
+<li>修复昨日遗留bug。</li>
+<li>构建并丰富数据库表项。</li>
+<li>开始分析核心代码思路并编写。</li>
+<li>后端实现验证码注册登录、与数据库交互并实现保存登录信息。</li>
+<li>前端实现登录与主界面的实现与优化。</li>
+</ol>
+<h4 id="未处理">未处理：
+</h4><ol>
+<li>实现战斗</li>
+<li>实现购买</li>
+</ol>
+<h3 id="day4-2022523">Day4 2022/5/23
+</h3><h4 id="今日任务-2">今日任务：
+</h4><p>战斗环节初步完成：</p>
+<p>战斗思路：用户登陆后创建一个临时tmpPlayer用来供玩家修改属性，每次战斗获得胜利后才会修改保存原本数据库中的数据，这样实现存档功能。</p>
+<h4 id="未处理-1">未处理：
+</h4><ol>
+<li>实现ajax传json，本地根据传值结果做出相应界面变化。</li>
+<li>按钮的开关操作。</li>
+<li>循环调用js，目的是为了点一次按钮就开始执行战斗环节。</li>
+</ol>
+<h3 id="day5-2022524">Day5 2022/5/24
+</h3><h4 id="今日任务-3">今日任务：
+</h4><p><strong>现在开始使用bootstrap框架重构前端</strong></p>
+<ol>
+<li>index欢迎界面完成。</li>
+<li>注册与登录通过模态框实现。</li>
+<li>两个模态框分别刷新验证码，出错提示，重新打开刷新提示</li>
+<li>将注册与登录同欢迎页面在一起，使用ajax实现登录、注册以及登录状态保存。同时可以跳转到游戏主界面。</li>
+</ol>
+<p><img src="/p/2022javaweb%E8%AF%BE%E8%AE%BE%E5%9F%BA%E4%BA%8E%E8%B4%AD%E7%89%A9%E7%B3%BB%E7%BB%9F%E7%9A%84%E6%B8%B8%E6%88%8F%E5%8E%9F%E5%9E%8B%E8%AE%BE%E8%AE%A1/1858293-20220604154345852-1297586329.png"
+	width="519"
+	height="630"
+	srcset="/p/2022javaweb%E8%AF%BE%E8%AE%BE%E5%9F%BA%E4%BA%8E%E8%B4%AD%E7%89%A9%E7%B3%BB%E7%BB%9F%E7%9A%84%E6%B8%B8%E6%88%8F%E5%8E%9F%E5%9E%8B%E8%AE%BE%E8%AE%A1/1858293-20220604154345852-1297586329_hu9882075956850767550.png 480w, /p/2022javaweb%E8%AF%BE%E8%AE%BE%E5%9F%BA%E4%BA%8E%E8%B4%AD%E7%89%A9%E7%B3%BB%E7%BB%9F%E7%9A%84%E6%B8%B8%E6%88%8F%E5%8E%9F%E5%9E%8B%E8%AE%BE%E8%AE%A1/1858293-20220604154345852-1297586329_hu12541126382259433949.png 1024w"
+	loading="lazy"
+	
+		alt="登录"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="82"
+		data-flex-basis="197px"
+	
+></p>
+<p>遗留问题：注册失败</p>
+<h3 id="day6-2022525">Day6 2022/5/25
+</h3><h4 id="今日任务-4">今日任务：
+</h4><ol>
+<li>url导入背景图片，改变其背景透明，透明度通过rgba（）实现。</li>
+<li>界面布局高度不一致，尝试用flex修改</li>
+</ol>
+<p><img src="/p/2022javaweb%E8%AF%BE%E8%AE%BE%E5%9F%BA%E4%BA%8E%E8%B4%AD%E7%89%A9%E7%B3%BB%E7%BB%9F%E7%9A%84%E6%B8%B8%E6%88%8F%E5%8E%9F%E5%9E%8B%E8%AE%BE%E8%AE%A1/1858293-20220604154347919-1098005980.png"
+	width="1061"
+	height="718"
+	srcset="/p/2022javaweb%E8%AF%BE%E8%AE%BE%E5%9F%BA%E4%BA%8E%E8%B4%AD%E7%89%A9%E7%B3%BB%E7%BB%9F%E7%9A%84%E6%B8%B8%E6%88%8F%E5%8E%9F%E5%9E%8B%E8%AE%BE%E8%AE%A1/1858293-20220604154347919-1098005980_hu6873870499846169469.png 480w, /p/2022javaweb%E8%AF%BE%E8%AE%BE%E5%9F%BA%E4%BA%8E%E8%B4%AD%E7%89%A9%E7%B3%BB%E7%BB%9F%E7%9A%84%E6%B8%B8%E6%88%8F%E5%8E%9F%E5%9E%8B%E8%AE%BE%E8%AE%A1/1858293-20220604154347919-1098005980_hu12237455489209668512.png 1024w"
+	loading="lazy"
+	
+		alt="进入商店"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="147"
+		data-flex-basis="354px"
+	
+></p>
+<h3 id="day7-2022526">Day7 2022/5/26
+</h3><h4 id="今日任务-5">今日任务：
+</h4><ol>
+<li>
+<p>完成装备的刷新机制。</p>
+</li>
+<li>
+<p>js获取div内容、克隆div，修改div各项属性及其子属性。、</p>
+</li>
+<li>
+<p>装备刷新使用正态分布生成概率5% 12% 25% 28% 30%（线性）</p>
+<p>500 500<del>1700 1700</del>4200 4200<del>7000 7000</del>10000</p>
+<p>整体流程：Store.jsp-&gt;GachaServlet-&gt;DAO-&gt;Servlet-&gt;Store.jsp</p>
+<p><img src="C:%5cUsers%5c97478%5cAppData%5cRoaming%5cTypora%5ctypora-user-images%5cimage-20220604150807588.png"
+	
+	
+	
+	loading="lazy"
+	
+		alt="image-20220604150807588"
+	
+	
+></p>
+</li>
+</ol>
+<h3 id="day8-2022527">Day8 2022/5/27
+</h3><h4 id="今日任务-6">今日任务：
+</h4><ol>
+<li>重新编写了购买、修改购物车的逻辑</li>
+<li>添加刷新玩家信息的函数，请求玩家数据的方法。</li>
+<li>完成了战斗页面的构建，添加了逻辑。</li>
+<li>两侧card，中间是ui以及展示区域。</li>
+<li>完成PPT，完成视频展示，丰富数据库，找背景图以及怪物图。</li>
+<li>顺利完成答辩。</li>
+</ol>
+<h3 id="一些自己编的数据库">一些自己编的数据库：
+</h3><p><img src="C:%5cUsers%5c97478%5cAppData%5cRoaming%5cTypora%5ctypora-user-images%5cimage-20220604151755876.png"
+	
+	
+	
+	loading="lazy"
+	
+		alt="image-20220604151755876"
+	
+	
+></p>
+<h3 id="使用的素材">使用的素材：
+</h3><p>怪物图片：https://pixeljoint.com/pixelart/41620.htm</p>
+<p>道具图片：https://cheekyinkling.itch.io/shikashis-fantasy-icons-pack</p>
+<p>人物图片：https://craftpix.net/freebies/free-halfing-avatar-icons/</p>
+<p>背景图片：</p>
+<p><a class="link" href="https://yangsh.artstation.com/projects/mq5GNd"  target="_blank" rel="noopener"
+    >https://yangsh.artstation.com/projects/mq5GNd</a></p>
+<p><a class="link" href="https://www.artstation.com/artwork/A95vPo"  target="_blank" rel="noopener"
+    >https://www.artstation.com/artwork/A95vPo</a></p>
+
+</section>
+
+
+    <footer class="article-footer">
+    
+
+    </footer>
+
+
+    
+</article>
+
+    
+
+    
+
+<aside class="related-content--wrapper">
+    <h2 class="section-title">相关文章</h2>
+    <div class="related-content">
+        <div class="flex article-list--tile">
+            
+                
+<article class="">
+    <a href="/p/%E4%BD%BF%E7%94%A8mixamo%E4%B8%BAobj%E6%96%87%E4%BB%B6%E7%BB%91%E9%AA%A8%E5%B9%B6%E5%AF%BC%E5%85%A5unity/">
+        
+        
+
+        <div class="article-details">
+            <h2 class="article-title">使用mixamo为obj文件绑骨并导入unity</h2>
+        </div>
+    </a>
+</article>
+
+            
+                
+<article class="">
+    <a href="/p/unity-shader%E5%85%A5%E9%97%A8%E7%B2%BE%E8%A6%81%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0-%E7%AC%AC%E4%B8%89%E7%AB%A0-unity-shader%E5%9F%BA%E7%A1%80/">
+        
+        
+
+        <div class="article-details">
+            <h2 class="article-title">Unity Shader入门精要读书笔记 第三章 Unity Shader基础</h2>
+        </div>
+    </a>
+</article>
+
+            
+                
+<article class="">
+    <a href="/p/%E5%BC%80%E5%8F%91%E5%A4%8D%E7%9B%982021%E7%BD%91%E6%98%93%E6%B8%B8%E6%88%8F%E9%AB%98%E6%A0%A1mini-game%E6%8C%91%E6%88%98%E8%B5%9B%E4%BD%9C%E5%93%81%E6%88%8F%E5%B9%95%E6%9C%AA%E8%90%BD/">
+        
+        
+
+        <div class="article-details">
+            <h2 class="article-title">【开发复盘】2021网易游戏高校MINI-GAME挑战赛作品《戏幕未落》</h2>
+        </div>
+    </a>
+</article>
+
+            
+                
+<article class="">
+    <a href="/p/gamejam%E6%9C%BA%E6%A0%B8%E7%BD%91booom%E6%B8%B8%E6%88%8F%E5%88%9B%E4%BD%9C%E6%8C%91%E6%88%98%E5%BC%80%E5%8F%91%E5%A4%8D%E7%9B%98/">
+        
+        
+
+        <div class="article-details">
+            <h2 class="article-title">【GameJam】机核网BOOOM游戏创作挑战开发复盘</h2>
+        </div>
+    </a>
+</article>
+
+            
+                
+<article class="">
+    <a href="/p/ugdap%E4%B8%8A%E6%B5%B7%E4%B8%80%E5%91%A8%E8%87%AA%E7%94%B1%E8%A1%8C%E7%BB%93%E6%9D%9F/">
+        
+        
+
+        <div class="article-details">
+            <h2 class="article-title">【UGDAP】上海一周自由行结束!</h2>
+        </div>
+    </a>
+</article>
+
+            
+        </div>
+    </div>
+</aside>
+
+     
+    
+        
+    <script src="https://utteranc.es/client.js" 
+        repo="DorinXL/dorinxl.github.io"
+        issue-term="pathname"
+        
+        crossorigin="anonymous"
+        async
+        >
+</script>
+
+<style>
+    .utterances {
+        max-width: unset;
+    }
+</style>
+
+<script>
+    let utterancesLoaded = false;
+
+    function setUtterancesTheme(theme) {
+        let utterances = document.querySelector('.utterances iframe');
+        if (utterances) {
+            utterances.contentWindow.postMessage(
+                {
+                    type: 'set-theme',
+                    theme: `github-${theme}`
+                },
+                'https://utteranc.es'
+            );
+        }
+    }
+
+    addEventListener('message', event => {
+        if (event.origin !== 'https://utteranc.es') return;
+
+        
+        utterancesLoaded = true;
+        setUtterancesTheme(document.documentElement.dataset.scheme)
+    });
+
+    window.addEventListener('onColorSchemeChange', (e) => {
+        if (!utterancesLoaded) return;
+        setUtterancesTheme(e.detail)
+    })
+</script>
+
+
+    
+
+    <footer class="site-footer">
+    <section class="copyright">
+        &copy; 
+        
+        2024 荡影-DorinXL
+    </section>
+
+
+
+<section class="totalcount">
+    
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+    发表了76篇文章 · 
+    总计103.89k字
+</section>
+
+
+
+<section class="running-time">
+本博客已稳定运行
+<span id="runningdays" class="running-days"></span>
+</section>
+
+    <section class="powerby">
+        使用 <a href="https://gohugo.io/" target="_blank" rel="noopener">Hugo</a> 构建 <br />
+        主题 <b><a href="https://github.com/CaiJimmy/hugo-theme-stack" target="_blank" rel="noopener" data-version="3.26.0">Stack</a></b> 由 <a href="https://jimmycai.com" target="_blank" rel="noopener">Jimmy</a> 设计
+    </section>
+
+</footer>
+
+
+    
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+    
+    <div class="pswp__bg"></div>
+
+    
+    <div class="pswp__scroll-wrap">
+
+        
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+
+        
+        <div class="pswp__ui pswp__ui--hidden">
+
+            <div class="pswp__top-bar">
+
+                
+
+                <div class="pswp__counter"></div>
+
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+                
+                
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                        <div class="pswp__preloader__cut">
+                            <div class="pswp__preloader__donut"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div>
+            </div>
+
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div><script 
+                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.js"integrity="sha256-ePwmChbbvXbsO02lbM3HoHbSHTHFAeChekF1xKJdleo="crossorigin="anonymous"
+                defer
+                >
+            </script><script 
+                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe-ui-default.min.js"integrity="sha256-UKkzOn/w1mBxRmLLGrSeyB4e1xbrp4xylgAWb3M42pU="crossorigin="anonymous"
+                defer
+                >
+            </script><link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/default-skin/default-skin.min.css"crossorigin="anonymous"
+            ><link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.css"crossorigin="anonymous"
+            >
+
+            </main>
+        </div>
+        <script 
+                src="https://cdn.jsdelivr.net/npm/node-vibrant@3.1.6/dist/vibrant.min.js"integrity="sha256-awcR2jno4kI5X0zL8ex0vi2z&#43;KMkF24hUW8WePSA9HM="crossorigin="anonymous"
+                
+                >
+            </script><script type="text/javascript" src="/ts/main.js" defer></script>
+<script>
+    (function () {
+        const customFont = document.createElement('link');
+        customFont.href = "https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap";
+
+        customFont.type = "text/css";
+        customFont.rel = "stylesheet";
+
+        document.head.appendChild(customFont);
+    }());
+</script>
+
+<script>
+    let s1 = '2024-8-25'; 
+    s1 = new Date(s1.replace(/-/g, "/"));
+    let s2 = new Date();
+    let timeDifference = s2.getTime() - s1.getTime();
+
+    let days = Math.floor(timeDifference / (1000 * 60 * 60 * 24));
+    let hours = Math.floor((timeDifference % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+    let minutes = Math.floor((timeDifference % (1000 * 60 * 60)) / (1000 * 60));
+
+    let result = days + "天" + hours + "小时" + minutes + "分钟";
+    document.getElementById('runningdays').innerHTML = result;
+</script>
+    </body>
+</html>

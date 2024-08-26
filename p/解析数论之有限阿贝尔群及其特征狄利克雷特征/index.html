@@ -1,0 +1,1674 @@
+<!DOCTYPE html>
+<html lang="zh-cn" dir="ltr">
+    <head><meta charset='utf-8'>
+<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content="@Coding: Typora+LaTeX @Author : DorinXL（博客） @Time : 2023/8/4 目录 Chapter1 群的定义、性质 Chapter2 构造子群 Chapter3 有限阿贝尔群的特征 Chapter4 狄利克雷特征 Chapter1 群的定义、性质 Section1 群 Definition">
+<title>解析数论之有限阿贝尔群及其特征、狄利克雷特征</title>
+
+<link rel='canonical' href='https://dorinxl.github.io/p/%E8%A7%A3%E6%9E%90%E6%95%B0%E8%AE%BA%E4%B9%8B%E6%9C%89%E9%99%90%E9%98%BF%E8%B4%9D%E5%B0%94%E7%BE%A4%E5%8F%8A%E5%85%B6%E7%89%B9%E5%BE%81%E7%8B%84%E5%88%A9%E5%85%8B%E9%9B%B7%E7%89%B9%E5%BE%81/'>
+
+<link rel="stylesheet" href="/scss/style.min.dfb009e658ec6e0f0f0c366b98658c0caea5123dcd2536f353c92c2581b79fb7.css"><meta property='og:title' content="解析数论之有限阿贝尔群及其特征、狄利克雷特征">
+<meta property='og:description' content="@Coding: Typora+LaTeX @Author : DorinXL（博客） @Time : 2023/8/4 目录 Chapter1 群的定义、性质 Chapter2 构造子群 Chapter3 有限阿贝尔群的特征 Chapter4 狄利克雷特征 Chapter1 群的定义、性质 Section1 群 Definition">
+<meta property='og:url' content='https://dorinxl.github.io/p/%E8%A7%A3%E6%9E%90%E6%95%B0%E8%AE%BA%E4%B9%8B%E6%9C%89%E9%99%90%E9%98%BF%E8%B4%9D%E5%B0%94%E7%BE%A4%E5%8F%8A%E5%85%B6%E7%89%B9%E5%BE%81%E7%8B%84%E5%88%A9%E5%85%8B%E9%9B%B7%E7%89%B9%E5%BE%81/'>
+<meta property='og:site_name' content='荡影-DorinXL'>
+<meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:published_time' content='2023-08-04T11:07:00&#43;00:00'/><meta property='article:modified_time' content='2023-08-04T11:07:00&#43;00:00'/>
+<meta name="twitter:title" content="解析数论之有限阿贝尔群及其特征、狄利克雷特征">
+<meta name="twitter:description" content="@Coding: Typora+LaTeX @Author : DorinXL（博客） @Time : 2023/8/4 目录 Chapter1 群的定义、性质 Chapter2 构造子群 Chapter3 有限阿贝尔群的特征 Chapter4 狄利克雷特征 Chapter1 群的定义、性质 Section1 群 Definition">
+    <link rel="shortcut icon" href="/favicon.ico" />
+
+  
+
+
+    </head>
+    <body class="
+    article-page
+    ">
+    <script>
+        (function() {
+            const colorSchemeKey = 'StackColorScheme';
+            if(!localStorage.getItem(colorSchemeKey)){
+                localStorage.setItem(colorSchemeKey, "auto");
+            }
+        })();
+    </script><script>
+    (function() {
+        const colorSchemeKey = 'StackColorScheme';
+        const colorSchemeItem = localStorage.getItem(colorSchemeKey);
+        const supportDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches === true;
+
+        if (colorSchemeItem == 'dark' || colorSchemeItem === 'auto' && supportDarkMode) {
+            
+
+            document.documentElement.dataset.scheme = 'dark';
+        } else {
+            document.documentElement.dataset.scheme = 'light';
+        }
+    })();
+</script>
+<div class="container main-container flex on-phone--column extended"><aside class="sidebar left-sidebar sticky ">
+    <button class="hamburger hamburger--spin" type="button" id="toggle-menu" aria-label="切换菜单">
+        <span class="hamburger-box">
+            <span class="hamburger-inner"></span>
+        </span>
+    </button>
+
+    <header>
+        
+            
+            <figure class="site-avatar">
+                <a href="/">
+                
+                    
+                    
+                    
+                        
+                        <img src="/img/avatar_hu6744900124519508638.png" width="300"
+                            height="283" class="site-logo" loading="lazy" alt="Avatar">
+                    
+                
+                </a>
+                
+                    <span class="emoji">🔥</span>
+                
+            </figure>
+            
+        
+        
+        <div class="site-meta">
+            <h1 class="site-name"><a href="/">荡影-DorinXL</a></h1>
+            <h2 class="site-description">缄默慎独，不破不立，事在人为</h2>
+        </div>
+    </header><ol class="menu-social">
+            
+                <li>
+                    <a 
+                        href='https://space.bilibili.com/3217550'
+                        target="_blank"
+                        title="BilBili"
+                        rel="me"
+                    >
+                        
+                        
+                            <svg  xmlns="http://www.w3.org/2000/svg"  width="24"  height="24"  viewBox="0 0 24 24"  fill="none"  stroke="currentColor"  stroke-width="2"  stroke-linecap="round"  stroke-linejoin="round"  class="icon icon-tabler icons-tabler-outline icon-tabler-brand-bilibili"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M3 10a4 4 0 0 1 4 -4h10a4 4 0 0 1 4 4v6a4 4 0 0 1 -4 4h-10a4 4 0 0 1 -4 -4v-6z" /><path d="M8 3l2 3" /><path d="M16 3l-2 3" /><path d="M9 13v-2" /><path d="M15 11v2" /></svg>
+                        
+                    </a>
+                </li>
+            
+                <li>
+                    <a 
+                        href='https://www.cnblogs.com/DorinXL/'
+                        target="_blank"
+                        title="CNblog"
+                        rel="me"
+                    >
+                        
+                        
+                            <svg  xmlns="http://www.w3.org/2000/svg"  width="24"  height="24"  viewBox="0 0 24 24"  fill="none"  stroke="currentColor"  stroke-width="2"  stroke-linecap="round"  stroke-linejoin="round"  class="icon icon-tabler icons-tabler-outline icon-tabler-brand-blogger"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M8 21h8a5 5 0 0 0 5 -5v-3a3 3 0 0 0 -3 -3h-1v-2a5 5 0 0 0 -5 -5h-4a5 5 0 0 0 -5 5v8a5 5 0 0 0 5 5z" /><path d="M7 7m0 1.5a1.5 1.5 0 0 1 1.5 -1.5h3a1.5 1.5 0 0 1 1.5 1.5v0a1.5 1.5 0 0 1 -1.5 1.5h-3a1.5 1.5 0 0 1 -1.5 -1.5z" /><path d="M7 14m0 1.5a1.5 1.5 0 0 1 1.5 -1.5h7a1.5 1.5 0 0 1 1.5 1.5v0a1.5 1.5 0 0 1 -1.5 1.5h-7a1.5 1.5 0 0 1 -1.5 -1.5z" /></svg>
+                        
+                    </a>
+                </li>
+            
+                <li>
+                    <a 
+                        href='https://github.com/DorinXL/DorinXL.github.io'
+                        target="_blank"
+                        title="GitHub"
+                        rel="me"
+                    >
+                        
+                        
+                            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-brand-github" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+  <path d="M9 19c-4.3 1.4 -4.3 -2.5 -6 -3m12 5v-3.5c0 -1 .1 -1.4 -.5 -2c2.8 -.3 5.5 -1.4 5.5 -6a4.6 4.6 0 0 0 -1.3 -3.2a4.2 4.2 0 0 0 -.1 -3.2s-1.1 -.3 -3.5 1.3a12.3 12.3 0 0 0 -6.2 0c-2.4 -1.6 -3.5 -1.3 -3.5 -1.3a4.2 4.2 0 0 0 -.1 3.2a4.6 4.6 0 0 0 -1.3 3.2c0 4.6 2.7 5.7 5.5 6c-.6 .6 -.6 1.2 -.5 2v3.5" />
+</svg>
+
+
+
+                        
+                    </a>
+                </li>
+            
+        </ol><ol class="menu" id="main-menu">
+        
+        
+        
+        <li >
+            <a href='/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-home" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <polyline points="5 12 3 12 12 3 21 12 19 12" />
+  <path d="M5 12v7a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-7" />
+  <path d="M9 21v-6a2 2 0 0 1 2 -2h2a2 2 0 0 1 2 2v6" />
+</svg>
+
+
+
+                
+                <span>主页</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/%E5%85%B3%E4%BA%8E/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-user" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="7" r="4" />
+  <path d="M6 21v-2a4 4 0 0 1 4 -4h4a4 4 0 0 1 4 4v2" />
+</svg>
+
+
+
+                
+                <span>关于</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/archives/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-archive" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <rect x="3" y="4" width="18" height="4" rx="2" />
+  <path d="M5 8v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-10" />
+  <line x1="10" y1="12" x2="14" y2="12" />
+</svg>
+
+
+
+                
+                <span>归档</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/search/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-search" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="10" cy="10" r="7" />
+  <line x1="21" y1="21" x2="15" y2="15" />
+</svg>
+
+
+
+                
+                <span>搜索</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/%E5%8F%8B%E9%93%BE/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-link" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <path d="M10 14a3.5 3.5 0 0 0 5 0l4 -4a3.5 3.5 0 0 0 -5 -5l-.5 .5" />
+  <path d="M14 10a3.5 3.5 0 0 0 -5 0l-4 4a3.5 3.5 0 0 0 5 5l.5 -.5" />
+</svg>
+
+
+
+                
+                <span>友链</span>
+            </a>
+        </li>
+        
+        <li class="menu-bottom-section">
+            <ol class="menu">
+
+                
+                    <li id="dark-mode-toggle">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-left" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="8" cy="12" r="2" />
+  <rect x="2" y="6" width="20" height="12" rx="6" />
+</svg>
+
+
+
+                        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-right" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="16" cy="12" r="2" />
+  <rect x="2" y="6" width="20" height="12" rx="6" />
+</svg>
+
+
+
+                        <span>暗色模式</span>
+                    </li>
+                
+            </ol>
+        </li>
+    </ol>
+</aside>
+
+    <aside class="sidebar right-sidebar sticky">
+        
+            
+                
+    <section class="widget archives">
+        <div class="widget-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-hash" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <line x1="5" y1="9" x2="19" y2="9" />
+  <line x1="5" y1="15" x2="19" y2="15" />
+  <line x1="11" y1="4" x2="7" y2="20" />
+  <line x1="17" y1="4" x2="13" y2="20" />
+</svg>
+
+
+
+        </div>
+        <h2 class="widget-title section-title">目录</h2>
+        
+        <div class="widget--toc">
+            <nav id="TableOfContents">
+  <ol>
+    <li>
+      <ol>
+        <li>
+          <ol>
+            <li></li>
+          </ol>
+        </li>
+      </ol>
+    </li>
+    <li><a href="#目录">目录</a></li>
+    <li><a href="#chapter1-群的定义性质">Chapter1 群的定义、性质</a>
+      <ol>
+        <li><a href="#section1-群">Section1 群</a></li>
+        <li><a href="#section2-阿贝尔群abelian-group">Section2 阿贝尔群（Abelian Group）</a></li>
+        <li><a href="#section3-子群subgroup">Section3 子群（subgroup）</a></li>
+      </ol>
+    </li>
+    <li><a href="#chapter2-构造子群">Chapter2 构造子群</a>
+      <ol>
+        <li><a href="#section1-针对阿贝尔群的两种构造方法">Section1 针对阿贝尔群的两种构造方法</a></li>
+        <li><a href="#section2-子群的结构">Section2 子群的结构</a></li>
+      </ol>
+    </li>
+    <li><a href="#chapter3-有限阿贝尔群的特征">Chapter3 有限阿贝尔群的特征</a></li>
+    <li><a href="#chapter4-狄利克雷特征">Chapter4 狄利克雷特征</a></li>
+  </ol>
+</nav>
+        </div>
+    </section>
+
+            
+        
+    </aside>
+
+
+            <main class="main full-width">
+    <article class="main-article">
+    <header class="article-header">
+
+    <div class="article-details">
+    
+    <header class="article-category">
+        
+            <a href="/categories/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/" >
+                读书笔记
+            </a>
+        
+            <a href="/categories/%E6%95%B0%E8%AE%BA/" >
+                数论
+            </a>
+        
+    </header>
+    
+
+    <div class="article-title-wrapper">
+        <h2 class="article-title">
+            <a href="/p/%E8%A7%A3%E6%9E%90%E6%95%B0%E8%AE%BA%E4%B9%8B%E6%9C%89%E9%99%90%E9%98%BF%E8%B4%9D%E5%B0%94%E7%BE%A4%E5%8F%8A%E5%85%B6%E7%89%B9%E5%BE%81%E7%8B%84%E5%88%A9%E5%85%8B%E9%9B%B7%E7%89%B9%E5%BE%81/">解析数论之有限阿贝尔群及其特征、狄利克雷特征</a>
+        </h2>
+    
+        
+    </div>
+
+
+    
+    
+    
+    
+    <footer class="article-time">
+        
+            <div>
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-calendar-time" width="56" height="56" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <path d="M11.795 21h-6.795a2 2 0 0 1 -2 -2v-12a2 2 0 0 1 2 -2h12a2 2 0 0 1 2 2v4" />
+  <circle cx="18" cy="18" r="4" />
+  <path d="M15 3v4" />
+  <path d="M7 3v4" />
+  <path d="M3 11h16" />
+  <path d="M18 16.496v1.504l1 1" />
+</svg>
+                <time class="article-time--published">2023-08-04</time>
+            </div>
+	
+
+        
+
+        
+    </footer>
+    
+
+    
+
+</div>
+
+</header>
+
+    <section class="article-content">
+    
+    
+    <h6 id="coding-typoralatex">@Coding: Typora+LaTeX
+</h6><h6 id="author--dorinxlhttpsdorinxlgiteeio博客httpswwwcnblogscomdorinxl">@Author : <a class="link" href="https://dorinxl.gitee.io/"  target="_blank" rel="noopener"
+    >DorinXL</a>（<a class="link" href="https://www.cnblogs.com/DorinXL/"  target="_blank" rel="noopener"
+    >博客</a>）
+</h6><h6 id="time--202384">@Time : 2023/8/4
+</h6><h2 id="目录">目录
+</h2><ul>
+<li>Chapter1 群的定义、性质</li>
+<li>Chapter2 构造子群</li>
+<li>Chapter3 有限阿贝尔群的特征</li>
+<li>Chapter4 狄利克雷特征</li>
+</ul>
+<h2 id="chapter1-群的定义性质">Chapter1 群的定义、性质
+</h2><h3 id="section1-群">Section1 群
+</h3><ul>
+<li>
+<p><strong>Definition</strong>：</p>
+<ol>
+<li><strong>群</strong>：一个群是由元素和二元运算组成的非空集合。我们用$\cdot$表示这种二元运算，群是满足下列条件的代数结构(algebraic structure)
+<ul>
+<li>封闭性：$\forall a,b \in G,a \cdot b \in G;(Z,\div)$不是封闭性</li>
+<li>结合性：$\forall a,b,c \in G,a \cdot(b\cdot c) = (a \cdot b)\cdot c$</li>
+<li>单位元：$\exist e \in G,\forall a \in G,a \cdot e = e \cdot a = a$</li>
+<li>逆元：$\forall a \in G,\exist b \in G,a \cdot b = b\cdot a = e. a的逆元记为a^{-1}$</li>
+</ul>
+</li>
+</ol>
+</li>
+<li>
+<p><strong>Examples</strong>:</p>
+<ol>
+<li>$(Z,+)$（满足群的定义）
+<ul>
+<li>封闭性：整数相加还是整数</li>
+<li>结合律：整数相加满足加法结合律</li>
+<li>单位元：0</li>
+<li>逆元：整数的相反数</li>
+</ul>
+</li>
+<li>$(Q,\times)$（不满足群的定义）
+<ul>
+<li>封闭性：有理数相乘还是有理数</li>
+<li>结合律：有理数相乘满足乘法结合律</li>
+<li>单位元：1</li>
+<li>逆元：有理数的倒数（0除外）</li>
+</ul>
+</li>
+<li>$(Q/{0},\times)$排除0的集合满足群的定义。</li>
+<li>$(Z_p^{*},\times)$
+<ul>
+<li>封闭性：相乘再模p，还是集合里的元素</li>
+<li>结合律：模运算满足乘法结合律</li>
+<li>单位元：1</li>
+<li>逆元：乘法逆元</li>
+</ul>
+</li>
+</ol>
+</li>
+<li>
+<p><strong>Theorem:</strong></p>
+<ul>
+<li>**Th1:**群里的单位元是唯一的。</li>
+</ul>
+<blockquote>
+<p><strong>Proof</strong>:反证法：</p>
+<p>假设存在两个单位元$e$,$e&rsquo;\in G，e\ne e'$</p>
+<p>根据单位元的运算：$e*e&rsquo; = e&rsquo; = e$，出现矛盾</p>
+</blockquote>
+<ul>
+<li>**Th2:**每个群里只有唯一的逆元。</li>
+</ul>
+<blockquote>
+<p><strong>Proof</strong>:反证法：</p>
+<p>假设$a \in G$存在两个不相等的逆元$b,c$</p>
+<p>$b=b<em>e$，而$a</em>c=e$，所以有$b=b<em>e=b</em>(a<em>c)=(b</em>a)<em>c=e</em>c=c$</p>
+<p>所以$b=c$，矛盾。</p>
+</blockquote>
+<ul>
+<li><strong>Th4:</strong>（消去律）$a<em>b=a</em>c \Rightarrow b=c$</li>
+</ul>
+<blockquote>
+<p><strong>Proof:</strong>
+$$
+\begin{align*}
+a<em>b&amp;=a</em>c\
+a^{-1}<em>a</em>b&amp;=a^{-1}<em>a</em>c\
+e<em>b&amp;=e</em>c\
+b&amp;=c\
+\end{align*}
+$$</p>
+</blockquote>
+<ul>
+<li>**Th5:**方程$a*x=b$有唯一解$x \in G$</li>
+</ul>
+<blockquote>
+<p><strong>Proof:</strong></p>
+<p>需要注意的是，这是个群的方程，运算符号不代表乘号。
+$$
+\begin{align*}
+a*x&amp;=b\
+a^{-1}<em>a</em>x&amp;=a^{-1}<em>b\
+e</em>x&amp;=a^{-1}*b\
+x&amp;=a^{-1}<em>b
+\end{align</em>}
+$$</p>
+</blockquote>
+<ul>
+<li><strong>Th6:</strong>$(a*b)^{-1}=b^{-1} * a^{-1}$</li>
+</ul>
+<blockquote>
+<p><strong>Proof:</strong></p>
+<p>思路是证明一个元素是另一个元素的逆元：
+$$
+\begin{align*}
+&amp;(a<em>b)</em>(b^{-1}<em>a^{-1})\
+&amp;=a</em>(b<em>b^{-1})<em>a^{-1}\
+&amp;=a</em>e</em>a^{-1}\
+&amp;=a<em>a^{-1}\
+&amp;=e
+\end{align</em>}
+$$</p>
+</blockquote>
+<ul>
+<li><strong>Th7:</strong>$(a^{-1})^{-1}=a$</li>
+</ul>
+<blockquote>
+<p>因为$a^{-1}*a=e$,所以$a^{-1}$的逆元就是$a$</p>
+</blockquote>
+</li>
+</ul>
+<p><strong>Note</strong>:</p>
+<blockquote>
+<p>群里只有一个元素时，称为平凡群，这唯一的元素就是单位元。如$({1},\times)$</p>
+</blockquote>
+<h3 id="section2-阿贝尔群abelian-group">Section2 阿贝尔群（Abelian Group）
+</h3><ul>
+<li>
+<p><strong>Definition</strong>：</p>
+<ol>
+<li>阿贝尔群又叫交换群（commutative group），如果对于群G中的任意元素$a,b \in G$，都有$a<em>b=b</em>a$，那么G称为阿贝尔群。由此，阿贝尔群就是在群的性质上添加了交换律。所以一个阿贝尔群满足以下性质：
+<ul>
+<li>封闭性、结合律、单位元、逆元、交换律。</li>
+<li>之前提到的$(Z,+),(Z_P^*,\times),(Q/{0},\times)$都满足交换律，所以都是阿贝尔群。</li>
+</ul>
+</li>
+</ol>
+</li>
+<li>
+<p><strong>Theorem:</strong></p>
+<ul>
+<li>**Th1:**群G是阿贝尔群，当且仅当，$\forall a,b \in G$，有$(a*b)^2 = a^2 * b^2$</li>
+</ul>
+<blockquote>
+<p><strong>Proof</strong>:</p>
+<p>必要性$\Rightarrow$：群G是阿贝尔群，有$a<em>b=b</em>a$</p>
+<p>于是$a<em>a</em>b<em>b=a</em>b<em>a</em>b$</p>
+<p>所以$a^2<em>b^2=(a</em>b)^2$</p>
+<p>充分性$\Leftarrow$：</p>
+<p>群G满足$a^2<em>b^2=(a</em>b)^2$</p>
+<p>于是展开得到$a<em>a</em>b<em>b=a</em>b<em>a</em>b$</p>
+<p>分别消去前后的$a,b$得到$a<em>b=b</em>a$正好是交换律的式子</p>
+</blockquote>
+<ul>
+<li>
+<p>**Th2：**语法糖</p>
+<ul>
+<li>
+<p>$a^t=a<em>a</em>a*\cdots*a$</p>
+</li>
+<li>
+<p>$a^{-t}=a^{-1}<em>a^{-1}<em>a^{-1}</em>\cdots</em>a^{-1}$</p>
+</li>
+<li>
+<p>$(a^t)^m=a^{tm}$</p>
+<blockquote>
+<p>$$
+\begin{align*}
+&amp;(a^t)^m\
+&amp;=(a<em>a</em>\cdots<em>a)</em>\cdots*(a<em>a</em>\cdots<em>a)\
+&amp;=a</em>a*\cdots<em>a</em>\cdots<em>a</em>a*\cdots<em>a\
+&amp;=a^{tm}
+\end{align</em>}
+$$</p>
+</blockquote>
+</li>
+<li>
+<p>$a^t * a^m= a^{t+m}$</p>
+</li>
+<li>
+<p>$(a^{-1})^t=(a^t)^{-1}$</p>
+<blockquote>
+<p>$$
+\begin{align*}
+&amp;(a^{-1})^t*(a^t)^{-1}\
+&amp;=a^{-1}<em>a^{-1}</em>\cdots<em>a^{-1}<em>a</em>a</em>\cdots<em>a\
+&amp;=a^{-1}<em>a^{-1}</em>\cdots</em>e<em>a</em>\cdots<em>a\
+&amp;=e
+\end{align</em>}
+$$</p>
+</blockquote>
+</li>
+</ul>
+</li>
+<li>
+<p>**Th3:**G是阿贝尔群，$\forall a,b \in G,$有$(a<em>b)^t=a^t</em>b^t$</p>
+<blockquote>
+<p>$$
+\begin{align*}
+(a<em>b)^t&amp;=(a</em>b)<em>(a</em>b)<em>\cdots</em>(a<em>b)\
+&amp;=a</em>b<em>a</em>b*\cdots<em>a</em>b\
+&amp;=(a<em>a</em>\cdots<em>a)</em>(b<em>b</em>\cdots<em>b)\
+&amp;=a^t</em>b^t
+\end{align*}
+$$</p>
+</blockquote>
+<p>将t=2，就和Th1相等了。</p>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="section3-子群subgroup">Section3 子群（subgroup）
+</h3><ul>
+<li>
+<p><strong>Definition</strong>：</p>
+<ol>
+<li>设$(G,<em>)$是群，H是G的<strong>非空子集</strong>，如果$(H,</em>)$是一个群，那么$(H,<em>)$是$(G,</em>)$的子群。</li>
+<li>平凡子群：$(G,<em>),({e},</em>)$</li>
+</ol>
+</li>
+<li>
+<p><strong>Theorem:</strong></p>
+<ul>
+<li><strong>Th1:</strong>（群的单位元也是其子群的单位元）H是群G的子群，$e\in G$是单位元，则$e$也是子群H的单位元。</li>
+</ul>
+<blockquote>
+<p><strong>Proof</strong>:</p>
+<p>假设H的单位元是$e&rsquo;且e&rsquo;\ne e$，对于$a\in H$来说，有</p>
+<p>$e&rsquo;<em>a=a=e</em>a$</p>
+<p>根据消去律，我们的得到$e&rsquo;=e$，矛盾。</p>
+</blockquote>
+<ul>
+<li>
+<p><strong>Th2：</strong>（元素在子群中，其逆元也必然在子群中）$H$是群$G$的子群，$a\in H$那么$a^{-1} \in H$</p>
+<blockquote>
+<p><strong>Proof：</strong></p>
+<p>假设$b\in H,b \ne a^{-1},a*b=e$</p>
+<p>那么有$a<em>a^{-1}=e=a</em>b$</p>
+<p>根据消去律，我们得到$a^{-1}=b$，矛盾</p>
+</blockquote>
+</li>
+<li>
+<p>**Th3:**如何判断子群？</p>
+<ol>
+<li>
+<p>$H$是群$G$的子群，$\forall a,b \in H$。都有$a*b^{-1}\in H$，那么$H$是$G$的子群。</p>
+<blockquote>
+<p><strong>Proof:</strong></p>
+<p>对$\forall a \in H$,有$e=a*a^{-1}\in H$，所以G的单位元也是H的单位元</p>
+<p>对$\forall a \in H$,有$a^{-1}=e*a^{-1}\in H$，所以a的逆元也在H中</p>
+<p>对$\forall a,b \in H$,有$b^{-1}\in H$，所以$a<em>b=a</em>(b^{-1})^{-1} \in H$,所以H是封闭的。</p>
+<p>G有结合律，他的子集一定也有结合律</p>
+</blockquote>
+</li>
+<li>
+<p>如果$G&rsquo;$是$G$的一个非空子集，那么$G&rsquo;$是$G$的一个子群，当且仅当，$G&rsquo;$满足封闭性和逆元存在性。</p>
+<ul>
+<li>封闭性：$\forall a,b, \in G&rsquo;,ab\in G'$</li>
+<li>逆元存在性：$a,\in G&rsquo;,a^{-1} \in G'$</li>
+</ul>
+<blockquote>
+<p>如果$G&rsquo;$是子群，那么子群肯定满足封闭性和逆元存在性。</p>
+<p>反过来，如果$G&rsquo;$满足封闭性和逆元存在性，我们只需要证明满足结合性和单位元就能证明他是个子群。</p>
+<p>$G$是满足结合性的，那么$G&rsquo;$中的元素肯定也满足结合性。</p>
+<p>因为$G&rsquo;$非空，所以取其中一个元素$a$，已经知道$a^{-1} \in G&rsquo;$，再根据封闭性：$aa^{-1}=e\in G&rsquo;$得到单位元存在。</p>
+</blockquote>
+</li>
+</ol>
+</li>
+</ul>
+</li>
+</ul>
+<h2 id="chapter2-构造子群">Chapter2 构造子群
+</h2><h3 id="section1-针对阿贝尔群的两种构造方法">Section1 针对阿贝尔群的两种构造方法
+</h3><p><strong>Theorem:</strong></p>
+<ul>
+<li>**Th1:**G是阿贝尔群，$m\in Z$，那么$G^{m}:={a^m | a\in G}$是G的子群
+<ul>
+<li>例如$G^{3}:={a^3 | a\in G},G^{-3}:={(a^{-1})^{3} | a\in G},G^{0}:={e | e\in G}$</li>
+</ul>
+</li>
+</ul>
+<blockquote>
+<p><strong>Proof</strong>:</p>
+<p>$a,b \in G$,那么如果是子群的话，在子群里表示为$a^m,b^m\in G^m$。</p>
+<p>根据子群的判断方法，只需要证明$a^m*(b^m)^{-1} = a^m*(b^{-1})^m = (a*b^{-1})^m \in G^m$</p>
+<p>因为G是封闭的，所以$(a*b^{-1})$是G里的元素</p>
+<p>举个简单的例子：</p>
+<p>对于$(Z,+)$来说，$Z^m$其实就是$mZ:={mz | z \in Z}={0,\pm m,\pm2m,\cdots}$</p>
+<p>对于$(Z_n,+)$来说,他是个阿贝尔加法群，$Z^m$其实就是$mZ_n:={mz \bmod n | z \in Z_n}$</p>
+<div class="table-wrapper"><table>
+<thead>
+<tr>
+<th>$Z_{15}$</th>
+<th>0</th>
+<th>1</th>
+<th>2</th>
+<th>3</th>
+<th>4</th>
+<th>5</th>
+<th>6</th>
+<th>7</th>
+<th>8</th>
+<th>9</th>
+<th>10</th>
+<th>11</th>
+<th>12</th>
+<th>13</th>
+<th>14</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>$2Z_{15}$</td>
+<td>0</td>
+<td>2</td>
+<td>4</td>
+<td>6</td>
+<td>8</td>
+<td>10</td>
+<td>12</td>
+<td>14</td>
+<td>1</td>
+<td>3</td>
+<td>5</td>
+<td>7</td>
+<td>9</td>
+<td>11</td>
+<td>13</td>
+</tr>
+<tr>
+<td>$3Z_{15}$</td>
+<td>0</td>
+<td>3</td>
+<td>6</td>
+<td>9</td>
+<td>12</td>
+<td>0</td>
+<td>3</td>
+<td>6</td>
+<td>9</td>
+<td>12</td>
+<td>0</td>
+<td>3</td>
+<td>6</td>
+<td>9</td>
+<td>12</td>
+</tr>
+<tr>
+<td>$4Z_{15}$</td>
+<td>0</td>
+<td>4</td>
+<td>8</td>
+<td>12</td>
+<td>1</td>
+<td>5</td>
+<td>9</td>
+<td>13</td>
+<td>2</td>
+<td>6</td>
+<td>10</td>
+<td>14</td>
+<td>3</td>
+<td>7</td>
+<td>11</td>
+</tr>
+<tr>
+<td>$5Z_{15}$</td>
+<td>0</td>
+<td>5</td>
+<td>10</td>
+<td>0</td>
+<td>5</td>
+<td>10</td>
+<td>0</td>
+<td>5</td>
+<td>10</td>
+<td>0</td>
+<td>5</td>
+<td>10</td>
+<td>0</td>
+<td>5</td>
+<td>10</td>
+</tr>
+<tr>
+<td>$6Z_{15}$</td>
+<td>0</td>
+<td>6</td>
+<td>12</td>
+<td>3</td>
+<td>9</td>
+<td>0</td>
+<td>6</td>
+<td>12</td>
+<td>3</td>
+<td>9</td>
+<td>0</td>
+<td>6</td>
+<td>12</td>
+<td>3</td>
+<td>9</td>
+</tr>
+</tbody>
+</table></div>
+</blockquote>
+<ul>
+<li>
+<p>**Th2：**G是阿贝尔群，$m\in Z$，则$G{m}:={a\in G|a^m=e}$是G的子群。(挑出来m次运算后等于单位元的数)</p>
+<blockquote>
+<p><strong>Proof：</strong></p>
+<p>首先$a,b \in G,a^m = b^m = e$,那么$a,b \in G{m}$。</p>
+<p>$(a<em>b^{-1})^m=a^m * (b^{-1})^m = a^m * (b^m)^{-1}=e</em>e=e$</p>
+<p>所以$a*b^{-1} \in G$,$G{m}$是G的一个子集。</p>
+<p>举个简单的例子：</p>
+<p>对于$(Z_n,+)$来说,他是个阿贝尔加法群，$Z^m$其实就是$mZ_n:={mz \equiv0 \bmod n | z \in Z_n}$（0是单位元）</p>
+<p>把z看成未知数，$d=(m,n)$，$mz \equiv0 \pmod n \Rightarrow z \equiv 0 \pmod{\dfrac{n}{d}}$</p>
+<p>可见，$Z_n$中的元素只有在是$\dfrac{n}{d}$的倍数的时候，才是子集中的元素。</p>
+<p>根据同余方程的性质，子集中的元素一共有d个，分别是${0,\dfrac{n}{d},\dfrac{2n}{d},\cdots,\dfrac{(d-1)n}{d}}$</p>
+<p>根据第一种构造方法，上面的集合就等于$\dfrac{n}{d}Z_n$。</p>
+<p>而且，上面的集合中的元素乘d后就是n的倍数，模n为0，于是又可以写成$Z_n{d}$</p>
+<p>于是$Z_N{m}=Z_n{d}=\dfrac{n}{d}Z_n,d=(m,n)$这三个子集相同。</p>
+<p>对照上表印证结论$Z_{15}{6}=Z_{15}{3}=\dfrac{15}{3}Z_{15}={0,5,10},3=(6,15)$。</p>
+</blockquote>
+</li>
+</ul>
+<h3 id="section2-子群的结构">Section2 子群的结构
+</h3><ul>
+<li>
+<p><strong>Definition</strong>：</p>
+<ul>
+<li>一个群如果是有限集合，就称为是有限群，这时G的元素的个数叫做G的阶，记为$|G|$</li>
+<li>如果$G&rsquo;$是有限群$G$的一个子群，那么对G的任意元素$a$，有一个整数$n$，使$a^n \in G&rsquo;$,我们称这个n为a在G中的指数。</li>
+</ul>
+</li>
+<li>
+<p><strong>Theorem:</strong></p>
+<ul>
+<li>
+<p>Th1:令$G&rsquo;$是有限阿贝尔群G的一个子群，并且$G&rsquo;\ne G$,在G中挑选一个元素$a$，$a \notin G&rsquo;$，并设$h$是$a$在$G&rsquo;$中的指数。那么乘积的集合$G&rsquo;&rsquo;={xa^k | x\in G&rsquo; 且k=0,1,2,\cdots,h-1}$这样一个集合是$G$的一个包含$G&rsquo;$的子群，而且$G&rsquo;&rsquo;$的阶是$G&rsquo;$的h倍，即$|G&rsquo;&rsquo;| = h|G&rsquo;|$</p>
+<blockquote>
+<p><strong>Proof：</strong></p>
+<p>首先证明$G&rsquo;&rsquo;$是一个子群。我们通过证明$G&rsquo;&rsquo;$集合拥有封闭性和逆元存在性来证明他是$G$的一个子集。</p>
+<p><strong>证明封闭性：</strong></p>
+<p>在$G&rsquo;&rsquo;$中任取两个元素$xa^k,ya^j;x,y\in G&rsquo;,0\le k&lt;h,0\le j&lt;h$。</p>
+<p>既然$G$是阿贝尔群，所以元素都满足交换律，所以
+$$
+(xa^k)(ya^j)=(xy)a^{k+j}
+$$
+将$k+j$改写为带余除法的形式$k+j=qh+r,0\le r&lt;h$，有
+$$
+a^{k+j}=a^{qh}a^r
+$$
+而$a^{qh}=(a^h)^q\in G&rsquo;$,我们发现$a^{qh}a^r$满足$G&rsquo;&rsquo;$集合的定义，所以证明了$G&rsquo;&rsquo;$满足封闭性条件。</p>
+<p><strong>证明逆元存在：</strong></p>
+<p>在$G&rsquo;&rsquo;$中任取一个元素$xa^k$，如果$k=0$，那这个元素的逆元$x^{-1}\in G&rsquo;$。</p>
+<p>如果$0&lt;k&lt;h$，这个元的逆元就变成了$ya^{h-k},y=x^{-1}(a^h)^{-1}$，这个形式也满足集合$G&rsquo;&rsquo;$的定义，所以证明了逆元也是$\in g&rsquo;&rsquo;$的。</p>
+<p><strong>确定$G&rsquo;&rsquo;$的阶：</strong></p>
+<p>令$m=|G&rsquo;|$，因为$x\in G&rsquo;$，所以$x$可以有m种取法。而$0\le k\le h-1$，k有h种取法。组合起来$xa^k$应该是有$mh$种形式的，也就是有mk个。只要我们能证明这mk个元素两两互不相同，便可以证明$G&rsquo;&rsquo;$的阶是mh。</p>
+<p>假设两个元素相等$xa^k=ya^j \quad (0\le j\le k &lt; h)$，那么$a^{k-j}=x^{-1}y$。</p>
+<p>而$x^{-1}y\in G&rsquo;$，所以$a^{k-j} \in G&rsquo;$。所以只能取$e$，那么$k=j，x=y$，最后两个元素其实还是一个元素。</p>
+</blockquote>
+</li>
+</ul>
+</li>
+</ul>
+<h2 id="chapter3-有限阿贝尔群的特征">Chapter3 有限阿贝尔群的特征
+</h2><ul>
+<li>
+<p><strong>Definition</strong>：</p>
+<ul>
+<li>令$G$是任意一个群，定义在$G$上的一个复值函数（$Z\rightarrow C$，从整数到复数）$f$，如果这个函数是积性的且非0，即
+$$
+\forall a,b \in G,f(ab)=f(a)f(b)\
+\exist c,f(c)\ne0
+$$
+那么$f$就称为$G$的一个特征。</li>
+</ul>
+</li>
+<li>
+<p><strong>Theorem:</strong></p>
+<ul>
+<li>
+<p>Th1:如果$f$是一个具有恒等元e的有限群G的一个特征，那么$f(e)=1$，并且每个函数值$f(a)$是一个单位根。特别的，如果$a^n=e,f(a)^n=1$</p>
+<blockquote>
+<p><strong>Proof：</strong></p>
+<p>$G$中选$c,f(c)\ne0$。因为$ce=c$，所以$f(c)f(e)=f(c)$，所以$f(e)=1$。</p>
+</blockquote>
+</li>
+</ul>
+<blockquote>
+<p>如果$a^n=e$，那么$f(a)^n=f(a^n)=f(e)=1$.</p>
+</blockquote>
+<ul>
+<li>
+<p>Th2:阶为n的有限阿贝尔群有且仅有n个不同的特征。</p>
+<blockquote>
+<p><strong>Proof：</strong></p>
+<p>证明思路：</p>
+<p>通过上面的一个定理我们知道如何通过一个已知的子群$G&rsquo;\ne G$去构造一个包含$G&rsquo;$的新子群$G&rsquo;&rsquo;$，而且$G&rsquo;&rsquo;$中至少有一个元素不在$G&rsquo;$中。
+$$
+我们将G&rsquo;&lsquo;表示为&lt;G&rsquo;;a&gt;={xa^k:x\in G&rsquo;,0\le k &lt; h},h是a在G&rsquo;中的指数
+$$
+现在我们将最小的子群${e}$拿出来作为$G_1$，如果$G_1 \ne G$，那么我们可以通过多次构造来得到一个有限集合和相对应子群的集合。
+$$
+G_{r+1}=&lt;G_r;a_r&gt;\
+G_1\subset G_2\subset \cdots\subset G_{r+1}=G
+$$
+我们拥有这样一个子序列后，再通过归纳法即可证明。</p>
+<p>$G_1$显然有且仅有一个特征$f(e)=1$。假设对$G_r$的阶是$m$并且由且仅有$m$个特征。</p>
+<p>考虑$G_{r+1}=&lt;G_r,a_r&gt;$并设h是$a_r$在$G_r$中的指数（h是让$a_r^h\in G$的最小正整数）。</p>
+<p>如果能证明有且仅有$h$种不同的方法把$G_r$的每个特征$f$扩大到$G_{r+1}$的一个特征，并且$G_{r+1}$的每一个特征一定是$G_r$的某个特征的扩大，那么就说明$G_{r+1}$有$mh$个特征，并且$G_{r+1}$的阶是mh，所以归纳法证明成立。</p>
+<p>先假设能把$G_r$的一个特征扩大为$G_{r+1}$的一个特征$F$。根据积性得到：
+$$
+F(xa_r^k)=F(x)F(a_r)^k
+$$
+$x\in G$，所以$F(x)=f(x)$。于是我们有
+$$
+F(xa_r^k)=f(x)F(a_r)^k
+$$
+所以只要确定$F(a)^k$，就能确定$F(xa^k)$</p>
+<p>令$c=a_r^h$，因为$c\in G_r$，所以$F(c)=f(c)$并且由于$F$是积性的，$F(c)=F(a)^h$</p>
+<p>所以$F(a_r)^h=f(c)$，我们可以确定$F(a_r)$是$f(c)$的一个$h$次根。所以$F(a_r)$有h种选择。</p>
+<p>总结一下，如果$f$是$G_r$的一个已经确定的特征，我们选择$f(c),(c=a_r^h)$的h词根中的一个，确定$F(a_r)$就是这个数，所以我们用$F(xa_r^k)=f(x)F(a_r)^k$来确定$G_{r+1}$中不属于$G_r$那部分元素的特征$F$。=所以我们有$h$种方式去确定$F(xa_r^k)$</p>
+<p>4</p>
+<p>现在我们需要验证这个$F$是否满足可积，不然他不能成为一个特征。</p>
+<p>选择两个元素，我们有
+$$
+F(xa_r^k \cdot ya_r^j)=F(xya_r^{k+j})=f(xy)F(a_r)^{k+j}=f(x)f(y)F(a_r)^kF(a_r)^j=F(xa_r^k)F(ya_r^j)
+$$
+所以F确实是G的一个特征。</p>
+<p>不可能有两个被扩大的F,G相等，因为如果这样的话，扩大他们的f和g就会相等。</p>
+<p>所以$G_r$的m个特征里的每一个都能被h种方式扩大到$G_{r+1}$的特征。</p>
+</blockquote>
+</li>
+</ul>
+</li>
+</ul>
+<h2 id="chapter4-狄利克雷特征">Chapter4 狄利克雷特征
+</h2><blockquote>
+<p><strong>现在我们专门研究模为一个固定的正整数k的简化剩余类群。</strong></p>
+</blockquote>
+<ul>
+<li>
+<p><strong>Definition</strong>：</p>
+<ul>
+<li>令$G$是模k的简化剩余类群，对应于$G$上的每一个特征$f$，我们定义如下一个数论函数$\chi=\chi_f$
+$$
+\chi(n)=f(\hat n) \quad if(n,k)=1\
+\chi(n)=0 \quad\quad if(n,k)&gt;1
+$$
+称$\chi$是模k的狄利克雷特征，主特征$\chi_1$有如下特征：
+$$
+\chi_1(n)=
+\begin{cases}
+1,&amp;if(n,k)=1\
+0,&amp;if(n,k)&gt;1
+\end{cases}
+$$</li>
+</ul>
+</li>
+<li>
+<p><strong>Theorem:</strong></p>
+<ul>
+<li>
+<p>Th1:模k的全体简化剩余类的集合是一个阶为$\varphi(k)$的有限阿贝尔群，恒等元是剩余类$\hat{1}$，$\hat a$的逆元是$\hat b$，满足$ab \equiv 1 \pmod k$</p>
+<blockquote>
+<p><strong>Proof：</strong></p>
+<p>剩余类有$\varphi(k)$个，所以阶是$\varphi(k)$。</p>
+<p>剩余类的封闭性是满足的，而且是有限剩余类，是阿贝尔群。</p>
+<p>类$\hat1$是恒等元，$\hat a$的逆元是$\hat b$，因为如果$(a,k)=1$存在唯一的$b,ab\equiv 1 \pmod k$。</p>
+</blockquote>
+</li>
+<li>
+<p>Th2:有$\varphi(k)$个不同的狄利克雷特征模k，并且都是完全积性的、周期性的，即
+$$
+\chi(mn)=\chi(m)\chi(n)\
+\chi(n+k)=\chi(n)
+$$
+反之，如果$\chi$是完全积性的并且以k为周期循环，并且当$(n,k)&gt;1$有$\chi(n)=0$，则$\chi$一定是个模k的狄利克雷特征。</p>
+<blockquote>
+<p><strong>Proof：</strong></p>
+<p>模k的简化剩余系阶是$\varphi(k)$，所以有$\varphi(k)$个特征$f$。于是模k有$\varphi(k)$个$\chi_f$。</p>
+<p>证明完全积性：如果$m,n$都和$k$互素，那么根据群特征$f$可以得到$\chi(mn)=\chi(m)\chi(n)$;</p>
+<p>如果$m,n$中有一个与k不互素，那么$mn$与k也不会互素，于是$0=\chi(mn)=\chi(m)\chi(n)=0$</p>
+<p>证明周期性：由定义知道$\chi(n)=f(\hat n)$，而在简化剩余系中$f(\hat n+k)=f(\hat n)$</p>
+<p>反过来，如果$\chi$满足$\chi(n)=f(\hat n) \quad if(n,k)=1$这个条件，那么就符合狄利克雷特征的定义。</p>
+<p>根据阿贝尔群特征$f$的定义，我们让$f(\hat n)=\chi(n) \quad if(n,k)=1$，这就定义了群$G$上的函数$f$作为群的一个特征，自然满足$\chi$的需求，所以$\chi$是一个狄利克雷特征。</p>
+</blockquote>
+</li>
+</ul>
+</li>
+<li>
+<p><strong>Example:</strong></p>
+<ul>
+<li>
+<p><strong>k=3,$\varphi(k)=2$:</strong></p>
+<div class="table-wrapper"><table>
+<thead>
+<tr>
+<th>n</th>
+<th>1</th>
+<th>2</th>
+<th>3</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>$\chi_1(n)$</td>
+<td>1</td>
+<td>1</td>
+<td>0</td>
+</tr>
+<tr>
+<td>$\chi_2(n)$</td>
+<td>1</td>
+<td>-1</td>
+<td>0</td>
+</tr>
+</tbody>
+</table></div>
+</li>
+<li>
+<p><strong>k=4,$\varphi(k)=2$:</strong></p>
+<div class="table-wrapper"><table>
+<thead>
+<tr>
+<th>n</th>
+<th>1</th>
+<th>2</th>
+<th>3</th>
+<th>4</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>$\chi_1(n)$</td>
+<td>1</td>
+<td>0</td>
+<td>1</td>
+<td>0</td>
+</tr>
+<tr>
+<td>$\chi_2(n)$</td>
+<td>1</td>
+<td>0</td>
+<td>-1</td>
+<td>0</td>
+</tr>
+</tbody>
+</table></div>
+</li>
+<li>
+<p><strong>k=5,$\varphi(k)=4$:</strong></p>
+<div class="table-wrapper"><table>
+<thead>
+<tr>
+<th>n</th>
+<th>1</th>
+<th>2</th>
+<th>3</th>
+<th>4</th>
+<th>5</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>$\chi_1(n)$</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+<td>0</td>
+</tr>
+<tr>
+<td>$\chi_2(n)$</td>
+<td>1</td>
+<td>-1</td>
+<td>-1</td>
+<td>1</td>
+<td>0</td>
+</tr>
+<tr>
+<td>$\chi_3(n)$</td>
+<td>1</td>
+<td>i</td>
+<td>-i</td>
+<td>-1</td>
+<td>0</td>
+</tr>
+<tr>
+<td>$\chi_4(n)$</td>
+<td>1</td>
+<td>-i</td>
+<td>i</td>
+<td>-1</td>
+<td>0</td>
+</tr>
+</tbody>
+</table></div>
+</li>
+<li>
+<p><strong>k=6,$\varphi(k)=2$:</strong></p>
+<div class="table-wrapper"><table>
+<thead>
+<tr>
+<th>n</th>
+<th>1</th>
+<th>2</th>
+<th>3</th>
+<th>4</th>
+<th>5</th>
+<th>6</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>$\chi_1(n)$</td>
+<td>1</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>1</td>
+<td>0</td>
+</tr>
+<tr>
+<td>$\chi_2(n)$</td>
+<td>1</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>-1</td>
+<td>0</td>
+</tr>
+</tbody>
+</table></div>
+</li>
+<li>
+<p><strong>k=7,$\varphi(k)=6$:</strong></p>
+<div class="table-wrapper"><table>
+<thead>
+<tr>
+<th>n</th>
+<th>1</th>
+<th>2</th>
+<th>3</th>
+<th>4</th>
+<th>5</th>
+<th>6</th>
+<th>7</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>$\chi_1(n)$</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+<td>0</td>
+</tr>
+<tr>
+<td>$\chi_2(n)$</td>
+<td>1</td>
+<td>1</td>
+<td>-1</td>
+<td>1</td>
+<td>-1</td>
+<td>-1</td>
+<td>0</td>
+</tr>
+<tr>
+<td>$\chi_3(n)$</td>
+<td>1</td>
+<td>$w^2$</td>
+<td>$w$</td>
+<td>$-w$</td>
+<td>$-w^2$</td>
+<td>-1</td>
+<td>0</td>
+</tr>
+<tr>
+<td>$\chi_4(n)$</td>
+<td>1</td>
+<td>$w^2$</td>
+<td>$-w$</td>
+<td>$-w$</td>
+<td>$w^2$</td>
+<td>1</td>
+<td>0</td>
+</tr>
+<tr>
+<td>$\chi_5(n)$</td>
+<td>1</td>
+<td>$-w$</td>
+<td>$w^2$</td>
+<td>$w^2$</td>
+<td>$-w$</td>
+<td>1</td>
+<td>0</td>
+</tr>
+<tr>
+<td>$\chi_6(n)$</td>
+<td>1</td>
+<td>$-w$</td>
+<td>$-w^2$</td>
+<td>$w^2$</td>
+<td>$w$</td>
+<td>-1</td>
+<td>0</td>
+</tr>
+</tbody>
+</table></div>
+</li>
+</ul>
+</li>
+</ul>
+
+</section>
+
+
+    <footer class="article-footer">
+    
+
+    </footer>
+
+
+    
+        <link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css"integrity="sha384-n8MVd4RsNIU0tAv4ct0nTaAbDJwPJzDEaqSD1odI&#43;WdtXRGWt2kTvGFasHpSy3SV"crossorigin="anonymous"
+            ><script 
+                src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"integrity="sha384-XjKyOOlGwcjNTAIQHIpgOno0Hl1YQqzUOEleOLALmuqehneUG&#43;vnGctmUb0ZY0l8"crossorigin="anonymous"
+                defer
+                >
+            </script><script 
+                src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js"integrity="sha384-&#43;VBxd3r6XgURycqtZ117nYw44OOcIax56Z4dCRWbxyPt0Koah1uHoK0o4&#43;/RRE05"crossorigin="anonymous"
+                defer
+                >
+            </script><script>
+    window.addEventListener("DOMContentLoaded", () => {
+        renderMathInElement(document.body, {
+            delimiters: [
+                { left: "$$", right: "$$", display: true },
+                { left: "$", right: "$", display: false },
+                { left: "\\(", right: "\\)", display: false },
+                { left: "\\[", right: "\\]", display: true }
+            ],
+            ignoredClasses: ["gist"]
+        });})
+</script>
+    
+</article>
+
+    
+
+    
+
+<aside class="related-content--wrapper">
+    <h2 class="section-title">相关文章</h2>
+    <div class="related-content">
+        <div class="flex article-list--tile">
+            
+                
+<article class="">
+    <a href="/p/%E7%B4%A0%E6%95%B0%E5%88%86%E5%B8%83%E7%9A%84%E5%9F%BA%E6%9C%AC%E5%AE%9A%E7%90%86%E4%B8%80/">
+        
+        
+
+        <div class="article-details">
+            <h2 class="article-title">素数分布的基本定理（一）</h2>
+        </div>
+    </a>
+</article>
+
+            
+                
+<article class="">
+    <a href="/p/%E5%87%A0%E4%B8%AA%E5%87%BD%E6%95%B0%E7%9A%84%E5%B9%B3%E5%9D%87%E9%98%B6/">
+        
+        
+
+        <div class="article-details">
+            <h2 class="article-title">几个函数的平均阶</h2>
+        </div>
+    </a>
+</article>
+
+            
+                
+<article class="">
+    <a href="/p/%E8%A7%A3%E6%9E%90%E6%95%B0%E8%AE%BA%E4%B9%8B%E5%8E%9F%E6%A0%B9/">
+        
+        
+
+        <div class="article-details">
+            <h2 class="article-title">解析数论之原根</h2>
+        </div>
+    </a>
+</article>
+
+            
+                
+<article class="">
+    <a href="/p/%E8%A7%A3%E6%9E%90%E6%95%B0%E8%AE%BA%E4%B9%8B%E6%95%B0%E8%AE%BA%E5%87%BD%E6%95%B0%E5%85%B6%E4%B8%80/">
+        
+        
+
+        <div class="article-details">
+            <h2 class="article-title">解析数论之数论函数【其一】</h2>
+        </div>
+    </a>
+</article>
+
+            
+                
+<article class="">
+    <a href="/p/unity-shader%E5%85%A5%E9%97%A8%E7%B2%BE%E8%A6%81%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0-%E7%AC%AC%E4%B8%89%E7%AB%A0-unity-shader%E5%9F%BA%E7%A1%80/">
+        
+        
+
+        <div class="article-details">
+            <h2 class="article-title">Unity Shader入门精要读书笔记 第三章 Unity Shader基础</h2>
+        </div>
+    </a>
+</article>
+
+            
+        </div>
+    </div>
+</aside>
+
+     
+    
+        
+    <script src="https://utteranc.es/client.js" 
+        repo="DorinXL/dorinxl.github.io"
+        issue-term="pathname"
+        
+        crossorigin="anonymous"
+        async
+        >
+</script>
+
+<style>
+    .utterances {
+        max-width: unset;
+    }
+</style>
+
+<script>
+    let utterancesLoaded = false;
+
+    function setUtterancesTheme(theme) {
+        let utterances = document.querySelector('.utterances iframe');
+        if (utterances) {
+            utterances.contentWindow.postMessage(
+                {
+                    type: 'set-theme',
+                    theme: `github-${theme}`
+                },
+                'https://utteranc.es'
+            );
+        }
+    }
+
+    addEventListener('message', event => {
+        if (event.origin !== 'https://utteranc.es') return;
+
+        
+        utterancesLoaded = true;
+        setUtterancesTheme(document.documentElement.dataset.scheme)
+    });
+
+    window.addEventListener('onColorSchemeChange', (e) => {
+        if (!utterancesLoaded) return;
+        setUtterancesTheme(e.detail)
+    })
+</script>
+
+
+    
+
+    <footer class="site-footer">
+    <section class="copyright">
+        &copy; 
+        
+        2024 荡影-DorinXL
+    </section>
+
+
+
+<section class="totalcount">
+    
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+    发表了76篇文章 · 
+    总计103.89k字
+</section>
+
+
+
+<section class="running-time">
+本博客已稳定运行
+<span id="runningdays" class="running-days"></span>
+</section>
+
+    <section class="powerby">
+        使用 <a href="https://gohugo.io/" target="_blank" rel="noopener">Hugo</a> 构建 <br />
+        主题 <b><a href="https://github.com/CaiJimmy/hugo-theme-stack" target="_blank" rel="noopener" data-version="3.26.0">Stack</a></b> 由 <a href="https://jimmycai.com" target="_blank" rel="noopener">Jimmy</a> 设计
+    </section>
+
+</footer>
+
+
+    
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+    
+    <div class="pswp__bg"></div>
+
+    
+    <div class="pswp__scroll-wrap">
+
+        
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+
+        
+        <div class="pswp__ui pswp__ui--hidden">
+
+            <div class="pswp__top-bar">
+
+                
+
+                <div class="pswp__counter"></div>
+
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+                
+                
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                        <div class="pswp__preloader__cut">
+                            <div class="pswp__preloader__donut"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div>
+            </div>
+
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div><script 
+                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.js"integrity="sha256-ePwmChbbvXbsO02lbM3HoHbSHTHFAeChekF1xKJdleo="crossorigin="anonymous"
+                defer
+                >
+            </script><script 
+                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe-ui-default.min.js"integrity="sha256-UKkzOn/w1mBxRmLLGrSeyB4e1xbrp4xylgAWb3M42pU="crossorigin="anonymous"
+                defer
+                >
+            </script><link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/default-skin/default-skin.min.css"crossorigin="anonymous"
+            ><link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.css"crossorigin="anonymous"
+            >
+
+            </main>
+        </div>
+        <script 
+                src="https://cdn.jsdelivr.net/npm/node-vibrant@3.1.6/dist/vibrant.min.js"integrity="sha256-awcR2jno4kI5X0zL8ex0vi2z&#43;KMkF24hUW8WePSA9HM="crossorigin="anonymous"
+                
+                >
+            </script><script type="text/javascript" src="/ts/main.js" defer></script>
+<script>
+    (function () {
+        const customFont = document.createElement('link');
+        customFont.href = "https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap";
+
+        customFont.type = "text/css";
+        customFont.rel = "stylesheet";
+
+        document.head.appendChild(customFont);
+    }());
+</script>
+
+<script>
+    let s1 = '2024-8-25'; 
+    s1 = new Date(s1.replace(/-/g, "/"));
+    let s2 = new Date();
+    let timeDifference = s2.getTime() - s1.getTime();
+
+    let days = Math.floor(timeDifference / (1000 * 60 * 60 * 24));
+    let hours = Math.floor((timeDifference % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+    let minutes = Math.floor((timeDifference % (1000 * 60 * 60)) / (1000 * 60));
+
+    let result = days + "天" + hours + "小时" + minutes + "分钟";
+    document.getElementById('runningdays').innerHTML = result;
+</script>
+    </body>
+</html>

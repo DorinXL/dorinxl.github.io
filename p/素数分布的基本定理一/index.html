@@ -1,0 +1,1115 @@
+<!DOCTYPE html>
+<html lang="zh-cn" dir="ltr">
+    <head><meta charset='utf-8'>
+<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content="素数分布的基本定理（一） 目录 Chapter1 切比雪夫函数$\\psi(x)$和$\\vartheta(x)$ Chapter2 $\\vartheta(x)$与$\\pi(x)$的">
+<title>素数分布的基本定理（一）</title>
+
+<link rel='canonical' href='https://dorinxl.github.io/p/%E7%B4%A0%E6%95%B0%E5%88%86%E5%B8%83%E7%9A%84%E5%9F%BA%E6%9C%AC%E5%AE%9A%E7%90%86%E4%B8%80/'>
+
+<link rel="stylesheet" href="/scss/style.min.dfb009e658ec6e0f0f0c366b98658c0caea5123dcd2536f353c92c2581b79fb7.css"><meta property='og:title' content="素数分布的基本定理（一）">
+<meta property='og:description' content="素数分布的基本定理（一） 目录 Chapter1 切比雪夫函数$\\psi(x)$和$\\vartheta(x)$ Chapter2 $\\vartheta(x)$与$\\pi(x)$的">
+<meta property='og:url' content='https://dorinxl.github.io/p/%E7%B4%A0%E6%95%B0%E5%88%86%E5%B8%83%E7%9A%84%E5%9F%BA%E6%9C%AC%E5%AE%9A%E7%90%86%E4%B8%80/'>
+<meta property='og:site_name' content='荡影-DorinXL'>
+<meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:published_time' content='2023-09-23T12:15:00&#43;00:00'/><meta property='article:modified_time' content='2023-09-23T12:15:00&#43;00:00'/>
+<meta name="twitter:title" content="素数分布的基本定理（一）">
+<meta name="twitter:description" content="素数分布的基本定理（一） 目录 Chapter1 切比雪夫函数$\\psi(x)$和$\\vartheta(x)$ Chapter2 $\\vartheta(x)$与$\\pi(x)$的">
+    <link rel="shortcut icon" href="/favicon.ico" />
+
+  
+
+
+    </head>
+    <body class="
+    article-page
+    ">
+    <script>
+        (function() {
+            const colorSchemeKey = 'StackColorScheme';
+            if(!localStorage.getItem(colorSchemeKey)){
+                localStorage.setItem(colorSchemeKey, "auto");
+            }
+        })();
+    </script><script>
+    (function() {
+        const colorSchemeKey = 'StackColorScheme';
+        const colorSchemeItem = localStorage.getItem(colorSchemeKey);
+        const supportDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches === true;
+
+        if (colorSchemeItem == 'dark' || colorSchemeItem === 'auto' && supportDarkMode) {
+            
+
+            document.documentElement.dataset.scheme = 'dark';
+        } else {
+            document.documentElement.dataset.scheme = 'light';
+        }
+    })();
+</script>
+<div class="container main-container flex on-phone--column extended"><aside class="sidebar left-sidebar sticky ">
+    <button class="hamburger hamburger--spin" type="button" id="toggle-menu" aria-label="切换菜单">
+        <span class="hamburger-box">
+            <span class="hamburger-inner"></span>
+        </span>
+    </button>
+
+    <header>
+        
+            
+            <figure class="site-avatar">
+                <a href="/">
+                
+                    
+                    
+                    
+                        
+                        <img src="/img/avatar_hu6744900124519508638.png" width="300"
+                            height="283" class="site-logo" loading="lazy" alt="Avatar">
+                    
+                
+                </a>
+                
+                    <span class="emoji">🔥</span>
+                
+            </figure>
+            
+        
+        
+        <div class="site-meta">
+            <h1 class="site-name"><a href="/">荡影-DorinXL</a></h1>
+            <h2 class="site-description">缄默慎独，不破不立，事在人为</h2>
+        </div>
+    </header><ol class="menu-social">
+            
+                <li>
+                    <a 
+                        href='https://space.bilibili.com/3217550'
+                        target="_blank"
+                        title="BilBili"
+                        rel="me"
+                    >
+                        
+                        
+                            <svg  xmlns="http://www.w3.org/2000/svg"  width="24"  height="24"  viewBox="0 0 24 24"  fill="none"  stroke="currentColor"  stroke-width="2"  stroke-linecap="round"  stroke-linejoin="round"  class="icon icon-tabler icons-tabler-outline icon-tabler-brand-bilibili"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M3 10a4 4 0 0 1 4 -4h10a4 4 0 0 1 4 4v6a4 4 0 0 1 -4 4h-10a4 4 0 0 1 -4 -4v-6z" /><path d="M8 3l2 3" /><path d="M16 3l-2 3" /><path d="M9 13v-2" /><path d="M15 11v2" /></svg>
+                        
+                    </a>
+                </li>
+            
+                <li>
+                    <a 
+                        href='https://www.cnblogs.com/DorinXL/'
+                        target="_blank"
+                        title="CNblog"
+                        rel="me"
+                    >
+                        
+                        
+                            <svg  xmlns="http://www.w3.org/2000/svg"  width="24"  height="24"  viewBox="0 0 24 24"  fill="none"  stroke="currentColor"  stroke-width="2"  stroke-linecap="round"  stroke-linejoin="round"  class="icon icon-tabler icons-tabler-outline icon-tabler-brand-blogger"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M8 21h8a5 5 0 0 0 5 -5v-3a3 3 0 0 0 -3 -3h-1v-2a5 5 0 0 0 -5 -5h-4a5 5 0 0 0 -5 5v8a5 5 0 0 0 5 5z" /><path d="M7 7m0 1.5a1.5 1.5 0 0 1 1.5 -1.5h3a1.5 1.5 0 0 1 1.5 1.5v0a1.5 1.5 0 0 1 -1.5 1.5h-3a1.5 1.5 0 0 1 -1.5 -1.5z" /><path d="M7 14m0 1.5a1.5 1.5 0 0 1 1.5 -1.5h7a1.5 1.5 0 0 1 1.5 1.5v0a1.5 1.5 0 0 1 -1.5 1.5h-7a1.5 1.5 0 0 1 -1.5 -1.5z" /></svg>
+                        
+                    </a>
+                </li>
+            
+                <li>
+                    <a 
+                        href='https://github.com/DorinXL/DorinXL.github.io'
+                        target="_blank"
+                        title="GitHub"
+                        rel="me"
+                    >
+                        
+                        
+                            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-brand-github" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+  <path d="M9 19c-4.3 1.4 -4.3 -2.5 -6 -3m12 5v-3.5c0 -1 .1 -1.4 -.5 -2c2.8 -.3 5.5 -1.4 5.5 -6a4.6 4.6 0 0 0 -1.3 -3.2a4.2 4.2 0 0 0 -.1 -3.2s-1.1 -.3 -3.5 1.3a12.3 12.3 0 0 0 -6.2 0c-2.4 -1.6 -3.5 -1.3 -3.5 -1.3a4.2 4.2 0 0 0 -.1 3.2a4.6 4.6 0 0 0 -1.3 3.2c0 4.6 2.7 5.7 5.5 6c-.6 .6 -.6 1.2 -.5 2v3.5" />
+</svg>
+
+
+
+                        
+                    </a>
+                </li>
+            
+        </ol><ol class="menu" id="main-menu">
+        
+        
+        
+        <li >
+            <a href='/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-home" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <polyline points="5 12 3 12 12 3 21 12 19 12" />
+  <path d="M5 12v7a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-7" />
+  <path d="M9 21v-6a2 2 0 0 1 2 -2h2a2 2 0 0 1 2 2v6" />
+</svg>
+
+
+
+                
+                <span>主页</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/%E5%85%B3%E4%BA%8E/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-user" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="7" r="4" />
+  <path d="M6 21v-2a4 4 0 0 1 4 -4h4a4 4 0 0 1 4 4v2" />
+</svg>
+
+
+
+                
+                <span>关于</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/archives/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-archive" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <rect x="3" y="4" width="18" height="4" rx="2" />
+  <path d="M5 8v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-10" />
+  <line x1="10" y1="12" x2="14" y2="12" />
+</svg>
+
+
+
+                
+                <span>归档</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/search/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-search" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="10" cy="10" r="7" />
+  <line x1="21" y1="21" x2="15" y2="15" />
+</svg>
+
+
+
+                
+                <span>搜索</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/%E5%8F%8B%E9%93%BE/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-link" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <path d="M10 14a3.5 3.5 0 0 0 5 0l4 -4a3.5 3.5 0 0 0 -5 -5l-.5 .5" />
+  <path d="M14 10a3.5 3.5 0 0 0 -5 0l-4 4a3.5 3.5 0 0 0 5 5l.5 -.5" />
+</svg>
+
+
+
+                
+                <span>友链</span>
+            </a>
+        </li>
+        
+        <li class="menu-bottom-section">
+            <ol class="menu">
+
+                
+                    <li id="dark-mode-toggle">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-left" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="8" cy="12" r="2" />
+  <rect x="2" y="6" width="20" height="12" rx="6" />
+</svg>
+
+
+
+                        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-right" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="16" cy="12" r="2" />
+  <rect x="2" y="6" width="20" height="12" rx="6" />
+</svg>
+
+
+
+                        <span>暗色模式</span>
+                    </li>
+                
+            </ol>
+        </li>
+    </ol>
+</aside>
+
+    <aside class="sidebar right-sidebar sticky">
+        
+            
+                
+    <section class="widget archives">
+        <div class="widget-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-hash" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <line x1="5" y1="9" x2="19" y2="9" />
+  <line x1="5" y1="15" x2="19" y2="15" />
+  <line x1="11" y1="4" x2="7" y2="20" />
+  <line x1="17" y1="4" x2="13" y2="20" />
+</svg>
+
+
+
+        </div>
+        <h2 class="widget-title section-title">目录</h2>
+        
+        <div class="widget--toc">
+            <nav id="TableOfContents">
+  <ol>
+    <li><a href="#目录">目录</a></li>
+    <li><a href="#chapter1-切比雪夫函数psix和varthetax">Chapter1 切比雪夫函数$\psi(x)$和$\vartheta(x)$</a></li>
+    <li><a href="#chapter2--varthetax与pix的关系">Chapter2  $\vartheta(x)$与$\pi(x)$的关系</a></li>
+    <li><a href="#chapter3-素数定理的等价形式">Chapter3 素数定理的等价形式</a></li>
+  </ol>
+</nav>
+        </div>
+    </section>
+
+            
+        
+    </aside>
+
+
+            <main class="main full-width">
+    <article class="main-article">
+    <header class="article-header">
+
+    <div class="article-details">
+    
+    <header class="article-category">
+        
+            <a href="/categories/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/" >
+                读书笔记
+            </a>
+        
+            <a href="/categories/%E6%95%B0%E8%AE%BA/" >
+                数论
+            </a>
+        
+    </header>
+    
+
+    <div class="article-title-wrapper">
+        <h2 class="article-title">
+            <a href="/p/%E7%B4%A0%E6%95%B0%E5%88%86%E5%B8%83%E7%9A%84%E5%9F%BA%E6%9C%AC%E5%AE%9A%E7%90%86%E4%B8%80/">素数分布的基本定理（一）</a>
+        </h2>
+    
+        
+    </div>
+
+
+    
+    
+    
+    
+    <footer class="article-time">
+        
+            <div>
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-calendar-time" width="56" height="56" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <path d="M11.795 21h-6.795a2 2 0 0 1 -2 -2v-12a2 2 0 0 1 2 -2h12a2 2 0 0 1 2 2v4" />
+  <circle cx="18" cy="18" r="4" />
+  <path d="M15 3v4" />
+  <path d="M7 3v4" />
+  <path d="M3 11h16" />
+  <path d="M18 16.496v1.504l1 1" />
+</svg>
+                <time class="article-time--published">2023-09-23</time>
+            </div>
+	
+
+        
+
+        
+    </footer>
+    
+
+    
+
+</div>
+
+</header>
+
+    <section class="article-content">
+    
+    
+    <h1 id="素数分布的基本定理一">素数分布的基本定理（一）
+</h1><h2 id="目录">目录
+</h2><ul>
+<li>Chapter1 切比雪夫函数$\psi(x)$和$\vartheta(x)$</li>
+<li>Chapter2 $\vartheta(x)$与$\pi(x)$的关系</li>
+<li>Chapter3 素数定理的等价形式</li>
+</ul>
+<h2 id="chapter1-切比雪夫函数psix和varthetax">Chapter1 切比雪夫函数$\psi(x)$和$\vartheta(x)$
+</h2><ul>
+<li>
+<p><strong>Definition</strong>：</p>
+<ul>
+<li>
+<p>对于$x&gt;1$，$\psi(x)$定义为：
+$$
+\psi(x) = \sum_{n\le x}\Lambda(n) = \sum_{m\le \log_2{x}}\sum_{p\le x^{1/m}}\log{p}
+$$</p>
+</li>
+<li>
+<p>对于$x&gt;0$，$\vartheta(x)$定义为：
+$$
+\vartheta(x) = \sum_{p\le x}\log{p}
+$$</p>
+</li>
+</ul>
+</li>
+<li>
+<p><strong>Theorem:</strong></p>
+<ul>
+<li>Th1:Mangoldt函数$\Lambda(n)$的变化，即为什么：
+$$
+\sum_{n\le x}\Lambda(n) = \sum_{m\le \log_2{x}}\sum_{p\le x^{1/m}}\log{p}
+$$</li>
+</ul>
+<blockquote>
+<p><strong>Proof</strong>:</p>
+<p>根据$\Lambda(n)$函数的定于，如果$n$不是某个素数的幂，那么$\Lambda(n)=0$。</p>
+<p>于是我们可以将$\sum_{n\le x}\Lambda(n)$表示为
+$$
+\sum_{n\le x}\Lambda(n) =\sum_{m=1}^{\infty}\sum_{p^m\le x}\Lambda(p^m) = \sum_{m=1}^{\infty}\sum_{p\le x^{1/m}}\log p
+$$
+关于后面的那个sum，其中的$p,x,m$三者形成了一个关系。实际上，p是从2开始的，也就是说$x^{1/m}&lt;2$的话，sum是0。</p>
+<p>我们将$x^{1/m}&lt;2$这个条件进行变换：
+$$
+x^{1/m}&lt;2\
+\dfrac{1}{m}\log x &lt; \log 2\
+m &gt; \dfrac{\log x}{\log 2} = \log_2{x}
+$$
+于是我们得到了m和x的一个关系，于是就可以将前面sum的无穷转换为新的形式：
+$$
+\sum_{m=1}^{\infty}\sum_{p\le x^{1/m}}\log p = \sum_{m\le \log_2{x}}\sum_{p\le x^{1/m}}\log p
+$$
+有了这样的形式，我们也可以将$\psi(x)$与$\vartheta(x)$联系起来：
+$$
+\psi(x) = \sum_{m\le \log_2{x}}\vartheta(x^{1/m})
+$$</p>
+</blockquote>
+<ul>
+<li>Th2:关于$\dfrac{\psi(x)}{x}$与$\dfrac{\vartheta(x)}{x}$两者之间的关系：其中一个趋于一个极限，那么另一个也趋于这个极限。也就是说：
+$$
+\lim_{x\rightarrow\infty}(\dfrac{\psi(x)}{x}-\dfrac{\vartheta(x)}{x})=0
+$$</li>
+</ul>
+<blockquote>
+<p><strong>Proof</strong>:</p>
+<p>通过$\psi(x)$与$\vartheta(x)$的关系我们可以得到一个减法：
+$$
+\psi(x) - \vartheta(x) = \sum_{m\le \log_2{x}}\vartheta(x^{1/m}) - \vartheta(x) = \sum_{1 \le m \le \log_2{x}}\vartheta(x^{1/m})
+$$
+现在目光聚集到$\vartheta$上，对于$\vartheta$的定义，我们可以写出不等式：
+$$
+\vartheta(x) = \sum_{p\le x}\log p \le x \log p
+$$
+于是有
+$$
+\begin{align*}
+0 \le \psi(x)-\vartheta(x) \le \sum_{2\le m \le \log_2x}x^{1/m}\log x^{1/m}\
+\end{align*}\
+将其扩大，放缩为：\
+\sum_{2\le m \le \log_2x}\log x^{1/m} \le (\log_2 x)\sqrt{x}\log\sqrt{x} \= \dfrac{\log x}{\log 2}\dfrac{\sqrt{x}}{2}\log x = \dfrac{\sqrt{x}(\log x)^2}{2\log 2}
+$$
+同时去除x最后得到：
+$$
+0\le \dfrac{\psi(x)}{x} = \dfrac{\vartheta(x)}{x}\le \dfrac{(\log x)^2}{2\sqrt{x}\log2}
+$$
+根据夹逼定理：
+$$
+\begin{align*}
+\lim_{x\rightarrow\infty} \dfrac{(\log x)^2}{2\sqrt{x}\log2}
+&amp;= \dfrac{1}{2\log2}\lim_{x\rightarrow\infty}\dfrac{(\log x)^2}{\sqrt{x}}\
+洛必达：\
+&amp;=\dfrac{1}{2\log2}\lim_{x\rightarrow\infty}\dfrac{4\log x}{\sqrt{x}}\
+洛必达：\
+&amp;=\dfrac{2}{\log2}\lim_{x\rightarrow\infty}\dfrac{2}{\sqrt{x}}\
+&amp;=0
+\end{align*}
+$$
+可以得出
+$$
+\lim_{x\rightarrow\infty}(\dfrac{\psi(x)}{x}-\dfrac{\vartheta(x)}{x})=0
+$$</p>
+</blockquote>
+</li>
+<li>
+<p><strong>Note</strong>:</p>
+<blockquote>
+</blockquote>
+</li>
+</ul>
+<h2 id="chapter2--varthetax与pix的关系">Chapter2  $\vartheta(x)$与$\pi(x)$的关系
+</h2><ul>
+<li>
+<p><strong>Theorem:</strong></p>
+<ul>
+<li>Th1:（阿贝尔等式）对任一数论函数$a(n)$，令其部分和为
+$$
+A(x) = \sum_{n\le x}a(n)
+$$
+当$x&lt;1$时，$A(x)=0$。如果函数$f$在区间$[y，x],(0&lt;y&lt;x)$上有连续导数，那么有：
+$$
+\sum_{y&lt;n\le x}a(n)f(n) = A(x)f(x)-A(y)f(y)-\int_{y}^{x}A(t)f&rsquo;(t)dt
+$$</li>
+</ul>
+<blockquote>
+<p><strong>Proof</strong>:</p>
+<p>令$k = \lfloor x\rfloor,m = \lfloor y\rfloor$。这样一来$A(k)=A(x),A(m)=A(y)$
+$$
+\begin{align*}
+\sum_{y&lt;n\le x}a(n)f(n)&amp;=\sum_{n=m+1}^ka(n)f(n)\
+&amp;=\sum_{n=m+1}^k{A(n)-A(n-1)}f(n)\
+&amp;=\sum_{n=m+1}^kA(n)f(n)  -\sum_{n=m}^{k-1}A(n)f(n+1)\
+&amp;=\sum_{n=m+1}^{k-1}A(n)f(n)+A(k)f(k)-\sum_{n=m}^{k-1}A(n)f(n+1)\
+&amp;=\sum_{n=m+1}^{k-1}A(n){f(n)-f(n+1)}+A(k)f(k)-A(m)f(m+1)\
+&amp;=-\sum_{n=m+1}^{k-1}A(n)\int_{n}^{n+1}f&rsquo;(t)dt+A(k)f(k)-A(m)f(m+1)\
+&amp;=-\sum_{n=m+1}^{k-1}\int_{n}^{n+1}A(t)f&rsquo;(t)dt+A(k)f(k)-A(m)f(m+1)\
+&amp;=-\int_{m+1}^{k}A(t)f&rsquo;(t)dt+A(k)f(k)-A(m)f(m+1)\
+用同样的思想向着\int_y^x出发：
+&amp;=-\int_{m+1}^{k}A(t)f&rsquo;(t)dt-{\int_k^xA(t)f&rsquo;(t)dt+A(k)f(x)}-{\int_y^m+1A(t)f&rsquo;(t)dt+A(m)f(y)}\
+&amp;=A(x)f(x)-A(y)f(y)-\int_y^xA(t)f&rsquo;(t)dt
+\end{align*}
+$$</p>
+</blockquote>
+<ul>
+<li>Th2:接下来我们分别用$\pi(x)$将$\vartheta(x)$表示出来，再用$\vartheta(x)$将$\pi(x)$表示出来：
+$$
+\vartheta(x) = \pi(x)\log x-\int_2^x\dfrac{\pi(t)}{t}dt\
+和\
+\pi(x) = \dfrac{\vartheta(x)}{\log x}+\int_2^x\dfrac{\vartheta(t)}{t\log^2t}dt
+$$</li>
+</ul>
+<blockquote>
+<p><strong>Proof</strong>:</p>
+<p>我们知道，$\pi(x)$计算的是小于等于x的范围内有多少个素数，如果用求和的形式将其表示出来的话就是$\pi(x) = \sum_{p\le x}1$，我们可以用一个特征函数表示:
+$$
+a(n) =
+\begin{cases}
+1,若n是素数\
+0,其他
+\end{cases}
+$$
+所以$\pi(x) = \sum_{p\le x}1 = \sum_{1&lt;n\le x}a(n)$</p>
+<p>基于这个特征函数也可以将$\vartheta(x)$表示成$\vartheta(x) = \sum_{p\le x}\log p= \sum_{1&lt;n\le x}a(n)\log n$</p>
+<p>这两个函数在配合上面的阿贝尔等式，$f(n) = \log n $,我们就可以得到：
+$$
+\vartheta(x) = \pi(x)\log{x}-\pi(1)\log{1}-\int_1^x\pi(t)(\log t)&lsquo;dt
+$$
+当t&lt;2的时候，$\pi(t)=0$，于是最终形式如下：
+$$
+\vartheta(x) = \pi(x)\log{x}-\int_2^x\dfrac{\pi(t)}{t}dt
+$$
+接下来对$\pi(x)$进行转换。</p>
+<p>如果我们想用$\vartheta(x)$将$\pi(x)$表示出来，可以用$b(n)=a(n)\log n$将$\vartheta(x)$表示为部分和$\vartheta(x)=\sum_{n\le x}b(n)$的形式，然后就可以使用$f(n)=\dfrac{1}{\log n}$阿贝尔等式展开了：
+$$
+\pi(x) = \sum_{y&lt;n\le x}b(n)\dfrac{1}{\log n} = b(x)\dfrac{1}{\log x}-b(y)\dfrac{1}{\log y} - \int_y^xb(t)(\dfrac{1}{\log t})&lsquo;dt
+$$
+展开后得到：
+$$
+\pi(x) =\vartheta(x)\dfrac{1}{\log x}-\vartheta(y)\dfrac{1}{\log y} + \int_y^x\dfrac{\vartheta(t)}{t\log^2 t}dt
+$$
+当$0&lt;y&lt;2$时，$\vartheta(y)=0$，最终我们得到：
+$$
+\pi(x) =\vartheta(x)\dfrac{1}{\log x} + \int_2^x\dfrac{\vartheta(t)}{t\log^2 t}dt
+$$</p>
+</blockquote>
+</li>
+<li>
+<p><strong>Note</strong>:</p>
+</li>
+</ul>
+<h2 id="chapter3-素数定理的等价形式">Chapter3 素数定理的等价形式
+</h2><ul>
+<li>
+<p><strong>Theorem:</strong></p>
+<ul>
+<li>Th1:下面这几个式子是等价的
+$$
+\begin{equation}
+\lim_{x\rightarrow\infty}\dfrac{\pi(x)\log x}{x}=1\
+\lim_{x\rightarrow\infty}\dfrac{\vartheta(x)}{x}=1\
+\lim_{x\rightarrow\infty}\dfrac{\psi(x)}{x}=1
+\end{equation}
+$$</li>
+</ul>
+<blockquote>
+<p><strong>Proof</strong>:</p>
+<p>由C2.Th2得到
+$$
+\dfrac{\vartheta(x)}{x} = \dfrac{\pi(x)\log x}{x}-\dfrac{1}{x}\int_2^x\dfrac{\pi(t)}{t}dt\
+和\
+\dfrac{\pi(x)\log x}{x} = \dfrac{\vartheta(x)}{x}+\dfrac{\log x}{x}\int_2^x\dfrac{\vartheta(t)}{t\log^2t}dt
+$$
+证明$\dfrac{\vartheta(x)}{x}$和$\dfrac{\pi(x)\log x}{x}$的等价关系，只需要分别证明：</p>
+<p>（1）<strong>$\lim_{x\rightarrow\infty}\dfrac{1}{x}\int_2^x\dfrac{\pi(t)}{t}dt=0$:</strong></p>
+<p>通过第一个式子我们可以得到$\dfrac{\pi(x)}{x}=\Omicron(\dfrac{1}{\log x})$，于是
+$$
+\dfrac{1}{x}\int_2^x\dfrac{\pi(t)}{t}dt = \Omicron(\dfrac{1}{x}\int_2^x\dfrac{1}{\log t}dt)\
+\int_2^x\dfrac{1}{\log t}dt = \int_2^{\sqrt x}\dfrac{1}{\log t}dt + \int_{\sqrt x}^x\dfrac{1}{\log t}dt \le \dfrac{\sqrt{x}}{\log 2}+\dfrac{x-\sqrt{x}}{\log \sqrt{x}}
+$$
+乘起来
+$$
+\dfrac{1}{x}\int_2^x\dfrac{\pi(t)}{t}dt \le \dfrac{1}{x}{\dfrac{\sqrt{x}}{\log 2}+\dfrac{x-\sqrt{x}}{\log \sqrt{x}}}=\dfrac{1}{\sqrt{x}\log 2}+\dfrac{1-\dfrac{1}{\sqrt{x}}}{\log \sqrt{x}}\
+\lim_{x\rightarrow\infty}{\dfrac{1}{\sqrt{x}\log 2}+\dfrac{1-\dfrac{1}{\sqrt{x}}}{\log \sqrt{x}}} = 0\
+所以\lim_{x\rightarrow\infty}\dfrac{1}{x}\int_2^x\dfrac{\pi(t)}{t}dt \rightarrow0
+$$
+（2）<strong>$\lim_{x\rightarrow\infty}\dfrac{\log x}{x}\int_2^x\dfrac{\vartheta(t)}{t\log^2t}dt=0$：</strong></p>
+<p>通过第二个式子我们可以得到$\vartheta(t)=\Omicron(t)$，于是
+$$
+\dfrac{\log x}{x}\int_2^x\dfrac{\vartheta(t)}{t\log^2t}dt = \Omicron(\dfrac{\log x}{x}\int_2^x\dfrac{1}{\log^2t}dt)\
+\int_2^x\dfrac{1}{\log^2t}dt = \int_2^{\sqrt{x}}\dfrac{1}{\log^2t}dt + \int_{\sqrt{x}}^x\dfrac{1}{\log^2t}dt\le
+\dfrac{\sqrt{x}}{\log^22}+\dfrac{x-\sqrt{x}}{\log^2\sqrt{2}}
+$$
+乘起来
+$$
+\dfrac{\log x}{x}\int_2^x\dfrac{\vartheta(t)}{t\log^2t}dt \le
+\dfrac{\log x}{x}{\dfrac{\sqrt{x}}{\log^22}+\dfrac{x-\sqrt{x}}{\log^2\sqrt{x}}} =
+\dfrac{\log x}{\sqrt{x}\log^22}+\dfrac{2(1-\dfrac{1}{\sqrt{x}})}{\log\sqrt{x}}\
+lim_{x\rightarrow\infty}{\dfrac{\log x}{\sqrt{x}\log^22}+\dfrac{2(1-\dfrac{1}{\sqrt{x}})}{\log\sqrt{x}}} =0\
+所以：lim_{x\rightarrow\infty}\dfrac{\log x}{x}\int_2^x\dfrac{\vartheta(t)}{t\log^2t}dt \rightarrow0
+$$</p>
+</blockquote>
+<ul>
+<li>Th2:接下来我们将素数定理和第n个素数的渐进值联系起来**:令$p_n$是第n个素数**，下面几个渐进式是逻辑等价的。
+$$
+\begin{gather}
+\lim_{x\rightarrow\infty}\dfrac{\pi(x)\log x}{x} = 1\
+\lim_{x\rightarrow\infty}\dfrac{\pi(x)\log{\pi(x)}}{x} = 1\
+\lim_{n\rightarrow\infty}\dfrac{p_n}{n\log n } = 1
+\end{gather}
+$$</li>
+</ul>
+<blockquote>
+<p><strong>Proof</strong>:</p>
+<p><strong>第一个式子推第二个：</strong></p>
+<p>对第一个式子两边取对数得
+$$
+\lim_{x\rightarrow\infty}[\log{\pi(x)}+\log{\log x}-\log{x}]=0\
+\lim_{x\rightarrow\infty}\log x[{\dfrac{{\log \pi(x)}}{\log{x}}+\dfrac{\log{\log x}}{\log{x}}-1}]=0
+$$
+当$x\rightarrow\infty$时，前面的$\log x\rightarrow\infty$，于是后面的$\lim_{x\rightarrow\infty}[{\dfrac{{\log\pi(x)}}{\log{x}}+\dfrac{\log{\log x}}{\log{x}}-1}]=0$。然而中间的又是0</p>
+<p>即$\lim_{x\rightarrow\infty}{\dfrac{{\log\pi(x)}}{\log{x}}}=1$</p>
+<p>于是$\lim_{x\rightarrow\infty}{\dfrac{{\log\pi(x)}}{\log{x}}\dfrac{\pi(x)\log x}{x}}=\lim_{x\rightarrow\infty}\dfrac{\pi(x)\log x}{x}=1$</p>
+<p><strong>第二个式子推第三个：</strong></p>
+<p>$p_n$是第n个素数，我们用x表示$p_n$。那么$\pi(x)=n，\pi(x)\log\pi(x) = n\log n$</p>
+<p>于是$\lim_{x\rightarrow\infty}\dfrac{\pi(x)\log{\pi(x)}}{x} = \lim_{x\rightarrow\infty}\dfrac{n\log n}{p_n}=1$</p>
+<p><strong>第三个式子推第二个：</strong></p>
+<p>式3成立，给定x，由不等式$p_n\le x &lt; p_{n+1}$确定n，$n=\pi(x)$，于是有不等式：
+$$
+\dfrac{p_n}{n\log n} \le \dfrac{x}{n\log n } &lt; \dfrac{p_{n+1}}{n\log n}=\dfrac{p_{n+1}}{(n+1)\log{(n+1)}}\dfrac{(n+1)\log{(n+1)}}{n\log n}
+$$
+如此一来就构成了满足式3的$p_n,p_{n+1}$，根据夹逼可以知道$\lim_{x\rightarrow\infty}\dfrac{x}{n\log n}=1$</p>
+<p>将n替换为$\pi(x)$就得到了式2</p>
+<p><strong>第二个式子推第一个：</strong></p>
+<p>对式2取对数得
+$$
+\lim_{x\rightarrow\infty}[\log\pi(x) + \log \log{\pi(x)} - \log x] = 0 \
+\lim_{x\rightarrow\infty}\log\pi(x)[1+\dfrac{\log\log\pi(x)}{\log\pi(x)}-\dfrac{\log x}{\log\pi(x)}] = 0 \
+$$
+外面的$\log\pi(x)\rightarrow\infty$，那么里面的就有$\lim_{x\rightarrow\infty}1+\dfrac{\log\log\pi(x)}{\log\pi(x)}-\dfrac{\log x}{\log\pi(x)} = 0 $，中间的$\lim_{x\rightarrow\infty}\dfrac{\log\log\pi(x)}{\log x}=0$</p>
+<p>于是剩下的$\lim_{x\rightarrow\infty}\dfrac{\log x}{\log\pi(x)}=1$</p>
+<p>结合式2得到$\lim_{x\rightarrow\infty}\dfrac{\log x}{\log\pi(x)}\dfrac{\pi(x)\log\pi(x)}{x}=\dfrac{\pi(x)\log x}{x}=1$</p>
+<p>于是证出第一个式子。</p>
+</blockquote>
+</li>
+<li>
+<p><strong>Note</strong>:</p>
+<blockquote>
+</blockquote>
+</li>
+</ul>
+
+</section>
+
+
+    <footer class="article-footer">
+    
+
+    </footer>
+
+
+    
+        <link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css"integrity="sha384-n8MVd4RsNIU0tAv4ct0nTaAbDJwPJzDEaqSD1odI&#43;WdtXRGWt2kTvGFasHpSy3SV"crossorigin="anonymous"
+            ><script 
+                src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"integrity="sha384-XjKyOOlGwcjNTAIQHIpgOno0Hl1YQqzUOEleOLALmuqehneUG&#43;vnGctmUb0ZY0l8"crossorigin="anonymous"
+                defer
+                >
+            </script><script 
+                src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js"integrity="sha384-&#43;VBxd3r6XgURycqtZ117nYw44OOcIax56Z4dCRWbxyPt0Koah1uHoK0o4&#43;/RRE05"crossorigin="anonymous"
+                defer
+                >
+            </script><script>
+    window.addEventListener("DOMContentLoaded", () => {
+        renderMathInElement(document.body, {
+            delimiters: [
+                { left: "$$", right: "$$", display: true },
+                { left: "$", right: "$", display: false },
+                { left: "\\(", right: "\\)", display: false },
+                { left: "\\[", right: "\\]", display: true }
+            ],
+            ignoredClasses: ["gist"]
+        });})
+</script>
+    
+</article>
+
+    
+
+    
+
+<aside class="related-content--wrapper">
+    <h2 class="section-title">相关文章</h2>
+    <div class="related-content">
+        <div class="flex article-list--tile">
+            
+                
+<article class="">
+    <a href="/p/%E5%87%A0%E4%B8%AA%E5%87%BD%E6%95%B0%E7%9A%84%E5%B9%B3%E5%9D%87%E9%98%B6/">
+        
+        
+
+        <div class="article-details">
+            <h2 class="article-title">几个函数的平均阶</h2>
+        </div>
+    </a>
+</article>
+
+            
+                
+<article class="">
+    <a href="/p/%E8%A7%A3%E6%9E%90%E6%95%B0%E8%AE%BA%E4%B9%8B%E6%9C%89%E9%99%90%E9%98%BF%E8%B4%9D%E5%B0%94%E7%BE%A4%E5%8F%8A%E5%85%B6%E7%89%B9%E5%BE%81%E7%8B%84%E5%88%A9%E5%85%8B%E9%9B%B7%E7%89%B9%E5%BE%81/">
+        
+        
+
+        <div class="article-details">
+            <h2 class="article-title">解析数论之有限阿贝尔群及其特征、狄利克雷特征</h2>
+        </div>
+    </a>
+</article>
+
+            
+                
+<article class="">
+    <a href="/p/%E8%A7%A3%E6%9E%90%E6%95%B0%E8%AE%BA%E4%B9%8B%E5%8E%9F%E6%A0%B9/">
+        
+        
+
+        <div class="article-details">
+            <h2 class="article-title">解析数论之原根</h2>
+        </div>
+    </a>
+</article>
+
+            
+                
+<article class="">
+    <a href="/p/%E8%A7%A3%E6%9E%90%E6%95%B0%E8%AE%BA%E4%B9%8B%E6%95%B0%E8%AE%BA%E5%87%BD%E6%95%B0%E5%85%B6%E4%B8%80/">
+        
+        
+
+        <div class="article-details">
+            <h2 class="article-title">解析数论之数论函数【其一】</h2>
+        </div>
+    </a>
+</article>
+
+            
+                
+<article class="">
+    <a href="/p/unity-shader%E5%85%A5%E9%97%A8%E7%B2%BE%E8%A6%81%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0-%E7%AC%AC%E4%B8%89%E7%AB%A0-unity-shader%E5%9F%BA%E7%A1%80/">
+        
+        
+
+        <div class="article-details">
+            <h2 class="article-title">Unity Shader入门精要读书笔记 第三章 Unity Shader基础</h2>
+        </div>
+    </a>
+</article>
+
+            
+        </div>
+    </div>
+</aside>
+
+     
+    
+        
+    <script src="https://utteranc.es/client.js" 
+        repo="DorinXL/dorinxl.github.io"
+        issue-term="pathname"
+        
+        crossorigin="anonymous"
+        async
+        >
+</script>
+
+<style>
+    .utterances {
+        max-width: unset;
+    }
+</style>
+
+<script>
+    let utterancesLoaded = false;
+
+    function setUtterancesTheme(theme) {
+        let utterances = document.querySelector('.utterances iframe');
+        if (utterances) {
+            utterances.contentWindow.postMessage(
+                {
+                    type: 'set-theme',
+                    theme: `github-${theme}`
+                },
+                'https://utteranc.es'
+            );
+        }
+    }
+
+    addEventListener('message', event => {
+        if (event.origin !== 'https://utteranc.es') return;
+
+        
+        utterancesLoaded = true;
+        setUtterancesTheme(document.documentElement.dataset.scheme)
+    });
+
+    window.addEventListener('onColorSchemeChange', (e) => {
+        if (!utterancesLoaded) return;
+        setUtterancesTheme(e.detail)
+    })
+</script>
+
+
+    
+
+    <footer class="site-footer">
+    <section class="copyright">
+        &copy; 
+        
+        2024 荡影-DorinXL
+    </section>
+
+
+
+<section class="totalcount">
+    
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+    发表了76篇文章 · 
+    总计103.89k字
+</section>
+
+
+
+<section class="running-time">
+本博客已稳定运行
+<span id="runningdays" class="running-days"></span>
+</section>
+
+    <section class="powerby">
+        使用 <a href="https://gohugo.io/" target="_blank" rel="noopener">Hugo</a> 构建 <br />
+        主题 <b><a href="https://github.com/CaiJimmy/hugo-theme-stack" target="_blank" rel="noopener" data-version="3.26.0">Stack</a></b> 由 <a href="https://jimmycai.com" target="_blank" rel="noopener">Jimmy</a> 设计
+    </section>
+
+</footer>
+
+
+    
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+    
+    <div class="pswp__bg"></div>
+
+    
+    <div class="pswp__scroll-wrap">
+
+        
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+
+        
+        <div class="pswp__ui pswp__ui--hidden">
+
+            <div class="pswp__top-bar">
+
+                
+
+                <div class="pswp__counter"></div>
+
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+                
+                
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                        <div class="pswp__preloader__cut">
+                            <div class="pswp__preloader__donut"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div>
+            </div>
+
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div><script 
+                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.js"integrity="sha256-ePwmChbbvXbsO02lbM3HoHbSHTHFAeChekF1xKJdleo="crossorigin="anonymous"
+                defer
+                >
+            </script><script 
+                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe-ui-default.min.js"integrity="sha256-UKkzOn/w1mBxRmLLGrSeyB4e1xbrp4xylgAWb3M42pU="crossorigin="anonymous"
+                defer
+                >
+            </script><link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/default-skin/default-skin.min.css"crossorigin="anonymous"
+            ><link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.css"crossorigin="anonymous"
+            >
+
+            </main>
+        </div>
+        <script 
+                src="https://cdn.jsdelivr.net/npm/node-vibrant@3.1.6/dist/vibrant.min.js"integrity="sha256-awcR2jno4kI5X0zL8ex0vi2z&#43;KMkF24hUW8WePSA9HM="crossorigin="anonymous"
+                
+                >
+            </script><script type="text/javascript" src="/ts/main.js" defer></script>
+<script>
+    (function () {
+        const customFont = document.createElement('link');
+        customFont.href = "https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap";
+
+        customFont.type = "text/css";
+        customFont.rel = "stylesheet";
+
+        document.head.appendChild(customFont);
+    }());
+</script>
+
+<script>
+    let s1 = '2024-8-25'; 
+    s1 = new Date(s1.replace(/-/g, "/"));
+    let s2 = new Date();
+    let timeDifference = s2.getTime() - s1.getTime();
+
+    let days = Math.floor(timeDifference / (1000 * 60 * 60 * 24));
+    let hours = Math.floor((timeDifference % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+    let minutes = Math.floor((timeDifference % (1000 * 60 * 60)) / (1000 * 60));
+
+    let result = days + "天" + hours + "小时" + minutes + "分钟";
+    document.getElementById('runningdays').innerHTML = result;
+</script>
+    </body>
+</html>

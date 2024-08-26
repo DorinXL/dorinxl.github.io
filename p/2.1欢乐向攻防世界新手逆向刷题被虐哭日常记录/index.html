@@ -1,0 +1,1100 @@
+<!DOCTYPE html>
+<html lang="zh-cn" dir="ltr">
+    <head><meta charset='utf-8'>
+<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content="2.1【欢乐向】逆向刷题被虐哭日常记录 前面好多题之前做了也没记录，懒得整了，直接从剩下的几个开始： Getit 这一段是解密的关键，后面的是把flag写">
+<title>2.1【欢乐向】攻防世界新手逆向刷题被虐哭日常记录</title>
+
+<link rel='canonical' href='https://dorinxl.github.io/p/2.1%E6%AC%A2%E4%B9%90%E5%90%91%E6%94%BB%E9%98%B2%E4%B8%96%E7%95%8C%E6%96%B0%E6%89%8B%E9%80%86%E5%90%91%E5%88%B7%E9%A2%98%E8%A2%AB%E8%99%90%E5%93%AD%E6%97%A5%E5%B8%B8%E8%AE%B0%E5%BD%95/'>
+
+<link rel="stylesheet" href="/scss/style.min.dfb009e658ec6e0f0f0c366b98658c0caea5123dcd2536f353c92c2581b79fb7.css"><meta property='og:title' content="2.1【欢乐向】攻防世界新手逆向刷题被虐哭日常记录">
+<meta property='og:description' content="2.1【欢乐向】逆向刷题被虐哭日常记录 前面好多题之前做了也没记录，懒得整了，直接从剩下的几个开始： Getit 这一段是解密的关键，后面的是把flag写">
+<meta property='og:url' content='https://dorinxl.github.io/p/2.1%E6%AC%A2%E4%B9%90%E5%90%91%E6%94%BB%E9%98%B2%E4%B8%96%E7%95%8C%E6%96%B0%E6%89%8B%E9%80%86%E5%90%91%E5%88%B7%E9%A2%98%E8%A2%AB%E8%99%90%E5%93%AD%E6%97%A5%E5%B8%B8%E8%AE%B0%E5%BD%95/'>
+<meta property='og:site_name' content='荡影-DorinXL'>
+<meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:published_time' content='2020-02-01T13:50:00&#43;00:00'/><meta property='article:modified_time' content='2020-02-01T13:50:00&#43;00:00'/>
+<meta name="twitter:title" content="2.1【欢乐向】攻防世界新手逆向刷题被虐哭日常记录">
+<meta name="twitter:description" content="2.1【欢乐向】逆向刷题被虐哭日常记录 前面好多题之前做了也没记录，懒得整了，直接从剩下的几个开始： Getit 这一段是解密的关键，后面的是把flag写">
+    <link rel="shortcut icon" href="/favicon.ico" />
+
+  
+
+
+    </head>
+    <body class="
+    article-page
+    ">
+    <script>
+        (function() {
+            const colorSchemeKey = 'StackColorScheme';
+            if(!localStorage.getItem(colorSchemeKey)){
+                localStorage.setItem(colorSchemeKey, "auto");
+            }
+        })();
+    </script><script>
+    (function() {
+        const colorSchemeKey = 'StackColorScheme';
+        const colorSchemeItem = localStorage.getItem(colorSchemeKey);
+        const supportDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches === true;
+
+        if (colorSchemeItem == 'dark' || colorSchemeItem === 'auto' && supportDarkMode) {
+            
+
+            document.documentElement.dataset.scheme = 'dark';
+        } else {
+            document.documentElement.dataset.scheme = 'light';
+        }
+    })();
+</script>
+<div class="container main-container flex on-phone--column extended"><aside class="sidebar left-sidebar sticky ">
+    <button class="hamburger hamburger--spin" type="button" id="toggle-menu" aria-label="切换菜单">
+        <span class="hamburger-box">
+            <span class="hamburger-inner"></span>
+        </span>
+    </button>
+
+    <header>
+        
+            
+            <figure class="site-avatar">
+                <a href="/">
+                
+                    
+                    
+                    
+                        
+                        <img src="/img/avatar_hu6744900124519508638.png" width="300"
+                            height="283" class="site-logo" loading="lazy" alt="Avatar">
+                    
+                
+                </a>
+                
+                    <span class="emoji">🔥</span>
+                
+            </figure>
+            
+        
+        
+        <div class="site-meta">
+            <h1 class="site-name"><a href="/">荡影-DorinXL</a></h1>
+            <h2 class="site-description">缄默慎独，不破不立，事在人为</h2>
+        </div>
+    </header><ol class="menu-social">
+            
+                <li>
+                    <a 
+                        href='https://space.bilibili.com/3217550'
+                        target="_blank"
+                        title="BilBili"
+                        rel="me"
+                    >
+                        
+                        
+                            <svg  xmlns="http://www.w3.org/2000/svg"  width="24"  height="24"  viewBox="0 0 24 24"  fill="none"  stroke="currentColor"  stroke-width="2"  stroke-linecap="round"  stroke-linejoin="round"  class="icon icon-tabler icons-tabler-outline icon-tabler-brand-bilibili"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M3 10a4 4 0 0 1 4 -4h10a4 4 0 0 1 4 4v6a4 4 0 0 1 -4 4h-10a4 4 0 0 1 -4 -4v-6z" /><path d="M8 3l2 3" /><path d="M16 3l-2 3" /><path d="M9 13v-2" /><path d="M15 11v2" /></svg>
+                        
+                    </a>
+                </li>
+            
+                <li>
+                    <a 
+                        href='https://www.cnblogs.com/DorinXL/'
+                        target="_blank"
+                        title="CNblog"
+                        rel="me"
+                    >
+                        
+                        
+                            <svg  xmlns="http://www.w3.org/2000/svg"  width="24"  height="24"  viewBox="0 0 24 24"  fill="none"  stroke="currentColor"  stroke-width="2"  stroke-linecap="round"  stroke-linejoin="round"  class="icon icon-tabler icons-tabler-outline icon-tabler-brand-blogger"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M8 21h8a5 5 0 0 0 5 -5v-3a3 3 0 0 0 -3 -3h-1v-2a5 5 0 0 0 -5 -5h-4a5 5 0 0 0 -5 5v8a5 5 0 0 0 5 5z" /><path d="M7 7m0 1.5a1.5 1.5 0 0 1 1.5 -1.5h3a1.5 1.5 0 0 1 1.5 1.5v0a1.5 1.5 0 0 1 -1.5 1.5h-3a1.5 1.5 0 0 1 -1.5 -1.5z" /><path d="M7 14m0 1.5a1.5 1.5 0 0 1 1.5 -1.5h7a1.5 1.5 0 0 1 1.5 1.5v0a1.5 1.5 0 0 1 -1.5 1.5h-7a1.5 1.5 0 0 1 -1.5 -1.5z" /></svg>
+                        
+                    </a>
+                </li>
+            
+                <li>
+                    <a 
+                        href='https://github.com/DorinXL/DorinXL.github.io'
+                        target="_blank"
+                        title="GitHub"
+                        rel="me"
+                    >
+                        
+                        
+                            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-brand-github" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+  <path d="M9 19c-4.3 1.4 -4.3 -2.5 -6 -3m12 5v-3.5c0 -1 .1 -1.4 -.5 -2c2.8 -.3 5.5 -1.4 5.5 -6a4.6 4.6 0 0 0 -1.3 -3.2a4.2 4.2 0 0 0 -.1 -3.2s-1.1 -.3 -3.5 1.3a12.3 12.3 0 0 0 -6.2 0c-2.4 -1.6 -3.5 -1.3 -3.5 -1.3a4.2 4.2 0 0 0 -.1 3.2a4.6 4.6 0 0 0 -1.3 3.2c0 4.6 2.7 5.7 5.5 6c-.6 .6 -.6 1.2 -.5 2v3.5" />
+</svg>
+
+
+
+                        
+                    </a>
+                </li>
+            
+        </ol><ol class="menu" id="main-menu">
+        
+        
+        
+        <li >
+            <a href='/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-home" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <polyline points="5 12 3 12 12 3 21 12 19 12" />
+  <path d="M5 12v7a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-7" />
+  <path d="M9 21v-6a2 2 0 0 1 2 -2h2a2 2 0 0 1 2 2v6" />
+</svg>
+
+
+
+                
+                <span>主页</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/%E5%85%B3%E4%BA%8E/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-user" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="7" r="4" />
+  <path d="M6 21v-2a4 4 0 0 1 4 -4h4a4 4 0 0 1 4 4v2" />
+</svg>
+
+
+
+                
+                <span>关于</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/archives/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-archive" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <rect x="3" y="4" width="18" height="4" rx="2" />
+  <path d="M5 8v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-10" />
+  <line x1="10" y1="12" x2="14" y2="12" />
+</svg>
+
+
+
+                
+                <span>归档</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/search/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-search" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="10" cy="10" r="7" />
+  <line x1="21" y1="21" x2="15" y2="15" />
+</svg>
+
+
+
+                
+                <span>搜索</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/%E5%8F%8B%E9%93%BE/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-link" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <path d="M10 14a3.5 3.5 0 0 0 5 0l4 -4a3.5 3.5 0 0 0 -5 -5l-.5 .5" />
+  <path d="M14 10a3.5 3.5 0 0 0 -5 0l-4 4a3.5 3.5 0 0 0 5 5l.5 -.5" />
+</svg>
+
+
+
+                
+                <span>友链</span>
+            </a>
+        </li>
+        
+        <li class="menu-bottom-section">
+            <ol class="menu">
+
+                
+                    <li id="dark-mode-toggle">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-left" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="8" cy="12" r="2" />
+  <rect x="2" y="6" width="20" height="12" rx="6" />
+</svg>
+
+
+
+                        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-right" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="16" cy="12" r="2" />
+  <rect x="2" y="6" width="20" height="12" rx="6" />
+</svg>
+
+
+
+                        <span>暗色模式</span>
+                    </li>
+                
+            </ol>
+        </li>
+    </ol>
+</aside>
+
+    
+
+            <main class="main full-width">
+    <article class="main-article">
+    <header class="article-header">
+
+    <div class="article-details">
+    
+    <header class="article-category">
+        
+            <a href="/categories/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8/" >
+                网络安全
+            </a>
+        
+            <a href="/categories/ctf/" >
+                CTF
+            </a>
+        
+    </header>
+    
+
+    <div class="article-title-wrapper">
+        <h2 class="article-title">
+            <a href="/p/2.1%E6%AC%A2%E4%B9%90%E5%90%91%E6%94%BB%E9%98%B2%E4%B8%96%E7%95%8C%E6%96%B0%E6%89%8B%E9%80%86%E5%90%91%E5%88%B7%E9%A2%98%E8%A2%AB%E8%99%90%E5%93%AD%E6%97%A5%E5%B8%B8%E8%AE%B0%E5%BD%95/">2.1【欢乐向】攻防世界新手逆向刷题被虐哭日常记录</a>
+        </h2>
+    
+        
+    </div>
+
+
+    
+    
+    
+    
+    <footer class="article-time">
+        
+            <div>
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-calendar-time" width="56" height="56" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <path d="M11.795 21h-6.795a2 2 0 0 1 -2 -2v-12a2 2 0 0 1 2 -2h12a2 2 0 0 1 2 2v4" />
+  <circle cx="18" cy="18" r="4" />
+  <path d="M15 3v4" />
+  <path d="M7 3v4" />
+  <path d="M3 11h16" />
+  <path d="M18 16.496v1.504l1 1" />
+</svg>
+                <time class="article-time--published">2020-02-01</time>
+            </div>
+	
+
+        
+
+        
+    </footer>
+    
+
+    
+
+</div>
+
+</header>
+
+    <section class="article-content">
+    
+    
+    <h1 id="21欢乐向逆向刷题被虐哭日常记录">2.1【欢乐向】逆向刷题被虐哭日常记录
+</h1><p>前面好多题之前做了也没记录，懒得整了，直接从剩下的几个开始：</p>
+<h1 id="getit">Getit
+</h1><p>这一段是解密的关键，后面的是把flag写入文档又给删了。</p>
+<p>其实可以修改程序逻辑让他别删， <em>但是我不会</em> 。</p>
+<p><img src="/p/2.1%E6%AC%A2%E4%B9%90%E5%90%91%E6%94%BB%E9%98%B2%E4%B8%96%E7%95%8C%E6%96%B0%E6%89%8B%E9%80%86%E5%90%91%E5%88%B7%E9%A2%98%E8%A2%AB%E8%99%90%E5%93%AD%E6%97%A5%E5%B8%B8%E8%AE%B0%E5%BD%95/1858293-20200201215008912-1404937321.png"
+	width="563"
+	height="602"
+	srcset="/p/2.1%E6%AC%A2%E4%B9%90%E5%90%91%E6%94%BB%E9%98%B2%E4%B8%96%E7%95%8C%E6%96%B0%E6%89%8B%E9%80%86%E5%90%91%E5%88%B7%E9%A2%98%E8%A2%AB%E8%99%90%E5%93%AD%E6%97%A5%E5%B8%B8%E8%AE%B0%E5%BD%95/1858293-20200201215008912-1404937321_hu72002671839688069.png 480w, /p/2.1%E6%AC%A2%E4%B9%90%E5%90%91%E6%94%BB%E9%98%B2%E4%B8%96%E7%95%8C%E6%96%B0%E6%89%8B%E9%80%86%E5%90%91%E5%88%B7%E9%A2%98%E8%A2%AB%E8%99%90%E5%93%AD%E6%97%A5%E5%B8%B8%E8%AE%B0%E5%BD%95/1858293-20200201215008912-1404937321_hu6787145862078822785.png 1024w"
+	loading="lazy"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="93"
+		data-flex-basis="224px"
+	
+></p>
+<p>逆着来推一边，不会写py，用c写个。</p>
+<p><img src="/p/2.1%E6%AC%A2%E4%B9%90%E5%90%91%E6%94%BB%E9%98%B2%E4%B8%96%E7%95%8C%E6%96%B0%E6%89%8B%E9%80%86%E5%90%91%E5%88%B7%E9%A2%98%E8%A2%AB%E8%99%90%E5%93%AD%E6%97%A5%E5%B8%B8%E8%AE%B0%E5%BD%95/1858293-20200201215009376-248646515.png"
+	width="576"
+	height="303"
+	srcset="/p/2.1%E6%AC%A2%E4%B9%90%E5%90%91%E6%94%BB%E9%98%B2%E4%B8%96%E7%95%8C%E6%96%B0%E6%89%8B%E9%80%86%E5%90%91%E5%88%B7%E9%A2%98%E8%A2%AB%E8%99%90%E5%93%AD%E6%97%A5%E5%B8%B8%E8%AE%B0%E5%BD%95/1858293-20200201215009376-248646515_hu7006502454449300443.png 480w, /p/2.1%E6%AC%A2%E4%B9%90%E5%90%91%E6%94%BB%E9%98%B2%E4%B8%96%E7%95%8C%E6%96%B0%E6%89%8B%E9%80%86%E5%90%91%E5%88%B7%E9%A2%98%E8%A2%AB%E8%99%90%E5%93%AD%E6%97%A5%E5%B8%B8%E8%AE%B0%E5%BD%95/1858293-20200201215009376-248646515_hu2624479070640340232.png 1024w"
+	loading="lazy"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="190"
+		data-flex-basis="456px"
+	
+></p>
+<p><img src="/p/2.1%E6%AC%A2%E4%B9%90%E5%90%91%E6%94%BB%E9%98%B2%E4%B8%96%E7%95%8C%E6%96%B0%E6%89%8B%E9%80%86%E5%90%91%E5%88%B7%E9%A2%98%E8%A2%AB%E8%99%90%E5%93%AD%E6%97%A5%E5%B8%B8%E8%AE%B0%E5%BD%95/1858293-20200201215009647-1393044750.png"
+	width="576"
+	height="263"
+	srcset="/p/2.1%E6%AC%A2%E4%B9%90%E5%90%91%E6%94%BB%E9%98%B2%E4%B8%96%E7%95%8C%E6%96%B0%E6%89%8B%E9%80%86%E5%90%91%E5%88%B7%E9%A2%98%E8%A2%AB%E8%99%90%E5%93%AD%E6%97%A5%E5%B8%B8%E8%AE%B0%E5%BD%95/1858293-20200201215009647-1393044750_hu6070974887372010547.png 480w, /p/2.1%E6%AC%A2%E4%B9%90%E5%90%91%E6%94%BB%E9%98%B2%E4%B8%96%E7%95%8C%E6%96%B0%E6%89%8B%E9%80%86%E5%90%91%E5%88%B7%E9%A2%98%E8%A2%AB%E8%99%90%E5%93%AD%E6%97%A5%E5%B8%B8%E8%AE%B0%E5%BD%95/1858293-20200201215009647-1393044750_hu1859458460894488847.png 1024w"
+	loading="lazy"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="219"
+		data-flex-basis="525px"
+	
+></p>
+<p>？不应当，我大概是忘了加括号。</p>
+<p><img src="/p/2.1%E6%AC%A2%E4%B9%90%E5%90%91%E6%94%BB%E9%98%B2%E4%B8%96%E7%95%8C%E6%96%B0%E6%89%8B%E9%80%86%E5%90%91%E5%88%B7%E9%A2%98%E8%A2%AB%E8%99%90%E5%93%AD%E6%97%A5%E5%B8%B8%E8%AE%B0%E5%BD%95/1858293-20200201215009900-2042628758.png"
+	width="576"
+	height="322"
+	srcset="/p/2.1%E6%AC%A2%E4%B9%90%E5%90%91%E6%94%BB%E9%98%B2%E4%B8%96%E7%95%8C%E6%96%B0%E6%89%8B%E9%80%86%E5%90%91%E5%88%B7%E9%A2%98%E8%A2%AB%E8%99%90%E5%93%AD%E6%97%A5%E5%B8%B8%E8%AE%B0%E5%BD%95/1858293-20200201215009900-2042628758_hu13247487104854209818.png 480w, /p/2.1%E6%AC%A2%E4%B9%90%E5%90%91%E6%94%BB%E9%98%B2%E4%B8%96%E7%95%8C%E6%96%B0%E6%89%8B%E9%80%86%E5%90%91%E5%88%B7%E9%A2%98%E8%A2%AB%E8%99%90%E5%93%AD%E6%97%A5%E5%B8%B8%E8%AE%B0%E5%BD%95/1858293-20200201215009900-2042628758_hu4470642973985927275.png 1024w"
+	loading="lazy"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="178"
+		data-flex-basis="429px"
+	
+></p>
+<p>？？？我觉得我的没啥问题，去网上查了查相关的：</p>
+<p><img src="/p/2.1%E6%AC%A2%E4%B9%90%E5%90%91%E6%94%BB%E9%98%B2%E4%B8%96%E7%95%8C%E6%96%B0%E6%89%8B%E9%80%86%E5%90%91%E5%88%B7%E9%A2%98%E8%A2%AB%E8%99%90%E5%93%AD%E6%97%A5%E5%B8%B8%E8%AE%B0%E5%BD%95/1858293-20200201215010127-1510435553.png"
+	width="162"
+	height="161"
+	srcset="/p/2.1%E6%AC%A2%E4%B9%90%E5%90%91%E6%94%BB%E9%98%B2%E4%B8%96%E7%95%8C%E6%96%B0%E6%89%8B%E9%80%86%E5%90%91%E5%88%B7%E9%A2%98%E8%A2%AB%E8%99%90%E5%93%AD%E6%97%A5%E5%B8%B8%E8%AE%B0%E5%BD%95/1858293-20200201215010127-1510435553_hu5425621959270590230.png 480w, /p/2.1%E6%AC%A2%E4%B9%90%E5%90%91%E6%94%BB%E9%98%B2%E4%B8%96%E7%95%8C%E6%96%B0%E6%89%8B%E9%80%86%E5%90%91%E5%88%B7%E9%A2%98%E8%A2%AB%E8%99%90%E5%93%AD%E6%97%A5%E5%B8%B8%E8%AE%B0%E5%BD%95/1858293-20200201215010127-1510435553_hu12811749537452106337.png 1024w"
+	loading="lazy"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="100"
+		data-flex-basis="241px"
+	
+></p>
+<p>在IDA里没看到有S，咱也不知道咋回事。</p>
+<p><img src="/p/2.1%E6%AC%A2%E4%B9%90%E5%90%91%E6%94%BB%E9%98%B2%E4%B8%96%E7%95%8C%E6%96%B0%E6%89%8B%E9%80%86%E5%90%91%E5%88%B7%E9%A2%98%E8%A2%AB%E8%99%90%E5%93%AD%E6%97%A5%E5%B8%B8%E8%AE%B0%E5%BD%95/1858293-20200201215010357-1232752420.png"
+	width="576"
+	height="112"
+	srcset="/p/2.1%E6%AC%A2%E4%B9%90%E5%90%91%E6%94%BB%E9%98%B2%E4%B8%96%E7%95%8C%E6%96%B0%E6%89%8B%E9%80%86%E5%90%91%E5%88%B7%E9%A2%98%E8%A2%AB%E8%99%90%E5%93%AD%E6%97%A5%E5%B8%B8%E8%AE%B0%E5%BD%95/1858293-20200201215010357-1232752420_hu16924262449000278919.png 480w, /p/2.1%E6%AC%A2%E4%B9%90%E5%90%91%E6%94%BB%E9%98%B2%E4%B8%96%E7%95%8C%E6%96%B0%E6%89%8B%E9%80%86%E5%90%91%E5%88%B7%E9%A2%98%E8%A2%AB%E8%99%90%E5%93%AD%E6%97%A5%E5%B8%B8%E8%AE%B0%E5%BD%95/1858293-20200201215010357-1232752420_hu1380999167419022846.png 1024w"
+	loading="lazy"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="514"
+		data-flex-basis="1234px"
+	
+></p>
+<h1 id="no-strings-attached">no-strings-attached
+</h1><p>直接扔IDA瞅瞅：</p>
+<p><img src="/p/2.1%E6%AC%A2%E4%B9%90%E5%90%91%E6%94%BB%E9%98%B2%E4%B8%96%E7%95%8C%E6%96%B0%E6%89%8B%E9%80%86%E5%90%91%E5%88%B7%E9%A2%98%E8%A2%AB%E8%99%90%E5%93%AD%E6%97%A5%E5%B8%B8%E8%AE%B0%E5%BD%95/1858293-20200201215010586-438035929.png"
+	width="508"
+	height="164"
+	srcset="/p/2.1%E6%AC%A2%E4%B9%90%E5%90%91%E6%94%BB%E9%98%B2%E4%B8%96%E7%95%8C%E6%96%B0%E6%89%8B%E9%80%86%E5%90%91%E5%88%B7%E9%A2%98%E8%A2%AB%E8%99%90%E5%93%AD%E6%97%A5%E5%B8%B8%E8%AE%B0%E5%BD%95/1858293-20200201215010586-438035929_hu1699684010146623977.png 480w, /p/2.1%E6%AC%A2%E4%B9%90%E5%90%91%E6%94%BB%E9%98%B2%E4%B8%96%E7%95%8C%E6%96%B0%E6%89%8B%E9%80%86%E5%90%91%E5%88%B7%E9%A2%98%E8%A2%AB%E8%99%90%E5%93%AD%E6%97%A5%E5%B8%B8%E8%AE%B0%E5%BD%95/1858293-20200201215010586-438035929_hu17177293344051130906.png 1024w"
+	loading="lazy"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="309"
+		data-flex-basis="743px"
+	
+></p>
+<p>挨个函数筛，筛出最后一个有、东西。</p>
+<p><img src="/p/2.1%E6%AC%A2%E4%B9%90%E5%90%91%E6%94%BB%E9%98%B2%E4%B8%96%E7%95%8C%E6%96%B0%E6%89%8B%E9%80%86%E5%90%91%E5%88%B7%E9%A2%98%E8%A2%AB%E8%99%90%E5%93%AD%E6%97%A5%E5%B8%B8%E8%AE%B0%E5%BD%95/1858293-20200201215010800-573591045.png"
+	width="322"
+	height="288"
+	srcset="/p/2.1%E6%AC%A2%E4%B9%90%E5%90%91%E6%94%BB%E9%98%B2%E4%B8%96%E7%95%8C%E6%96%B0%E6%89%8B%E9%80%86%E5%90%91%E5%88%B7%E9%A2%98%E8%A2%AB%E8%99%90%E5%93%AD%E6%97%A5%E5%B8%B8%E8%AE%B0%E5%BD%95/1858293-20200201215010800-573591045_hu17319160698267388137.png 480w, /p/2.1%E6%AC%A2%E4%B9%90%E5%90%91%E6%94%BB%E9%98%B2%E4%B8%96%E7%95%8C%E6%96%B0%E6%89%8B%E9%80%86%E5%90%91%E5%88%B7%E9%A2%98%E8%A2%AB%E8%99%90%E5%93%AD%E6%97%A5%E5%B8%B8%E8%AE%B0%E5%BD%95/1858293-20200201215010800-573591045_hu4356549310349919706.png 1024w"
+	loading="lazy"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="111"
+		data-flex-basis="268px"
+	
+></p>
+<p>有个叫decrypt的函数，看起来像是加密函数，去gdb里下个断点看看。</p>
+<p><img src="/p/2.1%E6%AC%A2%E4%B9%90%E5%90%91%E6%94%BB%E9%98%B2%E4%B8%96%E7%95%8C%E6%96%B0%E6%89%8B%E9%80%86%E5%90%91%E5%88%B7%E9%A2%98%E8%A2%AB%E8%99%90%E5%93%AD%E6%97%A5%E5%B8%B8%E8%AE%B0%E5%BD%95/1858293-20200201215011038-1672786927.png"
+	width="514"
+	height="130"
+	srcset="/p/2.1%E6%AC%A2%E4%B9%90%E5%90%91%E6%94%BB%E9%98%B2%E4%B8%96%E7%95%8C%E6%96%B0%E6%89%8B%E9%80%86%E5%90%91%E5%88%B7%E9%A2%98%E8%A2%AB%E8%99%90%E5%93%AD%E6%97%A5%E5%B8%B8%E8%AE%B0%E5%BD%95/1858293-20200201215011038-1672786927_hu10588877512116578564.png 480w, /p/2.1%E6%AC%A2%E4%B9%90%E5%90%91%E6%94%BB%E9%98%B2%E4%B8%96%E7%95%8C%E6%96%B0%E6%89%8B%E9%80%86%E5%90%91%E5%88%B7%E9%A2%98%E8%A2%AB%E8%99%90%E5%93%AD%E6%97%A5%E5%B8%B8%E8%AE%B0%E5%BD%95/1858293-20200201215011038-1672786927_hu66330289043117042.png 1024w"
+	loading="lazy"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="395"
+		data-flex-basis="948px"
+	
+></p>
+<p>r运行，n单步走。</p>
+<p><img src="/p/2.1%E6%AC%A2%E4%B9%90%E5%90%91%E6%94%BB%E9%98%B2%E4%B8%96%E7%95%8C%E6%96%B0%E6%89%8B%E9%80%86%E5%90%91%E5%88%B7%E9%A2%98%E8%A2%AB%E8%99%90%E5%93%AD%E6%97%A5%E5%B8%B8%E8%AE%B0%E5%BD%95/1858293-20200201215011406-454661810.png"
+	width="533"
+	height="492"
+	srcset="/p/2.1%E6%AC%A2%E4%B9%90%E5%90%91%E6%94%BB%E9%98%B2%E4%B8%96%E7%95%8C%E6%96%B0%E6%89%8B%E9%80%86%E5%90%91%E5%88%B7%E9%A2%98%E8%A2%AB%E8%99%90%E5%93%AD%E6%97%A5%E5%B8%B8%E8%AE%B0%E5%BD%95/1858293-20200201215011406-454661810_hu10488513551751072888.png 480w, /p/2.1%E6%AC%A2%E4%B9%90%E5%90%91%E6%94%BB%E9%98%B2%E4%B8%96%E7%95%8C%E6%96%B0%E6%89%8B%E9%80%86%E5%90%91%E5%88%B7%E9%A2%98%E8%A2%AB%E8%99%90%E5%93%AD%E6%97%A5%E5%B8%B8%E8%AE%B0%E5%BD%95/1858293-20200201215011406-454661810_hu954423439451009888.png 1024w"
+	loading="lazy"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="108"
+		data-flex-basis="260px"
+	
+></p>
+<p>中间那一大坨大概是没设置好，现学gdb怎么用先不管了。</p>
+<p>查内存找字符串，</p>
+<p>加密好的东西放进了寄存器eax里：</p>
+<p><img src="/p/2.1%E6%AC%A2%E4%B9%90%E5%90%91%E6%94%BB%E9%98%B2%E4%B8%96%E7%95%8C%E6%96%B0%E6%89%8B%E9%80%86%E5%90%91%E5%88%B7%E9%A2%98%E8%A2%AB%E8%99%90%E5%93%AD%E6%97%A5%E5%B8%B8%E8%AE%B0%E5%BD%95/1858293-20200201215011797-1256265585.png"
+	width="538"
+	height="143"
+	srcset="/p/2.1%E6%AC%A2%E4%B9%90%E5%90%91%E6%94%BB%E9%98%B2%E4%B8%96%E7%95%8C%E6%96%B0%E6%89%8B%E9%80%86%E5%90%91%E5%88%B7%E9%A2%98%E8%A2%AB%E8%99%90%E5%93%AD%E6%97%A5%E5%B8%B8%E8%AE%B0%E5%BD%95/1858293-20200201215011797-1256265585_hu6252092119591148933.png 480w, /p/2.1%E6%AC%A2%E4%B9%90%E5%90%91%E6%94%BB%E9%98%B2%E4%B8%96%E7%95%8C%E6%96%B0%E6%89%8B%E9%80%86%E5%90%91%E5%88%B7%E9%A2%98%E8%A2%AB%E8%99%90%E5%93%AD%E6%97%A5%E5%B8%B8%E8%AE%B0%E5%BD%95/1858293-20200201215011797-1256265585_hu5666019987353875337.png 1024w"
+	loading="lazy"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="376"
+		data-flex-basis="902px"
+	
+></p>
+<p>翻翻寄存器里的东西，找到第一个0x00结尾的是字符串的结尾。</p>
+<p><img src="/p/2.1%E6%AC%A2%E4%B9%90%E5%90%91%E6%94%BB%E9%98%B2%E4%B8%96%E7%95%8C%E6%96%B0%E6%89%8B%E9%80%86%E5%90%91%E5%88%B7%E9%A2%98%E8%A2%AB%E8%99%90%E5%93%AD%E6%97%A5%E5%B8%B8%E8%AE%B0%E5%BD%95/1858293-20200201215012095-1579571095.png"
+	width="534"
+	height="365"
+	srcset="/p/2.1%E6%AC%A2%E4%B9%90%E5%90%91%E6%94%BB%E9%98%B2%E4%B8%96%E7%95%8C%E6%96%B0%E6%89%8B%E9%80%86%E5%90%91%E5%88%B7%E9%A2%98%E8%A2%AB%E8%99%90%E5%93%AD%E6%97%A5%E5%B8%B8%E8%AE%B0%E5%BD%95/1858293-20200201215012095-1579571095_hu7516344209771279924.png 480w, /p/2.1%E6%AC%A2%E4%B9%90%E5%90%91%E6%94%BB%E9%98%B2%E4%B8%96%E7%95%8C%E6%96%B0%E6%89%8B%E9%80%86%E5%90%91%E5%88%B7%E9%A2%98%E8%A2%AB%E8%99%90%E5%93%AD%E6%97%A5%E5%B8%B8%E8%AE%B0%E5%BD%95/1858293-20200201215012095-1579571095_hu254875115539439943.png 1024w"
+	loading="lazy"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="146"
+		data-flex-basis="351px"
+	
+></p>
+<p>x:就是用来查看内存中数值的，后面的200代表查看多少个，wx代表是以word字节查看看，$eax代表的eax寄存器中的值</p>
+<p>在这里我们看到0x00000000，这就证明这个字符串结束了，因为，在C中，代表字符串结尾的就是&quot;\0&quot;,那么前面的就是经过decrypt函数生成的falg</p>
+<p>C：按字符格式显示，把这些十六进制的换成好看一点的。</p>
+<p><img src="/p/2.1%E6%AC%A2%E4%B9%90%E5%90%91%E6%94%BB%E9%98%B2%E4%B8%96%E7%95%8C%E6%96%B0%E6%89%8B%E9%80%86%E5%90%91%E5%88%B7%E9%A2%98%E8%A2%AB%E8%99%90%E5%93%AD%E6%97%A5%E5%B8%B8%E8%AE%B0%E5%BD%95/1858293-20200201215012467-137796143.png"
+	width="576"
+	height="245"
+	srcset="/p/2.1%E6%AC%A2%E4%B9%90%E5%90%91%E6%94%BB%E9%98%B2%E4%B8%96%E7%95%8C%E6%96%B0%E6%89%8B%E9%80%86%E5%90%91%E5%88%B7%E9%A2%98%E8%A2%AB%E8%99%90%E5%93%AD%E6%97%A5%E5%B8%B8%E8%AE%B0%E5%BD%95/1858293-20200201215012467-137796143_hu1569618312279722807.png 480w, /p/2.1%E6%AC%A2%E4%B9%90%E5%90%91%E6%94%BB%E9%98%B2%E4%B8%96%E7%95%8C%E6%96%B0%E6%89%8B%E9%80%86%E5%90%91%E5%88%B7%E9%A2%98%E8%A2%AB%E8%99%90%E5%93%AD%E6%97%A5%E5%B8%B8%E8%AE%B0%E5%BD%95/1858293-20200201215012467-137796143_hu754529829310691937.png 1024w"
+	loading="lazy"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="235"
+		data-flex-basis="564px"
+	
+></p>
+<h1 id="python-trade">python-trade：
+</h1><p>Pyc文件，网页反编译一下：https://tool.lu/pyc/</p>
+<p>。<img src="/p/2.1%E6%AC%A2%E4%B9%90%E5%90%91%E6%94%BB%E9%98%B2%E4%B8%96%E7%95%8C%E6%96%B0%E6%89%8B%E9%80%86%E5%90%91%E5%88%B7%E9%A2%98%E8%A2%AB%E8%99%90%E5%93%AD%E6%97%A5%E5%B8%B8%E8%AE%B0%E5%BD%95/1858293-20200201215012802-1394148728.png"
+	width="540"
+	height="549"
+	srcset="/p/2.1%E6%AC%A2%E4%B9%90%E5%90%91%E6%94%BB%E9%98%B2%E4%B8%96%E7%95%8C%E6%96%B0%E6%89%8B%E9%80%86%E5%90%91%E5%88%B7%E9%A2%98%E8%A2%AB%E8%99%90%E5%93%AD%E6%97%A5%E5%B8%B8%E8%AE%B0%E5%BD%95/1858293-20200201215012802-1394148728_hu3417418066241381844.png 480w, /p/2.1%E6%AC%A2%E4%B9%90%E5%90%91%E6%94%BB%E9%98%B2%E4%B8%96%E7%95%8C%E6%96%B0%E6%89%8B%E9%80%86%E5%90%91%E5%88%B7%E9%A2%98%E8%A2%AB%E8%99%90%E5%93%AD%E6%97%A5%E5%B8%B8%E8%AE%B0%E5%BD%95/1858293-20200201215012802-1394148728_hu8179378537061129896.png 1024w"
+	loading="lazy"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="98"
+		data-flex-basis="236px"
+	
+></p>
+<p><img src="/p/2.1%E6%AC%A2%E4%B9%90%E5%90%91%E6%94%BB%E9%98%B2%E4%B8%96%E7%95%8C%E6%96%B0%E6%89%8B%E9%80%86%E5%90%91%E5%88%B7%E9%A2%98%E8%A2%AB%E8%99%90%E5%93%AD%E6%97%A5%E5%B8%B8%E8%AE%B0%E5%BD%95/1858293-20200201215013079-1835085025.jpg"
+	width="764"
+	height="418"
+	srcset="/p/2.1%E6%AC%A2%E4%B9%90%E5%90%91%E6%94%BB%E9%98%B2%E4%B8%96%E7%95%8C%E6%96%B0%E6%89%8B%E9%80%86%E5%90%91%E5%88%B7%E9%A2%98%E8%A2%AB%E8%99%90%E5%93%AD%E6%97%A5%E5%B8%B8%E8%AE%B0%E5%BD%95/1858293-20200201215013079-1835085025_hu13554127187593124460.jpg 480w, /p/2.1%E6%AC%A2%E4%B9%90%E5%90%91%E6%94%BB%E9%98%B2%E4%B8%96%E7%95%8C%E6%96%B0%E6%89%8B%E9%80%86%E5%90%91%E5%88%B7%E9%A2%98%E8%A2%AB%E8%99%90%E5%93%AD%E6%97%A5%E5%B8%B8%E8%AE%B0%E5%BD%95/1858293-20200201215013079-1835085025_hu10226696178501995579.jpg 1024w"
+	loading="lazy"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="182"
+		data-flex-basis="438px"
+	
+></p>
+<p>翻译翻译，这堆字母让我们输入一串字符串，然后经过encode函数一系列操作之后和correct比较，正确了就算是输对了flag。</p>
+<p>那咱们就反其道而行之。</p>
+<p>先给他把correct给base64解密了。</p>
+<p><img src="/p/2.1%E6%AC%A2%E4%B9%90%E5%90%91%E6%94%BB%E9%98%B2%E4%B8%96%E7%95%8C%E6%96%B0%E6%89%8B%E9%80%86%E5%90%91%E5%88%B7%E9%A2%98%E8%A2%AB%E8%99%90%E5%93%AD%E6%97%A5%E5%B8%B8%E8%AE%B0%E5%BD%95/1858293-20200201215013293-855770514.png"
+	width="474"
+	height="281"
+	srcset="/p/2.1%E6%AC%A2%E4%B9%90%E5%90%91%E6%94%BB%E9%98%B2%E4%B8%96%E7%95%8C%E6%96%B0%E6%89%8B%E9%80%86%E5%90%91%E5%88%B7%E9%A2%98%E8%A2%AB%E8%99%90%E5%93%AD%E6%97%A5%E5%B8%B8%E8%AE%B0%E5%BD%95/1858293-20200201215013293-855770514_hu16895134321723218967.png 480w, /p/2.1%E6%AC%A2%E4%B9%90%E5%90%91%E6%94%BB%E9%98%B2%E4%B8%96%E7%95%8C%E6%96%B0%E6%89%8B%E9%80%86%E5%90%91%E5%88%B7%E9%A2%98%E8%A2%AB%E8%99%90%E5%93%AD%E6%97%A5%E5%B8%B8%E8%AE%B0%E5%BD%95/1858293-20200201215013293-855770514_hu5836849103790427029.png 1024w"
+	loading="lazy"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="168"
+		data-flex-basis="404px"
+	
+></p>
+<p>完事了之后在逆着走一遍。</p>
+<p><img src="/p/2.1%E6%AC%A2%E4%B9%90%E5%90%91%E6%94%BB%E9%98%B2%E4%B8%96%E7%95%8C%E6%96%B0%E6%89%8B%E9%80%86%E5%90%91%E5%88%B7%E9%A2%98%E8%A2%AB%E8%99%90%E5%93%AD%E6%97%A5%E5%B8%B8%E8%AE%B0%E5%BD%95/1858293-20200201215013545-1695020831.png"
+	width="576"
+	height="303"
+	srcset="/p/2.1%E6%AC%A2%E4%B9%90%E5%90%91%E6%94%BB%E9%98%B2%E4%B8%96%E7%95%8C%E6%96%B0%E6%89%8B%E9%80%86%E5%90%91%E5%88%B7%E9%A2%98%E8%A2%AB%E8%99%90%E5%93%AD%E6%97%A5%E5%B8%B8%E8%AE%B0%E5%BD%95/1858293-20200201215013545-1695020831_hu13126084811641132096.png 480w, /p/2.1%E6%AC%A2%E4%B9%90%E5%90%91%E6%94%BB%E9%98%B2%E4%B8%96%E7%95%8C%E6%96%B0%E6%89%8B%E9%80%86%E5%90%91%E5%88%B7%E9%A2%98%E8%A2%AB%E8%99%90%E5%93%AD%E6%97%A5%E5%B8%B8%E8%AE%B0%E5%BD%95/1858293-20200201215013545-1695020831_hu6718942408621952123.png 1024w"
+	loading="lazy"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="190"
+		data-flex-basis="456px"
+	
+></p>
+<p><img src="/p/2.1%E6%AC%A2%E4%B9%90%E5%90%91%E6%94%BB%E9%98%B2%E4%B8%96%E7%95%8C%E6%96%B0%E6%89%8B%E9%80%86%E5%90%91%E5%88%B7%E9%A2%98%E8%A2%AB%E8%99%90%E5%93%AD%E6%97%A5%E5%B8%B8%E8%AE%B0%E5%BD%95/1858293-20200201215013791-679408725.png"
+	width="576"
+	height="328"
+	srcset="/p/2.1%E6%AC%A2%E4%B9%90%E5%90%91%E6%94%BB%E9%98%B2%E4%B8%96%E7%95%8C%E6%96%B0%E6%89%8B%E9%80%86%E5%90%91%E5%88%B7%E9%A2%98%E8%A2%AB%E8%99%90%E5%93%AD%E6%97%A5%E5%B8%B8%E8%AE%B0%E5%BD%95/1858293-20200201215013791-679408725_hu10617145824314544584.png 480w, /p/2.1%E6%AC%A2%E4%B9%90%E5%90%91%E6%94%BB%E9%98%B2%E4%B8%96%E7%95%8C%E6%96%B0%E6%89%8B%E9%80%86%E5%90%91%E5%88%B7%E9%A2%98%E8%A2%AB%E8%99%90%E5%93%AD%E6%97%A5%E5%B8%B8%E8%AE%B0%E5%BD%95/1858293-20200201215013791-679408725_hu3118097030792440639.png 1024w"
+	loading="lazy"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="175"
+		data-flex-basis="421px"
+	
+></p>
+<p><img src="/p/2.1%E6%AC%A2%E4%B9%90%E5%90%91%E6%94%BB%E9%98%B2%E4%B8%96%E7%95%8C%E6%96%B0%E6%89%8B%E9%80%86%E5%90%91%E5%88%B7%E9%A2%98%E8%A2%AB%E8%99%90%E5%93%AD%E6%97%A5%E5%B8%B8%E8%AE%B0%E5%BD%95/1858293-20200201215013987-932579790.jpg"
+	width="248"
+	height="155"
+	srcset="/p/2.1%E6%AC%A2%E4%B9%90%E5%90%91%E6%94%BB%E9%98%B2%E4%B8%96%E7%95%8C%E6%96%B0%E6%89%8B%E9%80%86%E5%90%91%E5%88%B7%E9%A2%98%E8%A2%AB%E8%99%90%E5%93%AD%E6%97%A5%E5%B8%B8%E8%AE%B0%E5%BD%95/1858293-20200201215013987-932579790_hu13034438820117442555.jpg 480w, /p/2.1%E6%AC%A2%E4%B9%90%E5%90%91%E6%94%BB%E9%98%B2%E4%B8%96%E7%95%8C%E6%96%B0%E6%89%8B%E9%80%86%E5%90%91%E5%88%B7%E9%A2%98%E8%A2%AB%E8%99%90%E5%93%AD%E6%97%A5%E5%B8%B8%E8%AE%B0%E5%BD%95/1858293-20200201215013987-932579790_hu9217738665973984084.jpg 1024w"
+	loading="lazy"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="160"
+		data-flex-basis="384px"
+	
+></p>
+<p>再次被自己菜哭，我觉得没啥问题咋就不给我过？</p>
+<p>又上网查了查，去评论转了一圈，发现有人说可能是base64解码的问题，我用的网页解码，不应该有差才对的，怪事。</p>
+<p>补上了几个字符然后过了，正确的是这个：<strong>nctf{d3c0mpil1n9_PyC}</strong></p>
+<h1 id="maze">Maze
+</h1><p>题目给的叫迷宫，运行了一下也没啥东西，扔进ida看看：</p>
+<p><img src="/p/2.1%E6%AC%A2%E4%B9%90%E5%90%91%E6%94%BB%E9%98%B2%E4%B8%96%E7%95%8C%E6%96%B0%E6%89%8B%E9%80%86%E5%90%91%E5%88%B7%E9%A2%98%E8%A2%AB%E8%99%90%E5%93%AD%E6%97%A5%E5%B8%B8%E8%AE%B0%E5%BD%95/1858293-20200201215014212-580978843.png"
+	width="458"
+	height="542"
+	srcset="/p/2.1%E6%AC%A2%E4%B9%90%E5%90%91%E6%94%BB%E9%98%B2%E4%B8%96%E7%95%8C%E6%96%B0%E6%89%8B%E9%80%86%E5%90%91%E5%88%B7%E9%A2%98%E8%A2%AB%E8%99%90%E5%93%AD%E6%97%A5%E5%B8%B8%E8%AE%B0%E5%BD%95/1858293-20200201215014212-580978843_hu10362879407846097812.png 480w, /p/2.1%E6%AC%A2%E4%B9%90%E5%90%91%E6%94%BB%E9%98%B2%E4%B8%96%E7%95%8C%E6%96%B0%E6%89%8B%E9%80%86%E5%90%91%E5%88%B7%E9%A2%98%E8%A2%AB%E8%99%90%E5%93%AD%E6%97%A5%E5%B8%B8%E8%AE%B0%E5%BD%95/1858293-20200201215014212-580978843_hu1949263495227069470.png 1024w"
+	loading="lazy"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="84"
+		data-flex-basis="202px"
+	
+></p>
+<p>看起来像是四个字符：0oO.</p>
+<p><img src="/p/2.1%E6%AC%A2%E4%B9%90%E5%90%91%E6%94%BB%E9%98%B2%E4%B8%96%E7%95%8C%E6%96%B0%E6%89%8B%E9%80%86%E5%90%91%E5%88%B7%E9%A2%98%E8%A2%AB%E8%99%90%E5%93%AD%E6%97%A5%E5%B8%B8%E8%AE%B0%E5%BD%95/1858293-20200201215014489-1369557358.png"
+	width="576"
+	height="246"
+	srcset="/p/2.1%E6%AC%A2%E4%B9%90%E5%90%91%E6%94%BB%E9%98%B2%E4%B8%96%E7%95%8C%E6%96%B0%E6%89%8B%E9%80%86%E5%90%91%E5%88%B7%E9%A2%98%E8%A2%AB%E8%99%90%E5%93%AD%E6%97%A5%E5%B8%B8%E8%AE%B0%E5%BD%95/1858293-20200201215014489-1369557358_hu17417801817047736191.png 480w, /p/2.1%E6%AC%A2%E4%B9%90%E5%90%91%E6%94%BB%E9%98%B2%E4%B8%96%E7%95%8C%E6%96%B0%E6%89%8B%E9%80%86%E5%90%91%E5%88%B7%E9%A2%98%E8%A2%AB%E8%99%90%E5%93%AD%E6%97%A5%E5%B8%B8%E8%AE%B0%E5%BD%95/1858293-20200201215014489-1369557358_hu11029364021673160839.png 1024w"
+	loading="lazy"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="234"
+		data-flex-basis="561px"
+	
+></p>
+<p>其实在IDA里把光标选择ASCII码按R键就可以把ASCII码变成字符了。</p>
+<p><img src="/p/2.1%E6%AC%A2%E4%B9%90%E5%90%91%E6%94%BB%E9%98%B2%E4%B8%96%E7%95%8C%E6%96%B0%E6%89%8B%E9%80%86%E5%90%91%E5%88%B7%E9%A2%98%E8%A2%AB%E8%99%90%E5%93%AD%E6%97%A5%E5%B8%B8%E8%AE%B0%E5%BD%95/1858293-20200201215014748-1879100391.png"
+	width="406"
+	height="397"
+	srcset="/p/2.1%E6%AC%A2%E4%B9%90%E5%90%91%E6%94%BB%E9%98%B2%E4%B8%96%E7%95%8C%E6%96%B0%E6%89%8B%E9%80%86%E5%90%91%E5%88%B7%E9%A2%98%E8%A2%AB%E8%99%90%E5%93%AD%E6%97%A5%E5%B8%B8%E8%AE%B0%E5%BD%95/1858293-20200201215014748-1879100391_hu4018247625648215256.png 480w, /p/2.1%E6%AC%A2%E4%B9%90%E5%90%91%E6%94%BB%E9%98%B2%E4%B8%96%E7%95%8C%E6%96%B0%E6%89%8B%E9%80%86%E5%90%91%E5%88%B7%E9%A2%98%E8%A2%AB%E8%99%90%E5%93%AD%E6%97%A5%E5%B8%B8%E8%AE%B0%E5%BD%95/1858293-20200201215014748-1879100391_hu15078218259765171779.png 1024w"
+	loading="lazy"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="102"
+		data-flex-basis="245px"
+	
+></p>
+<p>然后这几个是坐标移动</p>
+<p>v9是一个二维数组，用来控制上下和左右这两种方向的。</p>
+<p>两种可能：</p>
+<p>1.v9代表横向、&amp;v9+1代表竖向</p>
+<p>2.v9代表竖向、&amp;v9+1代表横向</p>
+<p>反正是诶个试过去了</p>
+<p><img src="/p/2.1%E6%AC%A2%E4%B9%90%E5%90%91%E6%94%BB%E9%98%B2%E4%B8%96%E7%95%8C%E6%96%B0%E6%89%8B%E9%80%86%E5%90%91%E5%88%B7%E9%A2%98%E8%A2%AB%E8%99%90%E5%93%AD%E6%97%A5%E5%B8%B8%E8%AE%B0%E5%BD%95/1858293-20200201215014966-1906576171.png"
+	width="99"
+	height="156"
+	srcset="/p/2.1%E6%AC%A2%E4%B9%90%E5%90%91%E6%94%BB%E9%98%B2%E4%B8%96%E7%95%8C%E6%96%B0%E6%89%8B%E9%80%86%E5%90%91%E5%88%B7%E9%A2%98%E8%A2%AB%E8%99%90%E5%93%AD%E6%97%A5%E5%B8%B8%E8%AE%B0%E5%BD%95/1858293-20200201215014966-1906576171_hu8097765979553050656.png 480w, /p/2.1%E6%AC%A2%E4%B9%90%E5%90%91%E6%94%BB%E9%98%B2%E4%B8%96%E7%95%8C%E6%96%B0%E6%89%8B%E9%80%86%E5%90%91%E5%88%B7%E9%A2%98%E8%A2%AB%E8%99%90%E5%93%AD%E6%97%A5%E5%B8%B8%E8%AE%B0%E5%BD%95/1858293-20200201215014966-1906576171_hu407528693463822770.png 1024w"
+	loading="lazy"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="63"
+		data-flex-basis="152px"
+	
+></p>
+<p>从左上角到#，经历→↓→→↓↓←↓↓↓→→→→↑↑←←，转换为o0oo00O000oooo..OO</p>
+<p>Flag：nctf{o0oo00O000oooo..OO}</p>
+<p>好像是南邮的题吧&hellip;真厉害。</p>
+<p>还剩一个比较难搞，明天继续。</p>
+<p><img src="/p/2.1%E6%AC%A2%E4%B9%90%E5%90%91%E6%94%BB%E9%98%B2%E4%B8%96%E7%95%8C%E6%96%B0%E6%89%8B%E9%80%86%E5%90%91%E5%88%B7%E9%A2%98%E8%A2%AB%E8%99%90%E5%93%AD%E6%97%A5%E5%B8%B8%E8%AE%B0%E5%BD%95/1858293-20200201215015207-925161360.png"
+	width="577"
+	height="132"
+	srcset="/p/2.1%E6%AC%A2%E4%B9%90%E5%90%91%E6%94%BB%E9%98%B2%E4%B8%96%E7%95%8C%E6%96%B0%E6%89%8B%E9%80%86%E5%90%91%E5%88%B7%E9%A2%98%E8%A2%AB%E8%99%90%E5%93%AD%E6%97%A5%E5%B8%B8%E8%AE%B0%E5%BD%95/1858293-20200201215015207-925161360_hu18085419111323967456.png 480w, /p/2.1%E6%AC%A2%E4%B9%90%E5%90%91%E6%94%BB%E9%98%B2%E4%B8%96%E7%95%8C%E6%96%B0%E6%89%8B%E9%80%86%E5%90%91%E5%88%B7%E9%A2%98%E8%A2%AB%E8%99%90%E5%93%AD%E6%97%A5%E5%B8%B8%E8%AE%B0%E5%BD%95/1858293-20200201215015207-925161360_hu3333432469349411554.png 1024w"
+	loading="lazy"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="437"
+		data-flex-basis="1049px"
+	
+></p>
+
+</section>
+
+
+    <footer class="article-footer">
+    
+
+    </footer>
+
+
+    
+</article>
+
+    
+
+    
+
+<aside class="related-content--wrapper">
+    <h2 class="section-title">相关文章</h2>
+    <div class="related-content">
+        <div class="flex article-list--tile">
+            
+                
+<article class="">
+    <a href="/p/%E4%B8%AA%E4%BA%BA%E5%90%91ctf%E6%AF%94%E8%B5%9B%E5%87%BA%E7%9A%84%E4%B8%80%E9%81%93%E9%80%86%E5%90%91%E6%B8%B8%E6%88%8F%E9%A2%98gametime%E9%A2%98%E8%A7%A3/">
+        
+        
+
+        <div class="article-details">
+            <h2 class="article-title">【个人向】ctf比赛出的一道逆向游戏题——GameTime题解</h2>
+        </div>
+    </a>
+</article>
+
+            
+                
+<article class="">
+    <a href="/p/handler%E8%BF%9B%E8%A1%8C%E5%A0%86%E5%8F%A0%E6%B3%A8%E5%85%A5/">
+        
+        
+
+        <div class="article-details">
+            <h2 class="article-title">HANDLER进行堆叠注入</h2>
+        </div>
+    </a>
+</article>
+
+            
+                
+<article class="">
+    <a href="/p/cdut%E7%AC%AC%E4%B8%80%E5%B1%8A%E4%BF%A1%E5%AE%89%E5%A4%A7%E6%8C%91%E6%88%98re-wp/">
+        
+        
+
+        <div class="article-details">
+            <h2 class="article-title">CDUT第一届信安大挑战Re-wp</h2>
+        </div>
+    </a>
+</article>
+
+            
+                
+<article class="">
+    <a href="/p/nu1lbook%E7%AC%AC%E4%B8%80%E7%AB%A0wp/">
+        
+        
+
+        <div class="article-details">
+            <h2 class="article-title">Nu1LBook第一章wp</h2>
+        </div>
+    </a>
+</article>
+
+            
+                
+<article class="">
+    <a href="/p/mrctfxor/">
+        
+        
+
+        <div class="article-details">
+            <h2 class="article-title">【MRCTF】Xor</h2>
+        </div>
+    </a>
+</article>
+
+            
+        </div>
+    </div>
+</aside>
+
+     
+    
+        
+    <script src="https://utteranc.es/client.js" 
+        repo="DorinXL/dorinxl.github.io"
+        issue-term="pathname"
+        
+        crossorigin="anonymous"
+        async
+        >
+</script>
+
+<style>
+    .utterances {
+        max-width: unset;
+    }
+</style>
+
+<script>
+    let utterancesLoaded = false;
+
+    function setUtterancesTheme(theme) {
+        let utterances = document.querySelector('.utterances iframe');
+        if (utterances) {
+            utterances.contentWindow.postMessage(
+                {
+                    type: 'set-theme',
+                    theme: `github-${theme}`
+                },
+                'https://utteranc.es'
+            );
+        }
+    }
+
+    addEventListener('message', event => {
+        if (event.origin !== 'https://utteranc.es') return;
+
+        
+        utterancesLoaded = true;
+        setUtterancesTheme(document.documentElement.dataset.scheme)
+    });
+
+    window.addEventListener('onColorSchemeChange', (e) => {
+        if (!utterancesLoaded) return;
+        setUtterancesTheme(e.detail)
+    })
+</script>
+
+
+    
+
+    <footer class="site-footer">
+    <section class="copyright">
+        &copy; 
+        
+        2024 荡影-DorinXL
+    </section>
+
+
+
+<section class="totalcount">
+    
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+    发表了76篇文章 · 
+    总计103.89k字
+</section>
+
+
+
+<section class="running-time">
+本博客已稳定运行
+<span id="runningdays" class="running-days"></span>
+</section>
+
+    <section class="powerby">
+        使用 <a href="https://gohugo.io/" target="_blank" rel="noopener">Hugo</a> 构建 <br />
+        主题 <b><a href="https://github.com/CaiJimmy/hugo-theme-stack" target="_blank" rel="noopener" data-version="3.26.0">Stack</a></b> 由 <a href="https://jimmycai.com" target="_blank" rel="noopener">Jimmy</a> 设计
+    </section>
+
+</footer>
+
+
+    
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+    
+    <div class="pswp__bg"></div>
+
+    
+    <div class="pswp__scroll-wrap">
+
+        
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+
+        
+        <div class="pswp__ui pswp__ui--hidden">
+
+            <div class="pswp__top-bar">
+
+                
+
+                <div class="pswp__counter"></div>
+
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+                
+                
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                        <div class="pswp__preloader__cut">
+                            <div class="pswp__preloader__donut"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div>
+            </div>
+
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div><script 
+                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.js"integrity="sha256-ePwmChbbvXbsO02lbM3HoHbSHTHFAeChekF1xKJdleo="crossorigin="anonymous"
+                defer
+                >
+            </script><script 
+                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe-ui-default.min.js"integrity="sha256-UKkzOn/w1mBxRmLLGrSeyB4e1xbrp4xylgAWb3M42pU="crossorigin="anonymous"
+                defer
+                >
+            </script><link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/default-skin/default-skin.min.css"crossorigin="anonymous"
+            ><link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.css"crossorigin="anonymous"
+            >
+
+            </main>
+        </div>
+        <script 
+                src="https://cdn.jsdelivr.net/npm/node-vibrant@3.1.6/dist/vibrant.min.js"integrity="sha256-awcR2jno4kI5X0zL8ex0vi2z&#43;KMkF24hUW8WePSA9HM="crossorigin="anonymous"
+                
+                >
+            </script><script type="text/javascript" src="/ts/main.js" defer></script>
+<script>
+    (function () {
+        const customFont = document.createElement('link');
+        customFont.href = "https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap";
+
+        customFont.type = "text/css";
+        customFont.rel = "stylesheet";
+
+        document.head.appendChild(customFont);
+    }());
+</script>
+
+<script>
+    let s1 = '2024-8-25'; 
+    s1 = new Date(s1.replace(/-/g, "/"));
+    let s2 = new Date();
+    let timeDifference = s2.getTime() - s1.getTime();
+
+    let days = Math.floor(timeDifference / (1000 * 60 * 60 * 24));
+    let hours = Math.floor((timeDifference % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+    let minutes = Math.floor((timeDifference % (1000 * 60 * 60)) / (1000 * 60));
+
+    let result = days + "天" + hours + "小时" + minutes + "分钟";
+    document.getElementById('runningdays').innerHTML = result;
+</script>
+    </body>
+</html>

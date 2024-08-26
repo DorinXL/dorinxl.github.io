@@ -1,0 +1,1491 @@
+<!DOCTYPE html>
+<html lang="zh-cn" dir="ltr">
+    <head><meta charset='utf-8'>
+<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content="梦开始的地方">
+<title>第一届“信安杯”部分WriteUp</title>
+
+<link rel='canonical' href='https://dorinxl.github.io/p/%E7%AC%AC%E4%B8%80%E5%B1%8A%E4%BF%A1%E5%AE%89%E6%9D%AF%E9%83%A8%E5%88%86writeup/'>
+
+<link rel="stylesheet" href="/scss/style.min.dfb009e658ec6e0f0f0c366b98658c0caea5123dcd2536f353c92c2581b79fb7.css"><meta property='og:title' content="第一届“信安杯”部分WriteUp">
+<meta property='og:description' content="梦开始的地方">
+<meta property='og:url' content='https://dorinxl.github.io/p/%E7%AC%AC%E4%B8%80%E5%B1%8A%E4%BF%A1%E5%AE%89%E6%9D%AF%E9%83%A8%E5%88%86writeup/'>
+<meta property='og:site_name' content='荡影-DorinXL'>
+<meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:published_time' content='2019-11-25T05:09:00&#43;00:00'/><meta property='article:modified_time' content='2019-11-25T05:09:00&#43;00:00'/>
+<meta name="twitter:title" content="第一届“信安杯”部分WriteUp">
+<meta name="twitter:description" content="梦开始的地方">
+    <link rel="shortcut icon" href="/favicon.ico" />
+
+  
+
+
+    </head>
+    <body class="
+    article-page
+    ">
+    <script>
+        (function() {
+            const colorSchemeKey = 'StackColorScheme';
+            if(!localStorage.getItem(colorSchemeKey)){
+                localStorage.setItem(colorSchemeKey, "auto");
+            }
+        })();
+    </script><script>
+    (function() {
+        const colorSchemeKey = 'StackColorScheme';
+        const colorSchemeItem = localStorage.getItem(colorSchemeKey);
+        const supportDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches === true;
+
+        if (colorSchemeItem == 'dark' || colorSchemeItem === 'auto' && supportDarkMode) {
+            
+
+            document.documentElement.dataset.scheme = 'dark';
+        } else {
+            document.documentElement.dataset.scheme = 'light';
+        }
+    })();
+</script>
+<div class="container main-container flex on-phone--column extended"><aside class="sidebar left-sidebar sticky ">
+    <button class="hamburger hamburger--spin" type="button" id="toggle-menu" aria-label="切换菜单">
+        <span class="hamburger-box">
+            <span class="hamburger-inner"></span>
+        </span>
+    </button>
+
+    <header>
+        
+            
+            <figure class="site-avatar">
+                <a href="/">
+                
+                    
+                    
+                    
+                        
+                        <img src="/img/avatar_hu6744900124519508638.png" width="300"
+                            height="283" class="site-logo" loading="lazy" alt="Avatar">
+                    
+                
+                </a>
+                
+                    <span class="emoji">🔥</span>
+                
+            </figure>
+            
+        
+        
+        <div class="site-meta">
+            <h1 class="site-name"><a href="/">荡影-DorinXL</a></h1>
+            <h2 class="site-description">缄默慎独，不破不立，事在人为</h2>
+        </div>
+    </header><ol class="menu-social">
+            
+                <li>
+                    <a 
+                        href='https://space.bilibili.com/3217550'
+                        target="_blank"
+                        title="BilBili"
+                        rel="me"
+                    >
+                        
+                        
+                            <svg  xmlns="http://www.w3.org/2000/svg"  width="24"  height="24"  viewBox="0 0 24 24"  fill="none"  stroke="currentColor"  stroke-width="2"  stroke-linecap="round"  stroke-linejoin="round"  class="icon icon-tabler icons-tabler-outline icon-tabler-brand-bilibili"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M3 10a4 4 0 0 1 4 -4h10a4 4 0 0 1 4 4v6a4 4 0 0 1 -4 4h-10a4 4 0 0 1 -4 -4v-6z" /><path d="M8 3l2 3" /><path d="M16 3l-2 3" /><path d="M9 13v-2" /><path d="M15 11v2" /></svg>
+                        
+                    </a>
+                </li>
+            
+                <li>
+                    <a 
+                        href='https://www.cnblogs.com/DorinXL/'
+                        target="_blank"
+                        title="CNblog"
+                        rel="me"
+                    >
+                        
+                        
+                            <svg  xmlns="http://www.w3.org/2000/svg"  width="24"  height="24"  viewBox="0 0 24 24"  fill="none"  stroke="currentColor"  stroke-width="2"  stroke-linecap="round"  stroke-linejoin="round"  class="icon icon-tabler icons-tabler-outline icon-tabler-brand-blogger"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M8 21h8a5 5 0 0 0 5 -5v-3a3 3 0 0 0 -3 -3h-1v-2a5 5 0 0 0 -5 -5h-4a5 5 0 0 0 -5 5v8a5 5 0 0 0 5 5z" /><path d="M7 7m0 1.5a1.5 1.5 0 0 1 1.5 -1.5h3a1.5 1.5 0 0 1 1.5 1.5v0a1.5 1.5 0 0 1 -1.5 1.5h-3a1.5 1.5 0 0 1 -1.5 -1.5z" /><path d="M7 14m0 1.5a1.5 1.5 0 0 1 1.5 -1.5h7a1.5 1.5 0 0 1 1.5 1.5v0a1.5 1.5 0 0 1 -1.5 1.5h-7a1.5 1.5 0 0 1 -1.5 -1.5z" /></svg>
+                        
+                    </a>
+                </li>
+            
+                <li>
+                    <a 
+                        href='https://github.com/DorinXL/DorinXL.github.io'
+                        target="_blank"
+                        title="GitHub"
+                        rel="me"
+                    >
+                        
+                        
+                            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-brand-github" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+  <path d="M9 19c-4.3 1.4 -4.3 -2.5 -6 -3m12 5v-3.5c0 -1 .1 -1.4 -.5 -2c2.8 -.3 5.5 -1.4 5.5 -6a4.6 4.6 0 0 0 -1.3 -3.2a4.2 4.2 0 0 0 -.1 -3.2s-1.1 -.3 -3.5 1.3a12.3 12.3 0 0 0 -6.2 0c-2.4 -1.6 -3.5 -1.3 -3.5 -1.3a4.2 4.2 0 0 0 -.1 3.2a4.6 4.6 0 0 0 -1.3 3.2c0 4.6 2.7 5.7 5.5 6c-.6 .6 -.6 1.2 -.5 2v3.5" />
+</svg>
+
+
+
+                        
+                    </a>
+                </li>
+            
+        </ol><ol class="menu" id="main-menu">
+        
+        
+        
+        <li >
+            <a href='/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-home" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <polyline points="5 12 3 12 12 3 21 12 19 12" />
+  <path d="M5 12v7a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-7" />
+  <path d="M9 21v-6a2 2 0 0 1 2 -2h2a2 2 0 0 1 2 2v6" />
+</svg>
+
+
+
+                
+                <span>主页</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/%E5%85%B3%E4%BA%8E/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-user" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="7" r="4" />
+  <path d="M6 21v-2a4 4 0 0 1 4 -4h4a4 4 0 0 1 4 4v2" />
+</svg>
+
+
+
+                
+                <span>关于</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/archives/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-archive" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <rect x="3" y="4" width="18" height="4" rx="2" />
+  <path d="M5 8v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-10" />
+  <line x1="10" y1="12" x2="14" y2="12" />
+</svg>
+
+
+
+                
+                <span>归档</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/search/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-search" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="10" cy="10" r="7" />
+  <line x1="21" y1="21" x2="15" y2="15" />
+</svg>
+
+
+
+                
+                <span>搜索</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/%E5%8F%8B%E9%93%BE/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-link" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <path d="M10 14a3.5 3.5 0 0 0 5 0l4 -4a3.5 3.5 0 0 0 -5 -5l-.5 .5" />
+  <path d="M14 10a3.5 3.5 0 0 0 -5 0l-4 4a3.5 3.5 0 0 0 5 5l.5 -.5" />
+</svg>
+
+
+
+                
+                <span>友链</span>
+            </a>
+        </li>
+        
+        <li class="menu-bottom-section">
+            <ol class="menu">
+
+                
+                    <li id="dark-mode-toggle">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-left" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="8" cy="12" r="2" />
+  <rect x="2" y="6" width="20" height="12" rx="6" />
+</svg>
+
+
+
+                        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-right" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="16" cy="12" r="2" />
+  <rect x="2" y="6" width="20" height="12" rx="6" />
+</svg>
+
+
+
+                        <span>暗色模式</span>
+                    </li>
+                
+            </ol>
+        </li>
+    </ol>
+</aside>
+
+    <aside class="sidebar right-sidebar sticky">
+        
+            
+                
+    <section class="widget archives">
+        <div class="widget-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-hash" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <line x1="5" y1="9" x2="19" y2="9" />
+  <line x1="5" y1="15" x2="19" y2="15" />
+  <line x1="11" y1="4" x2="7" y2="20" />
+  <line x1="17" y1="4" x2="13" y2="20" />
+</svg>
+
+
+
+        </div>
+        <h2 class="widget-title section-title">目录</h2>
+        
+        <div class="widget--toc">
+            <nav id="TableOfContents">
+  <ol>
+    <li><a href="#第一届信安杯部分writeup------oooooohleegay队">第一届“信安杯”部分WriteUp&mdash;&mdash;OooooohLeeGay队！</a></li>
+  </ol>
+
+  <ol>
+    <li><a href="#20191123-24"><em>2019.11.23-24</em></a>
+      <ol>
+        <li><a href="#re1">++Re1：++</a></li>
+        <li><a href="#re2">++Re2：++</a></li>
+        <li><a href="#re3">++Re3++：</a></li>
+        <li><a href="#re5">++Re5：++</a></li>
+      </ol>
+    </li>
+    <li><a href="#image1218png"><img src="1218.png" alt="image"></a>
+      <ol>
+        <li><a href="#misc1漫漫长路签到题">++Misc1漫漫长路签到题：++</a></li>
+        <li><a href="#misc2-很简单的hex">++Misc2 很简单的Hex：++</a></li>
+        <li><a href="#misc3不想让你打开">++Misc3不想让你打开：++</a></li>
+      </ol>
+    </li>
+    <li><a href="#image1266png"><img src="1266.png" alt="image"></a>
+      <ol>
+        <li><a href="#web1-easyjs">++Web1 easyjs：++</a></li>
+        <li><a href="#crypto1我混乱了">++Crypto1我混乱了：++</a></li>
+        <li><a href="#crypto2很基础的大礼包">++Crypto2很基础的大礼包：++</a></li>
+        <li><a href="#crypto3暴力的rsa">++Crypto3暴力的RSA：++</a></li>
+      </ol>
+    </li>
+    <li><a href="#image1294png"><img src="1294.png" alt="image"></a>
+      <ol>
+        <li><a href="#web2奥里给">++Web2奥里给：++</a></li>
+        <li><a href="#re46">++Re4&amp;&amp;6：++</a></li>
+        <li><a href="#misc">++Misc：++</a></li>
+      </ol>
+    </li>
+  </ol>
+</nav>
+        </div>
+    </section>
+
+            
+        
+    </aside>
+
+
+            <main class="main full-width">
+    <article class="main-article">
+    <header class="article-header">
+
+    <div class="article-details">
+    
+    <header class="article-category">
+        
+            <a href="/categories/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8/" >
+                网络安全
+            </a>
+        
+            <a href="/categories/ctf/" >
+                CTF
+            </a>
+        
+    </header>
+    
+
+    <div class="article-title-wrapper">
+        <h2 class="article-title">
+            <a href="/p/%E7%AC%AC%E4%B8%80%E5%B1%8A%E4%BF%A1%E5%AE%89%E6%9D%AF%E9%83%A8%E5%88%86writeup/">第一届“信安杯”部分WriteUp</a>
+        </h2>
+    
+        
+        <h3 class="article-subtitle">
+            梦开始的地方
+        </h3>
+        
+    </div>
+
+
+    
+    
+    
+    
+    <footer class="article-time">
+        
+            <div>
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-calendar-time" width="56" height="56" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <path d="M11.795 21h-6.795a2 2 0 0 1 -2 -2v-12a2 2 0 0 1 2 -2h12a2 2 0 0 1 2 2v4" />
+  <circle cx="18" cy="18" r="4" />
+  <path d="M15 3v4" />
+  <path d="M7 3v4" />
+  <path d="M3 11h16" />
+  <path d="M18 16.496v1.504l1 1" />
+</svg>
+                <time class="article-time--published">2019-11-25</time>
+            </div>
+	
+
+        
+
+        
+    </footer>
+    
+
+    
+
+</div>
+
+</header>
+
+    <section class="article-content">
+    
+    
+    <h2 id="第一届信安杯部分writeup------oooooohleegay队">第一届“信安杯”部分WriteUp&mdash;&mdash;OooooohLeeGay队！
+</h2><h1 id="小队成员按姓氏郭泽坤李江川赵乐祺"><em>小队成员（按姓氏）：郭泽坤、李江川、赵乐祺</em>
+</h1><h1 id="以下这部分是做出来的"><em>以下这部分是做出来的</em>
+</h1><h2 id="20191123-24"><em>2019.11.23-24</em>
+</h2><h3 id="re1">++Re1：++
+</h3><p><em>解题：李江川，郭泽坤</em></p>
+<p>打开题目链接，压缩包解压后有一个.exe,打开后是一个让你点灯的游戏，所有灯点亮后就会得到flag</p>
+<p><img src="/p/%E7%AC%AC%E4%B8%80%E5%B1%8A%E4%BF%A1%E5%AE%89%E6%9D%AF%E9%83%A8%E5%88%86writeup/1319.png"
+	width="554"
+	height="294"
+	srcset="/p/%E7%AC%AC%E4%B8%80%E5%B1%8A%E4%BF%A1%E5%AE%89%E6%9D%AF%E9%83%A8%E5%88%86writeup/1319_hu4436707833989051019.png 480w, /p/%E7%AC%AC%E4%B8%80%E5%B1%8A%E4%BF%A1%E5%AE%89%E6%9D%AF%E9%83%A8%E5%88%86writeup/1319_hu1714827653014527491.png 1024w"
+	loading="lazy"
+	
+		alt="image"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="188"
+		data-flex-basis="452px"
+	
+></p>
+<p>直接一路输入1~8，发现全部灯被点亮，得到flag。</p>
+<p><img src="/p/%E7%AC%AC%E4%B8%80%E5%B1%8A%E4%BF%A1%E5%AE%89%E6%9D%AF%E9%83%A8%E5%88%86writeup/1322.png"
+	width="554"
+	height="294"
+	srcset="/p/%E7%AC%AC%E4%B8%80%E5%B1%8A%E4%BF%A1%E5%AE%89%E6%9D%AF%E9%83%A8%E5%88%86writeup/1322_hu16605959607906537432.png 480w, /p/%E7%AC%AC%E4%B8%80%E5%B1%8A%E4%BF%A1%E5%AE%89%E6%9D%AF%E9%83%A8%E5%88%86writeup/1322_hu13682512788199498935.png 1024w"
+	loading="lazy"
+	
+		alt="image"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="188"
+		data-flex-basis="452px"
+	
+></p>
+<h3 id="re2">++Re2：++
+</h3><p><em>解题：赵乐祺</em></p>
+<p>下载下来之后是开源文件，c语言，读一下：</p>
+<p><img src="/p/%E7%AC%AC%E4%B8%80%E5%B1%8A%E4%BF%A1%E5%AE%89%E6%9D%AF%E9%83%A8%E5%88%86writeup/1221.png"
+	width="1187"
+	height="802"
+	srcset="/p/%E7%AC%AC%E4%B8%80%E5%B1%8A%E4%BF%A1%E5%AE%89%E6%9D%AF%E9%83%A8%E5%88%86writeup/1221_hu10411636787484274029.png 480w, /p/%E7%AC%AC%E4%B8%80%E5%B1%8A%E4%BF%A1%E5%AE%89%E6%9D%AF%E9%83%A8%E5%88%86writeup/1221_hu13876137574171439451.png 1024w"
+	loading="lazy"
+	
+		alt="image"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="148"
+		data-flex-basis="355px"
+	
+></p>
+<p>可以知道，first是十六进制的0xcafe，second是一个数，这个数不能满足(second % 5 == 3 || second % 17 != 8)，那么最小的这个数17+8=25满足；同时strlen是指字符串长度，也就是7，我们把这些数值算出来再用十六进制表示即可得到一个长得很奇怪的flag；</p>
+<p><img src="/p/%E7%AC%AC%E4%B8%80%E5%B1%8A%E4%BF%A1%E5%AE%89%E6%9D%AF%E9%83%A8%E5%88%86writeup/1224.png"
+	width="788"
+	height="197"
+	srcset="/p/%E7%AC%AC%E4%B8%80%E5%B1%8A%E4%BF%A1%E5%AE%89%E6%9D%AF%E9%83%A8%E5%88%86writeup/1224_hu15672113792533557923.png 480w, /p/%E7%AC%AC%E4%B8%80%E5%B1%8A%E4%BF%A1%E5%AE%89%E6%9D%AF%E9%83%A8%E5%88%86writeup/1224_hu15363354447747050193.png 1024w"
+	loading="lazy"
+	
+		alt="image"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="400"
+		data-flex-basis="960px"
+	
+></p>
+<p>我还是要吐槽一遍长的是真的奇怪，应该是我见过的太少了。</p>
+<p><img src="/p/%E7%AC%AC%E4%B8%80%E5%B1%8A%E4%BF%A1%E5%AE%89%E6%9D%AF%E9%83%A8%E5%88%86writeup/1226.png"
+	width="71"
+	height="33"
+	srcset="/p/%E7%AC%AC%E4%B8%80%E5%B1%8A%E4%BF%A1%E5%AE%89%E6%9D%AF%E9%83%A8%E5%88%86writeup/1226_hu7138774904859247055.png 480w, /p/%E7%AC%AC%E4%B8%80%E5%B1%8A%E4%BF%A1%E5%AE%89%E6%9D%AF%E9%83%A8%E5%88%86writeup/1226_hu9357933824905328974.png 1024w"
+	loading="lazy"
+	
+		alt="image"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="215"
+		data-flex-basis="516px"
+	
+></p>
+<h3 id="re3">++Re3++：
+</h3><p><em>解题：赵乐祺</em></p>
+<p>打开后发现了py的字样，是提示，这是一份py文件，用python反编译之后是个迷宫（maze）：</p>
+<p><img src="/p/%E7%AC%AC%E4%B8%80%E5%B1%8A%E4%BF%A1%E5%AE%89%E6%9D%AF%E9%83%A8%E5%88%86writeup/1229.png"
+	width="985"
+	height="447"
+	srcset="/p/%E7%AC%AC%E4%B8%80%E5%B1%8A%E4%BF%A1%E5%AE%89%E6%9D%AF%E9%83%A8%E5%88%86writeup/1229_hu8306910292810941245.png 480w, /p/%E7%AC%AC%E4%B8%80%E5%B1%8A%E4%BF%A1%E5%AE%89%E6%9D%AF%E9%83%A8%E5%88%86writeup/1229_hu17624981765545004519.png 1024w"
+	loading="lazy"
+	
+		alt="image"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="220"
+		data-flex-basis="528px"
+	
+></p>
+<p>把迷宫从一维变为二维：</p>
+<p><img src="/p/%E7%AC%AC%E4%B8%80%E5%B1%8A%E4%BF%A1%E5%AE%89%E6%9D%AF%E9%83%A8%E5%88%86writeup/1239.png"
+	width="535"
+	height="293"
+	srcset="/p/%E7%AC%AC%E4%B8%80%E5%B1%8A%E4%BF%A1%E5%AE%89%E6%9D%AF%E9%83%A8%E5%88%86writeup/1239_hu52404205802628319.png 480w, /p/%E7%AC%AC%E4%B8%80%E5%B1%8A%E4%BF%A1%E5%AE%89%E6%9D%AF%E9%83%A8%E5%88%86writeup/1239_hu17875749497542472627.png 1024w"
+	loading="lazy"
+	
+		alt="image"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="182"
+		data-flex-basis="438px"
+	
+></p>
+<p>按照代码给出的位置移动的输入方法，输入了一堆字符串。flag里就是我们input的这些字符串。</p>
+<h3 id="re5">++Re5：++
+</h3><p><em>解题：赵乐祺</em></p>
+<p>冰菓大法好！咳咳。</p>
+<p>打开这个exe让我们输入flag，随便瞎点两下，找到了提示，让我们把这个exe扔进dnspy看看：</p>
+<p><img src="/p/%E7%AC%AC%E4%B8%80%E5%B1%8A%E4%BF%A1%E5%AE%89%E6%9D%AF%E9%83%A8%E5%88%86writeup/1211.png"
+	width="1920"
+	height="1020"
+	srcset="/p/%E7%AC%AC%E4%B8%80%E5%B1%8A%E4%BF%A1%E5%AE%89%E6%9D%AF%E9%83%A8%E5%88%86writeup/1211_hu15158806507566795628.png 480w, /p/%E7%AC%AC%E4%B8%80%E5%B1%8A%E4%BF%A1%E5%AE%89%E6%9D%AF%E9%83%A8%E5%88%86writeup/1211_hu12957877554366514910.png 1024w"
+	loading="lazy"
+	
+		alt="image"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="188"
+		data-flex-basis="451px"
+	
+></p>
+<p>一页一页的点下来后发现了这么一大串看起来像是ascii的东西，直觉告诉我们这就是flag了（其实英文好可以看出来encryptstr是一个复合单词，加密字符串）</p>
+<p><img src="/p/%E7%AC%AC%E4%B8%80%E5%B1%8A%E4%BF%A1%E5%AE%89%E6%9D%AF%E9%83%A8%E5%88%86writeup/1214.png"
+	width="649"
+	height="843"
+	srcset="/p/%E7%AC%AC%E4%B8%80%E5%B1%8A%E4%BF%A1%E5%AE%89%E6%9D%AF%E9%83%A8%E5%88%86writeup/1214_hu5059747998432313418.png 480w, /p/%E7%AC%AC%E4%B8%80%E5%B1%8A%E4%BF%A1%E5%AE%89%E6%9D%AF%E9%83%A8%E5%88%86writeup/1214_hu15146987801660382859.png 1024w"
+	loading="lazy"
+	
+		alt="image"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="76"
+		data-flex-basis="184px"
+	
+></p>
+<p>自己写个解密的c：</p>
+<p><img src="/p/%E7%AC%AC%E4%B8%80%E5%B1%8A%E4%BF%A1%E5%AE%89%E6%9D%AF%E9%83%A8%E5%88%86writeup/1216.png"
+	width="1049"
+	height="296"
+	srcset="/p/%E7%AC%AC%E4%B8%80%E5%B1%8A%E4%BF%A1%E5%AE%89%E6%9D%AF%E9%83%A8%E5%88%86writeup/1216_hu11236159993264797185.png 480w, /p/%E7%AC%AC%E4%B8%80%E5%B1%8A%E4%BF%A1%E5%AE%89%E6%9D%AF%E9%83%A8%E5%88%86writeup/1216_hu5687631393245388757.png 1024w"
+	loading="lazy"
+	
+		alt="image"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="354"
+		data-flex-basis="850px"
+	
+></p>
+<p>运行得出结果：</p>
+<h2 id="image1218png"><img src="/p/%E7%AC%AC%E4%B8%80%E5%B1%8A%E4%BF%A1%E5%AE%89%E6%9D%AF%E9%83%A8%E5%88%86writeup/1218.png"
+	width="231"
+	height="35"
+	srcset="/p/%E7%AC%AC%E4%B8%80%E5%B1%8A%E4%BF%A1%E5%AE%89%E6%9D%AF%E9%83%A8%E5%88%86writeup/1218_hu15082029481739753471.png 480w, /p/%E7%AC%AC%E4%B8%80%E5%B1%8A%E4%BF%A1%E5%AE%89%E6%9D%AF%E9%83%A8%E5%88%86writeup/1218_hu13313398571056387543.png 1024w"
+	loading="lazy"
+	
+		alt="image"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="660"
+		data-flex-basis="1584px"
+	
+>
+</h2><h3 id="misc1漫漫长路签到题">++Misc1漫漫长路签到题：++
+</h3><p><em>解题：赵乐祺、李江川</em></p>
+<p>打开后说有两张图：</p>
+<p><img src="/p/%E7%AC%AC%E4%B8%80%E5%B1%8A%E4%BF%A1%E5%AE%89%E6%9D%AF%E9%83%A8%E5%88%86writeup/1269.png"
+	width="1920"
+	height="1098"
+	srcset="/p/%E7%AC%AC%E4%B8%80%E5%B1%8A%E4%BF%A1%E5%AE%89%E6%9D%AF%E9%83%A8%E5%88%86writeup/1269_hu6040191525031042935.png 480w, /p/%E7%AC%AC%E4%B8%80%E5%B1%8A%E4%BF%A1%E5%AE%89%E6%9D%AF%E9%83%A8%E5%88%86writeup/1269_hu5642002236106573035.png 1024w"
+	loading="lazy"
+	
+		alt="image"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="174"
+		data-flex-basis="419px"
+	
+></p>
+<p>看了一下内存大小，挺大的，在010editor中找到了【50 4B 01 02】等zip的头文件字样，大胆的把后缀改为zip，amazing！：</p>
+<p><img src="/p/%E7%AC%AC%E4%B8%80%E5%B1%8A%E4%BF%A1%E5%AE%89%E6%9D%AF%E9%83%A8%E5%88%86writeup/1272.png"
+	width="976"
+	height="221"
+	srcset="/p/%E7%AC%AC%E4%B8%80%E5%B1%8A%E4%BF%A1%E5%AE%89%E6%9D%AF%E9%83%A8%E5%88%86writeup/1272_hu1028850529330879417.png 480w, /p/%E7%AC%AC%E4%B8%80%E5%B1%8A%E4%BF%A1%E5%AE%89%E6%9D%AF%E9%83%A8%E5%88%86writeup/1272_hu2845521505906355325.png 1024w"
+	loading="lazy"
+	
+		alt="image"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="441"
+		data-flex-basis="1059px"
+	
+></p>
+<p>打开之后就是社工大法好：</p>
+<p><img src="/p/%E7%AC%AC%E4%B8%80%E5%B1%8A%E4%BF%A1%E5%AE%89%E6%9D%AF%E9%83%A8%E5%88%86writeup/1275.png"
+	width="745"
+	height="516"
+	srcset="/p/%E7%AC%AC%E4%B8%80%E5%B1%8A%E4%BF%A1%E5%AE%89%E6%9D%AF%E9%83%A8%E5%88%86writeup/1275_hu7366241146442873974.png 480w, /p/%E7%AC%AC%E4%B8%80%E5%B1%8A%E4%BF%A1%E5%AE%89%E6%9D%AF%E9%83%A8%E5%88%86writeup/1275_hu17975888602090017888.png 1024w"
+	loading="lazy"
+	
+		alt="image"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="144"
+		data-flex-basis="346px"
+	
+></p>
+<p>然后由不愿意透露姓名的官方提供：</p>
+<p><img src="/p/%E7%AC%AC%E4%B8%80%E5%B1%8A%E4%BF%A1%E5%AE%89%E6%9D%AF%E9%83%A8%E5%88%86writeup/1277.png"
+	width="227"
+	height="28"
+	srcset="/p/%E7%AC%AC%E4%B8%80%E5%B1%8A%E4%BF%A1%E5%AE%89%E6%9D%AF%E9%83%A8%E5%88%86writeup/1277_hu17342317280524410085.png 480w, /p/%E7%AC%AC%E4%B8%80%E5%B1%8A%E4%BF%A1%E5%AE%89%E6%9D%AF%E9%83%A8%E5%88%86writeup/1277_hu3037105530322302290.png 1024w"
+	loading="lazy"
+	
+		alt="image"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="810"
+		data-flex-basis="1945px"
+	
+></p>
+<h3 id="misc2-很简单的hex">++Misc2 很简单的Hex：++
+</h3><p><em>解题：李江川</em></p>
+<p>开幕暴击:</p>
+<p><img src="/p/%E7%AC%AC%E4%B8%80%E5%B1%8A%E4%BF%A1%E5%AE%89%E6%9D%AF%E9%83%A8%E5%88%86writeup/1249.png"
+	width="745"
+	height="516"
+	srcset="/p/%E7%AC%AC%E4%B8%80%E5%B1%8A%E4%BF%A1%E5%AE%89%E6%9D%AF%E9%83%A8%E5%88%86writeup/1249_hu8077308785581166890.png 480w, /p/%E7%AC%AC%E4%B8%80%E5%B1%8A%E4%BF%A1%E5%AE%89%E6%9D%AF%E9%83%A8%E5%88%86writeup/1249_hu8247574535381571913.png 1024w"
+	loading="lazy"
+	
+		alt="image"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="144"
+		data-flex-basis="346px"
+	
+></p>
+<p>打开题目链接，下载压缩包，是一张图片，可能是有隐写，但是用stegsolve并没有发现在图层之间有隐藏信息</p>
+<p><img src="/p/%E7%AC%AC%E4%B8%80%E5%B1%8A%E4%BF%A1%E5%AE%89%E6%9D%AF%E9%83%A8%E5%88%86writeup/1336.png"
+	width="554"
+	height="297"
+	srcset="/p/%E7%AC%AC%E4%B8%80%E5%B1%8A%E4%BF%A1%E5%AE%89%E6%9D%AF%E9%83%A8%E5%88%86writeup/1336_hu17015114600716376471.png 480w, /p/%E7%AC%AC%E4%B8%80%E5%B1%8A%E4%BF%A1%E5%AE%89%E6%9D%AF%E9%83%A8%E5%88%86writeup/1336_hu16995356026567903315.png 1024w"
+	loading="lazy"
+	
+		alt="image"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="186"
+		data-flex-basis="447px"
+	
+></p>
+<p><img src="/p/%E7%AC%AC%E4%B8%80%E5%B1%8A%E4%BF%A1%E5%AE%89%E6%9D%AF%E9%83%A8%E5%88%86writeup/1338.png"
+	width="554"
+	height="297"
+	srcset="/p/%E7%AC%AC%E4%B8%80%E5%B1%8A%E4%BF%A1%E5%AE%89%E6%9D%AF%E9%83%A8%E5%88%86writeup/1338_hu16152058090339834861.png 480w, /p/%E7%AC%AC%E4%B8%80%E5%B1%8A%E4%BF%A1%E5%AE%89%E6%9D%AF%E9%83%A8%E5%88%86writeup/1338_hu17629793368873311053.png 1024w"
+	loading="lazy"
+	
+		alt="image"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="186"
+		data-flex-basis="447px"
+	
+></p>
+<p>那就考虑查看文件格式，发现flag：</p>
+<p><img src="/p/%E7%AC%AC%E4%B8%80%E5%B1%8A%E4%BF%A1%E5%AE%89%E6%9D%AF%E9%83%A8%E5%88%86writeup/1340.png"
+	width="554"
+	height="311"
+	srcset="/p/%E7%AC%AC%E4%B8%80%E5%B1%8A%E4%BF%A1%E5%AE%89%E6%9D%AF%E9%83%A8%E5%88%86writeup/1340_hu9581362872250331922.png 480w, /p/%E7%AC%AC%E4%B8%80%E5%B1%8A%E4%BF%A1%E5%AE%89%E6%9D%AF%E9%83%A8%E5%88%86writeup/1340_hu4347501934605867520.png 1024w"
+	loading="lazy"
+	
+		alt="image"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="178"
+		data-flex-basis="427px"
+	
+></p>
+<h3 id="misc3不想让你打开">++Misc3不想让你打开：++
+</h3><p><em>解题：赵乐祺</em></p>
+<p>zip伪加密：</p>
+<p><img src="/p/%E7%AC%AC%E4%B8%80%E5%B1%8A%E4%BF%A1%E5%AE%89%E6%9D%AF%E9%83%A8%E5%88%86writeup/1254.png"
+	width="491"
+	height="546"
+	srcset="/p/%E7%AC%AC%E4%B8%80%E5%B1%8A%E4%BF%A1%E5%AE%89%E6%9D%AF%E9%83%A8%E5%88%86writeup/1254_hu2468218353525175969.png 480w, /p/%E7%AC%AC%E4%B8%80%E5%B1%8A%E4%BF%A1%E5%AE%89%E6%9D%AF%E9%83%A8%E5%88%86writeup/1254_hu4455213130397795380.png 1024w"
+	loading="lazy"
+	
+		alt="image"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="89"
+		data-flex-basis="215px"
+	
+></p>
+<p>把伪加密改回00 00，解压之后有这些东西：</p>
+<p><img src="/p/%E7%AC%AC%E4%B8%80%E5%B1%8A%E4%BF%A1%E5%AE%89%E6%9D%AF%E9%83%A8%E5%88%86writeup/1256.png"
+	width="771"
+	height="134"
+	srcset="/p/%E7%AC%AC%E4%B8%80%E5%B1%8A%E4%BF%A1%E5%AE%89%E6%9D%AF%E9%83%A8%E5%88%86writeup/1256_hu10420736113759982982.png 480w, /p/%E7%AC%AC%E4%B8%80%E5%B1%8A%E4%BF%A1%E5%AE%89%E6%9D%AF%E9%83%A8%E5%88%86writeup/1256_hu7736389317768844078.png 1024w"
+	loading="lazy"
+	
+		alt="image"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="575"
+		data-flex-basis="1380px"
+	
+></p>
+<p>下意识的把zip扔进010：</p>
+<p><img src="/p/%E7%AC%AC%E4%B8%80%E5%B1%8A%E4%BF%A1%E5%AE%89%E6%9D%AF%E9%83%A8%E5%88%86writeup/1258.png"
+	width="503"
+	height="587"
+	srcset="/p/%E7%AC%AC%E4%B8%80%E5%B1%8A%E4%BF%A1%E5%AE%89%E6%9D%AF%E9%83%A8%E5%88%86writeup/1258_hu11105023363462860553.png 480w, /p/%E7%AC%AC%E4%B8%80%E5%B1%8A%E4%BF%A1%E5%AE%89%E6%9D%AF%E9%83%A8%E5%88%86writeup/1258_hu17072647357543542758.png 1024w"
+	loading="lazy"
+	
+		alt="image"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="85"
+		data-flex-basis="205px"
+	
+></p>
+<p>改了之后发现并没有什么卵用：</p>
+<p><img src="/p/%E7%AC%AC%E4%B8%80%E5%B1%8A%E4%BF%A1%E5%AE%89%E6%9D%AF%E9%83%A8%E5%88%86writeup/1260.png"
+	width="465"
+	height="291"
+	srcset="/p/%E7%AC%AC%E4%B8%80%E5%B1%8A%E4%BF%A1%E5%AE%89%E6%9D%AF%E9%83%A8%E5%88%86writeup/1260_hu17042204859368960282.png 480w, /p/%E7%AC%AC%E4%B8%80%E5%B1%8A%E4%BF%A1%E5%AE%89%E6%9D%AF%E9%83%A8%E5%88%86writeup/1260_hu14609724441553710519.png 1024w"
+	loading="lazy"
+	
+		alt="image"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="159"
+		data-flex-basis="383px"
+	
+></p>
+<p>折返去看没想到吧.txt【确实没想到】把这串很像密码的东西转码试试，十六进制转字符串：</p>
+<p><img src="/p/%E7%AC%AC%E4%B8%80%E5%B1%8A%E4%BF%A1%E5%AE%89%E6%9D%AF%E9%83%A8%E5%88%86writeup/1262.png"
+	width="538"
+	height="87"
+	srcset="/p/%E7%AC%AC%E4%B8%80%E5%B1%8A%E4%BF%A1%E5%AE%89%E6%9D%AF%E9%83%A8%E5%88%86writeup/1262_hu3692787370129559431.png 480w, /p/%E7%AC%AC%E4%B8%80%E5%B1%8A%E4%BF%A1%E5%AE%89%E6%9D%AF%E9%83%A8%E5%88%86writeup/1262_hu5900024745459064206.png 1024w"
+	loading="lazy"
+	
+		alt="image"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="618"
+		data-flex-basis="1484px"
+	
+></p>
+<p><img src="/p/%E7%AC%AC%E4%B8%80%E5%B1%8A%E4%BF%A1%E5%AE%89%E6%9D%AF%E9%83%A8%E5%88%86writeup/1264.png"
+	width="441"
+	height="120"
+	srcset="/p/%E7%AC%AC%E4%B8%80%E5%B1%8A%E4%BF%A1%E5%AE%89%E6%9D%AF%E9%83%A8%E5%88%86writeup/1264_hu16475342964199510989.png 480w, /p/%E7%AC%AC%E4%B8%80%E5%B1%8A%E4%BF%A1%E5%AE%89%E6%9D%AF%E9%83%A8%E5%88%86writeup/1264_hu5175697599932009123.png 1024w"
+	loading="lazy"
+	
+		alt="image"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="367"
+		data-flex-basis="882px"
+	
+></p>
+<h2 id="image1266png"><img src="/p/%E7%AC%AC%E4%B8%80%E5%B1%8A%E4%BF%A1%E5%AE%89%E6%9D%AF%E9%83%A8%E5%88%86writeup/1266.png"
+	width="346"
+	height="93"
+	srcset="/p/%E7%AC%AC%E4%B8%80%E5%B1%8A%E4%BF%A1%E5%AE%89%E6%9D%AF%E9%83%A8%E5%88%86writeup/1266_hu3087992174087682782.png 480w, /p/%E7%AC%AC%E4%B8%80%E5%B1%8A%E4%BF%A1%E5%AE%89%E6%9D%AF%E9%83%A8%E5%88%86writeup/1266_hu12989048845376400963.png 1024w"
+	loading="lazy"
+	
+		alt="image"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="372"
+		data-flex-basis="892px"
+	
+>
+</h2><h3 id="web1-easyjs">++Web1 easyjs：++
+</h3><p><em>解题：郭泽坤</em></p>
+<p>打开网页发现一直刷新，提示我们让网页停止刷新就可以拿到flag，想到用Burp拦截。</p>
+<p><img src="/p/%E7%AC%AC%E4%B8%80%E5%B1%8A%E4%BF%A1%E5%AE%89%E6%9D%AF%E9%83%A8%E5%88%86writeup/1328.png"
+	width="554"
+	height="297"
+	srcset="/p/%E7%AC%AC%E4%B8%80%E5%B1%8A%E4%BF%A1%E5%AE%89%E6%9D%AF%E9%83%A8%E5%88%86writeup/1328_hu16207704286691047768.png 480w, /p/%E7%AC%AC%E4%B8%80%E5%B1%8A%E4%BF%A1%E5%AE%89%E6%9D%AF%E9%83%A8%E5%88%86writeup/1328_hu2352272372346920893.png 1024w"
+	loading="lazy"
+	
+		alt="image"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="186"
+		data-flex-basis="447px"
+	
+></p>
+<p>拦截之后并未发现什么有价值信息，尝试发送给中继器，直接运行，发现flag：Flag: flag{0k_u_hav3_caught_m3_}</p>
+<p><img src="/p/%E7%AC%AC%E4%B8%80%E5%B1%8A%E4%BF%A1%E5%AE%89%E6%9D%AF%E9%83%A8%E5%88%86writeup/1331.png"
+	width="554"
+	height="297"
+	srcset="/p/%E7%AC%AC%E4%B8%80%E5%B1%8A%E4%BF%A1%E5%AE%89%E6%9D%AF%E9%83%A8%E5%88%86writeup/1331_hu9371496989367453119.png 480w, /p/%E7%AC%AC%E4%B8%80%E5%B1%8A%E4%BF%A1%E5%AE%89%E6%9D%AF%E9%83%A8%E5%88%86writeup/1331_hu12449183728474089523.png 1024w"
+	loading="lazy"
+	
+		alt="image"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="186"
+		data-flex-basis="447px"
+	
+></p>
+<p><del>没了，web就做出来一道，嘤。</del></p>
+<h3 id="crypto1我混乱了">++Crypto1我混乱了：++
+</h3><p><em>解题：李江川</em></p>
+<p><img src="/p/%E7%AC%AC%E4%B8%80%E5%B1%8A%E4%BF%A1%E5%AE%89%E6%9D%AF%E9%83%A8%E5%88%86writeup/1450.png"
+	width="327"
+	height="108"
+	srcset="/p/%E7%AC%AC%E4%B8%80%E5%B1%8A%E4%BF%A1%E5%AE%89%E6%9D%AF%E9%83%A8%E5%88%86writeup/1450_hu3142768077891479587.png 480w, /p/%E7%AC%AC%E4%B8%80%E5%B1%8A%E4%BF%A1%E5%AE%89%E6%9D%AF%E9%83%A8%E5%88%86writeup/1450_hu6870696763204264501.png 1024w"
+	loading="lazy"
+	
+		alt="image"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="302"
+		data-flex-basis="726px"
+	
+>
+是长的挺乱的，但是依稀可见rxms像是flag的字样，凯撒密码转换器转换一下得到flag：
+<img src="/p/%E7%AC%AC%E4%B8%80%E5%B1%8A%E4%BF%A1%E5%AE%89%E6%9D%AF%E9%83%A8%E5%88%86writeup/1477.png"
+	width="393"
+	height="340"
+	srcset="/p/%E7%AC%AC%E4%B8%80%E5%B1%8A%E4%BF%A1%E5%AE%89%E6%9D%AF%E9%83%A8%E5%88%86writeup/1477_hu12093498511791206320.png 480w, /p/%E7%AC%AC%E4%B8%80%E5%B1%8A%E4%BF%A1%E5%AE%89%E6%9D%AF%E9%83%A8%E5%88%86writeup/1477_hu17011773509566710220.png 1024w"
+	loading="lazy"
+	
+		alt="image"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="115"
+		data-flex-basis="277px"
+	
+></p>
+<h3 id="crypto2很基础的大礼包">++Crypto2很基础的大礼包：++
+</h3><p><em>解题：李江川</em></p>
+<p><img src="/p/%E7%AC%AC%E4%B8%80%E5%B1%8A%E4%BF%A1%E5%AE%89%E6%9D%AF%E9%83%A8%E5%88%86writeup/1296.png"
+	width="1030"
+	height="121"
+	srcset="/p/%E7%AC%AC%E4%B8%80%E5%B1%8A%E4%BF%A1%E5%AE%89%E6%9D%AF%E9%83%A8%E5%88%86writeup/1296_hu1335351953071347348.png 480w, /p/%E7%AC%AC%E4%B8%80%E5%B1%8A%E4%BF%A1%E5%AE%89%E6%9D%AF%E9%83%A8%E5%88%86writeup/1296_hu5558788827711169069.png 1024w"
+	loading="lazy"
+	
+		alt="image"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="851"
+		data-flex-basis="2042px"
+	
+></p>
+<p>辗转相转法，爱的flag转圈圈：
+首先16转文本：</p>
+<p><img src="/p/%E7%AC%AC%E4%B8%80%E5%B1%8A%E4%BF%A1%E5%AE%89%E6%9D%AF%E9%83%A8%E5%88%86writeup/1300.png"
+	width="1505"
+	height="396"
+	srcset="/p/%E7%AC%AC%E4%B8%80%E5%B1%8A%E4%BF%A1%E5%AE%89%E6%9D%AF%E9%83%A8%E5%88%86writeup/1300_hu15682735990388007663.png 480w, /p/%E7%AC%AC%E4%B8%80%E5%B1%8A%E4%BF%A1%E5%AE%89%E6%9D%AF%E9%83%A8%E5%88%86writeup/1300_hu13024873965618712137.png 1024w"
+	loading="lazy"
+	
+		alt="image"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="380"
+		data-flex-basis="912px"
+	
+></p>
+<p>接着base32：</p>
+<p><img src="/p/%E7%AC%AC%E4%B8%80%E5%B1%8A%E4%BF%A1%E5%AE%89%E6%9D%AF%E9%83%A8%E5%88%86writeup/1302.png"
+	width="811"
+	height="299"
+	srcset="/p/%E7%AC%AC%E4%B8%80%E5%B1%8A%E4%BF%A1%E5%AE%89%E6%9D%AF%E9%83%A8%E5%88%86writeup/1302_hu3788311242272259500.png 480w, /p/%E7%AC%AC%E4%B8%80%E5%B1%8A%E4%BF%A1%E5%AE%89%E6%9D%AF%E9%83%A8%E5%88%86writeup/1302_hu1954975571518920847.png 1024w"
+	loading="lazy"
+	
+		alt="image"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="271"
+		data-flex-basis="650px"
+	
+></p>
+<p>然后两次base64：</p>
+<p><img src="/p/%E7%AC%AC%E4%B8%80%E5%B1%8A%E4%BF%A1%E5%AE%89%E6%9D%AF%E9%83%A8%E5%88%86writeup/1305.png"
+	width="497"
+	height="322"
+	srcset="/p/%E7%AC%AC%E4%B8%80%E5%B1%8A%E4%BF%A1%E5%AE%89%E6%9D%AF%E9%83%A8%E5%88%86writeup/1305_hu3509075897259265797.png 480w, /p/%E7%AC%AC%E4%B8%80%E5%B1%8A%E4%BF%A1%E5%AE%89%E6%9D%AF%E9%83%A8%E5%88%86writeup/1305_hu12767080713536609959.png 1024w"
+	loading="lazy"
+	
+		alt="image"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="154"
+		data-flex-basis="370px"
+	
+></p>
+<p>第二次：</p>
+<p><img src="/p/%E7%AC%AC%E4%B8%80%E5%B1%8A%E4%BF%A1%E5%AE%89%E6%9D%AF%E9%83%A8%E5%88%86writeup/1308.png"
+	width="421"
+	height="331"
+	srcset="/p/%E7%AC%AC%E4%B8%80%E5%B1%8A%E4%BF%A1%E5%AE%89%E6%9D%AF%E9%83%A8%E5%88%86writeup/1308_hu7366230949186703355.png 480w, /p/%E7%AC%AC%E4%B8%80%E5%B1%8A%E4%BF%A1%E5%AE%89%E6%9D%AF%E9%83%A8%E5%88%86writeup/1308_hu4206425758602205916.png 1024w"
+	loading="lazy"
+	
+		alt="image"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="127"
+		data-flex-basis="305px"
+	
+></p>
+<h3 id="crypto3暴力的rsa">++Crypto3暴力的RSA：++
+</h3><p><em>解题：赵乐祺</em></p>
+<p>题目说的很明白了，RSA加密算法：</p>
+<p>txt打开是这个样子的：</p>
+<p><img src="/p/%E7%AC%AC%E4%B8%80%E5%B1%8A%E4%BF%A1%E5%AE%89%E6%9D%AF%E9%83%A8%E5%88%86writeup/1279.png"
+	width="1031"
+	height="182"
+	srcset="/p/%E7%AC%AC%E4%B8%80%E5%B1%8A%E4%BF%A1%E5%AE%89%E6%9D%AF%E9%83%A8%E5%88%86writeup/1279_hu13856426976507313106.png 480w, /p/%E7%AC%AC%E4%B8%80%E5%B1%8A%E4%BF%A1%E5%AE%89%E6%9D%AF%E9%83%A8%E5%88%86writeup/1279_hu9033260698196634381.png 1024w"
+	loading="lazy"
+	
+		alt="image"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="566"
+		data-flex-basis="1359px"
+	
+></p>
+<p>想着能不能转换成可以看懂的东西的想法，尝试把后缀名改成了c，希望得到代码什么的，结果得到了：</p>
+<p><img src="/p/%E7%AC%AC%E4%B8%80%E5%B1%8A%E4%BF%A1%E5%AE%89%E6%9D%AF%E9%83%A8%E5%88%86writeup/1282.png"
+	width="251"
+	height="834"
+	srcset="/p/%E7%AC%AC%E4%B8%80%E5%B1%8A%E4%BF%A1%E5%AE%89%E6%9D%AF%E9%83%A8%E5%88%86writeup/1282_hu3324291952954560812.png 480w, /p/%E7%AC%AC%E4%B8%80%E5%B1%8A%E4%BF%A1%E5%AE%89%E6%9D%AF%E9%83%A8%E5%88%86writeup/1282_hu4082113360023082690.png 1024w"
+	loading="lazy"
+	
+		alt="image"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="30"
+		data-flex-basis="72px"
+	
+></p>
+<p>从网上找一下算法步骤：</p>
+<p><img src="/p/%E7%AC%AC%E4%B8%80%E5%B1%8A%E4%BF%A1%E5%AE%89%E6%9D%AF%E9%83%A8%E5%88%86writeup/1288.png"
+	width="1203"
+	height="283"
+	srcset="/p/%E7%AC%AC%E4%B8%80%E5%B1%8A%E4%BF%A1%E5%AE%89%E6%9D%AF%E9%83%A8%E5%88%86writeup/1288_hu17702069953608971021.png 480w, /p/%E7%AC%AC%E4%B8%80%E5%B1%8A%E4%BF%A1%E5%AE%89%E6%9D%AF%E9%83%A8%E5%88%86writeup/1288_hu13428144350421095934.png 1024w"
+	loading="lazy"
+	
+		alt="image"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="425"
+		data-flex-basis="1020px"
+	
+></p>
+<p>密匙有了，大数位运算，py来得方便【比c高精度友好多了】</p>
+<h2 id="image1294png"><img src="/p/%E7%AC%AC%E4%B8%80%E5%B1%8A%E4%BF%A1%E5%AE%89%E6%9D%AF%E9%83%A8%E5%88%86writeup/1294.png"
+	width="405"
+	height="27"
+	srcset="/p/%E7%AC%AC%E4%B8%80%E5%B1%8A%E4%BF%A1%E5%AE%89%E6%9D%AF%E9%83%A8%E5%88%86writeup/1294_hu17175974537112969412.png 480w, /p/%E7%AC%AC%E4%B8%80%E5%B1%8A%E4%BF%A1%E5%AE%89%E6%9D%AF%E9%83%A8%E5%88%86writeup/1294_hu3423606321418761275.png 1024w"
+	loading="lazy"
+	
+		alt="image"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="1500"
+		data-flex-basis="3600px"
+	
+>
+</h2><p><strong><em>以上，就是我们OooooohLeeGay小队做出来的题目，至于剩下的，大多是做一半卡死了</em>。</strong></p>
+<p><em>以下是做一半的思路</em></p>
+<hr>
+<h3 id="web2奥里给">++Web2奥里给：++
+</h3><p>放进burp里查了半天，李江川同学查出来个页面：</p>
+<p><img src="/p/%E7%AC%AC%E4%B8%80%E5%B1%8A%E4%BF%A1%E5%AE%89%E6%9D%AF%E9%83%A8%E5%88%86writeup/1531.png"
+	width="1582"
+	height="808"
+	srcset="/p/%E7%AC%AC%E4%B8%80%E5%B1%8A%E4%BF%A1%E5%AE%89%E6%9D%AF%E9%83%A8%E5%88%86writeup/1531_hu2289419074797815669.png 480w, /p/%E7%AC%AC%E4%B8%80%E5%B1%8A%E4%BF%A1%E5%AE%89%E6%9D%AF%E9%83%A8%E5%88%86writeup/1531_hu911362496150743244.png 1024w"
+	loading="lazy"
+	
+		alt="image"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="195"
+		data-flex-basis="469px"
+	
+></p>
+<p>然后无果，无奈。
+其他的web也试了试，皆无果而终。</p>
+<h3 id="re46">++Re4&amp;&amp;6：++
+</h3><p>re4在找各种蛛丝马迹【因为ida用的不熟】：</p>
+<p><img src="/p/%E7%AC%AC%E4%B8%80%E5%B1%8A%E4%BF%A1%E5%AE%89%E6%9D%AF%E9%83%A8%E5%88%86writeup/1537.png"
+	width="370"
+	height="739"
+	srcset="/p/%E7%AC%AC%E4%B8%80%E5%B1%8A%E4%BF%A1%E5%AE%89%E6%9D%AF%E9%83%A8%E5%88%86writeup/1537_hu4838491944954141736.png 480w, /p/%E7%AC%AC%E4%B8%80%E5%B1%8A%E4%BF%A1%E5%AE%89%E6%9D%AF%E9%83%A8%E5%88%86writeup/1537_hu18292515262571295154.png 1024w"
+	loading="lazy"
+	
+		alt="image"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="50"
+		data-flex-basis="120px"
+	
+></p>
+<p>当我发觉到flag被分为各个部分的时候，我就意识到八成找不全了。</p>
+<p>至于re6同样在各种软件中检测一番无果而终</p>
+<h3 id="misc">++Misc：++
+</h3><p>喵喵的思考，一只猫愣是把我盯得无能狂怒。
+Dance，看着word文档，改成了zip文件解压之后就不会了。</p>
+<hr>
+<h1 id="以上"><em>以上。</em>
+</h1>
+</section>
+
+
+    <footer class="article-footer">
+    
+
+    </footer>
+
+
+    
+</article>
+
+    
+
+    
+
+<aside class="related-content--wrapper">
+    <h2 class="section-title">相关文章</h2>
+    <div class="related-content">
+        <div class="flex article-list--tile">
+            
+                
+<article class="">
+    <a href="/p/%E4%B8%AA%E4%BA%BA%E5%90%91ctf%E6%AF%94%E8%B5%9B%E5%87%BA%E7%9A%84%E4%B8%80%E9%81%93%E9%80%86%E5%90%91%E6%B8%B8%E6%88%8F%E9%A2%98gametime%E9%A2%98%E8%A7%A3/">
+        
+        
+
+        <div class="article-details">
+            <h2 class="article-title">【个人向】ctf比赛出的一道逆向游戏题——GameTime题解</h2>
+        </div>
+    </a>
+</article>
+
+            
+                
+<article class="">
+    <a href="/p/handler%E8%BF%9B%E8%A1%8C%E5%A0%86%E5%8F%A0%E6%B3%A8%E5%85%A5/">
+        
+        
+
+        <div class="article-details">
+            <h2 class="article-title">HANDLER进行堆叠注入</h2>
+        </div>
+    </a>
+</article>
+
+            
+                
+<article class="">
+    <a href="/p/cdut%E7%AC%AC%E4%B8%80%E5%B1%8A%E4%BF%A1%E5%AE%89%E5%A4%A7%E6%8C%91%E6%88%98re-wp/">
+        
+        
+
+        <div class="article-details">
+            <h2 class="article-title">CDUT第一届信安大挑战Re-wp</h2>
+        </div>
+    </a>
+</article>
+
+            
+                
+<article class="">
+    <a href="/p/nu1lbook%E7%AC%AC%E4%B8%80%E7%AB%A0wp/">
+        
+        
+
+        <div class="article-details">
+            <h2 class="article-title">Nu1LBook第一章wp</h2>
+        </div>
+    </a>
+</article>
+
+            
+                
+<article class="">
+    <a href="/p/mrctfxor/">
+        
+        
+
+        <div class="article-details">
+            <h2 class="article-title">【MRCTF】Xor</h2>
+        </div>
+    </a>
+</article>
+
+            
+        </div>
+    </div>
+</aside>
+
+     
+    
+        
+    <script src="https://utteranc.es/client.js" 
+        repo="DorinXL/dorinxl.github.io"
+        issue-term="pathname"
+        
+        crossorigin="anonymous"
+        async
+        >
+</script>
+
+<style>
+    .utterances {
+        max-width: unset;
+    }
+</style>
+
+<script>
+    let utterancesLoaded = false;
+
+    function setUtterancesTheme(theme) {
+        let utterances = document.querySelector('.utterances iframe');
+        if (utterances) {
+            utterances.contentWindow.postMessage(
+                {
+                    type: 'set-theme',
+                    theme: `github-${theme}`
+                },
+                'https://utteranc.es'
+            );
+        }
+    }
+
+    addEventListener('message', event => {
+        if (event.origin !== 'https://utteranc.es') return;
+
+        
+        utterancesLoaded = true;
+        setUtterancesTheme(document.documentElement.dataset.scheme)
+    });
+
+    window.addEventListener('onColorSchemeChange', (e) => {
+        if (!utterancesLoaded) return;
+        setUtterancesTheme(e.detail)
+    })
+</script>
+
+
+    
+
+    <footer class="site-footer">
+    <section class="copyright">
+        &copy; 
+        
+        2024 荡影-DorinXL
+    </section>
+
+
+
+<section class="totalcount">
+    
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+    发表了76篇文章 · 
+    总计103.89k字
+</section>
+
+
+
+<section class="running-time">
+本博客已稳定运行
+<span id="runningdays" class="running-days"></span>
+</section>
+
+    <section class="powerby">
+        使用 <a href="https://gohugo.io/" target="_blank" rel="noopener">Hugo</a> 构建 <br />
+        主题 <b><a href="https://github.com/CaiJimmy/hugo-theme-stack" target="_blank" rel="noopener" data-version="3.26.0">Stack</a></b> 由 <a href="https://jimmycai.com" target="_blank" rel="noopener">Jimmy</a> 设计
+    </section>
+
+</footer>
+
+
+    
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+    
+    <div class="pswp__bg"></div>
+
+    
+    <div class="pswp__scroll-wrap">
+
+        
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+
+        
+        <div class="pswp__ui pswp__ui--hidden">
+
+            <div class="pswp__top-bar">
+
+                
+
+                <div class="pswp__counter"></div>
+
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+                
+                
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                        <div class="pswp__preloader__cut">
+                            <div class="pswp__preloader__donut"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div>
+            </div>
+
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div><script 
+                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.js"integrity="sha256-ePwmChbbvXbsO02lbM3HoHbSHTHFAeChekF1xKJdleo="crossorigin="anonymous"
+                defer
+                >
+            </script><script 
+                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe-ui-default.min.js"integrity="sha256-UKkzOn/w1mBxRmLLGrSeyB4e1xbrp4xylgAWb3M42pU="crossorigin="anonymous"
+                defer
+                >
+            </script><link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/default-skin/default-skin.min.css"crossorigin="anonymous"
+            ><link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.css"crossorigin="anonymous"
+            >
+
+            </main>
+        </div>
+        <script 
+                src="https://cdn.jsdelivr.net/npm/node-vibrant@3.1.6/dist/vibrant.min.js"integrity="sha256-awcR2jno4kI5X0zL8ex0vi2z&#43;KMkF24hUW8WePSA9HM="crossorigin="anonymous"
+                
+                >
+            </script><script type="text/javascript" src="/ts/main.js" defer></script>
+<script>
+    (function () {
+        const customFont = document.createElement('link');
+        customFont.href = "https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap";
+
+        customFont.type = "text/css";
+        customFont.rel = "stylesheet";
+
+        document.head.appendChild(customFont);
+    }());
+</script>
+
+<script>
+    let s1 = '2024-8-25'; 
+    s1 = new Date(s1.replace(/-/g, "/"));
+    let s2 = new Date();
+    let timeDifference = s2.getTime() - s1.getTime();
+
+    let days = Math.floor(timeDifference / (1000 * 60 * 60 * 24));
+    let hours = Math.floor((timeDifference % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+    let minutes = Math.floor((timeDifference % (1000 * 60 * 60)) / (1000 * 60));
+
+    let result = days + "天" + hours + "小时" + minutes + "分钟";
+    document.getElementById('runningdays').innerHTML = result;
+</script>
+    </body>
+</html>

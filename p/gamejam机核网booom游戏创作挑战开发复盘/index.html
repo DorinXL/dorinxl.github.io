@@ -1,0 +1,1029 @@
+<!DOCTYPE html>
+<html lang="zh-cn" dir="ltr">
+    <head><meta charset='utf-8'>
+<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content="21年暑期机核第一届jam的复盘">
+<title>【GameJam】机核网BOOOM游戏创作挑战开发复盘</title>
+
+<link rel='canonical' href='https://dorinxl.github.io/p/gamejam%E6%9C%BA%E6%A0%B8%E7%BD%91booom%E6%B8%B8%E6%88%8F%E5%88%9B%E4%BD%9C%E6%8C%91%E6%88%98%E5%BC%80%E5%8F%91%E5%A4%8D%E7%9B%98/'>
+
+<link rel="stylesheet" href="/scss/style.min.dfb009e658ec6e0f0f0c366b98658c0caea5123dcd2536f353c92c2581b79fb7.css"><meta property='og:title' content="【GameJam】机核网BOOOM游戏创作挑战开发复盘">
+<meta property='og:description' content="21年暑期机核第一届jam的复盘">
+<meta property='og:url' content='https://dorinxl.github.io/p/gamejam%E6%9C%BA%E6%A0%B8%E7%BD%91booom%E6%B8%B8%E6%88%8F%E5%88%9B%E4%BD%9C%E6%8C%91%E6%88%98%E5%BC%80%E5%8F%91%E5%A4%8D%E7%9B%98/'>
+<meta property='og:site_name' content='荡影-DorinXL'>
+<meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:published_time' content='2021-08-27T16:12:00&#43;00:00'/><meta property='article:modified_time' content='2021-08-27T16:12:00&#43;00:00'/>
+<meta name="twitter:title" content="【GameJam】机核网BOOOM游戏创作挑战开发复盘">
+<meta name="twitter:description" content="21年暑期机核第一届jam的复盘">
+    <link rel="shortcut icon" href="/favicon.ico" />
+
+  
+
+
+    </head>
+    <body class="
+    article-page
+    ">
+    <script>
+        (function() {
+            const colorSchemeKey = 'StackColorScheme';
+            if(!localStorage.getItem(colorSchemeKey)){
+                localStorage.setItem(colorSchemeKey, "auto");
+            }
+        })();
+    </script><script>
+    (function() {
+        const colorSchemeKey = 'StackColorScheme';
+        const colorSchemeItem = localStorage.getItem(colorSchemeKey);
+        const supportDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches === true;
+
+        if (colorSchemeItem == 'dark' || colorSchemeItem === 'auto' && supportDarkMode) {
+            
+
+            document.documentElement.dataset.scheme = 'dark';
+        } else {
+            document.documentElement.dataset.scheme = 'light';
+        }
+    })();
+</script>
+<div class="container main-container flex on-phone--column extended"><aside class="sidebar left-sidebar sticky ">
+    <button class="hamburger hamburger--spin" type="button" id="toggle-menu" aria-label="切换菜单">
+        <span class="hamburger-box">
+            <span class="hamburger-inner"></span>
+        </span>
+    </button>
+
+    <header>
+        
+            
+            <figure class="site-avatar">
+                <a href="/">
+                
+                    
+                    
+                    
+                        
+                        <img src="/img/avatar_hu6744900124519508638.png" width="300"
+                            height="283" class="site-logo" loading="lazy" alt="Avatar">
+                    
+                
+                </a>
+                
+                    <span class="emoji">🔥</span>
+                
+            </figure>
+            
+        
+        
+        <div class="site-meta">
+            <h1 class="site-name"><a href="/">荡影-DorinXL</a></h1>
+            <h2 class="site-description">缄默慎独，不破不立，事在人为</h2>
+        </div>
+    </header><ol class="menu-social">
+            
+                <li>
+                    <a 
+                        href='https://space.bilibili.com/3217550'
+                        target="_blank"
+                        title="BilBili"
+                        rel="me"
+                    >
+                        
+                        
+                            <svg  xmlns="http://www.w3.org/2000/svg"  width="24"  height="24"  viewBox="0 0 24 24"  fill="none"  stroke="currentColor"  stroke-width="2"  stroke-linecap="round"  stroke-linejoin="round"  class="icon icon-tabler icons-tabler-outline icon-tabler-brand-bilibili"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M3 10a4 4 0 0 1 4 -4h10a4 4 0 0 1 4 4v6a4 4 0 0 1 -4 4h-10a4 4 0 0 1 -4 -4v-6z" /><path d="M8 3l2 3" /><path d="M16 3l-2 3" /><path d="M9 13v-2" /><path d="M15 11v2" /></svg>
+                        
+                    </a>
+                </li>
+            
+                <li>
+                    <a 
+                        href='https://www.cnblogs.com/DorinXL/'
+                        target="_blank"
+                        title="CNblog"
+                        rel="me"
+                    >
+                        
+                        
+                            <svg  xmlns="http://www.w3.org/2000/svg"  width="24"  height="24"  viewBox="0 0 24 24"  fill="none"  stroke="currentColor"  stroke-width="2"  stroke-linecap="round"  stroke-linejoin="round"  class="icon icon-tabler icons-tabler-outline icon-tabler-brand-blogger"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M8 21h8a5 5 0 0 0 5 -5v-3a3 3 0 0 0 -3 -3h-1v-2a5 5 0 0 0 -5 -5h-4a5 5 0 0 0 -5 5v8a5 5 0 0 0 5 5z" /><path d="M7 7m0 1.5a1.5 1.5 0 0 1 1.5 -1.5h3a1.5 1.5 0 0 1 1.5 1.5v0a1.5 1.5 0 0 1 -1.5 1.5h-3a1.5 1.5 0 0 1 -1.5 -1.5z" /><path d="M7 14m0 1.5a1.5 1.5 0 0 1 1.5 -1.5h7a1.5 1.5 0 0 1 1.5 1.5v0a1.5 1.5 0 0 1 -1.5 1.5h-7a1.5 1.5 0 0 1 -1.5 -1.5z" /></svg>
+                        
+                    </a>
+                </li>
+            
+                <li>
+                    <a 
+                        href='https://github.com/DorinXL/DorinXL.github.io'
+                        target="_blank"
+                        title="GitHub"
+                        rel="me"
+                    >
+                        
+                        
+                            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-brand-github" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+  <path d="M9 19c-4.3 1.4 -4.3 -2.5 -6 -3m12 5v-3.5c0 -1 .1 -1.4 -.5 -2c2.8 -.3 5.5 -1.4 5.5 -6a4.6 4.6 0 0 0 -1.3 -3.2a4.2 4.2 0 0 0 -.1 -3.2s-1.1 -.3 -3.5 1.3a12.3 12.3 0 0 0 -6.2 0c-2.4 -1.6 -3.5 -1.3 -3.5 -1.3a4.2 4.2 0 0 0 -.1 3.2a4.6 4.6 0 0 0 -1.3 3.2c0 4.6 2.7 5.7 5.5 6c-.6 .6 -.6 1.2 -.5 2v3.5" />
+</svg>
+
+
+
+                        
+                    </a>
+                </li>
+            
+        </ol><ol class="menu" id="main-menu">
+        
+        
+        
+        <li >
+            <a href='/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-home" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <polyline points="5 12 3 12 12 3 21 12 19 12" />
+  <path d="M5 12v7a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-7" />
+  <path d="M9 21v-6a2 2 0 0 1 2 -2h2a2 2 0 0 1 2 2v6" />
+</svg>
+
+
+
+                
+                <span>主页</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/%E5%85%B3%E4%BA%8E/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-user" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="7" r="4" />
+  <path d="M6 21v-2a4 4 0 0 1 4 -4h4a4 4 0 0 1 4 4v2" />
+</svg>
+
+
+
+                
+                <span>关于</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/archives/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-archive" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <rect x="3" y="4" width="18" height="4" rx="2" />
+  <path d="M5 8v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-10" />
+  <line x1="10" y1="12" x2="14" y2="12" />
+</svg>
+
+
+
+                
+                <span>归档</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/search/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-search" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="10" cy="10" r="7" />
+  <line x1="21" y1="21" x2="15" y2="15" />
+</svg>
+
+
+
+                
+                <span>搜索</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/%E5%8F%8B%E9%93%BE/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-link" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <path d="M10 14a3.5 3.5 0 0 0 5 0l4 -4a3.5 3.5 0 0 0 -5 -5l-.5 .5" />
+  <path d="M14 10a3.5 3.5 0 0 0 -5 0l-4 4a3.5 3.5 0 0 0 5 5l.5 -.5" />
+</svg>
+
+
+
+                
+                <span>友链</span>
+            </a>
+        </li>
+        
+        <li class="menu-bottom-section">
+            <ol class="menu">
+
+                
+                    <li id="dark-mode-toggle">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-left" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="8" cy="12" r="2" />
+  <rect x="2" y="6" width="20" height="12" rx="6" />
+</svg>
+
+
+
+                        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-right" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="16" cy="12" r="2" />
+  <rect x="2" y="6" width="20" height="12" rx="6" />
+</svg>
+
+
+
+                        <span>暗色模式</span>
+                    </li>
+                
+            </ol>
+        </li>
+    </ol>
+</aside>
+
+    <aside class="sidebar right-sidebar sticky">
+        
+            
+                
+    <section class="widget archives">
+        <div class="widget-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-hash" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <line x1="5" y1="9" x2="19" y2="9" />
+  <line x1="5" y1="15" x2="19" y2="15" />
+  <line x1="11" y1="4" x2="7" y2="20" />
+  <line x1="17" y1="4" x2="13" y2="20" />
+</svg>
+
+
+
+        </div>
+        <h2 class="widget-title section-title">目录</h2>
+        
+        <div class="widget--toc">
+            <nav id="TableOfContents">
+  <ol>
+    <li><a href="#游戏本质问题">游戏本质问题</a></li>
+    <li><a href="#相机视角问题">相机视角问题</a></li>
+    <li><a href="#2d在3d上的投影">2D在3D上的投影</a></li>
+    <li><a href="#面向对象思想的便捷">面向对象思想的便捷</a></li>
+    <li><a href="#一些不足">一些不足</a>
+      <ol>
+        <li><a href="#剧情演出效果不足">剧情演出效果不足</a></li>
+        <li><a href="#战斗系统的bug">战斗系统的bug</a></li>
+        <li><a href="#ui的适配问题">UI的适配问题</a></li>
+      </ol>
+    </li>
+    <li><a href="#总结">总结</a></li>
+  </ol>
+</nav>
+        </div>
+    </section>
+
+            
+        
+    </aside>
+
+
+            <main class="main full-width">
+    <article class="main-article">
+    <header class="article-header">
+
+    <div class="article-details">
+    
+    <header class="article-category">
+        
+            <a href="/categories/%E6%B8%B8%E6%88%8F%E5%BC%80%E5%8F%91/" >
+                游戏开发
+            </a>
+        
+            <a href="/categories/%E6%9D%82%E8%B0%88/" >
+                杂谈
+            </a>
+        
+    </header>
+    
+
+    <div class="article-title-wrapper">
+        <h2 class="article-title">
+            <a href="/p/gamejam%E6%9C%BA%E6%A0%B8%E7%BD%91booom%E6%B8%B8%E6%88%8F%E5%88%9B%E4%BD%9C%E6%8C%91%E6%88%98%E5%BC%80%E5%8F%91%E5%A4%8D%E7%9B%98/">【GameJam】机核网BOOOM游戏创作挑战开发复盘</a>
+        </h2>
+    
+        
+        <h3 class="article-subtitle">
+            21年暑期机核第一届jam的复盘
+        </h3>
+        
+    </div>
+
+
+    
+    
+    
+    
+    <footer class="article-time">
+        
+            <div>
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-calendar-time" width="56" height="56" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <path d="M11.795 21h-6.795a2 2 0 0 1 -2 -2v-12a2 2 0 0 1 2 -2h12a2 2 0 0 1 2 2v4" />
+  <circle cx="18" cy="18" r="4" />
+  <path d="M15 3v4" />
+  <path d="M7 3v4" />
+  <path d="M3 11h16" />
+  <path d="M18 16.496v1.504l1 1" />
+</svg>
+                <time class="article-time--published">2021-08-27</time>
+            </div>
+	
+
+        
+
+        
+    </footer>
+    
+
+    
+
+</div>
+
+</header>
+
+    <section class="article-content">
+    
+    
+    <h1 id="gamejam机核网booom游戏创作挑战开发复盘">【GameJam】机核网BOOOM游戏创作挑战开发复盘
+</h1><p>要开学了，返校前进行一波复盘。</p>
+<p>我们组的作品《GANDER COMPANY》，介时会有宣传视频，并会在机核网游戏创作市集线上展示。之后会在这里补上链接。
+<a class="link" href="https://www.gcores.com/games/67514"  target="_blank" rel="noopener"
+    >https://www.gcores.com/games/67514</a></p>
+<p>程序只有我一个人啊，所以复盘也来得很快，把一些想法和思路写在这里，没啥技术力，凑活看，权当记录。</p>
+<h2 id="游戏本质问题">游戏本质问题
+</h2><p>引擎用的unity 2020.3.14f1c1 ，当策划确定下游戏主题之后，就该我考虑实现方式了。</p>
+<p>这次项目首次引进了3D建模，但本身还是和2D的结合，实质就是一个2D游戏，只不过表现上进行了伪3D。</p>
+<p>虽然场景是3D的，而且存在光影。但游戏只有左右控制，也就是只有X轴，甚至没有上下，出现上下都是程序出bug了，所以说本质就是个2D横板游戏。</p>
+<h2 id="相机视角问题">相机视角问题
+</h2><p>由于存在场景3D+人物2D，摄像机直接和人物一个平面就好，调整下y轴和z轴，让摄像机跟人物有个合适的距离，看着舒服。</p>
+<p>然后因为模型师也算是外包性质（策划叫的同学短时合作），我们之前也没有尝试将3D元素添加进来，所以场景模型上可能会有些小问题，比如说房间建模稍小这样子，都不是什么大问题，我在unity里略作调整就好。</p>
+<p>这里就涉及到摄像机的位置了，多个房间，我是直接摆在同一个场景里的，场景跳转切个黑幕直接换人物坐标。要控制摄像机的视角内不会出现其他不该出现的内容。</p>
+<p><img src="/p/gamejam%E6%9C%BA%E6%A0%B8%E7%BD%91booom%E6%B8%B8%E6%88%8F%E5%88%9B%E4%BD%9C%E6%8C%91%E6%88%98%E5%BC%80%E5%8F%91%E5%A4%8D%E7%9B%98/1858293-20210828001050953-1422588183.png"
+	width="1104"
+	height="574"
+	srcset="/p/gamejam%E6%9C%BA%E6%A0%B8%E7%BD%91booom%E6%B8%B8%E6%88%8F%E5%88%9B%E4%BD%9C%E6%8C%91%E6%88%98%E5%BC%80%E5%8F%91%E5%A4%8D%E7%9B%98/1858293-20210828001050953-1422588183_hu12041031046299009765.png 480w, /p/gamejam%E6%9C%BA%E6%A0%B8%E7%BD%91booom%E6%B8%B8%E6%88%8F%E5%88%9B%E4%BD%9C%E6%8C%91%E6%88%98%E5%BC%80%E5%8F%91%E5%A4%8D%E7%9B%98/1858293-20210828001050953-1422588183_hu5587569030691575789.png 1024w"
+	loading="lazy"
+	
+		alt="image-20210827111024187"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="192"
+		data-flex-basis="461px"
+	
+></p>
+<p>用<code>Vector3.Lerp</code>给摄像机加个跟踪人物，然后写了个数组用<code>Mathf.Clamp</code>控制摄像机的范围，方法有些简陋，但是能实现需求。</p>
+<h2 id="2d在3d上的投影">2D在3D上的投影
+</h2><p>这个问题纠结了我半天，3D物体自带投影，但是2D就是个图片，我一时不知道怎么投影。</p>
+<p>然后<a class="link" href="https://hananon.com/how-to-make-2d-sprite-cast-and-receive-shadow-in-3d-world-using-unity-shader-graph/"  target="_blank" rel="noopener"
+    >跟着这个</a>做了半天，发现涉及到渲染了，顿时感觉不妙。</p>
+<p>琢磨了好几天，甚至都要开始搞shader了，然后发现了个简单的解决方式。</p>
+<p>首先简单的搭一个场景：</p>
+<p><img src="/p/gamejam%E6%9C%BA%E6%A0%B8%E7%BD%91booom%E6%B8%B8%E6%88%8F%E5%88%9B%E4%BD%9C%E6%8C%91%E6%88%98%E5%BC%80%E5%8F%91%E5%A4%8D%E7%9B%98/1858293-20210828001051973-1645081158.png"
+	width="1104"
+	height="574"
+	srcset="/p/gamejam%E6%9C%BA%E6%A0%B8%E7%BD%91booom%E6%B8%B8%E6%88%8F%E5%88%9B%E4%BD%9C%E6%8C%91%E6%88%98%E5%BC%80%E5%8F%91%E5%A4%8D%E7%9B%98/1858293-20210828001051973-1645081158_hu12373567489199066051.png 480w, /p/gamejam%E6%9C%BA%E6%A0%B8%E7%BD%91booom%E6%B8%B8%E6%88%8F%E5%88%9B%E4%BD%9C%E6%8C%91%E6%88%98%E5%BC%80%E5%8F%91%E5%A4%8D%E7%9B%98/1858293-20210828001051973-1645081158_hu3307778599316884555.png 1024w"
+	loading="lazy"
+	
+		alt="image-20210827113335300"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="192"
+		data-flex-basis="461px"
+	
+></p>
+<p>想要让2D投影,需要对Sprite Renderer进行设置：</p>
+<p>点右上角的三个点，然后选debug：</p>
+<p><img src="/p/gamejam%E6%9C%BA%E6%A0%B8%E7%BD%91booom%E6%B8%B8%E6%88%8F%E5%88%9B%E4%BD%9C%E6%8C%91%E6%88%98%E5%BC%80%E5%8F%91%E5%A4%8D%E7%9B%98/1858293-20210828001052238-1130435379.png"
+	width="457"
+	height="177"
+	srcset="/p/gamejam%E6%9C%BA%E6%A0%B8%E7%BD%91booom%E6%B8%B8%E6%88%8F%E5%88%9B%E4%BD%9C%E6%8C%91%E6%88%98%E5%BC%80%E5%8F%91%E5%A4%8D%E7%9B%98/1858293-20210828001052238-1130435379_hu16506848972163367807.png 480w, /p/gamejam%E6%9C%BA%E6%A0%B8%E7%BD%91booom%E6%B8%B8%E6%88%8F%E5%88%9B%E4%BD%9C%E6%8C%91%E6%88%98%E5%BC%80%E5%8F%91%E5%A4%8D%E7%9B%98/1858293-20210828001052238-1130435379_hu17594390059212077970.png 1024w"
+	loading="lazy"
+	
+		alt="image-20210827145836499"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="258"
+		data-flex-basis="619px"
+	
+></p>
+<p>将sprite renderer的投影和接受阴影都打开：</p>
+<p><img src="/p/gamejam%E6%9C%BA%E6%A0%B8%E7%BD%91booom%E6%B8%B8%E6%88%8F%E5%88%9B%E4%BD%9C%E6%8C%91%E6%88%98%E5%BC%80%E5%8F%91%E5%A4%8D%E7%9B%98/1858293-20210828001052427-1542114718.png"
+	width="453"
+	height="274"
+	srcset="/p/gamejam%E6%9C%BA%E6%A0%B8%E7%BD%91booom%E6%B8%B8%E6%88%8F%E5%88%9B%E4%BD%9C%E6%8C%91%E6%88%98%E5%BC%80%E5%8F%91%E5%A4%8D%E7%9B%98/1858293-20210828001052427-1542114718_hu7612897020065781925.png 480w, /p/gamejam%E6%9C%BA%E6%A0%B8%E7%BD%91booom%E6%B8%B8%E6%88%8F%E5%88%9B%E4%BD%9C%E6%8C%91%E6%88%98%E5%BC%80%E5%8F%91%E5%A4%8D%E7%9B%98/1858293-20210828001052427-1542114718_hu4331382085641687400.png 1024w"
+	loading="lazy"
+	
+		alt="image-20210827150058274"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="165"
+		data-flex-basis="396px"
+	
+></p>
+<p>接下来给sprite换个材质，2d人物不会有阴影的，但是我偶然发现了这个材质可以让人物拥有：</p>
+<p><img src="/p/gamejam%E6%9C%BA%E6%A0%B8%E7%BD%91booom%E6%B8%B8%E6%88%8F%E5%88%9B%E4%BD%9C%E6%8C%91%E6%88%98%E5%BC%80%E5%8F%91%E5%A4%8D%E7%9B%98/1858293-20210828001052676-1299136170.png"
+	width="717"
+	height="360"
+	srcset="/p/gamejam%E6%9C%BA%E6%A0%B8%E7%BD%91booom%E6%B8%B8%E6%88%8F%E5%88%9B%E4%BD%9C%E6%8C%91%E6%88%98%E5%BC%80%E5%8F%91%E5%A4%8D%E7%9B%98/1858293-20210828001052676-1299136170_hu10788055256016758197.png 480w, /p/gamejam%E6%9C%BA%E6%A0%B8%E7%BD%91booom%E6%B8%B8%E6%88%8F%E5%88%9B%E4%BD%9C%E6%8C%91%E6%88%98%E5%BC%80%E5%8F%91%E5%A4%8D%E7%9B%98/1858293-20210828001052676-1299136170_hu16831406855468723351.png 1024w"
+	loading="lazy"
+	
+		alt="image-20210827150534556"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="199"
+		data-flex-basis="478px"
+	
+></p>
+<p>记得打开灯光的阴影选项，不然不会产生阴影：</p>
+<p><img src="/p/gamejam%E6%9C%BA%E6%A0%B8%E7%BD%91booom%E6%B8%B8%E6%88%8F%E5%88%9B%E4%BD%9C%E6%8C%91%E6%88%98%E5%BC%80%E5%8F%91%E5%A4%8D%E7%9B%98/1858293-20210828001052920-2097065813.png"
+	width="440"
+	height="446"
+	srcset="/p/gamejam%E6%9C%BA%E6%A0%B8%E7%BD%91booom%E6%B8%B8%E6%88%8F%E5%88%9B%E4%BD%9C%E6%8C%91%E6%88%98%E5%BC%80%E5%8F%91%E5%A4%8D%E7%9B%98/1858293-20210828001052920-2097065813_hu2180216396390891497.png 480w, /p/gamejam%E6%9C%BA%E6%A0%B8%E7%BD%91booom%E6%B8%B8%E6%88%8F%E5%88%9B%E4%BD%9C%E6%8C%91%E6%88%98%E5%BC%80%E5%8F%91%E5%A4%8D%E7%9B%98/1858293-20210828001052920-2097065813_hu10357146046505134680.png 1024w"
+	loading="lazy"
+	
+		alt="image-20210827150508988"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="98"
+		data-flex-basis="236px"
+	
+></p>
+<p>由于我不太懂渲染这块，这个粒子系统为什么会有，使用它会产生什么样的影响，我都不太明白，但是他能用。这个材质其实有个缺点，就是他只能单面：</p>
+<p><img src="/p/gamejam%E6%9C%BA%E6%A0%B8%E7%BD%91booom%E6%B8%B8%E6%88%8F%E5%88%9B%E4%BD%9C%E6%8C%91%E6%88%98%E5%BC%80%E5%8F%91%E5%A4%8D%E7%9B%98/1858293-20210828001053867-637226462.gif"
+	width="976"
+	height="454"
+	srcset="/p/gamejam%E6%9C%BA%E6%A0%B8%E7%BD%91booom%E6%B8%B8%E6%88%8F%E5%88%9B%E4%BD%9C%E6%8C%91%E6%88%98%E5%BC%80%E5%8F%91%E5%A4%8D%E7%9B%98/1858293-20210828001053867-637226462_hu15397343357605480646.gif 480w, /p/gamejam%E6%9C%BA%E6%A0%B8%E7%BD%91booom%E6%B8%B8%E6%88%8F%E5%88%9B%E4%BD%9C%E6%8C%91%E6%88%98%E5%BC%80%E5%8F%91%E5%A4%8D%E7%9B%98/1858293-20210828001053867-637226462_hu7832804157510415276.gif 1024w"
+	loading="lazy"
+	
+		alt="演示1"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="214"
+		data-flex-basis="515px"
+	
+></p>
+<p>所以这里卡了我好几天，找不到解决方式，很难受。</p>
+<p><a class="link" href="https://www.bilibili.com/video/BV1Cf4y137eP"  target="_blank" rel="noopener"
+    >这个视频</a>给了灵感。可以在评论区找到我（</p>
+<p>解决这个问题很简单，只要重新做一个材质，然后勾选上双面选项就行了。</p>
+<p>双击这个材质，默认材质不能修改，但我们可以看到一些信息：</p>
+<p><img src="/p/gamejam%E6%9C%BA%E6%A0%B8%E7%BD%91booom%E6%B8%B8%E6%88%8F%E5%88%9B%E4%BD%9C%E6%8C%91%E6%88%98%E5%BC%80%E5%8F%91%E5%A4%8D%E7%9B%98/1858293-20210828001054353-1630408219.png"
+	width="441"
+	height="453"
+	srcset="/p/gamejam%E6%9C%BA%E6%A0%B8%E7%BD%91booom%E6%B8%B8%E6%88%8F%E5%88%9B%E4%BD%9C%E6%8C%91%E6%88%98%E5%BC%80%E5%8F%91%E5%A4%8D%E7%9B%98/1858293-20210828001054353-1630408219_hu4153345653741131502.png 480w, /p/gamejam%E6%9C%BA%E6%A0%B8%E7%BD%91booom%E6%B8%B8%E6%88%8F%E5%88%9B%E4%BD%9C%E6%8C%91%E6%88%98%E5%BC%80%E5%8F%91%E5%A4%8D%E7%9B%98/1858293-20210828001054353-1630408219_hu7924780461217326289.png 1024w"
+	loading="lazy"
+	
+		alt="image-20210827151253043"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="97"
+		data-flex-basis="233px"
+	
+></p>
+<p>所以只要右键创建一个Material，然后仿制做成这个样子就可以了：</p>
+<p><img src="/p/gamejam%E6%9C%BA%E6%A0%B8%E7%BD%91booom%E6%B8%B8%E6%88%8F%E5%88%9B%E4%BD%9C%E6%8C%91%E6%88%98%E5%BC%80%E5%8F%91%E5%A4%8D%E7%9B%98/1858293-20210828001054609-2105206737.png"
+	width="454"
+	height="358"
+	srcset="/p/gamejam%E6%9C%BA%E6%A0%B8%E7%BD%91booom%E6%B8%B8%E6%88%8F%E5%88%9B%E4%BD%9C%E6%8C%91%E6%88%98%E5%BC%80%E5%8F%91%E5%A4%8D%E7%9B%98/1858293-20210828001054609-2105206737_hu13157305737872446203.png 480w, /p/gamejam%E6%9C%BA%E6%A0%B8%E7%BD%91booom%E6%B8%B8%E6%88%8F%E5%88%9B%E4%BD%9C%E6%8C%91%E6%88%98%E5%BC%80%E5%8F%91%E5%A4%8D%E7%9B%98/1858293-20210828001054609-2105206737_hu16008059282177556205.png 1024w"
+	loading="lazy"
+	
+		alt="image-20210827151522412"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="126"
+		data-flex-basis="304px"
+	
+></p>
+<p>给sprite换上新的材质，就实现了双面投影！</p>
+<p><img src="/p/gamejam%E6%9C%BA%E6%A0%B8%E7%BD%91booom%E6%B8%B8%E6%88%8F%E5%88%9B%E4%BD%9C%E6%8C%91%E6%88%98%E5%BC%80%E5%8F%91%E5%A4%8D%E7%9B%98/1858293-20210828001057146-2037201363.gif"
+	width="977"
+	height="492"
+	srcset="/p/gamejam%E6%9C%BA%E6%A0%B8%E7%BD%91booom%E6%B8%B8%E6%88%8F%E5%88%9B%E4%BD%9C%E6%8C%91%E6%88%98%E5%BC%80%E5%8F%91%E5%A4%8D%E7%9B%98/1858293-20210828001057146-2037201363_hu11209532611330517948.gif 480w, /p/gamejam%E6%9C%BA%E6%A0%B8%E7%BD%91booom%E6%B8%B8%E6%88%8F%E5%88%9B%E4%BD%9C%E6%8C%91%E6%88%98%E5%BC%80%E5%8F%91%E5%A4%8D%E7%9B%98/1858293-20210828001057146-2037201363_hu14324615453958631162.gif 1024w"
+	loading="lazy"
+	
+		alt="演示2"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="198"
+		data-flex-basis="476px"
+	
+></p>
+<p>怎么样，是不是很帅气呢！来，试试看！</p>
+<h2 id="面向对象思想的便捷">面向对象思想的便捷
+</h2><p>这次的小demo中最主要的互动如图下：</p>
+<p><img src="/p/gamejam%E6%9C%BA%E6%A0%B8%E7%BD%91booom%E6%B8%B8%E6%88%8F%E5%88%9B%E4%BD%9C%E6%8C%91%E6%88%98%E5%BC%80%E5%8F%91%E5%A4%8D%E7%9B%98/1858293-20210828001100808-1973660236.gif"
+	width="977"
+	height="492"
+	srcset="/p/gamejam%E6%9C%BA%E6%A0%B8%E7%BD%91booom%E6%B8%B8%E6%88%8F%E5%88%9B%E4%BD%9C%E6%8C%91%E6%88%98%E5%BC%80%E5%8F%91%E5%A4%8D%E7%9B%98/1858293-20210828001100808-1973660236_hu6457664907856745437.gif 480w, /p/gamejam%E6%9C%BA%E6%A0%B8%E7%BD%91booom%E6%B8%B8%E6%88%8F%E5%88%9B%E4%BD%9C%E6%8C%91%E6%88%98%E5%BC%80%E5%8F%91%E5%A4%8D%E7%9B%98/1858293-20210828001100808-1973660236_hu10196642271296182422.gif 1024w"
+	loading="lazy"
+	
+		alt="演示3"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="198"
+		data-flex-basis="476px"
+	
+></p>
+<p>就是一个靠近会弹动画，离开会收动画，触发会产生事件的触发器。</p>
+<p>之前没怎么在项目中好好的用面向对象的思想，这次用上了，感觉就是非常爽。</p>
+<p>写一个基类触发器，然后通过继承多态延伸出不同的触发事件，十分方便，十分的雅致。</p>
+<h2 id="一些不足">一些不足
+</h2><h3 id="剧情演出效果不足">剧情演出效果不足
+</h3><p>之前写的gal框架被我多次使用，但是从来没升级过。考虑一下完善框架了。</p>
+<p>目前的框架最大的问题就是演出效果，我是用协程来实现人物、场景的过渡，但是在一定条件下貌似会起冲突，很不爽。</p>
+<p>正在试图找到新的代替方案，希望能有一种更优雅的过渡方式。</p>
+<h3 id="战斗系统的bug">战斗系统的bug
+</h3><p>战斗这块是上海七天写的，不够稳定，经常出一些莫名其妙的效果。</p>
+<p>比如这次的开发，在3D场景用2D物理战斗，效果十分滑稽，策划说是“人仰马翻的战斗”，确实如此（具体可以亲自游玩体验）。我也不是很满意，但是时间紧任务多没来得及尝试新的解决方案，先在这里记录下。</p>
+<h3 id="ui的适配问题">UI的适配问题
+</h3><p>游戏做好了，提交了，我才想起来UI的适配不是很好，在1920*1080下效果最佳。</p>
+<p>这波是没有规划好开发路线，我的锅。</p>
+<h2 id="总结">总结
+</h2><p>三月到五月，我完成了基础的gal框架，并且从0学会了使用unity的部分板块，接触了UI以及一些基本内容。</p>
+<p>七月后半旬，接触了2d物理引擎，到此算是拥有制作低水平小游戏的能力了。</p>
+<p>八月就是一次技能整合，把我会的东西都用上了，整了这么一出。</p>
+<p>要开学了，我目前的规划是积累沉淀。</p>
+<p>我思考了一下，本质上自己还是一个程序员，那么想要有进步就要先把本职做好。</p>
+<p>就算unity用的驾轻就熟，数据结构、算法、数据库、网络这些没学好也没什么用。</p>
+<p>一个基础扎实的人，哪怕培训他学unity也会上手很快。</p>
+<p>所以我决定回头，把基础学好，这是稳赚不赔的买卖。</p>
+<p>这不意味着延缓梦想，只不过是为了更好的出发。</p>
+
+</section>
+
+
+    <footer class="article-footer">
+    
+
+    </footer>
+
+
+    
+</article>
+
+    
+
+    
+
+<aside class="related-content--wrapper">
+    <h2 class="section-title">相关文章</h2>
+    <div class="related-content">
+        <div class="flex article-list--tile">
+            
+                
+<article class="">
+    <a href="/p/%E5%BC%80%E5%8F%91%E5%A4%8D%E7%9B%982021%E7%BD%91%E6%98%93%E6%B8%B8%E6%88%8F%E9%AB%98%E6%A0%A1mini-game%E6%8C%91%E6%88%98%E8%B5%9B%E4%BD%9C%E5%93%81%E6%88%8F%E5%B9%95%E6%9C%AA%E8%90%BD/">
+        
+        
+
+        <div class="article-details">
+            <h2 class="article-title">【开发复盘】2021网易游戏高校MINI-GAME挑战赛作品《戏幕未落》</h2>
+        </div>
+    </a>
+</article>
+
+            
+                
+<article class="">
+    <a href="/p/ugdap%E4%B8%8A%E6%B5%B7%E4%B8%80%E5%91%A8%E8%87%AA%E7%94%B1%E8%A1%8C%E7%BB%93%E6%9D%9F/">
+        
+        
+
+        <div class="article-details">
+            <h2 class="article-title">【UGDAP】上海一周自由行结束!</h2>
+        </div>
+    </a>
+</article>
+
+            
+                
+<article class="">
+    <a href="/p/%E4%BD%BF%E7%94%A8mixamo%E4%B8%BAobj%E6%96%87%E4%BB%B6%E7%BB%91%E9%AA%A8%E5%B9%B6%E5%AF%BC%E5%85%A5unity/">
+        
+        
+
+        <div class="article-details">
+            <h2 class="article-title">使用mixamo为obj文件绑骨并导入unity</h2>
+        </div>
+    </a>
+</article>
+
+            
+                
+<article class="">
+    <a href="/p/unity-shader%E5%85%A5%E9%97%A8%E7%B2%BE%E8%A6%81%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0-%E7%AC%AC%E4%B8%89%E7%AB%A0-unity-shader%E5%9F%BA%E7%A1%80/">
+        
+        
+
+        <div class="article-details">
+            <h2 class="article-title">Unity Shader入门精要读书笔记 第三章 Unity Shader基础</h2>
+        </div>
+    </a>
+</article>
+
+            
+                
+<article class="">
+    <a href="/p/2022javaweb%E8%AF%BE%E8%AE%BE%E5%9F%BA%E4%BA%8E%E8%B4%AD%E7%89%A9%E7%B3%BB%E7%BB%9F%E7%9A%84%E6%B8%B8%E6%88%8F%E5%8E%9F%E5%9E%8B%E8%AE%BE%E8%AE%A1/">
+        
+        
+
+        <div class="article-details">
+            <h2 class="article-title">【2022javaweb课设】基于购物系统的游戏原型设计</h2>
+        </div>
+    </a>
+</article>
+
+            
+        </div>
+    </div>
+</aside>
+
+     
+    
+        
+    <script src="https://utteranc.es/client.js" 
+        repo="DorinXL/dorinxl.github.io"
+        issue-term="pathname"
+        
+        crossorigin="anonymous"
+        async
+        >
+</script>
+
+<style>
+    .utterances {
+        max-width: unset;
+    }
+</style>
+
+<script>
+    let utterancesLoaded = false;
+
+    function setUtterancesTheme(theme) {
+        let utterances = document.querySelector('.utterances iframe');
+        if (utterances) {
+            utterances.contentWindow.postMessage(
+                {
+                    type: 'set-theme',
+                    theme: `github-${theme}`
+                },
+                'https://utteranc.es'
+            );
+        }
+    }
+
+    addEventListener('message', event => {
+        if (event.origin !== 'https://utteranc.es') return;
+
+        
+        utterancesLoaded = true;
+        setUtterancesTheme(document.documentElement.dataset.scheme)
+    });
+
+    window.addEventListener('onColorSchemeChange', (e) => {
+        if (!utterancesLoaded) return;
+        setUtterancesTheme(e.detail)
+    })
+</script>
+
+
+    
+
+    <footer class="site-footer">
+    <section class="copyright">
+        &copy; 
+        
+        2024 荡影-DorinXL
+    </section>
+
+
+
+<section class="totalcount">
+    
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+    发表了76篇文章 · 
+    总计103.89k字
+</section>
+
+
+
+<section class="running-time">
+本博客已稳定运行
+<span id="runningdays" class="running-days"></span>
+</section>
+
+    <section class="powerby">
+        使用 <a href="https://gohugo.io/" target="_blank" rel="noopener">Hugo</a> 构建 <br />
+        主题 <b><a href="https://github.com/CaiJimmy/hugo-theme-stack" target="_blank" rel="noopener" data-version="3.26.0">Stack</a></b> 由 <a href="https://jimmycai.com" target="_blank" rel="noopener">Jimmy</a> 设计
+    </section>
+
+</footer>
+
+
+    
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+    
+    <div class="pswp__bg"></div>
+
+    
+    <div class="pswp__scroll-wrap">
+
+        
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+
+        
+        <div class="pswp__ui pswp__ui--hidden">
+
+            <div class="pswp__top-bar">
+
+                
+
+                <div class="pswp__counter"></div>
+
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+                
+                
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                        <div class="pswp__preloader__cut">
+                            <div class="pswp__preloader__donut"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div>
+            </div>
+
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div><script 
+                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.js"integrity="sha256-ePwmChbbvXbsO02lbM3HoHbSHTHFAeChekF1xKJdleo="crossorigin="anonymous"
+                defer
+                >
+            </script><script 
+                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe-ui-default.min.js"integrity="sha256-UKkzOn/w1mBxRmLLGrSeyB4e1xbrp4xylgAWb3M42pU="crossorigin="anonymous"
+                defer
+                >
+            </script><link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/default-skin/default-skin.min.css"crossorigin="anonymous"
+            ><link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.css"crossorigin="anonymous"
+            >
+
+            </main>
+        </div>
+        <script 
+                src="https://cdn.jsdelivr.net/npm/node-vibrant@3.1.6/dist/vibrant.min.js"integrity="sha256-awcR2jno4kI5X0zL8ex0vi2z&#43;KMkF24hUW8WePSA9HM="crossorigin="anonymous"
+                
+                >
+            </script><script type="text/javascript" src="/ts/main.js" defer></script>
+<script>
+    (function () {
+        const customFont = document.createElement('link');
+        customFont.href = "https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap";
+
+        customFont.type = "text/css";
+        customFont.rel = "stylesheet";
+
+        document.head.appendChild(customFont);
+    }());
+</script>
+
+<script>
+    let s1 = '2024-8-25'; 
+    s1 = new Date(s1.replace(/-/g, "/"));
+    let s2 = new Date();
+    let timeDifference = s2.getTime() - s1.getTime();
+
+    let days = Math.floor(timeDifference / (1000 * 60 * 60 * 24));
+    let hours = Math.floor((timeDifference % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+    let minutes = Math.floor((timeDifference % (1000 * 60 * 60)) / (1000 * 60));
+
+    let result = days + "天" + hours + "小时" + minutes + "分钟";
+    document.getElementById('runningdays').innerHTML = result;
+</script>
+    </body>
+</html>

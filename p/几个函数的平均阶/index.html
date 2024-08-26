@@ -1,0 +1,1185 @@
+<!DOCTYPE html>
+<html lang="zh-cn" dir="ltr">
+    <head><meta charset='utf-8'>
+<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content="几个函数的平均阶 目录 Chapter1 $d(n)$的平均阶 Chapter2 除数函数$\\sigma_\\alpha(n)$的平均阶 Chapter3 $\\mu(n)$和$\\Lambda(n)$">
+<title>几个函数的平均阶</title>
+
+<link rel='canonical' href='https://dorinxl.github.io/p/%E5%87%A0%E4%B8%AA%E5%87%BD%E6%95%B0%E7%9A%84%E5%B9%B3%E5%9D%87%E9%98%B6/'>
+
+<link rel="stylesheet" href="/scss/style.min.dfb009e658ec6e0f0f0c366b98658c0caea5123dcd2536f353c92c2581b79fb7.css"><meta property='og:title' content="几个函数的平均阶">
+<meta property='og:description' content="几个函数的平均阶 目录 Chapter1 $d(n)$的平均阶 Chapter2 除数函数$\\sigma_\\alpha(n)$的平均阶 Chapter3 $\\mu(n)$和$\\Lambda(n)$">
+<meta property='og:url' content='https://dorinxl.github.io/p/%E5%87%A0%E4%B8%AA%E5%87%BD%E6%95%B0%E7%9A%84%E5%B9%B3%E5%9D%87%E9%98%B6/'>
+<meta property='og:site_name' content='荡影-DorinXL'>
+<meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:published_time' content='2023-09-23T12:14:00&#43;00:00'/><meta property='article:modified_time' content='2023-09-23T12:14:00&#43;00:00'/>
+<meta name="twitter:title" content="几个函数的平均阶">
+<meta name="twitter:description" content="几个函数的平均阶 目录 Chapter1 $d(n)$的平均阶 Chapter2 除数函数$\\sigma_\\alpha(n)$的平均阶 Chapter3 $\\mu(n)$和$\\Lambda(n)$">
+    <link rel="shortcut icon" href="/favicon.ico" />
+
+  
+
+
+    </head>
+    <body class="
+    article-page
+    ">
+    <script>
+        (function() {
+            const colorSchemeKey = 'StackColorScheme';
+            if(!localStorage.getItem(colorSchemeKey)){
+                localStorage.setItem(colorSchemeKey, "auto");
+            }
+        })();
+    </script><script>
+    (function() {
+        const colorSchemeKey = 'StackColorScheme';
+        const colorSchemeItem = localStorage.getItem(colorSchemeKey);
+        const supportDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches === true;
+
+        if (colorSchemeItem == 'dark' || colorSchemeItem === 'auto' && supportDarkMode) {
+            
+
+            document.documentElement.dataset.scheme = 'dark';
+        } else {
+            document.documentElement.dataset.scheme = 'light';
+        }
+    })();
+</script>
+<div class="container main-container flex on-phone--column extended"><aside class="sidebar left-sidebar sticky ">
+    <button class="hamburger hamburger--spin" type="button" id="toggle-menu" aria-label="切换菜单">
+        <span class="hamburger-box">
+            <span class="hamburger-inner"></span>
+        </span>
+    </button>
+
+    <header>
+        
+            
+            <figure class="site-avatar">
+                <a href="/">
+                
+                    
+                    
+                    
+                        
+                        <img src="/img/avatar_hu6744900124519508638.png" width="300"
+                            height="283" class="site-logo" loading="lazy" alt="Avatar">
+                    
+                
+                </a>
+                
+                    <span class="emoji">🔥</span>
+                
+            </figure>
+            
+        
+        
+        <div class="site-meta">
+            <h1 class="site-name"><a href="/">荡影-DorinXL</a></h1>
+            <h2 class="site-description">缄默慎独，不破不立，事在人为</h2>
+        </div>
+    </header><ol class="menu-social">
+            
+                <li>
+                    <a 
+                        href='https://space.bilibili.com/3217550'
+                        target="_blank"
+                        title="BilBili"
+                        rel="me"
+                    >
+                        
+                        
+                            <svg  xmlns="http://www.w3.org/2000/svg"  width="24"  height="24"  viewBox="0 0 24 24"  fill="none"  stroke="currentColor"  stroke-width="2"  stroke-linecap="round"  stroke-linejoin="round"  class="icon icon-tabler icons-tabler-outline icon-tabler-brand-bilibili"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M3 10a4 4 0 0 1 4 -4h10a4 4 0 0 1 4 4v6a4 4 0 0 1 -4 4h-10a4 4 0 0 1 -4 -4v-6z" /><path d="M8 3l2 3" /><path d="M16 3l-2 3" /><path d="M9 13v-2" /><path d="M15 11v2" /></svg>
+                        
+                    </a>
+                </li>
+            
+                <li>
+                    <a 
+                        href='https://www.cnblogs.com/DorinXL/'
+                        target="_blank"
+                        title="CNblog"
+                        rel="me"
+                    >
+                        
+                        
+                            <svg  xmlns="http://www.w3.org/2000/svg"  width="24"  height="24"  viewBox="0 0 24 24"  fill="none"  stroke="currentColor"  stroke-width="2"  stroke-linecap="round"  stroke-linejoin="round"  class="icon icon-tabler icons-tabler-outline icon-tabler-brand-blogger"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M8 21h8a5 5 0 0 0 5 -5v-3a3 3 0 0 0 -3 -3h-1v-2a5 5 0 0 0 -5 -5h-4a5 5 0 0 0 -5 5v8a5 5 0 0 0 5 5z" /><path d="M7 7m0 1.5a1.5 1.5 0 0 1 1.5 -1.5h3a1.5 1.5 0 0 1 1.5 1.5v0a1.5 1.5 0 0 1 -1.5 1.5h-3a1.5 1.5 0 0 1 -1.5 -1.5z" /><path d="M7 14m0 1.5a1.5 1.5 0 0 1 1.5 -1.5h7a1.5 1.5 0 0 1 1.5 1.5v0a1.5 1.5 0 0 1 -1.5 1.5h-7a1.5 1.5 0 0 1 -1.5 -1.5z" /></svg>
+                        
+                    </a>
+                </li>
+            
+                <li>
+                    <a 
+                        href='https://github.com/DorinXL/DorinXL.github.io'
+                        target="_blank"
+                        title="GitHub"
+                        rel="me"
+                    >
+                        
+                        
+                            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-brand-github" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+  <path d="M9 19c-4.3 1.4 -4.3 -2.5 -6 -3m12 5v-3.5c0 -1 .1 -1.4 -.5 -2c2.8 -.3 5.5 -1.4 5.5 -6a4.6 4.6 0 0 0 -1.3 -3.2a4.2 4.2 0 0 0 -.1 -3.2s-1.1 -.3 -3.5 1.3a12.3 12.3 0 0 0 -6.2 0c-2.4 -1.6 -3.5 -1.3 -3.5 -1.3a4.2 4.2 0 0 0 -.1 3.2a4.6 4.6 0 0 0 -1.3 3.2c0 4.6 2.7 5.7 5.5 6c-.6 .6 -.6 1.2 -.5 2v3.5" />
+</svg>
+
+
+
+                        
+                    </a>
+                </li>
+            
+        </ol><ol class="menu" id="main-menu">
+        
+        
+        
+        <li >
+            <a href='/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-home" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <polyline points="5 12 3 12 12 3 21 12 19 12" />
+  <path d="M5 12v7a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-7" />
+  <path d="M9 21v-6a2 2 0 0 1 2 -2h2a2 2 0 0 1 2 2v6" />
+</svg>
+
+
+
+                
+                <span>主页</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/%E5%85%B3%E4%BA%8E/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-user" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="7" r="4" />
+  <path d="M6 21v-2a4 4 0 0 1 4 -4h4a4 4 0 0 1 4 4v2" />
+</svg>
+
+
+
+                
+                <span>关于</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/archives/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-archive" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <rect x="3" y="4" width="18" height="4" rx="2" />
+  <path d="M5 8v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-10" />
+  <line x1="10" y1="12" x2="14" y2="12" />
+</svg>
+
+
+
+                
+                <span>归档</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/search/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-search" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="10" cy="10" r="7" />
+  <line x1="21" y1="21" x2="15" y2="15" />
+</svg>
+
+
+
+                
+                <span>搜索</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/%E5%8F%8B%E9%93%BE/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-link" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <path d="M10 14a3.5 3.5 0 0 0 5 0l4 -4a3.5 3.5 0 0 0 -5 -5l-.5 .5" />
+  <path d="M14 10a3.5 3.5 0 0 0 -5 0l-4 4a3.5 3.5 0 0 0 5 5l.5 -.5" />
+</svg>
+
+
+
+                
+                <span>友链</span>
+            </a>
+        </li>
+        
+        <li class="menu-bottom-section">
+            <ol class="menu">
+
+                
+                    <li id="dark-mode-toggle">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-left" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="8" cy="12" r="2" />
+  <rect x="2" y="6" width="20" height="12" rx="6" />
+</svg>
+
+
+
+                        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-right" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="16" cy="12" r="2" />
+  <rect x="2" y="6" width="20" height="12" rx="6" />
+</svg>
+
+
+
+                        <span>暗色模式</span>
+                    </li>
+                
+            </ol>
+        </li>
+    </ol>
+</aside>
+
+    <aside class="sidebar right-sidebar sticky">
+        
+            
+                
+    <section class="widget archives">
+        <div class="widget-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-hash" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <line x1="5" y1="9" x2="19" y2="9" />
+  <line x1="5" y1="15" x2="19" y2="15" />
+  <line x1="11" y1="4" x2="7" y2="20" />
+  <line x1="17" y1="4" x2="13" y2="20" />
+</svg>
+
+
+
+        </div>
+        <h2 class="widget-title section-title">目录</h2>
+        
+        <div class="widget--toc">
+            <nav id="TableOfContents">
+  <ol>
+    <li><a href="#目录">目录</a></li>
+    <li><a href="#chapter1-dn的平均阶">Chapter1 $d(n)$的平均阶</a></li>
+    <li><a href="#chapter2-除数函数sigma_alphan的平均阶">Chapter2 除数函数$\sigma_\alpha(n)$的平均阶</a></li>
+    <li><a href="#chapter3-mun和lambdan的平均阶">Chapter3 $\mu(n)$和$\Lambda(n)$的平均阶</a></li>
+  </ol>
+</nav>
+        </div>
+    </section>
+
+            
+        
+    </aside>
+
+
+            <main class="main full-width">
+    <article class="main-article">
+    <header class="article-header">
+
+    <div class="article-details">
+    
+    <header class="article-category">
+        
+            <a href="/categories/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/" >
+                读书笔记
+            </a>
+        
+            <a href="/categories/%E6%95%B0%E8%AE%BA/" >
+                数论
+            </a>
+        
+    </header>
+    
+
+    <div class="article-title-wrapper">
+        <h2 class="article-title">
+            <a href="/p/%E5%87%A0%E4%B8%AA%E5%87%BD%E6%95%B0%E7%9A%84%E5%B9%B3%E5%9D%87%E9%98%B6/">几个函数的平均阶</a>
+        </h2>
+    
+        
+    </div>
+
+
+    
+    
+    
+    
+    <footer class="article-time">
+        
+            <div>
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-calendar-time" width="56" height="56" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <path d="M11.795 21h-6.795a2 2 0 0 1 -2 -2v-12a2 2 0 0 1 2 -2h12a2 2 0 0 1 2 2v4" />
+  <circle cx="18" cy="18" r="4" />
+  <path d="M15 3v4" />
+  <path d="M7 3v4" />
+  <path d="M3 11h16" />
+  <path d="M18 16.496v1.504l1 1" />
+</svg>
+                <time class="article-time--published">2023-09-23</time>
+            </div>
+	
+
+        
+
+        
+    </footer>
+    
+
+    
+
+</div>
+
+</header>
+
+    <section class="article-content">
+    
+    
+    <h1 id="几个函数的平均阶">几个函数的平均阶
+</h1><h2 id="目录">目录
+</h2><ul>
+<li>Chapter1 $d(n)$的平均阶</li>
+<li>Chapter2 除数函数$\sigma_\alpha(n)$的平均阶</li>
+<li>Chapter3 $\mu(n)$和$\Lambda(n)$的平均阶</li>
+</ul>
+<h2 id="chapter1-dn的平均阶">Chapter1 $d(n)$的平均阶
+</h2><ul>
+<li>
+<p><strong>Theorem:</strong></p>
+<ul>
+<li>**Th1:**对所有$x\ge1$，我们有</li>
+</ul>
+<p>$$
+\sum_{n\le x}d(n)=x\log x+(2C-1)x+\Omicron(\sqrt x)
+$$</p>
+<p>其中C是欧拉常数</p>
+<blockquote>
+<p><strong>Proof</strong>:</p>
+<p>我们知道，$d(n)=\sum_{d|n}1$，所以我们有
+$$
+\sum_{n\le x}d(n)=\sum_{n\le x}\sum_{d|n}1
+$$
+我们把$n=qd$，那么对于$q,d$展开就变成了
+$$
+\sum_{n\le x}d(n)=\sum_{q,d\qd\le x}1
+$$
+结合图像我们可以形象的明白，我们取的点即是在$qd$平面上的一些格点。</p>
+<p><img src="/p/%E5%87%A0%E4%B8%AA%E5%87%BD%E6%95%B0%E7%9A%84%E5%B9%B3%E5%9D%87%E9%98%B6/1858293-20230923170758581-1917446611.png"
+	width="479"
+	height="438"
+	srcset="/p/%E5%87%A0%E4%B8%AA%E5%87%BD%E6%95%B0%E7%9A%84%E5%B9%B3%E5%9D%87%E9%98%B6/1858293-20230923170758581-1917446611_hu7079173478167870897.png 480w, /p/%E5%87%A0%E4%B8%AA%E5%87%BD%E6%95%B0%E7%9A%84%E5%B9%B3%E5%9D%87%E9%98%B6/1858293-20230923170758581-1917446611_hu6419852671196703390.png 1024w"
+	loading="lazy"
+	
+		alt="image-20230817171835151"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="109"
+		data-flex-basis="262px"
+	
+></p>
+<p>也就是当n=1，2，&hellip;，[x]时，曲线qd=n上的格点的个数。</p>
+<p>我们固定每一个小于x的$d$，计算水平上q可以取的格点的数目，然后对于所有的$d\le x$求和，最终得到：
+$$
+\sum_{n\le x}d(n)=\sum_{d\le x}\sum_{q\le\frac{x}{d}}1
+$$
+根据欧拉求和公式，我们可以得到
+$$
+\sum_{q\le\frac{x}{d}}1=\dfrac{x}{d}+\Omicron(1)
+$$
+继续用欧拉求和公式，得到、
+$$
+\begin{align*}
+\sum_{n\le x}d(n)&amp;=\sum_{d\le x}\sum_{q\le\frac{x}{d}}1\
+&amp;=\sum_{d\le x}{\dfrac{x}{d}+\Omicron(1)}\
+&amp;=x\sum_{d\le x}\dfrac{1}{d}+\Omicron(x)\
+&amp;=x{\log x+C+\Omicron(\dfrac{1}{x})}+\Omicron(x)\
+&amp;=x\log x+\Omicron(x)
+\end{align*}
+$$
+由此得出$\sum_{n\le x}d(n) \sim x\log x,x\rightarrow\infty$</p>
+<p>我们可以加强这个式子，还是从图片入手，我们换个思路：利用对称性，格点的总数等于在直线$q=d$下面的格点数的2倍加上这条线上的格点数：</p>
+<p><img src="/p/%E5%87%A0%E4%B8%AA%E5%87%BD%E6%95%B0%E7%9A%84%E5%B9%B3%E5%9D%87%E9%98%B6/1858293-20230923170759175-363398253.png"
+	width="352"
+	height="309"
+	srcset="/p/%E5%87%A0%E4%B8%AA%E5%87%BD%E6%95%B0%E7%9A%84%E5%B9%B3%E5%9D%87%E9%98%B6/1858293-20230923170759175-363398253_hu10239322368568398480.png 480w, /p/%E5%87%A0%E4%B8%AA%E5%87%BD%E6%95%B0%E7%9A%84%E5%B9%B3%E5%9D%87%E9%98%B6/1858293-20230923170759175-363398253_hu16696176443755543962.png 1024w"
+	loading="lazy"
+	
+		alt="image-20230817173942375"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="113"
+		data-flex-basis="273px"
+	
+></p>
+<p>既然qd=n，我们更关注q=d这条线，那么遍历d从1到$[\sqrt x]$，每固定d，那么q就有$[\sqrt\frac{x}{d}]$个格点可以选择，那么阴影区域的格点数为$[\dfrac{x}{d}]-d$个。</p>
+<p>于是我们得到新的式子
+$$
+\sum_{n\le x}d(n)=2\sum_{d\le\sqrt x}{[\dfrac{x}{d}]-d}+[\sqrt x]
+$$
+利用$[y]=y+\Omicron(1)$和求和公式的推论得到
+$$
+\begin{align*}
+\sum_{n\le x}d(n)&amp;=2\sum_{d\le\sqrt x}{[\dfrac{x}{d}]-d}+[\sqrt x]\
+&amp;=2\sum_{d\le\sqrt x}{\dfrac{x}{d}-d+\Omicron(1)}+\Omicron(\sqrt x)\
+&amp;=2x\sum_{d\le\sqrt x}\dfrac{1}{d}-2\sum_{d\le\sqrt x}d+\Omicron(\sqrt x)\
+&amp;=2x{\log \sqrt x+C+\Omicron(\dfrac{1}{\sqrt x})}-2{\dfrac{x}{2}+\Omicron(\sqrt x)}+\Omicron(\sqrt x)\
+&amp;=x\log x+(2C-1)x+\Omicron(\sqrt x)
+\end{align*}
+$$
+这就是除数函数$d(n)$的部分和的迪利克雷渐进公式。</p>
+<p>Dirichlet&rsquo;s asymptotic formula for the partial sums of the divisor function d(n).</p>
+</blockquote>
+</li>
+</ul>
+<h2 id="chapter2-除数函数sigma_alphan的平均阶">Chapter2 除数函数$\sigma_\alpha(n)$的平均阶
+</h2><ul>
+<li>
+<p>我们在上面讨论了$\alpha=0$的情况，接下来我们讨论$\alpha=1$和$\alpha&gt;1$的情况。</p>
+</li>
+<li>
+<p><strong>Theorem:</strong></p>
+<ul>
+<li>**Th1:**对所有的$x\ge 1$我们有</li>
+</ul>
+<p>$$
+\sum_{n\le x}\sigma_1(n)=\dfrac{1}{2}\zeta(2)x^2+\Omicron(x\log x)
+$$</p>
+<p>注：能够证明$\zeta(2)=\dfrac{\pi^2}{6}$，所以$\sigma_1(n)$的平均阶是$\dfrac{\pi^2n}{12}$</p>
+<blockquote>
+<p><strong>Proof</strong>:</p>
+<p>与上一个chapter相似，我们写成下面的这种形式：
+$$
+\begin{align*}
+\sum_{n\le x}\sigma_1(n)
+&amp;=\sum_{n\le x}\sum_{q|n}q=\sum_{q,d\qd\le x}q=\sum_{d\le x}\sum_{q\le\dfrac{x}{d}}q\
+&amp;=\sum_{d\le x}{\frac{1}{2}(\frac{x}{d})^2+\Omicron(\frac{x}{d})}\
+&amp;=\frac{x^2}{2}\sum_{d\le x}\frac{1}{d^2}+\Omicron(x\sum_{d\le x}\frac{1}{d}) \
+&amp;=\frac{x^2}{2}\sum_{d\le x}{-\frac{1}{x}+\zeta(2)+\Omicron(\frac{1}{x^2})}+\Omicron(x\log x)\
+&amp;=\dfrac{1}{2}\zeta(2)x^2+\Omicron(x\log x)\
+\end{align*}
+$$
+配合欧拉求和完成求证。</p>
+</blockquote>
+<ul>
+<li>**Th2:**如果$x\ge1$且$\alpha&gt;0,\alpha \ne 1$，我们有</li>
+</ul>
+<p>$$
+\sum_{n\le x}\sigma_\alpha(n)=\dfrac{\zeta(\alpha+1)}{\alpha+1}x^{\alpha+1}+\Omicron(x^\beta)
+$$</p>
+<p>其中，$\beta=max{1,\alpha}$</p>
+<blockquote>
+<p><strong>Proof</strong>:</p>
+<p>配合欧拉求和公式的推论，我们开始证明：
+$$
+\begin{align*}
+\sum_{n\le x}\sigma_\alpha(n)&amp;=\sum_{n\le x}\sum_{q|n}q^\alpha=\sum_{d\le x}\sum_{q\le \frac{x}{d}}q^\alpha\
+&amp;=\sum_{d\le x}(\dfrac{1}{\alpha+1}(\dfrac{d}{x})^{\alpha+1}+\Omicron(\dfrac{x^\alpha}{d^\alpha}))\
+&amp;=\dfrac{x^{\alpha+1}}{\alpha+1}\sum_{d\le x}\dfrac{1}{d^{\alpha+1}}+\Omicron(x^\alpha\sum_{d\le x}\dfrac{1}{d^\alpha})\
+&amp;=\dfrac{x^{\alpha+1}}{\alpha+1}{\dfrac{x^{-\alpha}}{-\alpha}+\zeta(\alpha+1)+\Omicron(x^{-\alpha-1})}+\Omicron(x^\alpha{\dfrac{x^{1-\alpha}}{1-\alpha}+\zeta(\alpha)+\Omicron(x^{-\alpha})})\
+&amp;=\dfrac{\zeta(\alpha+1)}{\alpha+1}x^{\alpha+1}+\Omicron(x)+\Omicron(1)+\Omicron(x^\alpha)\
+&amp;=\dfrac{\zeta(\alpha+1)}{\alpha+1}x^{\alpha+1}+\Omicron(x^\beta)
+\end{align*}
+$$
+其中，$\beta=max{1,\alpha}$</p>
+</blockquote>
+<ul>
+<li>
+<p>Th3:对于负数$\alpha$的$\sigma_\alpha(n)$的平均阶，我们让$\alpha=-\beta,\beta&gt;0$。</p>
+<p>如果$\beta&gt;0$，令$\delta=max{0,1-\beta}$，当$x&gt;1$我们有</p>
+</li>
+</ul>
+<p>$$
+\sum_{n\le x}\sigma_{-\beta}(n)=
+\begin{cases}
+\zeta(\beta+1)x+\Omicron(x^\delta)&amp;,\beta \ne 1\
+\zeta(2)x+\Omicron(\log x)&amp;,\beta=1\
+\end{cases}
+$$</p>
+<p>其中，$\beta=max{1,\alpha}$</p>
+<blockquote>
+<p><strong>Proof</strong>:</p>
+<p>我们有
+$$
+\begin{align*}
+\sum_{n\le x}\sigma_{-\beta}(n)
+&amp;=\sum_{n\le x}\sum_{d|n}\dfrac{1}{d^\beta}
+=\sum_{d\le x}\dfrac{1}{d^\beta}\sum_{q\le \frac{x}{d}}1
+\
+&amp;=\sum_{d\le x}\dfrac{1}{d^\beta}{\dfrac{x}{d}+\Omicron(1)}\
+&amp;=x\sum_{d\le x}\frac{1}{d^{\beta+1}}+\Omicron(\sum_{d\le x}\dfrac{1}{d^\beta})
+\end{align*}
+$$
+最后一项当$\beta=1$时是$\Omicron(\log x)$，当$\beta \ne1$时是$\Omicron(x^\delta)$：
+$$
+x\sum_{d\le x}\dfrac{1}{d^{\beta+1}}=\dfrac{x^{1-\beta}}{-\beta}+\zeta(\beta+1)x+\Omicron(x^{-\beta})=\zeta(\beta+1)x+\Omicron(x^{1-\beta})
+$$</p>
+</blockquote>
+</li>
+</ul>
+<h2 id="chapter3-mun和lambdan的平均阶">Chapter3 $\mu(n)$和$\Lambda(n)$的平均阶
+</h2><ul>
+<li>
+<p><strong>Theorem:</strong></p>
+<ul>
+<li>**Th1:**如果$h=f*g$，令</li>
+</ul>
+<p>$$
+H(x)=\sum_{n\le x}h(n),F(x)=\sum_{n\le x}f(n),G(x)=\sum_{n\le x}g(n)
+$$</p>
+<p>则有
+$$
+H(x)=\sum_{n\le x}f(n)G(\dfrac{x}{n})=\sum_{n\le x}g(n)F(\dfrac{x}{n})
+$$</p>
+<blockquote>
+<p><strong>Proof</strong>:</p>
+<p>令
+$$
+U=
+\begin{cases}
+0&amp;,0 ,x&lt;1\
+1&amp;,x \ge 1
+\end{cases}
+$$
+于是根据广义卷积得到：$F=f\circ U,G=g \circ U$</p>
+<p>使用结合律得到
+$$
+f \circ G = f \circ(g \circ U)=(f<em>g)\circ U=H\
+g \circ F = g \circ(f \circ U)=(g</em>f)\circ U=H
+$$</p>
+</blockquote>
+<ul>
+<li>**Th2:**如果$F(x)=\sum\limits_{n\le x}f(n)$，则有</li>
+</ul>
+<p>$$
+\sum_{n\le x}\sum_{d|n}f(d)=\sum_{n\le x}f(n)[\dfrac{x}{n}]=\sum_{n\le x}F(\dfrac{x}{n})
+$$</p>
+<blockquote>
+<p><strong>Proof</strong>:</p>
+<p>我们把上面证明出来的定理中，对所有的n，$g(n)=1$，那么$G(x)=[x]$</p>
+<p>于是这个定理对应上一个定理的结论。</p>
+</blockquote>
+<ul>
+<li>**Th3:**对所有的$x\ge1$，我们有</li>
+</ul>
+<p>$$
+\sum_{n\le x}\mu(n)[\dfrac{x}{n}]=1\
+\sum_{n\le x}\Lambda(n)[\dfrac{x}{n}]=\log {[x]!}
+$$</p>
+<p>​	当且仅当$x&lt;2$时，等号成立。</p>
+<blockquote>
+<p><strong>Proof</strong>:</p>
+<p>根据定理2：
+$$
+\sum_{n\le x}\mu(n)[\dfrac{x}{n}]=\sum_{n\le x}\sum_{d|n}\mu(d)=\sum_{n\le x}[\dfrac{1}{n}]=1
+\
+\sum_{n\le x}\Lambda(n)[\dfrac{x}{n}]=\sum_{n\le x}\sum_{d|n}\Lambda(d)=\sum_{n\le x}\log n=\log{[x]!}
+$$</p>
+</blockquote>
+<ul>
+<li>**Th4:**对所有的$x\ge1$，我们有</li>
+</ul>
+<p>$$
+|\sum_{n\le x}\dfrac{\mu(n)}{n}|\le1
+$$</p>
+<p>​	当且仅当$x&lt;2$时，等号成立。</p>
+<blockquote>
+<p><strong>Proof</strong>:</p>
+<p>如果$x&lt;2$,那么这个求和里面只有一个$\mu(1)=1$</p>
+<p>假设$x\ge2$，对每个实数y，我们有${y}=y-[y]$，于是有
+$$
+\begin{align*}
+1&amp;=\sum_{n\le x}\mu(n)[\dfrac{x}{n}]=\sum_{n\le x}\mu(n)(\dfrac{x}{n}-{\dfrac{x}{n}})
+\
+&amp;=x\sum_{n\le x}\dfrac{\mu(n)}{n}-\sum_{n\le x}\mu(n){\dfrac{x}{n}}\</p>
+<p>\end{align*}
+$$
+因为$0\le {y} &lt; 1$，所以
+$$
+x|\sum_{n\le x}\dfrac{\mu(n)}{n}|=|1+\sum_{n\le x}\mu(n){\dfrac{x}{n}}|
+\ \le 1+\sum_{n\le x}{\dfrac{x}{n}} =1+{x}+\sum_{2\le n \le x}{\dfrac{x}{n}}
+\&lt; 1+{x}+[x]-1=x
+$$
+两边除x得到不等号</p>
+</blockquote>
+<ul>
+<li>
+<p><strong>Th5:</strong>（勒让德等式 Legendre&rsquo;s identity）</p>
+<p>对每一个$x\ge1$，我们有</p>
+</li>
+</ul>
+<p>$$
+[x]! = \prod_{p\le x}p^{\alpha(p)}
+$$</p>
+<p>​		其中，
+$$
+\alpha(p)=\sum_{m=1}^\infty[\dfrac{x}{p^m}]
+$$
+​		注：$\alpha(p)$的和式是有限的，因为对于$p&gt;x,\dfrac{[x]}{p^m}=0$</p>
+<blockquote>
+<p><strong>Proof</strong>:</p>
+<p>如果n不是素数幂，那么有$\Lambda(n)=0$。</p>
+<p>对于素数幂的n，有$\Lambda(p^m)=\log p$。</p>
+<p>所以
+$$
+\log{[x]!}=\sum_{n\le x}\Lambda(n)[\dfrac{x}{n}]=\sum_{p\le x}\sum_{m=1}^{\infty}[\dfrac{x}{p^m}]\log p=\sum_{p\le x}\alpha(p)\log p
+$$</p>
+</blockquote>
+<p>下面利用欧拉求和公式去确定$\log[x]!$的渐进公式。</p>
+<ul>
+<li>**Th6:**如果$x\ge2$，我们有</li>
+</ul>
+<p>$$
+\log[x]! = x\log x - x + \Omicron(\log x)
+$$</p>
+<p>同时就有
+$$
+\sum_{n\le x}\Lambda(n)[\dfrac{x}{n}]= x\log x - x + \Omicron(\log x)
+$$</p>
+<blockquote>
+<p><strong>Proof</strong>:</p>
+<p>在欧拉求和公式里取$f(t)=\log t$可以得到：
+$$
+\begin{align*}
+\sum_{n\le x}\log n&amp;=\int_{1}^x\log t{\rm d}x+\int_{1}^x\dfrac{t-[t]}{t}dt-(x-[x])\log x\
+&amp;=x\log x - x+1+\int_{1}^x\dfrac{t-[t]}{t}dt+\Omicron(\log x)
+\end{align*}
+$$
+而$\int_{1}^x\dfrac{t-[t]}{t}dt =\Omicron(\int_1^x\dfrac{1}{t}dt) =  \Omicron(\log x)$</p>
+</blockquote>
+<p>接下来是上一个定理的推论:</p>
+<ul>
+<li>**Th7:**如果$x\ge2$，我们有</li>
+</ul>
+<p>$$
+\sum_{p\le x}[\dfrac{x}{p}]\log p=x\log x+\Omicron(x)
+$$</p>
+<blockquote>
+<p><strong>Proof</strong>:</p>
+<p>如果n不是素数幂，那么有$\Lambda(n)=0$。
+$$
+\begin{align*}
+\sum_{n\le x}[\dfrac{x}{n}]\Lambda(n)&amp;=\sum_{p}\sum_{m=1}^\infty[\dfrac{x}{p^m}]\Lambda(p^m)\
+&amp;=\sum_{p}\sum_{m=1}^\infty[\dfrac{x}{p^m}]\log p\
+&amp;=\sum_{p\le x}[\dfrac{x}{p}]\log p + \sum_{p\le x}\sum_{m=2}^\infty[\dfrac{x}{p^m}]\log p
+\end{align*}
+$$
+接下来证明等式最后一项为$\Omicron(x)$
+$$
+\begin{align*}
+\sum_{p\le x}\sum_{m=2}^\infty[\dfrac{x}{p^m}]\log p
+&amp;=\sum_{p\le x}\log p\sum_{m=2}^\infty[\dfrac{x}{p^m}]\
+&amp;\le\sum_{p\le x}\log p\sum_{m=2}^\infty\dfrac{x}{p^m}\
+&amp;=x\sum_{p\le x}\log p\sum_{m=2}^\infty\dfrac({1}{p})^m\
+&amp;=x\sum_{p\le x}\dfrac{\log p}{p(p-1)}\
+&amp;\le x\sum_{n=2}^\infty\dfrac{\log n}{n(n-1)}\
+&amp;=\Omicron(x)
+\end{align*}
+$$
+于是证明了
+$$
+\sum_{n\le x}[\dfrac{x}{n}]\Lambda(n)
+=\sum_{p\le x}[\dfrac{x}{p}]\log p + \Omicron(x)
+$$
+结合上一个定理
+$$
+\sum_{n\le x}\Lambda(n)[\dfrac{x}{n}]= x\log x - x + \Omicron(\log x)
+$$
+可以得到
+$$
+\sum_{p\le x}[\dfrac{x}{p}]\log p + \Omicron(x) = x\log x - x + \Omicron(\log x)\
+\sum_{p\le x}[\dfrac{x}{p}]\log p=x\log x+\Omicron(x)
+$$</p>
+</blockquote>
+</li>
+</ul>
+
+</section>
+
+
+    <footer class="article-footer">
+    
+
+    </footer>
+
+
+    
+        <link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css"integrity="sha384-n8MVd4RsNIU0tAv4ct0nTaAbDJwPJzDEaqSD1odI&#43;WdtXRGWt2kTvGFasHpSy3SV"crossorigin="anonymous"
+            ><script 
+                src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"integrity="sha384-XjKyOOlGwcjNTAIQHIpgOno0Hl1YQqzUOEleOLALmuqehneUG&#43;vnGctmUb0ZY0l8"crossorigin="anonymous"
+                defer
+                >
+            </script><script 
+                src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js"integrity="sha384-&#43;VBxd3r6XgURycqtZ117nYw44OOcIax56Z4dCRWbxyPt0Koah1uHoK0o4&#43;/RRE05"crossorigin="anonymous"
+                defer
+                >
+            </script><script>
+    window.addEventListener("DOMContentLoaded", () => {
+        renderMathInElement(document.body, {
+            delimiters: [
+                { left: "$$", right: "$$", display: true },
+                { left: "$", right: "$", display: false },
+                { left: "\\(", right: "\\)", display: false },
+                { left: "\\[", right: "\\]", display: true }
+            ],
+            ignoredClasses: ["gist"]
+        });})
+</script>
+    
+</article>
+
+    
+
+    
+
+<aside class="related-content--wrapper">
+    <h2 class="section-title">相关文章</h2>
+    <div class="related-content">
+        <div class="flex article-list--tile">
+            
+                
+<article class="">
+    <a href="/p/%E7%B4%A0%E6%95%B0%E5%88%86%E5%B8%83%E7%9A%84%E5%9F%BA%E6%9C%AC%E5%AE%9A%E7%90%86%E4%B8%80/">
+        
+        
+
+        <div class="article-details">
+            <h2 class="article-title">素数分布的基本定理（一）</h2>
+        </div>
+    </a>
+</article>
+
+            
+                
+<article class="">
+    <a href="/p/%E8%A7%A3%E6%9E%90%E6%95%B0%E8%AE%BA%E4%B9%8B%E6%9C%89%E9%99%90%E9%98%BF%E8%B4%9D%E5%B0%94%E7%BE%A4%E5%8F%8A%E5%85%B6%E7%89%B9%E5%BE%81%E7%8B%84%E5%88%A9%E5%85%8B%E9%9B%B7%E7%89%B9%E5%BE%81/">
+        
+        
+
+        <div class="article-details">
+            <h2 class="article-title">解析数论之有限阿贝尔群及其特征、狄利克雷特征</h2>
+        </div>
+    </a>
+</article>
+
+            
+                
+<article class="">
+    <a href="/p/%E8%A7%A3%E6%9E%90%E6%95%B0%E8%AE%BA%E4%B9%8B%E5%8E%9F%E6%A0%B9/">
+        
+        
+
+        <div class="article-details">
+            <h2 class="article-title">解析数论之原根</h2>
+        </div>
+    </a>
+</article>
+
+            
+                
+<article class="">
+    <a href="/p/%E8%A7%A3%E6%9E%90%E6%95%B0%E8%AE%BA%E4%B9%8B%E6%95%B0%E8%AE%BA%E5%87%BD%E6%95%B0%E5%85%B6%E4%B8%80/">
+        
+        
+
+        <div class="article-details">
+            <h2 class="article-title">解析数论之数论函数【其一】</h2>
+        </div>
+    </a>
+</article>
+
+            
+                
+<article class="">
+    <a href="/p/unity-shader%E5%85%A5%E9%97%A8%E7%B2%BE%E8%A6%81%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0-%E7%AC%AC%E4%B8%89%E7%AB%A0-unity-shader%E5%9F%BA%E7%A1%80/">
+        
+        
+
+        <div class="article-details">
+            <h2 class="article-title">Unity Shader入门精要读书笔记 第三章 Unity Shader基础</h2>
+        </div>
+    </a>
+</article>
+
+            
+        </div>
+    </div>
+</aside>
+
+     
+    
+        
+    <script src="https://utteranc.es/client.js" 
+        repo="DorinXL/dorinxl.github.io"
+        issue-term="pathname"
+        
+        crossorigin="anonymous"
+        async
+        >
+</script>
+
+<style>
+    .utterances {
+        max-width: unset;
+    }
+</style>
+
+<script>
+    let utterancesLoaded = false;
+
+    function setUtterancesTheme(theme) {
+        let utterances = document.querySelector('.utterances iframe');
+        if (utterances) {
+            utterances.contentWindow.postMessage(
+                {
+                    type: 'set-theme',
+                    theme: `github-${theme}`
+                },
+                'https://utteranc.es'
+            );
+        }
+    }
+
+    addEventListener('message', event => {
+        if (event.origin !== 'https://utteranc.es') return;
+
+        
+        utterancesLoaded = true;
+        setUtterancesTheme(document.documentElement.dataset.scheme)
+    });
+
+    window.addEventListener('onColorSchemeChange', (e) => {
+        if (!utterancesLoaded) return;
+        setUtterancesTheme(e.detail)
+    })
+</script>
+
+
+    
+
+    <footer class="site-footer">
+    <section class="copyright">
+        &copy; 
+        
+        2024 荡影-DorinXL
+    </section>
+
+
+
+<section class="totalcount">
+    
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+    发表了76篇文章 · 
+    总计103.89k字
+</section>
+
+
+
+<section class="running-time">
+本博客已稳定运行
+<span id="runningdays" class="running-days"></span>
+</section>
+
+    <section class="powerby">
+        使用 <a href="https://gohugo.io/" target="_blank" rel="noopener">Hugo</a> 构建 <br />
+        主题 <b><a href="https://github.com/CaiJimmy/hugo-theme-stack" target="_blank" rel="noopener" data-version="3.26.0">Stack</a></b> 由 <a href="https://jimmycai.com" target="_blank" rel="noopener">Jimmy</a> 设计
+    </section>
+
+</footer>
+
+
+    
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+    
+    <div class="pswp__bg"></div>
+
+    
+    <div class="pswp__scroll-wrap">
+
+        
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+
+        
+        <div class="pswp__ui pswp__ui--hidden">
+
+            <div class="pswp__top-bar">
+
+                
+
+                <div class="pswp__counter"></div>
+
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+                
+                
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                        <div class="pswp__preloader__cut">
+                            <div class="pswp__preloader__donut"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div>
+            </div>
+
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div><script 
+                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.js"integrity="sha256-ePwmChbbvXbsO02lbM3HoHbSHTHFAeChekF1xKJdleo="crossorigin="anonymous"
+                defer
+                >
+            </script><script 
+                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe-ui-default.min.js"integrity="sha256-UKkzOn/w1mBxRmLLGrSeyB4e1xbrp4xylgAWb3M42pU="crossorigin="anonymous"
+                defer
+                >
+            </script><link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/default-skin/default-skin.min.css"crossorigin="anonymous"
+            ><link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.css"crossorigin="anonymous"
+            >
+
+            </main>
+        </div>
+        <script 
+                src="https://cdn.jsdelivr.net/npm/node-vibrant@3.1.6/dist/vibrant.min.js"integrity="sha256-awcR2jno4kI5X0zL8ex0vi2z&#43;KMkF24hUW8WePSA9HM="crossorigin="anonymous"
+                
+                >
+            </script><script type="text/javascript" src="/ts/main.js" defer></script>
+<script>
+    (function () {
+        const customFont = document.createElement('link');
+        customFont.href = "https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap";
+
+        customFont.type = "text/css";
+        customFont.rel = "stylesheet";
+
+        document.head.appendChild(customFont);
+    }());
+</script>
+
+<script>
+    let s1 = '2024-8-25'; 
+    s1 = new Date(s1.replace(/-/g, "/"));
+    let s2 = new Date();
+    let timeDifference = s2.getTime() - s1.getTime();
+
+    let days = Math.floor(timeDifference / (1000 * 60 * 60 * 24));
+    let hours = Math.floor((timeDifference % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+    let minutes = Math.floor((timeDifference % (1000 * 60 * 60)) / (1000 * 60));
+
+    let result = days + "天" + hours + "小时" + minutes + "分钟";
+    document.getElementById('runningdays').innerHTML = result;
+</script>
+    </body>
+</html>

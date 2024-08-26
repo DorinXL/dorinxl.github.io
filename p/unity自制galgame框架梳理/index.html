@@ -1,0 +1,961 @@
+<!DOCTYPE html>
+<html lang="zh-cn" dir="ltr">
+    <head><meta charset='utf-8'>
+<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content="剪不断，理还乱">
+<title>【Unity】自制GalGame框架梳理</title>
+
+<link rel='canonical' href='https://dorinxl.github.io/p/unity%E8%87%AA%E5%88%B6galgame%E6%A1%86%E6%9E%B6%E6%A2%B3%E7%90%86/'>
+
+<link rel="stylesheet" href="/scss/style.min.dfb009e658ec6e0f0f0c366b98658c0caea5123dcd2536f353c92c2581b79fb7.css"><meta property='og:title' content="【Unity】自制GalGame框架梳理">
+<meta property='og:description' content="剪不断，理还乱">
+<meta property='og:url' content='https://dorinxl.github.io/p/unity%E8%87%AA%E5%88%B6galgame%E6%A1%86%E6%9E%B6%E6%A2%B3%E7%90%86/'>
+<meta property='og:site_name' content='荡影-DorinXL'>
+<meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:published_time' content='2021-04-04T09:17:00&#43;00:00'/><meta property='article:modified_time' content='2021-04-04T09:17:00&#43;00:00'/>
+<meta name="twitter:title" content="【Unity】自制GalGame框架梳理">
+<meta name="twitter:description" content="剪不断，理还乱">
+    <link rel="shortcut icon" href="/favicon.ico" />
+
+  
+
+
+    </head>
+    <body class="
+    article-page
+    ">
+    <script>
+        (function() {
+            const colorSchemeKey = 'StackColorScheme';
+            if(!localStorage.getItem(colorSchemeKey)){
+                localStorage.setItem(colorSchemeKey, "auto");
+            }
+        })();
+    </script><script>
+    (function() {
+        const colorSchemeKey = 'StackColorScheme';
+        const colorSchemeItem = localStorage.getItem(colorSchemeKey);
+        const supportDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches === true;
+
+        if (colorSchemeItem == 'dark' || colorSchemeItem === 'auto' && supportDarkMode) {
+            
+
+            document.documentElement.dataset.scheme = 'dark';
+        } else {
+            document.documentElement.dataset.scheme = 'light';
+        }
+    })();
+</script>
+<div class="container main-container flex on-phone--column extended"><aside class="sidebar left-sidebar sticky ">
+    <button class="hamburger hamburger--spin" type="button" id="toggle-menu" aria-label="切换菜单">
+        <span class="hamburger-box">
+            <span class="hamburger-inner"></span>
+        </span>
+    </button>
+
+    <header>
+        
+            
+            <figure class="site-avatar">
+                <a href="/">
+                
+                    
+                    
+                    
+                        
+                        <img src="/img/avatar_hu6744900124519508638.png" width="300"
+                            height="283" class="site-logo" loading="lazy" alt="Avatar">
+                    
+                
+                </a>
+                
+                    <span class="emoji">🔥</span>
+                
+            </figure>
+            
+        
+        
+        <div class="site-meta">
+            <h1 class="site-name"><a href="/">荡影-DorinXL</a></h1>
+            <h2 class="site-description">缄默慎独，不破不立，事在人为</h2>
+        </div>
+    </header><ol class="menu-social">
+            
+                <li>
+                    <a 
+                        href='https://space.bilibili.com/3217550'
+                        target="_blank"
+                        title="BilBili"
+                        rel="me"
+                    >
+                        
+                        
+                            <svg  xmlns="http://www.w3.org/2000/svg"  width="24"  height="24"  viewBox="0 0 24 24"  fill="none"  stroke="currentColor"  stroke-width="2"  stroke-linecap="round"  stroke-linejoin="round"  class="icon icon-tabler icons-tabler-outline icon-tabler-brand-bilibili"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M3 10a4 4 0 0 1 4 -4h10a4 4 0 0 1 4 4v6a4 4 0 0 1 -4 4h-10a4 4 0 0 1 -4 -4v-6z" /><path d="M8 3l2 3" /><path d="M16 3l-2 3" /><path d="M9 13v-2" /><path d="M15 11v2" /></svg>
+                        
+                    </a>
+                </li>
+            
+                <li>
+                    <a 
+                        href='https://www.cnblogs.com/DorinXL/'
+                        target="_blank"
+                        title="CNblog"
+                        rel="me"
+                    >
+                        
+                        
+                            <svg  xmlns="http://www.w3.org/2000/svg"  width="24"  height="24"  viewBox="0 0 24 24"  fill="none"  stroke="currentColor"  stroke-width="2"  stroke-linecap="round"  stroke-linejoin="round"  class="icon icon-tabler icons-tabler-outline icon-tabler-brand-blogger"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M8 21h8a5 5 0 0 0 5 -5v-3a3 3 0 0 0 -3 -3h-1v-2a5 5 0 0 0 -5 -5h-4a5 5 0 0 0 -5 5v8a5 5 0 0 0 5 5z" /><path d="M7 7m0 1.5a1.5 1.5 0 0 1 1.5 -1.5h3a1.5 1.5 0 0 1 1.5 1.5v0a1.5 1.5 0 0 1 -1.5 1.5h-3a1.5 1.5 0 0 1 -1.5 -1.5z" /><path d="M7 14m0 1.5a1.5 1.5 0 0 1 1.5 -1.5h7a1.5 1.5 0 0 1 1.5 1.5v0a1.5 1.5 0 0 1 -1.5 1.5h-7a1.5 1.5 0 0 1 -1.5 -1.5z" /></svg>
+                        
+                    </a>
+                </li>
+            
+                <li>
+                    <a 
+                        href='https://github.com/DorinXL/DorinXL.github.io'
+                        target="_blank"
+                        title="GitHub"
+                        rel="me"
+                    >
+                        
+                        
+                            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-brand-github" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+  <path d="M9 19c-4.3 1.4 -4.3 -2.5 -6 -3m12 5v-3.5c0 -1 .1 -1.4 -.5 -2c2.8 -.3 5.5 -1.4 5.5 -6a4.6 4.6 0 0 0 -1.3 -3.2a4.2 4.2 0 0 0 -.1 -3.2s-1.1 -.3 -3.5 1.3a12.3 12.3 0 0 0 -6.2 0c-2.4 -1.6 -3.5 -1.3 -3.5 -1.3a4.2 4.2 0 0 0 -.1 3.2a4.6 4.6 0 0 0 -1.3 3.2c0 4.6 2.7 5.7 5.5 6c-.6 .6 -.6 1.2 -.5 2v3.5" />
+</svg>
+
+
+
+                        
+                    </a>
+                </li>
+            
+        </ol><ol class="menu" id="main-menu">
+        
+        
+        
+        <li >
+            <a href='/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-home" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <polyline points="5 12 3 12 12 3 21 12 19 12" />
+  <path d="M5 12v7a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-7" />
+  <path d="M9 21v-6a2 2 0 0 1 2 -2h2a2 2 0 0 1 2 2v6" />
+</svg>
+
+
+
+                
+                <span>主页</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/%E5%85%B3%E4%BA%8E/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-user" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="7" r="4" />
+  <path d="M6 21v-2a4 4 0 0 1 4 -4h4a4 4 0 0 1 4 4v2" />
+</svg>
+
+
+
+                
+                <span>关于</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/archives/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-archive" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <rect x="3" y="4" width="18" height="4" rx="2" />
+  <path d="M5 8v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-10" />
+  <line x1="10" y1="12" x2="14" y2="12" />
+</svg>
+
+
+
+                
+                <span>归档</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/search/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-search" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="10" cy="10" r="7" />
+  <line x1="21" y1="21" x2="15" y2="15" />
+</svg>
+
+
+
+                
+                <span>搜索</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/%E5%8F%8B%E9%93%BE/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-link" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <path d="M10 14a3.5 3.5 0 0 0 5 0l4 -4a3.5 3.5 0 0 0 -5 -5l-.5 .5" />
+  <path d="M14 10a3.5 3.5 0 0 0 -5 0l-4 4a3.5 3.5 0 0 0 5 5l.5 -.5" />
+</svg>
+
+
+
+                
+                <span>友链</span>
+            </a>
+        </li>
+        
+        <li class="menu-bottom-section">
+            <ol class="menu">
+
+                
+                    <li id="dark-mode-toggle">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-left" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="8" cy="12" r="2" />
+  <rect x="2" y="6" width="20" height="12" rx="6" />
+</svg>
+
+
+
+                        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-right" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="16" cy="12" r="2" />
+  <rect x="2" y="6" width="20" height="12" rx="6" />
+</svg>
+
+
+
+                        <span>暗色模式</span>
+                    </li>
+                
+            </ol>
+        </li>
+    </ol>
+</aside>
+
+    <aside class="sidebar right-sidebar sticky">
+        
+            
+                
+    <section class="widget archives">
+        <div class="widget-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-hash" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <line x1="5" y1="9" x2="19" y2="9" />
+  <line x1="5" y1="15" x2="19" y2="15" />
+  <line x1="11" y1="4" x2="7" y2="20" />
+  <line x1="17" y1="4" x2="13" y2="20" />
+</svg>
+
+
+
+        </div>
+        <h2 class="widget-title section-title">目录</h2>
+        
+        <div class="widget--toc">
+            <nav id="TableOfContents">
+  <ol>
+    <li><a href="#菜单场景">菜单场景：</a></li>
+    <li><a href="#cg场景">CG场景：</a></li>
+    <li><a href="#游戏场景">游戏场景：</a>
+      <ol>
+        <li><a href="#游戏场景初始化cs">游戏场景初始化.cs</a></li>
+        <li><a href="#游戏场景cs">游戏场景.cs</a></li>
+        <li><a href="#剧本读取与解析cs">剧本读取与解析.cs</a></li>
+        <li><a href="#存档管理cs">存档管理.cs</a></li>
+      </ol>
+    </li>
+    <li><a href="#存读取存档场景">存读取存档场景：</a>
+      <ol>
+        <li><a href="#存档场景管理cs">存档场景管理.cs</a></li>
+        <li><a href="#读档cs">读档.cs</a></li>
+        <li><a href="#存档cs">存档.cs</a></li>
+      </ol>
+    </li>
+    <li><a href="#场景衔接">场景衔接</a></li>
+    <li><a href="#成品gif">成品GIF</a></li>
+  </ol>
+</nav>
+        </div>
+    </section>
+
+            
+        
+    </aside>
+
+
+            <main class="main full-width">
+    <article class="main-article">
+    <header class="article-header">
+
+    <div class="article-details">
+    
+    <header class="article-category">
+        
+            <a href="/categories/%E6%B8%B8%E6%88%8F%E5%BC%80%E5%8F%91/" >
+                游戏开发
+            </a>
+        
+    </header>
+    
+
+    <div class="article-title-wrapper">
+        <h2 class="article-title">
+            <a href="/p/unity%E8%87%AA%E5%88%B6galgame%E6%A1%86%E6%9E%B6%E6%A2%B3%E7%90%86/">【Unity】自制GalGame框架梳理</a>
+        </h2>
+    
+        
+        <h3 class="article-subtitle">
+            剪不断，理还乱
+        </h3>
+        
+    </div>
+
+
+    
+    
+    
+    
+    <footer class="article-time">
+        
+            <div>
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-calendar-time" width="56" height="56" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <path d="M11.795 21h-6.795a2 2 0 0 1 -2 -2v-12a2 2 0 0 1 2 -2h12a2 2 0 0 1 2 2v4" />
+  <circle cx="18" cy="18" r="4" />
+  <path d="M15 3v4" />
+  <path d="M7 3v4" />
+  <path d="M3 11h16" />
+  <path d="M18 16.496v1.504l1 1" />
+</svg>
+                <time class="article-time--published">2021-04-04</time>
+            </div>
+	
+
+        
+
+        
+    </footer>
+    
+
+    
+
+</div>
+
+</header>
+
+    <section class="article-content">
+    
+    
+    <h1 id="框架梳理">框架梳理
+</h1><p>目前分为五块：菜单场景、游戏场景、CG场景、存读取存档场景、场景衔接。
+ 
+未来添加的一些功能：游戏设置界面、游戏过程中的读档等UI、程序和剧情分离，供编剧测试的插件、对话回顾等。
+ 
+个人学习作品，仅供参考，两周匆忙赶出，代码水平不高，还望见笑。
+ 
+ </p>
+<h2 id="菜单场景">菜单场景：
+</h2><p>主要功能：作为菜单，为不同按钮绑定切换场景的事件。</p>
+<p>主要函数：</p>
+<p>Awake()：为各个button绑定事件</p>
+<p>OpenGame()：切换场景到游戏场景</p>
+<p>OpenCG()：切换场景到查看cg</p>
+<p>OpenFiles()：切换场景到读取存档</p>
+<p>ExitGame()：退出游戏</p>
+<h2 id="cg场景">CG场景：
+</h2><p>主要功能：提供可以查看cg图像或是人物简介等游戏内容的场景，目前只能查看cg图像</p>
+<p>主要函数：</p>
+<p>存在GlobalSetting.CGShows[]变量存放在GlobalSetting.cs中，作为是否解锁cg图的参考。</p>
+<p>Start()： 通过读取GlobalSetting.cs中的全局变量来判定是否给图像解锁。</p>
+<p>Update()：检测是否打开了cg图像，如果打开了cg的话点击任意位置退出</p>
+<p>BackToMenu()：返回到主界面</p>
+<p>ShowCG()：打开panel，显示cg</p>
+<p>【暂留问题】：每次重新启动游戏时，全局变量重置，需要在其他地方另外保存数据
+ 
+ </p>
+<h2 id="游戏场景">游戏场景：
+</h2><h3 id="游戏场景初始化cs">游戏场景初始化.cs
+</h3><p>在Awake()中读取存档，若不为空则提前初始化gamescene</p>
+<h3 id="游戏场景cs">游戏场景.cs
+</h3><p>主要功能：提供游戏界面的显示，根据剧本推进剧情。提供存档读档。有一个渐入渐出状态机。</p>
+<p><img src="/p/unity%E8%87%AA%E5%88%B6galgame%E6%A1%86%E6%9E%B6%E6%A2%B3%E7%90%86/1858293-20210404170355093-1429446084.png"
+	width="574"
+	height="407"
+	srcset="/p/unity%E8%87%AA%E5%88%B6galgame%E6%A1%86%E6%9E%B6%E6%A2%B3%E7%90%86/1858293-20210404170355093-1429446084_hu17181300484585710495.png 480w, /p/unity%E8%87%AA%E5%88%B6galgame%E6%A1%86%E6%9E%B6%E6%A2%B3%E7%90%86/1858293-20210404170355093-1429446084_hu3877133373653893625.png 1024w"
+	loading="lazy"
+	
+		alt="image-20210404164741671"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="141"
+		data-flex-basis="338px"
+	
+></p>
+<p>主要函数：</p>
+<p>Start()：初始化，调用Init()函数</p>
+<p>Update()：检测到点击则开始下一条剧情，同时提供图片的淡入淡出功能</p>
+<p>Init()：一些参数的定义（淡入淡出的状态等），绑定按钮事件</p>
+<p>ShowFileSave()：调用之后出现存档的panel</p>
+<p>SetBackground(string bgName)：传入名字从resources中调出背景图片并显示</p>
+<p>DelBackground()：渐出背景图片</p>
+<p>SetCharaImage(string charaName, string pos)：传入名字和位置从resources中调出人物图片并在左或右侧显示</p>
+<p>DelCharaImage(string pos)：渐出人物图片</p>
+<p>FadeInImg(Image img)：渐入图片需要调用的函数，修改渐入渐出状态机</p>
+<p>FadeOutImg(Image img)：渐出图片需要调用的函数，修改渐入渐出状态机</p>
+<p>UpdateColorAlpha()：在渐入渐出状态机执行的时候进行图片的alpha检测和切换，alpha&gt;1或&lt;0时切换状态</p>
+<p>UpdateColorAlphaRightNow()：在图片渐入渐出的时候如果鼠标点击，则立刻修改状态并完全渐入/渐出图片（即图片的透明度立刻变为0或1）</p>
+<p>SetDialogText(string name,string content)：对话框的姓名和内容</p>
+<p>SetTalkingChara(string pos)：调整正在说话的人物的图片透明度，突出对话的主体人物</p>
+<p>SetMusic(string bgmName)：传入名字从resources中调出音乐并播放</p>
+<p>BackToMenu()：返回主菜单</p>
+<p>SetCharaImageFromFile(string charaName, string pos)：从存档中进入时，传入名字和位置从resources中调出人物图片并在左或右侧显示</p>
+<p>SetBackgroundFromFile(string bgName)：从存档中进入时，传入名字从resources中调出背景图片并显示</p>
+<p>【存在问题】：这里十分臃肿，只有写出这个的人（我）才能理解大概。</p>
+<h3 id="剧本读取与解析cs">剧本读取与解析.cs
+</h3><p>主要功能：读取剧本存入对应的数据结构中并解析，反馈给游戏界面。有一个剧情状态机</p>
+<p><img src="/p/unity%E8%87%AA%E5%88%B6galgame%E6%A1%86%E6%9E%B6%E6%A2%B3%E7%90%86/1858293-20210404170358188-1334500693.png"
+	width="523"
+	height="442"
+	srcset="/p/unity%E8%87%AA%E5%88%B6galgame%E6%A1%86%E6%9E%B6%E6%A2%B3%E7%90%86/1858293-20210404170358188-1334500693_hu9993723471173240850.png 480w, /p/unity%E8%87%AA%E5%88%B6galgame%E6%A1%86%E6%9E%B6%E6%A2%B3%E7%90%86/1858293-20210404170358188-1334500693_hu15319469634875121109.png 1024w"
+	loading="lazy"
+	
+		alt="image-20210404165526955"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="118"
+		data-flex-basis="283px"
+	
+></p>
+<p>主要函数：</p>
+<p>Start()：读取剧本文件并存入到自定义数据类型ItemManager中</p>
+<p>Update()：剧情状态检测</p>
+<p>Clicked()：鼠标点击事件，可以切换状态</p>
+<p>StartAVG()：初始化状态机</p>
+<p>GoToState(STAGE next)：提供状态，切换到该状态</p>
+<p>PraseNextLine()：分析下一行剧情命令，并传入对应的函数</p>
+<p>DealWithCommand(Line tmpLine)：按照Command剧情命令执行</p>
+<p>CheckTypingFinished()：检查对话时是否说完</p>
+<p>DealWithText(Line tmpLine)：按照Text剧情命令执行</p>
+<p>UpdateContentString()：按帧更新对话框内容，实现打字机的效果</p>
+<p>UpdateAllString()：在打字机打字的过程中若是再次点击鼠标则一次性显示未说完的所有内容。</p>
+<h3 id="存档管理cs">存档管理.cs
+</h3><p>Start()：绑定按钮事件，创造文件路径</p>
+<p>ClosePanel()：关闭存档panel</p>
+<p>PackingData(SaveData sd1)：打包存档数据</p>
+<p>WriteData(StreamWriter temp)：写入存档</p>
+<p>ClickSave()：点击存档按钮即可存档。</p>
+<p> 
+ </p>
+<h2 id="存读取存档场景">存读取存档场景：
+</h2><h3 id="存档场景管理cs">存档场景管理.cs
+</h3><p>主要功能：再打开存档场景时加载存档，并提供入口进入游戏。</p>
+<p>主要函数：Start()、BackToMenu()、LoadData()</p>
+<p>Start()：读取存档文件并绑定按钮事件</p>
+<p>BackToMenu()：返回主菜单</p>
+<p>LoadData()：加载存档并进入游戏</p>
+<h3 id="读档cs">读档.cs
+</h3><p>Awake()：单例模式</p>
+<p>WriteSceneData(List&lt;string[]&gt; data)：将存档写入列队，方便加载游戏场景的时候读取</p>
+<p>ReadSceneData()：在gameseceninit中读取存档列队</p>
+<p>ToGameScene(string[] SaveFile)：跳转到游戏场景</p>
+<h3 id="存档cs">存档.cs
+</h3><p>自定义数据结构，存放着存档和读档需要的数据，包括剧情脚本行数、对话、背景、音乐等。</p>
+<p> 
+ </p>
+<h2 id="场景衔接">场景衔接
+</h2><p>例如背景音乐在主菜单和存档场景切换时不会停掉、画面的渐入渐出。</p>
+<p>背景音乐的控制：</p>
+<ol>
+<li>
+<p>建立一个循环音乐的预制体，这个预制体上挂载一个DontDestroyOnLoad的脚本。</p>
+</li>
+<li>
+<p>在需要播放背景音乐的几个场景挂载另一个GlobalUIMusic.cs，这个脚本为单例模式，如果存在则不产生新的，如果不存在则实例化预制体。
+ 
+ </p>
+</li>
+</ol>
+<h2 id="成品gif">成品GIF
+</h2><p><img src="/p/unity%E8%87%AA%E5%88%B6galgame%E6%A1%86%E6%9E%B6%E6%A2%B3%E7%90%86/1858293-20210404171556588-791284151.gif"
+	width="1165"
+	height="547"
+	srcset="/p/unity%E8%87%AA%E5%88%B6galgame%E6%A1%86%E6%9E%B6%E6%A2%B3%E7%90%86/1858293-20210404171556588-791284151_hu17152501095760284653.gif 480w, /p/unity%E8%87%AA%E5%88%B6galgame%E6%A1%86%E6%9E%B6%E6%A2%B3%E7%90%86/1858293-20210404171556588-791284151_hu14626753662874542769.gif 1024w"
+	loading="lazy"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="212"
+		data-flex-basis="511px"
+	
+></p>
+
+</section>
+
+
+    <footer class="article-footer">
+    
+
+    </footer>
+
+
+    
+</article>
+
+    
+
+    
+
+<aside class="related-content--wrapper">
+    <h2 class="section-title">相关文章</h2>
+    <div class="related-content">
+        <div class="flex article-list--tile">
+            
+                
+<article class="">
+    <a href="/p/%E4%BD%BF%E7%94%A8mixamo%E4%B8%BAobj%E6%96%87%E4%BB%B6%E7%BB%91%E9%AA%A8%E5%B9%B6%E5%AF%BC%E5%85%A5unity/">
+        
+        
+
+        <div class="article-details">
+            <h2 class="article-title">使用mixamo为obj文件绑骨并导入unity</h2>
+        </div>
+    </a>
+</article>
+
+            
+                
+<article class="">
+    <a href="/p/unity-shader%E5%85%A5%E9%97%A8%E7%B2%BE%E8%A6%81%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0-%E7%AC%AC%E4%B8%89%E7%AB%A0-unity-shader%E5%9F%BA%E7%A1%80/">
+        
+        
+
+        <div class="article-details">
+            <h2 class="article-title">Unity Shader入门精要读书笔记 第三章 Unity Shader基础</h2>
+        </div>
+    </a>
+</article>
+
+            
+                
+<article class="">
+    <a href="/p/2022javaweb%E8%AF%BE%E8%AE%BE%E5%9F%BA%E4%BA%8E%E8%B4%AD%E7%89%A9%E7%B3%BB%E7%BB%9F%E7%9A%84%E6%B8%B8%E6%88%8F%E5%8E%9F%E5%9E%8B%E8%AE%BE%E8%AE%A1/">
+        
+        
+
+        <div class="article-details">
+            <h2 class="article-title">【2022javaweb课设】基于购物系统的游戏原型设计</h2>
+        </div>
+    </a>
+</article>
+
+            
+                
+<article class="">
+    <a href="/p/%E5%BC%80%E5%8F%91%E5%A4%8D%E7%9B%982021%E7%BD%91%E6%98%93%E6%B8%B8%E6%88%8F%E9%AB%98%E6%A0%A1mini-game%E6%8C%91%E6%88%98%E8%B5%9B%E4%BD%9C%E5%93%81%E6%88%8F%E5%B9%95%E6%9C%AA%E8%90%BD/">
+        
+        
+
+        <div class="article-details">
+            <h2 class="article-title">【开发复盘】2021网易游戏高校MINI-GAME挑战赛作品《戏幕未落》</h2>
+        </div>
+    </a>
+</article>
+
+            
+                
+<article class="">
+    <a href="/p/gamejam%E6%9C%BA%E6%A0%B8%E7%BD%91booom%E6%B8%B8%E6%88%8F%E5%88%9B%E4%BD%9C%E6%8C%91%E6%88%98%E5%BC%80%E5%8F%91%E5%A4%8D%E7%9B%98/">
+        
+        
+
+        <div class="article-details">
+            <h2 class="article-title">【GameJam】机核网BOOOM游戏创作挑战开发复盘</h2>
+        </div>
+    </a>
+</article>
+
+            
+        </div>
+    </div>
+</aside>
+
+     
+    
+        
+    <script src="https://utteranc.es/client.js" 
+        repo="DorinXL/dorinxl.github.io"
+        issue-term="pathname"
+        
+        crossorigin="anonymous"
+        async
+        >
+</script>
+
+<style>
+    .utterances {
+        max-width: unset;
+    }
+</style>
+
+<script>
+    let utterancesLoaded = false;
+
+    function setUtterancesTheme(theme) {
+        let utterances = document.querySelector('.utterances iframe');
+        if (utterances) {
+            utterances.contentWindow.postMessage(
+                {
+                    type: 'set-theme',
+                    theme: `github-${theme}`
+                },
+                'https://utteranc.es'
+            );
+        }
+    }
+
+    addEventListener('message', event => {
+        if (event.origin !== 'https://utteranc.es') return;
+
+        
+        utterancesLoaded = true;
+        setUtterancesTheme(document.documentElement.dataset.scheme)
+    });
+
+    window.addEventListener('onColorSchemeChange', (e) => {
+        if (!utterancesLoaded) return;
+        setUtterancesTheme(e.detail)
+    })
+</script>
+
+
+    
+
+    <footer class="site-footer">
+    <section class="copyright">
+        &copy; 
+        
+        2024 荡影-DorinXL
+    </section>
+
+
+
+<section class="totalcount">
+    
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+    发表了76篇文章 · 
+    总计103.89k字
+</section>
+
+
+
+<section class="running-time">
+本博客已稳定运行
+<span id="runningdays" class="running-days"></span>
+</section>
+
+    <section class="powerby">
+        使用 <a href="https://gohugo.io/" target="_blank" rel="noopener">Hugo</a> 构建 <br />
+        主题 <b><a href="https://github.com/CaiJimmy/hugo-theme-stack" target="_blank" rel="noopener" data-version="3.26.0">Stack</a></b> 由 <a href="https://jimmycai.com" target="_blank" rel="noopener">Jimmy</a> 设计
+    </section>
+
+</footer>
+
+
+    
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+    
+    <div class="pswp__bg"></div>
+
+    
+    <div class="pswp__scroll-wrap">
+
+        
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+
+        
+        <div class="pswp__ui pswp__ui--hidden">
+
+            <div class="pswp__top-bar">
+
+                
+
+                <div class="pswp__counter"></div>
+
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+                
+                
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                        <div class="pswp__preloader__cut">
+                            <div class="pswp__preloader__donut"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div>
+            </div>
+
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div><script 
+                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.js"integrity="sha256-ePwmChbbvXbsO02lbM3HoHbSHTHFAeChekF1xKJdleo="crossorigin="anonymous"
+                defer
+                >
+            </script><script 
+                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe-ui-default.min.js"integrity="sha256-UKkzOn/w1mBxRmLLGrSeyB4e1xbrp4xylgAWb3M42pU="crossorigin="anonymous"
+                defer
+                >
+            </script><link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/default-skin/default-skin.min.css"crossorigin="anonymous"
+            ><link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.css"crossorigin="anonymous"
+            >
+
+            </main>
+        </div>
+        <script 
+                src="https://cdn.jsdelivr.net/npm/node-vibrant@3.1.6/dist/vibrant.min.js"integrity="sha256-awcR2jno4kI5X0zL8ex0vi2z&#43;KMkF24hUW8WePSA9HM="crossorigin="anonymous"
+                
+                >
+            </script><script type="text/javascript" src="/ts/main.js" defer></script>
+<script>
+    (function () {
+        const customFont = document.createElement('link');
+        customFont.href = "https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap";
+
+        customFont.type = "text/css";
+        customFont.rel = "stylesheet";
+
+        document.head.appendChild(customFont);
+    }());
+</script>
+
+<script>
+    let s1 = '2024-8-25'; 
+    s1 = new Date(s1.replace(/-/g, "/"));
+    let s2 = new Date();
+    let timeDifference = s2.getTime() - s1.getTime();
+
+    let days = Math.floor(timeDifference / (1000 * 60 * 60 * 24));
+    let hours = Math.floor((timeDifference % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+    let minutes = Math.floor((timeDifference % (1000 * 60 * 60)) / (1000 * 60));
+
+    let result = days + "天" + hours + "小时" + minutes + "分钟";
+    document.getElementById('runningdays').innerHTML = result;
+</script>
+    </body>
+</html>

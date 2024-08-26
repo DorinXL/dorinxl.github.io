@@ -1,0 +1,1262 @@
+<!DOCTYPE html>
+<html lang="zh-cn" dir="ltr">
+    <head><meta charset='utf-8'>
+<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content="学校信安协会第一次培训结束后的作业，要求把攻防世界的web新手区题目做一遍并写题解。 第一题 view_source 查看源代码右键不能用，但是F12能用，于是找到源">
+<title>攻防世界web新手区做题记录</title>
+
+<link rel='canonical' href='https://dorinxl.github.io/p/%E6%94%BB%E9%98%B2%E4%B8%96%E7%95%8Cweb%E6%96%B0%E6%89%8B%E5%8C%BA%E5%81%9A%E9%A2%98%E8%AE%B0%E5%BD%95/'>
+
+<link rel="stylesheet" href="/scss/style.min.dfb009e658ec6e0f0f0c366b98658c0caea5123dcd2536f353c92c2581b79fb7.css"><meta property='og:title' content="攻防世界web新手区做题记录">
+<meta property='og:description' content="学校信安协会第一次培训结束后的作业，要求把攻防世界的web新手区题目做一遍并写题解。 第一题 view_source 查看源代码右键不能用，但是F12能用，于是找到源">
+<meta property='og:url' content='https://dorinxl.github.io/p/%E6%94%BB%E9%98%B2%E4%B8%96%E7%95%8Cweb%E6%96%B0%E6%89%8B%E5%8C%BA%E5%81%9A%E9%A2%98%E8%AE%B0%E5%BD%95/'>
+<meta property='og:site_name' content='荡影-DorinXL'>
+<meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:published_time' content='2019-11-05T14:08:00&#43;00:00'/><meta property='article:modified_time' content='2019-11-05T14:08:00&#43;00:00'/>
+<meta name="twitter:title" content="攻防世界web新手区做题记录">
+<meta name="twitter:description" content="学校信安协会第一次培训结束后的作业，要求把攻防世界的web新手区题目做一遍并写题解。 第一题 view_source 查看源代码右键不能用，但是F12能用，于是找到源">
+    <link rel="shortcut icon" href="/favicon.ico" />
+
+  
+
+
+    </head>
+    <body class="
+    article-page
+    ">
+    <script>
+        (function() {
+            const colorSchemeKey = 'StackColorScheme';
+            if(!localStorage.getItem(colorSchemeKey)){
+                localStorage.setItem(colorSchemeKey, "auto");
+            }
+        })();
+    </script><script>
+    (function() {
+        const colorSchemeKey = 'StackColorScheme';
+        const colorSchemeItem = localStorage.getItem(colorSchemeKey);
+        const supportDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches === true;
+
+        if (colorSchemeItem == 'dark' || colorSchemeItem === 'auto' && supportDarkMode) {
+            
+
+            document.documentElement.dataset.scheme = 'dark';
+        } else {
+            document.documentElement.dataset.scheme = 'light';
+        }
+    })();
+</script>
+<div class="container main-container flex on-phone--column extended"><aside class="sidebar left-sidebar sticky ">
+    <button class="hamburger hamburger--spin" type="button" id="toggle-menu" aria-label="切换菜单">
+        <span class="hamburger-box">
+            <span class="hamburger-inner"></span>
+        </span>
+    </button>
+
+    <header>
+        
+            
+            <figure class="site-avatar">
+                <a href="/">
+                
+                    
+                    
+                    
+                        
+                        <img src="/img/avatar_hu6744900124519508638.png" width="300"
+                            height="283" class="site-logo" loading="lazy" alt="Avatar">
+                    
+                
+                </a>
+                
+                    <span class="emoji">🔥</span>
+                
+            </figure>
+            
+        
+        
+        <div class="site-meta">
+            <h1 class="site-name"><a href="/">荡影-DorinXL</a></h1>
+            <h2 class="site-description">缄默慎独，不破不立，事在人为</h2>
+        </div>
+    </header><ol class="menu-social">
+            
+                <li>
+                    <a 
+                        href='https://space.bilibili.com/3217550'
+                        target="_blank"
+                        title="BilBili"
+                        rel="me"
+                    >
+                        
+                        
+                            <svg  xmlns="http://www.w3.org/2000/svg"  width="24"  height="24"  viewBox="0 0 24 24"  fill="none"  stroke="currentColor"  stroke-width="2"  stroke-linecap="round"  stroke-linejoin="round"  class="icon icon-tabler icons-tabler-outline icon-tabler-brand-bilibili"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M3 10a4 4 0 0 1 4 -4h10a4 4 0 0 1 4 4v6a4 4 0 0 1 -4 4h-10a4 4 0 0 1 -4 -4v-6z" /><path d="M8 3l2 3" /><path d="M16 3l-2 3" /><path d="M9 13v-2" /><path d="M15 11v2" /></svg>
+                        
+                    </a>
+                </li>
+            
+                <li>
+                    <a 
+                        href='https://www.cnblogs.com/DorinXL/'
+                        target="_blank"
+                        title="CNblog"
+                        rel="me"
+                    >
+                        
+                        
+                            <svg  xmlns="http://www.w3.org/2000/svg"  width="24"  height="24"  viewBox="0 0 24 24"  fill="none"  stroke="currentColor"  stroke-width="2"  stroke-linecap="round"  stroke-linejoin="round"  class="icon icon-tabler icons-tabler-outline icon-tabler-brand-blogger"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M8 21h8a5 5 0 0 0 5 -5v-3a3 3 0 0 0 -3 -3h-1v-2a5 5 0 0 0 -5 -5h-4a5 5 0 0 0 -5 5v8a5 5 0 0 0 5 5z" /><path d="M7 7m0 1.5a1.5 1.5 0 0 1 1.5 -1.5h3a1.5 1.5 0 0 1 1.5 1.5v0a1.5 1.5 0 0 1 -1.5 1.5h-3a1.5 1.5 0 0 1 -1.5 -1.5z" /><path d="M7 14m0 1.5a1.5 1.5 0 0 1 1.5 -1.5h7a1.5 1.5 0 0 1 1.5 1.5v0a1.5 1.5 0 0 1 -1.5 1.5h-7a1.5 1.5 0 0 1 -1.5 -1.5z" /></svg>
+                        
+                    </a>
+                </li>
+            
+                <li>
+                    <a 
+                        href='https://github.com/DorinXL/DorinXL.github.io'
+                        target="_blank"
+                        title="GitHub"
+                        rel="me"
+                    >
+                        
+                        
+                            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-brand-github" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+  <path d="M9 19c-4.3 1.4 -4.3 -2.5 -6 -3m12 5v-3.5c0 -1 .1 -1.4 -.5 -2c2.8 -.3 5.5 -1.4 5.5 -6a4.6 4.6 0 0 0 -1.3 -3.2a4.2 4.2 0 0 0 -.1 -3.2s-1.1 -.3 -3.5 1.3a12.3 12.3 0 0 0 -6.2 0c-2.4 -1.6 -3.5 -1.3 -3.5 -1.3a4.2 4.2 0 0 0 -.1 3.2a4.6 4.6 0 0 0 -1.3 3.2c0 4.6 2.7 5.7 5.5 6c-.6 .6 -.6 1.2 -.5 2v3.5" />
+</svg>
+
+
+
+                        
+                    </a>
+                </li>
+            
+        </ol><ol class="menu" id="main-menu">
+        
+        
+        
+        <li >
+            <a href='/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-home" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <polyline points="5 12 3 12 12 3 21 12 19 12" />
+  <path d="M5 12v7a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-7" />
+  <path d="M9 21v-6a2 2 0 0 1 2 -2h2a2 2 0 0 1 2 2v6" />
+</svg>
+
+
+
+                
+                <span>主页</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/%E5%85%B3%E4%BA%8E/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-user" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="7" r="4" />
+  <path d="M6 21v-2a4 4 0 0 1 4 -4h4a4 4 0 0 1 4 4v2" />
+</svg>
+
+
+
+                
+                <span>关于</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/archives/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-archive" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <rect x="3" y="4" width="18" height="4" rx="2" />
+  <path d="M5 8v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-10" />
+  <line x1="10" y1="12" x2="14" y2="12" />
+</svg>
+
+
+
+                
+                <span>归档</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/search/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-search" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="10" cy="10" r="7" />
+  <line x1="21" y1="21" x2="15" y2="15" />
+</svg>
+
+
+
+                
+                <span>搜索</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/%E5%8F%8B%E9%93%BE/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-link" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <path d="M10 14a3.5 3.5 0 0 0 5 0l4 -4a3.5 3.5 0 0 0 -5 -5l-.5 .5" />
+  <path d="M14 10a3.5 3.5 0 0 0 -5 0l-4 4a3.5 3.5 0 0 0 5 5l.5 -.5" />
+</svg>
+
+
+
+                
+                <span>友链</span>
+            </a>
+        </li>
+        
+        <li class="menu-bottom-section">
+            <ol class="menu">
+
+                
+                    <li id="dark-mode-toggle">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-left" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="8" cy="12" r="2" />
+  <rect x="2" y="6" width="20" height="12" rx="6" />
+</svg>
+
+
+
+                        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-right" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="16" cy="12" r="2" />
+  <rect x="2" y="6" width="20" height="12" rx="6" />
+</svg>
+
+
+
+                        <span>暗色模式</span>
+                    </li>
+                
+            </ol>
+        </li>
+    </ol>
+</aside>
+
+    <aside class="sidebar right-sidebar sticky">
+        
+            
+                
+    <section class="widget archives">
+        <div class="widget-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-hash" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <line x1="5" y1="9" x2="19" y2="9" />
+  <line x1="5" y1="15" x2="19" y2="15" />
+  <line x1="11" y1="4" x2="7" y2="20" />
+  <line x1="17" y1="4" x2="13" y2="20" />
+</svg>
+
+
+
+        </div>
+        <h2 class="widget-title section-title">目录</h2>
+        
+        <div class="widget--toc">
+            <nav id="TableOfContents">
+  <ol>
+    <li>
+      <ol>
+        <li><a href="#第一题-view_source">第一题 view_source</a></li>
+        <li><a href="#第二题-get_post">第二题 get_post</a></li>
+        <li><a href="#第三题-robots">第三题 robots</a></li>
+        <li><a href="#第四题-backup">第四题 backup</a></li>
+        <li><a href="#第五题-cookie">第五题 cookie</a></li>
+        <li><a href="#第六题-disable_button">第六题 disable_button</a></li>
+        <li><a href="#第七题">第七题</a></li>
+        <li><a href="#第八题-xff_referer">第八题 xff_referer</a></li>
+        <li><a href="#第九题-weak-auth">第九题 weak auth</a></li>
+        <li><a href="#第十题-webshell">第十题 webshell</a></li>
+        <li><a href="#第十一题-command-execution">第十一题 command execution</a></li>
+        <li><a href="#第十二题-simple_php">第十二题 simple_php</a></li>
+      </ol>
+    </li>
+  </ol>
+</nav>
+        </div>
+    </section>
+
+            
+        
+    </aside>
+
+
+            <main class="main full-width">
+    <article class="main-article">
+    <header class="article-header">
+
+    <div class="article-details">
+    
+    <header class="article-category">
+        
+            <a href="/categories/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8/" >
+                网络安全
+            </a>
+        
+            <a href="/categories/ctf/" >
+                CTF
+            </a>
+        
+    </header>
+    
+
+    <div class="article-title-wrapper">
+        <h2 class="article-title">
+            <a href="/p/%E6%94%BB%E9%98%B2%E4%B8%96%E7%95%8Cweb%E6%96%B0%E6%89%8B%E5%8C%BA%E5%81%9A%E9%A2%98%E8%AE%B0%E5%BD%95/">攻防世界web新手区做题记录</a>
+        </h2>
+    
+        
+    </div>
+
+
+    
+    
+    
+    
+    <footer class="article-time">
+        
+            <div>
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-calendar-time" width="56" height="56" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <path d="M11.795 21h-6.795a2 2 0 0 1 -2 -2v-12a2 2 0 0 1 2 -2h12a2 2 0 0 1 2 2v4" />
+  <circle cx="18" cy="18" r="4" />
+  <path d="M15 3v4" />
+  <path d="M7 3v4" />
+  <path d="M3 11h16" />
+  <path d="M18 16.496v1.504l1 1" />
+</svg>
+                <time class="article-time--published">2019-11-05</time>
+            </div>
+	
+
+        
+
+        
+    </footer>
+    
+
+    
+
+</div>
+
+</header>
+
+    <section class="article-content">
+    
+    
+    <blockquote>
+<p>学校信安协会第一次培训结束后的作业，要求把攻防世界的web新手区题目做一遍并写题解。</p>
+</blockquote>
+<hr>
+<h3 id="第一题-view_source">第一题 view_source
+</h3><p>查看源代码右键不能用，但是F12能用，于是找到源代码</p>
+<p><img src="/p/%E6%94%BB%E9%98%B2%E4%B8%96%E7%95%8Cweb%E6%96%B0%E6%89%8B%E5%8C%BA%E5%81%9A%E9%A2%98%E8%AE%B0%E5%BD%95/950.png"
+	width="1920"
+	height="911"
+	srcset="/p/%E6%94%BB%E9%98%B2%E4%B8%96%E7%95%8Cweb%E6%96%B0%E6%89%8B%E5%8C%BA%E5%81%9A%E9%A2%98%E8%AE%B0%E5%BD%95/950_hu1116533409794634477.png 480w, /p/%E6%94%BB%E9%98%B2%E4%B8%96%E7%95%8Cweb%E6%96%B0%E6%89%8B%E5%8C%BA%E5%81%9A%E9%A2%98%E8%AE%B0%E5%BD%95/950_hu7494912621572478381.png 1024w"
+	loading="lazy"
+	
+		alt="image"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="210"
+		data-flex-basis="505px"
+	
+>
+输入到flag框即可</p>
+<p>后来在网上看到可以在url前面插入view-source:来查看网页源代码</p>
+<hr>
+<h3 id="第二题-get_post">第二题 get_post
+</h3><p>题目描述点明了该题要用到关于http的两种请求方式，那么就要学习一下http的几种请求方式。</p>
+<p>查阅各种博客之后，发现get的请求方式直接在url框内输入就好，而post的请求方式需要用其他方式写入参数，有点高深。</p>
+<p><img src="/p/%E6%94%BB%E9%98%B2%E4%B8%96%E7%95%8Cweb%E6%96%B0%E6%89%8B%E5%8C%BA%E5%81%9A%E9%A2%98%E8%AE%B0%E5%BD%95/953.png"
+	width="1920"
+	height="904"
+	srcset="/p/%E6%94%BB%E9%98%B2%E4%B8%96%E7%95%8Cweb%E6%96%B0%E6%89%8B%E5%8C%BA%E5%81%9A%E9%A2%98%E8%AE%B0%E5%BD%95/953_hu17959037500384476257.png 480w, /p/%E6%94%BB%E9%98%B2%E4%B8%96%E7%95%8Cweb%E6%96%B0%E6%89%8B%E5%8C%BA%E5%81%9A%E9%A2%98%E8%AE%B0%E5%BD%95/953_hu12562770917989881961.png 1024w"
+	loading="lazy"
+	
+		alt="image"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="212"
+		data-flex-basis="509px"
+	
+></p>
+<p>找到了火狐的harkbar工具包插件，学习了一下参数注入，成功过关。</p>
+<p><img src="/p/%E6%94%BB%E9%98%B2%E4%B8%96%E7%95%8Cweb%E6%96%B0%E6%89%8B%E5%8C%BA%E5%81%9A%E9%A2%98%E8%AE%B0%E5%BD%95/952.png"
+	width="1920"
+	height="897"
+	srcset="/p/%E6%94%BB%E9%98%B2%E4%B8%96%E7%95%8Cweb%E6%96%B0%E6%89%8B%E5%8C%BA%E5%81%9A%E9%A2%98%E8%AE%B0%E5%BD%95/952_hu17228927733953822422.png 480w, /p/%E6%94%BB%E9%98%B2%E4%B8%96%E7%95%8Cweb%E6%96%B0%E6%89%8B%E5%8C%BA%E5%81%9A%E9%A2%98%E8%AE%B0%E5%BD%95/952_hu17367855579187026260.png 1024w"
+	loading="lazy"
+	
+		alt="image"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="214"
+		data-flex-basis="513px"
+	
+></p>
+<hr>
+<h3 id="第三题-robots">第三题 robots
+</h3><p>看到了新名词，自然要去学习这个什么robots协议，查阅资料后发现就是爬虫协议，也叫机器人协议蜘蛛协议什么的。</p>
+<p>从博客学习：<a class="link" href="https://blog.csdn.net/qq_40491569/article/details/83473703"  target="_blank" rel="noopener"
+    >robots协议文件的写法及语法属性解释</a></p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">    robots.txt文件是一个文本文件，是放置在网站根目录下，使用任何一个常见的文本编辑器，就可以创建和编辑它。
+</span></span><span class="line"><span class="cl">    robots.txt是搜索引擎中访问网站的时候要查看的第一个文件，其主要的作用就是告诉蜘蛛程序在服务器上什么文件是可以被查看的。
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p><img src="/p/%E6%94%BB%E9%98%B2%E4%B8%96%E7%95%8Cweb%E6%96%B0%E6%89%8B%E5%8C%BA%E5%81%9A%E9%A2%98%E8%AE%B0%E5%BD%95/1003.png"
+	width="312"
+	height="41"
+	srcset="/p/%E6%94%BB%E9%98%B2%E4%B8%96%E7%95%8Cweb%E6%96%B0%E6%89%8B%E5%8C%BA%E5%81%9A%E9%A2%98%E8%AE%B0%E5%BD%95/1003_hu2756507665033515980.png 480w, /p/%E6%94%BB%E9%98%B2%E4%B8%96%E7%95%8Cweb%E6%96%B0%E6%89%8B%E5%8C%BA%E5%81%9A%E9%A2%98%E8%AE%B0%E5%BD%95/1003_hu16135084978002088502.png 1024w"
+	loading="lazy"
+	
+		alt="image"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="760"
+		data-flex-basis="1826px"
+	
+></p>
+<p>在后面加上robots.txt</p>
+<p><img src="/p/%E6%94%BB%E9%98%B2%E4%B8%96%E7%95%8Cweb%E6%96%B0%E6%89%8B%E5%8C%BA%E5%81%9A%E9%A2%98%E8%AE%B0%E5%BD%95/1002.png"
+	width="787"
+	height="179"
+	srcset="/p/%E6%94%BB%E9%98%B2%E4%B8%96%E7%95%8Cweb%E6%96%B0%E6%89%8B%E5%8C%BA%E5%81%9A%E9%A2%98%E8%AE%B0%E5%BD%95/1002_hu8265441545462913290.png 480w, /p/%E6%94%BB%E9%98%B2%E4%B8%96%E7%95%8Cweb%E6%96%B0%E6%89%8B%E5%8C%BA%E5%81%9A%E9%A2%98%E8%AE%B0%E5%BD%95/1002_hu7089480937914314964.png 1024w"
+	loading="lazy"
+	
+		alt="image"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="439"
+		data-flex-basis="1055px"
+	
+></p>
+<p>出现个.php的disallow，把它放到url后面：</p>
+<p><img src="/p/%E6%94%BB%E9%98%B2%E4%B8%96%E7%95%8Cweb%E6%96%B0%E6%89%8B%E5%8C%BA%E5%81%9A%E9%A2%98%E8%AE%B0%E5%BD%95/1001.png"
+	width="751"
+	height="173"
+	srcset="/p/%E6%94%BB%E9%98%B2%E4%B8%96%E7%95%8Cweb%E6%96%B0%E6%89%8B%E5%8C%BA%E5%81%9A%E9%A2%98%E8%AE%B0%E5%BD%95/1001_hu17605638655296413117.png 480w, /p/%E6%94%BB%E9%98%B2%E4%B8%96%E7%95%8Cweb%E6%96%B0%E6%89%8B%E5%8C%BA%E5%81%9A%E9%A2%98%E8%AE%B0%E5%BD%95/1001_hu16235625532623039611.png 1024w"
+	loading="lazy"
+	
+		alt="image"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="434"
+		data-flex-basis="1041px"
+	
+>
+输入flag，下一题。</p>
+<hr>
+<h3 id="第四题-backup">第四题 backup
+</h3><p>涉及到备份的问题了，继续学习。发现备份的后缀是.bak，backup的缩写。</p>
+<p><img src="/p/%E6%94%BB%E9%98%B2%E4%B8%96%E7%95%8Cweb%E6%96%B0%E6%89%8B%E5%8C%BA%E5%81%9A%E9%A2%98%E8%AE%B0%E5%BD%95/1023.png"
+	width="475"
+	height="158"
+	srcset="/p/%E6%94%BB%E9%98%B2%E4%B8%96%E7%95%8Cweb%E6%96%B0%E6%89%8B%E5%8C%BA%E5%81%9A%E9%A2%98%E8%AE%B0%E5%BD%95/1023_hu14453943655321302556.png 480w, /p/%E6%94%BB%E9%98%B2%E4%B8%96%E7%95%8Cweb%E6%96%B0%E6%89%8B%E5%8C%BA%E5%81%9A%E9%A2%98%E8%AE%B0%E5%BD%95/1023_hu8737633789192950095.png 1024w"
+	loading="lazy"
+	
+		alt="image"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="300"
+		data-flex-basis="721px"
+	
+></p>
+<p>在url框输入index.php.bak
+<img src="/p/%E6%94%BB%E9%98%B2%E4%B8%96%E7%95%8Cweb%E6%96%B0%E6%89%8B%E5%8C%BA%E5%81%9A%E9%A2%98%E8%AE%B0%E5%BD%95/1022.png"
+	width="542"
+	height="387"
+	srcset="/p/%E6%94%BB%E9%98%B2%E4%B8%96%E7%95%8Cweb%E6%96%B0%E6%89%8B%E5%8C%BA%E5%81%9A%E9%A2%98%E8%AE%B0%E5%BD%95/1022_hu13076681908433564792.png 480w, /p/%E6%94%BB%E9%98%B2%E4%B8%96%E7%95%8Cweb%E6%96%B0%E6%89%8B%E5%8C%BA%E5%81%9A%E9%A2%98%E8%AE%B0%E5%BD%95/1022_hu8872518069898803485.png 1024w"
+	loading="lazy"
+	
+		alt="image"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="140"
+		data-flex-basis="336px"
+	
+></p>
+<p><img src="/p/%E6%94%BB%E9%98%B2%E4%B8%96%E7%95%8Cweb%E6%96%B0%E6%89%8B%E5%8C%BA%E5%81%9A%E9%A2%98%E8%AE%B0%E5%BD%95/1021.png"
+	width="1059"
+	height="745"
+	srcset="/p/%E6%94%BB%E9%98%B2%E4%B8%96%E7%95%8Cweb%E6%96%B0%E6%89%8B%E5%8C%BA%E5%81%9A%E9%A2%98%E8%AE%B0%E5%BD%95/1021_hu8475316471798570471.png 480w, /p/%E6%94%BB%E9%98%B2%E4%B8%96%E7%95%8Cweb%E6%96%B0%E6%89%8B%E5%8C%BA%E5%81%9A%E9%A2%98%E8%AE%B0%E5%BD%95/1021_hu763392180693773559.png 1024w"
+	loading="lazy"
+	
+		alt="image"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="142"
+		data-flex-basis="341px"
+	
+></p>
+<p>得到flag</p>
+<hr>
+<h3 id="第五题-cookie">第五题 cookie
+</h3><p>f12找cookie，找到一个php</p>
+<p><img src="/p/%E6%94%BB%E9%98%B2%E4%B8%96%E7%95%8Cweb%E6%96%B0%E6%89%8B%E5%8C%BA%E5%81%9A%E9%A2%98%E8%AE%B0%E5%BD%95/1019.png"
+	width="1920"
+	height="988"
+	srcset="/p/%E6%94%BB%E9%98%B2%E4%B8%96%E7%95%8Cweb%E6%96%B0%E6%89%8B%E5%8C%BA%E5%81%9A%E9%A2%98%E8%AE%B0%E5%BD%95/1019_hu12266357567563050274.png 480w, /p/%E6%94%BB%E9%98%B2%E4%B8%96%E7%95%8Cweb%E6%96%B0%E6%89%8B%E5%8C%BA%E5%81%9A%E9%A2%98%E8%AE%B0%E5%BD%95/1019_hu17783725962026119694.png 1024w"
+	loading="lazy"
+	
+		alt="image"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="194"
+		data-flex-basis="466px"
+	
+></p>
+<p>进入php，发现需要查看http response，费老大劲找响应头：</p>
+<p><img src="/p/%E6%94%BB%E9%98%B2%E4%B8%96%E7%95%8Cweb%E6%96%B0%E6%89%8B%E5%8C%BA%E5%81%9A%E9%A2%98%E8%AE%B0%E5%BD%95/1020.png"
+	width="1920"
+	height="987"
+	srcset="/p/%E6%94%BB%E9%98%B2%E4%B8%96%E7%95%8Cweb%E6%96%B0%E6%89%8B%E5%8C%BA%E5%81%9A%E9%A2%98%E8%AE%B0%E5%BD%95/1020_hu9641586235304646256.png 480w, /p/%E6%94%BB%E9%98%B2%E4%B8%96%E7%95%8Cweb%E6%96%B0%E6%89%8B%E5%8C%BA%E5%81%9A%E9%A2%98%E8%AE%B0%E5%BD%95/1020_hu13366106688606508827.png 1024w"
+	loading="lazy"
+	
+		alt="image"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="194"
+		data-flex-basis="466px"
+	
+></p>
+<hr>
+<h3 id="第六题-disable_button">第六题 disable_button
+</h3><p>打开链接发现一个不能按的按钮框，老办法，f12</p>
+<p><img src="/p/%E6%94%BB%E9%98%B2%E4%B8%96%E7%95%8Cweb%E6%96%B0%E6%89%8B%E5%8C%BA%E5%81%9A%E9%A2%98%E8%AE%B0%E5%BD%95/1047.png"
+	width="349"
+	height="181"
+	srcset="/p/%E6%94%BB%E9%98%B2%E4%B8%96%E7%95%8Cweb%E6%96%B0%E6%89%8B%E5%8C%BA%E5%81%9A%E9%A2%98%E8%AE%B0%E5%BD%95/1047_hu5587443402045131740.png 480w, /p/%E6%94%BB%E9%98%B2%E4%B8%96%E7%95%8Cweb%E6%96%B0%E6%89%8B%E5%8C%BA%E5%81%9A%E9%A2%98%E8%AE%B0%E5%BD%95/1047_hu3520806044720933285.png 1024w"
+	loading="lazy"
+	
+		alt="image"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="192"
+		data-flex-basis="462px"
+	
+></p>
+<p>把disabled的内容删去，把按钮变为可按状态。</p>
+<p><img src="/p/%E6%94%BB%E9%98%B2%E4%B8%96%E7%95%8Cweb%E6%96%B0%E6%89%8B%E5%8C%BA%E5%81%9A%E9%A2%98%E8%AE%B0%E5%BD%95/1048.png"
+	width="1920"
+	height="909"
+	srcset="/p/%E6%94%BB%E9%98%B2%E4%B8%96%E7%95%8Cweb%E6%96%B0%E6%89%8B%E5%8C%BA%E5%81%9A%E9%A2%98%E8%AE%B0%E5%BD%95/1048_hu143094694876559651.png 480w, /p/%E6%94%BB%E9%98%B2%E4%B8%96%E7%95%8Cweb%E6%96%B0%E6%89%8B%E5%8C%BA%E5%81%9A%E9%A2%98%E8%AE%B0%E5%BD%95/1048_hu17107826091477472643.png 1024w"
+	loading="lazy"
+	
+		alt="image"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="211"
+		data-flex-basis="506px"
+	
+></p>
+<p>按下按钮之后，得到flag</p>
+<hr>
+<h3 id="第七题">第七题
+</h3><p>看到js的样式，直觉到与javascript有关。打开网页发现要输密码，啥也没想点了个确认发现换了网页，查看原代码之后发现了这个</p>
+<p><img src="/p/%E6%94%BB%E9%98%B2%E4%B8%96%E7%95%8Cweb%E6%96%B0%E6%89%8B%E5%8C%BA%E5%81%9A%E9%A2%98%E8%AE%B0%E5%BD%95/1078.png"
+	width="1920"
+	height="318"
+	srcset="/p/%E6%94%BB%E9%98%B2%E4%B8%96%E7%95%8Cweb%E6%96%B0%E6%89%8B%E5%8C%BA%E5%81%9A%E9%A2%98%E8%AE%B0%E5%BD%95/1078_hu11042138577310825762.png 480w, /p/%E6%94%BB%E9%98%B2%E4%B8%96%E7%95%8Cweb%E6%96%B0%E6%89%8B%E5%8C%BA%E5%81%9A%E9%A2%98%E8%AE%B0%E5%BD%95/1078_hu13618624937401692954.png 1024w"
+	loading="lazy"
+	
+		alt="image"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="603"
+		data-flex-basis="1449px"
+	
+></p>
+<pre><code>```
+dechiffre(&quot;\x35\x35\x2c\x35\x36\x2c\x35\x34\x2c\x37\x39\x2c\x31\x31\x35\x2c\x36\x39\x2c\x31\x31\x34\x2c\x31\x31\x36\x2c\x31\x30\x37\x2c\x34\x39\x2c\x35\x30&quot;)
+```
+</code></pre>
+<p>\x在c语言中是十六进制，于是转换成十进制，再用acsii码对比一下。</p>
+<hr>
+<h3 id="第八题-xff_referer">第八题 xff_referer
+</h3><p>得，没见过的东西，再去继续学习。</p>
+<p>X-Forwarded-For:简称XFF头，它代表客户端，也就是HTTP的请求端真实的IP，只有在通过了HTTP 代理或者负载均衡服务器时才会添加该项。</p>
+<p>HTTP Referer：header的一部分，当浏览器向web服务器发送请求的时候，一般会带上Referer，告诉服务器我是从哪个页面链接过来的。</p>
+<p>要伪造ip地址，网上查阅一下火狐浏览器可以用插件，装上之后伪造ip。</p>
+<p><img src="/p/%E6%94%BB%E9%98%B2%E4%B8%96%E7%95%8Cweb%E6%96%B0%E6%89%8B%E5%8C%BA%E5%81%9A%E9%A2%98%E8%AE%B0%E5%BD%95/1113.png"
+	width="301"
+	height="69"
+	srcset="/p/%E6%94%BB%E9%98%B2%E4%B8%96%E7%95%8Cweb%E6%96%B0%E6%89%8B%E5%8C%BA%E5%81%9A%E9%A2%98%E8%AE%B0%E5%BD%95/1113_hu9248057496866612320.png 480w, /p/%E6%94%BB%E9%98%B2%E4%B8%96%E7%95%8Cweb%E6%96%B0%E6%89%8B%E5%8C%BA%E5%81%9A%E9%A2%98%E8%AE%B0%E5%BD%95/1113_hu6685136234815015325.png 1024w"
+	loading="lazy"
+	
+		alt="image"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="436"
+		data-flex-basis="1046px"
+	
+></p>
+<p>学习一下burp的基本操作：</p>
+<p><img src="/p/%E6%94%BB%E9%98%B2%E4%B8%96%E7%95%8Cweb%E6%96%B0%E6%89%8B%E5%8C%BA%E5%81%9A%E9%A2%98%E8%AE%B0%E5%BD%95/1101.png"
+	width="1234"
+	height="992"
+	srcset="/p/%E6%94%BB%E9%98%B2%E4%B8%96%E7%95%8Cweb%E6%96%B0%E6%89%8B%E5%8C%BA%E5%81%9A%E9%A2%98%E8%AE%B0%E5%BD%95/1101_hu13874152862557346344.png 480w, /p/%E6%94%BB%E9%98%B2%E4%B8%96%E7%95%8Cweb%E6%96%B0%E6%89%8B%E5%8C%BA%E5%81%9A%E9%A2%98%E8%AE%B0%E5%BD%95/1101_hu17319568443912960813.png 1024w"
+	loading="lazy"
+	
+		alt="image"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="124"
+		data-flex-basis="298px"
+	
+></p>
+<p>看到一个google</p>
+<p><img src="/p/%E6%94%BB%E9%98%B2%E4%B8%96%E7%95%8Cweb%E6%96%B0%E6%89%8B%E5%8C%BA%E5%81%9A%E9%A2%98%E8%AE%B0%E5%BD%95/1100.png"
+	width="1234"
+	height="992"
+	srcset="/p/%E6%94%BB%E9%98%B2%E4%B8%96%E7%95%8Cweb%E6%96%B0%E6%89%8B%E5%8C%BA%E5%81%9A%E9%A2%98%E8%AE%B0%E5%BD%95/1100_hu5994699215294247710.png 480w, /p/%E6%94%BB%E9%98%B2%E4%B8%96%E7%95%8Cweb%E6%96%B0%E6%89%8B%E5%8C%BA%E5%81%9A%E9%A2%98%E8%AE%B0%E5%BD%95/1100_hu1664177013913865500.png 1024w"
+	loading="lazy"
+	
+		alt="image"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="124"
+		data-flex-basis="298px"
+	
+></p>
+<hr>
+<h3 id="第九题-weak-auth">第九题 weak auth
+</h3><p>上来就让输入信息：</p>
+<p><img src="/p/%E6%94%BB%E9%98%B2%E4%B8%96%E7%95%8Cweb%E6%96%B0%E6%89%8B%E5%8C%BA%E5%81%9A%E9%A2%98%E8%AE%B0%E5%BD%95/1112.png"
+	width="475"
+	height="461"
+	srcset="/p/%E6%94%BB%E9%98%B2%E4%B8%96%E7%95%8Cweb%E6%96%B0%E6%89%8B%E5%8C%BA%E5%81%9A%E9%A2%98%E8%AE%B0%E5%BD%95/1112_hu7966985037435964792.png 480w, /p/%E6%94%BB%E9%98%B2%E4%B8%96%E7%95%8Cweb%E6%96%B0%E6%89%8B%E5%8C%BA%E5%81%9A%E9%A2%98%E8%AE%B0%E5%BD%95/1112_hu5498754507237343624.png 1024w"
+	loading="lazy"
+	
+		alt="image"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="103"
+		data-flex-basis="247px"
+	
+></p>
+<p>学习一下burp的爆破操作，网上找些字典，把用户名跟密码输入：</p>
+<p><img src="/p/%E6%94%BB%E9%98%B2%E4%B8%96%E7%95%8Cweb%E6%96%B0%E6%89%8B%E5%8C%BA%E5%81%9A%E9%A2%98%E8%AE%B0%E5%BD%95/1104.png"
+	width="1051"
+	height="667"
+	srcset="/p/%E6%94%BB%E9%98%B2%E4%B8%96%E7%95%8Cweb%E6%96%B0%E6%89%8B%E5%8C%BA%E5%81%9A%E9%A2%98%E8%AE%B0%E5%BD%95/1104_hu16178329874309761875.png 480w, /p/%E6%94%BB%E9%98%B2%E4%B8%96%E7%95%8Cweb%E6%96%B0%E6%89%8B%E5%8C%BA%E5%81%9A%E9%A2%98%E8%AE%B0%E5%BD%95/1104_hu2084624801738563828.png 1024w"
+	loading="lazy"
+	
+		alt="image"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="157"
+		data-flex-basis="378px"
+	
+></p>
+<p><img src="/p/%E6%94%BB%E9%98%B2%E4%B8%96%E7%95%8Cweb%E6%96%B0%E6%89%8B%E5%8C%BA%E5%81%9A%E9%A2%98%E8%AE%B0%E5%BD%95/1110.png"
+	width="440"
+	height="35"
+	srcset="/p/%E6%94%BB%E9%98%B2%E4%B8%96%E7%95%8Cweb%E6%96%B0%E6%89%8B%E5%8C%BA%E5%81%9A%E9%A2%98%E8%AE%B0%E5%BD%95/1110_hu12706008985291526260.png 480w, /p/%E6%94%BB%E9%98%B2%E4%B8%96%E7%95%8Cweb%E6%96%B0%E6%89%8B%E5%8C%BA%E5%81%9A%E9%A2%98%E8%AE%B0%E5%BD%95/1110_hu10571854621088404743.png 1024w"
+	loading="lazy"
+	
+		alt="image"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="1257"
+		data-flex-basis="3017px"
+	
+></p>
+<hr>
+<h3 id="第十题-webshell">第十题 webshell
+</h3><p>为了连接webshell专门搞个antsword</p>
+<p><img src="/p/%E6%94%BB%E9%98%B2%E4%B8%96%E7%95%8Cweb%E6%96%B0%E6%89%8B%E5%8C%BA%E5%81%9A%E9%A2%98%E8%AE%B0%E5%BD%95/1109.png"
+	width="369"
+	height="149"
+	srcset="/p/%E6%94%BB%E9%98%B2%E4%B8%96%E7%95%8Cweb%E6%96%B0%E6%89%8B%E5%8C%BA%E5%81%9A%E9%A2%98%E8%AE%B0%E5%BD%95/1109_hu4818768236256360496.png 480w, /p/%E6%94%BB%E9%98%B2%E4%B8%96%E7%95%8Cweb%E6%96%B0%E6%89%8B%E5%8C%BA%E5%81%9A%E9%A2%98%E8%AE%B0%E5%BD%95/1109_hu17781426198587316773.png 1024w"
+	loading="lazy"
+	
+		alt="image"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="247"
+		data-flex-basis="594px"
+	
+></p>
+<p>说实话我一开始不知道这个连接密码是啥，上网查了查：</p>
+<p><img src="/p/%E6%94%BB%E9%98%B2%E4%B8%96%E7%95%8Cweb%E6%96%B0%E6%89%8B%E5%8C%BA%E5%81%9A%E9%A2%98%E8%AE%B0%E5%BD%95/1103.png"
+	width="1024"
+	height="691"
+	srcset="/p/%E6%94%BB%E9%98%B2%E4%B8%96%E7%95%8Cweb%E6%96%B0%E6%89%8B%E5%8C%BA%E5%81%9A%E9%A2%98%E8%AE%B0%E5%BD%95/1103_hu10313762767641247360.png 480w, /p/%E6%94%BB%E9%98%B2%E4%B8%96%E7%95%8Cweb%E6%96%B0%E6%89%8B%E5%8C%BA%E5%81%9A%E9%A2%98%E8%AE%B0%E5%BD%95/1103_hu7606024388000548274.png 1024w"
+	loading="lazy"
+	
+		alt="image"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="148"
+		data-flex-basis="355px"
+	
+></p>
+<p>进去之后找到了flag.txt:</p>
+<p><img src="/p/%E6%94%BB%E9%98%B2%E4%B8%96%E7%95%8Cweb%E6%96%B0%E6%89%8B%E5%8C%BA%E5%81%9A%E9%A2%98%E8%AE%B0%E5%BD%95/1107.png"
+	width="1024"
+	height="691"
+	srcset="/p/%E6%94%BB%E9%98%B2%E4%B8%96%E7%95%8Cweb%E6%96%B0%E6%89%8B%E5%8C%BA%E5%81%9A%E9%A2%98%E8%AE%B0%E5%BD%95/1107_hu4237145846342640491.png 480w, /p/%E6%94%BB%E9%98%B2%E4%B8%96%E7%95%8Cweb%E6%96%B0%E6%89%8B%E5%8C%BA%E5%81%9A%E9%A2%98%E8%AE%B0%E5%BD%95/1107_hu7456008183527163777.png 1024w"
+	loading="lazy"
+	
+		alt="image"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="148"
+		data-flex-basis="355px"
+	
+></p>
+<hr>
+<h3 id="第十一题-command-execution">第十一题 command execution
+</h3><p>ping？再次上网找资料，发现这个题要考windows命令操作，对照着手册缓缓地输入了127.0.0.1来进入本地，ls访问目录，然后再找flag.txt,最后把flag找出来。操作手册看得头懵。</p>
+<p><img src="/p/%E6%94%BB%E9%98%B2%E4%B8%96%E7%95%8Cweb%E6%96%B0%E6%89%8B%E5%8C%BA%E5%81%9A%E9%A2%98%E8%AE%B0%E5%BD%95/1105.png"
+	width="714"
+	height="549"
+	srcset="/p/%E6%94%BB%E9%98%B2%E4%B8%96%E7%95%8Cweb%E6%96%B0%E6%89%8B%E5%8C%BA%E5%81%9A%E9%A2%98%E8%AE%B0%E5%BD%95/1105_hu3359105447948750008.png 480w, /p/%E6%94%BB%E9%98%B2%E4%B8%96%E7%95%8Cweb%E6%96%B0%E6%89%8B%E5%8C%BA%E5%81%9A%E9%A2%98%E8%AE%B0%E5%BD%95/1105_hu17690909166971310649.png 1024w"
+	loading="lazy"
+	
+		alt="image"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="130"
+		data-flex-basis="312px"
+	
+></p>
+<hr>
+<h3 id="第十二题-simple_php">第十二题 simple_php
+</h3><p>既然是php写的代码，就要看看代码的意思了。</p>
+<p><img src="/p/%E6%94%BB%E9%98%B2%E4%B8%96%E7%95%8Cweb%E6%96%B0%E6%89%8B%E5%8C%BA%E5%81%9A%E9%A2%98%E8%AE%B0%E5%BD%95/1106.png"
+	width="385"
+	height="588"
+	srcset="/p/%E6%94%BB%E9%98%B2%E4%B8%96%E7%95%8Cweb%E6%96%B0%E6%89%8B%E5%8C%BA%E5%81%9A%E9%A2%98%E8%AE%B0%E5%BD%95/1106_hu954467267764787806.png 480w, /p/%E6%94%BB%E9%98%B2%E4%B8%96%E7%95%8Cweb%E6%96%B0%E6%89%8B%E5%8C%BA%E5%81%9A%E9%A2%98%E8%AE%B0%E5%BD%95/1106_hu1998431756636094590.png 1024w"
+	loading="lazy"
+	
+		alt="image"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="65"
+		data-flex-basis="157px"
+	
+></p>
+<p>在不停的查询之后，了解到，第一个if，因为只用了两个等号，那么判定为弱比较，只要开头是0就行，而且后面不能全部为数字，那就带几个字母。
+第二个if要知道这个函数判断b是否为数字。
+第三个if，b是一个大于1234的数，后面还要加上一些字母。
+保存一下学php的教程，然后缓缓地在url框输入点东西：</p>
+<p><img src="/p/%E6%94%BB%E9%98%B2%E4%B8%96%E7%95%8Cweb%E6%96%B0%E6%89%8B%E5%8C%BA%E5%81%9A%E9%A2%98%E8%AE%B0%E5%BD%95/1102.png"
+	width="944"
+	height="701"
+	srcset="/p/%E6%94%BB%E9%98%B2%E4%B8%96%E7%95%8Cweb%E6%96%B0%E6%89%8B%E5%8C%BA%E5%81%9A%E9%A2%98%E8%AE%B0%E5%BD%95/1102_hu4921077874252286799.png 480w, /p/%E6%94%BB%E9%98%B2%E4%B8%96%E7%95%8Cweb%E6%96%B0%E6%89%8B%E5%8C%BA%E5%81%9A%E9%A2%98%E8%AE%B0%E5%BD%95/1102_hu7883867240752764205.png 1024w"
+	loading="lazy"
+	
+		alt="image"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="134"
+		data-flex-basis="323px"
+	
+></p>
+<p>终于搞完了flag</p>
+<hr>
+<p>有一说一，要想做题，真的要学好多东西，各种各样的知识。学会好好利用网络资源很重要。
+<del>一瘸一拐的在网络知识的帮助下终于懵懵懂懂的搞完了这几个题。</del></p>
+
+</section>
+
+
+    <footer class="article-footer">
+    
+
+    </footer>
+
+
+    
+</article>
+
+    
+
+    
+
+<aside class="related-content--wrapper">
+    <h2 class="section-title">相关文章</h2>
+    <div class="related-content">
+        <div class="flex article-list--tile">
+            
+                
+<article class="">
+    <a href="/p/%E4%B8%AA%E4%BA%BA%E5%90%91ctf%E6%AF%94%E8%B5%9B%E5%87%BA%E7%9A%84%E4%B8%80%E9%81%93%E9%80%86%E5%90%91%E6%B8%B8%E6%88%8F%E9%A2%98gametime%E9%A2%98%E8%A7%A3/">
+        
+        
+
+        <div class="article-details">
+            <h2 class="article-title">【个人向】ctf比赛出的一道逆向游戏题——GameTime题解</h2>
+        </div>
+    </a>
+</article>
+
+            
+                
+<article class="">
+    <a href="/p/handler%E8%BF%9B%E8%A1%8C%E5%A0%86%E5%8F%A0%E6%B3%A8%E5%85%A5/">
+        
+        
+
+        <div class="article-details">
+            <h2 class="article-title">HANDLER进行堆叠注入</h2>
+        </div>
+    </a>
+</article>
+
+            
+                
+<article class="">
+    <a href="/p/cdut%E7%AC%AC%E4%B8%80%E5%B1%8A%E4%BF%A1%E5%AE%89%E5%A4%A7%E6%8C%91%E6%88%98re-wp/">
+        
+        
+
+        <div class="article-details">
+            <h2 class="article-title">CDUT第一届信安大挑战Re-wp</h2>
+        </div>
+    </a>
+</article>
+
+            
+                
+<article class="">
+    <a href="/p/nu1lbook%E7%AC%AC%E4%B8%80%E7%AB%A0wp/">
+        
+        
+
+        <div class="article-details">
+            <h2 class="article-title">Nu1LBook第一章wp</h2>
+        </div>
+    </a>
+</article>
+
+            
+                
+<article class="">
+    <a href="/p/mrctfxor/">
+        
+        
+
+        <div class="article-details">
+            <h2 class="article-title">【MRCTF】Xor</h2>
+        </div>
+    </a>
+</article>
+
+            
+        </div>
+    </div>
+</aside>
+
+     
+    
+        
+    <script src="https://utteranc.es/client.js" 
+        repo="DorinXL/dorinxl.github.io"
+        issue-term="pathname"
+        
+        crossorigin="anonymous"
+        async
+        >
+</script>
+
+<style>
+    .utterances {
+        max-width: unset;
+    }
+</style>
+
+<script>
+    let utterancesLoaded = false;
+
+    function setUtterancesTheme(theme) {
+        let utterances = document.querySelector('.utterances iframe');
+        if (utterances) {
+            utterances.contentWindow.postMessage(
+                {
+                    type: 'set-theme',
+                    theme: `github-${theme}`
+                },
+                'https://utteranc.es'
+            );
+        }
+    }
+
+    addEventListener('message', event => {
+        if (event.origin !== 'https://utteranc.es') return;
+
+        
+        utterancesLoaded = true;
+        setUtterancesTheme(document.documentElement.dataset.scheme)
+    });
+
+    window.addEventListener('onColorSchemeChange', (e) => {
+        if (!utterancesLoaded) return;
+        setUtterancesTheme(e.detail)
+    })
+</script>
+
+
+    
+
+    <footer class="site-footer">
+    <section class="copyright">
+        &copy; 
+        
+        2024 荡影-DorinXL
+    </section>
+
+
+
+<section class="totalcount">
+    
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+    发表了76篇文章 · 
+    总计103.89k字
+</section>
+
+
+
+<section class="running-time">
+本博客已稳定运行
+<span id="runningdays" class="running-days"></span>
+</section>
+
+    <section class="powerby">
+        使用 <a href="https://gohugo.io/" target="_blank" rel="noopener">Hugo</a> 构建 <br />
+        主题 <b><a href="https://github.com/CaiJimmy/hugo-theme-stack" target="_blank" rel="noopener" data-version="3.26.0">Stack</a></b> 由 <a href="https://jimmycai.com" target="_blank" rel="noopener">Jimmy</a> 设计
+    </section>
+
+</footer>
+
+
+    
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+    
+    <div class="pswp__bg"></div>
+
+    
+    <div class="pswp__scroll-wrap">
+
+        
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+
+        
+        <div class="pswp__ui pswp__ui--hidden">
+
+            <div class="pswp__top-bar">
+
+                
+
+                <div class="pswp__counter"></div>
+
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+                
+                
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                        <div class="pswp__preloader__cut">
+                            <div class="pswp__preloader__donut"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div>
+            </div>
+
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div><script 
+                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.js"integrity="sha256-ePwmChbbvXbsO02lbM3HoHbSHTHFAeChekF1xKJdleo="crossorigin="anonymous"
+                defer
+                >
+            </script><script 
+                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe-ui-default.min.js"integrity="sha256-UKkzOn/w1mBxRmLLGrSeyB4e1xbrp4xylgAWb3M42pU="crossorigin="anonymous"
+                defer
+                >
+            </script><link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/default-skin/default-skin.min.css"crossorigin="anonymous"
+            ><link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.css"crossorigin="anonymous"
+            >
+
+            </main>
+        </div>
+        <script 
+                src="https://cdn.jsdelivr.net/npm/node-vibrant@3.1.6/dist/vibrant.min.js"integrity="sha256-awcR2jno4kI5X0zL8ex0vi2z&#43;KMkF24hUW8WePSA9HM="crossorigin="anonymous"
+                
+                >
+            </script><script type="text/javascript" src="/ts/main.js" defer></script>
+<script>
+    (function () {
+        const customFont = document.createElement('link');
+        customFont.href = "https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap";
+
+        customFont.type = "text/css";
+        customFont.rel = "stylesheet";
+
+        document.head.appendChild(customFont);
+    }());
+</script>
+
+<script>
+    let s1 = '2024-8-25'; 
+    s1 = new Date(s1.replace(/-/g, "/"));
+    let s2 = new Date();
+    let timeDifference = s2.getTime() - s1.getTime();
+
+    let days = Math.floor(timeDifference / (1000 * 60 * 60 * 24));
+    let hours = Math.floor((timeDifference % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+    let minutes = Math.floor((timeDifference % (1000 * 60 * 60)) / (1000 * 60));
+
+    let result = days + "天" + hours + "小时" + minutes + "分钟";
+    document.getElementById('runningdays').innerHTML = result;
+</script>
+    </body>
+</html>

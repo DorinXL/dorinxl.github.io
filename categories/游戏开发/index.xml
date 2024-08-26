@@ -1,0 +1,1383 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+    <channel>
+        <title>游戏开发 on 荡影-DorinXL</title>
+        <link>https://dorinxl.github.io/categories/%E6%B8%B8%E6%88%8F%E5%BC%80%E5%8F%91/</link>
+        <description>Recent content in 游戏开发 on 荡影-DorinXL</description>
+        <generator>Hugo -- gohugo.io</generator>
+        <language>zh-cn</language>
+        <copyright>荡影-DorinXL</copyright>
+        <lastBuildDate>Fri, 23 Sep 2022 07:50:00 +0000</lastBuildDate><atom:link href="https://dorinxl.github.io/categories/%E6%B8%B8%E6%88%8F%E5%BC%80%E5%8F%91/index.xml" rel="self" type="application/rss+xml" /><item>
+        <title>使用mixamo为obj文件绑骨并导入unity</title>
+        <link>https://dorinxl.github.io/p/%E4%BD%BF%E7%94%A8mixamo%E4%B8%BAobj%E6%96%87%E4%BB%B6%E7%BB%91%E9%AA%A8%E5%B9%B6%E5%AF%BC%E5%85%A5unity/</link>
+        <pubDate>Fri, 23 Sep 2022 07:50:00 +0000</pubDate>
+        
+        <guid>https://dorinxl.github.io/p/%E4%BD%BF%E7%94%A8mixamo%E4%B8%BAobj%E6%96%87%E4%BB%B6%E7%BB%91%E9%AA%A8%E5%B9%B6%E5%AF%BC%E5%85%A5unity/</guid>
+        <description>&lt;h2 id=&#34;绑骨&#34;&gt;绑骨
+&lt;/h2&gt;&lt;p&gt;首先我们手里要准备好模型文件，mixamo支持FBX/OBJ/ZIP压缩包，这里以obj文件为例。&lt;/p&gt;
+&lt;p&gt;我们手中的obj文件一般由贴图文件、obj文件和mtl文件组成（素材来源于网络）：&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://dorinxl.github.io/p/%E4%BD%BF%E7%94%A8mixamo%E4%B8%BAobj%E6%96%87%E4%BB%B6%E7%BB%91%E9%AA%A8%E5%B9%B6%E5%AF%BC%E5%85%A5unity/1858293-20220923154639130-340735990.png&#34;
+	width=&#34;799&#34;
+	height=&#34;150&#34;
+	srcset=&#34;https://dorinxl.github.io/p/%E4%BD%BF%E7%94%A8mixamo%E4%B8%BAobj%E6%96%87%E4%BB%B6%E7%BB%91%E9%AA%A8%E5%B9%B6%E5%AF%BC%E5%85%A5unity/1858293-20220923154639130-340735990_hu3096940836001671330.png 480w, https://dorinxl.github.io/p/%E4%BD%BF%E7%94%A8mixamo%E4%B8%BAobj%E6%96%87%E4%BB%B6%E7%BB%91%E9%AA%A8%E5%B9%B6%E5%AF%BC%E5%85%A5unity/1858293-20220923154639130-340735990_hu7392809980765344445.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;image-20220923120100615&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;532&#34;
+		data-flex-basis=&#34;1278px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;我们将这些文件打包成zip，然后去mixamo网站：https://www.mixamo.com/&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://dorinxl.github.io/p/%E4%BD%BF%E7%94%A8mixamo%E4%B8%BAobj%E6%96%87%E4%BB%B6%E7%BB%91%E9%AA%A8%E5%B9%B6%E5%AF%BC%E5%85%A5unity/1858293-20220923154639745-1448780460.png&#34;
+	width=&#34;940&#34;
+	height=&#34;548&#34;
+	srcset=&#34;https://dorinxl.github.io/p/%E4%BD%BF%E7%94%A8mixamo%E4%B8%BAobj%E6%96%87%E4%BB%B6%E7%BB%91%E9%AA%A8%E5%B9%B6%E5%AF%BC%E5%85%A5unity/1858293-20220923154639745-1448780460_hu870326852569906626.png 480w, https://dorinxl.github.io/p/%E4%BD%BF%E7%94%A8mixamo%E4%B8%BAobj%E6%96%87%E4%BB%B6%E7%BB%91%E9%AA%A8%E5%B9%B6%E5%AF%BC%E5%85%A5unity/1858293-20220923154639745-1448780460_hu7197974947632877863.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;image-20220923115933107&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;171&#34;
+		data-flex-basis=&#34;411px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;将zip上传或拖入，假如是obj文件不要单单把obj拖入，这样模型会失去贴图。&lt;/p&gt;
+&lt;p&gt;拖入后会出现如下界面，查看人物没什么问题之后就可以开始绑骨了：&lt;img src=&#34;https://dorinxl.github.io/p/%E4%BD%BF%E7%94%A8mixamo%E4%B8%BAobj%E6%96%87%E4%BB%B6%E7%BB%91%E9%AA%A8%E5%B9%B6%E5%AF%BC%E5%85%A5unity/1858293-20220923154640240-235471092.png&#34;
+	width=&#34;940&#34;
+	height=&#34;598&#34;
+	srcset=&#34;https://dorinxl.github.io/p/%E4%BD%BF%E7%94%A8mixamo%E4%B8%BAobj%E6%96%87%E4%BB%B6%E7%BB%91%E9%AA%A8%E5%B9%B6%E5%AF%BC%E5%85%A5unity/1858293-20220923154640240-235471092_hu2684072500472077089.png 480w, https://dorinxl.github.io/p/%E4%BD%BF%E7%94%A8mixamo%E4%B8%BAobj%E6%96%87%E4%BB%B6%E7%BB%91%E9%AA%A8%E5%B9%B6%E5%AF%BC%E5%85%A5unity/1858293-20220923154640240-235471092_hu14023854738758085081.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;image-20220923151945476&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;157&#34;
+		data-flex-basis=&#34;377px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;进入绑骨界面，需要拖动点位，按照英文单词和右侧图示拖动左侧圆圈，确认之后等待一会：&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://dorinxl.github.io/p/%E4%BD%BF%E7%94%A8mixamo%E4%B8%BAobj%E6%96%87%E4%BB%B6%E7%BB%91%E9%AA%A8%E5%B9%B6%E5%AF%BC%E5%85%A5unity/1858293-20220923154640678-810669145.png&#34;
+	width=&#34;940&#34;
+	height=&#34;596&#34;
+	srcset=&#34;https://dorinxl.github.io/p/%E4%BD%BF%E7%94%A8mixamo%E4%B8%BAobj%E6%96%87%E4%BB%B6%E7%BB%91%E9%AA%A8%E5%B9%B6%E5%AF%BC%E5%85%A5unity/1858293-20220923154640678-810669145_hu1101617586467708023.png 480w, https://dorinxl.github.io/p/%E4%BD%BF%E7%94%A8mixamo%E4%B8%BAobj%E6%96%87%E4%BB%B6%E7%BB%91%E9%AA%A8%E5%B9%B6%E5%AF%BC%E5%85%A5unity/1858293-20220923154640678-810669145_hu11775095278311775532.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;image-20220923152215755&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;157&#34;
+		data-flex-basis=&#34;378px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;当你的人物可以按照预定模板移动，且确认骨骼运动正常时，就可以确认了。&lt;/p&gt;
+&lt;p&gt;确认之后就可以导出绑骨后的模型，或是选择一套你喜爱的动作。&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://dorinxl.github.io/p/%E4%BD%BF%E7%94%A8mixamo%E4%B8%BAobj%E6%96%87%E4%BB%B6%E7%BB%91%E9%AA%A8%E5%B9%B6%E5%AF%BC%E5%85%A5unity/1858293-20220923154641104-1051336904.png&#34;
+	width=&#34;959&#34;
+	height=&#34;824&#34;
+	srcset=&#34;https://dorinxl.github.io/p/%E4%BD%BF%E7%94%A8mixamo%E4%B8%BAobj%E6%96%87%E4%BB%B6%E7%BB%91%E9%AA%A8%E5%B9%B6%E5%AF%BC%E5%85%A5unity/1858293-20220923154641104-1051336904_hu13107889309193394530.png 480w, https://dorinxl.github.io/p/%E4%BD%BF%E7%94%A8mixamo%E4%B8%BAobj%E6%96%87%E4%BB%B6%E7%BB%91%E9%AA%A8%E5%B9%B6%E5%AF%BC%E5%85%A5unity/1858293-20220923154641104-1051336904_hu5910308376208215561.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;image-20220923152331560&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;116&#34;
+		data-flex-basis=&#34;279px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;到这里，我们的obj人物就成功绑上了骨骼，mixamo太神了。&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://dorinxl.github.io/p/%E4%BD%BF%E7%94%A8mixamo%E4%B8%BAobj%E6%96%87%E4%BB%B6%E7%BB%91%E9%AA%A8%E5%B9%B6%E5%AF%BC%E5%85%A5unity/1858293-20220923154641453-1877448928.png&#34;
+	width=&#34;692&#34;
+	height=&#34;262&#34;
+	srcset=&#34;https://dorinxl.github.io/p/%E4%BD%BF%E7%94%A8mixamo%E4%B8%BAobj%E6%96%87%E4%BB%B6%E7%BB%91%E9%AA%A8%E5%B9%B6%E5%AF%BC%E5%85%A5unity/1858293-20220923154641453-1877448928_hu9967870547440024669.png 480w, https://dorinxl.github.io/p/%E4%BD%BF%E7%94%A8mixamo%E4%B8%BAobj%E6%96%87%E4%BB%B6%E7%BB%91%E9%AA%A8%E5%B9%B6%E5%AF%BC%E5%85%A5unity/1858293-20220923154641453-1877448928_hu15158163209764555580.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;image-20220923152451585&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;264&#34;
+		data-flex-basis=&#34;633px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;可以直接导出没有动画的模型，或者在网站上找到自己喜欢的动作并连同模型一起下载下来。&lt;/p&gt;
+&lt;h2 id=&#34;绑好的模型导入unity&#34;&gt;绑好的模型导入unity
+&lt;/h2&gt;&lt;p&gt;我们以标准二进制fbx文件导出，拖入到unity中。会得到一个预制体：&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://dorinxl.github.io/p/%E4%BD%BF%E7%94%A8mixamo%E4%B8%BAobj%E6%96%87%E4%BB%B6%E7%BB%91%E9%AA%A8%E5%B9%B6%E5%AF%BC%E5%85%A5unity/1858293-20220923154641742-1496384732.png&#34;
+	width=&#34;573&#34;
+	height=&#34;242&#34;
+	srcset=&#34;https://dorinxl.github.io/p/%E4%BD%BF%E7%94%A8mixamo%E4%B8%BAobj%E6%96%87%E4%BB%B6%E7%BB%91%E9%AA%A8%E5%B9%B6%E5%AF%BC%E5%85%A5unity/1858293-20220923154641742-1496384732_hu17985871874426681202.png 480w, https://dorinxl.github.io/p/%E4%BD%BF%E7%94%A8mixamo%E4%B8%BAobj%E6%96%87%E4%BB%B6%E7%BB%91%E9%AA%A8%E5%B9%B6%E5%AF%BC%E5%85%A5unity/1858293-20220923154641742-1496384732_hu1419934638400408309.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;image-20220923152639358&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;236&#34;
+		data-flex-basis=&#34;568px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;在inspector面板设定其avator类型为人型：&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://dorinxl.github.io/p/%E4%BD%BF%E7%94%A8mixamo%E4%B8%BAobj%E6%96%87%E4%BB%B6%E7%BB%91%E9%AA%A8%E5%B9%B6%E5%AF%BC%E5%85%A5unity/1858293-20220923154642070-979722224.png&#34;
+	width=&#34;354&#34;
+	height=&#34;190&#34;
+	srcset=&#34;https://dorinxl.github.io/p/%E4%BD%BF%E7%94%A8mixamo%E4%B8%BAobj%E6%96%87%E4%BB%B6%E7%BB%91%E9%AA%A8%E5%B9%B6%E5%AF%BC%E5%85%A5unity/1858293-20220923154642070-979722224_hu6994529710104995891.png 480w, https://dorinxl.github.io/p/%E4%BD%BF%E7%94%A8mixamo%E4%B8%BAobj%E6%96%87%E4%BB%B6%E7%BB%91%E9%AA%A8%E5%B9%B6%E5%AF%BC%E5%85%A5unity/1858293-20220923154642070-979722224_hu1091961840477943630.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;image-20220923152729653&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;186&#34;
+		data-flex-basis=&#34;447px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;进入configure可以看到更多细节：&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://dorinxl.github.io/p/%E4%BD%BF%E7%94%A8mixamo%E4%B8%BAobj%E6%96%87%E4%BB%B6%E7%BB%91%E9%AA%A8%E5%B9%B6%E5%AF%BC%E5%85%A5unity/1858293-20220923154642537-1270053184.png&#34;
+	width=&#34;1917&#34;
+	height=&#34;613&#34;
+	srcset=&#34;https://dorinxl.github.io/p/%E4%BD%BF%E7%94%A8mixamo%E4%B8%BAobj%E6%96%87%E4%BB%B6%E7%BB%91%E9%AA%A8%E5%B9%B6%E5%AF%BC%E5%85%A5unity/1858293-20220923154642537-1270053184_hu4350823347266364032.png 480w, https://dorinxl.github.io/p/%E4%BD%BF%E7%94%A8mixamo%E4%B8%BAobj%E6%96%87%E4%BB%B6%E7%BB%91%E9%AA%A8%E5%B9%B6%E5%AF%BC%E5%85%A5unity/1858293-20220923154642537-1270053184_hu5827289081611168919.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;image-20220923152812058&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;312&#34;
+		data-flex-basis=&#34;750px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;配合unity的动画avator系统，我们就可以实现骨骼动画的运作了。&lt;/p&gt;
+</description>
+        </item>
+        <item>
+        <title>Unity Shader入门精要读书笔记 第三章 Unity Shader基础</title>
+        <link>https://dorinxl.github.io/p/unity-shader%E5%85%A5%E9%97%A8%E7%B2%BE%E8%A6%81%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0-%E7%AC%AC%E4%B8%89%E7%AB%A0-unity-shader%E5%9F%BA%E7%A1%80/</link>
+        <pubDate>Sun, 03 Jul 2022 15:48:00 +0000</pubDate>
+        
+        <guid>https://dorinxl.github.io/p/unity-shader%E5%85%A5%E9%97%A8%E7%B2%BE%E8%A6%81%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0-%E7%AC%AC%E4%B8%89%E7%AB%A0-unity-shader%E5%9F%BA%E7%A1%80/</guid>
+        <description>&lt;h1 id=&#34;unity-shader入门精要读书笔记-第三章-unity-shader基础&#34;&gt;Unity Shader入门精要读书笔记 第三章 Unity Shader基础
+&lt;/h1&gt;&lt;h2 id=&#34;前言&#34;&gt;前言
+&lt;/h2&gt;&lt;p&gt;Unity Shader的出现就是为了提供一个地方能够让开发者更轻松的管理着色器代码以及渲染设置，而不需要同各种shader文件一样管理多个文件、函数等。&lt;/p&gt;
+&lt;h2 id=&#34;31-unity-shader概述&#34;&gt;3.1 Unity Shader概述
+&lt;/h2&gt;&lt;h3 id=&#34;311-材质和unity-shader&#34;&gt;3.1.1 材质和Unity Shader
+&lt;/h3&gt;&lt;p&gt;​	在Unity中，我们需要配合使用材质(Material)和Unity Shader才能达到需要的效果。Unity Shader定义渲染所需的代码、属性和指令，而材质允许我们自己调节这些属性，并赋给相应的模型。&lt;/p&gt;
+&lt;h3 id=&#34;312-unity中的材质&#34;&gt;3.1.2 Unity中的材质
+&lt;/h3&gt;&lt;p&gt;​	Unity中的材质需要结合一个GameObject的mesh或者Particle Systems(粒子系统)来工作。&lt;/p&gt;
+&lt;h3 id=&#34;313-unity中的shader&#34;&gt;3.1.3 Unity中的Shader
+&lt;/h3&gt;&lt;p&gt;​	Unity中的shader文件同渲染管线的shader不同，所以笔记中会同原著一样称为&lt;strong&gt;Unity Shader&lt;/strong&gt;。&lt;/p&gt;
+&lt;p&gt;​	在创建Unity Shader时，unity为我们提供了四种模板：&lt;/p&gt;
+&lt;p&gt;​&lt;/p&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;Standard Surface Shader&lt;/th&gt;
+&lt;th&gt;产生一个包含标准光照模型的表面着色器模板&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;Unlit Shader&lt;/td&gt;
+&lt;td&gt;不包含光照（但包含雾效）的基本的顶点/片元着色器&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Image Effect Shader&lt;/td&gt;
+&lt;td&gt;为各种屏幕后处理效果提供基本模板&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Compute Shader&lt;/td&gt;
+&lt;td&gt;利用GPC的并行性来进行一些与常规渲染流水线无关的计算&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;p&gt;​	由于《入门精要》这本书重点在如何在Unity中编写顶点/片元着色器，后续学习中通常会用Unlit Shader来生成一个基本的顶点/片元着色器模板。&lt;/p&gt;
+&lt;p&gt;​	单独的Unity Shader不能发挥作用，必须同材质material结合起来。其本质上是一个文本文件，Unity Shader的导入设置面板可以看到该shader的一些相关信息（例如是否是固定函数着色器(fixed function)、是否投射阴影(cast shadows)、使用的渲染队列(Render queue)、属性(properties)列表等）。&lt;/p&gt;
+&lt;h2 id=&#34;32-unity-shader的基础shaderlab&#34;&gt;3.2 Unity Shader的基础：ShaderLab
+&lt;/h2&gt;&lt;p&gt;​	Unity专门提供了一种为Unity Shader服务的语言——&lt;strong&gt;ShaderLab&lt;/strong&gt;，Unity Shader为控制渲染过程提供了一层抽象，帮助开发者更简单的完成工作。ShaderLab时Unity提供的编写Unity Shader的一种说明性语言，使用一些嵌套在花括号内的语义来描述一个Unity Shader文件的结构。类似CgFX和Direct3D Effects(.FX)语言，定义了显示一个材质所需的所有东西，而&lt;strong&gt;不仅是着色器代码&lt;/strong&gt;。&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://dorinxl.github.io/p/unity-shader%E5%85%A5%E9%97%A8%E7%B2%BE%E8%A6%81%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0-%E7%AC%AC%E4%B8%89%E7%AB%A0-unity-shader%E5%9F%BA%E7%A1%80/1858293-20220703234038360-2058615356.png&#34;
+	width=&#34;763&#34;
+	height=&#34;361&#34;
+	srcset=&#34;https://dorinxl.github.io/p/unity-shader%E5%85%A5%E9%97%A8%E7%B2%BE%E8%A6%81%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0-%E7%AC%AC%E4%B8%89%E7%AB%A0-unity-shader%E5%9F%BA%E7%A1%80/1858293-20220703234038360-2058615356_hu3368549788139081952.png 480w, https://dorinxl.github.io/p/unity-shader%E5%85%A5%E9%97%A8%E7%B2%BE%E8%A6%81%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0-%E7%AC%AC%E4%B8%89%E7%AB%A0-unity-shader%E5%9F%BA%E7%A1%80/1858293-20220703234038360-2058615356_hu7538809761253536864.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;image-20220702001109888&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;211&#34;
+		data-flex-basis=&#34;507px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;​	一个Unity Shader的基础结构如下：&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt; 1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 2
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 3
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 4
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 5
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 6
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 7
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 8
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 9
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;10
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;11
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;12
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;Shader &amp;#34;ShaderName&amp;#34;{
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;	Properties{
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;		//属性
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;	}
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;	SubShader{
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;		//显卡A使用的子着色器
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;	}
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;		SubShader{
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;		//显卡B使用的子着色器
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;	}
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;	Fallback &amp;#34;VertexLit&amp;#34;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;}
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;​	Unity会在背后根据使用的平台将这些结构编译成真正的代码和Shader文件，开发者只需要和Unity Shader打交道就行。&lt;/p&gt;
+&lt;h2 id=&#34;33-unity-shader的结构&#34;&gt;3.3 Unity Shader的结构
+&lt;/h2&gt;&lt;h3 id=&#34;331-给shader起名字&#34;&gt;3.3.1 给Shader起名字
+&lt;/h3&gt;&lt;p&gt;​	用	&lt;code&gt;Shader &amp;quot;name&amp;quot;{ }&lt;/code&gt;就可以给Unity Shader命名，同时会出现在材质面板的下拉列表里。&lt;/p&gt;
+&lt;p&gt;​	也可以添加前缀来有序组织位置分布，例如&lt;code&gt;Shader &amp;quot;Custom/MyShader&amp;quot;{}&lt;/code&gt;的效果如图：&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://dorinxl.github.io/p/unity-shader%E5%85%A5%E9%97%A8%E7%B2%BE%E8%A6%81%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0-%E7%AC%AC%E4%B8%89%E7%AB%A0-unity-shader%E5%9F%BA%E7%A1%80/1858293-20220703234039393-605995405.png&#34;
+	width=&#34;308&#34;
+	height=&#34;319&#34;
+	srcset=&#34;https://dorinxl.github.io/p/unity-shader%E5%85%A5%E9%97%A8%E7%B2%BE%E8%A6%81%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0-%E7%AC%AC%E4%B8%89%E7%AB%A0-unity-shader%E5%9F%BA%E7%A1%80/1858293-20220703234039393-605995405_hu6505058552519215297.png 480w, https://dorinxl.github.io/p/unity-shader%E5%85%A5%E9%97%A8%E7%B2%BE%E8%A6%81%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0-%E7%AC%AC%E4%B8%89%E7%AB%A0-unity-shader%E5%9F%BA%E7%A1%80/1858293-20220703234039393-605995405_hu11299695599508403216.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;image-20220702001328694&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;96&#34;
+		data-flex-basis=&#34;231px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;h3 id=&#34;332-材质和unity-shader的桥梁properties&#34;&gt;3.3.2 材质和Unity Shader的桥梁：Properties
+&lt;/h3&gt;&lt;p&gt;​	Properties中包含一系列属性，这些属性会出现在材质面板中。&lt;/p&gt;
+&lt;p&gt;​	其定义方式为 &lt;code&gt;_名字(&amp;quot;面板属性名&amp;quot;,类型)=默认值&lt;/code&gt;，如：&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;2
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;3
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;4
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;5
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;Properties{
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;	Name(&amp;#34;Display name&amp;#34;,propertyType) = DefaultValue
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;	Name(&amp;#34;Display name&amp;#34;,propertyType) = DefaultValue
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;	//更多属性
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;}
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;​	属性的名字通常用一个&lt;strong&gt;下划线&lt;/strong&gt;开始。显示名字是出现在材质面板上的名字，同时需要指定类型和默认值。&lt;/p&gt;
+&lt;p&gt;​	以下是Properties语义块支持的属性类型:&lt;/p&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th style=&#34;text-align:left&#34;&gt;属性类型&lt;/th&gt;
+&lt;th style=&#34;text-align:left&#34;&gt;默认值的定义语法&lt;/th&gt;
+&lt;th style=&#34;text-align:left&#34;&gt;例子&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;Int&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;number&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;_Int(&amp;ldquo;Int&amp;rdquo;,Int) = 2&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;Float&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;number&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;_Float(&amp;ldquo;Float&amp;rdquo;,Float) = 1.5&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;Range(min,max)&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;number&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;_Range(&amp;ldquo;Range&amp;rdquo;,Range(0.0,5.0)) = 3.0&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;Color&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;(number,number,number,number)&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;_Color(&amp;ldquo;Color&amp;rdquo;,Color) = (1,1,1,1)&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;Vector&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;(number,number,number,number)&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;_Vector(&amp;ldquo;Vector&amp;rdquo;,Vector) = (6,2,3,1)&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;2D&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;&amp;ldquo;defaulttexture&amp;rdquo;{}&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;_2D(&amp;ldquo;2D&amp;rdquo;,2D) = &amp;ldquo;&amp;rdquo;{}&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;Cube&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;&amp;ldquo;defaulttexture&amp;rdquo;{}&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;_Cube(“Cube”,Cube) = &amp;ldquo;white&amp;rdquo;{}&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;3D&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;&amp;ldquo;defaulttexture&amp;rdquo;{}&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;_3D(&amp;ldquo;3D&amp;rdquo;,3D) = &amp;ldquo;black&amp;rdquo;{}&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;p&gt;​	Int、Float、Range：数字类型的属性，默认值是单独的数字。&lt;/p&gt;
+&lt;p&gt;​	Color、Vector：默认值是括号包围的四维向量。&lt;/p&gt;
+&lt;p&gt;​	2D、Cube、3D：默认值是字符串和花括号，字符串要么为空，要么是内置的纹理名称；花括号用于指定一些纹理属性，在Unitu5.0之后被移除。&lt;/p&gt;
+&lt;h3 id=&#34;333-重量级成员subshader&#34;&gt;3.3.3 重量级成员：SubShader
+&lt;/h3&gt;&lt;p&gt;​	一个Unity Shader可以包含多个SubShader语义块，至少要有一个。加载unity shader时会扫描所有SubShader，选择第一个能在目标平台运行的SubShader；如果都不支持，那么使用Fallback指定的UnityShader。&lt;/p&gt;
+&lt;p&gt;​	SubShader的结构如下：&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;2
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;3
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;4
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;5
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;6
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;7
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;8
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;9
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;SubShader{
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;	//可选
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;	[Tags]
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;	//可选
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;	[RenderSetup]
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;	Pass{
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;	}
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;	//其他的pass
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;}
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;​	挨个介绍：&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;标签Tags和状态RenderSetup都是可选的，在SubShader中的设置会适用到所有pass。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;标签Tags是一个键值对，都是字符串，&lt;em&gt;代表着SubShader希望以怎样、何时来渲染此对象。&lt;/em&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;状态RenderSetup可以&lt;em&gt;设置显卡的各种状态&lt;/em&gt;，并应用到所有的pass。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Pass语义块则是&lt;em&gt;一次&lt;strong&gt;完整的渲染流程&lt;/strong&gt;&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;来说说Pass：&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;2
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;3
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;4
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;5
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;6
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;Pass{
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;	[Name]
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;	[Tags]
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;	[RenderSetup]
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;	//code
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;}
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;显然我们可以定义pass的名称，我们也可以引用其他Unity Shader的pass，如：&lt;code&gt;UsePass &amp;quot;MyShader/MYPASSNAME&amp;quot;&lt;/code&gt;,值得注意的是，&lt;em&gt;unity内部会把所有Pass名称转换为大写字母&lt;/em&gt;，所有我们这里也要用大写字母。&lt;/p&gt;
+&lt;p&gt;Pass内部也可以设置标签/渲染状态，用于告诉渲染引擎如何渲染该物体。&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h3 id=&#34;334-留后路fallback&#34;&gt;3.3.4 留后路：Fallback
+&lt;/h3&gt;&lt;p&gt;​	Fallback规定了当所有的SubShader都不能在显卡上运行的时候所使用的Shader。&lt;/p&gt;
+&lt;p&gt;​	开发者可以关闭Fallback，但是这会影响投影的投射。因为Fallback使用的内置shader包含了一个通用的Pass，这会造成阴影投射的效果。&lt;/p&gt;
+&lt;h3 id=&#34;335-其他语义&#34;&gt;3.3.5 其他语义
+&lt;/h3&gt;&lt;p&gt;​	比如CustomEditor语言扩展自定义编辑界面。&lt;/p&gt;
+&lt;p&gt;​	比如Category语义对Unity Shader中的命令分组。&lt;/p&gt;
+&lt;h2 id=&#34;34-unity-shader的形式&#34;&gt;3.4 Unity Shader的形式
+&lt;/h2&gt;&lt;p&gt;​	在Unity中有三种形式来编写Unity Shader：&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt; 1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 2
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 3
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 4
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 5
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 6
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 7
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 8
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 9
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;10
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;11
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;12
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;13
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;14
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;Shader &amp;#34;MyShader&amp;#34;{
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;	Properties{
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;		//所需的各种属性
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;	}
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;	SubShader{
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;		//真正意义上的Shader代码会出现在这里
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;		//表面着色器（Subface Shader） 或者
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;		//顶点/片元着色器（Vertex/Fragment Shader） 或者
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;		//固定函数着色器（Fixed Function Shader）
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;	}
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;	SubShader{
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;		//同上
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;	}
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;}
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;h3 id=&#34;341-表面着色器&#34;&gt;3.4.1 表面着色器
+&lt;/h3&gt;&lt;p&gt;​	**表面着色器（Sruface Shader）**是Unity自己创造的一种着色器代码类型，代码量少；本质上还是顶点/片元着色器，可以看作是Unity对顶点/片元着色器的高层抽象。&lt;/p&gt;
+&lt;p&gt;​	表面着色器的价值在于Unity帮我们处理了很多光照细节。&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt; 1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 2
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 3
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 4
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 5
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 6
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 7
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 8
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 9
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;10
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;11
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;12
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;13
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;14
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;15
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;Shader &amp;#34;Custom/Simple Surface shader&amp;#34; {
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;	Subshader{
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;		Tags {&amp;#34;RenderType&amp;#34; = &amp;#34;opaque&amp;#34; }
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;		CGPROGRAM
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;		#pragma surface surf Lambert
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;		struct Input {
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;			float4 color : COLOR;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;		};
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;		void surf ( Input IN, inout SurfaceOutput o){
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;			o.Albedo = 1;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;		)
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;		ENDCG
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;	}
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;	Fallback &amp;#34;Diffuse&amp;#34;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;}
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;​	表面着色器定义在SubShader中的&lt;em&gt;CGPROGRAM&lt;/em&gt;和&lt;em&gt;ENDCG&lt;/em&gt;中。不在Pass中是因为不关心有几个pass，Unity会做好Pass的事情。&lt;/p&gt;
+&lt;p&gt;​	&lt;em&gt;CGPROGRAM&lt;/em&gt;和&lt;em&gt;ENDCG&lt;/em&gt;中的代码使用CG/HLSL编写。&lt;/p&gt;
+&lt;h3 id=&#34;342-顶点片元着色器&#34;&gt;3.4.2 顶点/片元着色器
+&lt;/h3&gt;&lt;p&gt;​	基本同表面着色器一致，但是&lt;em&gt;CGPROGRAM&lt;/em&gt;和&lt;em&gt;ENDCG&lt;/em&gt;需要写在Pass内，用来定义每个Pass自己的代码。&lt;/p&gt;
+&lt;h3 id=&#34;343-固定函数着色器&#34;&gt;3.4.3 固定函数着色器
+&lt;/h3&gt;&lt;p&gt;​	旧版本设备不支持可编程管线着色器，所以使用固定函数着色器。&lt;/p&gt;
+&lt;p&gt;​	固定函数着色器使用ShaderLab语法而不是CG/HLSL。&lt;/p&gt;
+&lt;p&gt;​	Unity5.2之后，所有固定函数着色器会在底层被编译成对应的顶点/片元着色器，真正意义上的固定函数着色器不复存在。&lt;/p&gt;
+&lt;h2 id=&#34;36-注意的地方&#34;&gt;3.6 注意的地方
+&lt;/h2&gt;&lt;p&gt;​	3.6.1 Unity Shader不是Shader&lt;/p&gt;
+&lt;p&gt;​	&lt;strong&gt;Unity Shader实际上是一个ShaderLab文件，以.shader为后缀名的文件。&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;​	Unity Shader&lt;strong&gt;高度封装&lt;/strong&gt;，不需要编写特定类型的顶点/片元Shader，可以通过指令开启渲染设置，方便的修改一些属性。&lt;/p&gt;
+&lt;p&gt;​	同时由于Unity Shader的高度封装，一些Shader类型和语法受限。&lt;/p&gt;
+&lt;p&gt;​	3.6.2 Unity Shader和CG/HLSL的关系&lt;/p&gt;
+&lt;p&gt;​	Unity Shader用ShaderLab语言编写，但是对于顶点/片元着色器会嵌套CG/HLSL代码来实现。&lt;/p&gt;
+&lt;h2 id=&#34;37-资料&#34;&gt;3.7 资料
+&lt;/h2&gt;&lt;p&gt;​	官方文档：&lt;a class=&#34;link&#34; href=&#34;http://docs.unity3d.com/Manual/SL-Reference.html&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;http://docs.unity3d.com/Manual/SL-Reference.html&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;​	官方简单着色器编写教程：&lt;a class=&#34;link&#34; href=&#34;http://docs.unity3d.com/Manual/ShaderTut1.html&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;http://docs.unity3d.com/Manual/ShaderTut1.html&lt;/a&gt; &lt;a class=&#34;link&#34; href=&#34;http://docs.unity3d.com/Manual/ShaderTut1.html&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;http://docs.unity3d.com/Manual/ShaderTut1.html&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;​	NVIDIA提供的CG文档：http://http.developer.nvidia.com/CG&lt;/p&gt;
+&lt;p&gt;​	NVIDIA提供的系列教程：http://http.developer.nvidia.com/CGTutorial/cG_tutorial_chapter01.html&lt;/p&gt;
+</description>
+        </item>
+        <item>
+        <title>【2022javaweb课设】基于购物系统的游戏原型设计</title>
+        <link>https://dorinxl.github.io/p/2022javaweb%E8%AF%BE%E8%AE%BE%E5%9F%BA%E4%BA%8E%E8%B4%AD%E7%89%A9%E7%B3%BB%E7%BB%9F%E7%9A%84%E6%B8%B8%E6%88%8F%E5%8E%9F%E5%9E%8B%E8%AE%BE%E8%AE%A1/</link>
+        <pubDate>Sat, 21 May 2022 14:23:00 +0000</pubDate>
+        
+        <guid>https://dorinxl.github.io/p/2022javaweb%E8%AF%BE%E8%AE%BE%E5%9F%BA%E4%BA%8E%E8%B4%AD%E7%89%A9%E7%B3%BB%E7%BB%9F%E7%9A%84%E6%B8%B8%E6%88%8F%E5%8E%9F%E5%9E%8B%E8%AE%BE%E8%AE%A1/</guid>
+        <description>&lt;h2 id=&#34;会议记录&#34;&gt;会议记录
+&lt;/h2&gt;&lt;h3 id=&#34;day1-2022520-晚&#34;&gt;Day1 2022/5/20 晚
+&lt;/h3&gt;&lt;p&gt;确定小组成员。&lt;/p&gt;
+&lt;p&gt;确定立项题目与方向：基于商城系统的游戏原型设计。&lt;/p&gt;
+&lt;h3 id=&#34;day2-2022521-早&#34;&gt;Day2 2022/5/21 早
+&lt;/h3&gt;&lt;h4 id=&#34;今日任务&#34;&gt;今日任务：
+&lt;/h4&gt;&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;确定开发环境&lt;/p&gt;
+&lt;p&gt;前端：html+css+js,使用Bootstrap框架&lt;/p&gt;
+&lt;p&gt;后端：MVC开发模式，JSP+JavaBean+Servlet&lt;/p&gt;
+&lt;p&gt;Web应用服务器：tomcat 9.0.30&lt;/p&gt;
+&lt;p&gt;数据库：MySQL&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;功能需求分析&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;前端页面需求：
+&lt;ol&gt;
+&lt;li&gt;网站欢迎页面：介绍网站作用，提供登录和注册的窗口。&lt;/li&gt;
+&lt;li&gt;注册和登录界面：传递用户信息到后端服务器与数据库交互。&lt;/li&gt;
+&lt;li&gt;商店页面：作为主界面显示各种道具供玩家选择，提供进入战斗页面的入口，同时可以查看个人资料、购物车。&lt;/li&gt;
+&lt;li&gt;个人资料页面：弹出展示，表现一些个人信息。&lt;/li&gt;
+&lt;li&gt;购物车页面：弹窗展示，展示玩家已选择的道具与效果。&lt;/li&gt;
+&lt;li&gt;战斗页面：游戏在该页面展示，玩家通过购买道具增强自己的属性或是削弱对手的属性，从而赢得胜利，进入下一关卡。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/li&gt;
+&lt;li&gt;后端需求：
+&lt;ol&gt;
+&lt;li&gt;设计数据库内容：
+&lt;ol&gt;
+&lt;li&gt;需要两个库，库PlayerAccount存放用户登陆数据与游戏数据，库GameSetting存放道具信息与敌人信息。&lt;/li&gt;
+&lt;li&gt;库PlayerAccount中需要表players共一张表，表players中共number、name、password、hp、attack、defense，money七列。&lt;/li&gt;
+&lt;li&gt;库GameSetting中需要prop、enemy两张表，表prop中共number、name、type、variation、cost五列，表enemy中共number、name、hp、attack、defense、gold五列。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;技术难点预处理&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;同页面内弹出小窗
+&lt;ol&gt;
+&lt;li&gt;使用Bootstrap框架实现模态框。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/li&gt;
+&lt;li&gt;servlet与jsp相互跳转时的路径
+&lt;ol&gt;
+&lt;li&gt;使用web.xml与绝对路径解决。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;熟悉使用Github的协同工作&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;在Github上创建私人项目并邀请小组成员进入。&lt;/li&gt;
+&lt;li&gt;小组使用Github Desktop图形化界面进行代码的协同工作。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h4 id=&#34;遗留问题&#34;&gt;遗留问题：
+&lt;/h4&gt;&lt;ol&gt;
+&lt;li&gt;将样例代码修改为所需代码。&lt;/li&gt;
+&lt;li&gt;数据库更新，添加花费、金钱等重要选项。&lt;/li&gt;
+&lt;li&gt;显示个人信息。&lt;/li&gt;
+&lt;li&gt;购买道具后实现增益效果。&lt;/li&gt;
+&lt;li&gt;开始着手对战。
+&lt;ol&gt;
+&lt;li&gt;界面构筑。&lt;/li&gt;
+&lt;li&gt;玩家点击对战——提交数据到servlet——服务端返回数据——客户端表现完毕后结算。&lt;/li&gt;
+&lt;li&gt;胜利则保存数据，失败则重新来过。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h3 id=&#34;day3-2022522&#34;&gt;Day3 2022/5/22
+&lt;/h3&gt;&lt;h4 id=&#34;今日任务-1&#34;&gt;今日任务：
+&lt;/h4&gt;&lt;ol&gt;
+&lt;li&gt;修复昨日遗留bug。&lt;/li&gt;
+&lt;li&gt;构建并丰富数据库表项。&lt;/li&gt;
+&lt;li&gt;开始分析核心代码思路并编写。&lt;/li&gt;
+&lt;li&gt;后端实现验证码注册登录、与数据库交互并实现保存登录信息。&lt;/li&gt;
+&lt;li&gt;前端实现登录与主界面的实现与优化。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h4 id=&#34;未处理&#34;&gt;未处理：
+&lt;/h4&gt;&lt;ol&gt;
+&lt;li&gt;实现战斗&lt;/li&gt;
+&lt;li&gt;实现购买&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h3 id=&#34;day4-2022523&#34;&gt;Day4 2022/5/23
+&lt;/h3&gt;&lt;h4 id=&#34;今日任务-2&#34;&gt;今日任务：
+&lt;/h4&gt;&lt;p&gt;战斗环节初步完成：&lt;/p&gt;
+&lt;p&gt;战斗思路：用户登陆后创建一个临时tmpPlayer用来供玩家修改属性，每次战斗获得胜利后才会修改保存原本数据库中的数据，这样实现存档功能。&lt;/p&gt;
+&lt;h4 id=&#34;未处理-1&#34;&gt;未处理：
+&lt;/h4&gt;&lt;ol&gt;
+&lt;li&gt;实现ajax传json，本地根据传值结果做出相应界面变化。&lt;/li&gt;
+&lt;li&gt;按钮的开关操作。&lt;/li&gt;
+&lt;li&gt;循环调用js，目的是为了点一次按钮就开始执行战斗环节。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h3 id=&#34;day5-2022524&#34;&gt;Day5 2022/5/24
+&lt;/h3&gt;&lt;h4 id=&#34;今日任务-3&#34;&gt;今日任务：
+&lt;/h4&gt;&lt;p&gt;&lt;strong&gt;现在开始使用bootstrap框架重构前端&lt;/strong&gt;&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;index欢迎界面完成。&lt;/li&gt;
+&lt;li&gt;注册与登录通过模态框实现。&lt;/li&gt;
+&lt;li&gt;两个模态框分别刷新验证码，出错提示，重新打开刷新提示&lt;/li&gt;
+&lt;li&gt;将注册与登录同欢迎页面在一起，使用ajax实现登录、注册以及登录状态保存。同时可以跳转到游戏主界面。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;&lt;img src=&#34;https://dorinxl.github.io/p/2022javaweb%E8%AF%BE%E8%AE%BE%E5%9F%BA%E4%BA%8E%E8%B4%AD%E7%89%A9%E7%B3%BB%E7%BB%9F%E7%9A%84%E6%B8%B8%E6%88%8F%E5%8E%9F%E5%9E%8B%E8%AE%BE%E8%AE%A1/1858293-20220604154345852-1297586329.png&#34;
+	width=&#34;519&#34;
+	height=&#34;630&#34;
+	srcset=&#34;https://dorinxl.github.io/p/2022javaweb%E8%AF%BE%E8%AE%BE%E5%9F%BA%E4%BA%8E%E8%B4%AD%E7%89%A9%E7%B3%BB%E7%BB%9F%E7%9A%84%E6%B8%B8%E6%88%8F%E5%8E%9F%E5%9E%8B%E8%AE%BE%E8%AE%A1/1858293-20220604154345852-1297586329_hu9882075956850767550.png 480w, https://dorinxl.github.io/p/2022javaweb%E8%AF%BE%E8%AE%BE%E5%9F%BA%E4%BA%8E%E8%B4%AD%E7%89%A9%E7%B3%BB%E7%BB%9F%E7%9A%84%E6%B8%B8%E6%88%8F%E5%8E%9F%E5%9E%8B%E8%AE%BE%E8%AE%A1/1858293-20220604154345852-1297586329_hu12541126382259433949.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;登录&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;82&#34;
+		data-flex-basis=&#34;197px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;遗留问题：注册失败&lt;/p&gt;
+&lt;h3 id=&#34;day6-2022525&#34;&gt;Day6 2022/5/25
+&lt;/h3&gt;&lt;h4 id=&#34;今日任务-4&#34;&gt;今日任务：
+&lt;/h4&gt;&lt;ol&gt;
+&lt;li&gt;url导入背景图片，改变其背景透明，透明度通过rgba（）实现。&lt;/li&gt;
+&lt;li&gt;界面布局高度不一致，尝试用flex修改&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;&lt;img src=&#34;https://dorinxl.github.io/p/2022javaweb%E8%AF%BE%E8%AE%BE%E5%9F%BA%E4%BA%8E%E8%B4%AD%E7%89%A9%E7%B3%BB%E7%BB%9F%E7%9A%84%E6%B8%B8%E6%88%8F%E5%8E%9F%E5%9E%8B%E8%AE%BE%E8%AE%A1/1858293-20220604154347919-1098005980.png&#34;
+	width=&#34;1061&#34;
+	height=&#34;718&#34;
+	srcset=&#34;https://dorinxl.github.io/p/2022javaweb%E8%AF%BE%E8%AE%BE%E5%9F%BA%E4%BA%8E%E8%B4%AD%E7%89%A9%E7%B3%BB%E7%BB%9F%E7%9A%84%E6%B8%B8%E6%88%8F%E5%8E%9F%E5%9E%8B%E8%AE%BE%E8%AE%A1/1858293-20220604154347919-1098005980_hu6873870499846169469.png 480w, https://dorinxl.github.io/p/2022javaweb%E8%AF%BE%E8%AE%BE%E5%9F%BA%E4%BA%8E%E8%B4%AD%E7%89%A9%E7%B3%BB%E7%BB%9F%E7%9A%84%E6%B8%B8%E6%88%8F%E5%8E%9F%E5%9E%8B%E8%AE%BE%E8%AE%A1/1858293-20220604154347919-1098005980_hu12237455489209668512.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;进入商店&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;147&#34;
+		data-flex-basis=&#34;354px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;h3 id=&#34;day7-2022526&#34;&gt;Day7 2022/5/26
+&lt;/h3&gt;&lt;h4 id=&#34;今日任务-5&#34;&gt;今日任务：
+&lt;/h4&gt;&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;完成装备的刷新机制。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;js获取div内容、克隆div，修改div各项属性及其子属性。、&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;装备刷新使用正态分布生成概率5% 12% 25% 28% 30%（线性）&lt;/p&gt;
+&lt;p&gt;500 500&lt;del&gt;1700 1700&lt;/del&gt;4200 4200&lt;del&gt;7000 7000&lt;/del&gt;10000&lt;/p&gt;
+&lt;p&gt;整体流程：Store.jsp-&amp;gt;GachaServlet-&amp;gt;DAO-&amp;gt;Servlet-&amp;gt;Store.jsp&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;C:%5cUsers%5c97478%5cAppData%5cRoaming%5cTypora%5ctypora-user-images%5cimage-20220604150807588.png&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;image-20220604150807588&#34;
+	
+	
+&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h3 id=&#34;day8-2022527&#34;&gt;Day8 2022/5/27
+&lt;/h3&gt;&lt;h4 id=&#34;今日任务-6&#34;&gt;今日任务：
+&lt;/h4&gt;&lt;ol&gt;
+&lt;li&gt;重新编写了购买、修改购物车的逻辑&lt;/li&gt;
+&lt;li&gt;添加刷新玩家信息的函数，请求玩家数据的方法。&lt;/li&gt;
+&lt;li&gt;完成了战斗页面的构建，添加了逻辑。&lt;/li&gt;
+&lt;li&gt;两侧card，中间是ui以及展示区域。&lt;/li&gt;
+&lt;li&gt;完成PPT，完成视频展示，丰富数据库，找背景图以及怪物图。&lt;/li&gt;
+&lt;li&gt;顺利完成答辩。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h3 id=&#34;一些自己编的数据库&#34;&gt;一些自己编的数据库：
+&lt;/h3&gt;&lt;p&gt;&lt;img src=&#34;C:%5cUsers%5c97478%5cAppData%5cRoaming%5cTypora%5ctypora-user-images%5cimage-20220604151755876.png&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;image-20220604151755876&#34;
+	
+	
+&gt;&lt;/p&gt;
+&lt;h3 id=&#34;使用的素材&#34;&gt;使用的素材：
+&lt;/h3&gt;&lt;p&gt;怪物图片：https://pixeljoint.com/pixelart/41620.htm&lt;/p&gt;
+&lt;p&gt;道具图片：https://cheekyinkling.itch.io/shikashis-fantasy-icons-pack&lt;/p&gt;
+&lt;p&gt;人物图片：https://craftpix.net/freebies/free-halfing-avatar-icons/&lt;/p&gt;
+&lt;p&gt;背景图片：&lt;/p&gt;
+&lt;p&gt;&lt;a class=&#34;link&#34; href=&#34;https://yangsh.artstation.com/projects/mq5GNd&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;https://yangsh.artstation.com/projects/mq5GNd&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a class=&#34;link&#34; href=&#34;https://www.artstation.com/artwork/A95vPo&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;https://www.artstation.com/artwork/A95vPo&lt;/a&gt;&lt;/p&gt;
+</description>
+        </item>
+        <item>
+        <title>【开发复盘】2021网易游戏高校MINI-GAME挑战赛作品《戏幕未落》</title>
+        <link>https://dorinxl.github.io/p/%E5%BC%80%E5%8F%91%E5%A4%8D%E7%9B%982021%E7%BD%91%E6%98%93%E6%B8%B8%E6%88%8F%E9%AB%98%E6%A0%A1mini-game%E6%8C%91%E6%88%98%E8%B5%9B%E4%BD%9C%E5%93%81%E6%88%8F%E5%B9%95%E6%9C%AA%E8%90%BD/</link>
+        <pubDate>Mon, 01 Nov 2021 09:03:00 +0000</pubDate>
+        
+        <guid>https://dorinxl.github.io/p/%E5%BC%80%E5%8F%91%E5%A4%8D%E7%9B%982021%E7%BD%91%E6%98%93%E6%B8%B8%E6%88%8F%E9%AB%98%E6%A0%A1mini-game%E6%8C%91%E6%88%98%E8%B5%9B%E4%BD%9C%E5%93%81%E6%88%8F%E5%B9%95%E6%9C%AA%E8%90%BD/</guid>
+        <description>&lt;h1 id=&#34;开发复盘2021网易游戏高校mini-game挑战赛作品戏幕未落&#34;&gt;【开发复盘】2021网易游戏高校MINI-GAME挑战赛作品《戏幕未落》
+&lt;/h1&gt;&lt;p&gt;欢迎大家给我们投票！
+&lt;a class=&#34;link&#34; href=&#34;https://game.academy.163.com/event/mg?page=works&amp;amp;id=2443&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;https://game.academy.163.com/event/mg?page=works&amp;id=2443&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;依旧是主程，这次逻辑需求大概分为基本操作、对话系统、拍照系统、演绎系统四个方面。&lt;/p&gt;
+&lt;h2 id=&#34;基本操作&#34;&gt;基本操作
+&lt;/h2&gt;&lt;p&gt;初期为2d横板探索，之后修改为2d+3d探索，主要交互为对话触发剧情、特色为拍照系统与演绎系统。&lt;/p&gt;
+&lt;p&gt;同上一个项目一样，3d场景+2d人物，添加了z轴移动，当然是有范围限制的。&lt;/p&gt;
+&lt;p&gt;鉴于上一个项目的经验，这次直接给2d人物添加阴影。&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://dorinxl.github.io/p/%E5%BC%80%E5%8F%91%E5%A4%8D%E7%9B%982021%E7%BD%91%E6%98%93%E6%B8%B8%E6%88%8F%E9%AB%98%E6%A0%A1mini-game%E6%8C%91%E6%88%98%E8%B5%9B%E4%BD%9C%E5%93%81%E6%88%8F%E5%B9%95%E6%9C%AA%E8%90%BD/1858293-20211101170159434-204429009.png&#34;
+	width=&#34;868&#34;
+	height=&#34;482&#34;
+	srcset=&#34;https://dorinxl.github.io/p/%E5%BC%80%E5%8F%91%E5%A4%8D%E7%9B%982021%E7%BD%91%E6%98%93%E6%B8%B8%E6%88%8F%E9%AB%98%E6%A0%A1mini-game%E6%8C%91%E6%88%98%E8%B5%9B%E4%BD%9C%E5%93%81%E6%88%8F%E5%B9%95%E6%9C%AA%E8%90%BD/1858293-20211101170159434-204429009_hu10671780208919604677.png 480w, https://dorinxl.github.io/p/%E5%BC%80%E5%8F%91%E5%A4%8D%E7%9B%982021%E7%BD%91%E6%98%93%E6%B8%B8%E6%88%8F%E9%AB%98%E6%A0%A1mini-game%E6%8C%91%E6%88%98%E8%B5%9B%E4%BD%9C%E5%93%81%E6%88%8F%E5%B9%95%E6%9C%AA%E8%90%BD/1858293-20211101170159434-204429009_hu8020816573151655839.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;image-20211031172309529&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;180&#34;
+		data-flex-basis=&#34;432px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;h2 id=&#34;对话系统&#34;&gt;对话系统
+&lt;/h2&gt;&lt;p&gt;对话用的框架被我大改特改，因为这次没有涉及到大量对话，所以没有用到excel来进行序列化，而是直接将剧情写在代码里当作字符串使用了。&lt;/p&gt;
+&lt;p&gt;同时这个对话框架还是问题很大，市面上的商业文字游戏标准是十分的话，我手上的框架就只是二三分的水平。体量太大或者太小都不适用，也不安全。协程控制的一些效果也会有冲突。&lt;/p&gt;
+&lt;p&gt;得想办法升级一下啊。&lt;/p&gt;
+&lt;h2 id=&#34;拍照系统&#34;&gt;拍照系统
+&lt;/h2&gt;&lt;p&gt;其实就是找个camera来渲染画面，只渲染人物动作和场景，不渲染UI和其他乱七八糟的，然后在左下角加个游戏的logo，这样还可以分享照片达到游戏社交的效果。&lt;/p&gt;
+&lt;p&gt;代码上就是用rect来控制宽高，然后创建一个Texture2D，将数据写入文件就好。&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://dorinxl.github.io/p/%E5%BC%80%E5%8F%91%E5%A4%8D%E7%9B%982021%E7%BD%91%E6%98%93%E6%B8%B8%E6%88%8F%E9%AB%98%E6%A0%A1mini-game%E6%8C%91%E6%88%98%E8%B5%9B%E4%BD%9C%E5%93%81%E6%88%8F%E5%B9%95%E6%9C%AA%E8%90%BD/1858293-20211101170200165-2002188820.png&#34;
+	width=&#34;1210&#34;
+	height=&#34;683&#34;
+	srcset=&#34;https://dorinxl.github.io/p/%E5%BC%80%E5%8F%91%E5%A4%8D%E7%9B%982021%E7%BD%91%E6%98%93%E6%B8%B8%E6%88%8F%E9%AB%98%E6%A0%A1mini-game%E6%8C%91%E6%88%98%E8%B5%9B%E4%BD%9C%E5%93%81%E6%88%8F%E5%B9%95%E6%9C%AA%E8%90%BD/1858293-20211101170200165-2002188820_hu512830879511891533.png 480w, https://dorinxl.github.io/p/%E5%BC%80%E5%8F%91%E5%A4%8D%E7%9B%982021%E7%BD%91%E6%98%93%E6%B8%B8%E6%88%8F%E9%AB%98%E6%A0%A1mini-game%E6%8C%91%E6%88%98%E8%B5%9B%E4%BD%9C%E5%93%81%E6%88%8F%E5%B9%95%E6%9C%AA%E8%90%BD/1858293-20211101170200165-2002188820_hu11563140279085283212.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;image-20211101170119041&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;177&#34;
+		data-flex-basis=&#34;425px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;h2 id=&#34;演绎系统&#34;&gt;演绎系统
+&lt;/h2&gt;&lt;p&gt;因为大赛主题为“戏”，所以这个系统比较重要，大概分为三块。&lt;/p&gt;
+&lt;h3 id=&#34;第一块剪裁&#34;&gt;第一块：剪裁
+&lt;/h3&gt;&lt;p&gt;大概意思就是在纸上剪个小人出来，会给你轮廓，然后需要玩家沿轮廓画线把小人裁出来。&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://dorinxl.github.io/p/%E5%BC%80%E5%8F%91%E5%A4%8D%E7%9B%982021%E7%BD%91%E6%98%93%E6%B8%B8%E6%88%8F%E9%AB%98%E6%A0%A1mini-game%E6%8C%91%E6%88%98%E8%B5%9B%E4%BD%9C%E5%93%81%E6%88%8F%E5%B9%95%E6%9C%AA%E8%90%BD/1858293-20211101170200857-1062682303.png&#34;
+	width=&#34;1006&#34;
+	height=&#34;795&#34;
+	srcset=&#34;https://dorinxl.github.io/p/%E5%BC%80%E5%8F%91%E5%A4%8D%E7%9B%982021%E7%BD%91%E6%98%93%E6%B8%B8%E6%88%8F%E9%AB%98%E6%A0%A1mini-game%E6%8C%91%E6%88%98%E8%B5%9B%E4%BD%9C%E5%93%81%E6%88%8F%E5%B9%95%E6%9C%AA%E8%90%BD/1858293-20211101170200857-1062682303_hu10003856720342027242.png 480w, https://dorinxl.github.io/p/%E5%BC%80%E5%8F%91%E5%A4%8D%E7%9B%982021%E7%BD%91%E6%98%93%E6%B8%B8%E6%88%8F%E9%AB%98%E6%A0%A1mini-game%E6%8C%91%E6%88%98%E8%B5%9B%E4%BD%9C%E5%93%81%E6%88%8F%E5%B9%95%E6%9C%AA%E8%90%BD/1858293-20211101170200857-1062682303_hu6726914465103640175.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;image-20211101170129713&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;126&#34;
+		data-flex-basis=&#34;303px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;程序实现上有两处：画线和范围判定。&lt;/p&gt;
+&lt;p&gt;画线借鉴了油管的&lt;a class=&#34;link&#34; href=&#34;https://www.youtube.com/watch?v=pa_U64G7gkE&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;该视频&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;范围判定我没什么好的想法，就是在轮廓上取了十几个点，然后每帧计算鼠标坐标距离这些点的位置，最后鼠标松开的时候求个平均值来划范围。显然这也太蠢了，但我确实没什么好办法5555，其实如果多取几个点，取上百个点的话说不定会好一点。&lt;/p&gt;
+&lt;p&gt;然后就是用DoTween进行一个动画的放~&lt;/p&gt;
+&lt;h3 id=&#34;第二块涂色&#34;&gt;第二块：涂色
+&lt;/h3&gt;&lt;p&gt;&lt;img src=&#34;https://dorinxl.github.io/p/%E5%BC%80%E5%8F%91%E5%A4%8D%E7%9B%982021%E7%BD%91%E6%98%93%E6%B8%B8%E6%88%8F%E9%AB%98%E6%A0%A1mini-game%E6%8C%91%E6%88%98%E8%B5%9B%E4%BD%9C%E5%93%81%E6%88%8F%E5%B9%95%E6%9C%AA%E8%90%BD/1858293-20211101170201242-932769393.png&#34;
+	width=&#34;322&#34;
+	height=&#34;420&#34;
+	srcset=&#34;https://dorinxl.github.io/p/%E5%BC%80%E5%8F%91%E5%A4%8D%E7%9B%982021%E7%BD%91%E6%98%93%E6%B8%B8%E6%88%8F%E9%AB%98%E6%A0%A1mini-game%E6%8C%91%E6%88%98%E8%B5%9B%E4%BD%9C%E5%93%81%E6%88%8F%E5%B9%95%E6%9C%AA%E8%90%BD/1858293-20211101170201242-932769393_hu14521976504651374045.png 480w, https://dorinxl.github.io/p/%E5%BC%80%E5%8F%91%E5%A4%8D%E7%9B%982021%E7%BD%91%E6%98%93%E6%B8%B8%E6%88%8F%E9%AB%98%E6%A0%A1mini-game%E6%8C%91%E6%88%98%E8%B5%9B%E4%BD%9C%E5%93%81%E6%88%8F%E5%B9%95%E6%9C%AA%E8%90%BD/1858293-20211101170201242-932769393_hu4401368838818628466.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;image-20211101170140424&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;76&#34;
+		data-flex-basis=&#34;184px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;我管这个叫刮刮乐，就是两层，上面一层当作蒙版，鼠标在上面拖动就会擦除像素点，这段代码借鉴了&lt;a class=&#34;link&#34; href=&#34;https://www.cnblogs.com/lzzhentou/p/11634696.html&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;这里&lt;/a&gt;并加了一些修改。总之是可以判断刮了多少范围，然后进行事件的触发。&lt;/p&gt;
+&lt;h3 id=&#34;第三块拼图&#34;&gt;第三块：拼图
+&lt;/h3&gt;&lt;p&gt;这个就比较简单了，简单的拖拽游戏。（原本策划说要可以随机摆放，我嫌麻烦给改成固定位置了）&lt;/p&gt;
+&lt;h2 id=&#34;一些记录&#34;&gt;一些记录
+&lt;/h2&gt;&lt;ul&gt;
+&lt;li&gt;这次用到了DoTween插件，我觉得可以用在对话框架里代替原本的一些渐入渐出啊移动之类的效果，真的很方便！&lt;/li&gt;
+&lt;li&gt;果然游戏是不可以缺少音乐音效的，我一直打比方说如果一款游戏是个人，那么策划就构成了游戏的形体，美术组成血肉与皮肤，程序则负责搭建起骨架和神经。现在我要把音乐也加进去，音乐就是这个人的灵魂！！&lt;/li&gt;
+&lt;li&gt;项目管理出了点问题，到最后加班的时候我电脑里素材乱七八糟的很难找到需要的东西。&lt;/li&gt;
+&lt;li&gt;最后差点做不完，可能我又要拼场景又要挂脚本吧，但是我觉得还是脚本写的不够优雅。很多触发事件都可以再精简一点，抽象成同一套机制。而且对话机制也需要修改一下。我需要找时间改一套自己的工具箱，可以拿出来就用。&lt;/li&gt;
+&lt;li&gt;研究一下DoTween的源码，手上还有一套TBS的简单框架也研究一下，回头写个博客。&lt;/li&gt;
+&lt;li&gt;就先这样&lt;del&gt;欢迎投票&lt;/del&gt; &lt;a class=&#34;link&#34; href=&#34;https://game.academy.163.com/event/mg?page=works&amp;amp;id=2443&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;https://game.academy.163.com/event/mg?page=works&amp;id=2443&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+        </item>
+        <item>
+        <title>【GameJam】机核网BOOOM游戏创作挑战开发复盘</title>
+        <link>https://dorinxl.github.io/p/gamejam%E6%9C%BA%E6%A0%B8%E7%BD%91booom%E6%B8%B8%E6%88%8F%E5%88%9B%E4%BD%9C%E6%8C%91%E6%88%98%E5%BC%80%E5%8F%91%E5%A4%8D%E7%9B%98/</link>
+        <pubDate>Fri, 27 Aug 2021 16:12:00 +0000</pubDate>
+        
+        <guid>https://dorinxl.github.io/p/gamejam%E6%9C%BA%E6%A0%B8%E7%BD%91booom%E6%B8%B8%E6%88%8F%E5%88%9B%E4%BD%9C%E6%8C%91%E6%88%98%E5%BC%80%E5%8F%91%E5%A4%8D%E7%9B%98/</guid>
+        <description>&lt;h1 id=&#34;gamejam机核网booom游戏创作挑战开发复盘&#34;&gt;【GameJam】机核网BOOOM游戏创作挑战开发复盘
+&lt;/h1&gt;&lt;p&gt;要开学了，返校前进行一波复盘。&lt;/p&gt;
+&lt;p&gt;我们组的作品《GANDER COMPANY》，介时会有宣传视频，并会在机核网游戏创作市集线上展示。之后会在这里补上链接。
+&lt;a class=&#34;link&#34; href=&#34;https://www.gcores.com/games/67514&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;https://www.gcores.com/games/67514&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;程序只有我一个人啊，所以复盘也来得很快，把一些想法和思路写在这里，没啥技术力，凑活看，权当记录。&lt;/p&gt;
+&lt;h2 id=&#34;游戏本质问题&#34;&gt;游戏本质问题
+&lt;/h2&gt;&lt;p&gt;引擎用的unity 2020.3.14f1c1 ，当策划确定下游戏主题之后，就该我考虑实现方式了。&lt;/p&gt;
+&lt;p&gt;这次项目首次引进了3D建模，但本身还是和2D的结合，实质就是一个2D游戏，只不过表现上进行了伪3D。&lt;/p&gt;
+&lt;p&gt;虽然场景是3D的，而且存在光影。但游戏只有左右控制，也就是只有X轴，甚至没有上下，出现上下都是程序出bug了，所以说本质就是个2D横板游戏。&lt;/p&gt;
+&lt;h2 id=&#34;相机视角问题&#34;&gt;相机视角问题
+&lt;/h2&gt;&lt;p&gt;由于存在场景3D+人物2D，摄像机直接和人物一个平面就好，调整下y轴和z轴，让摄像机跟人物有个合适的距离，看着舒服。&lt;/p&gt;
+&lt;p&gt;然后因为模型师也算是外包性质（策划叫的同学短时合作），我们之前也没有尝试将3D元素添加进来，所以场景模型上可能会有些小问题，比如说房间建模稍小这样子，都不是什么大问题，我在unity里略作调整就好。&lt;/p&gt;
+&lt;p&gt;这里就涉及到摄像机的位置了，多个房间，我是直接摆在同一个场景里的，场景跳转切个黑幕直接换人物坐标。要控制摄像机的视角内不会出现其他不该出现的内容。&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://dorinxl.github.io/p/gamejam%E6%9C%BA%E6%A0%B8%E7%BD%91booom%E6%B8%B8%E6%88%8F%E5%88%9B%E4%BD%9C%E6%8C%91%E6%88%98%E5%BC%80%E5%8F%91%E5%A4%8D%E7%9B%98/1858293-20210828001050953-1422588183.png&#34;
+	width=&#34;1104&#34;
+	height=&#34;574&#34;
+	srcset=&#34;https://dorinxl.github.io/p/gamejam%E6%9C%BA%E6%A0%B8%E7%BD%91booom%E6%B8%B8%E6%88%8F%E5%88%9B%E4%BD%9C%E6%8C%91%E6%88%98%E5%BC%80%E5%8F%91%E5%A4%8D%E7%9B%98/1858293-20210828001050953-1422588183_hu12041031046299009765.png 480w, https://dorinxl.github.io/p/gamejam%E6%9C%BA%E6%A0%B8%E7%BD%91booom%E6%B8%B8%E6%88%8F%E5%88%9B%E4%BD%9C%E6%8C%91%E6%88%98%E5%BC%80%E5%8F%91%E5%A4%8D%E7%9B%98/1858293-20210828001050953-1422588183_hu5587569030691575789.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;image-20210827111024187&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;192&#34;
+		data-flex-basis=&#34;461px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;用&lt;code&gt;Vector3.Lerp&lt;/code&gt;给摄像机加个跟踪人物，然后写了个数组用&lt;code&gt;Mathf.Clamp&lt;/code&gt;控制摄像机的范围，方法有些简陋，但是能实现需求。&lt;/p&gt;
+&lt;h2 id=&#34;2d在3d上的投影&#34;&gt;2D在3D上的投影
+&lt;/h2&gt;&lt;p&gt;这个问题纠结了我半天，3D物体自带投影，但是2D就是个图片，我一时不知道怎么投影。&lt;/p&gt;
+&lt;p&gt;然后&lt;a class=&#34;link&#34; href=&#34;https://hananon.com/how-to-make-2d-sprite-cast-and-receive-shadow-in-3d-world-using-unity-shader-graph/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;跟着这个&lt;/a&gt;做了半天，发现涉及到渲染了，顿时感觉不妙。&lt;/p&gt;
+&lt;p&gt;琢磨了好几天，甚至都要开始搞shader了，然后发现了个简单的解决方式。&lt;/p&gt;
+&lt;p&gt;首先简单的搭一个场景：&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://dorinxl.github.io/p/gamejam%E6%9C%BA%E6%A0%B8%E7%BD%91booom%E6%B8%B8%E6%88%8F%E5%88%9B%E4%BD%9C%E6%8C%91%E6%88%98%E5%BC%80%E5%8F%91%E5%A4%8D%E7%9B%98/1858293-20210828001051973-1645081158.png&#34;
+	width=&#34;1104&#34;
+	height=&#34;574&#34;
+	srcset=&#34;https://dorinxl.github.io/p/gamejam%E6%9C%BA%E6%A0%B8%E7%BD%91booom%E6%B8%B8%E6%88%8F%E5%88%9B%E4%BD%9C%E6%8C%91%E6%88%98%E5%BC%80%E5%8F%91%E5%A4%8D%E7%9B%98/1858293-20210828001051973-1645081158_hu12373567489199066051.png 480w, https://dorinxl.github.io/p/gamejam%E6%9C%BA%E6%A0%B8%E7%BD%91booom%E6%B8%B8%E6%88%8F%E5%88%9B%E4%BD%9C%E6%8C%91%E6%88%98%E5%BC%80%E5%8F%91%E5%A4%8D%E7%9B%98/1858293-20210828001051973-1645081158_hu3307778599316884555.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;image-20210827113335300&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;192&#34;
+		data-flex-basis=&#34;461px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;想要让2D投影,需要对Sprite Renderer进行设置：&lt;/p&gt;
+&lt;p&gt;点右上角的三个点，然后选debug：&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://dorinxl.github.io/p/gamejam%E6%9C%BA%E6%A0%B8%E7%BD%91booom%E6%B8%B8%E6%88%8F%E5%88%9B%E4%BD%9C%E6%8C%91%E6%88%98%E5%BC%80%E5%8F%91%E5%A4%8D%E7%9B%98/1858293-20210828001052238-1130435379.png&#34;
+	width=&#34;457&#34;
+	height=&#34;177&#34;
+	srcset=&#34;https://dorinxl.github.io/p/gamejam%E6%9C%BA%E6%A0%B8%E7%BD%91booom%E6%B8%B8%E6%88%8F%E5%88%9B%E4%BD%9C%E6%8C%91%E6%88%98%E5%BC%80%E5%8F%91%E5%A4%8D%E7%9B%98/1858293-20210828001052238-1130435379_hu16506848972163367807.png 480w, https://dorinxl.github.io/p/gamejam%E6%9C%BA%E6%A0%B8%E7%BD%91booom%E6%B8%B8%E6%88%8F%E5%88%9B%E4%BD%9C%E6%8C%91%E6%88%98%E5%BC%80%E5%8F%91%E5%A4%8D%E7%9B%98/1858293-20210828001052238-1130435379_hu17594390059212077970.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;image-20210827145836499&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;258&#34;
+		data-flex-basis=&#34;619px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;将sprite renderer的投影和接受阴影都打开：&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://dorinxl.github.io/p/gamejam%E6%9C%BA%E6%A0%B8%E7%BD%91booom%E6%B8%B8%E6%88%8F%E5%88%9B%E4%BD%9C%E6%8C%91%E6%88%98%E5%BC%80%E5%8F%91%E5%A4%8D%E7%9B%98/1858293-20210828001052427-1542114718.png&#34;
+	width=&#34;453&#34;
+	height=&#34;274&#34;
+	srcset=&#34;https://dorinxl.github.io/p/gamejam%E6%9C%BA%E6%A0%B8%E7%BD%91booom%E6%B8%B8%E6%88%8F%E5%88%9B%E4%BD%9C%E6%8C%91%E6%88%98%E5%BC%80%E5%8F%91%E5%A4%8D%E7%9B%98/1858293-20210828001052427-1542114718_hu7612897020065781925.png 480w, https://dorinxl.github.io/p/gamejam%E6%9C%BA%E6%A0%B8%E7%BD%91booom%E6%B8%B8%E6%88%8F%E5%88%9B%E4%BD%9C%E6%8C%91%E6%88%98%E5%BC%80%E5%8F%91%E5%A4%8D%E7%9B%98/1858293-20210828001052427-1542114718_hu4331382085641687400.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;image-20210827150058274&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;165&#34;
+		data-flex-basis=&#34;396px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;接下来给sprite换个材质，2d人物不会有阴影的，但是我偶然发现了这个材质可以让人物拥有：&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://dorinxl.github.io/p/gamejam%E6%9C%BA%E6%A0%B8%E7%BD%91booom%E6%B8%B8%E6%88%8F%E5%88%9B%E4%BD%9C%E6%8C%91%E6%88%98%E5%BC%80%E5%8F%91%E5%A4%8D%E7%9B%98/1858293-20210828001052676-1299136170.png&#34;
+	width=&#34;717&#34;
+	height=&#34;360&#34;
+	srcset=&#34;https://dorinxl.github.io/p/gamejam%E6%9C%BA%E6%A0%B8%E7%BD%91booom%E6%B8%B8%E6%88%8F%E5%88%9B%E4%BD%9C%E6%8C%91%E6%88%98%E5%BC%80%E5%8F%91%E5%A4%8D%E7%9B%98/1858293-20210828001052676-1299136170_hu10788055256016758197.png 480w, https://dorinxl.github.io/p/gamejam%E6%9C%BA%E6%A0%B8%E7%BD%91booom%E6%B8%B8%E6%88%8F%E5%88%9B%E4%BD%9C%E6%8C%91%E6%88%98%E5%BC%80%E5%8F%91%E5%A4%8D%E7%9B%98/1858293-20210828001052676-1299136170_hu16831406855468723351.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;image-20210827150534556&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;199&#34;
+		data-flex-basis=&#34;478px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;记得打开灯光的阴影选项，不然不会产生阴影：&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://dorinxl.github.io/p/gamejam%E6%9C%BA%E6%A0%B8%E7%BD%91booom%E6%B8%B8%E6%88%8F%E5%88%9B%E4%BD%9C%E6%8C%91%E6%88%98%E5%BC%80%E5%8F%91%E5%A4%8D%E7%9B%98/1858293-20210828001052920-2097065813.png&#34;
+	width=&#34;440&#34;
+	height=&#34;446&#34;
+	srcset=&#34;https://dorinxl.github.io/p/gamejam%E6%9C%BA%E6%A0%B8%E7%BD%91booom%E6%B8%B8%E6%88%8F%E5%88%9B%E4%BD%9C%E6%8C%91%E6%88%98%E5%BC%80%E5%8F%91%E5%A4%8D%E7%9B%98/1858293-20210828001052920-2097065813_hu2180216396390891497.png 480w, https://dorinxl.github.io/p/gamejam%E6%9C%BA%E6%A0%B8%E7%BD%91booom%E6%B8%B8%E6%88%8F%E5%88%9B%E4%BD%9C%E6%8C%91%E6%88%98%E5%BC%80%E5%8F%91%E5%A4%8D%E7%9B%98/1858293-20210828001052920-2097065813_hu10357146046505134680.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;image-20210827150508988&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;98&#34;
+		data-flex-basis=&#34;236px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;由于我不太懂渲染这块，这个粒子系统为什么会有，使用它会产生什么样的影响，我都不太明白，但是他能用。这个材质其实有个缺点，就是他只能单面：&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://dorinxl.github.io/p/gamejam%E6%9C%BA%E6%A0%B8%E7%BD%91booom%E6%B8%B8%E6%88%8F%E5%88%9B%E4%BD%9C%E6%8C%91%E6%88%98%E5%BC%80%E5%8F%91%E5%A4%8D%E7%9B%98/1858293-20210828001053867-637226462.gif&#34;
+	width=&#34;976&#34;
+	height=&#34;454&#34;
+	srcset=&#34;https://dorinxl.github.io/p/gamejam%E6%9C%BA%E6%A0%B8%E7%BD%91booom%E6%B8%B8%E6%88%8F%E5%88%9B%E4%BD%9C%E6%8C%91%E6%88%98%E5%BC%80%E5%8F%91%E5%A4%8D%E7%9B%98/1858293-20210828001053867-637226462_hu15397343357605480646.gif 480w, https://dorinxl.github.io/p/gamejam%E6%9C%BA%E6%A0%B8%E7%BD%91booom%E6%B8%B8%E6%88%8F%E5%88%9B%E4%BD%9C%E6%8C%91%E6%88%98%E5%BC%80%E5%8F%91%E5%A4%8D%E7%9B%98/1858293-20210828001053867-637226462_hu7832804157510415276.gif 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;演示1&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;214&#34;
+		data-flex-basis=&#34;515px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;所以这里卡了我好几天，找不到解决方式，很难受。&lt;/p&gt;
+&lt;p&gt;&lt;a class=&#34;link&#34; href=&#34;https://www.bilibili.com/video/BV1Cf4y137eP&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;这个视频&lt;/a&gt;给了灵感。可以在评论区找到我（&lt;/p&gt;
+&lt;p&gt;解决这个问题很简单，只要重新做一个材质，然后勾选上双面选项就行了。&lt;/p&gt;
+&lt;p&gt;双击这个材质，默认材质不能修改，但我们可以看到一些信息：&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://dorinxl.github.io/p/gamejam%E6%9C%BA%E6%A0%B8%E7%BD%91booom%E6%B8%B8%E6%88%8F%E5%88%9B%E4%BD%9C%E6%8C%91%E6%88%98%E5%BC%80%E5%8F%91%E5%A4%8D%E7%9B%98/1858293-20210828001054353-1630408219.png&#34;
+	width=&#34;441&#34;
+	height=&#34;453&#34;
+	srcset=&#34;https://dorinxl.github.io/p/gamejam%E6%9C%BA%E6%A0%B8%E7%BD%91booom%E6%B8%B8%E6%88%8F%E5%88%9B%E4%BD%9C%E6%8C%91%E6%88%98%E5%BC%80%E5%8F%91%E5%A4%8D%E7%9B%98/1858293-20210828001054353-1630408219_hu4153345653741131502.png 480w, https://dorinxl.github.io/p/gamejam%E6%9C%BA%E6%A0%B8%E7%BD%91booom%E6%B8%B8%E6%88%8F%E5%88%9B%E4%BD%9C%E6%8C%91%E6%88%98%E5%BC%80%E5%8F%91%E5%A4%8D%E7%9B%98/1858293-20210828001054353-1630408219_hu7924780461217326289.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;image-20210827151253043&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;97&#34;
+		data-flex-basis=&#34;233px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;所以只要右键创建一个Material，然后仿制做成这个样子就可以了：&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://dorinxl.github.io/p/gamejam%E6%9C%BA%E6%A0%B8%E7%BD%91booom%E6%B8%B8%E6%88%8F%E5%88%9B%E4%BD%9C%E6%8C%91%E6%88%98%E5%BC%80%E5%8F%91%E5%A4%8D%E7%9B%98/1858293-20210828001054609-2105206737.png&#34;
+	width=&#34;454&#34;
+	height=&#34;358&#34;
+	srcset=&#34;https://dorinxl.github.io/p/gamejam%E6%9C%BA%E6%A0%B8%E7%BD%91booom%E6%B8%B8%E6%88%8F%E5%88%9B%E4%BD%9C%E6%8C%91%E6%88%98%E5%BC%80%E5%8F%91%E5%A4%8D%E7%9B%98/1858293-20210828001054609-2105206737_hu13157305737872446203.png 480w, https://dorinxl.github.io/p/gamejam%E6%9C%BA%E6%A0%B8%E7%BD%91booom%E6%B8%B8%E6%88%8F%E5%88%9B%E4%BD%9C%E6%8C%91%E6%88%98%E5%BC%80%E5%8F%91%E5%A4%8D%E7%9B%98/1858293-20210828001054609-2105206737_hu16008059282177556205.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;image-20210827151522412&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;126&#34;
+		data-flex-basis=&#34;304px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;给sprite换上新的材质，就实现了双面投影！&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://dorinxl.github.io/p/gamejam%E6%9C%BA%E6%A0%B8%E7%BD%91booom%E6%B8%B8%E6%88%8F%E5%88%9B%E4%BD%9C%E6%8C%91%E6%88%98%E5%BC%80%E5%8F%91%E5%A4%8D%E7%9B%98/1858293-20210828001057146-2037201363.gif&#34;
+	width=&#34;977&#34;
+	height=&#34;492&#34;
+	srcset=&#34;https://dorinxl.github.io/p/gamejam%E6%9C%BA%E6%A0%B8%E7%BD%91booom%E6%B8%B8%E6%88%8F%E5%88%9B%E4%BD%9C%E6%8C%91%E6%88%98%E5%BC%80%E5%8F%91%E5%A4%8D%E7%9B%98/1858293-20210828001057146-2037201363_hu11209532611330517948.gif 480w, https://dorinxl.github.io/p/gamejam%E6%9C%BA%E6%A0%B8%E7%BD%91booom%E6%B8%B8%E6%88%8F%E5%88%9B%E4%BD%9C%E6%8C%91%E6%88%98%E5%BC%80%E5%8F%91%E5%A4%8D%E7%9B%98/1858293-20210828001057146-2037201363_hu14324615453958631162.gif 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;演示2&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;198&#34;
+		data-flex-basis=&#34;476px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;怎么样，是不是很帅气呢！来，试试看！&lt;/p&gt;
+&lt;h2 id=&#34;面向对象思想的便捷&#34;&gt;面向对象思想的便捷
+&lt;/h2&gt;&lt;p&gt;这次的小demo中最主要的互动如图下：&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://dorinxl.github.io/p/gamejam%E6%9C%BA%E6%A0%B8%E7%BD%91booom%E6%B8%B8%E6%88%8F%E5%88%9B%E4%BD%9C%E6%8C%91%E6%88%98%E5%BC%80%E5%8F%91%E5%A4%8D%E7%9B%98/1858293-20210828001100808-1973660236.gif&#34;
+	width=&#34;977&#34;
+	height=&#34;492&#34;
+	srcset=&#34;https://dorinxl.github.io/p/gamejam%E6%9C%BA%E6%A0%B8%E7%BD%91booom%E6%B8%B8%E6%88%8F%E5%88%9B%E4%BD%9C%E6%8C%91%E6%88%98%E5%BC%80%E5%8F%91%E5%A4%8D%E7%9B%98/1858293-20210828001100808-1973660236_hu6457664907856745437.gif 480w, https://dorinxl.github.io/p/gamejam%E6%9C%BA%E6%A0%B8%E7%BD%91booom%E6%B8%B8%E6%88%8F%E5%88%9B%E4%BD%9C%E6%8C%91%E6%88%98%E5%BC%80%E5%8F%91%E5%A4%8D%E7%9B%98/1858293-20210828001100808-1973660236_hu10196642271296182422.gif 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;演示3&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;198&#34;
+		data-flex-basis=&#34;476px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;就是一个靠近会弹动画，离开会收动画，触发会产生事件的触发器。&lt;/p&gt;
+&lt;p&gt;之前没怎么在项目中好好的用面向对象的思想，这次用上了，感觉就是非常爽。&lt;/p&gt;
+&lt;p&gt;写一个基类触发器，然后通过继承多态延伸出不同的触发事件，十分方便，十分的雅致。&lt;/p&gt;
+&lt;h2 id=&#34;一些不足&#34;&gt;一些不足
+&lt;/h2&gt;&lt;h3 id=&#34;剧情演出效果不足&#34;&gt;剧情演出效果不足
+&lt;/h3&gt;&lt;p&gt;之前写的gal框架被我多次使用，但是从来没升级过。考虑一下完善框架了。&lt;/p&gt;
+&lt;p&gt;目前的框架最大的问题就是演出效果，我是用协程来实现人物、场景的过渡，但是在一定条件下貌似会起冲突，很不爽。&lt;/p&gt;
+&lt;p&gt;正在试图找到新的代替方案，希望能有一种更优雅的过渡方式。&lt;/p&gt;
+&lt;h3 id=&#34;战斗系统的bug&#34;&gt;战斗系统的bug
+&lt;/h3&gt;&lt;p&gt;战斗这块是上海七天写的，不够稳定，经常出一些莫名其妙的效果。&lt;/p&gt;
+&lt;p&gt;比如这次的开发，在3D场景用2D物理战斗，效果十分滑稽，策划说是“人仰马翻的战斗”，确实如此（具体可以亲自游玩体验）。我也不是很满意，但是时间紧任务多没来得及尝试新的解决方案，先在这里记录下。&lt;/p&gt;
+&lt;h3 id=&#34;ui的适配问题&#34;&gt;UI的适配问题
+&lt;/h3&gt;&lt;p&gt;游戏做好了，提交了，我才想起来UI的适配不是很好，在1920*1080下效果最佳。&lt;/p&gt;
+&lt;p&gt;这波是没有规划好开发路线，我的锅。&lt;/p&gt;
+&lt;h2 id=&#34;总结&#34;&gt;总结
+&lt;/h2&gt;&lt;p&gt;三月到五月，我完成了基础的gal框架，并且从0学会了使用unity的部分板块，接触了UI以及一些基本内容。&lt;/p&gt;
+&lt;p&gt;七月后半旬，接触了2d物理引擎，到此算是拥有制作低水平小游戏的能力了。&lt;/p&gt;
+&lt;p&gt;八月就是一次技能整合，把我会的东西都用上了，整了这么一出。&lt;/p&gt;
+&lt;p&gt;要开学了，我目前的规划是积累沉淀。&lt;/p&gt;
+&lt;p&gt;我思考了一下，本质上自己还是一个程序员，那么想要有进步就要先把本职做好。&lt;/p&gt;
+&lt;p&gt;就算unity用的驾轻就熟，数据结构、算法、数据库、网络这些没学好也没什么用。&lt;/p&gt;
+&lt;p&gt;一个基础扎实的人，哪怕培训他学unity也会上手很快。&lt;/p&gt;
+&lt;p&gt;所以我决定回头，把基础学好，这是稳赚不赔的买卖。&lt;/p&gt;
+&lt;p&gt;这不意味着延缓梦想，只不过是为了更好的出发。&lt;/p&gt;
+</description>
+        </item>
+        <item>
+        <title>【UGDAP】上海一周自由行结束!</title>
+        <link>https://dorinxl.github.io/p/ugdap%E4%B8%8A%E6%B5%B7%E4%B8%80%E5%91%A8%E8%87%AA%E7%94%B1%E8%A1%8C%E7%BB%93%E6%9D%9F/</link>
+        <pubDate>Tue, 27 Jul 2021 15:51:00 +0000</pubDate>
+        
+        <guid>https://dorinxl.github.io/p/ugdap%E4%B8%8A%E6%B5%B7%E4%B8%80%E5%91%A8%E8%87%AA%E7%94%B1%E8%A1%8C%E7%BB%93%E6%9D%9F/</guid>
+        <description>&lt;h1 id=&#34;上海一周自由行结束&#34;&gt;上海一周自由行结束!
+&lt;/h1&gt;&lt;h5 id=&#34;指每天在宾馆爆肝代码好不容易有时间了还遇上台风哪也没去的一周&#34;&gt;指每天在宾馆爆肝代码，好不容易有时间了还遇上台风哪也没去的一周。
+&lt;/h5&gt;&lt;p&gt;​                                                &lt;img src=&#34;https://dorinxl.github.io/p/ugdap%E4%B8%8A%E6%B5%B7%E4%B8%80%E5%91%A8%E8%87%AA%E7%94%B1%E8%A1%8C%E7%BB%93%E6%9D%9F/b&amp;amp;ek=1&amp;amp;kp=1&amp;amp;pt=0&amp;amp;bo=WAIgA1gCIAMRECc%21&amp;amp;t=5&amp;amp;tl=3&amp;amp;su=056548530&amp;amp;tm=1627398000&amp;amp;sce=0-12-12&amp;amp;rf=2-9.jpg&#34;
+	width=&#34;600&#34;
+	height=&#34;800&#34;
+	srcset=&#34;https://dorinxl.github.io/p/ugdap%E4%B8%8A%E6%B5%B7%E4%B8%80%E5%91%A8%E8%87%AA%E7%94%B1%E8%A1%8C%E7%BB%93%E6%9D%9F/b&amp;amp;ek=1&amp;amp;kp=1&amp;amp;pt=0&amp;amp;bo=WAIgA1gCIAMRECc%21&amp;amp;t=5&amp;amp;tl=3&amp;amp;su=056548530&amp;amp;tm=1627398000&amp;amp;sce=0-12-12&amp;amp;rf=2-9_hu7131790711351620230.jpg 480w, https://dorinxl.github.io/p/ugdap%E4%B8%8A%E6%B5%B7%E4%B8%80%E5%91%A8%E8%87%AA%E7%94%B1%E8%A1%8C%E7%BB%93%E6%9D%9F/b&amp;amp;ek=1&amp;amp;kp=1&amp;amp;pt=0&amp;amp;bo=WAIgA1gCIAMRECc%21&amp;amp;t=5&amp;amp;tl=3&amp;amp;su=056548530&amp;amp;tm=1627398000&amp;amp;sce=0-12-12&amp;amp;rf=2-9_hu4142932058124149472.jpg 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;img&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;75&#34;
+		data-flex-basis=&#34;180px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;见识了一流大学的模样&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;​&lt;/p&gt;
+&lt;p&gt;总结复盘一下:&lt;/p&gt;
+&lt;p&gt;第一天跟策划交流想法并控制他不要做出我实现不了的决定&lt;/p&gt;
+&lt;p&gt;第二天敲代码，功能实现验证&lt;/p&gt;
+&lt;p&gt;第三天敲代码，玩家动作控制&lt;/p&gt;
+&lt;p&gt;第四天敲代码，敌人行为状态机&lt;/p&gt;
+&lt;p&gt;第五天敲代码，完成四个敌人的行为&lt;/p&gt;
+&lt;p&gt;第六天敲代码，给角色加状态，这个时候已经打不过自己的游戏了&lt;/p&gt;
+&lt;p&gt;第七天敲代码，切实感受项目上线前跟本没写完的危机，短短一上午完成地图场景人物对话缝合好整套流程，忍痛切割了部分功能，最后演示完成后人直接升天。&lt;/p&gt;
+&lt;p&gt;​                                                &lt;img src=&#34;https://dorinxl.github.io/p/ugdap%E4%B8%8A%E6%B5%B7%E4%B8%80%E5%91%A8%E8%87%AA%E7%94%B1%E8%A1%8C%E7%BB%93%E6%9D%9F/b&amp;amp;ek=1&amp;amp;kp=1&amp;amp;pt=0&amp;amp;bo=IANYAiADWAIRECc%21&amp;amp;t=5&amp;amp;tl=3&amp;amp;su=0253078034&amp;amp;tm=1627398000&amp;amp;sce=0-12-12&amp;amp;rf=2-9.jpg&#34;
+	width=&#34;800&#34;
+	height=&#34;600&#34;
+	srcset=&#34;https://dorinxl.github.io/p/ugdap%E4%B8%8A%E6%B5%B7%E4%B8%80%E5%91%A8%E8%87%AA%E7%94%B1%E8%A1%8C%E7%BB%93%E6%9D%9F/b&amp;amp;ek=1&amp;amp;kp=1&amp;amp;pt=0&amp;amp;bo=IANYAiADWAIRECc%21&amp;amp;t=5&amp;amp;tl=3&amp;amp;su=0253078034&amp;amp;tm=1627398000&amp;amp;sce=0-12-12&amp;amp;rf=2-9_hu7312656646813979167.jpg 480w, https://dorinxl.github.io/p/ugdap%E4%B8%8A%E6%B5%B7%E4%B8%80%E5%91%A8%E8%87%AA%E7%94%B1%E8%A1%8C%E7%BB%93%E6%9D%9F/b&amp;amp;ek=1&amp;amp;kp=1&amp;amp;pt=0&amp;amp;bo=IANYAiADWAIRECc%21&amp;amp;t=5&amp;amp;tl=3&amp;amp;su=0253078034&amp;amp;tm=1627398000&amp;amp;sce=0-12-12&amp;amp;rf=2-9_hu7828174738266870104.jpg 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;img&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;133&#34;
+		data-flex-basis=&#34;320px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;快乐白模时间&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;​                                                &lt;img src=&#34;https://dorinxl.github.io/p/ugdap%E4%B8%8A%E6%B5%B7%E4%B8%80%E5%91%A8%E8%87%AA%E7%94%B1%E8%A1%8C%E7%BB%93%E6%9D%9F/b&amp;amp;ek=1&amp;amp;kp=1&amp;amp;pt=0&amp;amp;bo=IAPCASADwgEDEDU%21&amp;amp;tl=1&amp;amp;su=011038914&amp;amp;tm=1627398000&amp;amp;sce=0-12-12&amp;amp;rf=2-9.png&#34;
+	width=&#34;800&#34;
+	height=&#34;450&#34;
+	srcset=&#34;https://dorinxl.github.io/p/ugdap%E4%B8%8A%E6%B5%B7%E4%B8%80%E5%91%A8%E8%87%AA%E7%94%B1%E8%A1%8C%E7%BB%93%E6%9D%9F/b&amp;amp;ek=1&amp;amp;kp=1&amp;amp;pt=0&amp;amp;bo=IAPCASADwgEDEDU%21&amp;amp;tl=1&amp;amp;su=011038914&amp;amp;tm=1627398000&amp;amp;sce=0-12-12&amp;amp;rf=2-9_hu3513115789505701596.png 480w, https://dorinxl.github.io/p/ugdap%E4%B8%8A%E6%B5%B7%E4%B8%80%E5%91%A8%E8%87%AA%E7%94%B1%E8%A1%8C%E7%BB%93%E6%9D%9F/b&amp;amp;ek=1&amp;amp;kp=1&amp;amp;pt=0&amp;amp;bo=IAPCASADwgEDEDU%21&amp;amp;tl=1&amp;amp;su=011038914&amp;amp;tm=1627398000&amp;amp;sce=0-12-12&amp;amp;rf=2-9_hu8056087972492975454.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;img&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;177&#34;
+		data-flex-basis=&#34;426px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;主美妈咪好强&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;​                                                &lt;img src=&#34;https://dorinxl.github.io/p/ugdap%E4%B8%8A%E6%B5%B7%E4%B8%80%E5%91%A8%E8%87%AA%E7%94%B1%E8%A1%8C%E7%BB%93%E6%9D%9F/b&amp;amp;ek=1&amp;amp;kp=1&amp;amp;pt=0&amp;amp;bo=IAPCASADwgEDEDU%21&amp;amp;tl=1&amp;amp;su=0104509314&amp;amp;tm=1627398000&amp;amp;sce=0-12-12&amp;amp;rf=2-9.png&#34;
+	width=&#34;800&#34;
+	height=&#34;450&#34;
+	srcset=&#34;https://dorinxl.github.io/p/ugdap%E4%B8%8A%E6%B5%B7%E4%B8%80%E5%91%A8%E8%87%AA%E7%94%B1%E8%A1%8C%E7%BB%93%E6%9D%9F/b&amp;amp;ek=1&amp;amp;kp=1&amp;amp;pt=0&amp;amp;bo=IAPCASADwgEDEDU%21&amp;amp;tl=1&amp;amp;su=0104509314&amp;amp;tm=1627398000&amp;amp;sce=0-12-12&amp;amp;rf=2-9_hu10427604692049946515.png 480w, https://dorinxl.github.io/p/ugdap%E4%B8%8A%E6%B5%B7%E4%B8%80%E5%91%A8%E8%87%AA%E7%94%B1%E8%A1%8C%E7%BB%93%E6%9D%9F/b&amp;amp;ek=1&amp;amp;kp=1&amp;amp;pt=0&amp;amp;bo=IAPCASADwgEDEDU%21&amp;amp;tl=1&amp;amp;su=0104509314&amp;amp;tm=1627398000&amp;amp;sce=0-12-12&amp;amp;rf=2-9_hu1885937133506825187.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;img&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;177&#34;
+		data-flex-basis=&#34;426px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;&amp;hellip;过于简陋了，考虑了下还是放出来吧&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;这几天下来，感悟颇多，难以言表。周围有很多志同道合的朋友，各自心里怀揣着相似相近的野心和梦想，在交流和冲突之中，面对游戏我仿佛有了更深的体验，但也更加陌生。这些都是我从未体验过的。&lt;/p&gt;
+&lt;p&gt;大学过了一半了，我必须认识到游戏开发与网络安全不能并重，我选择了我热爱的方向，所以这是一次求道问心之旅。独自前往中国最繁华的城市之一，与相识已久的网友第一次碰面，在人群中寻找合作伙伴，用六天时间合力开发出一个能让自己满意的作品。&lt;/p&gt;
+&lt;p&gt;这是我想要的么?这确实是。&lt;/p&gt;
+&lt;p&gt;结果是否满意?多给我点时间我能做的更好。&lt;/p&gt;
+&lt;p&gt;累么?不累是不可能的，但沉浸在开发中是感受不到累的，只有在最后倦意才会一起袭来。&lt;/p&gt;
+&lt;p&gt;​                                                &lt;img src=&#34;https://dorinxl.github.io/p/ugdap%E4%B8%8A%E6%B5%B7%E4%B8%80%E5%91%A8%E8%87%AA%E7%94%B1%E8%A1%8C%E7%BB%93%E6%9D%9F/b&amp;amp;ek=1&amp;amp;kp=1&amp;amp;pt=0&amp;amp;bo=WAIgA1gCIAMRECc%21&amp;amp;t=5&amp;amp;tl=3&amp;amp;su=0196274450&amp;amp;tm=1627398000&amp;amp;sce=0-12-12&amp;amp;rf=2-9.jpg&#34;
+	width=&#34;600&#34;
+	height=&#34;800&#34;
+	srcset=&#34;https://dorinxl.github.io/p/ugdap%E4%B8%8A%E6%B5%B7%E4%B8%80%E5%91%A8%E8%87%AA%E7%94%B1%E8%A1%8C%E7%BB%93%E6%9D%9F/b&amp;amp;ek=1&amp;amp;kp=1&amp;amp;pt=0&amp;amp;bo=WAIgA1gCIAMRECc%21&amp;amp;t=5&amp;amp;tl=3&amp;amp;su=0196274450&amp;amp;tm=1627398000&amp;amp;sce=0-12-12&amp;amp;rf=2-9_hu14160087933095339197.jpg 480w, https://dorinxl.github.io/p/ugdap%E4%B8%8A%E6%B5%B7%E4%B8%80%E5%91%A8%E8%87%AA%E7%94%B1%E8%A1%8C%E7%BB%93%E6%9D%9F/b&amp;amp;ek=1&amp;amp;kp=1&amp;amp;pt=0&amp;amp;bo=WAIgA1gCIAMRECc%21&amp;amp;t=5&amp;amp;tl=3&amp;amp;su=0196274450&amp;amp;tm=1627398000&amp;amp;sce=0-12-12&amp;amp;rf=2-9_hu14678146101060194641.jpg 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;img&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;75&#34;
+		data-flex-basis=&#34;180px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;与其说是来体验游戏开发的大致流程，不如说是对自我的一次挑战，参与像是gamejam一样的极限开发，并从中学习到新事物。&lt;/p&gt;
+&lt;p&gt;比较遗憾的是突遇台风，没有玩好，没有合影，没有留下这段时间的痕迹和记录。&lt;/p&gt;
+&lt;p&gt;但还好，来就是明心证道，对未来感到迷茫，至少自己选了一条方向，能做到无悔已是足够。&lt;/p&gt;
+&lt;p&gt;人生如戏，一款游戏能带给我的思考和感悟，生活自然带来的更多，或许是无聊的自我感动，但我很享受这种感动。&lt;/p&gt;
+&lt;p&gt;总结一句话就是，不负此行。&lt;/p&gt;
+</description>
+        </item>
+        <item>
+        <title>【Unity】Galgame视觉小说游戏 其脚本解释器的一种实现</title>
+        <link>https://dorinxl.github.io/p/unitygalgame%E8%A7%86%E8%A7%89%E5%B0%8F%E8%AF%B4%E6%B8%B8%E6%88%8F-%E5%85%B6%E8%84%9A%E6%9C%AC%E8%A7%A3%E9%87%8A%E5%99%A8%E7%9A%84%E4%B8%80%E7%A7%8D%E5%AE%9E%E7%8E%B0/</link>
+        <pubDate>Tue, 08 Jun 2021 12:39:00 +0000</pubDate>
+        
+        <guid>https://dorinxl.github.io/p/unitygalgame%E8%A7%86%E8%A7%89%E5%B0%8F%E8%AF%B4%E6%B8%B8%E6%88%8F-%E5%85%B6%E8%84%9A%E6%9C%AC%E8%A7%A3%E9%87%8A%E5%99%A8%E7%9A%84%E4%B8%80%E7%A7%8D%E5%AE%9E%E7%8E%B0/</guid>
+        <description>&lt;h1 id=&#34;unity脚本解释器的一种实现&#34;&gt;【Unity】脚本解释器的一种实现
+&lt;/h1&gt;&lt;p&gt; &lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Galgame引擎/框架本身就是一个解释器，解释脚本读取配置文件，进行演出。&lt;/p&gt;
+&lt;p&gt;保存存档时要将当时脚本的运行状态保存下来，以便读档时继续执行，也就是脚本运行状态的序列化与反序列化。&lt;/p&gt;
+&lt;p&gt;——JomiXedYu  &lt;a class=&#34;link&#34; href=&#34;http://www.imxqy.com/gamedev/unity/ugal.html#toc-8&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;http://www.imxqy.com/gamedev/unity/ugal.html#toc-8&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt; &lt;/p&gt;
+&lt;p&gt;前辈所言，我深以为然。&lt;/p&gt;
+&lt;p&gt;galgame的剧情，说白了就是指令操控内容。而这种文字游戏的卖点就是图像与剧情。程序显然写不出大量的剧情脚本，但是编剧也不一定会写程序。所以我决定将团队中编剧与程序彻底分离，让编剧只用excel表格就可以控制游戏流程。&lt;/p&gt;
+&lt;p&gt;这样做缺点也很明显，表格之间是不存在逻辑的。只能一行一行的取出数据，执行。&lt;/p&gt;
+&lt;p&gt;不过做一款视觉小说，这样的方法够用了，而且可以省下不少时间，规定一套逻辑执行语句也方便维护修改。&lt;/p&gt;
+&lt;p&gt; &lt;/p&gt;
+&lt;h1 id=&#34;思路&#34;&gt;思路
+&lt;/h1&gt;&lt;p&gt;大致来讲就是“&lt;strong&gt;制定规则——编剧写入excel——程序读取excel——执行&lt;/strong&gt;”，很简单。&lt;/p&gt;
+&lt;p&gt;在这个基础上我们可以添加一些其他内容，比如目前我开发的流程为：&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://dorinxl.github.io/p/unitygalgame%E8%A7%86%E8%A7%89%E5%B0%8F%E8%AF%B4%E6%B8%B8%E6%88%8F-%E5%85%B6%E8%84%9A%E6%9C%AC%E8%A7%A3%E9%87%8A%E5%99%A8%E7%9A%84%E4%B8%80%E7%A7%8D%E5%AE%9E%E7%8E%B0/1858293-20210608203807228-1385463138.png&#34;
+	width=&#34;1092&#34;
+	height=&#34;166&#34;
+	srcset=&#34;https://dorinxl.github.io/p/unitygalgame%E8%A7%86%E8%A7%89%E5%B0%8F%E8%AF%B4%E6%B8%B8%E6%88%8F-%E5%85%B6%E8%84%9A%E6%9C%AC%E8%A7%A3%E9%87%8A%E5%99%A8%E7%9A%84%E4%B8%80%E7%A7%8D%E5%AE%9E%E7%8E%B0/1858293-20210608203807228-1385463138_hu6434785964173972876.png 480w, https://dorinxl.github.io/p/unitygalgame%E8%A7%86%E8%A7%89%E5%B0%8F%E8%AF%B4%E6%B8%B8%E6%88%8F-%E5%85%B6%E8%84%9A%E6%9C%AC%E8%A7%A3%E9%87%8A%E5%99%A8%E7%9A%84%E4%B8%80%E7%A7%8D%E5%AE%9E%E7%8E%B0/1858293-20210608203807228-1385463138_hu15242380724291886223.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;image-20210608202251817&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;657&#34;
+		data-flex-basis=&#34;1578px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;我尝试写入excel一些数据，这个过程十分痛苦，就像便秘了好几天。而且会出现肉眼检查不到的错误。所以我写个小工具帮助编剧导入并保存数据到excel。&lt;/p&gt;
+&lt;p&gt;关于读取数据这部分，一开始我的选择是游戏运行时读excel，但是这样做感觉很累赘，不如直接写成json然后程序去读json来的快。&lt;/p&gt;
+&lt;p&gt;其实程序这方面还是有很多不足，软件的设计模式摸得不是很清楚，仍需努力（指先做出来再说）。&lt;/p&gt;
+&lt;p&gt; &lt;/p&gt;
+&lt;h2 id=&#34;规则与小工具&#34;&gt;规则与小工具
+&lt;/h2&gt;&lt;p&gt;&lt;img src=&#34;https://dorinxl.github.io/p/unitygalgame%E8%A7%86%E8%A7%89%E5%B0%8F%E8%AF%B4%E6%B8%B8%E6%88%8F-%E5%85%B6%E8%84%9A%E6%9C%AC%E8%A7%A3%E9%87%8A%E5%99%A8%E7%9A%84%E4%B8%80%E7%A7%8D%E5%AE%9E%E7%8E%B0/1858293-20210608203807666-949828124.png&#34;
+	width=&#34;1135&#34;
+	height=&#34;690&#34;
+	srcset=&#34;https://dorinxl.github.io/p/unitygalgame%E8%A7%86%E8%A7%89%E5%B0%8F%E8%AF%B4%E6%B8%B8%E6%88%8F-%E5%85%B6%E8%84%9A%E6%9C%AC%E8%A7%A3%E9%87%8A%E5%99%A8%E7%9A%84%E4%B8%80%E7%A7%8D%E5%AE%9E%E7%8E%B0/1858293-20210608203807666-949828124_hu9613405229968905992.png 480w, https://dorinxl.github.io/p/unitygalgame%E8%A7%86%E8%A7%89%E5%B0%8F%E8%AF%B4%E6%B8%B8%E6%88%8F-%E5%85%B6%E8%84%9A%E6%9C%AC%E8%A7%A3%E9%87%8A%E5%99%A8%E7%9A%84%E4%B8%80%E7%A7%8D%E5%AE%9E%E7%8E%B0/1858293-20210608203807666-949828124_hu15768874717462209582.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;image-20210608202651494&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;164&#34;
+		data-flex-basis=&#34;394px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;上面这张图是和编剧做好的指令规则约定以及这个小工具的界面，用选项可以帮助编剧不写入奇怪的符号或者不在范围内的规则。&lt;/p&gt;
+&lt;p&gt;因为是自己写的，所以后面制定新的规则或者需求了可以很快速的修改。&lt;/p&gt;
+&lt;p&gt; &lt;/p&gt;
+&lt;h2 id=&#34;写入excel&#34;&gt;写入excel
+&lt;/h2&gt;&lt;p&gt;用微软的com组件操作excel，保存的时候直接&lt;code&gt;excel.Value&lt;/code&gt;赋值。&lt;/p&gt;
+&lt;p&gt;在unity中写个MenuItem，游戏运行前用&lt;code&gt;JsonUtility.ToJson()&lt;/code&gt;创造j或者更新son文件。&lt;/p&gt;
+&lt;p&gt; &lt;/p&gt;
+&lt;h2 id=&#34;读取excel&#34;&gt;读取Excel
+&lt;/h2&gt;&lt;p&gt;直接&lt;code&gt;JsonUtility.FromJson&amp;lt;&amp;gt;();&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;解析成一句一句话然后在游戏运行状态机需要解析的时候找到对应函数执行即可。&lt;/p&gt;
+&lt;p&gt; &lt;/p&gt;
+&lt;h1 id=&#34;妄言妄听&#34;&gt;妄言妄听
+&lt;/h1&gt;&lt;p&gt;如此这般，基本脚本解释器的思路就是这样。&lt;/p&gt;
+&lt;p&gt;回看代码，深觉自身不足，无论是设计模式还是安全架构，我负责的程序只能拿个40分。&lt;/p&gt;
+</description>
+        </item>
+        <item>
+        <title>【Unity】自制GalGame框架梳理</title>
+        <link>https://dorinxl.github.io/p/unity%E8%87%AA%E5%88%B6galgame%E6%A1%86%E6%9E%B6%E6%A2%B3%E7%90%86/</link>
+        <pubDate>Sun, 04 Apr 2021 09:17:00 +0000</pubDate>
+        
+        <guid>https://dorinxl.github.io/p/unity%E8%87%AA%E5%88%B6galgame%E6%A1%86%E6%9E%B6%E6%A2%B3%E7%90%86/</guid>
+        <description>&lt;h1 id=&#34;框架梳理&#34;&gt;框架梳理
+&lt;/h1&gt;&lt;p&gt;目前分为五块：菜单场景、游戏场景、CG场景、存读取存档场景、场景衔接。
+ 
+未来添加的一些功能：游戏设置界面、游戏过程中的读档等UI、程序和剧情分离，供编剧测试的插件、对话回顾等。
+ 
+个人学习作品，仅供参考，两周匆忙赶出，代码水平不高，还望见笑。
+ 
+ &lt;/p&gt;
+&lt;h2 id=&#34;菜单场景&#34;&gt;菜单场景：
+&lt;/h2&gt;&lt;p&gt;主要功能：作为菜单，为不同按钮绑定切换场景的事件。&lt;/p&gt;
+&lt;p&gt;主要函数：&lt;/p&gt;
+&lt;p&gt;Awake()：为各个button绑定事件&lt;/p&gt;
+&lt;p&gt;OpenGame()：切换场景到游戏场景&lt;/p&gt;
+&lt;p&gt;OpenCG()：切换场景到查看cg&lt;/p&gt;
+&lt;p&gt;OpenFiles()：切换场景到读取存档&lt;/p&gt;
+&lt;p&gt;ExitGame()：退出游戏&lt;/p&gt;
+&lt;h2 id=&#34;cg场景&#34;&gt;CG场景：
+&lt;/h2&gt;&lt;p&gt;主要功能：提供可以查看cg图像或是人物简介等游戏内容的场景，目前只能查看cg图像&lt;/p&gt;
+&lt;p&gt;主要函数：&lt;/p&gt;
+&lt;p&gt;存在GlobalSetting.CGShows[]变量存放在GlobalSetting.cs中，作为是否解锁cg图的参考。&lt;/p&gt;
+&lt;p&gt;Start()： 通过读取GlobalSetting.cs中的全局变量来判定是否给图像解锁。&lt;/p&gt;
+&lt;p&gt;Update()：检测是否打开了cg图像，如果打开了cg的话点击任意位置退出&lt;/p&gt;
+&lt;p&gt;BackToMenu()：返回到主界面&lt;/p&gt;
+&lt;p&gt;ShowCG()：打开panel，显示cg&lt;/p&gt;
+&lt;p&gt;【暂留问题】：每次重新启动游戏时，全局变量重置，需要在其他地方另外保存数据
+ 
+ &lt;/p&gt;
+&lt;h2 id=&#34;游戏场景&#34;&gt;游戏场景：
+&lt;/h2&gt;&lt;h3 id=&#34;游戏场景初始化cs&#34;&gt;游戏场景初始化.cs
+&lt;/h3&gt;&lt;p&gt;在Awake()中读取存档，若不为空则提前初始化gamescene&lt;/p&gt;
+&lt;h3 id=&#34;游戏场景cs&#34;&gt;游戏场景.cs
+&lt;/h3&gt;&lt;p&gt;主要功能：提供游戏界面的显示，根据剧本推进剧情。提供存档读档。有一个渐入渐出状态机。&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://dorinxl.github.io/p/unity%E8%87%AA%E5%88%B6galgame%E6%A1%86%E6%9E%B6%E6%A2%B3%E7%90%86/1858293-20210404170355093-1429446084.png&#34;
+	width=&#34;574&#34;
+	height=&#34;407&#34;
+	srcset=&#34;https://dorinxl.github.io/p/unity%E8%87%AA%E5%88%B6galgame%E6%A1%86%E6%9E%B6%E6%A2%B3%E7%90%86/1858293-20210404170355093-1429446084_hu17181300484585710495.png 480w, https://dorinxl.github.io/p/unity%E8%87%AA%E5%88%B6galgame%E6%A1%86%E6%9E%B6%E6%A2%B3%E7%90%86/1858293-20210404170355093-1429446084_hu3877133373653893625.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;image-20210404164741671&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;141&#34;
+		data-flex-basis=&#34;338px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;主要函数：&lt;/p&gt;
+&lt;p&gt;Start()：初始化，调用Init()函数&lt;/p&gt;
+&lt;p&gt;Update()：检测到点击则开始下一条剧情，同时提供图片的淡入淡出功能&lt;/p&gt;
+&lt;p&gt;Init()：一些参数的定义（淡入淡出的状态等），绑定按钮事件&lt;/p&gt;
+&lt;p&gt;ShowFileSave()：调用之后出现存档的panel&lt;/p&gt;
+&lt;p&gt;SetBackground(string bgName)：传入名字从resources中调出背景图片并显示&lt;/p&gt;
+&lt;p&gt;DelBackground()：渐出背景图片&lt;/p&gt;
+&lt;p&gt;SetCharaImage(string charaName, string pos)：传入名字和位置从resources中调出人物图片并在左或右侧显示&lt;/p&gt;
+&lt;p&gt;DelCharaImage(string pos)：渐出人物图片&lt;/p&gt;
+&lt;p&gt;FadeInImg(Image img)：渐入图片需要调用的函数，修改渐入渐出状态机&lt;/p&gt;
+&lt;p&gt;FadeOutImg(Image img)：渐出图片需要调用的函数，修改渐入渐出状态机&lt;/p&gt;
+&lt;p&gt;UpdateColorAlpha()：在渐入渐出状态机执行的时候进行图片的alpha检测和切换，alpha&amp;gt;1或&amp;lt;0时切换状态&lt;/p&gt;
+&lt;p&gt;UpdateColorAlphaRightNow()：在图片渐入渐出的时候如果鼠标点击，则立刻修改状态并完全渐入/渐出图片（即图片的透明度立刻变为0或1）&lt;/p&gt;
+&lt;p&gt;SetDialogText(string name,string content)：对话框的姓名和内容&lt;/p&gt;
+&lt;p&gt;SetTalkingChara(string pos)：调整正在说话的人物的图片透明度，突出对话的主体人物&lt;/p&gt;
+&lt;p&gt;SetMusic(string bgmName)：传入名字从resources中调出音乐并播放&lt;/p&gt;
+&lt;p&gt;BackToMenu()：返回主菜单&lt;/p&gt;
+&lt;p&gt;SetCharaImageFromFile(string charaName, string pos)：从存档中进入时，传入名字和位置从resources中调出人物图片并在左或右侧显示&lt;/p&gt;
+&lt;p&gt;SetBackgroundFromFile(string bgName)：从存档中进入时，传入名字从resources中调出背景图片并显示&lt;/p&gt;
+&lt;p&gt;【存在问题】：这里十分臃肿，只有写出这个的人（我）才能理解大概。&lt;/p&gt;
+&lt;h3 id=&#34;剧本读取与解析cs&#34;&gt;剧本读取与解析.cs
+&lt;/h3&gt;&lt;p&gt;主要功能：读取剧本存入对应的数据结构中并解析，反馈给游戏界面。有一个剧情状态机&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://dorinxl.github.io/p/unity%E8%87%AA%E5%88%B6galgame%E6%A1%86%E6%9E%B6%E6%A2%B3%E7%90%86/1858293-20210404170358188-1334500693.png&#34;
+	width=&#34;523&#34;
+	height=&#34;442&#34;
+	srcset=&#34;https://dorinxl.github.io/p/unity%E8%87%AA%E5%88%B6galgame%E6%A1%86%E6%9E%B6%E6%A2%B3%E7%90%86/1858293-20210404170358188-1334500693_hu9993723471173240850.png 480w, https://dorinxl.github.io/p/unity%E8%87%AA%E5%88%B6galgame%E6%A1%86%E6%9E%B6%E6%A2%B3%E7%90%86/1858293-20210404170358188-1334500693_hu15319469634875121109.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;image-20210404165526955&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;118&#34;
+		data-flex-basis=&#34;283px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;主要函数：&lt;/p&gt;
+&lt;p&gt;Start()：读取剧本文件并存入到自定义数据类型ItemManager中&lt;/p&gt;
+&lt;p&gt;Update()：剧情状态检测&lt;/p&gt;
+&lt;p&gt;Clicked()：鼠标点击事件，可以切换状态&lt;/p&gt;
+&lt;p&gt;StartAVG()：初始化状态机&lt;/p&gt;
+&lt;p&gt;GoToState(STAGE next)：提供状态，切换到该状态&lt;/p&gt;
+&lt;p&gt;PraseNextLine()：分析下一行剧情命令，并传入对应的函数&lt;/p&gt;
+&lt;p&gt;DealWithCommand(Line tmpLine)：按照Command剧情命令执行&lt;/p&gt;
+&lt;p&gt;CheckTypingFinished()：检查对话时是否说完&lt;/p&gt;
+&lt;p&gt;DealWithText(Line tmpLine)：按照Text剧情命令执行&lt;/p&gt;
+&lt;p&gt;UpdateContentString()：按帧更新对话框内容，实现打字机的效果&lt;/p&gt;
+&lt;p&gt;UpdateAllString()：在打字机打字的过程中若是再次点击鼠标则一次性显示未说完的所有内容。&lt;/p&gt;
+&lt;h3 id=&#34;存档管理cs&#34;&gt;存档管理.cs
+&lt;/h3&gt;&lt;p&gt;Start()：绑定按钮事件，创造文件路径&lt;/p&gt;
+&lt;p&gt;ClosePanel()：关闭存档panel&lt;/p&gt;
+&lt;p&gt;PackingData(SaveData sd1)：打包存档数据&lt;/p&gt;
+&lt;p&gt;WriteData(StreamWriter temp)：写入存档&lt;/p&gt;
+&lt;p&gt;ClickSave()：点击存档按钮即可存档。&lt;/p&gt;
+&lt;p&gt; 
+ &lt;/p&gt;
+&lt;h2 id=&#34;存读取存档场景&#34;&gt;存读取存档场景：
+&lt;/h2&gt;&lt;h3 id=&#34;存档场景管理cs&#34;&gt;存档场景管理.cs
+&lt;/h3&gt;&lt;p&gt;主要功能：再打开存档场景时加载存档，并提供入口进入游戏。&lt;/p&gt;
+&lt;p&gt;主要函数：Start()、BackToMenu()、LoadData()&lt;/p&gt;
+&lt;p&gt;Start()：读取存档文件并绑定按钮事件&lt;/p&gt;
+&lt;p&gt;BackToMenu()：返回主菜单&lt;/p&gt;
+&lt;p&gt;LoadData()：加载存档并进入游戏&lt;/p&gt;
+&lt;h3 id=&#34;读档cs&#34;&gt;读档.cs
+&lt;/h3&gt;&lt;p&gt;Awake()：单例模式&lt;/p&gt;
+&lt;p&gt;WriteSceneData(List&amp;lt;string[]&amp;gt; data)：将存档写入列队，方便加载游戏场景的时候读取&lt;/p&gt;
+&lt;p&gt;ReadSceneData()：在gameseceninit中读取存档列队&lt;/p&gt;
+&lt;p&gt;ToGameScene(string[] SaveFile)：跳转到游戏场景&lt;/p&gt;
+&lt;h3 id=&#34;存档cs&#34;&gt;存档.cs
+&lt;/h3&gt;&lt;p&gt;自定义数据结构，存放着存档和读档需要的数据，包括剧情脚本行数、对话、背景、音乐等。&lt;/p&gt;
+&lt;p&gt; 
+ &lt;/p&gt;
+&lt;h2 id=&#34;场景衔接&#34;&gt;场景衔接
+&lt;/h2&gt;&lt;p&gt;例如背景音乐在主菜单和存档场景切换时不会停掉、画面的渐入渐出。&lt;/p&gt;
+&lt;p&gt;背景音乐的控制：&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;建立一个循环音乐的预制体，这个预制体上挂载一个DontDestroyOnLoad的脚本。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;在需要播放背景音乐的几个场景挂载另一个GlobalUIMusic.cs，这个脚本为单例模式，如果存在则不产生新的，如果不存在则实例化预制体。
+ 
+ &lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h2 id=&#34;成品gif&#34;&gt;成品GIF
+&lt;/h2&gt;&lt;p&gt;&lt;img src=&#34;https://dorinxl.github.io/p/unity%E8%87%AA%E5%88%B6galgame%E6%A1%86%E6%9E%B6%E6%A2%B3%E7%90%86/1858293-20210404171556588-791284151.gif&#34;
+	width=&#34;1165&#34;
+	height=&#34;547&#34;
+	srcset=&#34;https://dorinxl.github.io/p/unity%E8%87%AA%E5%88%B6galgame%E6%A1%86%E6%9E%B6%E6%A2%B3%E7%90%86/1858293-20210404171556588-791284151_hu17152501095760284653.gif 480w, https://dorinxl.github.io/p/unity%E8%87%AA%E5%88%B6galgame%E6%A1%86%E6%9E%B6%E6%A2%B3%E7%90%86/1858293-20210404171556588-791284151_hu14626753662874542769.gif 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;212&#34;
+		data-flex-basis=&#34;511px&#34;
+	
+&gt;&lt;/p&gt;
+</description>
+        </item>
+        
+    </channel>
+</rss>

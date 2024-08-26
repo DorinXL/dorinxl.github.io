@@ -1,0 +1,1046 @@
+<!DOCTYPE html>
+<html lang="zh-cn" dir="ltr">
+    <head><meta charset='utf-8'>
+<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content="【个人笔记】ximo早期发的脱壳教程——手脱UPX壳 壳分为两种：压缩壳和加密壳，UPX是一种很简单的压缩壳。 手脱UPX壳： 工具：Exeinf">
+<title>【个人笔记】ximo早期发的脱壳教程——手脱UPX壳</title>
+
+<link rel='canonical' href='https://dorinxl.github.io/p/%E4%B8%AA%E4%BA%BA%E7%AC%94%E8%AE%B0ximo%E6%97%A9%E6%9C%9F%E5%8F%91%E7%9A%84%E8%84%B1%E5%A3%B3%E6%95%99%E7%A8%8B%E6%89%8B%E8%84%B1upx%E5%A3%B3/'>
+
+<link rel="stylesheet" href="/scss/style.min.dfb009e658ec6e0f0f0c366b98658c0caea5123dcd2536f353c92c2581b79fb7.css"><meta property='og:title' content="【个人笔记】ximo早期发的脱壳教程——手脱UPX壳">
+<meta property='og:description' content="【个人笔记】ximo早期发的脱壳教程——手脱UPX壳 壳分为两种：压缩壳和加密壳，UPX是一种很简单的压缩壳。 手脱UPX壳： 工具：Exeinf">
+<meta property='og:url' content='https://dorinxl.github.io/p/%E4%B8%AA%E4%BA%BA%E7%AC%94%E8%AE%B0ximo%E6%97%A9%E6%9C%9F%E5%8F%91%E7%9A%84%E8%84%B1%E5%A3%B3%E6%95%99%E7%A8%8B%E6%89%8B%E8%84%B1upx%E5%A3%B3/'>
+<meta property='og:site_name' content='荡影-DorinXL'>
+<meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:published_time' content='2020-02-02T15:20:00&#43;00:00'/><meta property='article:modified_time' content='2020-02-02T15:20:00&#43;00:00'/>
+<meta name="twitter:title" content="【个人笔记】ximo早期发的脱壳教程——手脱UPX壳">
+<meta name="twitter:description" content="【个人笔记】ximo早期发的脱壳教程——手脱UPX壳 壳分为两种：压缩壳和加密壳，UPX是一种很简单的压缩壳。 手脱UPX壳： 工具：Exeinf">
+    <link rel="shortcut icon" href="/favicon.ico" />
+
+  
+
+
+    </head>
+    <body class="
+    article-page
+    ">
+    <script>
+        (function() {
+            const colorSchemeKey = 'StackColorScheme';
+            if(!localStorage.getItem(colorSchemeKey)){
+                localStorage.setItem(colorSchemeKey, "auto");
+            }
+        })();
+    </script><script>
+    (function() {
+        const colorSchemeKey = 'StackColorScheme';
+        const colorSchemeItem = localStorage.getItem(colorSchemeKey);
+        const supportDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches === true;
+
+        if (colorSchemeItem == 'dark' || colorSchemeItem === 'auto' && supportDarkMode) {
+            
+
+            document.documentElement.dataset.scheme = 'dark';
+        } else {
+            document.documentElement.dataset.scheme = 'light';
+        }
+    })();
+</script>
+<div class="container main-container flex on-phone--column extended"><aside class="sidebar left-sidebar sticky ">
+    <button class="hamburger hamburger--spin" type="button" id="toggle-menu" aria-label="切换菜单">
+        <span class="hamburger-box">
+            <span class="hamburger-inner"></span>
+        </span>
+    </button>
+
+    <header>
+        
+            
+            <figure class="site-avatar">
+                <a href="/">
+                
+                    
+                    
+                    
+                        
+                        <img src="/img/avatar_hu6744900124519508638.png" width="300"
+                            height="283" class="site-logo" loading="lazy" alt="Avatar">
+                    
+                
+                </a>
+                
+                    <span class="emoji">🔥</span>
+                
+            </figure>
+            
+        
+        
+        <div class="site-meta">
+            <h1 class="site-name"><a href="/">荡影-DorinXL</a></h1>
+            <h2 class="site-description">缄默慎独，不破不立，事在人为</h2>
+        </div>
+    </header><ol class="menu-social">
+            
+                <li>
+                    <a 
+                        href='https://space.bilibili.com/3217550'
+                        target="_blank"
+                        title="BilBili"
+                        rel="me"
+                    >
+                        
+                        
+                            <svg  xmlns="http://www.w3.org/2000/svg"  width="24"  height="24"  viewBox="0 0 24 24"  fill="none"  stroke="currentColor"  stroke-width="2"  stroke-linecap="round"  stroke-linejoin="round"  class="icon icon-tabler icons-tabler-outline icon-tabler-brand-bilibili"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M3 10a4 4 0 0 1 4 -4h10a4 4 0 0 1 4 4v6a4 4 0 0 1 -4 4h-10a4 4 0 0 1 -4 -4v-6z" /><path d="M8 3l2 3" /><path d="M16 3l-2 3" /><path d="M9 13v-2" /><path d="M15 11v2" /></svg>
+                        
+                    </a>
+                </li>
+            
+                <li>
+                    <a 
+                        href='https://www.cnblogs.com/DorinXL/'
+                        target="_blank"
+                        title="CNblog"
+                        rel="me"
+                    >
+                        
+                        
+                            <svg  xmlns="http://www.w3.org/2000/svg"  width="24"  height="24"  viewBox="0 0 24 24"  fill="none"  stroke="currentColor"  stroke-width="2"  stroke-linecap="round"  stroke-linejoin="round"  class="icon icon-tabler icons-tabler-outline icon-tabler-brand-blogger"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M8 21h8a5 5 0 0 0 5 -5v-3a3 3 0 0 0 -3 -3h-1v-2a5 5 0 0 0 -5 -5h-4a5 5 0 0 0 -5 5v8a5 5 0 0 0 5 5z" /><path d="M7 7m0 1.5a1.5 1.5 0 0 1 1.5 -1.5h3a1.5 1.5 0 0 1 1.5 1.5v0a1.5 1.5 0 0 1 -1.5 1.5h-3a1.5 1.5 0 0 1 -1.5 -1.5z" /><path d="M7 14m0 1.5a1.5 1.5 0 0 1 1.5 -1.5h7a1.5 1.5 0 0 1 1.5 1.5v0a1.5 1.5 0 0 1 -1.5 1.5h-7a1.5 1.5 0 0 1 -1.5 -1.5z" /></svg>
+                        
+                    </a>
+                </li>
+            
+                <li>
+                    <a 
+                        href='https://github.com/DorinXL/DorinXL.github.io'
+                        target="_blank"
+                        title="GitHub"
+                        rel="me"
+                    >
+                        
+                        
+                            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-brand-github" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+  <path d="M9 19c-4.3 1.4 -4.3 -2.5 -6 -3m12 5v-3.5c0 -1 .1 -1.4 -.5 -2c2.8 -.3 5.5 -1.4 5.5 -6a4.6 4.6 0 0 0 -1.3 -3.2a4.2 4.2 0 0 0 -.1 -3.2s-1.1 -.3 -3.5 1.3a12.3 12.3 0 0 0 -6.2 0c-2.4 -1.6 -3.5 -1.3 -3.5 -1.3a4.2 4.2 0 0 0 -.1 3.2a4.6 4.6 0 0 0 -1.3 3.2c0 4.6 2.7 5.7 5.5 6c-.6 .6 -.6 1.2 -.5 2v3.5" />
+</svg>
+
+
+
+                        
+                    </a>
+                </li>
+            
+        </ol><ol class="menu" id="main-menu">
+        
+        
+        
+        <li >
+            <a href='/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-home" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <polyline points="5 12 3 12 12 3 21 12 19 12" />
+  <path d="M5 12v7a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-7" />
+  <path d="M9 21v-6a2 2 0 0 1 2 -2h2a2 2 0 0 1 2 2v6" />
+</svg>
+
+
+
+                
+                <span>主页</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/%E5%85%B3%E4%BA%8E/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-user" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="7" r="4" />
+  <path d="M6 21v-2a4 4 0 0 1 4 -4h4a4 4 0 0 1 4 4v2" />
+</svg>
+
+
+
+                
+                <span>关于</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/archives/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-archive" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <rect x="3" y="4" width="18" height="4" rx="2" />
+  <path d="M5 8v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-10" />
+  <line x1="10" y1="12" x2="14" y2="12" />
+</svg>
+
+
+
+                
+                <span>归档</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/search/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-search" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="10" cy="10" r="7" />
+  <line x1="21" y1="21" x2="15" y2="15" />
+</svg>
+
+
+
+                
+                <span>搜索</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/%E5%8F%8B%E9%93%BE/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-link" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <path d="M10 14a3.5 3.5 0 0 0 5 0l4 -4a3.5 3.5 0 0 0 -5 -5l-.5 .5" />
+  <path d="M14 10a3.5 3.5 0 0 0 -5 0l-4 4a3.5 3.5 0 0 0 5 5l.5 -.5" />
+</svg>
+
+
+
+                
+                <span>友链</span>
+            </a>
+        </li>
+        
+        <li class="menu-bottom-section">
+            <ol class="menu">
+
+                
+                    <li id="dark-mode-toggle">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-left" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="8" cy="12" r="2" />
+  <rect x="2" y="6" width="20" height="12" rx="6" />
+</svg>
+
+
+
+                        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-right" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="16" cy="12" r="2" />
+  <rect x="2" y="6" width="20" height="12" rx="6" />
+</svg>
+
+
+
+                        <span>暗色模式</span>
+                    </li>
+                
+            </ol>
+        </li>
+    </ol>
+</aside>
+
+    
+
+            <main class="main full-width">
+    <article class="main-article">
+    <header class="article-header">
+
+    <div class="article-details">
+    
+    <header class="article-category">
+        
+            <a href="/categories/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8/" >
+                网络安全
+            </a>
+        
+    </header>
+    
+
+    <div class="article-title-wrapper">
+        <h2 class="article-title">
+            <a href="/p/%E4%B8%AA%E4%BA%BA%E7%AC%94%E8%AE%B0ximo%E6%97%A9%E6%9C%9F%E5%8F%91%E7%9A%84%E8%84%B1%E5%A3%B3%E6%95%99%E7%A8%8B%E6%89%8B%E8%84%B1upx%E5%A3%B3/">【个人笔记】ximo早期发的脱壳教程——手脱UPX壳</a>
+        </h2>
+    
+        
+    </div>
+
+
+    
+    
+    
+    
+    <footer class="article-time">
+        
+            <div>
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-calendar-time" width="56" height="56" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <path d="M11.795 21h-6.795a2 2 0 0 1 -2 -2v-12a2 2 0 0 1 2 -2h12a2 2 0 0 1 2 2v4" />
+  <circle cx="18" cy="18" r="4" />
+  <path d="M15 3v4" />
+  <path d="M7 3v4" />
+  <path d="M3 11h16" />
+  <path d="M18 16.496v1.504l1 1" />
+</svg>
+                <time class="article-time--published">2020-02-02</time>
+            </div>
+	
+
+        
+
+        
+    </footer>
+    
+
+    
+
+</div>
+
+</header>
+
+    <section class="article-content">
+    
+    
+    <h1 id="个人笔记ximo早期发的脱壳教程手脱upx壳">【个人笔记】ximo早期发的脱壳教程——手脱UPX壳
+</h1><p>壳分为两种：压缩壳和加密壳，UPX是一种很简单的压缩壳。</p>
+<p>手脱UPX壳：</p>
+<p>工具：ExeinfoPE、OD</p>
+<p>对象：rmvbfix</p>
+<p><img src="/p/%E4%B8%AA%E4%BA%BA%E7%AC%94%E8%AE%B0ximo%E6%97%A9%E6%9C%9F%E5%8F%91%E7%9A%84%E8%84%B1%E5%A3%B3%E6%95%99%E7%A8%8B%E6%89%8B%E8%84%B1upx%E5%A3%B3/1858293-20200202232022335-36792305.png"
+	width="462"
+	height="218"
+	srcset="/p/%E4%B8%AA%E4%BA%BA%E7%AC%94%E8%AE%B0ximo%E6%97%A9%E6%9C%9F%E5%8F%91%E7%9A%84%E8%84%B1%E5%A3%B3%E6%95%99%E7%A8%8B%E6%89%8B%E8%84%B1upx%E5%A3%B3/1858293-20200202232022335-36792305_hu7389515903096048184.png 480w, /p/%E4%B8%AA%E4%BA%BA%E7%AC%94%E8%AE%B0ximo%E6%97%A9%E6%9C%9F%E5%8F%91%E7%9A%84%E8%84%B1%E5%A3%B3%E6%95%99%E7%A8%8B%E6%89%8B%E8%84%B1upx%E5%A3%B3/1858293-20200202232022335-36792305_hu11226871106961060166.png 1024w"
+	loading="lazy"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="211"
+		data-flex-basis="508px"
+	
+></p>
+<h1 id="方法1单步跟踪">方法1：单步跟踪
+</h1><p>将要脱的exe扔进od。</p>
+<p><img src="/p/%E4%B8%AA%E4%BA%BA%E7%AC%94%E8%AE%B0ximo%E6%97%A9%E6%9C%9F%E5%8F%91%E7%9A%84%E8%84%B1%E5%A3%B3%E6%95%99%E7%A8%8B%E6%89%8B%E8%84%B1upx%E5%A3%B3/1858293-20200202232022674-2060347863.png"
+	width="576"
+	height="79"
+	srcset="/p/%E4%B8%AA%E4%BA%BA%E7%AC%94%E8%AE%B0ximo%E6%97%A9%E6%9C%9F%E5%8F%91%E7%9A%84%E8%84%B1%E5%A3%B3%E6%95%99%E7%A8%8B%E6%89%8B%E8%84%B1upx%E5%A3%B3/1858293-20200202232022674-2060347863_hu314622703796445151.png 480w, /p/%E4%B8%AA%E4%BA%BA%E7%AC%94%E8%AE%B0ximo%E6%97%A9%E6%9C%9F%E5%8F%91%E7%9A%84%E8%84%B1%E5%A3%B3%E6%95%99%E7%A8%8B%E6%89%8B%E8%84%B1upx%E5%A3%B3/1858293-20200202232022674-2060347863_hu4114578511550476656.png 1024w"
+	loading="lazy"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="729"
+		data-flex-basis="1749px"
+	
+></p>
+<p>这里选择&quot;否&quot;，不然有些操作会出现错误。</p>
+<p><img src="/p/%E4%B8%AA%E4%BA%BA%E7%AC%94%E8%AE%B0ximo%E6%97%A9%E6%9C%9F%E5%8F%91%E7%9A%84%E8%84%B1%E5%A3%B3%E6%95%99%E7%A8%8B%E6%89%8B%E8%84%B1upx%E5%A3%B3/1858293-20200202232022878-439056064.png"
+	width="566"
+	height="92"
+	srcset="/p/%E4%B8%AA%E4%BA%BA%E7%AC%94%E8%AE%B0ximo%E6%97%A9%E6%9C%9F%E5%8F%91%E7%9A%84%E8%84%B1%E5%A3%B3%E6%95%99%E7%A8%8B%E6%89%8B%E8%84%B1upx%E5%A3%B3/1858293-20200202232022878-439056064_hu13595267552156644795.png 480w, /p/%E4%B8%AA%E4%BA%BA%E7%AC%94%E8%AE%B0ximo%E6%97%A9%E6%9C%9F%E5%8F%91%E7%9A%84%E8%84%B1%E5%A3%B3%E6%95%99%E7%A8%8B%E6%89%8B%E8%84%B1upx%E5%A3%B3/1858293-20200202232022878-439056064_hu219546829396782248.png 1024w"
+	loading="lazy"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="615"
+		data-flex-basis="1476px"
+	
+></p>
+<p>进入之后从起点开始单步执行（快捷键F8），遇到pxx注意跳跃方向，手动断点跳过往回跳的指令。</p>
+<p><img src="/p/%E4%B8%AA%E4%BA%BA%E7%AC%94%E8%AE%B0ximo%E6%97%A9%E6%9C%9F%E5%8F%91%E7%9A%84%E8%84%B1%E5%A3%B3%E6%95%99%E7%A8%8B%E6%89%8B%E8%84%B1upx%E5%A3%B3/1858293-20200202232023167-1749088392.png"
+	width="472"
+	height="91"
+	srcset="/p/%E4%B8%AA%E4%BA%BA%E7%AC%94%E8%AE%B0ximo%E6%97%A9%E6%9C%9F%E5%8F%91%E7%9A%84%E8%84%B1%E5%A3%B3%E6%95%99%E7%A8%8B%E6%89%8B%E8%84%B1upx%E5%A3%B3/1858293-20200202232023167-1749088392_hu13500169997303226564.png 480w, /p/%E4%B8%AA%E4%BA%BA%E7%AC%94%E8%AE%B0ximo%E6%97%A9%E6%9C%9F%E5%8F%91%E7%9A%84%E8%84%B1%E5%A3%B3%E6%95%99%E7%A8%8B%E6%89%8B%E8%84%B1upx%E5%A3%B3/1858293-20200202232023167-1749088392_hu16420707420068847551.png 1024w"
+	loading="lazy"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="518"
+		data-flex-basis="1244px"
+	
+></p>
+<p>遇到这种jxx后跟call指令的一并跳过。</p>
+<p><img src="/p/%E4%B8%AA%E4%BA%BA%E7%AC%94%E8%AE%B0ximo%E6%97%A9%E6%9C%9F%E5%8F%91%E7%9A%84%E8%84%B1%E5%A3%B3%E6%95%99%E7%A8%8B%E6%89%8B%E8%84%B1upx%E5%A3%B3/1858293-20200202232023383-2065700252.png"
+	width="391"
+	height="19"
+	srcset="/p/%E4%B8%AA%E4%BA%BA%E7%AC%94%E8%AE%B0ximo%E6%97%A9%E6%9C%9F%E5%8F%91%E7%9A%84%E8%84%B1%E5%A3%B3%E6%95%99%E7%A8%8B%E6%89%8B%E8%84%B1upx%E5%A3%B3/1858293-20200202232023383-2065700252_hu17943622384904011368.png 480w, /p/%E4%B8%AA%E4%BA%BA%E7%AC%94%E8%AE%B0ximo%E6%97%A9%E6%9C%9F%E5%8F%91%E7%9A%84%E8%84%B1%E5%A3%B3%E6%95%99%E7%A8%8B%E6%89%8B%E8%84%B1upx%E5%A3%B3/1858293-20200202232023383-2065700252_hu1838792607276552655.png 1024w"
+	loading="lazy"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="2057"
+		data-flex-basis="4938px"
+	
+></p>
+<p>一直单步知道如上图这样的，跳跃跨度极大，让其跳跃后便可以到达真正的入口：</p>
+<p><img src="/p/%E4%B8%AA%E4%BA%BA%E7%AC%94%E8%AE%B0ximo%E6%97%A9%E6%9C%9F%E5%8F%91%E7%9A%84%E8%84%B1%E5%A3%B3%E6%95%99%E7%A8%8B%E6%89%8B%E8%84%B1upx%E5%A3%B3/1858293-20200202232023646-742488226.png"
+	width="312"
+	height="18"
+	srcset="/p/%E4%B8%AA%E4%BA%BA%E7%AC%94%E8%AE%B0ximo%E6%97%A9%E6%9C%9F%E5%8F%91%E7%9A%84%E8%84%B1%E5%A3%B3%E6%95%99%E7%A8%8B%E6%89%8B%E8%84%B1upx%E5%A3%B3/1858293-20200202232023646-742488226_hu10721331093675190328.png 480w, /p/%E4%B8%AA%E4%BA%BA%E7%AC%94%E8%AE%B0ximo%E6%97%A9%E6%9C%9F%E5%8F%91%E7%9A%84%E8%84%B1%E5%A3%B3%E6%95%99%E7%A8%8B%E6%89%8B%E8%84%B1upx%E5%A3%B3/1858293-20200202232023646-742488226_hu8150200005741816847.png 1024w"
+	loading="lazy"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="1733"
+		data-flex-basis="4160px"
+	
+></p>
+<p>在入口我们右键便可以用od内工具进行脱壳。</p>
+<p><img src="/p/%E4%B8%AA%E4%BA%BA%E7%AC%94%E8%AE%B0ximo%E6%97%A9%E6%9C%9F%E5%8F%91%E7%9A%84%E8%84%B1%E5%A3%B3%E6%95%99%E7%A8%8B%E6%89%8B%E8%84%B1upx%E5%A3%B3/1858293-20200202232023879-338089634.png"
+	width="576"
+	height="426"
+	srcset="/p/%E4%B8%AA%E4%BA%BA%E7%AC%94%E8%AE%B0ximo%E6%97%A9%E6%9C%9F%E5%8F%91%E7%9A%84%E8%84%B1%E5%A3%B3%E6%95%99%E7%A8%8B%E6%89%8B%E8%84%B1upx%E5%A3%B3/1858293-20200202232023879-338089634_hu10979142380135438754.png 480w, /p/%E4%B8%AA%E4%BA%BA%E7%AC%94%E8%AE%B0ximo%E6%97%A9%E6%9C%9F%E5%8F%91%E7%9A%84%E8%84%B1%E5%A3%B3%E6%95%99%E7%A8%8B%E6%89%8B%E8%84%B1upx%E5%A3%B3/1858293-20200202232023879-338089634_hu6956773208373775255.png 1024w"
+	loading="lazy"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="135"
+		data-flex-basis="324px"
+	
+></p>
+<p><img src="/p/%E4%B8%AA%E4%BA%BA%E7%AC%94%E8%AE%B0ximo%E6%97%A9%E6%9C%9F%E5%8F%91%E7%9A%84%E8%84%B1%E5%A3%B3%E6%95%99%E7%A8%8B%E6%89%8B%E8%84%B1upx%E5%A3%B3/1858293-20200202232024239-708553624.png"
+	width="402"
+	height="313"
+	srcset="/p/%E4%B8%AA%E4%BA%BA%E7%AC%94%E8%AE%B0ximo%E6%97%A9%E6%9C%9F%E5%8F%91%E7%9A%84%E8%84%B1%E5%A3%B3%E6%95%99%E7%A8%8B%E6%89%8B%E8%84%B1upx%E5%A3%B3/1858293-20200202232024239-708553624_hu8036826110772187406.png 480w, /p/%E4%B8%AA%E4%BA%BA%E7%AC%94%E8%AE%B0ximo%E6%97%A9%E6%9C%9F%E5%8F%91%E7%9A%84%E8%84%B1%E5%A3%B3%E6%95%99%E7%A8%8B%E6%89%8B%E8%84%B1upx%E5%A3%B3/1858293-20200202232024239-708553624_hu2903621479501021648.png 1024w"
+	loading="lazy"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="128"
+		data-flex-basis="308px"
+	
+></p>
+<p>这里选择方式1/2都可以。</p>
+<p><img src="/p/%E4%B8%AA%E4%BA%BA%E7%AC%94%E8%AE%B0ximo%E6%97%A9%E6%9C%9F%E5%8F%91%E7%9A%84%E8%84%B1%E5%A3%B3%E6%95%99%E7%A8%8B%E6%89%8B%E8%84%B1upx%E5%A3%B3/1858293-20200202232024481-285253099.png"
+	width="463"
+	height="225"
+	srcset="/p/%E4%B8%AA%E4%BA%BA%E7%AC%94%E8%AE%B0ximo%E6%97%A9%E6%9C%9F%E5%8F%91%E7%9A%84%E8%84%B1%E5%A3%B3%E6%95%99%E7%A8%8B%E6%89%8B%E8%84%B1upx%E5%A3%B3/1858293-20200202232024481-285253099_hu8030375935911068739.png 480w, /p/%E4%B8%AA%E4%BA%BA%E7%AC%94%E8%AE%B0ximo%E6%97%A9%E6%9C%9F%E5%8F%91%E7%9A%84%E8%84%B1%E5%A3%B3%E6%95%99%E7%A8%8B%E6%89%8B%E8%84%B1upx%E5%A3%B3/1858293-20200202232024481-285253099_hu15525366621279206777.png 1024w"
+	loading="lazy"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="205"
+		data-flex-basis="493px"
+	
+></p>
+<h1 id="方法2esp定律法">方法2：ESP定律法
+</h1><p>一进入要先确保硬件断点是清空状态的。</p>
+<p><img src="/p/%E4%B8%AA%E4%BA%BA%E7%AC%94%E8%AE%B0ximo%E6%97%A9%E6%9C%9F%E5%8F%91%E7%9A%84%E8%84%B1%E5%A3%B3%E6%95%99%E7%A8%8B%E6%89%8B%E8%84%B1upx%E5%A3%B3/1858293-20200202232024879-365031608.png"
+	width="207"
+	height="400"
+	srcset="/p/%E4%B8%AA%E4%BA%BA%E7%AC%94%E8%AE%B0ximo%E6%97%A9%E6%9C%9F%E5%8F%91%E7%9A%84%E8%84%B1%E5%A3%B3%E6%95%99%E7%A8%8B%E6%89%8B%E8%84%B1upx%E5%A3%B3/1858293-20200202232024879-365031608_hu8292722929614917269.png 480w, /p/%E4%B8%AA%E4%BA%BA%E7%AC%94%E8%AE%B0ximo%E6%97%A9%E6%9C%9F%E5%8F%91%E7%9A%84%E8%84%B1%E5%A3%B3%E6%95%99%E7%A8%8B%E6%89%8B%E8%84%B1upx%E5%A3%B3/1858293-20200202232024879-365031608_hu11627323121695762903.png 1024w"
+	loading="lazy"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="51"
+		data-flex-basis="124px"
+	
+></p>
+<p><img src="/p/%E4%B8%AA%E4%BA%BA%E7%AC%94%E8%AE%B0ximo%E6%97%A9%E6%9C%9F%E5%8F%91%E7%9A%84%E8%84%B1%E5%A3%B3%E6%95%99%E7%A8%8B%E6%89%8B%E8%84%B1upx%E5%A3%B3/1858293-20200202232025099-442787278.png"
+	width="306"
+	height="159"
+	srcset="/p/%E4%B8%AA%E4%BA%BA%E7%AC%94%E8%AE%B0ximo%E6%97%A9%E6%9C%9F%E5%8F%91%E7%9A%84%E8%84%B1%E5%A3%B3%E6%95%99%E7%A8%8B%E6%89%8B%E8%84%B1upx%E5%A3%B3/1858293-20200202232025099-442787278_hu7286703434134373310.png 480w, /p/%E4%B8%AA%E4%BA%BA%E7%AC%94%E8%AE%B0ximo%E6%97%A9%E6%9C%9F%E5%8F%91%E7%9A%84%E8%84%B1%E5%A3%B3%E6%95%99%E7%A8%8B%E6%89%8B%E8%84%B1upx%E5%A3%B3/1858293-20200202232025099-442787278_hu6681685352535875158.png 1024w"
+	loading="lazy"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="192"
+		data-flex-basis="461px"
+	
+></p>
+<p>我们进行push入栈之后，在右侧寄存器里可以看到ESP有了操作，右键让其进入数据窗口。</p>
+<p><img src="/p/%E4%B8%AA%E4%BA%BA%E7%AC%94%E8%AE%B0ximo%E6%97%A9%E6%9C%9F%E5%8F%91%E7%9A%84%E8%84%B1%E5%A3%B3%E6%95%99%E7%A8%8B%E6%89%8B%E8%84%B1upx%E5%A3%B3/1858293-20200202232025353-1485175939.png"
+	width="576"
+	height="360"
+	srcset="/p/%E4%B8%AA%E4%BA%BA%E7%AC%94%E8%AE%B0ximo%E6%97%A9%E6%9C%9F%E5%8F%91%E7%9A%84%E8%84%B1%E5%A3%B3%E6%95%99%E7%A8%8B%E6%89%8B%E8%84%B1upx%E5%A3%B3/1858293-20200202232025353-1485175939_hu8468560004010234697.png 480w, /p/%E4%B8%AA%E4%BA%BA%E7%AC%94%E8%AE%B0ximo%E6%97%A9%E6%9C%9F%E5%8F%91%E7%9A%84%E8%84%B1%E5%A3%B3%E6%95%99%E7%A8%8B%E6%89%8B%E8%84%B1upx%E5%A3%B3/1858293-20200202232025353-1485175939_hu12213655147356224796.png 1024w"
+	loading="lazy"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="160"
+		data-flex-basis="384px"
+	
+></p>
+<p>也可以在下方指令框中输入 dd/hr ESP地址</p>
+<p><img src="/p/%E4%B8%AA%E4%BA%BA%E7%AC%94%E8%AE%B0ximo%E6%97%A9%E6%9C%9F%E5%8F%91%E7%9A%84%E8%84%B1%E5%A3%B3%E6%95%99%E7%A8%8B%E6%89%8B%E8%84%B1upx%E5%A3%B3/1858293-20200202232025631-151688006.png"
+	width="546"
+	height="162"
+	srcset="/p/%E4%B8%AA%E4%BA%BA%E7%AC%94%E8%AE%B0ximo%E6%97%A9%E6%9C%9F%E5%8F%91%E7%9A%84%E8%84%B1%E5%A3%B3%E6%95%99%E7%A8%8B%E6%89%8B%E8%84%B1upx%E5%A3%B3/1858293-20200202232025631-151688006_hu8028472777060759381.png 480w, /p/%E4%B8%AA%E4%BA%BA%E7%AC%94%E8%AE%B0ximo%E6%97%A9%E6%9C%9F%E5%8F%91%E7%9A%84%E8%84%B1%E5%A3%B3%E6%95%99%E7%A8%8B%E6%89%8B%E8%84%B1upx%E5%A3%B3/1858293-20200202232025631-151688006_hu3815281276637790448.png 1024w"
+	loading="lazy"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="337"
+		data-flex-basis="808px"
+	
+></p>
+<p>设置硬件访问，word和Dword都可。</p>
+<p><img src="/p/%E4%B8%AA%E4%BA%BA%E7%AC%94%E8%AE%B0ximo%E6%97%A9%E6%9C%9F%E5%8F%91%E7%9A%84%E8%84%B1%E5%A3%B3%E6%95%99%E7%A8%8B%E6%89%8B%E8%84%B1upx%E5%A3%B3/1858293-20200202232025881-2081215009.png"
+	width="576"
+	height="406"
+	srcset="/p/%E4%B8%AA%E4%BA%BA%E7%AC%94%E8%AE%B0ximo%E6%97%A9%E6%9C%9F%E5%8F%91%E7%9A%84%E8%84%B1%E5%A3%B3%E6%95%99%E7%A8%8B%E6%89%8B%E8%84%B1upx%E5%A3%B3/1858293-20200202232025881-2081215009_hu10573923827441252430.png 480w, /p/%E4%B8%AA%E4%BA%BA%E7%AC%94%E8%AE%B0ximo%E6%97%A9%E6%9C%9F%E5%8F%91%E7%9A%84%E8%84%B1%E5%A3%B3%E6%95%99%E7%A8%8B%E6%89%8B%E8%84%B1upx%E5%A3%B3/1858293-20200202232025881-2081215009_hu17179853977655407842.png 1024w"
+	loading="lazy"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="141"
+		data-flex-basis="340px"
+	
+></p>
+<p>然后运行一下：</p>
+<p><img src="/p/%E4%B8%AA%E4%BA%BA%E7%AC%94%E8%AE%B0ximo%E6%97%A9%E6%9C%9F%E5%8F%91%E7%9A%84%E8%84%B1%E5%A3%B3%E6%95%99%E7%A8%8B%E6%89%8B%E8%84%B1upx%E5%A3%B3/1858293-20200202232026181-380409625.png"
+	width="550"
+	height="88"
+	srcset="/p/%E4%B8%AA%E4%BA%BA%E7%AC%94%E8%AE%B0ximo%E6%97%A9%E6%9C%9F%E5%8F%91%E7%9A%84%E8%84%B1%E5%A3%B3%E6%95%99%E7%A8%8B%E6%89%8B%E8%84%B1upx%E5%A3%B3/1858293-20200202232026181-380409625_hu5269338958788553047.png 480w, /p/%E4%B8%AA%E4%BA%BA%E7%AC%94%E8%AE%B0ximo%E6%97%A9%E6%9C%9F%E5%8F%91%E7%9A%84%E8%84%B1%E5%A3%B3%E6%95%99%E7%A8%8B%E6%89%8B%E8%84%B1upx%E5%A3%B3/1858293-20200202232026181-380409625_hu7345785403984041733.png 1024w"
+	loading="lazy"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="625"
+		data-flex-basis="1500px"
+	
+></p>
+<p>随后就和方法1一样继续往下走。</p>
+<h1 id="方法3二次内存镜像法">方法3：二次内存镜像法
+</h1><p><img src="/p/%E4%B8%AA%E4%BA%BA%E7%AC%94%E8%AE%B0ximo%E6%97%A9%E6%9C%9F%E5%8F%91%E7%9A%84%E8%84%B1%E5%A3%B3%E6%95%99%E7%A8%8B%E6%89%8B%E8%84%B1upx%E5%A3%B3/1858293-20200202232026467-1956779309.png"
+	width="576"
+	height="347"
+	srcset="/p/%E4%B8%AA%E4%BA%BA%E7%AC%94%E8%AE%B0ximo%E6%97%A9%E6%9C%9F%E5%8F%91%E7%9A%84%E8%84%B1%E5%A3%B3%E6%95%99%E7%A8%8B%E6%89%8B%E8%84%B1upx%E5%A3%B3/1858293-20200202232026467-1956779309_hu10744946735280404995.png 480w, /p/%E4%B8%AA%E4%BA%BA%E7%AC%94%E8%AE%B0ximo%E6%97%A9%E6%9C%9F%E5%8F%91%E7%9A%84%E8%84%B1%E5%A3%B3%E6%95%99%E7%A8%8B%E6%89%8B%E8%84%B1upx%E5%A3%B3/1858293-20200202232026467-1956779309_hu18071349960981388030.png 1024w"
+	loading="lazy"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="165"
+		data-flex-basis="398px"
+	
+></p>
+<p>可以通过菜单栏&quot;查看—内存&quot;或直接按m进入内存界面：</p>
+<p><img src="/p/%E4%B8%AA%E4%BA%BA%E7%AC%94%E8%AE%B0ximo%E6%97%A9%E6%9C%9F%E5%8F%91%E7%9A%84%E8%84%B1%E5%A3%B3%E6%95%99%E7%A8%8B%E6%89%8B%E8%84%B1upx%E5%A3%B3/1858293-20200202232026722-1213014504.png"
+	width="375"
+	height="367"
+	srcset="/p/%E4%B8%AA%E4%BA%BA%E7%AC%94%E8%AE%B0ximo%E6%97%A9%E6%9C%9F%E5%8F%91%E7%9A%84%E8%84%B1%E5%A3%B3%E6%95%99%E7%A8%8B%E6%89%8B%E8%84%B1upx%E5%A3%B3/1858293-20200202232026722-1213014504_hu13485386866760452959.png 480w, /p/%E4%B8%AA%E4%BA%BA%E7%AC%94%E8%AE%B0ximo%E6%97%A9%E6%9C%9F%E5%8F%91%E7%9A%84%E8%84%B1%E5%A3%B3%E6%95%99%E7%A8%8B%E6%89%8B%E8%84%B1upx%E5%A3%B3/1858293-20200202232026722-1213014504_hu1739572890187036437.png 1024w"
+	loading="lazy"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="102"
+		data-flex-basis="245px"
+	
+></p>
+<p>对区段&quot;.rsrc&quot;下断点，下面的区段不用管，之下第一个rsrc，后面的是系统的区段。</p>
+<p>下完之后运行走一步，然后回来：</p>
+<p><img src="/p/%E4%B8%AA%E4%BA%BA%E7%AC%94%E8%AE%B0ximo%E6%97%A9%E6%9C%9F%E5%8F%91%E7%9A%84%E8%84%B1%E5%A3%B3%E6%95%99%E7%A8%8B%E6%89%8B%E8%84%B1upx%E5%A3%B3/1858293-20200202232026989-1610571867.png"
+	width="355"
+	height="281"
+	srcset="/p/%E4%B8%AA%E4%BA%BA%E7%AC%94%E8%AE%B0ximo%E6%97%A9%E6%9C%9F%E5%8F%91%E7%9A%84%E8%84%B1%E5%A3%B3%E6%95%99%E7%A8%8B%E6%89%8B%E8%84%B1upx%E5%A3%B3/1858293-20200202232026989-1610571867_hu15347044289315268897.png 480w, /p/%E4%B8%AA%E4%BA%BA%E7%AC%94%E8%AE%B0ximo%E6%97%A9%E6%9C%9F%E5%8F%91%E7%9A%84%E8%84%B1%E5%A3%B3%E6%95%99%E7%A8%8B%E6%89%8B%E8%84%B1upx%E5%A3%B3/1858293-20200202232026989-1610571867_hu9028093294329319504.png 1024w"
+	loading="lazy"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="126"
+		data-flex-basis="303px"
+	
+></p>
+<p>回来之后在401000处再下一次</p>
+<p>随后单步往下走，同方法1</p>
+<h1 id="方法4直捣黄龙适用于绝大部分的upx壳和部分aspack壳">方法4：直捣黄龙（适用于绝大部分的UPX壳和部分Aspack壳）
+</h1><p>众所周知，push的反义词是pop，有入栈的push，必定有出栈的pop</p>
+<p><img src="/p/%E4%B8%AA%E4%BA%BA%E7%AC%94%E8%AE%B0ximo%E6%97%A9%E6%9C%9F%E5%8F%91%E7%9A%84%E8%84%B1%E5%A3%B3%E6%95%99%E7%A8%8B%E6%89%8B%E8%84%B1upx%E5%A3%B3/1858293-20200202232027307-1651989000.png"
+	width="576"
+	height="406"
+	srcset="/p/%E4%B8%AA%E4%BA%BA%E7%AC%94%E8%AE%B0ximo%E6%97%A9%E6%9C%9F%E5%8F%91%E7%9A%84%E8%84%B1%E5%A3%B3%E6%95%99%E7%A8%8B%E6%89%8B%E8%84%B1upx%E5%A3%B3/1858293-20200202232027307-1651989000_hu4851344994895100076.png 480w, /p/%E4%B8%AA%E4%BA%BA%E7%AC%94%E8%AE%B0ximo%E6%97%A9%E6%9C%9F%E5%8F%91%E7%9A%84%E8%84%B1%E5%A3%B3%E6%95%99%E7%A8%8B%E6%89%8B%E8%84%B1upx%E5%A3%B3/1858293-20200202232027307-1651989000_hu2744408102484648894.png 1024w"
+	loading="lazy"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="141"
+		data-flex-basis="340px"
+	
+></p>
+<p>我们查找popad，因为是pushad所以后面的ad相同，注意不用勾选整个块，因为整个块的popad绝对不止一个。</p>
+<p><img src="/p/%E4%B8%AA%E4%BA%BA%E7%AC%94%E8%AE%B0ximo%E6%97%A9%E6%9C%9F%E5%8F%91%E7%9A%84%E8%84%B1%E5%A3%B3%E6%95%99%E7%A8%8B%E6%89%8B%E8%84%B1upx%E5%A3%B3/1858293-20200202232027563-1080268248.png"
+	width="282"
+	height="84"
+	srcset="/p/%E4%B8%AA%E4%BA%BA%E7%AC%94%E8%AE%B0ximo%E6%97%A9%E6%9C%9F%E5%8F%91%E7%9A%84%E8%84%B1%E5%A3%B3%E6%95%99%E7%A8%8B%E6%89%8B%E8%84%B1upx%E5%A3%B3/1858293-20200202232027563-1080268248_hu10177470908827701367.png 480w, /p/%E4%B8%AA%E4%BA%BA%E7%AC%94%E8%AE%B0ximo%E6%97%A9%E6%9C%9F%E5%8F%91%E7%9A%84%E8%84%B1%E5%A3%B3%E6%95%99%E7%A8%8B%E6%89%8B%E8%84%B1upx%E5%A3%B3/1858293-20200202232027563-1080268248_hu6266732855600665292.png 1024w"
+	loading="lazy"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="335"
+		data-flex-basis="805px"
+	
+></p>
+<p>好，找到了，单步运行，同方法1</p>
+<p><img src="/p/%E4%B8%AA%E4%BA%BA%E7%AC%94%E8%AE%B0ximo%E6%97%A9%E6%9C%9F%E5%8F%91%E7%9A%84%E8%84%B1%E5%A3%B3%E6%95%99%E7%A8%8B%E6%89%8B%E8%84%B1upx%E5%A3%B3/1858293-20200202232027767-604388203.png"
+	width="576"
+	height="69"
+	srcset="/p/%E4%B8%AA%E4%BA%BA%E7%AC%94%E8%AE%B0ximo%E6%97%A9%E6%9C%9F%E5%8F%91%E7%9A%84%E8%84%B1%E5%A3%B3%E6%95%99%E7%A8%8B%E6%89%8B%E8%84%B1upx%E5%A3%B3/1858293-20200202232027767-604388203_hu10212756957321045220.png 480w, /p/%E4%B8%AA%E4%BA%BA%E7%AC%94%E8%AE%B0ximo%E6%97%A9%E6%9C%9F%E5%8F%91%E7%9A%84%E8%84%B1%E5%A3%B3%E6%95%99%E7%A8%8B%E6%89%8B%E8%84%B1upx%E5%A3%B3/1858293-20200202232027767-604388203_hu7297003849489512662.png 1024w"
+	loading="lazy"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="834"
+		data-flex-basis="2003px"
+	
+></p>
+
+</section>
+
+
+    <footer class="article-footer">
+    
+
+    </footer>
+
+
+    
+</article>
+
+    
+
+    
+
+<aside class="related-content--wrapper">
+    <h2 class="section-title">相关文章</h2>
+    <div class="related-content">
+        <div class="flex article-list--tile">
+            
+                
+<article class="">
+    <a href="/p/%E4%B8%AA%E4%BA%BA%E5%90%91ctf%E6%AF%94%E8%B5%9B%E5%87%BA%E7%9A%84%E4%B8%80%E9%81%93%E9%80%86%E5%90%91%E6%B8%B8%E6%88%8F%E9%A2%98gametime%E9%A2%98%E8%A7%A3/">
+        
+        
+
+        <div class="article-details">
+            <h2 class="article-title">【个人向】ctf比赛出的一道逆向游戏题——GameTime题解</h2>
+        </div>
+    </a>
+</article>
+
+            
+                
+<article class="">
+    <a href="/p/handler%E8%BF%9B%E8%A1%8C%E5%A0%86%E5%8F%A0%E6%B3%A8%E5%85%A5/">
+        
+        
+
+        <div class="article-details">
+            <h2 class="article-title">HANDLER进行堆叠注入</h2>
+        </div>
+    </a>
+</article>
+
+            
+                
+<article class="">
+    <a href="/p/cdut%E7%AC%AC%E4%B8%80%E5%B1%8A%E4%BF%A1%E5%AE%89%E5%A4%A7%E6%8C%91%E6%88%98re-wp/">
+        
+        
+
+        <div class="article-details">
+            <h2 class="article-title">CDUT第一届信安大挑战Re-wp</h2>
+        </div>
+    </a>
+</article>
+
+            
+                
+<article class="">
+    <a href="/p/nu1lbook%E7%AC%AC%E4%B8%80%E7%AB%A0wp/">
+        
+        
+
+        <div class="article-details">
+            <h2 class="article-title">Nu1LBook第一章wp</h2>
+        </div>
+    </a>
+</article>
+
+            
+                
+<article class="">
+    <a href="/p/linux%E5%92%8Cvmware/">
+        
+        
+
+        <div class="article-details">
+            <h2 class="article-title">Linux和VMWare</h2>
+        </div>
+    </a>
+</article>
+
+            
+        </div>
+    </div>
+</aside>
+
+     
+    
+        
+    <script src="https://utteranc.es/client.js" 
+        repo="DorinXL/dorinxl.github.io"
+        issue-term="pathname"
+        
+        crossorigin="anonymous"
+        async
+        >
+</script>
+
+<style>
+    .utterances {
+        max-width: unset;
+    }
+</style>
+
+<script>
+    let utterancesLoaded = false;
+
+    function setUtterancesTheme(theme) {
+        let utterances = document.querySelector('.utterances iframe');
+        if (utterances) {
+            utterances.contentWindow.postMessage(
+                {
+                    type: 'set-theme',
+                    theme: `github-${theme}`
+                },
+                'https://utteranc.es'
+            );
+        }
+    }
+
+    addEventListener('message', event => {
+        if (event.origin !== 'https://utteranc.es') return;
+
+        
+        utterancesLoaded = true;
+        setUtterancesTheme(document.documentElement.dataset.scheme)
+    });
+
+    window.addEventListener('onColorSchemeChange', (e) => {
+        if (!utterancesLoaded) return;
+        setUtterancesTheme(e.detail)
+    })
+</script>
+
+
+    
+
+    <footer class="site-footer">
+    <section class="copyright">
+        &copy; 
+        
+        2024 荡影-DorinXL
+    </section>
+
+
+
+<section class="totalcount">
+    
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+    发表了76篇文章 · 
+    总计103.89k字
+</section>
+
+
+
+<section class="running-time">
+本博客已稳定运行
+<span id="runningdays" class="running-days"></span>
+</section>
+
+    <section class="powerby">
+        使用 <a href="https://gohugo.io/" target="_blank" rel="noopener">Hugo</a> 构建 <br />
+        主题 <b><a href="https://github.com/CaiJimmy/hugo-theme-stack" target="_blank" rel="noopener" data-version="3.26.0">Stack</a></b> 由 <a href="https://jimmycai.com" target="_blank" rel="noopener">Jimmy</a> 设计
+    </section>
+
+</footer>
+
+
+    
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+    
+    <div class="pswp__bg"></div>
+
+    
+    <div class="pswp__scroll-wrap">
+
+        
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+
+        
+        <div class="pswp__ui pswp__ui--hidden">
+
+            <div class="pswp__top-bar">
+
+                
+
+                <div class="pswp__counter"></div>
+
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+                
+                
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                        <div class="pswp__preloader__cut">
+                            <div class="pswp__preloader__donut"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div>
+            </div>
+
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div><script 
+                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.js"integrity="sha256-ePwmChbbvXbsO02lbM3HoHbSHTHFAeChekF1xKJdleo="crossorigin="anonymous"
+                defer
+                >
+            </script><script 
+                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe-ui-default.min.js"integrity="sha256-UKkzOn/w1mBxRmLLGrSeyB4e1xbrp4xylgAWb3M42pU="crossorigin="anonymous"
+                defer
+                >
+            </script><link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/default-skin/default-skin.min.css"crossorigin="anonymous"
+            ><link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.css"crossorigin="anonymous"
+            >
+
+            </main>
+        </div>
+        <script 
+                src="https://cdn.jsdelivr.net/npm/node-vibrant@3.1.6/dist/vibrant.min.js"integrity="sha256-awcR2jno4kI5X0zL8ex0vi2z&#43;KMkF24hUW8WePSA9HM="crossorigin="anonymous"
+                
+                >
+            </script><script type="text/javascript" src="/ts/main.js" defer></script>
+<script>
+    (function () {
+        const customFont = document.createElement('link');
+        customFont.href = "https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap";
+
+        customFont.type = "text/css";
+        customFont.rel = "stylesheet";
+
+        document.head.appendChild(customFont);
+    }());
+</script>
+
+<script>
+    let s1 = '2024-8-25'; 
+    s1 = new Date(s1.replace(/-/g, "/"));
+    let s2 = new Date();
+    let timeDifference = s2.getTime() - s1.getTime();
+
+    let days = Math.floor(timeDifference / (1000 * 60 * 60 * 24));
+    let hours = Math.floor((timeDifference % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+    let minutes = Math.floor((timeDifference % (1000 * 60 * 60)) / (1000 * 60));
+
+    let result = days + "天" + hours + "小时" + minutes + "分钟";
+    document.getElementById('runningdays').innerHTML = result;
+</script>
+    </body>
+</html>

@@ -1,0 +1,976 @@
+<!DOCTYPE html>
+<html lang="zh-cn" dir="ltr">
+    <head><meta charset='utf-8'>
+<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content="目的：如何设置账号密码供远程登陆。 设备管理的对象可以是交换机、路由器或者防火墙，都是通用的 通过cloud桥接到虚拟设备： 对cloud右键： 安">
+<title>华为ensp设备管理</title>
+
+<link rel='canonical' href='https://dorinxl.github.io/p/%E5%8D%8E%E4%B8%BAensp%E8%AE%BE%E5%A4%87%E7%AE%A1%E7%90%86/'>
+
+<link rel="stylesheet" href="/scss/style.min.dfb009e658ec6e0f0f0c366b98658c0caea5123dcd2536f353c92c2581b79fb7.css"><meta property='og:title' content="华为ensp设备管理">
+<meta property='og:description' content="目的：如何设置账号密码供远程登陆。 设备管理的对象可以是交换机、路由器或者防火墙，都是通用的 通过cloud桥接到虚拟设备： 对cloud右键： 安">
+<meta property='og:url' content='https://dorinxl.github.io/p/%E5%8D%8E%E4%B8%BAensp%E8%AE%BE%E5%A4%87%E7%AE%A1%E7%90%86/'>
+<meta property='og:site_name' content='荡影-DorinXL'>
+<meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:published_time' content='2022-06-22T01:55:00&#43;00:00'/><meta property='article:modified_time' content='2022-06-22T01:55:00&#43;00:00'/>
+<meta name="twitter:title" content="华为ensp设备管理">
+<meta name="twitter:description" content="目的：如何设置账号密码供远程登陆。 设备管理的对象可以是交换机、路由器或者防火墙，都是通用的 通过cloud桥接到虚拟设备： 对cloud右键： 安">
+    <link rel="shortcut icon" href="/favicon.ico" />
+
+  
+
+
+    </head>
+    <body class="
+    article-page
+    ">
+    <script>
+        (function() {
+            const colorSchemeKey = 'StackColorScheme';
+            if(!localStorage.getItem(colorSchemeKey)){
+                localStorage.setItem(colorSchemeKey, "auto");
+            }
+        })();
+    </script><script>
+    (function() {
+        const colorSchemeKey = 'StackColorScheme';
+        const colorSchemeItem = localStorage.getItem(colorSchemeKey);
+        const supportDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches === true;
+
+        if (colorSchemeItem == 'dark' || colorSchemeItem === 'auto' && supportDarkMode) {
+            
+
+            document.documentElement.dataset.scheme = 'dark';
+        } else {
+            document.documentElement.dataset.scheme = 'light';
+        }
+    })();
+</script>
+<div class="container main-container flex on-phone--column extended"><aside class="sidebar left-sidebar sticky ">
+    <button class="hamburger hamburger--spin" type="button" id="toggle-menu" aria-label="切换菜单">
+        <span class="hamburger-box">
+            <span class="hamburger-inner"></span>
+        </span>
+    </button>
+
+    <header>
+        
+            
+            <figure class="site-avatar">
+                <a href="/">
+                
+                    
+                    
+                    
+                        
+                        <img src="/img/avatar_hu6744900124519508638.png" width="300"
+                            height="283" class="site-logo" loading="lazy" alt="Avatar">
+                    
+                
+                </a>
+                
+                    <span class="emoji">🔥</span>
+                
+            </figure>
+            
+        
+        
+        <div class="site-meta">
+            <h1 class="site-name"><a href="/">荡影-DorinXL</a></h1>
+            <h2 class="site-description">缄默慎独，不破不立，事在人为</h2>
+        </div>
+    </header><ol class="menu-social">
+            
+                <li>
+                    <a 
+                        href='https://space.bilibili.com/3217550'
+                        target="_blank"
+                        title="BilBili"
+                        rel="me"
+                    >
+                        
+                        
+                            <svg  xmlns="http://www.w3.org/2000/svg"  width="24"  height="24"  viewBox="0 0 24 24"  fill="none"  stroke="currentColor"  stroke-width="2"  stroke-linecap="round"  stroke-linejoin="round"  class="icon icon-tabler icons-tabler-outline icon-tabler-brand-bilibili"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M3 10a4 4 0 0 1 4 -4h10a4 4 0 0 1 4 4v6a4 4 0 0 1 -4 4h-10a4 4 0 0 1 -4 -4v-6z" /><path d="M8 3l2 3" /><path d="M16 3l-2 3" /><path d="M9 13v-2" /><path d="M15 11v2" /></svg>
+                        
+                    </a>
+                </li>
+            
+                <li>
+                    <a 
+                        href='https://www.cnblogs.com/DorinXL/'
+                        target="_blank"
+                        title="CNblog"
+                        rel="me"
+                    >
+                        
+                        
+                            <svg  xmlns="http://www.w3.org/2000/svg"  width="24"  height="24"  viewBox="0 0 24 24"  fill="none"  stroke="currentColor"  stroke-width="2"  stroke-linecap="round"  stroke-linejoin="round"  class="icon icon-tabler icons-tabler-outline icon-tabler-brand-blogger"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M8 21h8a5 5 0 0 0 5 -5v-3a3 3 0 0 0 -3 -3h-1v-2a5 5 0 0 0 -5 -5h-4a5 5 0 0 0 -5 5v8a5 5 0 0 0 5 5z" /><path d="M7 7m0 1.5a1.5 1.5 0 0 1 1.5 -1.5h3a1.5 1.5 0 0 1 1.5 1.5v0a1.5 1.5 0 0 1 -1.5 1.5h-3a1.5 1.5 0 0 1 -1.5 -1.5z" /><path d="M7 14m0 1.5a1.5 1.5 0 0 1 1.5 -1.5h7a1.5 1.5 0 0 1 1.5 1.5v0a1.5 1.5 0 0 1 -1.5 1.5h-7a1.5 1.5 0 0 1 -1.5 -1.5z" /></svg>
+                        
+                    </a>
+                </li>
+            
+                <li>
+                    <a 
+                        href='https://github.com/DorinXL/DorinXL.github.io'
+                        target="_blank"
+                        title="GitHub"
+                        rel="me"
+                    >
+                        
+                        
+                            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-brand-github" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+  <path d="M9 19c-4.3 1.4 -4.3 -2.5 -6 -3m12 5v-3.5c0 -1 .1 -1.4 -.5 -2c2.8 -.3 5.5 -1.4 5.5 -6a4.6 4.6 0 0 0 -1.3 -3.2a4.2 4.2 0 0 0 -.1 -3.2s-1.1 -.3 -3.5 1.3a12.3 12.3 0 0 0 -6.2 0c-2.4 -1.6 -3.5 -1.3 -3.5 -1.3a4.2 4.2 0 0 0 -.1 3.2a4.6 4.6 0 0 0 -1.3 3.2c0 4.6 2.7 5.7 5.5 6c-.6 .6 -.6 1.2 -.5 2v3.5" />
+</svg>
+
+
+
+                        
+                    </a>
+                </li>
+            
+        </ol><ol class="menu" id="main-menu">
+        
+        
+        
+        <li >
+            <a href='/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-home" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <polyline points="5 12 3 12 12 3 21 12 19 12" />
+  <path d="M5 12v7a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-7" />
+  <path d="M9 21v-6a2 2 0 0 1 2 -2h2a2 2 0 0 1 2 2v6" />
+</svg>
+
+
+
+                
+                <span>主页</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/%E5%85%B3%E4%BA%8E/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-user" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="7" r="4" />
+  <path d="M6 21v-2a4 4 0 0 1 4 -4h4a4 4 0 0 1 4 4v2" />
+</svg>
+
+
+
+                
+                <span>关于</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/archives/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-archive" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <rect x="3" y="4" width="18" height="4" rx="2" />
+  <path d="M5 8v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-10" />
+  <line x1="10" y1="12" x2="14" y2="12" />
+</svg>
+
+
+
+                
+                <span>归档</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/search/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-search" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="10" cy="10" r="7" />
+  <line x1="21" y1="21" x2="15" y2="15" />
+</svg>
+
+
+
+                
+                <span>搜索</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/%E5%8F%8B%E9%93%BE/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-link" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <path d="M10 14a3.5 3.5 0 0 0 5 0l4 -4a3.5 3.5 0 0 0 -5 -5l-.5 .5" />
+  <path d="M14 10a3.5 3.5 0 0 0 -5 0l-4 4a3.5 3.5 0 0 0 5 5l.5 -.5" />
+</svg>
+
+
+
+                
+                <span>友链</span>
+            </a>
+        </li>
+        
+        <li class="menu-bottom-section">
+            <ol class="menu">
+
+                
+                    <li id="dark-mode-toggle">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-left" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="8" cy="12" r="2" />
+  <rect x="2" y="6" width="20" height="12" rx="6" />
+</svg>
+
+
+
+                        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-right" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="16" cy="12" r="2" />
+  <rect x="2" y="6" width="20" height="12" rx="6" />
+</svg>
+
+
+
+                        <span>暗色模式</span>
+                    </li>
+                
+            </ol>
+        </li>
+    </ol>
+</aside>
+
+    <aside class="sidebar right-sidebar sticky">
+        
+            
+                
+    <section class="widget archives">
+        <div class="widget-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-hash" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <line x1="5" y1="9" x2="19" y2="9" />
+  <line x1="5" y1="15" x2="19" y2="15" />
+  <line x1="11" y1="4" x2="7" y2="20" />
+  <line x1="17" y1="4" x2="13" y2="20" />
+</svg>
+
+
+
+        </div>
+        <h2 class="widget-title section-title">目录</h2>
+        
+        <div class="widget--toc">
+            <nav id="TableOfContents">
+  <ol>
+    <li>
+      <ol>
+        <li><a href="#通过cloud桥接到虚拟设备">通过cloud桥接到虚拟设备：</a></li>
+        <li><a href="#给路由器设置ip地址网段与云网段一致">给路由器设置IP地址，网段与云网段一致</a></li>
+        <li><a href="#3a认证设置">3A认证设置</a></li>
+        <li><a href="#ssh连接">SSH连接</a></li>
+        <li><a href="#总结">总结：</a></li>
+      </ol>
+    </li>
+  </ol>
+</nav>
+        </div>
+    </section>
+
+            
+        
+    </aside>
+
+
+            <main class="main full-width">
+    <article class="main-article">
+    <header class="article-header">
+
+    <div class="article-details">
+    
+
+    <div class="article-title-wrapper">
+        <h2 class="article-title">
+            <a href="/p/%E5%8D%8E%E4%B8%BAensp%E8%AE%BE%E5%A4%87%E7%AE%A1%E7%90%86/">华为ensp设备管理</a>
+        </h2>
+    
+        
+    </div>
+
+
+    
+    
+    
+    
+    <footer class="article-time">
+        
+            <div>
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-calendar-time" width="56" height="56" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <path d="M11.795 21h-6.795a2 2 0 0 1 -2 -2v-12a2 2 0 0 1 2 -2h12a2 2 0 0 1 2 2v4" />
+  <circle cx="18" cy="18" r="4" />
+  <path d="M15 3v4" />
+  <path d="M7 3v4" />
+  <path d="M3 11h16" />
+  <path d="M18 16.496v1.504l1 1" />
+</svg>
+                <time class="article-time--published">2022-06-22</time>
+            </div>
+	
+
+        
+
+        
+    </footer>
+    
+
+    
+
+</div>
+
+</header>
+
+    <section class="article-content">
+    
+    
+    <p>目的：如何设置账号密码供远程登陆。</p>
+<p>设备管理的对象可以是交换机、路由器或者防火墙，都是通用的</p>
+<h3 id="通过cloud桥接到虚拟设备">通过cloud桥接到虚拟设备：
+</h3><p>对cloud右键：</p>
+<p>安装好vm之后会有两个虚拟网卡：<img src="/p/%E5%8D%8E%E4%B8%BAensp%E8%AE%BE%E5%A4%87%E7%AE%A1%E7%90%86/1858293-20220622095102515-900931532.png"
+	width="299"
+	height="144"
+	srcset="/p/%E5%8D%8E%E4%B8%BAensp%E8%AE%BE%E5%A4%87%E7%AE%A1%E7%90%86/1858293-20220622095102515-900931532_hu9016475269515753583.png 480w, /p/%E5%8D%8E%E4%B8%BAensp%E8%AE%BE%E5%A4%87%E7%AE%A1%E7%90%86/1858293-20220622095102515-900931532_hu15657542515132054702.png 1024w"
+	loading="lazy"
+	
+		alt="image-20220621224601949"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="207"
+		data-flex-basis="498px"
+	
+></p>
+<p>一开始默认UDP，我们直接增加：</p>
+<p><img src="/p/%E5%8D%8E%E4%B8%BAensp%E8%AE%BE%E5%A4%87%E7%AE%A1%E7%90%86/1858293-20220622095103149-1814345062.png"
+	width="937"
+	height="643"
+	srcset="/p/%E5%8D%8E%E4%B8%BAensp%E8%AE%BE%E5%A4%87%E7%AE%A1%E7%90%86/1858293-20220622095103149-1814345062_hu14482443903902184569.png 480w, /p/%E5%8D%8E%E4%B8%BAensp%E8%AE%BE%E5%A4%87%E7%AE%A1%E7%90%86/1858293-20220622095103149-1814345062_hu5198334667653213529.png 1024w"
+	loading="lazy"
+	
+		alt="image-20220621224627744"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="145"
+		data-flex-basis="349px"
+	
+></p>
+<p>然后我们增加另一个：</p>
+<p><img src="/p/%E5%8D%8E%E4%B8%BAensp%E8%AE%BE%E5%A4%87%E7%AE%A1%E7%90%86/1858293-20220622095103668-1574273448.png"
+	width="976"
+	height="666"
+	srcset="/p/%E5%8D%8E%E4%B8%BAensp%E8%AE%BE%E5%A4%87%E7%AE%A1%E7%90%86/1858293-20220622095103668-1574273448_hu16531407520937302481.png 480w, /p/%E5%8D%8E%E4%B8%BAensp%E8%AE%BE%E5%A4%87%E7%AE%A1%E7%90%86/1858293-20220622095103668-1574273448_hu4654699397494003149.png 1024w"
+	loading="lazy"
+	
+		alt="image-20220622090711537"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="146"
+		data-flex-basis="351px"
+	
+></p>
+<p>然后我们增加端口映射：</p>
+<p><img src="/p/%E5%8D%8E%E4%B8%BAensp%E8%AE%BE%E5%A4%87%E7%AE%A1%E7%90%86/1858293-20220622095104135-1298083139.png"
+	width="875"
+	height="234"
+	srcset="/p/%E5%8D%8E%E4%B8%BAensp%E8%AE%BE%E5%A4%87%E7%AE%A1%E7%90%86/1858293-20220622095104135-1298083139_hu6206229757645957488.png 480w, /p/%E5%8D%8E%E4%B8%BAensp%E8%AE%BE%E5%A4%87%E7%AE%A1%E7%90%86/1858293-20220622095104135-1298083139_hu17004577366550084871.png 1024w"
+	loading="lazy"
+	
+		alt="image-20220621224728339"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="373"
+		data-flex-basis="897px"
+	
+></p>
+<p>现在我们的这个cloud就绑定到网卡是vm1的虚拟机上了</p>
+<p><img src="/p/%E5%8D%8E%E4%B8%BAensp%E8%AE%BE%E5%A4%87%E7%AE%A1%E7%90%86/1858293-20220622095104629-286520116.png"
+	width="344"
+	height="355"
+	srcset="/p/%E5%8D%8E%E4%B8%BAensp%E8%AE%BE%E5%A4%87%E7%AE%A1%E7%90%86/1858293-20220622095104629-286520116_hu3585640723864760073.png 480w, /p/%E5%8D%8E%E4%B8%BAensp%E8%AE%BE%E5%A4%87%E7%AE%A1%E7%90%86/1858293-20220622095104629-286520116_hu5010310579187963983.png 1024w"
+	loading="lazy"
+	
+		alt="image-20220621224850903"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="96"
+		data-flex-basis="232px"
+	
+></p>
+<h3 id="给路由器设置ip地址网段与云网段一致">给路由器设置IP地址，网段与云网段一致
+</h3><p>如何配置IP：</p>
+<p><code>SYS进入配置模式</code></p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">&lt;Huawei&gt;sys
+</span></span><span class="line"><span class="cl">Enter system view, return user view with Ctrl+Z.
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p><code>interface 【接口编号】</code></p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">[Huawei]int g0/0/0
+</span></span><span class="line"><span class="cl">[Huawei-GigabitEthernet0/0/0]
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p><code>ip add [xxx.xxx.xxx.xxx] 24</code></p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">[Huawei-GigabitEthernet0/0/0]ip add 192.168.87.10 24
+</span></span><span class="line"><span class="cl">Jun 22 2022 09:10:21-08:00 Huawei %%01IFNET/4/LINK_STATE(l)[1]:The line protocol
+</span></span><span class="line"><span class="cl"> IP on the interface GigabitEthernet0/0/0 has entered the UP state. 
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>配置远程连接设置：</p>
+<p><img src="/p/%E5%8D%8E%E4%B8%BAensp%E8%AE%BE%E5%A4%87%E7%AE%A1%E7%90%86/1858293-20220622095105071-2137724951.png"
+	width="1306"
+	height="256"
+	srcset="/p/%E5%8D%8E%E4%B8%BAensp%E8%AE%BE%E5%A4%87%E7%AE%A1%E7%90%86/1858293-20220622095105071-2137724951_hu16397930078519147169.png 480w, /p/%E5%8D%8E%E4%B8%BAensp%E8%AE%BE%E5%A4%87%E7%AE%A1%E7%90%86/1858293-20220622095105071-2137724951_hu3812443439479217680.png 1024w"
+	loading="lazy"
+	
+		alt="image-20220613104913441"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="510"
+		data-flex-basis="1224px"
+	
+></p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">[Huawei] user-interface vty 0 4	//配置0-4五个终端
+</span></span><span class="line"><span class="cl">[Huawei-ui-vty0-4] authentication-mode password/aaa	//启用密码验证或AAA验证
+</span></span><span class="line"><span class="cl">[Huawei-ui-vty0-4] set authentication password simple/cipher abc123 	//以明文或密文方式加密 
+</span></span><span class="line"><span class="cl">[Huawei-ui-vty0-4] set authentication password cipher abc123	//此为路由器配置命令，路由器只能是密文加密
+</span></span><span class="line"><span class="cl">[Huawei-ui-vty0-4] user privilege level 3	//设置远程登录vty用户权限为3，表示可以使用所有命令
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p><em>命令级别为0-3共四个级别，区别如下：</em>
+<em>0参观，ping、tracert、telnet、rsh、super、language-mode、display、quit</em>
+<em>1 监控，0级命令、msdp-tracert、mtracert、reboot、reset、send、terminal、undo、upgrade、debugging</em>
+<em>2 配置，所有配置命令（管理级的命令除外）和0、1级命令</em>
+<em>3 管理，所有命令</em></p>
+<p>配置 Telnet以用户名+密码方式登录时的密码：
+进入AAA模式命令行下：
+[Huawei]aaa 添加新用户为：huawei 密码为：abc123 加密模式为：cipher  密文加密,用户级别为3</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">[Huawei-aaa]local-user huawei level 3 password cipher abc123
+</span></span><span class="line"><span class="cl">[Huawei-aaa]local-user huawei privilege level 3 password cipher 123456
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>设置哪些服务可以通过此test用户进行验证，设置telnet 服务</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">[Huawei-aaa]local-user huawei service-type http ssh telnet web
+</span></span><span class="line"><span class="cl">[Huawei-aaa]local-user huawei privilege level 3	//远程登录时能够使用的级别命令
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>实际操作：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">[Huawei] user-interface vty 0 4	//配置0-4五个终端
+</span></span><span class="line"><span class="cl">[Huawei-ui-vty0-4] authentication-mode aaa
+</span></span><span class="line"><span class="cl">[Huawei-ui-vty0-4] user privilege level 3
+</span></span><span class="line"><span class="cl">[Huawei-aaa]local-user huawei level 3 password cipher abc123
+</span></span><span class="line"><span class="cl">[Huawei-aaa]local-user huawei service-type http ssh telnet web
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>在centOS7上安装telnet所需组件之后：</p>
+<p><img src="/p/%E5%8D%8E%E4%B8%BAensp%E8%AE%BE%E5%A4%87%E7%AE%A1%E7%90%86/1858293-20220622095105484-1182022682.png"
+	width="646"
+	height="305"
+	srcset="/p/%E5%8D%8E%E4%B8%BAensp%E8%AE%BE%E5%A4%87%E7%AE%A1%E7%90%86/1858293-20220622095105484-1182022682_hu688177434353125127.png 480w, /p/%E5%8D%8E%E4%B8%BAensp%E8%AE%BE%E5%A4%87%E7%AE%A1%E7%90%86/1858293-20220622095105484-1182022682_hu17800852877751502466.png 1024w"
+	loading="lazy"
+	
+		alt="image-20220622093257810"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="211"
+		data-flex-basis="508px"
+	
+></p>
+<h3 id="3a认证设置">3A认证设置
+</h3><p><img src="/p/%E5%8D%8E%E4%B8%BAensp%E8%AE%BE%E5%A4%87%E7%AE%A1%E7%90%86/1858293-20220622095105992-1122719151.png"
+	width="662"
+	height="381"
+	srcset="/p/%E5%8D%8E%E4%B8%BAensp%E8%AE%BE%E5%A4%87%E7%AE%A1%E7%90%86/1858293-20220622095105992-1122719151_hu17953267164647505317.png 480w, /p/%E5%8D%8E%E4%B8%BAensp%E8%AE%BE%E5%A4%87%E7%AE%A1%E7%90%86/1858293-20220622095105992-1122719151_hu2766888054297434756.png 1024w"
+	loading="lazy"
+	
+		alt="image-20220622085244141"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="173"
+		data-flex-basis="417px"
+	
+></p>
+<h3 id="ssh连接">SSH连接
+</h3><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span><span class="lnt">9
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">[Huawei]aaa
+</span></span><span class="line"><span class="cl">[Huawei-aaa]local-user zhangsan password cipher abc123 privilege level 3
+</span></span><span class="line"><span class="cl">[Huawei-aaa]local-user zhangsan service-type ssh
+</span></span><span class="line"><span class="cl">[Huawei]ssh user huawei authentication-type password*********
+</span></span><span class="line"><span class="cl">[Huawei]stelnet server enable **********
+</span></span><span class="line"><span class="cl">[Huawei]rsa local-key-pair create 	//生成密钥对信息，可省略。
+</span></span><span class="line"><span class="cl">[Huawei]user-interface vty 0 4
+</span></span><span class="line"><span class="cl">[Huawei-ui-vty0-4]authentication-mode aaa
+</span></span><span class="line"><span class="cl">[Huawei-ui-vty0-4]protocol inbound ssh
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h3 id="总结">总结：
+</h3><p><strong>路由器和交换机的作用？</strong></p>
+<p>交换机：汇聚能力，相同网段通信</p>
+<p>路由器：实现不同网段通信</p>
+<p><strong>为什么我们需要不同网段</strong></p>
+<p>不划网段，广播信号浪费资源。</p>
+<p><strong>路由器的远程连接认证配置</strong></p>
+<p>网络设备常见连接协议：telnet、ssh/stelnet、web</p>
+
+</section>
+
+
+    <footer class="article-footer">
+    
+
+    </footer>
+
+
+    
+</article>
+
+    
+
+    
+
+     
+    
+        
+    <script src="https://utteranc.es/client.js" 
+        repo="DorinXL/dorinxl.github.io"
+        issue-term="pathname"
+        
+        crossorigin="anonymous"
+        async
+        >
+</script>
+
+<style>
+    .utterances {
+        max-width: unset;
+    }
+</style>
+
+<script>
+    let utterancesLoaded = false;
+
+    function setUtterancesTheme(theme) {
+        let utterances = document.querySelector('.utterances iframe');
+        if (utterances) {
+            utterances.contentWindow.postMessage(
+                {
+                    type: 'set-theme',
+                    theme: `github-${theme}`
+                },
+                'https://utteranc.es'
+            );
+        }
+    }
+
+    addEventListener('message', event => {
+        if (event.origin !== 'https://utteranc.es') return;
+
+        
+        utterancesLoaded = true;
+        setUtterancesTheme(document.documentElement.dataset.scheme)
+    });
+
+    window.addEventListener('onColorSchemeChange', (e) => {
+        if (!utterancesLoaded) return;
+        setUtterancesTheme(e.detail)
+    })
+</script>
+
+
+    
+
+    <footer class="site-footer">
+    <section class="copyright">
+        &copy; 
+        
+        2024 荡影-DorinXL
+    </section>
+
+
+
+<section class="totalcount">
+    
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+    发表了76篇文章 · 
+    总计103.89k字
+</section>
+
+
+
+<section class="running-time">
+本博客已稳定运行
+<span id="runningdays" class="running-days"></span>
+</section>
+
+    <section class="powerby">
+        使用 <a href="https://gohugo.io/" target="_blank" rel="noopener">Hugo</a> 构建 <br />
+        主题 <b><a href="https://github.com/CaiJimmy/hugo-theme-stack" target="_blank" rel="noopener" data-version="3.26.0">Stack</a></b> 由 <a href="https://jimmycai.com" target="_blank" rel="noopener">Jimmy</a> 设计
+    </section>
+
+</footer>
+
+
+    
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+    
+    <div class="pswp__bg"></div>
+
+    
+    <div class="pswp__scroll-wrap">
+
+        
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+
+        
+        <div class="pswp__ui pswp__ui--hidden">
+
+            <div class="pswp__top-bar">
+
+                
+
+                <div class="pswp__counter"></div>
+
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+                
+                
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                        <div class="pswp__preloader__cut">
+                            <div class="pswp__preloader__donut"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div>
+            </div>
+
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div><script 
+                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.js"integrity="sha256-ePwmChbbvXbsO02lbM3HoHbSHTHFAeChekF1xKJdleo="crossorigin="anonymous"
+                defer
+                >
+            </script><script 
+                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe-ui-default.min.js"integrity="sha256-UKkzOn/w1mBxRmLLGrSeyB4e1xbrp4xylgAWb3M42pU="crossorigin="anonymous"
+                defer
+                >
+            </script><link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/default-skin/default-skin.min.css"crossorigin="anonymous"
+            ><link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.css"crossorigin="anonymous"
+            >
+
+            </main>
+        </div>
+        <script 
+                src="https://cdn.jsdelivr.net/npm/node-vibrant@3.1.6/dist/vibrant.min.js"integrity="sha256-awcR2jno4kI5X0zL8ex0vi2z&#43;KMkF24hUW8WePSA9HM="crossorigin="anonymous"
+                
+                >
+            </script><script type="text/javascript" src="/ts/main.js" defer></script>
+<script>
+    (function () {
+        const customFont = document.createElement('link');
+        customFont.href = "https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap";
+
+        customFont.type = "text/css";
+        customFont.rel = "stylesheet";
+
+        document.head.appendChild(customFont);
+    }());
+</script>
+
+<script>
+    let s1 = '2024-8-25'; 
+    s1 = new Date(s1.replace(/-/g, "/"));
+    let s2 = new Date();
+    let timeDifference = s2.getTime() - s1.getTime();
+
+    let days = Math.floor(timeDifference / (1000 * 60 * 60 * 24));
+    let hours = Math.floor((timeDifference % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+    let minutes = Math.floor((timeDifference % (1000 * 60 * 60)) / (1000 * 60));
+
+    let result = days + "天" + hours + "小时" + minutes + "分钟";
+    document.getElementById('runningdays').innerHTML = result;
+</script>
+    </body>
+</html>

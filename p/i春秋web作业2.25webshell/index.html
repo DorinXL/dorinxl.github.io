@@ -1,0 +1,1011 @@
+<!DOCTYPE html>
+<html lang="zh-cn" dir="ltr">
+    <head><meta charset='utf-8'>
+<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content="Web安全工程师(入门班) 【全国线上入门班53期】课后作业 2020-2-25 DorinXL 请思考：XXE漏洞的原理的是什么？有哪些危害？ XXE漏洞全称XML External Entity Injection ，即x">
+<title>i春秋web作业2.25——WebShell</title>
+
+<link rel='canonical' href='https://dorinxl.github.io/p/i%E6%98%A5%E7%A7%8Bweb%E4%BD%9C%E4%B8%9A2.25webshell/'>
+
+<link rel="stylesheet" href="/scss/style.min.dfb009e658ec6e0f0f0c366b98658c0caea5123dcd2536f353c92c2581b79fb7.css"><meta property='og:title' content="i春秋web作业2.25——WebShell">
+<meta property='og:description' content="Web安全工程师(入门班) 【全国线上入门班53期】课后作业 2020-2-25 DorinXL 请思考：XXE漏洞的原理的是什么？有哪些危害？ XXE漏洞全称XML External Entity Injection ，即x">
+<meta property='og:url' content='https://dorinxl.github.io/p/i%E6%98%A5%E7%A7%8Bweb%E4%BD%9C%E4%B8%9A2.25webshell/'>
+<meta property='og:site_name' content='荡影-DorinXL'>
+<meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:published_time' content='2020-02-25T15:03:00&#43;00:00'/><meta property='article:modified_time' content='2020-02-25T15:03:00&#43;00:00'/>
+<meta name="twitter:title" content="i春秋web作业2.25——WebShell">
+<meta name="twitter:description" content="Web安全工程师(入门班) 【全国线上入门班53期】课后作业 2020-2-25 DorinXL 请思考：XXE漏洞的原理的是什么？有哪些危害？ XXE漏洞全称XML External Entity Injection ，即x">
+    <link rel="shortcut icon" href="/favicon.ico" />
+
+  
+
+
+    </head>
+    <body class="
+    article-page
+    ">
+    <script>
+        (function() {
+            const colorSchemeKey = 'StackColorScheme';
+            if(!localStorage.getItem(colorSchemeKey)){
+                localStorage.setItem(colorSchemeKey, "auto");
+            }
+        })();
+    </script><script>
+    (function() {
+        const colorSchemeKey = 'StackColorScheme';
+        const colorSchemeItem = localStorage.getItem(colorSchemeKey);
+        const supportDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches === true;
+
+        if (colorSchemeItem == 'dark' || colorSchemeItem === 'auto' && supportDarkMode) {
+            
+
+            document.documentElement.dataset.scheme = 'dark';
+        } else {
+            document.documentElement.dataset.scheme = 'light';
+        }
+    })();
+</script>
+<div class="container main-container flex on-phone--column extended"><aside class="sidebar left-sidebar sticky ">
+    <button class="hamburger hamburger--spin" type="button" id="toggle-menu" aria-label="切换菜单">
+        <span class="hamburger-box">
+            <span class="hamburger-inner"></span>
+        </span>
+    </button>
+
+    <header>
+        
+            
+            <figure class="site-avatar">
+                <a href="/">
+                
+                    
+                    
+                    
+                        
+                        <img src="/img/avatar_hu6744900124519508638.png" width="300"
+                            height="283" class="site-logo" loading="lazy" alt="Avatar">
+                    
+                
+                </a>
+                
+                    <span class="emoji">🔥</span>
+                
+            </figure>
+            
+        
+        
+        <div class="site-meta">
+            <h1 class="site-name"><a href="/">荡影-DorinXL</a></h1>
+            <h2 class="site-description">缄默慎独，不破不立，事在人为</h2>
+        </div>
+    </header><ol class="menu-social">
+            
+                <li>
+                    <a 
+                        href='https://space.bilibili.com/3217550'
+                        target="_blank"
+                        title="BilBili"
+                        rel="me"
+                    >
+                        
+                        
+                            <svg  xmlns="http://www.w3.org/2000/svg"  width="24"  height="24"  viewBox="0 0 24 24"  fill="none"  stroke="currentColor"  stroke-width="2"  stroke-linecap="round"  stroke-linejoin="round"  class="icon icon-tabler icons-tabler-outline icon-tabler-brand-bilibili"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M3 10a4 4 0 0 1 4 -4h10a4 4 0 0 1 4 4v6a4 4 0 0 1 -4 4h-10a4 4 0 0 1 -4 -4v-6z" /><path d="M8 3l2 3" /><path d="M16 3l-2 3" /><path d="M9 13v-2" /><path d="M15 11v2" /></svg>
+                        
+                    </a>
+                </li>
+            
+                <li>
+                    <a 
+                        href='https://www.cnblogs.com/DorinXL/'
+                        target="_blank"
+                        title="CNblog"
+                        rel="me"
+                    >
+                        
+                        
+                            <svg  xmlns="http://www.w3.org/2000/svg"  width="24"  height="24"  viewBox="0 0 24 24"  fill="none"  stroke="currentColor"  stroke-width="2"  stroke-linecap="round"  stroke-linejoin="round"  class="icon icon-tabler icons-tabler-outline icon-tabler-brand-blogger"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M8 21h8a5 5 0 0 0 5 -5v-3a3 3 0 0 0 -3 -3h-1v-2a5 5 0 0 0 -5 -5h-4a5 5 0 0 0 -5 5v8a5 5 0 0 0 5 5z" /><path d="M7 7m0 1.5a1.5 1.5 0 0 1 1.5 -1.5h3a1.5 1.5 0 0 1 1.5 1.5v0a1.5 1.5 0 0 1 -1.5 1.5h-3a1.5 1.5 0 0 1 -1.5 -1.5z" /><path d="M7 14m0 1.5a1.5 1.5 0 0 1 1.5 -1.5h7a1.5 1.5 0 0 1 1.5 1.5v0a1.5 1.5 0 0 1 -1.5 1.5h-7a1.5 1.5 0 0 1 -1.5 -1.5z" /></svg>
+                        
+                    </a>
+                </li>
+            
+                <li>
+                    <a 
+                        href='https://github.com/DorinXL/DorinXL.github.io'
+                        target="_blank"
+                        title="GitHub"
+                        rel="me"
+                    >
+                        
+                        
+                            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-brand-github" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+  <path d="M9 19c-4.3 1.4 -4.3 -2.5 -6 -3m12 5v-3.5c0 -1 .1 -1.4 -.5 -2c2.8 -.3 5.5 -1.4 5.5 -6a4.6 4.6 0 0 0 -1.3 -3.2a4.2 4.2 0 0 0 -.1 -3.2s-1.1 -.3 -3.5 1.3a12.3 12.3 0 0 0 -6.2 0c-2.4 -1.6 -3.5 -1.3 -3.5 -1.3a4.2 4.2 0 0 0 -.1 3.2a4.6 4.6 0 0 0 -1.3 3.2c0 4.6 2.7 5.7 5.5 6c-.6 .6 -.6 1.2 -.5 2v3.5" />
+</svg>
+
+
+
+                        
+                    </a>
+                </li>
+            
+        </ol><ol class="menu" id="main-menu">
+        
+        
+        
+        <li >
+            <a href='/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-home" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <polyline points="5 12 3 12 12 3 21 12 19 12" />
+  <path d="M5 12v7a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-7" />
+  <path d="M9 21v-6a2 2 0 0 1 2 -2h2a2 2 0 0 1 2 2v6" />
+</svg>
+
+
+
+                
+                <span>主页</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/%E5%85%B3%E4%BA%8E/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-user" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="7" r="4" />
+  <path d="M6 21v-2a4 4 0 0 1 4 -4h4a4 4 0 0 1 4 4v2" />
+</svg>
+
+
+
+                
+                <span>关于</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/archives/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-archive" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <rect x="3" y="4" width="18" height="4" rx="2" />
+  <path d="M5 8v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-10" />
+  <line x1="10" y1="12" x2="14" y2="12" />
+</svg>
+
+
+
+                
+                <span>归档</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/search/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-search" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="10" cy="10" r="7" />
+  <line x1="21" y1="21" x2="15" y2="15" />
+</svg>
+
+
+
+                
+                <span>搜索</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/%E5%8F%8B%E9%93%BE/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-link" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <path d="M10 14a3.5 3.5 0 0 0 5 0l4 -4a3.5 3.5 0 0 0 -5 -5l-.5 .5" />
+  <path d="M14 10a3.5 3.5 0 0 0 -5 0l-4 4a3.5 3.5 0 0 0 5 5l.5 -.5" />
+</svg>
+
+
+
+                
+                <span>友链</span>
+            </a>
+        </li>
+        
+        <li class="menu-bottom-section">
+            <ol class="menu">
+
+                
+                    <li id="dark-mode-toggle">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-left" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="8" cy="12" r="2" />
+  <rect x="2" y="6" width="20" height="12" rx="6" />
+</svg>
+
+
+
+                        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-right" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="16" cy="12" r="2" />
+  <rect x="2" y="6" width="20" height="12" rx="6" />
+</svg>
+
+
+
+                        <span>暗色模式</span>
+                    </li>
+                
+            </ol>
+        </li>
+    </ol>
+</aside>
+
+    
+
+            <main class="main full-width">
+    <article class="main-article">
+    <header class="article-header">
+
+    <div class="article-details">
+    
+    <header class="article-category">
+        
+            <a href="/categories/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8/" >
+                网络安全
+            </a>
+        
+    </header>
+    
+
+    <div class="article-title-wrapper">
+        <h2 class="article-title">
+            <a href="/p/i%E6%98%A5%E7%A7%8Bweb%E4%BD%9C%E4%B8%9A2.25webshell/">i春秋web作业2.25——WebShell</a>
+        </h2>
+    
+        
+    </div>
+
+
+    
+    
+    
+    
+    <footer class="article-time">
+        
+            <div>
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-calendar-time" width="56" height="56" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <path d="M11.795 21h-6.795a2 2 0 0 1 -2 -2v-12a2 2 0 0 1 2 -2h12a2 2 0 0 1 2 2v4" />
+  <circle cx="18" cy="18" r="4" />
+  <path d="M15 3v4" />
+  <path d="M7 3v4" />
+  <path d="M3 11h16" />
+  <path d="M18 16.496v1.504l1 1" />
+</svg>
+                <time class="article-time--published">2020-02-25</time>
+            </div>
+	
+
+        
+
+        
+    </footer>
+    
+
+    
+
+</div>
+
+</header>
+
+    <section class="article-content">
+    
+    
+    <p>Web安全工程师(入门班)</p>
+<p>【全国线上入门班53期】课后作业</p>
+<p>2020-2-25</p>
+<p>DorinXL</p>
+<ol>
+<li><strong>请思考：XXE漏洞的原理的是什么？有哪些危害？</strong></li>
+</ol>
+<ul>
+<li>
+<p>XXE漏洞全称<strong>XML External Entity Injection</strong> ，即xml外部实体注入漏洞。实在应用程序加载xml文件的时候，因为没有禁止外部实体的加载，导致可能加载上恶意文件或代码。</p>
+</li>
+<li>
+<p>XXE的危害包括但不限于任意<strong>文件读取</strong> 、<strong>端口扫描</strong> 、<strong>Dos攻击</strong> 等。</p>
+</li>
+<li>
+<p>如果想要防御XXE攻击，最直接的办法就是禁止xml中包含自有的DTD，从而达到一种过滤的效果。</p>
+</li>
+</ul>
+<p><strong>2）寻找OWASP 近年漏洞的排名变化，思考未来哪些方面会成为Web应用主要安全威胁？</strong></p>
+<ul>
+<li>
+<p>根据往期top10的排名，个人认为注入威胁或将继续大范围存在。几乎所有的数据源都可以成为注入点，虽然注入漏洞可以很容易的被扫描器或其它工具发现，但想要做到近乎完美的严格过滤很困难。</p>
+</li>
+<li>
+<p>安全配置错误、不足的日志记录和监控，这些威胁我认为建设者和防御者要承担一部分责任，属于设计上的漏洞。</p>
+</li>
+<li>
+<p>使用包含已知漏洞的组件这一项虽然不会大面积增长，但却可能持续存在，打个补丁能解决的问题，往往会像牛皮糖一样死缠烂打，一环扣一环的进行下去。</p>
+</li>
+<li>
+<p>新增加的风险类型XXE或许将淡出视线。</p>
+</li>
+</ul>
+<p><strong>3）请思考：都有哪些PHP函数可以替代eval？</strong></p>
+<ul>
+<li>
+<p>eval() 函数把字符串按照 PHP 代码来执行。</p>
+</li>
+<li>
+<pre><code>system不能替代eval，https://www.cnblogs.com/xiaozi/p/7834367.html
+</code></pre>
+</li>
+</ul>
+<p><strong>4）请使用中国菜刀对网站数据库进行管理操作。</strong></p>
+<ul>
+<li>
+<p>实验条件有提示了，那我们注册好进入上传的页面，审计代码后f12删除检查函数：</p>
+</li>
+<li>
+<p><img src="/p/i%E6%98%A5%E7%A7%8Bweb%E4%BD%9C%E4%B8%9A2.25webshell/1858293-20200225230242056-1353749287.png"
+	width="436"
+	height="168"
+	srcset="/p/i%E6%98%A5%E7%A7%8Bweb%E4%BD%9C%E4%B8%9A2.25webshell/1858293-20200225230242056-1353749287_hu1800449087676201041.png 480w, /p/i%E6%98%A5%E7%A7%8Bweb%E4%BD%9C%E4%B8%9A2.25webshell/1858293-20200225230242056-1353749287_hu9102365828850696074.png 1024w"
+	loading="lazy"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="259"
+		data-flex-basis="622px"
+	
+></p>
+</li>
+<li>
+<p>写好一句话木马：<img src="/p/i%E6%98%A5%E7%A7%8Bweb%E4%BD%9C%E4%B8%9A2.25webshell/1858293-20200225230242509-1830710713.png"
+	width="288"
+	height="118"
+	srcset="/p/i%E6%98%A5%E7%A7%8Bweb%E4%BD%9C%E4%B8%9A2.25webshell/1858293-20200225230242509-1830710713_hu12389165315161580551.png 480w, /p/i%E6%98%A5%E7%A7%8Bweb%E4%BD%9C%E4%B8%9A2.25webshell/1858293-20200225230242509-1830710713_hu1021066435697901648.png 1024w"
+	loading="lazy"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="244"
+		data-flex-basis="585px"
+	
+></p>
+</li>
+<li>
+<p>上传成功：<img src="/p/i%E6%98%A5%E7%A7%8Bweb%E4%BD%9C%E4%B8%9A2.25webshell/1858293-20200225230242965-1227725247.png"
+	width="217"
+	height="36"
+	srcset="/p/i%E6%98%A5%E7%A7%8Bweb%E4%BD%9C%E4%B8%9A2.25webshell/1858293-20200225230242965-1227725247_hu12494703646310481770.png 480w, /p/i%E6%98%A5%E7%A7%8Bweb%E4%BD%9C%E4%B8%9A2.25webshell/1858293-20200225230242965-1227725247_hu17099840601756550003.png 1024w"
+	loading="lazy"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="602"
+		data-flex-basis="1446px"
+	
+></p>
+</li>
+<li>
+<p>菜刀连接：</p>
+</li>
+<li>
+<p><img src="/p/i%E6%98%A5%E7%A7%8Bweb%E4%BD%9C%E4%B8%9A2.25webshell/1858293-20200225230243575-1912081798.png"
+	width="475"
+	height="250"
+	srcset="/p/i%E6%98%A5%E7%A7%8Bweb%E4%BD%9C%E4%B8%9A2.25webshell/1858293-20200225230243575-1912081798_hu14684207890565167035.png 480w, /p/i%E6%98%A5%E7%A7%8Bweb%E4%BD%9C%E4%B8%9A2.25webshell/1858293-20200225230243575-1912081798_hu16424070363598311018.png 1024w"
+	loading="lazy"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="190"
+		data-flex-basis="456px"
+	
+></p>
+</li>
+<li>
+<p><img src="/p/i%E6%98%A5%E7%A7%8Bweb%E4%BD%9C%E4%B8%9A2.25webshell/1858293-20200225230243786-1664286805.png"
+	width="538"
+	height="125"
+	srcset="/p/i%E6%98%A5%E7%A7%8Bweb%E4%BD%9C%E4%B8%9A2.25webshell/1858293-20200225230243786-1664286805_hu364701201788278130.png 480w, /p/i%E6%98%A5%E7%A7%8Bweb%E4%BD%9C%E4%B8%9A2.25webshell/1858293-20200225230243786-1664286805_hu17652126294579931325.png 1024w"
+	loading="lazy"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="430"
+		data-flex-basis="1032px"
+	
+></p>
+</li>
+<li>
+<p>成功进入：</p>
+</li>
+<li>
+<p><img src="/p/i%E6%98%A5%E7%A7%8Bweb%E4%BD%9C%E4%B8%9A2.25webshell/1858293-20200225230244129-287653039.png"
+	width="554"
+	height="324"
+	srcset="/p/i%E6%98%A5%E7%A7%8Bweb%E4%BD%9C%E4%B8%9A2.25webshell/1858293-20200225230244129-287653039_hu15723065072809595285.png 480w, /p/i%E6%98%A5%E7%A7%8Bweb%E4%BD%9C%E4%B8%9A2.25webshell/1858293-20200225230244129-287653039_hu5494303434221324461.png 1024w"
+	loading="lazy"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="170"
+		data-flex-basis="410px"
+	
+></p>
+</li>
+<li>
+<p>找到flag：<img src="/p/i%E6%98%A5%E7%A7%8Bweb%E4%BD%9C%E4%B8%9A2.25webshell/1858293-20200225230244394-506476082.png"
+	width="320"
+	height="56"
+	srcset="/p/i%E6%98%A5%E7%A7%8Bweb%E4%BD%9C%E4%B8%9A2.25webshell/1858293-20200225230244394-506476082_hu18339898834496901279.png 480w, /p/i%E6%98%A5%E7%A7%8Bweb%E4%BD%9C%E4%B8%9A2.25webshell/1858293-20200225230244394-506476082_hu8338652017695004802.png 1024w"
+	loading="lazy"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="571"
+		data-flex-basis="1371px"
+	
+></p>
+</li>
+<li>
+<p><strong>关于数据库的一些姿势：</strong></p>
+</li>
+<li>
+<p><img src="/p/i%E6%98%A5%E7%A7%8Bweb%E4%BD%9C%E4%B8%9A2.25webshell/1858293-20200225230244602-1030755578.png"
+	width="466"
+	height="369"
+	srcset="/p/i%E6%98%A5%E7%A7%8Bweb%E4%BD%9C%E4%B8%9A2.25webshell/1858293-20200225230244602-1030755578_hu14130851654094570628.png 480w, /p/i%E6%98%A5%E7%A7%8Bweb%E4%BD%9C%E4%B8%9A2.25webshell/1858293-20200225230244602-1030755578_hu10420892975118825558.png 1024w"
+	loading="lazy"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="126"
+		data-flex-basis="303px"
+	
+></p>
+</li>
+<li>
+<p><img src="/p/i%E6%98%A5%E7%A7%8Bweb%E4%BD%9C%E4%B8%9A2.25webshell/1858293-20200225230244799-520918257.png"
+	width="344"
+	height="154"
+	srcset="/p/i%E6%98%A5%E7%A7%8Bweb%E4%BD%9C%E4%B8%9A2.25webshell/1858293-20200225230244799-520918257_hu12917603464245243847.png 480w, /p/i%E6%98%A5%E7%A7%8Bweb%E4%BD%9C%E4%B8%9A2.25webshell/1858293-20200225230244799-520918257_hu2051249202001502241.png 1024w"
+	loading="lazy"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="223"
+		data-flex-basis="536px"
+	
+></p>
+</li>
+<li>
+<p>以本实验为例：</p>
+</li>
+<li>
+<p><img src="/p/i%E6%98%A5%E7%A7%8Bweb%E4%BD%9C%E4%B8%9A2.25webshell/1858293-20200225230245015-1012842696.png"
+	width="554"
+	height="116"
+	srcset="/p/i%E6%98%A5%E7%A7%8Bweb%E4%BD%9C%E4%B8%9A2.25webshell/1858293-20200225230245015-1012842696_hu13481277171514481743.png 480w, /p/i%E6%98%A5%E7%A7%8Bweb%E4%BD%9C%E4%B8%9A2.25webshell/1858293-20200225230245015-1012842696_hu6160630004490797747.png 1024w"
+	loading="lazy"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="477"
+		data-flex-basis="1146px"
+	
+></p>
+</li>
+<li>
+<p><img src="/p/i%E6%98%A5%E7%A7%8Bweb%E4%BD%9C%E4%B8%9A2.25webshell/1858293-20200225230245236-545748512.png"
+	width="554"
+	height="319"
+	srcset="/p/i%E6%98%A5%E7%A7%8Bweb%E4%BD%9C%E4%B8%9A2.25webshell/1858293-20200225230245236-545748512_hu9881226838420967362.png 480w, /p/i%E6%98%A5%E7%A7%8Bweb%E4%BD%9C%E4%B8%9A2.25webshell/1858293-20200225230245236-545748512_hu8696832486474152000.png 1024w"
+	loading="lazy"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="173"
+		data-flex-basis="416px"
+	
+></p>
+</li>
+<li>
+<p>找到jieqi（杰奇）system（系统）users（用户）中的admin以及密码，md5解密一下21232f297a57a5a743894a0e4a801fc3：<br>
+<img src="/p/i%E6%98%A5%E7%A7%8Bweb%E4%BD%9C%E4%B8%9A2.25webshell/1858293-20200225230245573-854876984.png"
+	width="554"
+	height="127"
+	srcset="/p/i%E6%98%A5%E7%A7%8Bweb%E4%BD%9C%E4%B8%9A2.25webshell/1858293-20200225230245573-854876984_hu14087966850131005847.png 480w, /p/i%E6%98%A5%E7%A7%8Bweb%E4%BD%9C%E4%B8%9A2.25webshell/1858293-20200225230245573-854876984_hu84327179272369933.png 1024w"
+	loading="lazy"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="436"
+		data-flex-basis="1046px"
+	
+></p>
+</li>
+<li>
+<p><img src="/p/i%E6%98%A5%E7%A7%8Bweb%E4%BD%9C%E4%B8%9A2.25webshell/1858293-20200225230245791-1525641103.png"
+	width="320"
+	height="232"
+	srcset="/p/i%E6%98%A5%E7%A7%8Bweb%E4%BD%9C%E4%B8%9A2.25webshell/1858293-20200225230245791-1525641103_hu15111852349949480860.png 480w, /p/i%E6%98%A5%E7%A7%8Bweb%E4%BD%9C%E4%B8%9A2.25webshell/1858293-20200225230245791-1525641103_hu14833641292488021125.png 1024w"
+	loading="lazy"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="137"
+		data-flex-basis="331px"
+	
+></p>
+</li>
+<li>
+<p>实验完毕。</p>
+</li>
+</ul>
+
+</section>
+
+
+    <footer class="article-footer">
+    
+
+    </footer>
+
+
+    
+</article>
+
+    
+
+    
+
+<aside class="related-content--wrapper">
+    <h2 class="section-title">相关文章</h2>
+    <div class="related-content">
+        <div class="flex article-list--tile">
+            
+                
+<article class="">
+    <a href="/p/%E4%B8%AA%E4%BA%BA%E5%90%91ctf%E6%AF%94%E8%B5%9B%E5%87%BA%E7%9A%84%E4%B8%80%E9%81%93%E9%80%86%E5%90%91%E6%B8%B8%E6%88%8F%E9%A2%98gametime%E9%A2%98%E8%A7%A3/">
+        
+        
+
+        <div class="article-details">
+            <h2 class="article-title">【个人向】ctf比赛出的一道逆向游戏题——GameTime题解</h2>
+        </div>
+    </a>
+</article>
+
+            
+                
+<article class="">
+    <a href="/p/handler%E8%BF%9B%E8%A1%8C%E5%A0%86%E5%8F%A0%E6%B3%A8%E5%85%A5/">
+        
+        
+
+        <div class="article-details">
+            <h2 class="article-title">HANDLER进行堆叠注入</h2>
+        </div>
+    </a>
+</article>
+
+            
+                
+<article class="">
+    <a href="/p/cdut%E7%AC%AC%E4%B8%80%E5%B1%8A%E4%BF%A1%E5%AE%89%E5%A4%A7%E6%8C%91%E6%88%98re-wp/">
+        
+        
+
+        <div class="article-details">
+            <h2 class="article-title">CDUT第一届信安大挑战Re-wp</h2>
+        </div>
+    </a>
+</article>
+
+            
+                
+<article class="">
+    <a href="/p/nu1lbook%E7%AC%AC%E4%B8%80%E7%AB%A0wp/">
+        
+        
+
+        <div class="article-details">
+            <h2 class="article-title">Nu1LBook第一章wp</h2>
+        </div>
+    </a>
+</article>
+
+            
+                
+<article class="">
+    <a href="/p/linux%E5%92%8Cvmware/">
+        
+        
+
+        <div class="article-details">
+            <h2 class="article-title">Linux和VMWare</h2>
+        </div>
+    </a>
+</article>
+
+            
+        </div>
+    </div>
+</aside>
+
+     
+    
+        
+    <script src="https://utteranc.es/client.js" 
+        repo="DorinXL/dorinxl.github.io"
+        issue-term="pathname"
+        
+        crossorigin="anonymous"
+        async
+        >
+</script>
+
+<style>
+    .utterances {
+        max-width: unset;
+    }
+</style>
+
+<script>
+    let utterancesLoaded = false;
+
+    function setUtterancesTheme(theme) {
+        let utterances = document.querySelector('.utterances iframe');
+        if (utterances) {
+            utterances.contentWindow.postMessage(
+                {
+                    type: 'set-theme',
+                    theme: `github-${theme}`
+                },
+                'https://utteranc.es'
+            );
+        }
+    }
+
+    addEventListener('message', event => {
+        if (event.origin !== 'https://utteranc.es') return;
+
+        
+        utterancesLoaded = true;
+        setUtterancesTheme(document.documentElement.dataset.scheme)
+    });
+
+    window.addEventListener('onColorSchemeChange', (e) => {
+        if (!utterancesLoaded) return;
+        setUtterancesTheme(e.detail)
+    })
+</script>
+
+
+    
+
+    <footer class="site-footer">
+    <section class="copyright">
+        &copy; 
+        
+        2024 荡影-DorinXL
+    </section>
+
+
+
+<section class="totalcount">
+    
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+    发表了76篇文章 · 
+    总计103.89k字
+</section>
+
+
+
+<section class="running-time">
+本博客已稳定运行
+<span id="runningdays" class="running-days"></span>
+</section>
+
+    <section class="powerby">
+        使用 <a href="https://gohugo.io/" target="_blank" rel="noopener">Hugo</a> 构建 <br />
+        主题 <b><a href="https://github.com/CaiJimmy/hugo-theme-stack" target="_blank" rel="noopener" data-version="3.26.0">Stack</a></b> 由 <a href="https://jimmycai.com" target="_blank" rel="noopener">Jimmy</a> 设计
+    </section>
+
+</footer>
+
+
+    
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+    
+    <div class="pswp__bg"></div>
+
+    
+    <div class="pswp__scroll-wrap">
+
+        
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+
+        
+        <div class="pswp__ui pswp__ui--hidden">
+
+            <div class="pswp__top-bar">
+
+                
+
+                <div class="pswp__counter"></div>
+
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+                
+                
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                        <div class="pswp__preloader__cut">
+                            <div class="pswp__preloader__donut"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div>
+            </div>
+
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div><script 
+                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.js"integrity="sha256-ePwmChbbvXbsO02lbM3HoHbSHTHFAeChekF1xKJdleo="crossorigin="anonymous"
+                defer
+                >
+            </script><script 
+                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe-ui-default.min.js"integrity="sha256-UKkzOn/w1mBxRmLLGrSeyB4e1xbrp4xylgAWb3M42pU="crossorigin="anonymous"
+                defer
+                >
+            </script><link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/default-skin/default-skin.min.css"crossorigin="anonymous"
+            ><link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.css"crossorigin="anonymous"
+            >
+
+            </main>
+        </div>
+        <script 
+                src="https://cdn.jsdelivr.net/npm/node-vibrant@3.1.6/dist/vibrant.min.js"integrity="sha256-awcR2jno4kI5X0zL8ex0vi2z&#43;KMkF24hUW8WePSA9HM="crossorigin="anonymous"
+                
+                >
+            </script><script type="text/javascript" src="/ts/main.js" defer></script>
+<script>
+    (function () {
+        const customFont = document.createElement('link');
+        customFont.href = "https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap";
+
+        customFont.type = "text/css";
+        customFont.rel = "stylesheet";
+
+        document.head.appendChild(customFont);
+    }());
+</script>
+
+<script>
+    let s1 = '2024-8-25'; 
+    s1 = new Date(s1.replace(/-/g, "/"));
+    let s2 = new Date();
+    let timeDifference = s2.getTime() - s1.getTime();
+
+    let days = Math.floor(timeDifference / (1000 * 60 * 60 * 24));
+    let hours = Math.floor((timeDifference % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+    let minutes = Math.floor((timeDifference % (1000 * 60 * 60)) / (1000 * 60));
+
+    let result = days + "天" + hours + "小时" + minutes + "分钟";
+    document.getElementById('runningdays').innerHTML = result;
+</script>
+    </body>
+</html>

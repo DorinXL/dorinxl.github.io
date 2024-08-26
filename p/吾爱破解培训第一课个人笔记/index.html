@@ -1,0 +1,1051 @@
+<!DOCTYPE html>
+<html lang="zh-cn" dir="ltr">
+    <head><meta charset='utf-8'>
+<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content="**【个人笔记】 ** 《吾爱破解培训第一课：破解基础知识之介绍常见工具和壳的特征》讲师：Hmily 0x00 前提 目的：认识、辨别普通的壳，不同的壳有不同">
+<title>吾爱破解培训第一课个人笔记</title>
+
+<link rel='canonical' href='https://dorinxl.github.io/p/%E5%90%BE%E7%88%B1%E7%A0%B4%E8%A7%A3%E5%9F%B9%E8%AE%AD%E7%AC%AC%E4%B8%80%E8%AF%BE%E4%B8%AA%E4%BA%BA%E7%AC%94%E8%AE%B0/'>
+
+<link rel="stylesheet" href="/scss/style.min.dfb009e658ec6e0f0f0c366b98658c0caea5123dcd2536f353c92c2581b79fb7.css"><meta property='og:title' content="吾爱破解培训第一课个人笔记">
+<meta property='og:description' content="**【个人笔记】 ** 《吾爱破解培训第一课：破解基础知识之介绍常见工具和壳的特征》讲师：Hmily 0x00 前提 目的：认识、辨别普通的壳，不同的壳有不同">
+<meta property='og:url' content='https://dorinxl.github.io/p/%E5%90%BE%E7%88%B1%E7%A0%B4%E8%A7%A3%E5%9F%B9%E8%AE%AD%E7%AC%AC%E4%B8%80%E8%AF%BE%E4%B8%AA%E4%BA%BA%E7%AC%94%E8%AE%B0/'>
+<meta property='og:site_name' content='荡影-DorinXL'>
+<meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:published_time' content='2020-01-31T10:38:00&#43;00:00'/><meta property='article:modified_time' content='2020-01-31T10:38:00&#43;00:00'/>
+<meta name="twitter:title" content="吾爱破解培训第一课个人笔记">
+<meta name="twitter:description" content="**【个人笔记】 ** 《吾爱破解培训第一课：破解基础知识之介绍常见工具和壳的特征》讲师：Hmily 0x00 前提 目的：认识、辨别普通的壳，不同的壳有不同">
+    <link rel="shortcut icon" href="/favicon.ico" />
+
+  
+
+
+    </head>
+    <body class="
+    article-page
+    ">
+    <script>
+        (function() {
+            const colorSchemeKey = 'StackColorScheme';
+            if(!localStorage.getItem(colorSchemeKey)){
+                localStorage.setItem(colorSchemeKey, "auto");
+            }
+        })();
+    </script><script>
+    (function() {
+        const colorSchemeKey = 'StackColorScheme';
+        const colorSchemeItem = localStorage.getItem(colorSchemeKey);
+        const supportDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches === true;
+
+        if (colorSchemeItem == 'dark' || colorSchemeItem === 'auto' && supportDarkMode) {
+            
+
+            document.documentElement.dataset.scheme = 'dark';
+        } else {
+            document.documentElement.dataset.scheme = 'light';
+        }
+    })();
+</script>
+<div class="container main-container flex on-phone--column extended"><aside class="sidebar left-sidebar sticky ">
+    <button class="hamburger hamburger--spin" type="button" id="toggle-menu" aria-label="切换菜单">
+        <span class="hamburger-box">
+            <span class="hamburger-inner"></span>
+        </span>
+    </button>
+
+    <header>
+        
+            
+            <figure class="site-avatar">
+                <a href="/">
+                
+                    
+                    
+                    
+                        
+                        <img src="/img/avatar_hu6744900124519508638.png" width="300"
+                            height="283" class="site-logo" loading="lazy" alt="Avatar">
+                    
+                
+                </a>
+                
+                    <span class="emoji">🔥</span>
+                
+            </figure>
+            
+        
+        
+        <div class="site-meta">
+            <h1 class="site-name"><a href="/">荡影-DorinXL</a></h1>
+            <h2 class="site-description">缄默慎独，不破不立，事在人为</h2>
+        </div>
+    </header><ol class="menu-social">
+            
+                <li>
+                    <a 
+                        href='https://space.bilibili.com/3217550'
+                        target="_blank"
+                        title="BilBili"
+                        rel="me"
+                    >
+                        
+                        
+                            <svg  xmlns="http://www.w3.org/2000/svg"  width="24"  height="24"  viewBox="0 0 24 24"  fill="none"  stroke="currentColor"  stroke-width="2"  stroke-linecap="round"  stroke-linejoin="round"  class="icon icon-tabler icons-tabler-outline icon-tabler-brand-bilibili"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M3 10a4 4 0 0 1 4 -4h10a4 4 0 0 1 4 4v6a4 4 0 0 1 -4 4h-10a4 4 0 0 1 -4 -4v-6z" /><path d="M8 3l2 3" /><path d="M16 3l-2 3" /><path d="M9 13v-2" /><path d="M15 11v2" /></svg>
+                        
+                    </a>
+                </li>
+            
+                <li>
+                    <a 
+                        href='https://www.cnblogs.com/DorinXL/'
+                        target="_blank"
+                        title="CNblog"
+                        rel="me"
+                    >
+                        
+                        
+                            <svg  xmlns="http://www.w3.org/2000/svg"  width="24"  height="24"  viewBox="0 0 24 24"  fill="none"  stroke="currentColor"  stroke-width="2"  stroke-linecap="round"  stroke-linejoin="round"  class="icon icon-tabler icons-tabler-outline icon-tabler-brand-blogger"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M8 21h8a5 5 0 0 0 5 -5v-3a3 3 0 0 0 -3 -3h-1v-2a5 5 0 0 0 -5 -5h-4a5 5 0 0 0 -5 5v8a5 5 0 0 0 5 5z" /><path d="M7 7m0 1.5a1.5 1.5 0 0 1 1.5 -1.5h3a1.5 1.5 0 0 1 1.5 1.5v0a1.5 1.5 0 0 1 -1.5 1.5h-3a1.5 1.5 0 0 1 -1.5 -1.5z" /><path d="M7 14m0 1.5a1.5 1.5 0 0 1 1.5 -1.5h7a1.5 1.5 0 0 1 1.5 1.5v0a1.5 1.5 0 0 1 -1.5 1.5h-7a1.5 1.5 0 0 1 -1.5 -1.5z" /></svg>
+                        
+                    </a>
+                </li>
+            
+                <li>
+                    <a 
+                        href='https://github.com/DorinXL/DorinXL.github.io'
+                        target="_blank"
+                        title="GitHub"
+                        rel="me"
+                    >
+                        
+                        
+                            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-brand-github" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+  <path d="M9 19c-4.3 1.4 -4.3 -2.5 -6 -3m12 5v-3.5c0 -1 .1 -1.4 -.5 -2c2.8 -.3 5.5 -1.4 5.5 -6a4.6 4.6 0 0 0 -1.3 -3.2a4.2 4.2 0 0 0 -.1 -3.2s-1.1 -.3 -3.5 1.3a12.3 12.3 0 0 0 -6.2 0c-2.4 -1.6 -3.5 -1.3 -3.5 -1.3a4.2 4.2 0 0 0 -.1 3.2a4.6 4.6 0 0 0 -1.3 3.2c0 4.6 2.7 5.7 5.5 6c-.6 .6 -.6 1.2 -.5 2v3.5" />
+</svg>
+
+
+
+                        
+                    </a>
+                </li>
+            
+        </ol><ol class="menu" id="main-menu">
+        
+        
+        
+        <li >
+            <a href='/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-home" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <polyline points="5 12 3 12 12 3 21 12 19 12" />
+  <path d="M5 12v7a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-7" />
+  <path d="M9 21v-6a2 2 0 0 1 2 -2h2a2 2 0 0 1 2 2v6" />
+</svg>
+
+
+
+                
+                <span>主页</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/%E5%85%B3%E4%BA%8E/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-user" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="7" r="4" />
+  <path d="M6 21v-2a4 4 0 0 1 4 -4h4a4 4 0 0 1 4 4v2" />
+</svg>
+
+
+
+                
+                <span>关于</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/archives/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-archive" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <rect x="3" y="4" width="18" height="4" rx="2" />
+  <path d="M5 8v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-10" />
+  <line x1="10" y1="12" x2="14" y2="12" />
+</svg>
+
+
+
+                
+                <span>归档</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/search/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-search" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="10" cy="10" r="7" />
+  <line x1="21" y1="21" x2="15" y2="15" />
+</svg>
+
+
+
+                
+                <span>搜索</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/%E5%8F%8B%E9%93%BE/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-link" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <path d="M10 14a3.5 3.5 0 0 0 5 0l4 -4a3.5 3.5 0 0 0 -5 -5l-.5 .5" />
+  <path d="M14 10a3.5 3.5 0 0 0 -5 0l-4 4a3.5 3.5 0 0 0 5 5l.5 -.5" />
+</svg>
+
+
+
+                
+                <span>友链</span>
+            </a>
+        </li>
+        
+        <li class="menu-bottom-section">
+            <ol class="menu">
+
+                
+                    <li id="dark-mode-toggle">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-left" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="8" cy="12" r="2" />
+  <rect x="2" y="6" width="20" height="12" rx="6" />
+</svg>
+
+
+
+                        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-right" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="16" cy="12" r="2" />
+  <rect x="2" y="6" width="20" height="12" rx="6" />
+</svg>
+
+
+
+                        <span>暗色模式</span>
+                    </li>
+                
+            </ol>
+        </li>
+    </ol>
+</aside>
+
+    
+
+            <main class="main full-width">
+    <article class="main-article">
+    <header class="article-header">
+
+    <div class="article-details">
+    
+    <header class="article-category">
+        
+            <a href="/categories/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8/" >
+                网络安全
+            </a>
+        
+    </header>
+    
+
+    <div class="article-title-wrapper">
+        <h2 class="article-title">
+            <a href="/p/%E5%90%BE%E7%88%B1%E7%A0%B4%E8%A7%A3%E5%9F%B9%E8%AE%AD%E7%AC%AC%E4%B8%80%E8%AF%BE%E4%B8%AA%E4%BA%BA%E7%AC%94%E8%AE%B0/">吾爱破解培训第一课个人笔记</a>
+        </h2>
+    
+        
+    </div>
+
+
+    
+    
+    
+    
+    <footer class="article-time">
+        
+            <div>
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-calendar-time" width="56" height="56" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <path d="M11.795 21h-6.795a2 2 0 0 1 -2 -2v-12a2 2 0 0 1 2 -2h12a2 2 0 0 1 2 2v4" />
+  <circle cx="18" cy="18" r="4" />
+  <path d="M15 3v4" />
+  <path d="M7 3v4" />
+  <path d="M3 11h16" />
+  <path d="M18 16.496v1.504l1 1" />
+</svg>
+                <time class="article-time--published">2020-01-31</time>
+            </div>
+	
+
+        
+
+        
+    </footer>
+    
+
+    
+
+</div>
+
+</header>
+
+    <section class="article-content">
+    
+    
+    <p>**【个人笔记】 **</p>
+<p><strong>《吾爱<a class="link" href="https://www.52pojie.cn"  target="_blank" rel="noopener"
+    >破解</a>培训第一课：破解基础知识之介绍常见工具和壳的特征》讲师：Hmily</strong></p>
+<p><strong>0x00 前提</strong></p>
+<p>目的：认识、辨别普通的壳，不同的壳有不同的目的。</p>
+<p>网站内资源准备好：吾爱破解虚拟机环境、脱壳例子下载、视频课程。</p>
+<p><img src="/p/%E5%90%BE%E7%88%B1%E7%A0%B4%E8%A7%A3%E5%9F%B9%E8%AE%AD%E7%AC%AC%E4%B8%80%E8%AF%BE%E4%B8%AA%E4%BA%BA%E7%AC%94%E8%AE%B0/1858293-20200131183758481-919337006.png"
+	width="226"
+	height="19"
+	srcset="/p/%E5%90%BE%E7%88%B1%E7%A0%B4%E8%A7%A3%E5%9F%B9%E8%AE%AD%E7%AC%AC%E4%B8%80%E8%AF%BE%E4%B8%AA%E4%BA%BA%E7%AC%94%E8%AE%B0/1858293-20200131183758481-919337006_hu3186473441749622255.png 480w, /p/%E5%90%BE%E7%88%B1%E7%A0%B4%E8%A7%A3%E5%9F%B9%E8%AE%AD%E7%AC%AC%E4%B8%80%E8%AF%BE%E4%B8%AA%E4%BA%BA%E7%AC%94%E8%AE%B0/1858293-20200131183758481-919337006_hu18264483239037948331.png 1024w"
+	loading="lazy"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="1189"
+		data-flex-basis="2854px"
+	
+></p>
+<p>l是日志，e是模块信息，包含程序加载的完整模块和路径，m是内存和地址，t是线程，w是窗口，h是句柄信息，c是反汇编窗口，p记录管理员修改信息，k是调用的堆栈，b断点。</p>
+<p>把exe文件拖入exeinfope中查看是哪种语言编译的，是否加壳。</p>
+<p>全文仅供个人记录使用，如有疏漏敬请包容。</p>
+<p><strong>0x01 程序是什么语言编译的</strong></p>
+<p>从目前国内接触到程序看，比较流行的编译器有：VC系列、易语言、.NET、Delphi，一些曾经用的很多但渐渐少了有：VB、ASM、BC++，还有一些用的比较少的有：AutoIt、PB、QT等，下面提供一些由论坛同学编译出来的试炼品，结合实例来看看&quot;入口点代码&quot;、&ldquo;程序区段&quot;和&quot;加载模块&quot;等特征。</p>
+<p><strong>VC6编译无壳程序</strong></p>
+<p>查看入口点代码如下：<br>
+<img src="/p/%E5%90%BE%E7%88%B1%E7%A0%B4%E8%A7%A3%E5%9F%B9%E8%AE%AD%E7%AC%AC%E4%B8%80%E8%AF%BE%E4%B8%AA%E4%BA%BA%E7%AC%94%E8%AE%B0/1858293-20200131183758971-458056123.png"
+	width="785"
+	height="638"
+	srcset="/p/%E5%90%BE%E7%88%B1%E7%A0%B4%E8%A7%A3%E5%9F%B9%E8%AE%AD%E7%AC%AC%E4%B8%80%E8%AF%BE%E4%B8%AA%E4%BA%BA%E7%AC%94%E8%AE%B0/1858293-20200131183758971-458056123_hu8301786444828052562.png 480w, /p/%E5%90%BE%E7%88%B1%E7%A0%B4%E8%A7%A3%E5%9F%B9%E8%AE%AD%E7%AC%AC%E4%B8%80%E8%AF%BE%E4%B8%AA%E4%BA%BA%E7%AC%94%E8%AE%B0/1858293-20200131183758971-458056123_hu4773813524555129022.png 1024w"
+	loading="lazy"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="123"
+		data-flex-basis="295px"
+	
+></p>
+<p><a class="link" href="https://www.52pojie.cn/thread-12865-1-1.html"  target="_blank" rel="noopener"
+    >PEID</a>查看区段如下：<br>
+<img src="/p/%E5%90%BE%E7%88%B1%E7%A0%B4%E8%A7%A3%E5%9F%B9%E8%AE%AD%E7%AC%AC%E4%B8%80%E8%AF%BE%E4%B8%AA%E4%BA%BA%E7%AC%94%E8%AE%B0/1858293-20200131183759396-603458269.png"
+	width="785"
+	height="235"
+	srcset="/p/%E5%90%BE%E7%88%B1%E7%A0%B4%E8%A7%A3%E5%9F%B9%E8%AE%AD%E7%AC%AC%E4%B8%80%E8%AF%BE%E4%B8%AA%E4%BA%BA%E7%AC%94%E8%AE%B0/1858293-20200131183759396-603458269_hu715028020148003340.png 480w, /p/%E5%90%BE%E7%88%B1%E7%A0%B4%E8%A7%A3%E5%9F%B9%E8%AE%AD%E7%AC%AC%E4%B8%80%E8%AF%BE%E4%B8%AA%E4%BA%BA%E7%AC%94%E8%AE%B0/1858293-20200131183759396-603458269_hu10913949592948663939.png 1024w"
+	loading="lazy"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="334"
+		data-flex-basis="801px"
+	
+></p>
+<p>**
+<em>VC6特点：入口点代码是固定的代码，入口调用的API也是相同的，其中有的push地址不同程序可能不同；区段有四个也是固定的.text、.rdata、.data和.rsrc。</em>**</p>
+<p><strong>VS2008和VS2013编译无壳程序 __</strong><br>
+OllyDbg查看入口点代码如下：<br>
+<img src="/p/%E5%90%BE%E7%88%B1%E7%A0%B4%E8%A7%A3%E5%9F%B9%E8%AE%AD%E7%AC%AC%E4%B8%80%E8%AF%BE%E4%B8%AA%E4%BA%BA%E7%AC%94%E8%AE%B0/1858293-20200131183759667-1066491298.png"
+	width="785"
+	height="119"
+	srcset="/p/%E5%90%BE%E7%88%B1%E7%A0%B4%E8%A7%A3%E5%9F%B9%E8%AE%AD%E7%AC%AC%E4%B8%80%E8%AF%BE%E4%B8%AA%E4%BA%BA%E7%AC%94%E8%AE%B0/1858293-20200131183759667-1066491298_hu2784564824792147577.png 480w, /p/%E5%90%BE%E7%88%B1%E7%A0%B4%E8%A7%A3%E5%9F%B9%E8%AE%AD%E7%AC%AC%E4%B8%80%E8%AF%BE%E4%B8%AA%E4%BA%BA%E7%AC%94%E8%AE%B0/1858293-20200131183759667-1066491298_hu13527936889065830276.png 1024w"
+	loading="lazy"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="659"
+		data-flex-basis="1583px"
+	
+></p>
+<p><img src="/p/%E5%90%BE%E7%88%B1%E7%A0%B4%E8%A7%A3%E5%9F%B9%E8%AE%AD%E7%AC%AC%E4%B8%80%E8%AF%BE%E4%B8%AA%E4%BA%BA%E7%AC%94%E8%AE%B0/1858293-20200131183759961-1780110399.png"
+	width="785"
+	height="597"
+	srcset="/p/%E5%90%BE%E7%88%B1%E7%A0%B4%E8%A7%A3%E5%9F%B9%E8%AE%AD%E7%AC%AC%E4%B8%80%E8%AF%BE%E4%B8%AA%E4%BA%BA%E7%AC%94%E8%AE%B0/1858293-20200131183759961-1780110399_hu13534569172393013914.png 480w, /p/%E5%90%BE%E7%88%B1%E7%A0%B4%E8%A7%A3%E5%9F%B9%E8%AE%AD%E7%AC%AC%E4%B8%80%E8%AF%BE%E4%B8%AA%E4%BA%BA%E7%AC%94%E8%AE%B0/1858293-20200131183759961-1780110399_hu7867819660431376800.png 1024w"
+	loading="lazy"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="131"
+		data-flex-basis="315px"
+	
+></p>
+<p>PEID查看区段如下：<br>
+<img src="/p/%E5%90%BE%E7%88%B1%E7%A0%B4%E8%A7%A3%E5%9F%B9%E8%AE%AD%E7%AC%AC%E4%B8%80%E8%AF%BE%E4%B8%AA%E4%BA%BA%E7%AC%94%E8%AE%B0/1858293-20200131183800374-334226634.png"
+	width="785"
+	height="227"
+	srcset="/p/%E5%90%BE%E7%88%B1%E7%A0%B4%E8%A7%A3%E5%9F%B9%E8%AE%AD%E7%AC%AC%E4%B8%80%E8%AF%BE%E4%B8%AA%E4%BA%BA%E7%AC%94%E8%AE%B0/1858293-20200131183800374-334226634_hu11675572907233723374.png 480w, /p/%E5%90%BE%E7%88%B1%E7%A0%B4%E8%A7%A3%E5%9F%B9%E8%AE%AD%E7%AC%AC%E4%B8%80%E8%AF%BE%E4%B8%AA%E4%BA%BA%E7%AC%94%E8%AE%B0/1858293-20200131183800374-334226634_hu1844251366093143655.png 1024w"
+	loading="lazy"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="345"
+		data-flex-basis="829px"
+	
+></p>
+<p>** <em>VS特点：入口点只有两行代码，一个CALL后直接JMP，第一个CALL进去后调用的API也是相同的；区段相对于VC6多了一个.reloc。</em>**</p>
+<p><strong>易语言编译无壳程序（独立编译和非独立编译）</strong></p>
+<p>（由于易语言独立编译是调用VC的链接程序编译的，所以从区段和入口代码特征和VC相同，下图为非独立编译带运行库）<br>
+OllyDbg查看入口点代码如下：<br>
+<img src="/p/%E5%90%BE%E7%88%B1%E7%A0%B4%E8%A7%A3%E5%9F%B9%E8%AE%AD%E7%AC%AC%E4%B8%80%E8%AF%BE%E4%B8%AA%E4%BA%BA%E7%AC%94%E8%AE%B0/1858293-20200131183800682-574510489.png"
+	width="778"
+	height="492"
+	srcset="/p/%E5%90%BE%E7%88%B1%E7%A0%B4%E8%A7%A3%E5%9F%B9%E8%AE%AD%E7%AC%AC%E4%B8%80%E8%AF%BE%E4%B8%AA%E4%BA%BA%E7%AC%94%E8%AE%B0/1858293-20200131183800682-574510489_hu8436440531185837359.png 480w, /p/%E5%90%BE%E7%88%B1%E7%A0%B4%E8%A7%A3%E5%9F%B9%E8%AE%AD%E7%AC%AC%E4%B8%80%E8%AF%BE%E4%B8%AA%E4%BA%BA%E7%AC%94%E8%AE%B0/1858293-20200131183800682-574510489_hu1963283174819790482.png 1024w"
+	loading="lazy"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="158"
+		data-flex-basis="379px"
+	
+></p>
+<p>查看模块：<br>
+<img src="/p/%E5%90%BE%E7%88%B1%E7%A0%B4%E8%A7%A3%E5%9F%B9%E8%AE%AD%E7%AC%AC%E4%B8%80%E8%AF%BE%E4%B8%AA%E4%BA%BA%E7%AC%94%E8%AE%B0/1858293-20200131183801053-960458476.png"
+	width="772"
+	height="123"
+	srcset="/p/%E5%90%BE%E7%88%B1%E7%A0%B4%E8%A7%A3%E5%9F%B9%E8%AE%AD%E7%AC%AC%E4%B8%80%E8%AF%BE%E4%B8%AA%E4%BA%BA%E7%AC%94%E8%AE%B0/1858293-20200131183801053-960458476_hu6716216281745660787.png 480w, /p/%E5%90%BE%E7%88%B1%E7%A0%B4%E8%A7%A3%E5%9F%B9%E8%AE%AD%E7%AC%AC%E4%B8%80%E8%AF%BE%E4%B8%AA%E4%BA%BA%E7%AC%94%E8%AE%B0/1858293-20200131183801053-960458476_hu5234698688000875852.png 1024w"
+	loading="lazy"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="627"
+		data-flex-basis="1506px"
+	
+></p>
+<p>查看核心代码：<br>
+<img src="/p/%E5%90%BE%E7%88%B1%E7%A0%B4%E8%A7%A3%E5%9F%B9%E8%AE%AD%E7%AC%AC%E4%B8%80%E8%AF%BE%E4%B8%AA%E4%BA%BA%E7%AC%94%E8%AE%B0/1858293-20200131183801368-1699294464.png"
+	width="772"
+	height="534"
+	srcset="/p/%E5%90%BE%E7%88%B1%E7%A0%B4%E8%A7%A3%E5%9F%B9%E8%AE%AD%E7%AC%AC%E4%B8%80%E8%AF%BE%E4%B8%AA%E4%BA%BA%E7%AC%94%E8%AE%B0/1858293-20200131183801368-1699294464_hu8228767391359698535.png 480w, /p/%E5%90%BE%E7%88%B1%E7%A0%B4%E8%A7%A3%E5%9F%B9%E8%AE%AD%E7%AC%AC%E4%B8%80%E8%AF%BE%E4%B8%AA%E4%BA%BA%E7%AC%94%E8%AE%B0/1858293-20200131183801368-1699294464_hu5434945765062076604.png 1024w"
+	loading="lazy"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="144"
+		data-flex-basis="346px"
+	
+></p>
+<p>**
+<em>易语言特点：可以从程序里找一些call的调用最终都会走到上面核心代码图位置（文字不太好表达），这个方法可以区分和VC的区别，非独立编译比较容易识别，入口特征和模块特征都有krnln.fnr。</em>**</p>
+<p><strong>Delhpi编译无壳程序</strong></p>
+<p><img src="/p/%E5%90%BE%E7%88%B1%E7%A0%B4%E8%A7%A3%E5%9F%B9%E8%AE%AD%E7%AC%AC%E4%B8%80%E8%AF%BE%E4%B8%AA%E4%BA%BA%E7%AC%94%E8%AE%B0/1858293-20200131183801775-2021952330.png"
+	width="694"
+	height="620"
+	srcset="/p/%E5%90%BE%E7%88%B1%E7%A0%B4%E8%A7%A3%E5%9F%B9%E8%AE%AD%E7%AC%AC%E4%B8%80%E8%AF%BE%E4%B8%AA%E4%BA%BA%E7%AC%94%E8%AE%B0/1858293-20200131183801775-2021952330_hu16286599492060064441.png 480w, /p/%E5%90%BE%E7%88%B1%E7%A0%B4%E8%A7%A3%E5%9F%B9%E8%AE%AD%E7%AC%AC%E4%B8%80%E8%AF%BE%E4%B8%AA%E4%BA%BA%E7%AC%94%E8%AE%B0/1858293-20200131183801775-2021952330_hu3973346037744359499.png 1024w"
+	loading="lazy"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="111"
+		data-flex-basis="268px"
+	
+></p>
+<p><img src="/p/%E5%90%BE%E7%88%B1%E7%A0%B4%E8%A7%A3%E5%9F%B9%E8%AE%AD%E7%AC%AC%E4%B8%80%E8%AF%BE%E4%B8%AA%E4%BA%BA%E7%AC%94%E8%AE%B0/1858293-20200131183802124-1320926933.png"
+	width="934"
+	height="247"
+	srcset="/p/%E5%90%BE%E7%88%B1%E7%A0%B4%E8%A7%A3%E5%9F%B9%E8%AE%AD%E7%AC%AC%E4%B8%80%E8%AF%BE%E4%B8%AA%E4%BA%BA%E7%AC%94%E8%AE%B0/1858293-20200131183802124-1320926933_hu5533164523485759955.png 480w, /p/%E5%90%BE%E7%88%B1%E7%A0%B4%E8%A7%A3%E5%9F%B9%E8%AE%AD%E7%AC%AC%E4%B8%80%E8%AF%BE%E4%B8%AA%E4%BA%BA%E7%AC%94%E8%AE%B0/1858293-20200131183802124-1320926933_hu16047704013821728837.png 1024w"
+	loading="lazy"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="378"
+		data-flex-basis="907px"
+	
+></p>
+<p><strong>.net特征</strong> ：** <em>看模块，加载了很多的.net库</em>**</p>
+<p><img src="/p/%E5%90%BE%E7%88%B1%E7%A0%B4%E8%A7%A3%E5%9F%B9%E8%AE%AD%E7%AC%AC%E4%B8%80%E8%AF%BE%E4%B8%AA%E4%BA%BA%E7%AC%94%E8%AE%B0/1858293-20200131183802480-349220270.png"
+	width="666"
+	height="321"
+	srcset="/p/%E5%90%BE%E7%88%B1%E7%A0%B4%E8%A7%A3%E5%9F%B9%E8%AE%AD%E7%AC%AC%E4%B8%80%E8%AF%BE%E4%B8%AA%E4%BA%BA%E7%AC%94%E8%AE%B0/1858293-20200131183802480-349220270_hu17854975803809146332.png 480w, /p/%E5%90%BE%E7%88%B1%E7%A0%B4%E8%A7%A3%E5%9F%B9%E8%AE%AD%E7%AC%AC%E4%B8%80%E8%AF%BE%E4%B8%AA%E4%BA%BA%E7%AC%94%E8%AE%B0/1858293-20200131183802480-349220270_hu1753508467826908618.png 1024w"
+	loading="lazy"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="207"
+		data-flex-basis="497px"
+	
+></p>
+<p><strong>0x02 部分壳的特征</strong></p>
+<p><strong>Aspack</strong></p>
+<p>区段：<img src="/p/%E5%90%BE%E7%88%B1%E7%A0%B4%E8%A7%A3%E5%9F%B9%E8%AE%AD%E7%AC%AC%E4%B8%80%E8%AF%BE%E4%B8%AA%E4%BA%BA%E7%AC%94%E8%AE%B0/1858293-20200131183802808-2086261593.png"
+	width="78"
+	height="134"
+	srcset="/p/%E5%90%BE%E7%88%B1%E7%A0%B4%E8%A7%A3%E5%9F%B9%E8%AE%AD%E7%AC%AC%E4%B8%80%E8%AF%BE%E4%B8%AA%E4%BA%BA%E7%AC%94%E8%AE%B0/1858293-20200131183802808-2086261593_hu419618825008678643.png 480w, /p/%E5%90%BE%E7%88%B1%E7%A0%B4%E8%A7%A3%E5%9F%B9%E8%AE%AD%E7%AC%AC%E4%B8%80%E8%AF%BE%E4%B8%AA%E4%BA%BA%E7%AC%94%E8%AE%B0/1858293-20200131183802808-2086261593_hu18153560778132127514.png 1024w"
+	loading="lazy"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="58"
+		data-flex-basis="139px"
+	
+></p>
+<p>入口特征：</p>
+<p><img src="/p/%E5%90%BE%E7%88%B1%E7%A0%B4%E8%A7%A3%E5%9F%B9%E8%AE%AD%E7%AC%AC%E4%B8%80%E8%AF%BE%E4%B8%AA%E4%BA%BA%E7%AC%94%E8%AE%B0/1858293-20200131183803217-167301300.png"
+	width="529"
+	height="86"
+	srcset="/p/%E5%90%BE%E7%88%B1%E7%A0%B4%E8%A7%A3%E5%9F%B9%E8%AE%AD%E7%AC%AC%E4%B8%80%E8%AF%BE%E4%B8%AA%E4%BA%BA%E7%AC%94%E8%AE%B0/1858293-20200131183803217-167301300_hu6013567903825763494.png 480w, /p/%E5%90%BE%E7%88%B1%E7%A0%B4%E8%A7%A3%E5%9F%B9%E8%AE%AD%E7%AC%AC%E4%B8%80%E8%AF%BE%E4%B8%AA%E4%BA%BA%E7%AC%94%E8%AE%B0/1858293-20200131183803217-167301300_hu3780457620480235751.png 1024w"
+	loading="lazy"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="615"
+		data-flex-basis="1476px"
+	
+></p>
+<p><strong>UPX</strong></p>
+<p>区段：被压缩过，压缩结果是UPX0和UPX1，名称可以随便改，基本就是三个<img src="/p/%E5%90%BE%E7%88%B1%E7%A0%B4%E8%A7%A3%E5%9F%B9%E8%AE%AD%E7%AC%AC%E4%B8%80%E8%AF%BE%E4%B8%AA%E4%BA%BA%E7%AC%94%E8%AE%B0/1858293-20200131183803439-1146347486.png"
+	width="75"
+	height="63"
+	srcset="/p/%E5%90%BE%E7%88%B1%E7%A0%B4%E8%A7%A3%E5%9F%B9%E8%AE%AD%E7%AC%AC%E4%B8%80%E8%AF%BE%E4%B8%AA%E4%BA%BA%E7%AC%94%E8%AE%B0/1858293-20200131183803439-1146347486_hu1957302895794957474.png 480w, /p/%E5%90%BE%E7%88%B1%E7%A0%B4%E8%A7%A3%E5%9F%B9%E8%AE%AD%E7%AC%AC%E4%B8%80%E8%AF%BE%E4%B8%AA%E4%BA%BA%E7%AC%94%E8%AE%B0/1858293-20200131183803439-1146347486_hu7138183276213686266.png 1024w"
+	loading="lazy"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="119"
+		data-flex-basis="285px"
+	
+></p>
+<p>入口特征：</p>
+<p><img src="/p/%E5%90%BE%E7%88%B1%E7%A0%B4%E8%A7%A3%E5%9F%B9%E8%AE%AD%E7%AC%AC%E4%B8%80%E8%AF%BE%E4%B8%AA%E4%BA%BA%E7%AC%94%E8%AE%B0/1858293-20200131183803650-100543327.png"
+	width="526"
+	height="116"
+	srcset="/p/%E5%90%BE%E7%88%B1%E7%A0%B4%E8%A7%A3%E5%9F%B9%E8%AE%AD%E7%AC%AC%E4%B8%80%E8%AF%BE%E4%B8%AA%E4%BA%BA%E7%AC%94%E8%AE%B0/1858293-20200131183803650-100543327_hu10078294490414435764.png 480w, /p/%E5%90%BE%E7%88%B1%E7%A0%B4%E8%A7%A3%E5%9F%B9%E8%AE%AD%E7%AC%AC%E4%B8%80%E8%AF%BE%E4%B8%AA%E4%BA%BA%E7%AC%94%E8%AE%B0/1858293-20200131183803650-100543327_hu5818269975178033814.png 1024w"
+	loading="lazy"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="453"
+		data-flex-basis="1088px"
+	
+></p>
+<p><strong>Themida</strong></p>
+<p>区段：后两个名称随机</p>
+<p><img src="/p/%E5%90%BE%E7%88%B1%E7%A0%B4%E8%A7%A3%E5%9F%B9%E8%AE%AD%E7%AC%AC%E4%B8%80%E8%AF%BE%E4%B8%AA%E4%BA%BA%E7%AC%94%E8%AE%B0/1858293-20200131183803870-1986245239.png"
+	width="576"
+	height="89"
+	srcset="/p/%E5%90%BE%E7%88%B1%E7%A0%B4%E8%A7%A3%E5%9F%B9%E8%AE%AD%E7%AC%AC%E4%B8%80%E8%AF%BE%E4%B8%AA%E4%BA%BA%E7%AC%94%E8%AE%B0/1858293-20200131183803870-1986245239_hu2148027604260753704.png 480w, /p/%E5%90%BE%E7%88%B1%E7%A0%B4%E8%A7%A3%E5%9F%B9%E8%AE%AD%E7%AC%AC%E4%B8%80%E8%AF%BE%E4%B8%AA%E4%BA%BA%E7%AC%94%E8%AE%B0/1858293-20200131183803870-1986245239_hu6061671564878108431.png 1024w"
+	loading="lazy"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="647"
+		data-flex-basis="1553px"
+	
+></p>
+<p><strong>Vmprotect：</strong></p>
+<p>主要看区段特征：</p>
+<p><img src="/p/%E5%90%BE%E7%88%B1%E7%A0%B4%E8%A7%A3%E5%9F%B9%E8%AE%AD%E7%AC%AC%E4%B8%80%E8%AF%BE%E4%B8%AA%E4%BA%BA%E7%AC%94%E8%AE%B0/1858293-20200131183804160-1002734420.png"
+	width="576"
+	height="119"
+	srcset="/p/%E5%90%BE%E7%88%B1%E7%A0%B4%E8%A7%A3%E5%9F%B9%E8%AE%AD%E7%AC%AC%E4%B8%80%E8%AF%BE%E4%B8%AA%E4%BA%BA%E7%AC%94%E8%AE%B0/1858293-20200131183804160-1002734420_hu524280384421887624.png 480w, /p/%E5%90%BE%E7%88%B1%E7%A0%B4%E8%A7%A3%E5%9F%B9%E8%AE%AD%E7%AC%AC%E4%B8%80%E8%AF%BE%E4%B8%AA%E4%BA%BA%E7%AC%94%E8%AE%B0/1858293-20200131183804160-1002734420_hu17676988547773036853.png 1024w"
+	loading="lazy"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="484"
+		data-flex-basis="1161px"
+	
+></p>
+<p>入口特征显得杂乱无章</p>
+<p><strong>Shielden</strong></p>
+<p>区段：</p>
+<p><img src="/p/%E5%90%BE%E7%88%B1%E7%A0%B4%E8%A7%A3%E5%9F%B9%E8%AE%AD%E7%AC%AC%E4%B8%80%E8%AF%BE%E4%B8%AA%E4%BA%BA%E7%AC%94%E8%AE%B0/1858293-20200131183804403-1254491279.png"
+	width="576"
+	height="78"
+	srcset="/p/%E5%90%BE%E7%88%B1%E7%A0%B4%E8%A7%A3%E5%9F%B9%E8%AE%AD%E7%AC%AC%E4%B8%80%E8%AF%BE%E4%B8%AA%E4%BA%BA%E7%AC%94%E8%AE%B0/1858293-20200131183804403-1254491279_hu12678319110306769728.png 480w, /p/%E5%90%BE%E7%88%B1%E7%A0%B4%E8%A7%A3%E5%9F%B9%E8%AE%AD%E7%AC%AC%E4%B8%80%E8%AF%BE%E4%B8%AA%E4%BA%BA%E7%AC%94%E8%AE%B0/1858293-20200131183804403-1254491279_hu2180513545673398299.png 1024w"
+	loading="lazy"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="738"
+		data-flex-basis="1772px"
+	
+></p>
+<p>入口（经跳转和分析过的）：</p>
+<p><img src="/p/%E5%90%BE%E7%88%B1%E7%A0%B4%E8%A7%A3%E5%9F%B9%E8%AE%AD%E7%AC%AC%E4%B8%80%E8%AF%BE%E4%B8%AA%E4%BA%BA%E7%AC%94%E8%AE%B0/1858293-20200131183804604-2077683305.png"
+	width="576"
+	height="80"
+	srcset="/p/%E5%90%BE%E7%88%B1%E7%A0%B4%E8%A7%A3%E5%9F%B9%E8%AE%AD%E7%AC%AC%E4%B8%80%E8%AF%BE%E4%B8%AA%E4%BA%BA%E7%AC%94%E8%AE%B0/1858293-20200131183804604-2077683305_hu1967251222264643792.png 480w, /p/%E5%90%BE%E7%88%B1%E7%A0%B4%E8%A7%A3%E5%9F%B9%E8%AE%AD%E7%AC%AC%E4%B8%80%E8%AF%BE%E4%B8%AA%E4%BA%BA%E7%AC%94%E8%AE%B0/1858293-20200131183804604-2077683305_hu10604797450279580828.png 1024w"
+	loading="lazy"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="720"
+		data-flex-basis="1728px"
+	
+></p>
+<p>加壳技术可以方便我们对程序进行保护、压缩等措施，而脱壳技术则方便我们对程序进行更大程度上的修改。</p>
+<h1 id="附初学者教程破解基础知识之认识壳与程序的特征本文有摘抄">附：【初学者教程】破解基础知识之认识壳与程序的特征（本文有摘抄）
+</h1><h1 id="httpswww52pojiecnthread-234739-1-1html"><a class="link" href="https://www.52pojie.cn/thread-234739-1-1.html"  target="_blank" rel="noopener"
+    >https://www.52pojie.cn/thread-234739-1-1.html</a>
+</h1>
+</section>
+
+
+    <footer class="article-footer">
+    
+
+    </footer>
+
+
+    
+</article>
+
+    
+
+    
+
+<aside class="related-content--wrapper">
+    <h2 class="section-title">相关文章</h2>
+    <div class="related-content">
+        <div class="flex article-list--tile">
+            
+                
+<article class="">
+    <a href="/p/%E4%B8%AA%E4%BA%BA%E5%90%91ctf%E6%AF%94%E8%B5%9B%E5%87%BA%E7%9A%84%E4%B8%80%E9%81%93%E9%80%86%E5%90%91%E6%B8%B8%E6%88%8F%E9%A2%98gametime%E9%A2%98%E8%A7%A3/">
+        
+        
+
+        <div class="article-details">
+            <h2 class="article-title">【个人向】ctf比赛出的一道逆向游戏题——GameTime题解</h2>
+        </div>
+    </a>
+</article>
+
+            
+                
+<article class="">
+    <a href="/p/handler%E8%BF%9B%E8%A1%8C%E5%A0%86%E5%8F%A0%E6%B3%A8%E5%85%A5/">
+        
+        
+
+        <div class="article-details">
+            <h2 class="article-title">HANDLER进行堆叠注入</h2>
+        </div>
+    </a>
+</article>
+
+            
+                
+<article class="">
+    <a href="/p/cdut%E7%AC%AC%E4%B8%80%E5%B1%8A%E4%BF%A1%E5%AE%89%E5%A4%A7%E6%8C%91%E6%88%98re-wp/">
+        
+        
+
+        <div class="article-details">
+            <h2 class="article-title">CDUT第一届信安大挑战Re-wp</h2>
+        </div>
+    </a>
+</article>
+
+            
+                
+<article class="">
+    <a href="/p/nu1lbook%E7%AC%AC%E4%B8%80%E7%AB%A0wp/">
+        
+        
+
+        <div class="article-details">
+            <h2 class="article-title">Nu1LBook第一章wp</h2>
+        </div>
+    </a>
+</article>
+
+            
+                
+<article class="">
+    <a href="/p/linux%E5%92%8Cvmware/">
+        
+        
+
+        <div class="article-details">
+            <h2 class="article-title">Linux和VMWare</h2>
+        </div>
+    </a>
+</article>
+
+            
+        </div>
+    </div>
+</aside>
+
+     
+    
+        
+    <script src="https://utteranc.es/client.js" 
+        repo="DorinXL/dorinxl.github.io"
+        issue-term="pathname"
+        
+        crossorigin="anonymous"
+        async
+        >
+</script>
+
+<style>
+    .utterances {
+        max-width: unset;
+    }
+</style>
+
+<script>
+    let utterancesLoaded = false;
+
+    function setUtterancesTheme(theme) {
+        let utterances = document.querySelector('.utterances iframe');
+        if (utterances) {
+            utterances.contentWindow.postMessage(
+                {
+                    type: 'set-theme',
+                    theme: `github-${theme}`
+                },
+                'https://utteranc.es'
+            );
+        }
+    }
+
+    addEventListener('message', event => {
+        if (event.origin !== 'https://utteranc.es') return;
+
+        
+        utterancesLoaded = true;
+        setUtterancesTheme(document.documentElement.dataset.scheme)
+    });
+
+    window.addEventListener('onColorSchemeChange', (e) => {
+        if (!utterancesLoaded) return;
+        setUtterancesTheme(e.detail)
+    })
+</script>
+
+
+    
+
+    <footer class="site-footer">
+    <section class="copyright">
+        &copy; 
+        
+        2024 荡影-DorinXL
+    </section>
+
+
+
+<section class="totalcount">
+    
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+    发表了76篇文章 · 
+    总计103.89k字
+</section>
+
+
+
+<section class="running-time">
+本博客已稳定运行
+<span id="runningdays" class="running-days"></span>
+</section>
+
+    <section class="powerby">
+        使用 <a href="https://gohugo.io/" target="_blank" rel="noopener">Hugo</a> 构建 <br />
+        主题 <b><a href="https://github.com/CaiJimmy/hugo-theme-stack" target="_blank" rel="noopener" data-version="3.26.0">Stack</a></b> 由 <a href="https://jimmycai.com" target="_blank" rel="noopener">Jimmy</a> 设计
+    </section>
+
+</footer>
+
+
+    
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+    
+    <div class="pswp__bg"></div>
+
+    
+    <div class="pswp__scroll-wrap">
+
+        
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+
+        
+        <div class="pswp__ui pswp__ui--hidden">
+
+            <div class="pswp__top-bar">
+
+                
+
+                <div class="pswp__counter"></div>
+
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+                
+                
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                        <div class="pswp__preloader__cut">
+                            <div class="pswp__preloader__donut"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div>
+            </div>
+
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div><script 
+                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.js"integrity="sha256-ePwmChbbvXbsO02lbM3HoHbSHTHFAeChekF1xKJdleo="crossorigin="anonymous"
+                defer
+                >
+            </script><script 
+                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe-ui-default.min.js"integrity="sha256-UKkzOn/w1mBxRmLLGrSeyB4e1xbrp4xylgAWb3M42pU="crossorigin="anonymous"
+                defer
+                >
+            </script><link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/default-skin/default-skin.min.css"crossorigin="anonymous"
+            ><link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.css"crossorigin="anonymous"
+            >
+
+            </main>
+        </div>
+        <script 
+                src="https://cdn.jsdelivr.net/npm/node-vibrant@3.1.6/dist/vibrant.min.js"integrity="sha256-awcR2jno4kI5X0zL8ex0vi2z&#43;KMkF24hUW8WePSA9HM="crossorigin="anonymous"
+                
+                >
+            </script><script type="text/javascript" src="/ts/main.js" defer></script>
+<script>
+    (function () {
+        const customFont = document.createElement('link');
+        customFont.href = "https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap";
+
+        customFont.type = "text/css";
+        customFont.rel = "stylesheet";
+
+        document.head.appendChild(customFont);
+    }());
+</script>
+
+<script>
+    let s1 = '2024-8-25'; 
+    s1 = new Date(s1.replace(/-/g, "/"));
+    let s2 = new Date();
+    let timeDifference = s2.getTime() - s1.getTime();
+
+    let days = Math.floor(timeDifference / (1000 * 60 * 60 * 24));
+    let hours = Math.floor((timeDifference % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+    let minutes = Math.floor((timeDifference % (1000 * 60 * 60)) / (1000 * 60));
+
+    let result = days + "天" + hours + "小时" + minutes + "分钟";
+    document.getElementById('runningdays').innerHTML = result;
+</script>
+    </body>
+</html>

