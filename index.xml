@@ -18326,7 +18326,514 @@ dechiffre(&amp;quot;\x35\x35\x2c\x35\x36\x2c\x35\x34\x2c\x37\x39\x2c\x31\x31\x35
         <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
         
         <guid>https://dorinxl.github.io/%E5%85%B3%E4%BA%8E/</guid>
-        <description>&lt;p&gt;This is a test page for i18n support.&lt;/p&gt;
+        <description>&lt;p&gt;你好，&lt;/p&gt;
+&lt;h2 id=&#34;时间轴&#34;&gt;时间轴
+&lt;/h2&gt;&lt;div class=&#34;timeline&#34;&gt;
+
+
+
+
+
+
+  
+  
+  
+  
+  
+  
+  
+  
+
+  
+  
+  
+
+&lt;div class=&#34;container&#34;&gt;
+  &lt;div class=&#34;content&#34;&gt;
+    
+    &lt;a href=&#34;&#34; target=&#34;_blank&#34;&gt;
+      &lt;div class=&#34;title&#34;&gt;Current position&lt;/div&gt;
+      
+      &lt;div class=&#34;moment&#34;  id=&#34;moment&#34; &gt;
+        
+      &lt;/div&gt;
+      
+      &lt;div class=&#34;body&#34;&gt;I&amp;rsquo;m working here&lt;/div&gt;
+    &lt;/a&gt;
+  &lt;/div&gt;
+  &lt;div class=&#34;date&#34;&gt;2024&lt;/div&gt;
+&lt;/div&gt;
+
+&lt;script&gt;
+  function non0plural(number, name) {
+    if (number == 0) {
+    return &#34;&#34;
+    }
+    if (number &gt; 1) {
+    return number + &#34; &#34; + name + &#34;s&#34;
+    }
+    return number + &#34; &#34; +name
+  }
+
+  el = document.querySelector(&#34;#moment&#34;);
+  function refresh() {
+    start = dayjs(&#34;2021-01-01&#34;)
+    now = dayjs()
+
+    total_months = now.diff(start, &#34;M&#34;, true)
+    months = total_months % 12
+    years = Math.floor((total_months) / 12)
+    el.innerHTML = non0plural(years,&#34;year&#34;)+&#34; &#34;+non0plural(months.toFixed(8),&#34;month&#34;)
+  }
+  window.setInterval(refresh, 100);
+&lt;/script&gt;
+
+
+
+
+
+
+
+
+&lt;div class=&#34;container&#34;&gt;
+  &lt;div class=&#34;content&#34;&gt;
+    
+    &lt;a href=&#34;&#34; target=&#34;_blank&#34;&gt;
+      &lt;div class=&#34;title&#34;&gt;&lt;/div&gt;
+      
+      &lt;div class=&#34;body&#34;&gt;&lt;/div&gt;
+    &lt;/a&gt;
+  &lt;/div&gt;
+  &lt;div class=&#34;date&#34;&gt;2024&lt;/div&gt;
+&lt;/div&gt;
+
+
+
+
+
+
+
+
+&lt;div class=&#34;container&#34;&gt;
+  &lt;div class=&#34;content&#34;&gt;
+    
+    &lt;a href=&#34;&#34; target=&#34;_blank&#34;&gt;
+      &lt;div class=&#34;title&#34;&gt;&lt;/div&gt;
+      
+      &lt;div class=&#34;body&#34;&gt;&lt;/div&gt;
+    &lt;/a&gt;
+  &lt;/div&gt;
+  &lt;div class=&#34;date&#34;&gt;2024&lt;/div&gt;
+&lt;/div&gt;
+
+
+
+
+
+
+
+
+&lt;div class=&#34;container&#34;&gt;
+  &lt;div class=&#34;content&#34;&gt;
+    
+    &lt;a href=&#34;&#34; target=&#34;_blank&#34;&gt;
+      &lt;div class=&#34;title&#34;&gt;&lt;/div&gt;
+      
+      &lt;div class=&#34;body&#34;&gt;&lt;/div&gt;
+    &lt;/a&gt;
+  &lt;/div&gt;
+  &lt;div class=&#34;date&#34;&gt;2024&lt;/div&gt;
+&lt;/div&gt;
+
+
+
+
+
+
+  
+
+
+
+  
+  
+  
+  
+  
+  
+  
+  
+
+  
+  
+  
+
+&lt;div class=&#34;container&#34;&gt;
+  &lt;div class=&#34;content&#34;&gt;
+    
+    &lt;a href=&#34;&#34; target=&#34;_blank&#34;&gt;
+      &lt;div class=&#34;title&#34;&gt;UGDAP中国大学生游戏开发联盟&lt;/div&gt;
+      
+      &lt;div class=&#34;moment&#34; &gt;
+          
+      &lt;/div&gt;
+      
+      &lt;div class=&#34;body&#34;&gt;为期7日的游戏开发实训，坐标上交大。破冰分组、项目开发，最后制作出一个动作游戏。点击图片查看开发记录。&lt;/div&gt;
+    &lt;/a&gt;
+  &lt;/div&gt;
+  &lt;div class=&#34;date&#34;&gt;2021&lt;/div&gt;
+&lt;/div&gt;
+
+
+
+
+
+
+  
+
+
+
+  
+  
+  
+  
+  
+  
+  
+  
+
+  
+  
+  
+
+&lt;div class=&#34;container&#34;&gt;
+  &lt;div class=&#34;content&#34;&gt;
+    
+    &lt;a href=&#34;#&#34; target=&#34;_blank&#34;&gt;
+      &lt;div class=&#34;title&#34;&gt;机核网游戏创作活动-BOOOM&lt;/div&gt;
+      
+      &lt;div class=&#34;moment&#34; &gt;
+          
+      &lt;/div&gt;
+      
+      &lt;div class=&#34;body&#34;&gt;由机核网举办的限时、限主题游戏创作活动，这一期的主题是“TIME IS AN ILLUSION 时间是幻觉”，作品为横板2d战斗游戏，附一些解谜内容。&lt;/div&gt;
+    &lt;/a&gt;
+  &lt;/div&gt;
+  &lt;div class=&#34;date&#34;&gt;2021&lt;/div&gt;
+&lt;/div&gt;
+
+
+
+&lt;/div&gt;
+
+&lt;style&gt;
+ 
+
+ 
+.timeline {
+  position: relative;
+  margin: 0 auto;
+}
+
+ 
+.timeline::after {
+  content: &#34;&#34;;
+  position: absolute;
+  width: 6px;
+  background-color: #444;
+  top: 0;
+  bottom: 0;
+  left: 10%;
+  margin-left: -3px;
+}
+
+ 
+.timeline .container {
+  padding: 10px 10px 10px 40px;
+  margin-top: 10px;
+  position: relative;
+  width: 90%;
+  left: 4.5%;
+  transition: box-shadow 0.2s ease-in-out, background-color 0.2s ease-in-out;  
+}
+
+ 
+.timeline .container a {
+  display: block;
+  text-decoration: none;
+  color: inherit;  
+}
+
+ 
+.timeline .container::after {
+  content: &#34;&#34;;
+  position: absolute;
+  width: 25px;
+  height: 25px;
+  left: -12px;
+  background-color: rgb(106, 215, 229);
+  border: 4px solid #444;
+  top: 0px;
+  border-radius: 50%;
+  z-index: 1;
+}
+
+ 
+.timeline .container .date {
+  position: absolute;
+  top: 22px;
+  z-index: 1;
+  left: -10%;
+  font-size: large;
+}
+
+ 
+.timeline .container::before {
+  content: &#34; &#34;;
+  height: 0;
+  position: absolute;
+  top: 30px;
+  width: 0;
+  z-index: 1;
+  left: 26px;
+  border: medium solid #6ad7e5;
+  border-width: 13px 13px 13px 0px;
+  border-color: #6ad7e5 #6ad7e5 transparent transparent;
+}
+
+ 
+.timeline .content {
+  box-shadow: 0 0 3px 3px #6ad7e5;
+  background-color: white;
+  position: relative;
+  border-radius: 6px;
+  transition: box-shadow 0.3s, background-color 0.3s;  
+  padding: 10px;  
+}
+
+ 
+.timeline .container:hover {
+  background-color: #f0f0f0;  
+  box-shadow: 0 0 4px 2px rgba(0, 0, 0, 0.1);  
+}
+
+ 
+.timeline .content .title {
+  padding: 5px 30px;
+  font-weight: bold;
+  display: inline-block;
+}
+
+ 
+.timeline .content .moment {
+  color: #c41a16;
+  text-align: right;
+  position: absolute;
+  top: 0;
+  right: 0;
+  padding: 5px;
+}
+
+ 
+.timeline .content .body {
+  padding: 5px 30px;
+}
+
+ 
+@media screen and (max-width: 600px) {
+  .timeline .container {
+    padding: 10px 10px 0px 40px;
+    left: 5%;
+    width: 95%;
+  }
+  .timeline .container .date {
+    font-size: small;
+    transform: rotate(-90deg);
+    left: -5%;
+    top: 30px;
+  }
+  .timeline .container::after {
+    left: 3px;
+  }
+  .timeline .content .body {
+    padding: 5px 5px;
+  }
+  .timeline .content .moment {
+    position: relative;
+  }
+}
+
+ 
+[data-scheme=&#34;dark&#34;] {
+  .timeline .content {
+    background-color: #161b22;  
+  }
+  .timeline .content .moment {
+    color: #ff8c00;  
+  }
+  .timeline::after {
+    background-color: #f5f6f7;  
+  }
+  .timeline .container::after {
+    background-color: #6ad7e5;
+    border: 4px solid #f5f6f7;
+  }
+  .timeline .container::before {
+    border: medium solid #6ad7e5;
+    border-width: 13px 13px 13px 0px;
+    border-color: #6ad7e5 #6ad7e5 transparent transparent;
+  }
+
+   
+  .timeline .container:hover {
+    background-color: #2a2f38;  
+    box-shadow: 0 0 4px 2px rgba(255, 255, 255, 0.1);  
+  }
+}
+&lt;/style&gt;
+
+&lt;h2 id=&#34;卡片链接&#34;&gt;卡片链接
+&lt;/h2&gt;&lt;a1 href=&#34;#&#34; target=&#34;_blank&#34;&gt;
+    &lt;div class=&#34;zhengti&#34;&gt;
+        &lt;a href=&#34;#&#34;&gt;
+            &lt;div class=&#34;wenzi&#34;&gt;
+                &lt;div class=&#34;linkk&#34;&gt;
+                    &lt;div class=&#34;namee&#34;&gt;这里是姓名&lt;/div&gt;&lt;div class=&#34;descc&#34;&gt;这里是描述&lt;/div&gt;&lt;/div&gt;
+        &lt;/a&gt;&lt;div class=&#34;linktext&#34;&gt;#&lt;/div&gt;
+
+        &lt;/div&gt;
+        &lt;div class=&#34;daimg&#34;&gt;&lt;img class=&#34;link-card-img&#34; loading=&#34;lazy&#34; src=&#34;25.jpg&#34; alt=&#34;&#34; /&gt; &lt;/div&gt;
+
+    &lt;/div&gt;
+&lt;/a1&gt;
+
+&lt;style&gt;
+    a1 {
+        display: flex;
+        flex-direction: column;
+    }
+    
+    .zhengti {
+        margin: auto;
+        padding-top: 4%;
+        padding-right: 4%;
+        padding-bottom: 4%;
+        padding-left: 4%;
+        width: 100%;
+        display: flex;
+        align-items: left;
+        flex-direction: row;
+        border: 1px solid #e5e7eb;
+        border-radius: 20px;
+        background-color: #ffffff;
+        transition: border 0.3s ease-in-out;
+        box-shadow: 2px 4px 16px rgba(0, 0, 0, .05);
+    }
+    
+    .wenzi {
+        display: flex;
+        align-items: left;
+        flex-direction: column;
+        flex: 2;
+    }
+    
+    .zhengti:hover {
+        transform: scale(1.03);
+        box-shadow: 2px 4px 16px rgba(0, 0, 0, .05);
+    }
+    
+    .linkk {
+        display: flex;
+        flex-direction: column;
+    }
+    
+    .iconn {
+        display: flex;
+        align-items: center;
+    }
+    
+    .iconn1 {
+        width: 1.2em;
+        height: 1.2em;
+        margin-right: 0.5em;
+        margin-bottom: 0.2em;
+    }
+    
+    .namee {
+        font-size: 1.7rem;
+        font-weight: 600;
+        margin-bottom: 0.5rem;
+        color: var(--card-text-color-main);
+    }
+    
+    .descc {
+        font-size: 1.3rem;
+        color: #9ca3af;
+        margin-bottom: 0.5rem;
+    }
+    
+    .linktext {
+        font-size: 0.9rem;
+        color: #9ca3af;
+    }
+     
+    
+    .link-card-icoon {
+        width: 16px;
+        height: 16px;
+        margin-right: 0.5rem;
+    }
+     
+    
+    .daimg {
+        display: flex;
+        flex-direction: row;
+        flex: 1;
+        align-self: right;
+    }
+    
+    .link-card-img {
+        display: block;
+        height: auto;
+        max-height: 200px;
+        width: 100%;
+         
+        object-fit: cover;
+        max-width: 50%;
+        margin-right: 2px;
+        border-radius: 0.25rem;
+    }
+    
+    a1:hover {
+        background-color: var(--color-zoom-bg);
+        border: 1px solid var(--theme);
+    }
+    
+    @media (max-width:900px) {
+        a1 {
+            max-height: 25em;
+            overflow-y: auto;
+            padding-right: 4%;
+        }
+        .zhengti {
+            display: flex;
+            flex-direction: column;
+        }
+    }
+    
+    [data-scheme=&#34;dark&#34;] {
+        .zhengti {
+            background-color: #161b22;
+            border: 1px solid #30363d;
+        }
+        .descc {
+            color: #9ca3af;
+        }
+        .linktext {
+            color: #9ca3af;
+        }
+    }
+&lt;/style&gt;
+
 </description>
         </item>
         <item>
