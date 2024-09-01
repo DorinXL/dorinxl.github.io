@@ -18333,194 +18333,350 @@ dechiffre(&amp;quot;\x35\x35\x2c\x35\x36\x2c\x35\x34\x2c\x37\x39\x2c\x31\x31\x35
 
 
 
+  
 
 
-  
-  
-  
-  
-  
-  
-  
-  
+
 
   
   
   
+  
+  
+  
+  
+    
+  
+    
+   
+  
+
+  
+  
+    
+
+
+
+
+
+  
+
 
 &lt;div class=&#34;container&#34;&gt;
   &lt;div class=&#34;content&#34;&gt;
-    
-    &lt;a href=&#34;&#34; target=&#34;_blank&#34;&gt;
-      &lt;div class=&#34;title&#34;&gt;Current position&lt;/div&gt;
+    &lt;div class=&#34;title&#34;&gt;
       
+        &lt;a href=&#34;&#34; target=&#34;_blank&#34; class=&#34;title-link&#34;&gt;
+          2023腾讯游戏高校策划公开课&lt;span class=&#34;arrow&#34;&gt;➚&lt;/span&gt;
+        &lt;/a&gt;
+      
+    &lt;/div&gt;
+    
       &lt;div class=&#34;moment&#34;  id=&#34;moment&#34; &gt;
         
+           1 month
+        
       &lt;/div&gt;
-      
-      &lt;div class=&#34;body&#34;&gt;I&amp;rsquo;m working here&lt;/div&gt;
-    &lt;/a&gt;
-  &lt;/div&gt;
-  &lt;div class=&#34;date&#34;&gt;2024&lt;/div&gt;
+    
+    &lt;div class=&#34;body&#34;&gt;&lt;ul&gt;
+&lt;li&gt;理论课程，无实战&lt;/li&gt;
+&lt;li&gt;涉及课题：&lt;/li&gt;
+&lt;/ul&gt;
 &lt;/div&gt;
+  &lt;/div&gt;
+
+  
+  
+    &lt;div class=&#34;date&#34;&gt;2023&lt;/div&gt;
+  
+&lt;/div&gt;
+
 
 &lt;script&gt;
   function non0plural(number, name) {
     if (number == 0) {
-    return &#34;&#34;
+      return &#34;&#34;;
     }
     if (number &gt; 1) {
-    return number + &#34; &#34; + name + &#34;s&#34;
+      return number + &#34; &#34; + name + &#34;s&#34;;
     }
-    return number + &#34; &#34; +name
+    return number + &#34; &#34; + name;
   }
 
   el = document.querySelector(&#34;#moment&#34;);
   function refresh() {
-    start = dayjs(&#34;2021-01-01&#34;)
-    now = dayjs()
+    start = dayjs(&#34;2023-07-14&#34;);
+    now = dayjs();
 
-    total_months = now.diff(start, &#34;M&#34;, true)
-    months = total_months % 12
-    years = Math.floor((total_months) / 12)
-    el.innerHTML = non0plural(years,&#34;year&#34;)+&#34; &#34;+non0plural(months.toFixed(8),&#34;month&#34;)
+    total_days = now.diff(start, &#34;d&#34;);
+    total_months = now.diff(start, &#34;M&#34;, true);
+    months = total_months % 12;
+    years = Math.floor(total_months / 12);
+
+    if (total_months &lt; 1) {
+      el.innerHTML = total_days + &#34; days&#34;;
+    } else {
+      el.innerHTML = non0plural(years, &#34;year&#34;) + &#34; &#34; + non0plural(months.toFixed(8), &#34;month&#34;);
+    }
   }
-  window.setInterval(refresh, 100);
+   
+  
 &lt;/script&gt;
 
 
+&lt;style&gt;
+ 
+.title-link {
+  text-decoration: none;
+  color: inherit;  
+  position: relative;  
+}
+
+.arrow {
+  font-size: 0.8em;
+  margin-left: -7px;  
+  position: relative;  
+  top: 0;  
+  vertical-align: middle;  
+  top: -0.4em;  
+  right: -0.5em;  
+}
+&lt;/style&gt;
 
 
 
 
+
+  
+
+
+
+
+  
+  
+  
+  
+  
+  
+  
+    
+  
+  
+   
+  
+
+  
+  
+    
+
+
+
+
+
+  
 
 
 &lt;div class=&#34;container&#34;&gt;
   &lt;div class=&#34;content&#34;&gt;
-    
-    &lt;a href=&#34;&#34; target=&#34;_blank&#34;&gt;
-      &lt;div class=&#34;title&#34;&gt;&lt;/div&gt;
+    &lt;div class=&#34;title&#34;&gt;
       
-      &lt;div class=&#34;body&#34;&gt;&lt;/div&gt;
-    &lt;/a&gt;
-  &lt;/div&gt;
-  &lt;div class=&#34;date&#34;&gt;2024&lt;/div&gt;
-&lt;/div&gt;
-
-
-
-
-
-
-
-
-&lt;div class=&#34;container&#34;&gt;
-  &lt;div class=&#34;content&#34;&gt;
-    
-    &lt;a href=&#34;&#34; target=&#34;_blank&#34;&gt;
-      &lt;div class=&#34;title&#34;&gt;&lt;/div&gt;
+        &lt;a href=&#34;&#34; target=&#34;_blank&#34; class=&#34;title-link&#34;&gt;
+          2021腾讯游戏高校公开课&lt;span class=&#34;arrow&#34;&gt;➚&lt;/span&gt;
+        &lt;/a&gt;
       
-      &lt;div class=&#34;body&#34;&gt;&lt;/div&gt;
-    &lt;/a&gt;
-  &lt;/div&gt;
-  &lt;div class=&#34;date&#34;&gt;2024&lt;/div&gt;
-&lt;/div&gt;
-
-
-
-
-
-
-
-
-&lt;div class=&#34;container&#34;&gt;
-  &lt;div class=&#34;content&#34;&gt;
+    &lt;/div&gt;
     
-    &lt;a href=&#34;&#34; target=&#34;_blank&#34;&gt;
-      &lt;div class=&#34;title&#34;&gt;&lt;/div&gt;
-      
-      &lt;div class=&#34;body&#34;&gt;&lt;/div&gt;
-    &lt;/a&gt;
-  &lt;/div&gt;
-  &lt;div class=&#34;date&#34;&gt;2024&lt;/div&gt;
-&lt;/div&gt;
-
-
-
-
-
-
-  
-
-
-
-  
-  
-  
-  
-  
-  
-  
-  
-
-  
-  
-  
-
-&lt;div class=&#34;container&#34;&gt;
-  &lt;div class=&#34;content&#34;&gt;
-    
-    &lt;a href=&#34;&#34; target=&#34;_blank&#34;&gt;
-      &lt;div class=&#34;title&#34;&gt;UGDAP中国大学生游戏开发联盟&lt;/div&gt;
-      
       &lt;div class=&#34;moment&#34; &gt;
-          
+        
+           3 months
+        
       &lt;/div&gt;
-      
-      &lt;div class=&#34;body&#34;&gt;为期7日的游戏开发实训，坐标上交大。破冰分组、项目开发，最后制作出一个动作游戏。点击图片查看开发记录。&lt;/div&gt;
-    &lt;/a&gt;
+    
+    &lt;div class=&#34;body&#34;&gt;&lt;ul&gt;
+&lt;li&gt;客户端开发方向&lt;/li&gt;
+&lt;li&gt;系统性课程设计，涵盖基础、系统、语言等各模块，快速熟悉并提升UE4开发技能。结业作品为在官方fpsDemo的基础上增加所学到的功能，并提交开发文档。结业后颁发证书。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
   &lt;/div&gt;
-  &lt;div class=&#34;date&#34;&gt;2021&lt;/div&gt;
+
+  
+  
 &lt;/div&gt;
 
 
 
+&lt;style&gt;
+ 
+.title-link {
+  text-decoration: none;
+  color: inherit;  
+  position: relative;  
+}
+
+.arrow {
+  font-size: 0.8em;
+  margin-left: -7px;  
+  position: relative;  
+  top: 0;  
+  vertical-align: middle;  
+  top: -0.4em;  
+  right: -0.5em;  
+}
+&lt;/style&gt;
 
 
 
+
+
   
 
 
 
-  
-  
-  
-  
-  
-  
-  
-  
 
   
   
   
+  
+  
+  
+  
+    
+  
+  
+   
+  
+
+  
+  
+    
+
+
+
+
+
+  
+
 
 &lt;div class=&#34;container&#34;&gt;
   &lt;div class=&#34;content&#34;&gt;
+    &lt;div class=&#34;title&#34;&gt;
+      
+        罗布乐思（深圳）数码科技有限公司
+      
+    &lt;/div&gt;
     
-    &lt;a href=&#34;#&#34; target=&#34;_blank&#34;&gt;
-      &lt;div class=&#34;title&#34;&gt;机核网游戏创作活动-BOOOM&lt;/div&gt;
-      
       &lt;div class=&#34;moment&#34; &gt;
-          
+        
+           2 months
+        
       &lt;/div&gt;
-      
-      &lt;div class=&#34;body&#34;&gt;由机核网举办的限时、限主题游戏创作活动，这一期的主题是“TIME IS AN ILLUSION 时间是幻觉”，作品为横板2d战斗游戏，附一些解谜内容。&lt;/div&gt;
-    &lt;/a&gt;
+    
+    &lt;div class=&#34;body&#34;&gt;两人小组，使用Roblox官方编辑器与Lua完成一款类大逃杀小游戏的开发和维护工作，负责该游戏的代码逻辑实现。&lt;/div&gt;
   &lt;/div&gt;
-  &lt;div class=&#34;date&#34;&gt;2021&lt;/div&gt;
+
+  
+  
 &lt;/div&gt;
 
+
+
+&lt;style&gt;
+ 
+.title-link {
+  text-decoration: none;
+  color: inherit;  
+  position: relative;  
+}
+
+.arrow {
+  font-size: 0.8em;
+  margin-left: -7px;  
+  position: relative;  
+  top: 0;  
+  vertical-align: middle;  
+  top: -0.4em;  
+  right: -0.5em;  
+}
+&lt;/style&gt;
+
+
+
+
+
+  
+
+
+
+
+  
+  
+  
+  
+  
+  
+  
+    
+  
+    
+   
+    
+
+  
+  
+  
+
+
+
+
+
+  
+
+
+&lt;div class=&#34;container&#34;&gt;
+  &lt;div class=&#34;content&#34;&gt;
+    &lt;div class=&#34;title&#34;&gt;
+      
+        &lt;a href=&#34;&#34; target=&#34;_blank&#34; class=&#34;title-link&#34;&gt;
+          UGDAP中国大学生游戏开发联盟&lt;span class=&#34;arrow&#34;&gt;➚&lt;/span&gt;
+        &lt;/a&gt;
+      
+    &lt;/div&gt;
+    
+      &lt;div class=&#34;moment&#34; &gt;
+        
+          
+        
+      &lt;/div&gt;
+    
+    &lt;div class=&#34;body&#34;&gt;为期7日的游戏开发实训，坐标上交大。破冰分组、项目开发，最后制作出一个动作游戏。点击图片查看开发记录。&lt;/div&gt;
+  &lt;/div&gt;
+
+  
+  
+    &lt;div class=&#34;date&#34;&gt;2021&lt;/div&gt;
+  
+&lt;/div&gt;
+
+
+
+&lt;style&gt;
+ 
+.title-link {
+  text-decoration: none;
+  color: inherit;  
+  position: relative;  
+}
+
+.arrow {
+  font-size: 0.8em;
+  margin-left: -7px;  
+  position: relative;  
+  top: 0;  
+  vertical-align: middle;  
+  top: -0.4em;  
+  right: -0.5em;  
+}
+&lt;/style&gt;
 
 
 &lt;/div&gt;
@@ -18602,19 +18758,22 @@ dechiffre(&amp;quot;\x35\x35\x2c\x35\x36\x2c\x35\x34\x2c\x37\x39\x2c\x31\x31\x35
 
  
 .timeline .content {
-  box-shadow: 0 0 3px 3px #6ad7e5;
+  box-shadow: 0 0 4px 3px #6ad7e5;
   background-color: white;
   position: relative;
   border-radius: 6px;
-  transition: box-shadow 0.3s, background-color 0.3s;  
+  transition: box-shadow 0.1s, background-color 0.1s;  
   padding: 10px;  
 }
 
+
  
-.timeline .container:hover {
-  background-color: #f0f0f0;  
-  box-shadow: 0 0 4px 2px rgba(0, 0, 0, 0.1);  
+.timeline .content:hover {
+   
+   
+  box-shadow: 0 0 4px 8px #6ad7e5;
 }
+
 
  
 .timeline .content .title {
@@ -18636,6 +18795,20 @@ dechiffre(&amp;quot;\x35\x35\x2c\x35\x36\x2c\x35\x34\x2c\x37\x39\x2c\x31\x31\x35
  
 .timeline .content .body {
   padding: 5px 30px;
+  margin: 0;  
+}
+
+ 
+.timeline .content .body ul {
+  margin: 0;  
+  padding: 0;  
+}
+
+ 
+.timeline .content .body ul li {
+  margin: 0;  
+  padding-left: 20px;  
+  list-style-position: inside;  
 }
 
  
@@ -18684,154 +18857,326 @@ dechiffre(&amp;quot;\x35\x35\x2c\x35\x36\x2c\x35\x34\x2c\x37\x39\x2c\x31\x31\x35
   }
 
    
-  .timeline .container:hover {
-    background-color: #2a2f38;  
-    box-shadow: 0 0 4px 2px rgba(255, 255, 255, 0.1);  
+   .timeline .content:hover {
+      
+    box-shadow: 0 0 4px 8px #6ad7e5;  
   }
-}
+
+
+  }
 &lt;/style&gt;
 
 &lt;h2 id=&#34;卡片链接&#34;&gt;卡片链接
-&lt;/h2&gt;&lt;a1 href=&#34;#&#34; target=&#34;_blank&#34;&gt;
-    &lt;div class=&#34;zhengti&#34;&gt;
-        &lt;a href=&#34;#&#34;&gt;
-            &lt;div class=&#34;wenzi&#34;&gt;
-                &lt;div class=&#34;linkk&#34;&gt;
-                    &lt;div class=&#34;namee&#34;&gt;这里是姓名&lt;/div&gt;&lt;div class=&#34;descc&#34;&gt;这里是描述&lt;/div&gt;&lt;/div&gt;
-        &lt;/a&gt;&lt;div class=&#34;linktext&#34;&gt;#&lt;/div&gt;
-
-        &lt;/div&gt;
-        &lt;div class=&#34;daimg&#34;&gt;&lt;img class=&#34;link-card-img&#34; loading=&#34;lazy&#34; src=&#34;25.jpg&#34; alt=&#34;&#34; /&gt; &lt;/div&gt;
-
+&lt;/h2&gt;
+&lt;a href=&#34;https://www.gcores.com/games/133606&#34; target=&#34;_blank&#34; class=&#34;link-card&#34;&gt;
+  &lt;div class=&#34;zhengti&#34;&gt;
+    &lt;div class=&#34;wenzi&#34;&gt;
+      &lt;div class=&#34;linkk&#34;&gt;
+        &lt;div class=&#34;namee&#34;&gt;2024 BOOOM 开发活动&lt;/div&gt;&lt;div class=&#34;descc&#34;&gt;这里是描述&lt;/div&gt;&lt;/div&gt;&lt;div class=&#34;linktext&#34;&gt;https://www.gcores.com/games/133606&lt;/div&gt;
     &lt;/div&gt;
-&lt;/a1&gt;
+    &lt;div class=&#34;daimg&#34;&gt;&lt;img class=&#34;link-card-img&#34; loading=&#34;lazy&#34; src=&#34;ColorfulYou.png&#34; alt=&#34;&#34; /&gt; 
+      &lt;/div&gt;
+  &lt;/div&gt;
+&lt;/a&gt;
 
 &lt;style&gt;
-    a1 {
-        display: flex;
-        flex-direction: column;
-    }
-    
-    .zhengti {
-        margin: auto;
-        padding-top: 4%;
-        padding-right: 4%;
-        padding-bottom: 4%;
-        padding-left: 4%;
-        width: 100%;
-        display: flex;
-        align-items: left;
-        flex-direction: row;
-        border: 1px solid #e5e7eb;
-        border-radius: 20px;
-        background-color: #ffffff;
-        transition: border 0.3s ease-in-out;
-        box-shadow: 2px 4px 16px rgba(0, 0, 0, .05);
-    }
-    
-    .wenzi {
-        display: flex;
-        align-items: left;
-        flex-direction: column;
-        flex: 2;
-    }
-    
-    .zhengti:hover {
-        transform: scale(1.03);
-        box-shadow: 2px 4px 16px rgba(0, 0, 0, .05);
-    }
-    
-    .linkk {
-        display: flex;
-        flex-direction: column;
-    }
-    
-    .iconn {
-        display: flex;
-        align-items: center;
-    }
-    
-    .iconn1 {
-        width: 1.2em;
-        height: 1.2em;
-        margin-right: 0.5em;
-        margin-bottom: 0.2em;
-    }
-    
-    .namee {
-        font-size: 1.7rem;
-        font-weight: 600;
-        margin-bottom: 0.5rem;
-        color: var(--card-text-color-main);
-    }
-    
-    .descc {
-        font-size: 1.3rem;
-        color: #9ca3af;
-        margin-bottom: 0.5rem;
-    }
-    
-    .linktext {
-        font-size: 0.9rem;
-        color: #9ca3af;
-    }
-     
-    
-    .link-card-icoon {
-        width: 16px;
-        height: 16px;
-        margin-right: 0.5rem;
-    }
-     
-    
-    .daimg {
-        display: flex;
-        flex-direction: row;
-        flex: 1;
-        align-self: right;
-    }
-    
-    .link-card-img {
-        display: block;
-        height: auto;
-        max-height: 200px;
-        width: 100%;
-         
-        object-fit: cover;
-        max-width: 50%;
-        margin-right: 2px;
-        border-radius: 0.25rem;
-    }
-    
-    a1:hover {
-        background-color: var(--color-zoom-bg);
-        border: 1px solid var(--theme);
-    }
-    
-    @media (max-width:900px) {
-        a1 {
-            max-height: 25em;
-            overflow-y: auto;
-            padding-right: 4%;
-        }
-        .zhengti {
-            display: flex;
-            flex-direction: column;
-        }
-    }
-    
-    [data-scheme=&#34;dark&#34;] {
-        .zhengti {
-            background-color: #161b22;
-            border: 1px solid #30363d;
-        }
-        .descc {
-            color: #9ca3af;
-        }
-        .linktext {
-            color: #9ca3af;
-        }
-    }
+ 
+.link-card {
+  display: block;
+  text-decoration: none;
+  transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+}
+
+.link-card:hover {
+  transform: scale(1.03);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.zhengti {
+  margin: auto;
+  padding: 4%;
+  width: 100%;
+  display: flex;
+  align-items: left;
+  flex-direction: row;
+  border: 1px solid #e5e7eb;
+  border-radius: 20px;
+  background-color: #ffffff;
+}
+
+.wenzi {
+  display: flex;
+  align-items: left;
+  flex-direction: column;
+  flex: 2;
+}
+
+.link-card-img {
+  display: block;
+  height: auto;
+  max-height: 200px;
+  width: 100%;
+  object-fit: cover;
+  max-width: 50%;
+  margin-right: 2px;
+  border-radius: 0.25rem;
+}
+
+@media (max-width:900px) {
+  .link-card {
+    max-height: 25em;
+    overflow-y: auto;
+    padding-right: 4%;
+  }
+  .zhengti {
+    display: flex;
+    flex-direction: column;
+  }
+}
+
+[data-scheme=&#34;dark&#34;] .zhengti {
+  background-color: #161b22;
+  border: 1px solid #30363d;
+}
+
+[data-scheme=&#34;dark&#34;] .descc,
+[data-scheme=&#34;dark&#34;] .linktext {
+  color: #9ca3af;
+}
+&lt;/style&gt;
+
+
+&lt;a href=&#34;https://www.gmhub.com/jams/ggj2022&#34; target=&#34;_blank&#34; class=&#34;link-card&#34;&gt;
+  &lt;div class=&#34;zhengti&#34;&gt;
+    &lt;div class=&#34;wenzi&#34;&gt;
+      &lt;div class=&#34;linkk&#34;&gt;
+        &lt;div class=&#34;namee&#34;&gt;2022 Global Game Jam&lt;/div&gt;&lt;div class=&#34;descc&#34;&gt;本次开发主题：”duality“,作品为类似I wanna的横板过关游戏，存在一定的难度，测试的时候把自己坑到了。&lt;/div&gt;&lt;/div&gt;&lt;div class=&#34;linktext&#34;&gt;https://www.gmhub.com/jams/ggj2022&lt;/div&gt;
+    &lt;/div&gt;
+    &lt;div class=&#34;daimg&#34;&gt;&lt;img class=&#34;link-card-img&#34; loading=&#34;lazy&#34; src=&#34;%e6%b0%b8%e5%a4%9c%e4%b9%8b%e4%b8%8b.png&#34; alt=&#34;&#34; /&gt; 
+      &lt;/div&gt;
+  &lt;/div&gt;
+&lt;/a&gt;
+
+&lt;style&gt;
+ 
+.link-card {
+  display: block;
+  text-decoration: none;
+  transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+}
+
+.link-card:hover {
+  transform: scale(1.03);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.zhengti {
+  margin: auto;
+  padding: 4%;
+  width: 100%;
+  display: flex;
+  align-items: left;
+  flex-direction: row;
+  border: 1px solid #e5e7eb;
+  border-radius: 20px;
+  background-color: #ffffff;
+}
+
+.wenzi {
+  display: flex;
+  align-items: left;
+  flex-direction: column;
+  flex: 2;
+}
+
+.link-card-img {
+  display: block;
+  height: auto;
+  max-height: 200px;
+  width: 100%;
+  object-fit: cover;
+  max-width: 50%;
+  margin-right: 2px;
+  border-radius: 0.25rem;
+}
+
+@media (max-width:900px) {
+  .link-card {
+    max-height: 25em;
+    overflow-y: auto;
+    padding-right: 4%;
+  }
+  .zhengti {
+    display: flex;
+    flex-direction: column;
+  }
+}
+
+[data-scheme=&#34;dark&#34;] .zhengti {
+  background-color: #161b22;
+  border: 1px solid #30363d;
+}
+
+[data-scheme=&#34;dark&#34;] .descc,
+[data-scheme=&#34;dark&#34;] .linktext {
+  color: #9ca3af;
+}
+&lt;/style&gt;
+
+
+&lt;a href=&#34;https://game.academy.163.com/event/mg?page=works&amp;amp;currentStep=40&amp;amp;currentTrack=0&amp;amp;query=&amp;amp;order=2&amp;amp;pageNum=1&#34; target=&#34;_blank&#34; class=&#34;link-card&#34;&gt;
+  &lt;div class=&#34;zhengti&#34;&gt;
+    &lt;div class=&#34;wenzi&#34;&gt;
+      &lt;div class=&#34;linkk&#34;&gt;
+        &lt;div class=&#34;namee&#34;&gt;2021网易MINI-GAME挑战赛&lt;/div&gt;&lt;div class=&#34;descc&#34;&gt;初赛主题为“戏”，作品为横版探索叙事游戏，游戏美术风格为2D与3D结合，内含故事探索、演绎玩法等。拿到了初赛人气奖第四。&lt;/div&gt;&lt;/div&gt;&lt;div class=&#34;linktext&#34;&gt;https://game.academy.163.com/event/mg?page=works&amp;amp;currentStep=40&amp;amp;currentTrack=0&amp;amp;query=&amp;amp;order=2&amp;amp;pageNum=1&lt;/div&gt;
+    &lt;/div&gt;
+    &lt;div class=&#34;daimg&#34;&gt;&lt;img class=&#34;link-card-img&#34; loading=&#34;lazy&#34; src=&#34;%e6%88%8f%e5%b9%95%e6%9c%aa%e8%90%bd.jpg&#34; alt=&#34;&#34; /&gt; 
+      &lt;/div&gt;
+  &lt;/div&gt;
+&lt;/a&gt;
+
+&lt;style&gt;
+ 
+.link-card {
+  display: block;
+  text-decoration: none;
+  transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+}
+
+.link-card:hover {
+  transform: scale(1.03);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.zhengti {
+  margin: auto;
+  padding: 4%;
+  width: 100%;
+  display: flex;
+  align-items: left;
+  flex-direction: row;
+  border: 1px solid #e5e7eb;
+  border-radius: 20px;
+  background-color: #ffffff;
+}
+
+.wenzi {
+  display: flex;
+  align-items: left;
+  flex-direction: column;
+  flex: 2;
+}
+
+.link-card-img {
+  display: block;
+  height: auto;
+  max-height: 200px;
+  width: 100%;
+  object-fit: cover;
+  max-width: 50%;
+  margin-right: 2px;
+  border-radius: 0.25rem;
+}
+
+@media (max-width:900px) {
+  .link-card {
+    max-height: 25em;
+    overflow-y: auto;
+    padding-right: 4%;
+  }
+  .zhengti {
+    display: flex;
+    flex-direction: column;
+  }
+}
+
+[data-scheme=&#34;dark&#34;] .zhengti {
+  background-color: #161b22;
+  border: 1px solid #30363d;
+}
+
+[data-scheme=&#34;dark&#34;] .descc,
+[data-scheme=&#34;dark&#34;] .linktext {
+  color: #9ca3af;
+}
+&lt;/style&gt;
+
+
+&lt;a href=&#34;https://www.gcores.com/games/67514&#34; target=&#34;_blank&#34; class=&#34;link-card&#34;&gt;
+  &lt;div class=&#34;zhengti&#34;&gt;
+    &lt;div class=&#34;wenzi&#34;&gt;
+      &lt;div class=&#34;linkk&#34;&gt;
+        &lt;div class=&#34;namee&#34;&gt;2021 BOOOM 开发活动&lt;/div&gt;&lt;div class=&#34;descc&#34;&gt;由机核网举办的限时、限主题游戏创作活动，这一期的主题是“TIME IS AN ILLUSION 时间是幻觉”，作品为横板2d战斗游戏，附一些解谜内容。&lt;/div&gt;&lt;/div&gt;&lt;div class=&#34;linktext&#34;&gt;https://www.gcores.com/games/67514&lt;/div&gt;
+    &lt;/div&gt;
+    &lt;div class=&#34;daimg&#34;&gt;&lt;img class=&#34;link-card-img&#34; loading=&#34;lazy&#34; src=&#34;GanderCompany.png&#34; alt=&#34;&#34; /&gt; 
+      &lt;/div&gt;
+  &lt;/div&gt;
+&lt;/a&gt;
+
+&lt;style&gt;
+ 
+.link-card {
+  display: block;
+  text-decoration: none;
+  transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+}
+
+.link-card:hover {
+  transform: scale(1.03);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.zhengti {
+  margin: auto;
+  padding: 4%;
+  width: 100%;
+  display: flex;
+  align-items: left;
+  flex-direction: row;
+  border: 1px solid #e5e7eb;
+  border-radius: 20px;
+  background-color: #ffffff;
+}
+
+.wenzi {
+  display: flex;
+  align-items: left;
+  flex-direction: column;
+  flex: 2;
+}
+
+.link-card-img {
+  display: block;
+  height: auto;
+  max-height: 200px;
+  width: 100%;
+  object-fit: cover;
+  max-width: 50%;
+  margin-right: 2px;
+  border-radius: 0.25rem;
+}
+
+@media (max-width:900px) {
+  .link-card {
+    max-height: 25em;
+    overflow-y: auto;
+    padding-right: 4%;
+  }
+  .zhengti {
+    display: flex;
+    flex-direction: column;
+  }
+}
+
+[data-scheme=&#34;dark&#34;] .zhengti {
+  background-color: #161b22;
+  border: 1px solid #30363d;
+}
+
+[data-scheme=&#34;dark&#34;] .descc,
+[data-scheme=&#34;dark&#34;] .linktext {
+  color: #9ca3af;
+}
 &lt;/style&gt;
 
 </description>
