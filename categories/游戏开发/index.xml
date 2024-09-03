@@ -13,7 +13,7 @@
         <pubDate>Fri, 23 Sep 2022 07:50:00 +0000</pubDate>
         
         <guid>https://dorinxl.github.io/p/%E4%BD%BF%E7%94%A8mixamo%E4%B8%BAobj%E6%96%87%E4%BB%B6%E7%BB%91%E9%AA%A8%E5%B9%B6%E5%AF%BC%E5%85%A5unity/</guid>
-        <description>&lt;h2 id=&#34;绑骨&#34;&gt;绑骨
+        <description>&lt;img src="https://dorinxl.github.io/p/%E4%BD%BF%E7%94%A8mixamo%E4%B8%BAobj%E6%96%87%E4%BB%B6%E7%BB%91%E9%AA%A8%E5%B9%B6%E5%AF%BC%E5%85%A5unity/mixamo.png" alt="Featured image of post 使用mixamo为obj文件绑骨并导入unity" /&gt;&lt;h2 id=&#34;绑骨&#34;&gt;绑骨
 &lt;/h2&gt;&lt;p&gt;首先我们手里要准备好模型文件，mixamo支持FBX/OBJ/ZIP压缩包，这里以obj文件为例。&lt;/p&gt;
 &lt;p&gt;我们手中的obj文件一般由贴图文件、obj文件和mtl文件组成（素材来源于网络）：&lt;/p&gt;
 &lt;p&gt;&lt;img src=&#34;https://dorinxl.github.io/p/%E4%BD%BF%E7%94%A8mixamo%E4%B8%BAobj%E6%96%87%E4%BB%B6%E7%BB%91%E9%AA%A8%E5%B9%B6%E5%AF%BC%E5%85%A5unity/1858293-20220923154639130-340735990.png&#34;
@@ -175,26 +175,26 @@
 &lt;p&gt;​	在创建Unity Shader时，unity为我们提供了四种模板：&lt;/p&gt;
 &lt;p&gt;​&lt;/p&gt;
 &lt;table&gt;
-&lt;thead&gt;
-&lt;tr&gt;
-&lt;th&gt;Standard Surface Shader&lt;/th&gt;
-&lt;th&gt;产生一个包含标准光照模型的表面着色器模板&lt;/th&gt;
-&lt;/tr&gt;
-&lt;/thead&gt;
-&lt;tbody&gt;
-&lt;tr&gt;
-&lt;td&gt;Unlit Shader&lt;/td&gt;
-&lt;td&gt;不包含光照（但包含雾效）的基本的顶点/片元着色器&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;Image Effect Shader&lt;/td&gt;
-&lt;td&gt;为各种屏幕后处理效果提供基本模板&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;Compute Shader&lt;/td&gt;
-&lt;td&gt;利用GPC的并行性来进行一些与常规渲染流水线无关的计算&lt;/td&gt;
-&lt;/tr&gt;
-&lt;/tbody&gt;
+  &lt;thead&gt;
+      &lt;tr&gt;
+          &lt;th style=&#34;text-align: left&#34;&gt;Standard Surface Shader&lt;/th&gt;
+          &lt;th style=&#34;text-align: left&#34;&gt;产生一个包含标准光照模型的表面着色器模板&lt;/th&gt;
+      &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+      &lt;tr&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;Unlit Shader&lt;/td&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;不包含光照（但包含雾效）的基本的顶点/片元着色器&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;Image Effect Shader&lt;/td&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;为各种屏幕后处理效果提供基本模板&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;Compute Shader&lt;/td&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;利用GPC的并行性来进行一些与常规渲染流水线无关的计算&lt;/td&gt;
+      &lt;/tr&gt;
+  &lt;/tbody&gt;
 &lt;/table&gt;
 &lt;p&gt;​	由于《入门精要》这本书重点在如何在Unity中编写顶点/片元着色器，后续学习中通常会用Unlit Shader来生成一个基本的顶点/片元着色器模板。&lt;/p&gt;
 &lt;p&gt;​	单独的Unity Shader不能发挥作用，必须同材质material结合起来。其本质上是一个文本文件，Unity Shader的导入设置面板可以看到该shader的一些相关信息（例如是否是固定函数着色器(fixed function)、是否投射阴影(cast shadows)、使用的渲染队列(Render queue)、属性(properties)列表等）。&lt;/p&gt;
@@ -286,55 +286,55 @@
 &lt;/div&gt;&lt;p&gt;​	属性的名字通常用一个&lt;strong&gt;下划线&lt;/strong&gt;开始。显示名字是出现在材质面板上的名字，同时需要指定类型和默认值。&lt;/p&gt;
 &lt;p&gt;​	以下是Properties语义块支持的属性类型:&lt;/p&gt;
 &lt;table&gt;
-&lt;thead&gt;
-&lt;tr&gt;
-&lt;th style=&#34;text-align:left&#34;&gt;属性类型&lt;/th&gt;
-&lt;th style=&#34;text-align:left&#34;&gt;默认值的定义语法&lt;/th&gt;
-&lt;th style=&#34;text-align:left&#34;&gt;例子&lt;/th&gt;
-&lt;/tr&gt;
-&lt;/thead&gt;
-&lt;tbody&gt;
-&lt;tr&gt;
-&lt;td style=&#34;text-align:left&#34;&gt;Int&lt;/td&gt;
-&lt;td style=&#34;text-align:left&#34;&gt;number&lt;/td&gt;
-&lt;td style=&#34;text-align:left&#34;&gt;_Int(&amp;ldquo;Int&amp;rdquo;,Int) = 2&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td style=&#34;text-align:left&#34;&gt;Float&lt;/td&gt;
-&lt;td style=&#34;text-align:left&#34;&gt;number&lt;/td&gt;
-&lt;td style=&#34;text-align:left&#34;&gt;_Float(&amp;ldquo;Float&amp;rdquo;,Float) = 1.5&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td style=&#34;text-align:left&#34;&gt;Range(min,max)&lt;/td&gt;
-&lt;td style=&#34;text-align:left&#34;&gt;number&lt;/td&gt;
-&lt;td style=&#34;text-align:left&#34;&gt;_Range(&amp;ldquo;Range&amp;rdquo;,Range(0.0,5.0)) = 3.0&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td style=&#34;text-align:left&#34;&gt;Color&lt;/td&gt;
-&lt;td style=&#34;text-align:left&#34;&gt;(number,number,number,number)&lt;/td&gt;
-&lt;td style=&#34;text-align:left&#34;&gt;_Color(&amp;ldquo;Color&amp;rdquo;,Color) = (1,1,1,1)&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td style=&#34;text-align:left&#34;&gt;Vector&lt;/td&gt;
-&lt;td style=&#34;text-align:left&#34;&gt;(number,number,number,number)&lt;/td&gt;
-&lt;td style=&#34;text-align:left&#34;&gt;_Vector(&amp;ldquo;Vector&amp;rdquo;,Vector) = (6,2,3,1)&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td style=&#34;text-align:left&#34;&gt;2D&lt;/td&gt;
-&lt;td style=&#34;text-align:left&#34;&gt;&amp;ldquo;defaulttexture&amp;rdquo;{}&lt;/td&gt;
-&lt;td style=&#34;text-align:left&#34;&gt;_2D(&amp;ldquo;2D&amp;rdquo;,2D) = &amp;ldquo;&amp;rdquo;{}&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td style=&#34;text-align:left&#34;&gt;Cube&lt;/td&gt;
-&lt;td style=&#34;text-align:left&#34;&gt;&amp;ldquo;defaulttexture&amp;rdquo;{}&lt;/td&gt;
-&lt;td style=&#34;text-align:left&#34;&gt;_Cube(“Cube”,Cube) = &amp;ldquo;white&amp;rdquo;{}&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td style=&#34;text-align:left&#34;&gt;3D&lt;/td&gt;
-&lt;td style=&#34;text-align:left&#34;&gt;&amp;ldquo;defaulttexture&amp;rdquo;{}&lt;/td&gt;
-&lt;td style=&#34;text-align:left&#34;&gt;_3D(&amp;ldquo;3D&amp;rdquo;,3D) = &amp;ldquo;black&amp;rdquo;{}&lt;/td&gt;
-&lt;/tr&gt;
-&lt;/tbody&gt;
+  &lt;thead&gt;
+      &lt;tr&gt;
+          &lt;th style=&#34;text-align: left&#34;&gt;属性类型&lt;/th&gt;
+          &lt;th style=&#34;text-align: left&#34;&gt;默认值的定义语法&lt;/th&gt;
+          &lt;th style=&#34;text-align: left&#34;&gt;例子&lt;/th&gt;
+      &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+      &lt;tr&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;Int&lt;/td&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;number&lt;/td&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;_Int(&amp;ldquo;Int&amp;rdquo;,Int) = 2&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;Float&lt;/td&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;number&lt;/td&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;_Float(&amp;ldquo;Float&amp;rdquo;,Float) = 1.5&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;Range(min,max)&lt;/td&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;number&lt;/td&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;_Range(&amp;ldquo;Range&amp;rdquo;,Range(0.0,5.0)) = 3.0&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;Color&lt;/td&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;(number,number,number,number)&lt;/td&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;_Color(&amp;ldquo;Color&amp;rdquo;,Color) = (1,1,1,1)&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;Vector&lt;/td&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;(number,number,number,number)&lt;/td&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;_Vector(&amp;ldquo;Vector&amp;rdquo;,Vector) = (6,2,3,1)&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;2D&lt;/td&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;&amp;ldquo;defaulttexture&amp;rdquo;{}&lt;/td&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;_2D(&amp;ldquo;2D&amp;rdquo;,2D) = &amp;ldquo;&amp;rdquo;{}&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;Cube&lt;/td&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;&amp;ldquo;defaulttexture&amp;rdquo;{}&lt;/td&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;_Cube(“Cube”,Cube) = &amp;ldquo;white&amp;rdquo;{}&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;3D&lt;/td&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;&amp;ldquo;defaulttexture&amp;rdquo;{}&lt;/td&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;_3D(&amp;ldquo;3D&amp;rdquo;,3D) = &amp;ldquo;black&amp;rdquo;{}&lt;/td&gt;
+      &lt;/tr&gt;
+  &lt;/tbody&gt;
 &lt;/table&gt;
 &lt;p&gt;​	Int、Float、Range：数字类型的属性，默认值是单独的数字。&lt;/p&gt;
 &lt;p&gt;​	Color、Vector：默认值是括号包围的四维向量。&lt;/p&gt;
@@ -514,7 +514,7 @@
         <pubDate>Sat, 21 May 2022 14:23:00 +0000</pubDate>
         
         <guid>https://dorinxl.github.io/p/2022javaweb%E8%AF%BE%E8%AE%BE%E5%9F%BA%E4%BA%8E%E8%B4%AD%E7%89%A9%E7%B3%BB%E7%BB%9F%E7%9A%84%E6%B8%B8%E6%88%8F%E5%8E%9F%E5%9E%8B%E8%AE%BE%E8%AE%A1/</guid>
-        <description>&lt;h2 id=&#34;会议记录&#34;&gt;会议记录
+        <description>&lt;img src="https://dorinxl.github.io/p/2022javaweb%E8%AF%BE%E8%AE%BE%E5%9F%BA%E4%BA%8E%E8%B4%AD%E7%89%A9%E7%B3%BB%E7%BB%9F%E7%9A%84%E6%B8%B8%E6%88%8F%E5%8E%9F%E5%9E%8B%E8%AE%BE%E8%AE%A1/Welcome2.jpg" alt="Featured image of post 【2022javaweb课设】基于购物系统的游戏原型设计" /&gt;&lt;h2 id=&#34;会议记录&#34;&gt;会议记录
 &lt;/h2&gt;&lt;h3 id=&#34;day1-2022520-晚&#34;&gt;Day1 2022/5/20 晚
 &lt;/h3&gt;&lt;p&gt;确定小组成员。&lt;/p&gt;
 &lt;p&gt;确定立项题目与方向：基于商城系统的游戏原型设计。&lt;/p&gt;
@@ -630,7 +630,7 @@
 	srcset=&#34;https://dorinxl.github.io/p/2022javaweb%E8%AF%BE%E8%AE%BE%E5%9F%BA%E4%BA%8E%E8%B4%AD%E7%89%A9%E7%B3%BB%E7%BB%9F%E7%9A%84%E6%B8%B8%E6%88%8F%E5%8E%9F%E5%9E%8B%E8%AE%BE%E8%AE%A1/1858293-20220604154345852-1297586329_hu9882075956850767550.png 480w, https://dorinxl.github.io/p/2022javaweb%E8%AF%BE%E8%AE%BE%E5%9F%BA%E4%BA%8E%E8%B4%AD%E7%89%A9%E7%B3%BB%E7%BB%9F%E7%9A%84%E6%B8%B8%E6%88%8F%E5%8E%9F%E5%9E%8B%E8%AE%BE%E8%AE%A1/1858293-20220604154345852-1297586329_hu12541126382259433949.png 1024w&#34;
 	loading=&#34;lazy&#34;
 	
-		alt=&#34;登录&#34;
+		alt=&#34;逻辑&#34;
 	
 	
 		class=&#34;gallery-image&#34; 
@@ -645,20 +645,6 @@
 &lt;li&gt;url导入背景图片，改变其背景透明，透明度通过rgba（）实现。&lt;/li&gt;
 &lt;li&gt;界面布局高度不一致，尝试用flex修改&lt;/li&gt;
 &lt;/ol&gt;
-&lt;p&gt;&lt;img src=&#34;https://dorinxl.github.io/p/2022javaweb%E8%AF%BE%E8%AE%BE%E5%9F%BA%E4%BA%8E%E8%B4%AD%E7%89%A9%E7%B3%BB%E7%BB%9F%E7%9A%84%E6%B8%B8%E6%88%8F%E5%8E%9F%E5%9E%8B%E8%AE%BE%E8%AE%A1/1858293-20220604154347919-1098005980.png&#34;
-	width=&#34;1061&#34;
-	height=&#34;718&#34;
-	srcset=&#34;https://dorinxl.github.io/p/2022javaweb%E8%AF%BE%E8%AE%BE%E5%9F%BA%E4%BA%8E%E8%B4%AD%E7%89%A9%E7%B3%BB%E7%BB%9F%E7%9A%84%E6%B8%B8%E6%88%8F%E5%8E%9F%E5%9E%8B%E8%AE%BE%E8%AE%A1/1858293-20220604154347919-1098005980_hu6873870499846169469.png 480w, https://dorinxl.github.io/p/2022javaweb%E8%AF%BE%E8%AE%BE%E5%9F%BA%E4%BA%8E%E8%B4%AD%E7%89%A9%E7%B3%BB%E7%BB%9F%E7%9A%84%E6%B8%B8%E6%88%8F%E5%8E%9F%E5%9E%8B%E8%AE%BE%E8%AE%A1/1858293-20220604154347919-1098005980_hu12237455489209668512.png 1024w&#34;
-	loading=&#34;lazy&#34;
-	
-		alt=&#34;进入商店&#34;
-	
-	
-		class=&#34;gallery-image&#34; 
-		data-flex-grow=&#34;147&#34;
-		data-flex-basis=&#34;354px&#34;
-	
-&gt;&lt;/p&gt;
 &lt;h3 id=&#34;day7-2022526&#34;&gt;Day7 2022/5/26
 &lt;/h3&gt;&lt;h4 id=&#34;今日任务-5&#34;&gt;今日任务：
 &lt;/h4&gt;&lt;ol&gt;
@@ -672,16 +658,6 @@
 &lt;p&gt;装备刷新使用正态分布生成概率5% 12% 25% 28% 30%（线性）&lt;/p&gt;
 &lt;p&gt;500 500&lt;del&gt;1700 1700&lt;/del&gt;4200 4200&lt;del&gt;7000 7000&lt;/del&gt;10000&lt;/p&gt;
 &lt;p&gt;整体流程：Store.jsp-&amp;gt;GachaServlet-&amp;gt;DAO-&amp;gt;Servlet-&amp;gt;Store.jsp&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;C:%5cUsers%5c97478%5cAppData%5cRoaming%5cTypora%5ctypora-user-images%5cimage-20220604150807588.png&#34;
-	
-	
-	
-	loading=&#34;lazy&#34;
-	
-		alt=&#34;image-20220604150807588&#34;
-	
-	
-&gt;&lt;/p&gt;
 &lt;/li&gt;
 &lt;/ol&gt;
 &lt;h3 id=&#34;day8-2022527&#34;&gt;Day8 2022/5/27
@@ -694,15 +670,61 @@
 &lt;li&gt;完成PPT，完成视频展示，丰富数据库，找背景图以及怪物图。&lt;/li&gt;
 &lt;li&gt;顺利完成答辩。&lt;/li&gt;
 &lt;/ol&gt;
-&lt;h3 id=&#34;一些自己编的数据库&#34;&gt;一些自己编的数据库：
-&lt;/h3&gt;&lt;p&gt;&lt;img src=&#34;C:%5cUsers%5c97478%5cAppData%5cRoaming%5cTypora%5ctypora-user-images%5cimage-20220604151755876.png&#34;
-	
-	
-	
+&lt;h3 id=&#34;最终界面&#34;&gt;最终界面：
+&lt;/h3&gt;&lt;p&gt;&lt;img src=&#34;https://dorinxl.github.io/p/2022javaweb%E8%AF%BE%E8%AE%BE%E5%9F%BA%E4%BA%8E%E8%B4%AD%E7%89%A9%E7%B3%BB%E7%BB%9F%E7%9A%84%E6%B8%B8%E6%88%8F%E5%8E%9F%E5%9E%8B%E8%AE%BE%E8%AE%A1/%E6%AC%A2%E8%BF%8E%E9%A1%B5%E9%9D%A2.png&#34;
+	width=&#34;1920&#34;
+	height=&#34;1080&#34;
+	srcset=&#34;https://dorinxl.github.io/p/2022javaweb%E8%AF%BE%E8%AE%BE%E5%9F%BA%E4%BA%8E%E8%B4%AD%E7%89%A9%E7%B3%BB%E7%BB%9F%E7%9A%84%E6%B8%B8%E6%88%8F%E5%8E%9F%E5%9E%8B%E8%AE%BE%E8%AE%A1/%E6%AC%A2%E8%BF%8E%E9%A1%B5%E9%9D%A2_hu17482875312594590690.png 480w, https://dorinxl.github.io/p/2022javaweb%E8%AF%BE%E8%AE%BE%E5%9F%BA%E4%BA%8E%E8%B4%AD%E7%89%A9%E7%B3%BB%E7%BB%9F%E7%9A%84%E6%B8%B8%E6%88%8F%E5%8E%9F%E5%9E%8B%E8%AE%BE%E8%AE%A1/%E6%AC%A2%E8%BF%8E%E9%A1%B5%E9%9D%A2_hu3318891287527836638.png 1024w&#34;
 	loading=&#34;lazy&#34;
 	
-		alt=&#34;image-20220604151755876&#34;
+		alt=&#34;欢迎页面&#34;
 	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;177&#34;
+		data-flex-basis=&#34;426px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://dorinxl.github.io/p/2022javaweb%E8%AF%BE%E8%AE%BE%E5%9F%BA%E4%BA%8E%E8%B4%AD%E7%89%A9%E7%B3%BB%E7%BB%9F%E7%9A%84%E6%B8%B8%E6%88%8F%E5%8E%9F%E5%9E%8B%E8%AE%BE%E8%AE%A1/%E5%95%86%E5%BA%97%E9%A1%B5%E9%9D%A2.png&#34;
+	width=&#34;1920&#34;
+	height=&#34;1080&#34;
+	srcset=&#34;https://dorinxl.github.io/p/2022javaweb%E8%AF%BE%E8%AE%BE%E5%9F%BA%E4%BA%8E%E8%B4%AD%E7%89%A9%E7%B3%BB%E7%BB%9F%E7%9A%84%E6%B8%B8%E6%88%8F%E5%8E%9F%E5%9E%8B%E8%AE%BE%E8%AE%A1/%E5%95%86%E5%BA%97%E9%A1%B5%E9%9D%A2_hu13555428504231686975.png 480w, https://dorinxl.github.io/p/2022javaweb%E8%AF%BE%E8%AE%BE%E5%9F%BA%E4%BA%8E%E8%B4%AD%E7%89%A9%E7%B3%BB%E7%BB%9F%E7%9A%84%E6%B8%B8%E6%88%8F%E5%8E%9F%E5%9E%8B%E8%AE%BE%E8%AE%A1/%E5%95%86%E5%BA%97%E9%A1%B5%E9%9D%A2_hu4719192686265754263.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;商店页面&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;177&#34;
+		data-flex-basis=&#34;426px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://dorinxl.github.io/p/2022javaweb%E8%AF%BE%E8%AE%BE%E5%9F%BA%E4%BA%8E%E8%B4%AD%E7%89%A9%E7%B3%BB%E7%BB%9F%E7%9A%84%E6%B8%B8%E6%88%8F%E5%8E%9F%E5%9E%8B%E8%AE%BE%E8%AE%A1/%E6%88%98%E6%96%97%E9%A1%B5%E9%9D%A2.png&#34;
+	width=&#34;1899&#34;
+	height=&#34;889&#34;
+	srcset=&#34;https://dorinxl.github.io/p/2022javaweb%E8%AF%BE%E8%AE%BE%E5%9F%BA%E4%BA%8E%E8%B4%AD%E7%89%A9%E7%B3%BB%E7%BB%9F%E7%9A%84%E6%B8%B8%E6%88%8F%E5%8E%9F%E5%9E%8B%E8%AE%BE%E8%AE%A1/%E6%88%98%E6%96%97%E9%A1%B5%E9%9D%A2_hu13589104296129632743.png 480w, https://dorinxl.github.io/p/2022javaweb%E8%AF%BE%E8%AE%BE%E5%9F%BA%E4%BA%8E%E8%B4%AD%E7%89%A9%E7%B3%BB%E7%BB%9F%E7%9A%84%E6%B8%B8%E6%88%8F%E5%8E%9F%E5%9E%8B%E8%AE%BE%E8%AE%A1/%E6%88%98%E6%96%97%E9%A1%B5%E9%9D%A2_hu10292648484601390534.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;战斗页面&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;213&#34;
+		data-flex-basis=&#34;512px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://dorinxl.github.io/p/2022javaweb%E8%AF%BE%E8%AE%BE%E5%9F%BA%E4%BA%8E%E8%B4%AD%E7%89%A9%E7%B3%BB%E7%BB%9F%E7%9A%84%E6%B8%B8%E6%88%8F%E5%8E%9F%E5%9E%8B%E8%AE%BE%E8%AE%A1/1858293-20220604154347919-1098005980.png&#34;
+	width=&#34;1061&#34;
+	height=&#34;718&#34;
+	srcset=&#34;https://dorinxl.github.io/p/2022javaweb%E8%AF%BE%E8%AE%BE%E5%9F%BA%E4%BA%8E%E8%B4%AD%E7%89%A9%E7%B3%BB%E7%BB%9F%E7%9A%84%E6%B8%B8%E6%88%8F%E5%8E%9F%E5%9E%8B%E8%AE%BE%E8%AE%A1/1858293-20220604154347919-1098005980_hu6873870499846169469.png 480w, https://dorinxl.github.io/p/2022javaweb%E8%AF%BE%E8%AE%BE%E5%9F%BA%E4%BA%8E%E8%B4%AD%E7%89%A9%E7%B3%BB%E7%BB%9F%E7%9A%84%E6%B8%B8%E6%88%8F%E5%8E%9F%E5%9E%8B%E8%AE%BE%E8%AE%A1/1858293-20220604154347919-1098005980_hu12237455489209668512.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;装备数据库&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;147&#34;
+		data-flex-basis=&#34;354px&#34;
 	
 &gt;&lt;/p&gt;
 &lt;h3 id=&#34;使用的素材&#34;&gt;使用的素材：
@@ -722,7 +744,7 @@
         <pubDate>Mon, 01 Nov 2021 09:03:00 +0000</pubDate>
         
         <guid>https://dorinxl.github.io/p/%E5%BC%80%E5%8F%91%E5%A4%8D%E7%9B%982021%E7%BD%91%E6%98%93%E6%B8%B8%E6%88%8F%E9%AB%98%E6%A0%A1mini-game%E6%8C%91%E6%88%98%E8%B5%9B%E4%BD%9C%E5%93%81%E6%88%8F%E5%B9%95%E6%9C%AA%E8%90%BD/</guid>
-        <description>&lt;h1 id=&#34;开发复盘2021网易游戏高校mini-game挑战赛作品戏幕未落&#34;&gt;【开发复盘】2021网易游戏高校MINI-GAME挑战赛作品《戏幕未落》
+        <description>&lt;img src="https://dorinxl.github.io/p/%E5%BC%80%E5%8F%91%E5%A4%8D%E7%9B%982021%E7%BD%91%E6%98%93%E6%B8%B8%E6%88%8F%E9%AB%98%E6%A0%A1mini-game%E6%8C%91%E6%88%98%E8%B5%9B%E4%BD%9C%E5%93%81%E6%88%8F%E5%B9%95%E6%9C%AA%E8%90%BD/%E6%88%8F%E5%B9%95%E6%9C%AA%E8%90%BD.jpg" alt="Featured image of post 【开发复盘】2021网易游戏高校MINI-GAME挑战赛作品《戏幕未落》" /&gt;&lt;h1 id=&#34;开发复盘2021网易游戏高校mini-game挑战赛作品戏幕未落&#34;&gt;【开发复盘】2021网易游戏高校MINI-GAME挑战赛作品《戏幕未落》
 &lt;/h1&gt;&lt;p&gt;欢迎大家给我们投票！
 &lt;a class=&#34;link&#34; href=&#34;https://game.academy.163.com/event/mg?page=works&amp;amp;id=2443&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
     &gt;https://game.academy.163.com/event/mg?page=works&amp;id=2443&lt;/a&gt;&lt;/p&gt;
@@ -1049,7 +1071,7 @@
         <pubDate>Tue, 27 Jul 2021 15:51:00 +0000</pubDate>
         
         <guid>https://dorinxl.github.io/p/ugdap%E4%B8%8A%E6%B5%B7%E4%B8%80%E5%91%A8%E8%87%AA%E7%94%B1%E8%A1%8C%E7%BB%93%E6%9D%9F/</guid>
-        <description>&lt;h1 id=&#34;上海一周自由行结束&#34;&gt;上海一周自由行结束!
+        <description>&lt;img src="https://dorinxl.github.io/p/ugdap%E4%B8%8A%E6%B5%B7%E4%B8%80%E5%91%A8%E8%87%AA%E7%94%B1%E8%A1%8C%E7%BB%93%E6%9D%9F/b&amp;ek=1&amp;kp=1&amp;pt=0&amp;bo=WAIgA1gCIAMRECc%21&amp;t=5&amp;tl=3&amp;su=0196274450&amp;tm=1627398000&amp;sce=0-12-12&amp;rf=2-9.jpg" alt="Featured image of post 【UGDAP】上海一周自由行结束!" /&gt;&lt;h1 id=&#34;上海一周自由行结束&#34;&gt;上海一周自由行结束!
 &lt;/h1&gt;&lt;h5 id=&#34;指每天在宾馆爆肝代码好不容易有时间了还遇上台风哪也没去的一周&#34;&gt;指每天在宾馆爆肝代码，好不容易有时间了还遇上台风哪也没去的一周。
 &lt;/h5&gt;&lt;p&gt;​                                                &lt;img src=&#34;https://dorinxl.github.io/p/ugdap%E4%B8%8A%E6%B5%B7%E4%B8%80%E5%91%A8%E8%87%AA%E7%94%B1%E8%A1%8C%E7%BB%93%E6%9D%9F/b&amp;amp;ek=1&amp;amp;kp=1&amp;amp;pt=0&amp;amp;bo=WAIgA1gCIAMRECc%21&amp;amp;t=5&amp;amp;tl=3&amp;amp;su=056548530&amp;amp;tm=1627398000&amp;amp;sce=0-12-12&amp;amp;rf=2-9.jpg&#34;
 	width=&#34;600&#34;

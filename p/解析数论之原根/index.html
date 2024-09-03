@@ -1,22 +1,19 @@
 <!DOCTYPE html>
 <html lang="zh-cn" dir="ltr">
     <head><meta charset='utf-8'>
-<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content="解析数论之原根 目录 Chapter1 什么是整数的次数，什么是原根 Chapter2 谁有原根？ Chapter1 什么是整数的次数，什么是原根 Definition： 对于$(a,m)=1,m\\g">
+<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content="解析数论之原根 本文使用Typora编写，但Hugo使用KaTex渲染，可能会出现不兼容状态，如需最佳体验请前往这里\n">
 <title>解析数论之原根</title>
 
 <link rel='canonical' href='https://dorinxl.github.io/p/%E8%A7%A3%E6%9E%90%E6%95%B0%E8%AE%BA%E4%B9%8B%E5%8E%9F%E6%A0%B9/'>
 
-<link rel="stylesheet" href="/scss/style.min.931f91b4becb654816a32aca004147405dc5e1a02b02a09378470bbc36a1eb54.css"><meta property='og:title' content="解析数论之原根">
-<meta property='og:description' content="解析数论之原根 目录 Chapter1 什么是整数的次数，什么是原根 Chapter2 谁有原根？ Chapter1 什么是整数的次数，什么是原根 Definition： 对于$(a,m)=1,m\\g">
+<link rel="stylesheet" href="/scss/style.min.b9c4e62207d304caed6b521321a5c740b7ba4981b4a4e4861892435c2bf06317.css"><meta property='og:title' content="解析数论之原根">
+<meta property='og:description' content="解析数论之原根 本文使用Typora编写，但Hugo使用KaTex渲染，可能会出现不兼容状态，如需最佳体验请前往这里\n">
 <meta property='og:url' content='https://dorinxl.github.io/p/%E8%A7%A3%E6%9E%90%E6%95%B0%E8%AE%BA%E4%B9%8B%E5%8E%9F%E6%A0%B9/'>
 <meta property='og:site_name' content='DorinXL-荡影'>
 <meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:published_time' content='2023-08-02T15:13:00&#43;00:00'/><meta property='article:modified_time' content='2023-08-02T15:13:00&#43;00:00'/>
 <meta name="twitter:title" content="解析数论之原根">
-<meta name="twitter:description" content="解析数论之原根 目录 Chapter1 什么是整数的次数，什么是原根 Chapter2 谁有原根？ Chapter1 什么是整数的次数，什么是原根 Definition： 对于$(a,m)=1,m\\g">
+<meta name="twitter:description" content="解析数论之原根 本文使用Typora编写，但Hugo使用KaTex渲染，可能会出现不兼容状态，如需最佳体验请前往这里\n">
     <link rel="shortcut icon" href="/favicon.ico" />
-
-  
-
 
 
 <style>
@@ -317,11 +314,11 @@
     
     <header class="article-category">
         
-            <a href="/categories/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/" >
-                读书笔记
+            <a href="/categories/%E7%AC%94%E8%AE%B0/" style="background-color: #7bcd07; color: #000;">
+                笔记
             </a>
         
-            <a href="/categories/%E6%95%B0%E8%AE%BA/" >
+            <a href="/categories/%E6%95%B0%E8%AE%BA/" style="background-color: #ffc500; color: #000;">
                 数论
             </a>
         
@@ -373,7 +370,14 @@
     
     
     <h1 id="解析数论之原根">解析数论之原根
-</h1><h2 id="目录">目录
+</h1>
+
+
+<div class="notice notice-info" >
+    <div class="notice-title"><svg xmlns="http://www.w3.org/2000/svg" class="icon notice-icon" viewBox="0 0 512 512" fill="hsl(30, 80%, 70%)"><path d="M256 8a248 248 0 100 496 248 248 0 000-496zm0 110a42 42 0 110 84 42 42 0 010-84zm56 254c0 7-5 12-12 12h-88c-7 0-12-5-12-12v-24c0-7 5-12 12-12h12v-64h-12c-7 0-12-5-12-12v-24c0-7 5-12 12-12h64c7 0 12 5 12 12v100h12c7 0 12 5 12 12v24z"/></svg></div><p>本文使用<strong>Typora</strong>编写，但Hugo使用<strong>KaTex</strong>渲染，可能会出现不兼容状态，如需最佳体验请前往<a class="link" href="https://www.cnblogs.com/DorinXL/p/17602094.html"  target="_blank" rel="noopener"
+    >这里</a></p></div>
+
+<h2 id="目录">目录
 </h2><ul>
 <li>Chapter1 什么是整数的次数，什么是原根</li>
 <li>Chapter2 谁有原根？</li>
@@ -398,9 +402,9 @@ $$
 <p><strong>Proof</strong>:</p>
 <p>使用反证法，如果$l$不能整除$n$，那么有$n=ql+r,0\le r\le l$，那么
 $$
-a^n\equiv a^{ql+r}\equiv1\mod{m}\
-而\exp_m(a)=l意味着a^l\equiv1\mod{m}\
-所以a^{ql+r}\equiv a^r\equiv1\mod{m}\
+a^n\equiv a^{ql+r}\equiv1\mod{m} \newline
+而\exp_m(a)=l意味着a^l\equiv1\mod{m} \newline
+所以a^{ql+r}\equiv a^r\equiv1\mod{m} \newline
 $$
 在上面的式子中$0\le r\le l$，但是根据$\exp_m(a)=l$的定义，不可能存在$0&lt; r\le l$的数r使$a^r\equiv1\mod{m}$，出现矛盾，于是反证成功。</p>
 <p>或者$r=0$，这样一来就会出现$l|n$。</p>
@@ -455,9 +459,9 @@ $$
 <p>接着我们将$g^{\varphi(p^{\alpha-1})}=kp^{\alpha-1}+1$左右各自乘$p$次：
 $$
 \begin{align*}
-(g^{\varphi(p^{\alpha-1})})^p&amp;=(kp^{\alpha-1}+1)^p\
-(g^{p^{\alpha-1}-p^{\alpha-2}})^p&amp;=1+kp^\alpha+k^2\dfrac{p(p-1)}{2}p^{2(\alpha-1)+rp^{3(\alpha-1)}}\
-因为\alpha\ge2,所以&amp;2\alpha-1\ge\alpha+1,3\alpha-3\ge\alpha+1\
+(g^{\varphi(p^{\alpha-1})})^p&amp;=(kp^{\alpha-1}+1)^p \newline
+(g^{p^{\alpha-1}-p^{\alpha-2}})^p&amp;=1+kp^\alpha+k^2\dfrac{p(p-1)}{2}p^{2(\alpha-1)+rp^{3(\alpha-1)}} \newline
+因为\alpha\ge2,所以&amp;2\alpha-1\ge\alpha+1,3\alpha-3\ge\alpha+1 \newline
 g^{\varphi(p^\alpha)}&amp;\equiv1+kp^\alpha(\mod{p^{\alpha+1}})
 \end{align*}
 $$
@@ -516,8 +520,8 @@ $$
 <p>如果$g^{p-1}\equiv1(\mod{p^2})$，我们能证明有另一个原根$g_1=g+p$满足$g_1^{p-1}\not\equiv1(\mod{p^2})$</p>
 <p>我们展开$g_1^{p-1}$：
 $$
-g_1^{p-1}=(g+p)^{p-1}=g^{p-1}+(p-1)g^{p-2}p+tp^2\
-\equiv g^{p-1}+(p^2-p)g^{p-2}(\mod{p^2})\
+g_1^{p-1}=(g+p)^{p-1}=g^{p-1}+(p-1)g^{p-2}p+tp^2 \newline
+\equiv g^{p-1}+(p^2-p)g^{p-2}(\mod{p^2}) \newline
 \equiv 1-pg^{p-2}(\mod{p^2})
 $$
 不能有$pg^{p-2}\equiv0(\mod{p^2}) $，因为这样会出现$g^{p-2}\equiv0(\mod{p})$与$g$是模$p$的一个原根矛盾。</p>
@@ -569,7 +573,7 @@ $$
 <blockquote>
 <p>因为当$\alpha\ge3$的时候，模$2^\alpha$没有原根，所以我们假设$m$分解为
 $$
-m=2^\alpha p_1^{\alpha_1}p_2^{\alpha_2} \cdots p_s^{\alpha_s}\
+m=2^\alpha p_1^{\alpha_1}p_2^{\alpha_2} \cdots p_s^{\alpha_s} \newline
 \varphi(m)=\varphi(2^\alpha)\varphi(p_1^{\alpha_1})\cdots\varphi(p_s^{\alpha_s})
 $$
 其中$p_i$是奇素数，$s\ge1,\alpha\ge0$。</p>
@@ -655,9 +659,20 @@ $$
         <div class="flex article-list--tile">
             
                 
-<article class="">
+<article class="has-image">
     <a href="/p/%E7%B4%A0%E6%95%B0%E5%88%86%E5%B8%83%E7%9A%84%E5%9F%BA%E6%9C%AC%E5%AE%9A%E7%90%86%E4%B8%80/">
         
+        
+            <div class="article-image">
+                <img src="/p/%E7%B4%A0%E6%95%B0%E5%88%86%E5%B8%83%E7%9A%84%E5%9F%BA%E6%9C%AC%E5%AE%9A%E7%90%86%E4%B8%80/number%20theory.60f03abb4d2e2b9a17c71c3a376643fd_hu16510225325710322437.jpg" 
+                        width="250" 
+                        height="150" 
+                        loading="lazy"
+                        alt="Featured image of post 素数分布的基本定理（一）"
+                        
+                        data-hash="md5-YPA6u00uK5oXxxw6N2ZD/Q==">
+                
+            </div>
         
 
         <div class="article-details">
@@ -695,12 +710,12 @@ $$
             
                 
 <article class="">
-    <a href="/p/%E8%A7%A3%E6%9E%90%E6%95%B0%E8%AE%BA%E4%B9%8B%E6%95%B0%E8%AE%BA%E5%87%BD%E6%95%B0%E5%85%B6%E4%B8%80/">
+    <a href="/p/%E8%A7%A3%E6%9E%90%E6%95%B0%E8%AE%BA%E4%B9%8B%E6%95%B0%E8%AE%BA%E5%87%BD%E6%95%B0%E5%85%B6%E4%BA%8C/">
         
         
 
         <div class="article-details">
-            <h2 class="article-title">解析数论之数论函数【其一】</h2>
+            <h2 class="article-title">解析数论之数论函数【其二】</h2>
         </div>
     </a>
 </article>
@@ -708,12 +723,12 @@ $$
             
                 
 <article class="">
-    <a href="/p/unity-shader%E5%85%A5%E9%97%A8%E7%B2%BE%E8%A6%81%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0-%E7%AC%AC%E4%B8%89%E7%AB%A0-unity-shader%E5%9F%BA%E7%A1%80/">
+    <a href="/p/%E8%A7%A3%E6%9E%90%E6%95%B0%E8%AE%BA%E4%B9%8B%E6%95%B0%E8%AE%BA%E5%87%BD%E6%95%B0%E5%85%B6%E4%B8%80/">
         
         
 
         <div class="article-details">
-            <h2 class="article-title">Unity Shader入门精要读书笔记 第三章 Unity Shader基础</h2>
+            <h2 class="article-title">解析数论之数论函数【其一】</h2>
         </div>
     </a>
 </article>
@@ -935,7 +950,7 @@ $$
         
     
     发表了70篇文章 · 
-    总计102.76k字
+    总计103.80k字
 </section>
 
 

@@ -1,22 +1,19 @@
 <!DOCTYPE html>
 <html lang="zh-cn" dir="ltr">
     <head><meta charset='utf-8'>
-<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content="Unity Shader入门精要读书笔记 第三章 Unity Shader基础 前言 Unity Shader的出现就是为了提供一个地方能够让开发者更轻松的管理着色器代码以及渲染">
+<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content="Unity Shader入门精要读书笔记 第三章 Unity Shader基础 前言 Unity Shader的出现就是为了提供一个地方能够让开发者更轻松的管理着色器代码以及渲染设置，而不需要同各种shader文件一样管理多个文件、函数等。\n">
 <title>Unity Shader入门精要读书笔记 第三章 Unity Shader基础</title>
 
 <link rel='canonical' href='https://dorinxl.github.io/p/unity-shader%E5%85%A5%E9%97%A8%E7%B2%BE%E8%A6%81%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0-%E7%AC%AC%E4%B8%89%E7%AB%A0-unity-shader%E5%9F%BA%E7%A1%80/'>
 
-<link rel="stylesheet" href="/scss/style.min.931f91b4becb654816a32aca004147405dc5e1a02b02a09378470bbc36a1eb54.css"><meta property='og:title' content="Unity Shader入门精要读书笔记 第三章 Unity Shader基础">
-<meta property='og:description' content="Unity Shader入门精要读书笔记 第三章 Unity Shader基础 前言 Unity Shader的出现就是为了提供一个地方能够让开发者更轻松的管理着色器代码以及渲染">
+<link rel="stylesheet" href="/scss/style.min.b9c4e62207d304caed6b521321a5c740b7ba4981b4a4e4861892435c2bf06317.css"><meta property='og:title' content="Unity Shader入门精要读书笔记 第三章 Unity Shader基础">
+<meta property='og:description' content="Unity Shader入门精要读书笔记 第三章 Unity Shader基础 前言 Unity Shader的出现就是为了提供一个地方能够让开发者更轻松的管理着色器代码以及渲染设置，而不需要同各种shader文件一样管理多个文件、函数等。\n">
 <meta property='og:url' content='https://dorinxl.github.io/p/unity-shader%E5%85%A5%E9%97%A8%E7%B2%BE%E8%A6%81%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0-%E7%AC%AC%E4%B8%89%E7%AB%A0-unity-shader%E5%9F%BA%E7%A1%80/'>
 <meta property='og:site_name' content='DorinXL-荡影'>
 <meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:published_time' content='2022-07-03T15:48:00&#43;00:00'/><meta property='article:modified_time' content='2022-07-03T15:48:00&#43;00:00'/>
 <meta name="twitter:title" content="Unity Shader入门精要读书笔记 第三章 Unity Shader基础">
-<meta name="twitter:description" content="Unity Shader入门精要读书笔记 第三章 Unity Shader基础 前言 Unity Shader的出现就是为了提供一个地方能够让开发者更轻松的管理着色器代码以及渲染">
+<meta name="twitter:description" content="Unity Shader入门精要读书笔记 第三章 Unity Shader基础 前言 Unity Shader的出现就是为了提供一个地方能够让开发者更轻松的管理着色器代码以及渲染设置，而不需要同各种shader文件一样管理多个文件、函数等。\n">
     <link rel="shortcut icon" href="/favicon.ico" />
-
-  
-
 
 
 <style>
@@ -341,12 +338,12 @@
     
     <header class="article-category">
         
-            <a href="/categories/%E6%B8%B8%E6%88%8F%E5%BC%80%E5%8F%91/" >
+            <a href="/categories/%E6%B8%B8%E6%88%8F%E5%BC%80%E5%8F%91/" style="background-color: #36bcff; color: #000;">
                 游戏开发
             </a>
         
-            <a href="/categories/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/" >
-                读书笔记
+            <a href="/categories/%E7%AC%94%E8%AE%B0/" style="background-color: #7bcd07; color: #000;">
+                笔记
             </a>
         
     </header>
@@ -409,26 +406,26 @@
 <p>​	在创建Unity Shader时，unity为我们提供了四种模板：</p>
 <p>​</p>
 <div class="table-wrapper"><table>
-<thead>
-<tr>
-<th>Standard Surface Shader</th>
-<th>产生一个包含标准光照模型的表面着色器模板</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>Unlit Shader</td>
-<td>不包含光照（但包含雾效）的基本的顶点/片元着色器</td>
-</tr>
-<tr>
-<td>Image Effect Shader</td>
-<td>为各种屏幕后处理效果提供基本模板</td>
-</tr>
-<tr>
-<td>Compute Shader</td>
-<td>利用GPC的并行性来进行一些与常规渲染流水线无关的计算</td>
-</tr>
-</tbody>
+  <thead>
+      <tr>
+          <th style="text-align: left">Standard Surface Shader</th>
+          <th style="text-align: left">产生一个包含标准光照模型的表面着色器模板</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td style="text-align: left">Unlit Shader</td>
+          <td style="text-align: left">不包含光照（但包含雾效）的基本的顶点/片元着色器</td>
+      </tr>
+      <tr>
+          <td style="text-align: left">Image Effect Shader</td>
+          <td style="text-align: left">为各种屏幕后处理效果提供基本模板</td>
+      </tr>
+      <tr>
+          <td style="text-align: left">Compute Shader</td>
+          <td style="text-align: left">利用GPC的并行性来进行一些与常规渲染流水线无关的计算</td>
+      </tr>
+  </tbody>
 </table></div>
 <p>​	由于《入门精要》这本书重点在如何在Unity中编写顶点/片元着色器，后续学习中通常会用Unlit Shader来生成一个基本的顶点/片元着色器模板。</p>
 <p>​	单独的Unity Shader不能发挥作用，必须同材质material结合起来。其本质上是一个文本文件，Unity Shader的导入设置面板可以看到该shader的一些相关信息（例如是否是固定函数着色器(fixed function)、是否投射阴影(cast shadows)、使用的渲染队列(Render queue)、属性(properties)列表等）。</p>
@@ -520,55 +517,55 @@
 </div><p>​	属性的名字通常用一个<strong>下划线</strong>开始。显示名字是出现在材质面板上的名字，同时需要指定类型和默认值。</p>
 <p>​	以下是Properties语义块支持的属性类型:</p>
 <div class="table-wrapper"><table>
-<thead>
-<tr>
-<th style="text-align:left">属性类型</th>
-<th style="text-align:left">默认值的定义语法</th>
-<th style="text-align:left">例子</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:left">Int</td>
-<td style="text-align:left">number</td>
-<td style="text-align:left">_Int(&ldquo;Int&rdquo;,Int) = 2</td>
-</tr>
-<tr>
-<td style="text-align:left">Float</td>
-<td style="text-align:left">number</td>
-<td style="text-align:left">_Float(&ldquo;Float&rdquo;,Float) = 1.5</td>
-</tr>
-<tr>
-<td style="text-align:left">Range(min,max)</td>
-<td style="text-align:left">number</td>
-<td style="text-align:left">_Range(&ldquo;Range&rdquo;,Range(0.0,5.0)) = 3.0</td>
-</tr>
-<tr>
-<td style="text-align:left">Color</td>
-<td style="text-align:left">(number,number,number,number)</td>
-<td style="text-align:left">_Color(&ldquo;Color&rdquo;,Color) = (1,1,1,1)</td>
-</tr>
-<tr>
-<td style="text-align:left">Vector</td>
-<td style="text-align:left">(number,number,number,number)</td>
-<td style="text-align:left">_Vector(&ldquo;Vector&rdquo;,Vector) = (6,2,3,1)</td>
-</tr>
-<tr>
-<td style="text-align:left">2D</td>
-<td style="text-align:left">&ldquo;defaulttexture&rdquo;{}</td>
-<td style="text-align:left">_2D(&ldquo;2D&rdquo;,2D) = &ldquo;&rdquo;{}</td>
-</tr>
-<tr>
-<td style="text-align:left">Cube</td>
-<td style="text-align:left">&ldquo;defaulttexture&rdquo;{}</td>
-<td style="text-align:left">_Cube(“Cube”,Cube) = &ldquo;white&rdquo;{}</td>
-</tr>
-<tr>
-<td style="text-align:left">3D</td>
-<td style="text-align:left">&ldquo;defaulttexture&rdquo;{}</td>
-<td style="text-align:left">_3D(&ldquo;3D&rdquo;,3D) = &ldquo;black&rdquo;{}</td>
-</tr>
-</tbody>
+  <thead>
+      <tr>
+          <th style="text-align: left">属性类型</th>
+          <th style="text-align: left">默认值的定义语法</th>
+          <th style="text-align: left">例子</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td style="text-align: left">Int</td>
+          <td style="text-align: left">number</td>
+          <td style="text-align: left">_Int(&ldquo;Int&rdquo;,Int) = 2</td>
+      </tr>
+      <tr>
+          <td style="text-align: left">Float</td>
+          <td style="text-align: left">number</td>
+          <td style="text-align: left">_Float(&ldquo;Float&rdquo;,Float) = 1.5</td>
+      </tr>
+      <tr>
+          <td style="text-align: left">Range(min,max)</td>
+          <td style="text-align: left">number</td>
+          <td style="text-align: left">_Range(&ldquo;Range&rdquo;,Range(0.0,5.0)) = 3.0</td>
+      </tr>
+      <tr>
+          <td style="text-align: left">Color</td>
+          <td style="text-align: left">(number,number,number,number)</td>
+          <td style="text-align: left">_Color(&ldquo;Color&rdquo;,Color) = (1,1,1,1)</td>
+      </tr>
+      <tr>
+          <td style="text-align: left">Vector</td>
+          <td style="text-align: left">(number,number,number,number)</td>
+          <td style="text-align: left">_Vector(&ldquo;Vector&rdquo;,Vector) = (6,2,3,1)</td>
+      </tr>
+      <tr>
+          <td style="text-align: left">2D</td>
+          <td style="text-align: left">&ldquo;defaulttexture&rdquo;{}</td>
+          <td style="text-align: left">_2D(&ldquo;2D&rdquo;,2D) = &ldquo;&rdquo;{}</td>
+      </tr>
+      <tr>
+          <td style="text-align: left">Cube</td>
+          <td style="text-align: left">&ldquo;defaulttexture&rdquo;{}</td>
+          <td style="text-align: left">_Cube(“Cube”,Cube) = &ldquo;white&rdquo;{}</td>
+      </tr>
+      <tr>
+          <td style="text-align: left">3D</td>
+          <td style="text-align: left">&ldquo;defaulttexture&rdquo;{}</td>
+          <td style="text-align: left">_3D(&ldquo;3D&rdquo;,3D) = &ldquo;black&rdquo;{}</td>
+      </tr>
+  </tbody>
 </table></div>
 <p>​	Int、Float、Range：数字类型的属性，默认值是单独的数字。</p>
 <p>​	Color、Vector：默认值是括号包围的四维向量。</p>
@@ -787,9 +784,20 @@
         <div class="flex article-list--tile">
             
                 
-<article class="">
+<article class="has-image">
     <a href="/p/%E7%B4%A0%E6%95%B0%E5%88%86%E5%B8%83%E7%9A%84%E5%9F%BA%E6%9C%AC%E5%AE%9A%E7%90%86%E4%B8%80/">
         
+        
+            <div class="article-image">
+                <img src="/p/%E7%B4%A0%E6%95%B0%E5%88%86%E5%B8%83%E7%9A%84%E5%9F%BA%E6%9C%AC%E5%AE%9A%E7%90%86%E4%B8%80/number%20theory.60f03abb4d2e2b9a17c71c3a376643fd_hu16510225325710322437.jpg" 
+                        width="250" 
+                        height="150" 
+                        loading="lazy"
+                        alt="Featured image of post 素数分布的基本定理（一）"
+                        
+                        data-hash="md5-YPA6u00uK5oXxxw6N2ZD/Q==">
+                
+            </div>
         
 
         <div class="article-details">
@@ -840,12 +848,12 @@
             
                 
 <article class="">
-    <a href="/p/%E8%A7%A3%E6%9E%90%E6%95%B0%E8%AE%BA%E4%B9%8B%E6%95%B0%E8%AE%BA%E5%87%BD%E6%95%B0%E5%85%B6%E4%B8%80/">
+    <a href="/p/%E8%A7%A3%E6%9E%90%E6%95%B0%E8%AE%BA%E4%B9%8B%E6%95%B0%E8%AE%BA%E5%87%BD%E6%95%B0%E5%85%B6%E4%BA%8C/">
         
         
 
         <div class="article-details">
-            <h2 class="article-title">解析数论之数论函数【其一】</h2>
+            <h2 class="article-title">解析数论之数论函数【其二】</h2>
         </div>
     </a>
 </article>
@@ -1067,7 +1075,7 @@
         
     
     发表了70篇文章 · 
-    总计102.76k字
+    总计103.80k字
 </section>
 
 

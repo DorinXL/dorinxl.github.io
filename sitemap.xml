@@ -11,7 +11,7 @@
     <loc>https://dorinxl.github.io/post/</loc>
     <lastmod>2023-09-23T12:15:00+00:00</lastmod>
   </url><url>
-    <loc>https://dorinxl.github.io/categories/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/</loc>
+    <loc>https://dorinxl.github.io/categories/%E7%AC%94%E8%AE%B0/</loc>
     <lastmod>2023-09-23T12:15:00+00:00</lastmod>
   </url><url>
     <loc>https://dorinxl.github.io/categories/%E6%95%B0%E8%AE%BA/</loc>
@@ -29,11 +29,11 @@
     <loc>https://dorinxl.github.io/p/%E8%A7%A3%E6%9E%90%E6%95%B0%E8%AE%BA%E4%B9%8B%E5%8E%9F%E6%A0%B9/</loc>
     <lastmod>2023-08-02T15:13:00+00:00</lastmod>
   </url><url>
-    <loc>https://dorinxl.github.io/p/%E8%A7%A3%E6%9E%90%E6%95%B0%E8%AE%BA%E4%B9%8B%E6%95%B0%E8%AE%BA%E5%87%BD%E6%95%B0%E5%85%B6%E4%B8%80/</loc>
-    <lastmod>2023-07-24T09:43:00+00:00</lastmod>
-  </url><url>
     <loc>https://dorinxl.github.io/p/%E8%A7%A3%E6%9E%90%E6%95%B0%E8%AE%BA%E4%B9%8B%E6%95%B0%E8%AE%BA%E5%87%BD%E6%95%B0%E5%85%B6%E4%BA%8C/</loc>
-    <lastmod>2023-07-21T16:35:00+00:00</lastmod>
+    <lastmod>2023-07-24T16:35:00+00:00</lastmod>
+  </url><url>
+    <loc>https://dorinxl.github.io/p/%E8%A7%A3%E6%9E%90%E6%95%B0%E8%AE%BA%E4%B9%8B%E6%95%B0%E8%AE%BA%E5%87%BD%E6%95%B0%E5%85%B6%E4%B8%80/</loc>
+    <lastmod>2023-07-21T09:43:00+00:00</lastmod>
   </url><url>
     <loc>https://dorinxl.github.io/p/%E4%BD%BF%E7%94%A8mixamo%E4%B8%BAobj%E6%96%87%E4%BB%B6%E7%BB%91%E9%AA%A8%E5%B9%B6%E5%AF%BC%E5%85%A5unity/</loc>
     <lastmod>2022-09-23T07:50:00+00:00</lastmod>
@@ -43,9 +43,6 @@
   </url><url>
     <loc>https://dorinxl.github.io/p/unity-shader%E5%85%A5%E9%97%A8%E7%B2%BE%E8%A6%81%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0-%E7%AC%AC%E4%B8%89%E7%AB%A0-unity-shader%E5%9F%BA%E7%A1%80/</loc>
     <lastmod>2022-07-03T15:48:00+00:00</lastmod>
-  </url><url>
-    <loc>https://dorinxl.github.io/categories/test/</loc>
-    <lastmod>2022-06-22T02:31:00+00:00</lastmod>
   </url><url>
     <loc>https://dorinxl.github.io/p/vlan%E9%85%8D%E7%BD%AE/</loc>
     <lastmod>2022-06-22T02:31:00+00:00</lastmod>
@@ -233,9 +230,6 @@
     <loc>https://dorinxl.github.io/p/c-prime-plus%E7%AC%AC%E5%8D%81%E4%B8%80%E8%8A%82%E7%AC%94%E8%AE%B0/</loc>
     <lastmod>2019-11-06T03:04:00+00:00</lastmod>
   </url><url>
-    <loc>https://dorinxl.github.io/categories/%E9%98%85%E8%AF%BB%E7%AC%94%E8%AE%B0/</loc>
-    <lastmod>2019-11-06T03:04:00+00:00</lastmod>
-  </url><url>
     <loc>https://dorinxl.github.io/p/c-prime-plus%E7%AC%AC%E5%8D%81%E8%8A%82%E7%AC%94%E8%AE%B0/</loc>
     <lastmod>2019-11-06T02:56:00+00:00</lastmod>
   </url><url>
@@ -255,6 +249,8 @@
     <lastmod>2019-05-28T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://dorinxl.github.io/tags/</loc>
+  </url><url>
+    <loc>https://dorinxl.github.io/categories/test/</loc>
   </url><url>
     <loc>https://dorinxl.github.io/%E5%85%B3%E4%BA%8E/</loc>
   </url><url>

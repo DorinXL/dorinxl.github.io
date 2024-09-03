@@ -1,22 +1,19 @@
 <!DOCTYPE html>
 <html lang="zh-cn" dir="ltr">
     <head><meta charset='utf-8'>
-<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content="第八节 字符输入/输出和输入验证 8.1 单字符I/O：getchar()和putchar() getchar()和putchar()包含在stdio.">
+<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content="第八节 字符输入/输出和输入验证 8.1 单字符I/O：getchar()和putchar() getchar()和putchar()包含在stdio.h头文件中 8.2 缓冲区 无缓冲输入： 直接回复用户 缓冲输入： 暂缓回复 缓冲区：收集用户输入字符的临时存储区 节省时间 可以修正输入 完全缓冲I/o：当缓冲区被填满时才刷新缓冲区 行缓冲I/O：出现换行符时刷新缓冲区 8.3 结束键盘输入 8.3.1 文件、流和键盘输入 8.3.2 文件结尾 文件结尾的一种方法：在文件的末尾放置一个特殊的字符文件标记（ctrl+z) 另一种方法：储存文件大小的信息 getchar()和scanf()读取到文件末尾返回EOF EOF在stdio.h中被预处理定义 UNIX中Ctrl+D PC中Ctrl+Z 8.4 重定向和文件 8.4.1 UNIX、Linux和DOS的重定向 重定向输入让程序使用文件而不是程序输入 重定向输出让程序输出到文件而不是屏幕 重定向输入 &gt; 重定向输出 &lt; 组合重定向 &gt;输出文件 &lt;输入文件 关于重定向的要求： 程序与文件放在同同一路径下 cmd窗口使用时用cd指令来改变路径 一对一原则 &laquo; 可以将字符加在文件之后而不覆盖 8.5 创建更友好的用户界面 8.5.1 使用缓冲输入 考虑用户各种输入情况 处理好输入结尾\\n 8.5.2 混合数值和字符输入 getchar()读取每个字符，包括空格、制表符和换行符，而scanf()则会跳过这些 scanf()输入会返回数值，数值代表成功读取个数 8.6 输入验证 8.6.1 分析程序 程序遵循模块化的编程思想，使用独立函数（模块）来验证输入和管理显示。 8.6.2 输入流和数字 gatchar()和%c的scanf()可以接受所有的字符 8.7 菜单浏览 switch语句 解决缓冲输入带来的麻烦，跳过多余输入和换行符 1 2 ">
 <title>《C Prime Plus》第八节笔记</title>
 
 <link rel='canonical' href='https://dorinxl.github.io/p/c-prime-plus%E7%AC%AC%E5%85%AB%E8%8A%82%E7%AC%94%E8%AE%B0/'>
 
-<link rel="stylesheet" href="/scss/style.min.931f91b4becb654816a32aca004147405dc5e1a02b02a09378470bbc36a1eb54.css"><meta property='og:title' content="《C Prime Plus》第八节笔记">
-<meta property='og:description' content="第八节 字符输入/输出和输入验证 8.1 单字符I/O：getchar()和putchar() getchar()和putchar()包含在stdio.">
+<link rel="stylesheet" href="/scss/style.min.b9c4e62207d304caed6b521321a5c740b7ba4981b4a4e4861892435c2bf06317.css"><meta property='og:title' content="《C Prime Plus》第八节笔记">
+<meta property='og:description' content="第八节 字符输入/输出和输入验证 8.1 单字符I/O：getchar()和putchar() getchar()和putchar()包含在stdio.h头文件中 8.2 缓冲区 无缓冲输入： 直接回复用户 缓冲输入： 暂缓回复 缓冲区：收集用户输入字符的临时存储区 节省时间 可以修正输入 完全缓冲I/o：当缓冲区被填满时才刷新缓冲区 行缓冲I/O：出现换行符时刷新缓冲区 8.3 结束键盘输入 8.3.1 文件、流和键盘输入 8.3.2 文件结尾 文件结尾的一种方法：在文件的末尾放置一个特殊的字符文件标记（ctrl+z) 另一种方法：储存文件大小的信息 getchar()和scanf()读取到文件末尾返回EOF EOF在stdio.h中被预处理定义 UNIX中Ctrl+D PC中Ctrl+Z 8.4 重定向和文件 8.4.1 UNIX、Linux和DOS的重定向 重定向输入让程序使用文件而不是程序输入 重定向输出让程序输出到文件而不是屏幕 重定向输入 &gt; 重定向输出 &lt; 组合重定向 &gt;输出文件 &lt;输入文件 关于重定向的要求： 程序与文件放在同同一路径下 cmd窗口使用时用cd指令来改变路径 一对一原则 &laquo; 可以将字符加在文件之后而不覆盖 8.5 创建更友好的用户界面 8.5.1 使用缓冲输入 考虑用户各种输入情况 处理好输入结尾\\n 8.5.2 混合数值和字符输入 getchar()读取每个字符，包括空格、制表符和换行符，而scanf()则会跳过这些 scanf()输入会返回数值，数值代表成功读取个数 8.6 输入验证 8.6.1 分析程序 程序遵循模块化的编程思想，使用独立函数（模块）来验证输入和管理显示。 8.6.2 输入流和数字 gatchar()和%c的scanf()可以接受所有的字符 8.7 菜单浏览 switch语句 解决缓冲输入带来的麻烦，跳过多余输入和换行符 1 2 ">
 <meta property='og:url' content='https://dorinxl.github.io/p/c-prime-plus%E7%AC%AC%E5%85%AB%E8%8A%82%E7%AC%94%E8%AE%B0/'>
 <meta property='og:site_name' content='DorinXL-荡影'>
 <meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:published_time' content='2019-11-06T02:36:00&#43;00:00'/><meta property='article:modified_time' content='2019-11-06T02:36:00&#43;00:00'/>
 <meta name="twitter:title" content="《C Prime Plus》第八节笔记">
-<meta name="twitter:description" content="第八节 字符输入/输出和输入验证 8.1 单字符I/O：getchar()和putchar() getchar()和putchar()包含在stdio.">
+<meta name="twitter:description" content="第八节 字符输入/输出和输入验证 8.1 单字符I/O：getchar()和putchar() getchar()和putchar()包含在stdio.h头文件中 8.2 缓冲区 无缓冲输入： 直接回复用户 缓冲输入： 暂缓回复 缓冲区：收集用户输入字符的临时存储区 节省时间 可以修正输入 完全缓冲I/o：当缓冲区被填满时才刷新缓冲区 行缓冲I/O：出现换行符时刷新缓冲区 8.3 结束键盘输入 8.3.1 文件、流和键盘输入 8.3.2 文件结尾 文件结尾的一种方法：在文件的末尾放置一个特殊的字符文件标记（ctrl+z) 另一种方法：储存文件大小的信息 getchar()和scanf()读取到文件末尾返回EOF EOF在stdio.h中被预处理定义 UNIX中Ctrl+D PC中Ctrl+Z 8.4 重定向和文件 8.4.1 UNIX、Linux和DOS的重定向 重定向输入让程序使用文件而不是程序输入 重定向输出让程序输出到文件而不是屏幕 重定向输入 &gt; 重定向输出 &lt; 组合重定向 &gt;输出文件 &lt;输入文件 关于重定向的要求： 程序与文件放在同同一路径下 cmd窗口使用时用cd指令来改变路径 一对一原则 &laquo; 可以将字符加在文件之后而不覆盖 8.5 创建更友好的用户界面 8.5.1 使用缓冲输入 考虑用户各种输入情况 处理好输入结尾\\n 8.5.2 混合数值和字符输入 getchar()读取每个字符，包括空格、制表符和换行符，而scanf()则会跳过这些 scanf()输入会返回数值，数值代表成功读取个数 8.6 输入验证 8.6.1 分析程序 程序遵循模块化的编程思想，使用独立函数（模块）来验证输入和管理显示。 8.6.2 输入流和数字 gatchar()和%c的scanf()可以接受所有的字符 8.7 菜单浏览 switch语句 解决缓冲输入带来的麻烦，跳过多余输入和换行符 1 2 ">
     <link rel="shortcut icon" href="/favicon.ico" />
-
-  
-
 
 
 <style>
@@ -341,8 +338,8 @@
     
     <header class="article-category">
         
-            <a href="/categories/%E9%98%85%E8%AF%BB%E7%AC%94%E8%AE%B0/" >
-                阅读笔记
+            <a href="/categories/%E7%AC%94%E8%AE%B0/" style="background-color: #7bcd07; color: #000;">
+                笔记
             </a>
         
     </header>
@@ -538,13 +535,24 @@
         <div class="flex article-list--tile">
             
                 
-<article class="">
-    <a href="/p/c-prime-plus%E7%AC%AC%E5%8D%81%E4%B8%80%E8%8A%82%E7%AC%94%E8%AE%B0/">
+<article class="has-image">
+    <a href="/p/%E7%B4%A0%E6%95%B0%E5%88%86%E5%B8%83%E7%9A%84%E5%9F%BA%E6%9C%AC%E5%AE%9A%E7%90%86%E4%B8%80/">
         
+        
+            <div class="article-image">
+                <img src="/p/%E7%B4%A0%E6%95%B0%E5%88%86%E5%B8%83%E7%9A%84%E5%9F%BA%E6%9C%AC%E5%AE%9A%E7%90%86%E4%B8%80/number%20theory.60f03abb4d2e2b9a17c71c3a376643fd_hu16510225325710322437.jpg" 
+                        width="250" 
+                        height="150" 
+                        loading="lazy"
+                        alt="Featured image of post 素数分布的基本定理（一）"
+                        
+                        data-hash="md5-YPA6u00uK5oXxxw6N2ZD/Q==">
+                
+            </div>
         
 
         <div class="article-details">
-            <h2 class="article-title">《C Prime Plus》第十一节笔记</h2>
+            <h2 class="article-title">素数分布的基本定理（一）</h2>
         </div>
     </a>
 </article>
@@ -552,12 +560,12 @@
             
                 
 <article class="">
-    <a href="/p/c-prime-plus%E7%AC%AC%E5%8D%81%E8%8A%82%E7%AC%94%E8%AE%B0/">
+    <a href="/p/%E5%87%A0%E4%B8%AA%E5%87%BD%E6%95%B0%E7%9A%84%E5%B9%B3%E5%9D%87%E9%98%B6/">
         
         
 
         <div class="article-details">
-            <h2 class="article-title">《C Prime Plus》第十节笔记</h2>
+            <h2 class="article-title">几个函数的平均阶</h2>
         </div>
     </a>
 </article>
@@ -565,12 +573,38 @@
             
                 
 <article class="">
-    <a href="/p/c-prime-plus%E7%AC%AC%E4%B9%9D%E8%8A%82%E7%AC%94%E8%AE%B0/">
+    <a href="/p/%E8%A7%A3%E6%9E%90%E6%95%B0%E8%AE%BA%E4%B9%8B%E6%9C%89%E9%99%90%E9%98%BF%E8%B4%9D%E5%B0%94%E7%BE%A4%E5%8F%8A%E5%85%B6%E7%89%B9%E5%BE%81%E7%8B%84%E5%88%A9%E5%85%8B%E9%9B%B7%E7%89%B9%E5%BE%81/">
         
         
 
         <div class="article-details">
-            <h2 class="article-title">《C Prime Plus》第九节笔记</h2>
+            <h2 class="article-title">解析数论之有限阿贝尔群及其特征、狄利克雷特征</h2>
+        </div>
+    </a>
+</article>
+
+            
+                
+<article class="">
+    <a href="/p/%E8%A7%A3%E6%9E%90%E6%95%B0%E8%AE%BA%E4%B9%8B%E5%8E%9F%E6%A0%B9/">
+        
+        
+
+        <div class="article-details">
+            <h2 class="article-title">解析数论之原根</h2>
+        </div>
+    </a>
+</article>
+
+            
+                
+<article class="">
+    <a href="/p/%E8%A7%A3%E6%9E%90%E6%95%B0%E8%AE%BA%E4%B9%8B%E6%95%B0%E8%AE%BA%E5%87%BD%E6%95%B0%E5%85%B6%E4%BA%8C/">
+        
+        
+
+        <div class="article-details">
+            <h2 class="article-title">解析数论之数论函数【其二】</h2>
         </div>
     </a>
 </article>
@@ -792,7 +826,7 @@
         
     
     发表了70篇文章 · 
-    总计102.76k字
+    总计103.80k字
 </section>
 
 

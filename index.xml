@@ -13,8 +13,15 @@
         <pubDate>Sat, 23 Sep 2023 12:15:00 +0000</pubDate>
         
         <guid>https://dorinxl.github.io/p/%E7%B4%A0%E6%95%B0%E5%88%86%E5%B8%83%E7%9A%84%E5%9F%BA%E6%9C%AC%E5%AE%9A%E7%90%86%E4%B8%80/</guid>
-        <description>&lt;h1 id=&#34;素数分布的基本定理一&#34;&gt;素数分布的基本定理（一）
-&lt;/h1&gt;&lt;h2 id=&#34;目录&#34;&gt;目录
+        <description>&lt;img src="https://dorinxl.github.io/p/%E7%B4%A0%E6%95%B0%E5%88%86%E5%B8%83%E7%9A%84%E5%9F%BA%E6%9C%AC%E5%AE%9A%E7%90%86%E4%B8%80/number%20theory.jpg" alt="Featured image of post 素数分布的基本定理（一）" /&gt;&lt;h1 id=&#34;素数分布的基本定理一&#34;&gt;素数分布的基本定理（一）
+&lt;/h1&gt;
+
+
+&lt;div class=&#34;notice notice-info&#34; &gt;
+    &lt;div class=&#34;notice-title&#34;&gt;&lt;svg xmlns=&#34;http://www.w3.org/2000/svg&#34; class=&#34;icon notice-icon&#34; viewBox=&#34;0 0 512 512&#34; fill=&#34;hsl(30, 80%, 70%)&#34;&gt;&lt;path d=&#34;M256 8a248 248 0 100 496 248 248 0 000-496zm0 110a42 42 0 110 84 42 42 0 010-84zm56 254c0 7-5 12-12 12h-88c-7 0-12-5-12-12v-24c0-7 5-12 12-12h12v-64h-12c-7 0-12-5-12-12v-24c0-7 5-12 12-12h64c7 0 12 5 12 12v100h12c7 0 12 5 12 12v24z&#34;/&gt;&lt;/svg&gt;&lt;/div&gt;&lt;p&gt;本文使用&lt;strong&gt;Typora&lt;/strong&gt;编写，但Hugo使用&lt;strong&gt;KaTex&lt;/strong&gt;渲染，可能会出现不兼容状态，如需最佳体验请前往&lt;a class=&#34;link&#34; href=&#34;https://www.cnblogs.com/DorinXL/p/17724744.html&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;这里&lt;/a&gt;&lt;/p&gt;&lt;/div&gt;
+
+&lt;h2 id=&#34;目录&#34;&gt;目录
 &lt;/h2&gt;&lt;ul&gt;
 &lt;li&gt;Chapter1 切比雪夫函数$\psi(x)$和$\vartheta(x)$&lt;/li&gt;
 &lt;li&gt;Chapter2 $\vartheta(x)$与$\pi(x)$的关系&lt;/li&gt;
@@ -57,8 +64,8 @@ $$
 关于后面的那个sum，其中的$p,x,m$三者形成了一个关系。实际上，p是从2开始的，也就是说$x^{1/m}&amp;lt;2$的话，sum是0。&lt;/p&gt;
 &lt;p&gt;我们将$x^{1/m}&amp;lt;2$这个条件进行变换：
 $$
-x^{1/m}&amp;lt;2\
-\dfrac{1}{m}\log x &amp;lt; \log 2\
+x^{1/m}&amp;lt;2\newline
+\dfrac{1}{m}\log x &amp;lt; \log 2\newline
 m &amp;gt; \dfrac{\log x}{\log 2} = \log_2{x}
 $$
 于是我们得到了m和x的一个关系，于是就可以将前面sum的无穷转换为新的形式：
@@ -89,10 +96,14 @@ $$
 于是有
 $$
 \begin{align*}
-0 \le \psi(x)-\vartheta(x) \le \sum_{2\le m \le \log_2x}x^{1/m}\log x^{1/m}\
-\end{align*}\
-将其扩大，放缩为：\
-\sum_{2\le m \le \log_2x}\log x^{1/m} \le (\log_2 x)\sqrt{x}\log\sqrt{x} \= \dfrac{\log x}{\log 2}\dfrac{\sqrt{x}}{2}\log x = \dfrac{\sqrt{x}(\log x)^2}{2\log 2}
+0 \le \psi(x)-\vartheta(x) \le \sum_{2\le m \le \log_2x}x^{1/m}\log x^{1/m}\newline
+\end{align*}\newline
+$$
+将其扩大，放缩为
+$$
+\sum_{2\le m \le \log_2x}\log x^{1/m} \le (\log_2 x)\sqrt{x}\log\sqrt{x} \newline
+= \dfrac{\log x}{\log 2}\dfrac{\sqrt{x}}{2}\log x \newline
+= \dfrac{\sqrt{x}(\log x)^2}{2\log 2}
 $$
 同时去除x最后得到：
 $$
@@ -102,11 +113,9 @@ $$
 $$
 \begin{align*}
 \lim_{x\rightarrow\infty} \dfrac{(\log x)^2}{2\sqrt{x}\log2}
-&amp;amp;= \dfrac{1}{2\log2}\lim_{x\rightarrow\infty}\dfrac{(\log x)^2}{\sqrt{x}}\
-洛必达：\
-&amp;amp;=\dfrac{1}{2\log2}\lim_{x\rightarrow\infty}\dfrac{4\log x}{\sqrt{x}}\
-洛必达：\
-&amp;amp;=\dfrac{2}{\log2}\lim_{x\rightarrow\infty}\dfrac{2}{\sqrt{x}}\
+&amp;amp;= \dfrac{1}{2\log2}\lim_{x\rightarrow\infty}\dfrac{(\log x)^2}{\sqrt{x}} \newline
+&amp;amp;=\dfrac{1}{2\log2}\lim_{x\rightarrow\infty}\dfrac{4\log x}{\sqrt{x}} \newline
+&amp;amp;=\dfrac{2}{\log2}\lim_{x\rightarrow\infty}\dfrac{2}{\sqrt{x}} \newline
 &amp;amp;=0
 \end{align*}
 $$
@@ -141,16 +150,16 @@ $$&lt;/li&gt;
 &lt;p&gt;令$k = \lfloor x\rfloor,m = \lfloor y\rfloor$。这样一来$A(k)=A(x),A(m)=A(y)$
 $$
 \begin{align*}
-\sum_{y&amp;lt;n\le x}a(n)f(n)&amp;amp;=\sum_{n=m+1}^ka(n)f(n)\
-&amp;amp;=\sum_{n=m+1}^k{A(n)-A(n-1)}f(n)\
-&amp;amp;=\sum_{n=m+1}^kA(n)f(n)  -\sum_{n=m}^{k-1}A(n)f(n+1)\
-&amp;amp;=\sum_{n=m+1}^{k-1}A(n)f(n)+A(k)f(k)-\sum_{n=m}^{k-1}A(n)f(n+1)\
-&amp;amp;=\sum_{n=m+1}^{k-1}A(n){f(n)-f(n+1)}+A(k)f(k)-A(m)f(m+1)\
-&amp;amp;=-\sum_{n=m+1}^{k-1}A(n)\int_{n}^{n+1}f&amp;rsquo;(t)dt+A(k)f(k)-A(m)f(m+1)\
-&amp;amp;=-\sum_{n=m+1}^{k-1}\int_{n}^{n+1}A(t)f&amp;rsquo;(t)dt+A(k)f(k)-A(m)f(m+1)\
-&amp;amp;=-\int_{m+1}^{k}A(t)f&amp;rsquo;(t)dt+A(k)f(k)-A(m)f(m+1)\
+\sum_{y&amp;lt;n\le x}a(n)f(n)&amp;amp;=\sum_{n=m+1}^ka(n)f(n)\newline
+&amp;amp;=\sum_{n=m+1}^k{A(n)-A(n-1)}f(n)\newline
+&amp;amp;=\sum_{n=m+1}^kA(n)f(n)  -\sum_{n=m}^{k-1}A(n)f(n+1)\newline
+&amp;amp;=\sum_{n=m+1}^{k-1}A(n)f(n)+A(k)f(k)-\sum_{n=m}^{k-1}A(n)f(n+1)\newline
+&amp;amp;=\sum_{n=m+1}^{k-1}A(n){f(n)-f(n+1)}+A(k)f(k)-A(m)f(m+1)\newline
+&amp;amp;=-\sum_{n=m+1}^{k-1}A(n)\int_{n}^{n+1}f&amp;rsquo;(t)dt+A(k)f(k)-A(m)f(m+1)\newline
+&amp;amp;=-\sum_{n=m+1}^{k-1}\int_{n}^{n+1}A(t)f&amp;rsquo;(t)dt+A(k)f(k)-A(m)f(m+1)\newline
+&amp;amp;=-\int_{m+1}^{k}A(t)f&amp;rsquo;(t)dt+A(k)f(k)-A(m)f(m+1)\newline
 用同样的思想向着\int_y^x出发：
-&amp;amp;=-\int_{m+1}^{k}A(t)f&amp;rsquo;(t)dt-{\int_k^xA(t)f&amp;rsquo;(t)dt+A(k)f(x)}-{\int_y^m+1A(t)f&amp;rsquo;(t)dt+A(m)f(y)}\
+&amp;amp;=-\int_{m+1}^{k}A(t)f&amp;rsquo;(t)dt-{\int_k^xA(t)f&amp;rsquo;(t)dt+A(k)f(x)}-{\int_y^m+1A(t)f&amp;rsquo;(t)dt+A(m)f(y)}\newline
 &amp;amp;=A(x)f(x)-A(y)f(y)-\int_y^xA(t)f&amp;rsquo;(t)dt
 \end{align*}
 $$&lt;/p&gt;
@@ -158,8 +167,8 @@ $$&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;Th2:接下来我们分别用$\pi(x)$将$\vartheta(x)$表示出来，再用$\vartheta(x)$将$\pi(x)$表示出来：
 $$
-\vartheta(x) = \pi(x)\log x-\int_2^x\dfrac{\pi(t)}{t}dt\
-和\
+\vartheta(x) = \pi(x)\log x-\int_2^x\dfrac{\pi(t)}{t}dt\newline
+和\newline
 \pi(x) = \dfrac{\vartheta(x)}{\log x}+\int_2^x\dfrac{\vartheta(t)}{t\log^2t}dt
 $$&lt;/li&gt;
 &lt;/ul&gt;
@@ -169,7 +178,7 @@ $$&lt;/li&gt;
 $$
 a(n) =
 \begin{cases}
-1,若n是素数\
+1,若n是素数\newline
 0,其他
 \end{cases}
 $$
@@ -209,38 +218,38 @@ $$&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;Th1:下面这几个式子是等价的
 $$
-\begin{equation}
-\lim_{x\rightarrow\infty}\dfrac{\pi(x)\log x}{x}=1\
-\lim_{x\rightarrow\infty}\dfrac{\vartheta(x)}{x}=1\
+\begin{equation*}
+\lim_{x\rightarrow\infty}\dfrac{\pi(x)\log x}{x}=1\newline
+\lim_{x\rightarrow\infty}\dfrac{\vartheta(x)}{x}=1\newline
 \lim_{x\rightarrow\infty}\dfrac{\psi(x)}{x}=1
-\end{equation}
+\end{equation*}
 $$&lt;/li&gt;
 &lt;/ul&gt;
 &lt;blockquote&gt;
 &lt;p&gt;&lt;strong&gt;Proof&lt;/strong&gt;:&lt;/p&gt;
 &lt;p&gt;由C2.Th2得到
 $$
-\dfrac{\vartheta(x)}{x} = \dfrac{\pi(x)\log x}{x}-\dfrac{1}{x}\int_2^x\dfrac{\pi(t)}{t}dt\
-和\
+\dfrac{\vartheta(x)}{x} = \dfrac{\pi(x)\log x}{x}-\dfrac{1}{x}\int_2^x\dfrac{\pi(t)}{t}dt\newline
+和\newline
 \dfrac{\pi(x)\log x}{x} = \dfrac{\vartheta(x)}{x}+\dfrac{\log x}{x}\int_2^x\dfrac{\vartheta(t)}{t\log^2t}dt
 $$
 证明$\dfrac{\vartheta(x)}{x}$和$\dfrac{\pi(x)\log x}{x}$的等价关系，只需要分别证明：&lt;/p&gt;
 &lt;p&gt;（1）&lt;strong&gt;$\lim_{x\rightarrow\infty}\dfrac{1}{x}\int_2^x\dfrac{\pi(t)}{t}dt=0$:&lt;/strong&gt;&lt;/p&gt;
 &lt;p&gt;通过第一个式子我们可以得到$\dfrac{\pi(x)}{x}=\Omicron(\dfrac{1}{\log x})$，于是
 $$
-\dfrac{1}{x}\int_2^x\dfrac{\pi(t)}{t}dt = \Omicron(\dfrac{1}{x}\int_2^x\dfrac{1}{\log t}dt)\
+\dfrac{1}{x}\int_2^x\dfrac{\pi(t)}{t}dt = \Omicron(\dfrac{1}{x}\int_2^x\dfrac{1}{\log t}dt)\newline
 \int_2^x\dfrac{1}{\log t}dt = \int_2^{\sqrt x}\dfrac{1}{\log t}dt + \int_{\sqrt x}^x\dfrac{1}{\log t}dt \le \dfrac{\sqrt{x}}{\log 2}+\dfrac{x-\sqrt{x}}{\log \sqrt{x}}
 $$
 乘起来
 $$
-\dfrac{1}{x}\int_2^x\dfrac{\pi(t)}{t}dt \le \dfrac{1}{x}{\dfrac{\sqrt{x}}{\log 2}+\dfrac{x-\sqrt{x}}{\log \sqrt{x}}}=\dfrac{1}{\sqrt{x}\log 2}+\dfrac{1-\dfrac{1}{\sqrt{x}}}{\log \sqrt{x}}\
-\lim_{x\rightarrow\infty}{\dfrac{1}{\sqrt{x}\log 2}+\dfrac{1-\dfrac{1}{\sqrt{x}}}{\log \sqrt{x}}} = 0\
+\dfrac{1}{x}\int_2^x\dfrac{\pi(t)}{t}dt \le \dfrac{1}{x}{\dfrac{\sqrt{x}}{\log 2}+\dfrac{x-\sqrt{x}}{\log \sqrt{x}}}=\dfrac{1}{\sqrt{x}\log 2}+\dfrac{1-\dfrac{1}{\sqrt{x}}}{\log \sqrt{x}}\newline
+\lim_{x\rightarrow\infty}{\dfrac{1}{\sqrt{x}\log 2}+\dfrac{1-\dfrac{1}{\sqrt{x}}}{\log \sqrt{x}}} = 0\newline
 所以\lim_{x\rightarrow\infty}\dfrac{1}{x}\int_2^x\dfrac{\pi(t)}{t}dt \rightarrow0
 $$
 （2）&lt;strong&gt;$\lim_{x\rightarrow\infty}\dfrac{\log x}{x}\int_2^x\dfrac{\vartheta(t)}{t\log^2t}dt=0$：&lt;/strong&gt;&lt;/p&gt;
 &lt;p&gt;通过第二个式子我们可以得到$\vartheta(t)=\Omicron(t)$，于是
 $$
-\dfrac{\log x}{x}\int_2^x\dfrac{\vartheta(t)}{t\log^2t}dt = \Omicron(\dfrac{\log x}{x}\int_2^x\dfrac{1}{\log^2t}dt)\
+\dfrac{\log x}{x}\int_2^x\dfrac{\vartheta(t)}{t\log^2t}dt = \Omicron(\dfrac{\log x}{x}\int_2^x\dfrac{1}{\log^2t}dt)\newline
 \int_2^x\dfrac{1}{\log^2t}dt = \int_2^{\sqrt{x}}\dfrac{1}{\log^2t}dt + \int_{\sqrt{x}}^x\dfrac{1}{\log^2t}dt\le
 \dfrac{\sqrt{x}}{\log^22}+\dfrac{x-\sqrt{x}}{\log^2\sqrt{2}}
 $$
@@ -248,8 +257,8 @@ $$
 $$
 \dfrac{\log x}{x}\int_2^x\dfrac{\vartheta(t)}{t\log^2t}dt \le
 \dfrac{\log x}{x}{\dfrac{\sqrt{x}}{\log^22}+\dfrac{x-\sqrt{x}}{\log^2\sqrt{x}}} =
-\dfrac{\log x}{\sqrt{x}\log^22}+\dfrac{2(1-\dfrac{1}{\sqrt{x}})}{\log\sqrt{x}}\
-lim_{x\rightarrow\infty}{\dfrac{\log x}{\sqrt{x}\log^22}+\dfrac{2(1-\dfrac{1}{\sqrt{x}})}{\log\sqrt{x}}} =0\
+\dfrac{\log x}{\sqrt{x}\log^22}+\dfrac{2(1-\dfrac{1}{\sqrt{x}})}{\log\sqrt{x}}\newline
+lim_{x\rightarrow\infty}{\dfrac{\log x}{\sqrt{x}\log^22}+\dfrac{2(1-\dfrac{1}{\sqrt{x}})}{\log\sqrt{x}}} =0\newline
 所以：lim_{x\rightarrow\infty}\dfrac{\log x}{x}\int_2^x\dfrac{\vartheta(t)}{t\log^2t}dt \rightarrow0
 $$&lt;/p&gt;
 &lt;/blockquote&gt;
@@ -257,8 +266,8 @@ $$&lt;/p&gt;
 &lt;li&gt;Th2:接下来我们将素数定理和第n个素数的渐进值联系起来**:令$p_n$是第n个素数**，下面几个渐进式是逻辑等价的。
 $$
 \begin{gather}
-\lim_{x\rightarrow\infty}\dfrac{\pi(x)\log x}{x} = 1\
-\lim_{x\rightarrow\infty}\dfrac{\pi(x)\log{\pi(x)}}{x} = 1\
+\lim_{x\rightarrow\infty}\dfrac{\pi(x)\log x}{x} = 1 \newline
+\lim_{x\rightarrow\infty}\dfrac{\pi(x)\log{\pi(x)}}{x} = 1 \newline
 \lim_{n\rightarrow\infty}\dfrac{p_n}{n\log n } = 1
 \end{gather}
 $$&lt;/li&gt;
@@ -268,7 +277,7 @@ $$&lt;/li&gt;
 &lt;p&gt;&lt;strong&gt;第一个式子推第二个：&lt;/strong&gt;&lt;/p&gt;
 &lt;p&gt;对第一个式子两边取对数得
 $$
-\lim_{x\rightarrow\infty}[\log{\pi(x)}+\log{\log x}-\log{x}]=0\
+\lim_{x\rightarrow\infty}[\log{\pi(x)}+\log{\log x}-\log{x}]=0 \newline
 \lim_{x\rightarrow\infty}\log x[{\dfrac{{\log \pi(x)}}{\log{x}}+\dfrac{\log{\log x}}{\log{x}}-1}]=0
 $$
 当$x\rightarrow\infty$时，前面的$\log x\rightarrow\infty$，于是后面的$\lim_{x\rightarrow\infty}[{\dfrac{{\log\pi(x)}}{\log{x}}+\dfrac{\log{\log x}}{\log{x}}-1}]=0$。然而中间的又是0&lt;/p&gt;
@@ -287,8 +296,8 @@ $$
 &lt;p&gt;&lt;strong&gt;第二个式子推第一个：&lt;/strong&gt;&lt;/p&gt;
 &lt;p&gt;对式2取对数得
 $$
-\lim_{x\rightarrow\infty}[\log\pi(x) + \log \log{\pi(x)} - \log x] = 0 \
-\lim_{x\rightarrow\infty}\log\pi(x)[1+\dfrac{\log\log\pi(x)}{\log\pi(x)}-\dfrac{\log x}{\log\pi(x)}] = 0 \
+\lim_{x\rightarrow\infty}[\log\pi(x) + \log \log{\pi(x)} - \log x] = 0  \newline
+\lim_{x\rightarrow\infty}\log\pi(x)[1+\dfrac{\log\log\pi(x)}{\log\pi(x)}-\dfrac{\log x}{\log\pi(x)}] = 0  \newline
 $$
 外面的$\log\pi(x)\rightarrow\infty$，那么里面的就有$\lim_{x\rightarrow\infty}1+\dfrac{\log\log\pi(x)}{\log\pi(x)}-\dfrac{\log x}{\log\pi(x)} = 0 $，中间的$\lim_{x\rightarrow\infty}\dfrac{\log\log\pi(x)}{\log x}=0$&lt;/p&gt;
 &lt;p&gt;于是剩下的$\lim_{x\rightarrow\infty}\dfrac{\log x}{\log\pi(x)}=1$&lt;/p&gt;
@@ -310,7 +319,14 @@ $$
         <pubDate>Sat, 23 Sep 2023 12:14:00 +0000</pubDate>
         
         <guid>https://dorinxl.github.io/p/%E5%87%A0%E4%B8%AA%E5%87%BD%E6%95%B0%E7%9A%84%E5%B9%B3%E5%9D%87%E9%98%B6/</guid>
-        <description>&lt;h1 id=&#34;几个函数的平均阶&#34;&gt;几个函数的平均阶
+        <description>
+
+
+&lt;div class=&#34;notice notice-info&#34; &gt;
+    &lt;div class=&#34;notice-title&#34;&gt;&lt;svg xmlns=&#34;http://www.w3.org/2000/svg&#34; class=&#34;icon notice-icon&#34; viewBox=&#34;0 0 512 512&#34; fill=&#34;hsl(30, 80%, 70%)&#34;&gt;&lt;path d=&#34;M256 8a248 248 0 100 496 248 248 0 000-496zm0 110a42 42 0 110 84 42 42 0 010-84zm56 254c0 7-5 12-12 12h-88c-7 0-12-5-12-12v-24c0-7 5-12 12-12h12v-64h-12c-7 0-12-5-12-12v-24c0-7 5-12 12-12h64c7 0 12 5 12 12v100h12c7 0 12 5 12 12v24z&#34;/&gt;&lt;/svg&gt;&lt;/div&gt;&lt;p&gt;本文使用&lt;strong&gt;Typora&lt;/strong&gt;编写，但Hugo使用&lt;strong&gt;KaTex&lt;/strong&gt;渲染，可能会出现不兼容状态，如需最佳体验请前往&lt;a class=&#34;link&#34; href=&#34;https://www.cnblogs.com/DorinXL/p/17724738.html&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;这里&lt;/a&gt;&lt;/p&gt;&lt;/div&gt;
+
+&lt;h1 id=&#34;几个函数的平均阶&#34;&gt;几个函数的平均阶
 &lt;/h1&gt;&lt;h2 id=&#34;目录&#34;&gt;目录
 &lt;/h2&gt;&lt;ul&gt;
 &lt;li&gt;Chapter1 $d(n)$的平均阶&lt;/li&gt;
@@ -336,7 +352,7 @@ $$
 $$
 我们把$n=qd$，那么对于$q,d$展开就变成了
 $$
-\sum_{n\le x}d(n)=\sum_{q,d\qd\le x}1
+\sum_{n\le x}d(n)=\sum_{q,d \newline qd\le x}1
 $$
 结合图像我们可以形象的明白，我们取的点即是在$qd$平面上的一些格点。&lt;/p&gt;
 &lt;p&gt;&lt;img src=&#34;https://dorinxl.github.io/p/%E5%87%A0%E4%B8%AA%E5%87%BD%E6%95%B0%E7%9A%84%E5%B9%B3%E5%9D%87%E9%98%B6/1858293-20230923170758581-1917446611.png&#34;
@@ -365,10 +381,10 @@ $$
 继续用欧拉求和公式，得到、
 $$
 \begin{align*}
-\sum_{n\le x}d(n)&amp;amp;=\sum_{d\le x}\sum_{q\le\frac{x}{d}}1\
-&amp;amp;=\sum_{d\le x}{\dfrac{x}{d}+\Omicron(1)}\
-&amp;amp;=x\sum_{d\le x}\dfrac{1}{d}+\Omicron(x)\
-&amp;amp;=x{\log x+C+\Omicron(\dfrac{1}{x})}+\Omicron(x)\
+\sum_{n\le x}d(n)&amp;amp;=\sum_{d\le x}\sum_{q\le\frac{x}{d}}1 \newline
+&amp;amp;=\sum_{d\le x}{\dfrac{x}{d}+\Omicron(1)} \newline
+&amp;amp;=x\sum_{d\le x}\dfrac{1}{d}+\Omicron(x) \newline
+&amp;amp;=x{\log x+C+\Omicron(\dfrac{1}{x})}+\Omicron(x) \newline
 &amp;amp;=x\log x+\Omicron(x)
 \end{align*}
 $$
@@ -396,10 +412,10 @@ $$
 利用$[y]=y+\Omicron(1)$和求和公式的推论得到
 $$
 \begin{align*}
-\sum_{n\le x}d(n)&amp;amp;=2\sum_{d\le\sqrt x}{[\dfrac{x}{d}]-d}+[\sqrt x]\
-&amp;amp;=2\sum_{d\le\sqrt x}{\dfrac{x}{d}-d+\Omicron(1)}+\Omicron(\sqrt x)\
-&amp;amp;=2x\sum_{d\le\sqrt x}\dfrac{1}{d}-2\sum_{d\le\sqrt x}d+\Omicron(\sqrt x)\
-&amp;amp;=2x{\log \sqrt x+C+\Omicron(\dfrac{1}{\sqrt x})}-2{\dfrac{x}{2}+\Omicron(\sqrt x)}+\Omicron(\sqrt x)\
+\sum_{n\le x}d(n)&amp;amp;=2\sum_{d\le\sqrt x}{[\dfrac{x}{d}]-d}+[\sqrt x] \newline
+&amp;amp;=2\sum_{d\le\sqrt x}{\dfrac{x}{d}-d+\Omicron(1)}+\Omicron(\sqrt x) \newline
+&amp;amp;=2x\sum_{d\le\sqrt x}\dfrac{1}{d}-2\sum_{d\le\sqrt x}d+\Omicron(\sqrt x) \newline
+&amp;amp;=2x{\log \sqrt x+C+\Omicron(\dfrac{1}{\sqrt x})}-2{\dfrac{x}{2}+\Omicron(\sqrt x)}+\Omicron(\sqrt x) \newline
 &amp;amp;=x\log x+(2C-1)x+\Omicron(\sqrt x)
 \end{align*}
 $$
@@ -428,11 +444,11 @@ $$&lt;/p&gt;
 $$
 \begin{align*}
 \sum_{n\le x}\sigma_1(n)
-&amp;amp;=\sum_{n\le x}\sum_{q|n}q=\sum_{q,d\qd\le x}q=\sum_{d\le x}\sum_{q\le\dfrac{x}{d}}q\
-&amp;amp;=\sum_{d\le x}{\frac{1}{2}(\frac{x}{d})^2+\Omicron(\frac{x}{d})}\
-&amp;amp;=\frac{x^2}{2}\sum_{d\le x}\frac{1}{d^2}+\Omicron(x\sum_{d\le x}\frac{1}{d}) \
-&amp;amp;=\frac{x^2}{2}\sum_{d\le x}{-\frac{1}{x}+\zeta(2)+\Omicron(\frac{1}{x^2})}+\Omicron(x\log x)\
-&amp;amp;=\dfrac{1}{2}\zeta(2)x^2+\Omicron(x\log x)\
+&amp;amp;=\sum_{n\le x}\sum_{q|n}q=\sum_{q,d \newline qd\le x}q=\sum_{d\le x}\sum_{q\le\dfrac{x}{d}}q \newline
+&amp;amp;=\sum_{d\le x}{\frac{1}{2}(\frac{x}{d})^2+\Omicron(\frac{x}{d})} \newline
+&amp;amp;=\frac{x^2}{2}\sum_{d\le x}\frac{1}{d^2}+\Omicron(x\sum_{d\le x}\frac{1}{d})  \newline
+&amp;amp;=\frac{x^2}{2}\sum_{d\le x}{-\frac{1}{x}+\zeta(2)+\Omicron(\frac{1}{x^2})}+\Omicron(x\log x) \newline
+&amp;amp;=\dfrac{1}{2}\zeta(2)x^2+\Omicron(x\log x) \newline
 \end{align*}
 $$
 配合欧拉求和完成求证。&lt;/p&gt;
@@ -449,11 +465,11 @@ $$&lt;/p&gt;
 &lt;p&gt;配合欧拉求和公式的推论，我们开始证明：
 $$
 \begin{align*}
-\sum_{n\le x}\sigma_\alpha(n)&amp;amp;=\sum_{n\le x}\sum_{q|n}q^\alpha=\sum_{d\le x}\sum_{q\le \frac{x}{d}}q^\alpha\
-&amp;amp;=\sum_{d\le x}(\dfrac{1}{\alpha+1}(\dfrac{d}{x})^{\alpha+1}+\Omicron(\dfrac{x^\alpha}{d^\alpha}))\
-&amp;amp;=\dfrac{x^{\alpha+1}}{\alpha+1}\sum_{d\le x}\dfrac{1}{d^{\alpha+1}}+\Omicron(x^\alpha\sum_{d\le x}\dfrac{1}{d^\alpha})\
-&amp;amp;=\dfrac{x^{\alpha+1}}{\alpha+1}{\dfrac{x^{-\alpha}}{-\alpha}+\zeta(\alpha+1)+\Omicron(x^{-\alpha-1})}+\Omicron(x^\alpha{\dfrac{x^{1-\alpha}}{1-\alpha}+\zeta(\alpha)+\Omicron(x^{-\alpha})})\
-&amp;amp;=\dfrac{\zeta(\alpha+1)}{\alpha+1}x^{\alpha+1}+\Omicron(x)+\Omicron(1)+\Omicron(x^\alpha)\
+\sum_{n\le x}\sigma_\alpha(n)&amp;amp;=\sum_{n\le x}\sum_{q|n}q^\alpha=\sum_{d\le x}\sum_{q\le \frac{x}{d}}q^\alpha \newline
+&amp;amp;=\sum_{d\le x}(\dfrac{1}{\alpha+1}(\dfrac{d}{x})^{\alpha+1}+\Omicron(\dfrac{x^\alpha}{d^\alpha})) \newline
+&amp;amp;=\dfrac{x^{\alpha+1}}{\alpha+1}\sum_{d\le x}\dfrac{1}{d^{\alpha+1}}+\Omicron(x^\alpha\sum_{d\le x}\dfrac{1}{d^\alpha}) \newline
+&amp;amp;=\dfrac{x^{\alpha+1}}{\alpha+1}{\dfrac{x^{-\alpha}}{-\alpha}+\zeta(\alpha+1)+\Omicron(x^{-\alpha-1})}+\Omicron(x^\alpha{\dfrac{x^{1-\alpha}}{1-\alpha}+\zeta(\alpha)+\Omicron(x^{-\alpha})}) \newline
+&amp;amp;=\dfrac{\zeta(\alpha+1)}{\alpha+1}x^{\alpha+1}+\Omicron(x)+\Omicron(1)+\Omicron(x^\alpha) \newline
 &amp;amp;=\dfrac{\zeta(\alpha+1)}{\alpha+1}x^{\alpha+1}+\Omicron(x^\beta)
 \end{align*}
 $$
@@ -468,8 +484,8 @@ $$
 &lt;p&gt;$$
 \sum_{n\le x}\sigma_{-\beta}(n)=
 \begin{cases}
-\zeta(\beta+1)x+\Omicron(x^\delta)&amp;amp;,\beta \ne 1\
-\zeta(2)x+\Omicron(\log x)&amp;amp;,\beta=1\
+\zeta(\beta+1)x+\Omicron(x^\delta)&amp;amp;,\beta \ne 1 \newline
+\zeta(2)x+\Omicron(\log x)&amp;amp;,\beta=1 \newline
 \end{cases}
 $$&lt;/p&gt;
 &lt;p&gt;其中，$\beta=max{1,\alpha}$&lt;/p&gt;
@@ -481,8 +497,8 @@ $$
 \sum_{n\le x}\sigma_{-\beta}(n)
 &amp;amp;=\sum_{n\le x}\sum_{d|n}\dfrac{1}{d^\beta}
 =\sum_{d\le x}\dfrac{1}{d^\beta}\sum_{q\le \frac{x}{d}}1
-\
-&amp;amp;=\sum_{d\le x}\dfrac{1}{d^\beta}{\dfrac{x}{d}+\Omicron(1)}\
+\newline
+&amp;amp;=\sum_{d\le x}\dfrac{1}{d^\beta}{\dfrac{x}{d}+\Omicron(1)} \newline
 &amp;amp;=x\sum_{d\le x}\frac{1}{d^{\beta+1}}+\Omicron(\sum_{d\le x}\dfrac{1}{d^\beta})
 \end{align*}
 $$
@@ -513,14 +529,14 @@ $$&lt;/p&gt;
 $$
 U=
 \begin{cases}
-0&amp;amp;,0 ,x&amp;lt;1\
+0&amp;amp;,0 ,x&amp;lt;1 \newline
 1&amp;amp;,x \ge 1
 \end{cases}
 $$
 于是根据广义卷积得到：$F=f\circ U,G=g \circ U$&lt;/p&gt;
 &lt;p&gt;使用结合律得到
 $$
-f \circ G = f \circ(g \circ U)=(f&lt;em&gt;g)\circ U=H\
+f \circ G = f \circ(g \circ U)=(f&lt;em&gt;g)\circ U=H \newline
 g \circ F = g \circ(f \circ U)=(g&lt;/em&gt;f)\circ U=H
 $$&lt;/p&gt;
 &lt;/blockquote&gt;
@@ -539,7 +555,7 @@ $$&lt;/p&gt;
 &lt;li&gt;**Th3:**对所有的$x\ge1$，我们有&lt;/li&gt;
 &lt;/ul&gt;
 &lt;p&gt;$$
-\sum_{n\le x}\mu(n)[\dfrac{x}{n}]=1\
+\sum_{n\le x}\mu(n)[\dfrac{x}{n}]=1 \newline
 \sum_{n\le x}\Lambda(n)[\dfrac{x}{n}]=\log {[x]!}
 $$&lt;/p&gt;
 &lt;p&gt;​	当且仅当$x&amp;lt;2$时，等号成立。&lt;/p&gt;
@@ -548,7 +564,7 @@ $$&lt;/p&gt;
 &lt;p&gt;根据定理2：
 $$
 \sum_{n\le x}\mu(n)[\dfrac{x}{n}]=\sum_{n\le x}\sum_{d|n}\mu(d)=\sum_{n\le x}[\dfrac{1}{n}]=1
-\
+\newline
 \sum_{n\le x}\Lambda(n)[\dfrac{x}{n}]=\sum_{n\le x}\sum_{d|n}\Lambda(d)=\sum_{n\le x}\log n=\log{[x]!}
 $$&lt;/p&gt;
 &lt;/blockquote&gt;
@@ -565,16 +581,16 @@ $$&lt;/p&gt;
 &lt;p&gt;假设$x\ge2$，对每个实数y，我们有${y}=y-[y]$，于是有
 $$
 \begin{align*}
-1&amp;amp;=\sum_{n\le x}\mu(n)[\dfrac{x}{n}]=\sum_{n\le x}\mu(n)(\dfrac{x}{n}-{\dfrac{x}{n}})
-\
-&amp;amp;=x\sum_{n\le x}\dfrac{\mu(n)}{n}-\sum_{n\le x}\mu(n){\dfrac{x}{n}}\&lt;/p&gt;
-&lt;p&gt;\end{align*}
+1 &amp;amp;= \sum_{n\le x}\mu(n)[\dfrac{x}{n}]=\sum_{n\le x}\mu(n)(\dfrac{x}{n}-{\dfrac{x}{n}})
+\newline
+&amp;amp;=x\sum_{n\le x}\dfrac{\mu(n)}{n}-\sum_{n\le x}\mu(n){\dfrac{x}{n}} \newline
+\end{align*}
 $$
 因为$0\le {y} &amp;lt; 1$，所以
 $$
 x|\sum_{n\le x}\dfrac{\mu(n)}{n}|=|1+\sum_{n\le x}\mu(n){\dfrac{x}{n}}|
-\ \le 1+\sum_{n\le x}{\dfrac{x}{n}} =1+{x}+\sum_{2\le n \le x}{\dfrac{x}{n}}
-\&amp;lt; 1+{x}+[x]-1=x
+\newline  \le 1+\sum_{n\le x}{\dfrac{x}{n}} =1+{x}+\sum_{2\le n \le x}{\dfrac{x}{n}}
+\newline &amp;lt; 1+{x}+[x]-1=x
 $$
 两边除x得到不等号&lt;/p&gt;
 &lt;/blockquote&gt;
@@ -617,7 +633,7 @@ $$&lt;/p&gt;
 &lt;p&gt;在欧拉求和公式里取$f(t)=\log t$可以得到：
 $$
 \begin{align*}
-\sum_{n\le x}\log n&amp;amp;=\int_{1}^x\log t{\rm d}x+\int_{1}^x\dfrac{t-[t]}{t}dt-(x-[x])\log x\
+\sum_{n\le x}\log n&amp;amp;=\int_{1}^x\log t{\rm d}x+\int_{1}^x\dfrac{t-[t]}{t}dt-(x-[x])\log x \newline
 &amp;amp;=x\log x - x+1+\int_{1}^x\dfrac{t-[t]}{t}dt+\Omicron(\log x)
 \end{align*}
 $$
@@ -635,8 +651,8 @@ $$&lt;/p&gt;
 &lt;p&gt;如果n不是素数幂，那么有$\Lambda(n)=0$。
 $$
 \begin{align*}
-\sum_{n\le x}[\dfrac{x}{n}]\Lambda(n)&amp;amp;=\sum_{p}\sum_{m=1}^\infty[\dfrac{x}{p^m}]\Lambda(p^m)\
-&amp;amp;=\sum_{p}\sum_{m=1}^\infty[\dfrac{x}{p^m}]\log p\
+\sum_{n\le x}[\dfrac{x}{n}]\Lambda(n)&amp;amp;=\sum_{p}\sum_{m=1}^\infty[\dfrac{x}{p^m}]\Lambda(p^m) \newline
+&amp;amp;=\sum_{p}\sum_{m=1}^\infty[\dfrac{x}{p^m}]\log p \newline
 &amp;amp;=\sum_{p\le x}[\dfrac{x}{p}]\log p + \sum_{p\le x}\sum_{m=2}^\infty[\dfrac{x}{p^m}]\log p
 \end{align*}
 $$
@@ -644,11 +660,11 @@ $$
 $$
 \begin{align*}
 \sum_{p\le x}\sum_{m=2}^\infty[\dfrac{x}{p^m}]\log p
-&amp;amp;=\sum_{p\le x}\log p\sum_{m=2}^\infty[\dfrac{x}{p^m}]\
-&amp;amp;\le\sum_{p\le x}\log p\sum_{m=2}^\infty\dfrac{x}{p^m}\
-&amp;amp;=x\sum_{p\le x}\log p\sum_{m=2}^\infty\dfrac({1}{p})^m\
-&amp;amp;=x\sum_{p\le x}\dfrac{\log p}{p(p-1)}\
-&amp;amp;\le x\sum_{n=2}^\infty\dfrac{\log n}{n(n-1)}\
+&amp;amp;=\sum_{p\le x}\log p\sum_{m=2}^\infty[\dfrac{x}{p^m}] \newline
+&amp;amp;\le\sum_{p\le x}\log p\sum_{m=2}^\infty\dfrac{x}{p^m} \newline
+&amp;amp;=x\sum_{p\le x}\log p\sum_{m=2}^\infty\dfrac({1}{p})^m \newline
+&amp;amp;=x\sum_{p\le x}\dfrac{\log p}{p(p-1)} \newline
+&amp;amp;\le x\sum_{n=2}^\infty\dfrac{\log n}{n(n-1)} \newline
 &amp;amp;=\Omicron(x)
 \end{align*}
 $$
@@ -663,7 +679,7 @@ $$
 $$
 可以得到
 $$
-\sum_{p\le x}[\dfrac{x}{p}]\log p + \Omicron(x) = x\log x - x + \Omicron(\log x)\
+\sum_{p\le x}[\dfrac{x}{p}]\log p + \Omicron(x) = x\log x - x + \Omicron(\log x) \newline
 \sum_{p\le x}[\dfrac{x}{p}]\log p=x\log x+\Omicron(x)
 $$&lt;/p&gt;
 &lt;/blockquote&gt;
@@ -677,12 +693,14 @@ $$&lt;/p&gt;
         <pubDate>Fri, 04 Aug 2023 11:07:00 +0000</pubDate>
         
         <guid>https://dorinxl.github.io/p/%E8%A7%A3%E6%9E%90%E6%95%B0%E8%AE%BA%E4%B9%8B%E6%9C%89%E9%99%90%E9%98%BF%E8%B4%9D%E5%B0%94%E7%BE%A4%E5%8F%8A%E5%85%B6%E7%89%B9%E5%BE%81%E7%8B%84%E5%88%A9%E5%85%8B%E9%9B%B7%E7%89%B9%E5%BE%81/</guid>
-        <description>&lt;h6 id=&#34;coding-typoralatex&#34;&gt;@Coding: Typora+LaTeX
-&lt;/h6&gt;&lt;h6 id=&#34;author--dorinxlhttpsdorinxlgiteeio博客httpswwwcnblogscomdorinxl&#34;&gt;@Author : &lt;a class=&#34;link&#34; href=&#34;https://dorinxl.gitee.io/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
-    &gt;DorinXL&lt;/a&gt;（&lt;a class=&#34;link&#34; href=&#34;https://www.cnblogs.com/DorinXL/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
-    &gt;博客&lt;/a&gt;）
-&lt;/h6&gt;&lt;h6 id=&#34;time--202384&#34;&gt;@Time : 2023/8/4
-&lt;/h6&gt;&lt;h2 id=&#34;目录&#34;&gt;目录
+        <description>
+
+
+&lt;div class=&#34;notice notice-info&#34; &gt;
+    &lt;div class=&#34;notice-title&#34;&gt;&lt;svg xmlns=&#34;http://www.w3.org/2000/svg&#34; class=&#34;icon notice-icon&#34; viewBox=&#34;0 0 512 512&#34; fill=&#34;hsl(30, 80%, 70%)&#34;&gt;&lt;path d=&#34;M256 8a248 248 0 100 496 248 248 0 000-496zm0 110a42 42 0 110 84 42 42 0 010-84zm56 254c0 7-5 12-12 12h-88c-7 0-12-5-12-12v-24c0-7 5-12 12-12h12v-64h-12c-7 0-12-5-12-12v-24c0-7 5-12 12-12h64c7 0 12 5 12 12v100h12c7 0 12 5 12 12v24z&#34;/&gt;&lt;/svg&gt;&lt;/div&gt;&lt;p&gt;本文使用&lt;strong&gt;Typora&lt;/strong&gt;编写，但Hugo使用&lt;strong&gt;KaTex&lt;/strong&gt;渲染，可能会出现不兼容状态，如需最佳体验请前往&lt;a class=&#34;link&#34; href=&#34;https://www.cnblogs.com/DorinXL/p/17606790.html&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;这里&lt;/a&gt;&lt;/p&gt;&lt;/div&gt;
+
+&lt;h2 id=&#34;目录&#34;&gt;目录
 &lt;/h2&gt;&lt;ul&gt;
 &lt;li&gt;Chapter1 群的定义、性质&lt;/li&gt;
 &lt;li&gt;Chapter2 构造子群&lt;/li&gt;
@@ -761,10 +779,10 @@ $$&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;Proof:&lt;/strong&gt;
 $$
 \begin{align*}
-a&lt;em&gt;b&amp;amp;=a&lt;/em&gt;c\
-a^{-1}&lt;em&gt;a&lt;/em&gt;b&amp;amp;=a^{-1}&lt;em&gt;a&lt;/em&gt;c\
-e&lt;em&gt;b&amp;amp;=e&lt;/em&gt;c\
-b&amp;amp;=c\
+a&lt;em&gt;b&amp;amp;=a&lt;/em&gt;c \newline
+a^{-1}&lt;em&gt;a&lt;/em&gt;b&amp;amp;=a^{-1}&lt;em&gt;a&lt;/em&gt;c \newline
+e&lt;em&gt;b&amp;amp;=e&lt;/em&gt;c \newline
+b&amp;amp;=c \newline
 \end{align*}
 $$&lt;/p&gt;
 &lt;/blockquote&gt;
@@ -776,9 +794,9 @@ $$&lt;/p&gt;
 &lt;p&gt;需要注意的是，这是个群的方程，运算符号不代表乘号。
 $$
 \begin{align*}
-a*x&amp;amp;=b\
-a^{-1}&lt;em&gt;a&lt;/em&gt;x&amp;amp;=a^{-1}&lt;em&gt;b\
-e&lt;/em&gt;x&amp;amp;=a^{-1}*b\
+a*x&amp;amp;=b \newline
+a^{-1}&lt;em&gt;a&lt;/em&gt;x&amp;amp;=a^{-1}&lt;em&gt;b \newline
+e&lt;/em&gt;x&amp;amp;=a^{-1}*b \newline
 x&amp;amp;=a^{-1}&lt;em&gt;b
 \end{align&lt;/em&gt;}
 $$&lt;/p&gt;
@@ -791,10 +809,10 @@ $$&lt;/p&gt;
 &lt;p&gt;思路是证明一个元素是另一个元素的逆元：
 $$
 \begin{align*}
-&amp;amp;(a&lt;em&gt;b)&lt;/em&gt;(b^{-1}&lt;em&gt;a^{-1})\
-&amp;amp;=a&lt;/em&gt;(b&lt;em&gt;b^{-1})&lt;em&gt;a^{-1}\
-&amp;amp;=a&lt;/em&gt;e&lt;/em&gt;a^{-1}\
-&amp;amp;=a&lt;em&gt;a^{-1}\
+&amp;amp;(a&lt;em&gt;b)&lt;/em&gt;(b^{-1}&lt;em&gt;a^{-1}) \newline
+&amp;amp;=a&lt;/em&gt;(b&lt;em&gt;b^{-1})&lt;em&gt;a^{-1} \newline
+&amp;amp;=a&lt;/em&gt;e&lt;/em&gt;a^{-1} \newline
+&amp;amp;=a&lt;em&gt;a^{-1} \newline
 &amp;amp;=e
 \end{align&lt;/em&gt;}
 $$&lt;/p&gt;
@@ -844,7 +862,7 @@ $$&lt;/p&gt;
 &lt;p&gt;**Th2：**语法糖&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;
-&lt;p&gt;$a^t=a&lt;em&gt;a&lt;/em&gt;a*\cdots*a$&lt;/p&gt;
+&lt;p&gt;$$a^t=a&lt;em&gt;a&lt;/em&gt;a*\cdots*a$$&lt;/p&gt;
 &lt;/li&gt;
 &lt;li&gt;
 &lt;p&gt;$a^{-t}=a^{-1}&lt;em&gt;a^{-1}&lt;em&gt;a^{-1}&lt;/em&gt;\cdots&lt;/em&gt;a^{-1}$&lt;/p&gt;
@@ -854,9 +872,9 @@ $$&lt;/p&gt;
 &lt;blockquote&gt;
 &lt;p&gt;$$
 \begin{align*}
-&amp;amp;(a^t)^m\
-&amp;amp;=(a&lt;em&gt;a&lt;/em&gt;\cdots&lt;em&gt;a)&lt;/em&gt;\cdots*(a&lt;em&gt;a&lt;/em&gt;\cdots&lt;em&gt;a)\
-&amp;amp;=a&lt;/em&gt;a*\cdots&lt;em&gt;a&lt;/em&gt;\cdots&lt;em&gt;a&lt;/em&gt;a*\cdots&lt;em&gt;a\
+&amp;amp;(a^t)^m \newline
+&amp;amp;=(a&lt;em&gt;a&lt;/em&gt;\cdots&lt;em&gt;a)&lt;/em&gt;\cdots*(a&lt;em&gt;a&lt;/em&gt;\cdots&lt;em&gt;a) \newline
+&amp;amp;=a&lt;/em&gt;a*\cdots&lt;em&gt;a&lt;/em&gt;\cdots&lt;em&gt;a&lt;/em&gt;a*\cdots&lt;em&gt;a \newline
 &amp;amp;=a^{tm}
 \end{align&lt;/em&gt;}
 $$&lt;/p&gt;
@@ -870,9 +888,9 @@ $$&lt;/p&gt;
 &lt;blockquote&gt;
 &lt;p&gt;$$
 \begin{align*}
-&amp;amp;(a^{-1})^t*(a^t)^{-1}\
-&amp;amp;=a^{-1}&lt;em&gt;a^{-1}&lt;/em&gt;\cdots&lt;em&gt;a^{-1}&lt;em&gt;a&lt;/em&gt;a&lt;/em&gt;\cdots&lt;em&gt;a\
-&amp;amp;=a^{-1}&lt;em&gt;a^{-1}&lt;/em&gt;\cdots&lt;/em&gt;e&lt;em&gt;a&lt;/em&gt;\cdots&lt;em&gt;a\
+&amp;amp;(a^{-1})^t*(a^t)^{-1} \newline
+&amp;amp;=a^{-1}&lt;em&gt;a^{-1}&lt;/em&gt;\cdots&lt;em&gt;a^{-1}&lt;em&gt;a&lt;/em&gt;a&lt;/em&gt;\cdots&lt;em&gt;a \newline
+&amp;amp;=a^{-1}&lt;em&gt;a^{-1}&lt;/em&gt;\cdots&lt;/em&gt;e&lt;em&gt;a&lt;/em&gt;\cdots&lt;em&gt;a \newline
 &amp;amp;=e
 \end{align&lt;/em&gt;}
 $$&lt;/p&gt;
@@ -885,9 +903,9 @@ $$&lt;/p&gt;
 &lt;blockquote&gt;
 &lt;p&gt;$$
 \begin{align*}
-(a&lt;em&gt;b)^t&amp;amp;=(a&lt;/em&gt;b)&lt;em&gt;(a&lt;/em&gt;b)&lt;em&gt;\cdots&lt;/em&gt;(a&lt;em&gt;b)\
-&amp;amp;=a&lt;/em&gt;b&lt;em&gt;a&lt;/em&gt;b*\cdots&lt;em&gt;a&lt;/em&gt;b\
-&amp;amp;=(a&lt;em&gt;a&lt;/em&gt;\cdots&lt;em&gt;a)&lt;/em&gt;(b&lt;em&gt;b&lt;/em&gt;\cdots&lt;em&gt;b)\
+(a&lt;em&gt;b)^t&amp;amp;=(a&lt;/em&gt;b)&lt;em&gt;(a&lt;/em&gt;b)&lt;em&gt;\cdots&lt;/em&gt;(a&lt;em&gt;b) \newline
+&amp;amp;=a&lt;/em&gt;b&lt;em&gt;a&lt;/em&gt;b*\cdots&lt;em&gt;a&lt;/em&gt;b \newline
+&amp;amp;=(a&lt;em&gt;a&lt;/em&gt;\cdots&lt;em&gt;a)&lt;/em&gt;(b&lt;em&gt;b&lt;/em&gt;\cdots&lt;em&gt;b) \newline
 &amp;amp;=a^t&lt;/em&gt;b^t
 \end{align*}
 $$&lt;/p&gt;
@@ -977,118 +995,118 @@ $$&lt;/p&gt;
 &lt;p&gt;对于$(Z,+)$来说，$Z^m$其实就是$mZ:={mz | z \in Z}={0,\pm m,\pm2m,\cdots}$&lt;/p&gt;
 &lt;p&gt;对于$(Z_n,+)$来说,他是个阿贝尔加法群，$Z^m$其实就是$mZ_n:={mz \bmod n | z \in Z_n}$&lt;/p&gt;
 &lt;table&gt;
-&lt;thead&gt;
-&lt;tr&gt;
-&lt;th&gt;$Z_{15}$&lt;/th&gt;
-&lt;th&gt;0&lt;/th&gt;
-&lt;th&gt;1&lt;/th&gt;
-&lt;th&gt;2&lt;/th&gt;
-&lt;th&gt;3&lt;/th&gt;
-&lt;th&gt;4&lt;/th&gt;
-&lt;th&gt;5&lt;/th&gt;
-&lt;th&gt;6&lt;/th&gt;
-&lt;th&gt;7&lt;/th&gt;
-&lt;th&gt;8&lt;/th&gt;
-&lt;th&gt;9&lt;/th&gt;
-&lt;th&gt;10&lt;/th&gt;
-&lt;th&gt;11&lt;/th&gt;
-&lt;th&gt;12&lt;/th&gt;
-&lt;th&gt;13&lt;/th&gt;
-&lt;th&gt;14&lt;/th&gt;
-&lt;/tr&gt;
-&lt;/thead&gt;
-&lt;tbody&gt;
-&lt;tr&gt;
-&lt;td&gt;$2Z_{15}$&lt;/td&gt;
-&lt;td&gt;0&lt;/td&gt;
-&lt;td&gt;2&lt;/td&gt;
-&lt;td&gt;4&lt;/td&gt;
-&lt;td&gt;6&lt;/td&gt;
-&lt;td&gt;8&lt;/td&gt;
-&lt;td&gt;10&lt;/td&gt;
-&lt;td&gt;12&lt;/td&gt;
-&lt;td&gt;14&lt;/td&gt;
-&lt;td&gt;1&lt;/td&gt;
-&lt;td&gt;3&lt;/td&gt;
-&lt;td&gt;5&lt;/td&gt;
-&lt;td&gt;7&lt;/td&gt;
-&lt;td&gt;9&lt;/td&gt;
-&lt;td&gt;11&lt;/td&gt;
-&lt;td&gt;13&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;$3Z_{15}$&lt;/td&gt;
-&lt;td&gt;0&lt;/td&gt;
-&lt;td&gt;3&lt;/td&gt;
-&lt;td&gt;6&lt;/td&gt;
-&lt;td&gt;9&lt;/td&gt;
-&lt;td&gt;12&lt;/td&gt;
-&lt;td&gt;0&lt;/td&gt;
-&lt;td&gt;3&lt;/td&gt;
-&lt;td&gt;6&lt;/td&gt;
-&lt;td&gt;9&lt;/td&gt;
-&lt;td&gt;12&lt;/td&gt;
-&lt;td&gt;0&lt;/td&gt;
-&lt;td&gt;3&lt;/td&gt;
-&lt;td&gt;6&lt;/td&gt;
-&lt;td&gt;9&lt;/td&gt;
-&lt;td&gt;12&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;$4Z_{15}$&lt;/td&gt;
-&lt;td&gt;0&lt;/td&gt;
-&lt;td&gt;4&lt;/td&gt;
-&lt;td&gt;8&lt;/td&gt;
-&lt;td&gt;12&lt;/td&gt;
-&lt;td&gt;1&lt;/td&gt;
-&lt;td&gt;5&lt;/td&gt;
-&lt;td&gt;9&lt;/td&gt;
-&lt;td&gt;13&lt;/td&gt;
-&lt;td&gt;2&lt;/td&gt;
-&lt;td&gt;6&lt;/td&gt;
-&lt;td&gt;10&lt;/td&gt;
-&lt;td&gt;14&lt;/td&gt;
-&lt;td&gt;3&lt;/td&gt;
-&lt;td&gt;7&lt;/td&gt;
-&lt;td&gt;11&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;$5Z_{15}$&lt;/td&gt;
-&lt;td&gt;0&lt;/td&gt;
-&lt;td&gt;5&lt;/td&gt;
-&lt;td&gt;10&lt;/td&gt;
-&lt;td&gt;0&lt;/td&gt;
-&lt;td&gt;5&lt;/td&gt;
-&lt;td&gt;10&lt;/td&gt;
-&lt;td&gt;0&lt;/td&gt;
-&lt;td&gt;5&lt;/td&gt;
-&lt;td&gt;10&lt;/td&gt;
-&lt;td&gt;0&lt;/td&gt;
-&lt;td&gt;5&lt;/td&gt;
-&lt;td&gt;10&lt;/td&gt;
-&lt;td&gt;0&lt;/td&gt;
-&lt;td&gt;5&lt;/td&gt;
-&lt;td&gt;10&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;$6Z_{15}$&lt;/td&gt;
-&lt;td&gt;0&lt;/td&gt;
-&lt;td&gt;6&lt;/td&gt;
-&lt;td&gt;12&lt;/td&gt;
-&lt;td&gt;3&lt;/td&gt;
-&lt;td&gt;9&lt;/td&gt;
-&lt;td&gt;0&lt;/td&gt;
-&lt;td&gt;6&lt;/td&gt;
-&lt;td&gt;12&lt;/td&gt;
-&lt;td&gt;3&lt;/td&gt;
-&lt;td&gt;9&lt;/td&gt;
-&lt;td&gt;0&lt;/td&gt;
-&lt;td&gt;6&lt;/td&gt;
-&lt;td&gt;12&lt;/td&gt;
-&lt;td&gt;3&lt;/td&gt;
-&lt;td&gt;9&lt;/td&gt;
-&lt;/tr&gt;
-&lt;/tbody&gt;
+  &lt;thead&gt;
+      &lt;tr&gt;
+          &lt;th style=&#34;text-align: left&#34;&gt;$Z_{15}$&lt;/th&gt;
+          &lt;th style=&#34;text-align: left&#34;&gt;0&lt;/th&gt;
+          &lt;th style=&#34;text-align: left&#34;&gt;1&lt;/th&gt;
+          &lt;th style=&#34;text-align: left&#34;&gt;2&lt;/th&gt;
+          &lt;th style=&#34;text-align: left&#34;&gt;3&lt;/th&gt;
+          &lt;th style=&#34;text-align: left&#34;&gt;4&lt;/th&gt;
+          &lt;th style=&#34;text-align: left&#34;&gt;5&lt;/th&gt;
+          &lt;th style=&#34;text-align: left&#34;&gt;6&lt;/th&gt;
+          &lt;th style=&#34;text-align: left&#34;&gt;7&lt;/th&gt;
+          &lt;th style=&#34;text-align: left&#34;&gt;8&lt;/th&gt;
+          &lt;th style=&#34;text-align: left&#34;&gt;9&lt;/th&gt;
+          &lt;th style=&#34;text-align: left&#34;&gt;10&lt;/th&gt;
+          &lt;th style=&#34;text-align: left&#34;&gt;11&lt;/th&gt;
+          &lt;th style=&#34;text-align: left&#34;&gt;12&lt;/th&gt;
+          &lt;th style=&#34;text-align: left&#34;&gt;13&lt;/th&gt;
+          &lt;th style=&#34;text-align: left&#34;&gt;14&lt;/th&gt;
+      &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+      &lt;tr&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;$2Z_{15}$&lt;/td&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;0&lt;/td&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;2&lt;/td&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;4&lt;/td&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;6&lt;/td&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;8&lt;/td&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;10&lt;/td&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;12&lt;/td&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;14&lt;/td&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;1&lt;/td&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;3&lt;/td&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;5&lt;/td&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;7&lt;/td&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;9&lt;/td&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;11&lt;/td&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;13&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;$3Z_{15}$&lt;/td&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;0&lt;/td&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;3&lt;/td&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;6&lt;/td&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;9&lt;/td&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;12&lt;/td&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;0&lt;/td&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;3&lt;/td&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;6&lt;/td&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;9&lt;/td&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;12&lt;/td&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;0&lt;/td&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;3&lt;/td&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;6&lt;/td&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;9&lt;/td&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;12&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;$4Z_{15}$&lt;/td&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;0&lt;/td&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;4&lt;/td&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;8&lt;/td&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;12&lt;/td&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;1&lt;/td&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;5&lt;/td&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;9&lt;/td&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;13&lt;/td&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;2&lt;/td&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;6&lt;/td&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;10&lt;/td&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;14&lt;/td&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;3&lt;/td&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;7&lt;/td&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;11&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;$5Z_{15}$&lt;/td&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;0&lt;/td&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;5&lt;/td&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;10&lt;/td&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;0&lt;/td&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;5&lt;/td&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;10&lt;/td&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;0&lt;/td&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;5&lt;/td&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;10&lt;/td&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;0&lt;/td&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;5&lt;/td&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;10&lt;/td&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;0&lt;/td&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;5&lt;/td&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;10&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;$6Z_{15}$&lt;/td&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;0&lt;/td&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;6&lt;/td&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;12&lt;/td&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;3&lt;/td&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;9&lt;/td&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;0&lt;/td&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;6&lt;/td&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;12&lt;/td&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;3&lt;/td&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;9&lt;/td&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;0&lt;/td&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;6&lt;/td&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;12&lt;/td&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;3&lt;/td&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;9&lt;/td&gt;
+      &lt;/tr&gt;
+  &lt;/tbody&gt;
 &lt;/table&gt;
 &lt;/blockquote&gt;
 &lt;ul&gt;
@@ -1158,7 +1176,7 @@ $$
 &lt;ul&gt;
 &lt;li&gt;令$G$是任意一个群，定义在$G$上的一个复值函数（$Z\rightarrow C$，从整数到复数）$f$，如果这个函数是积性的且非0，即
 $$
-\forall a,b \in G,f(ab)=f(a)f(b)\
+\forall a,b \in G,f(ab)=f(a)f(b) \newline
 \exist c,f(c)\ne0
 $$
 那么$f$就称为$G$的一个特征。&lt;/li&gt;
@@ -1190,7 +1208,7 @@ $$
 $$
 现在我们将最小的子群${e}$拿出来作为$G_1$，如果$G_1 \ne G$，那么我们可以通过多次构造来得到一个有限集合和相对应子群的集合。
 $$
-G_{r+1}=&amp;lt;G_r;a_r&amp;gt;\
+G_{r+1}=&amp;lt;G_r;a_r&amp;gt; \newline
 G_1\subset G_2\subset \cdots\subset G_{r+1}=G
 $$
 我们拥有这样一个子序列后，再通过归纳法即可证明。&lt;/p&gt;
@@ -1233,14 +1251,14 @@ $$
 &lt;ul&gt;
 &lt;li&gt;令$G$是模k的简化剩余类群，对应于$G$上的每一个特征$f$，我们定义如下一个数论函数$\chi=\chi_f$
 $$
-\chi(n)=f(\hat n) \quad if(n,k)=1\
+\chi(n)=f(\hat n) \quad if(n,k)=1 \newline
 \chi(n)=0 \quad\quad if(n,k)&amp;gt;1
 $$
 称$\chi$是模k的狄利克雷特征，主特征$\chi_1$有如下特征：
 $$
 \chi_1(n)=
 \begin{cases}
-1,&amp;amp;if(n,k)=1\
+1,&amp;amp;if(n,k)=1 \newline
 0,&amp;amp;if(n,k)&amp;gt;1
 \end{cases}
 $$&lt;/li&gt;
@@ -1261,7 +1279,7 @@ $$&lt;/li&gt;
 &lt;li&gt;
 &lt;p&gt;Th2:有$\varphi(k)$个不同的狄利克雷特征模k，并且都是完全积性的、周期性的，即
 $$
-\chi(mn)=\chi(m)\chi(n)\
+\chi(mn)=\chi(m)\chi(n) \newline
 \chi(n+k)=\chi(n)
 $$
 反之，如果$\chi$是完全积性的并且以k为周期循环，并且当$(n,k)&amp;gt;1$有$\chi(n)=0$，则$\chi$一定是个模k的狄利克雷特征。&lt;/p&gt;
@@ -1283,222 +1301,222 @@ $$
 &lt;li&gt;
 &lt;p&gt;&lt;strong&gt;k=3,$\varphi(k)=2$:&lt;/strong&gt;&lt;/p&gt;
 &lt;table&gt;
-&lt;thead&gt;
-&lt;tr&gt;
-&lt;th&gt;n&lt;/th&gt;
-&lt;th&gt;1&lt;/th&gt;
-&lt;th&gt;2&lt;/th&gt;
-&lt;th&gt;3&lt;/th&gt;
-&lt;/tr&gt;
-&lt;/thead&gt;
-&lt;tbody&gt;
-&lt;tr&gt;
-&lt;td&gt;$\chi_1(n)$&lt;/td&gt;
-&lt;td&gt;1&lt;/td&gt;
-&lt;td&gt;1&lt;/td&gt;
-&lt;td&gt;0&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;$\chi_2(n)$&lt;/td&gt;
-&lt;td&gt;1&lt;/td&gt;
-&lt;td&gt;-1&lt;/td&gt;
-&lt;td&gt;0&lt;/td&gt;
-&lt;/tr&gt;
-&lt;/tbody&gt;
+  &lt;thead&gt;
+      &lt;tr&gt;
+          &lt;th style=&#34;text-align: left&#34;&gt;n&lt;/th&gt;
+          &lt;th style=&#34;text-align: left&#34;&gt;1&lt;/th&gt;
+          &lt;th style=&#34;text-align: left&#34;&gt;2&lt;/th&gt;
+          &lt;th style=&#34;text-align: left&#34;&gt;3&lt;/th&gt;
+      &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+      &lt;tr&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;$\chi_1(n)$&lt;/td&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;1&lt;/td&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;1&lt;/td&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;0&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;$\chi_2(n)$&lt;/td&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;1&lt;/td&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;-1&lt;/td&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;0&lt;/td&gt;
+      &lt;/tr&gt;
+  &lt;/tbody&gt;
 &lt;/table&gt;
 &lt;/li&gt;
 &lt;li&gt;
 &lt;p&gt;&lt;strong&gt;k=4,$\varphi(k)=2$:&lt;/strong&gt;&lt;/p&gt;
 &lt;table&gt;
-&lt;thead&gt;
-&lt;tr&gt;
-&lt;th&gt;n&lt;/th&gt;
-&lt;th&gt;1&lt;/th&gt;
-&lt;th&gt;2&lt;/th&gt;
-&lt;th&gt;3&lt;/th&gt;
-&lt;th&gt;4&lt;/th&gt;
-&lt;/tr&gt;
-&lt;/thead&gt;
-&lt;tbody&gt;
-&lt;tr&gt;
-&lt;td&gt;$\chi_1(n)$&lt;/td&gt;
-&lt;td&gt;1&lt;/td&gt;
-&lt;td&gt;0&lt;/td&gt;
-&lt;td&gt;1&lt;/td&gt;
-&lt;td&gt;0&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;$\chi_2(n)$&lt;/td&gt;
-&lt;td&gt;1&lt;/td&gt;
-&lt;td&gt;0&lt;/td&gt;
-&lt;td&gt;-1&lt;/td&gt;
-&lt;td&gt;0&lt;/td&gt;
-&lt;/tr&gt;
-&lt;/tbody&gt;
+  &lt;thead&gt;
+      &lt;tr&gt;
+          &lt;th style=&#34;text-align: left&#34;&gt;n&lt;/th&gt;
+          &lt;th style=&#34;text-align: left&#34;&gt;1&lt;/th&gt;
+          &lt;th style=&#34;text-align: left&#34;&gt;2&lt;/th&gt;
+          &lt;th style=&#34;text-align: left&#34;&gt;3&lt;/th&gt;
+          &lt;th style=&#34;text-align: left&#34;&gt;4&lt;/th&gt;
+      &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+      &lt;tr&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;$\chi_1(n)$&lt;/td&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;1&lt;/td&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;0&lt;/td&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;1&lt;/td&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;0&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;$\chi_2(n)$&lt;/td&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;1&lt;/td&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;0&lt;/td&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;-1&lt;/td&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;0&lt;/td&gt;
+      &lt;/tr&gt;
+  &lt;/tbody&gt;
 &lt;/table&gt;
 &lt;/li&gt;
 &lt;li&gt;
 &lt;p&gt;&lt;strong&gt;k=5,$\varphi(k)=4$:&lt;/strong&gt;&lt;/p&gt;
 &lt;table&gt;
-&lt;thead&gt;
-&lt;tr&gt;
-&lt;th&gt;n&lt;/th&gt;
-&lt;th&gt;1&lt;/th&gt;
-&lt;th&gt;2&lt;/th&gt;
-&lt;th&gt;3&lt;/th&gt;
-&lt;th&gt;4&lt;/th&gt;
-&lt;th&gt;5&lt;/th&gt;
-&lt;/tr&gt;
-&lt;/thead&gt;
-&lt;tbody&gt;
-&lt;tr&gt;
-&lt;td&gt;$\chi_1(n)$&lt;/td&gt;
-&lt;td&gt;1&lt;/td&gt;
-&lt;td&gt;1&lt;/td&gt;
-&lt;td&gt;1&lt;/td&gt;
-&lt;td&gt;1&lt;/td&gt;
-&lt;td&gt;0&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;$\chi_2(n)$&lt;/td&gt;
-&lt;td&gt;1&lt;/td&gt;
-&lt;td&gt;-1&lt;/td&gt;
-&lt;td&gt;-1&lt;/td&gt;
-&lt;td&gt;1&lt;/td&gt;
-&lt;td&gt;0&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;$\chi_3(n)$&lt;/td&gt;
-&lt;td&gt;1&lt;/td&gt;
-&lt;td&gt;i&lt;/td&gt;
-&lt;td&gt;-i&lt;/td&gt;
-&lt;td&gt;-1&lt;/td&gt;
-&lt;td&gt;0&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;$\chi_4(n)$&lt;/td&gt;
-&lt;td&gt;1&lt;/td&gt;
-&lt;td&gt;-i&lt;/td&gt;
-&lt;td&gt;i&lt;/td&gt;
-&lt;td&gt;-1&lt;/td&gt;
-&lt;td&gt;0&lt;/td&gt;
-&lt;/tr&gt;
-&lt;/tbody&gt;
+  &lt;thead&gt;
+      &lt;tr&gt;
+          &lt;th style=&#34;text-align: left&#34;&gt;n&lt;/th&gt;
+          &lt;th style=&#34;text-align: left&#34;&gt;1&lt;/th&gt;
+          &lt;th style=&#34;text-align: left&#34;&gt;2&lt;/th&gt;
+          &lt;th style=&#34;text-align: left&#34;&gt;3&lt;/th&gt;
+          &lt;th style=&#34;text-align: left&#34;&gt;4&lt;/th&gt;
+          &lt;th style=&#34;text-align: left&#34;&gt;5&lt;/th&gt;
+      &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+      &lt;tr&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;$\chi_1(n)$&lt;/td&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;1&lt;/td&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;1&lt;/td&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;1&lt;/td&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;1&lt;/td&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;0&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;$\chi_2(n)$&lt;/td&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;1&lt;/td&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;-1&lt;/td&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;-1&lt;/td&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;1&lt;/td&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;0&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;$\chi_3(n)$&lt;/td&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;1&lt;/td&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;i&lt;/td&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;-i&lt;/td&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;-1&lt;/td&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;0&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;$\chi_4(n)$&lt;/td&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;1&lt;/td&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;-i&lt;/td&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;i&lt;/td&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;-1&lt;/td&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;0&lt;/td&gt;
+      &lt;/tr&gt;
+  &lt;/tbody&gt;
 &lt;/table&gt;
 &lt;/li&gt;
 &lt;li&gt;
 &lt;p&gt;&lt;strong&gt;k=6,$\varphi(k)=2$:&lt;/strong&gt;&lt;/p&gt;
 &lt;table&gt;
-&lt;thead&gt;
-&lt;tr&gt;
-&lt;th&gt;n&lt;/th&gt;
-&lt;th&gt;1&lt;/th&gt;
-&lt;th&gt;2&lt;/th&gt;
-&lt;th&gt;3&lt;/th&gt;
-&lt;th&gt;4&lt;/th&gt;
-&lt;th&gt;5&lt;/th&gt;
-&lt;th&gt;6&lt;/th&gt;
-&lt;/tr&gt;
-&lt;/thead&gt;
-&lt;tbody&gt;
-&lt;tr&gt;
-&lt;td&gt;$\chi_1(n)$&lt;/td&gt;
-&lt;td&gt;1&lt;/td&gt;
-&lt;td&gt;0&lt;/td&gt;
-&lt;td&gt;0&lt;/td&gt;
-&lt;td&gt;0&lt;/td&gt;
-&lt;td&gt;1&lt;/td&gt;
-&lt;td&gt;0&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;$\chi_2(n)$&lt;/td&gt;
-&lt;td&gt;1&lt;/td&gt;
-&lt;td&gt;0&lt;/td&gt;
-&lt;td&gt;0&lt;/td&gt;
-&lt;td&gt;0&lt;/td&gt;
-&lt;td&gt;-1&lt;/td&gt;
-&lt;td&gt;0&lt;/td&gt;
-&lt;/tr&gt;
-&lt;/tbody&gt;
+  &lt;thead&gt;
+      &lt;tr&gt;
+          &lt;th style=&#34;text-align: left&#34;&gt;n&lt;/th&gt;
+          &lt;th style=&#34;text-align: left&#34;&gt;1&lt;/th&gt;
+          &lt;th style=&#34;text-align: left&#34;&gt;2&lt;/th&gt;
+          &lt;th style=&#34;text-align: left&#34;&gt;3&lt;/th&gt;
+          &lt;th style=&#34;text-align: left&#34;&gt;4&lt;/th&gt;
+          &lt;th style=&#34;text-align: left&#34;&gt;5&lt;/th&gt;
+          &lt;th style=&#34;text-align: left&#34;&gt;6&lt;/th&gt;
+      &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+      &lt;tr&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;$\chi_1(n)$&lt;/td&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;1&lt;/td&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;0&lt;/td&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;0&lt;/td&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;0&lt;/td&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;1&lt;/td&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;0&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;$\chi_2(n)$&lt;/td&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;1&lt;/td&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;0&lt;/td&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;0&lt;/td&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;0&lt;/td&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;-1&lt;/td&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;0&lt;/td&gt;
+      &lt;/tr&gt;
+  &lt;/tbody&gt;
 &lt;/table&gt;
 &lt;/li&gt;
 &lt;li&gt;
 &lt;p&gt;&lt;strong&gt;k=7,$\varphi(k)=6$:&lt;/strong&gt;&lt;/p&gt;
 &lt;table&gt;
-&lt;thead&gt;
-&lt;tr&gt;
-&lt;th&gt;n&lt;/th&gt;
-&lt;th&gt;1&lt;/th&gt;
-&lt;th&gt;2&lt;/th&gt;
-&lt;th&gt;3&lt;/th&gt;
-&lt;th&gt;4&lt;/th&gt;
-&lt;th&gt;5&lt;/th&gt;
-&lt;th&gt;6&lt;/th&gt;
-&lt;th&gt;7&lt;/th&gt;
-&lt;/tr&gt;
-&lt;/thead&gt;
-&lt;tbody&gt;
-&lt;tr&gt;
-&lt;td&gt;$\chi_1(n)$&lt;/td&gt;
-&lt;td&gt;1&lt;/td&gt;
-&lt;td&gt;1&lt;/td&gt;
-&lt;td&gt;1&lt;/td&gt;
-&lt;td&gt;1&lt;/td&gt;
-&lt;td&gt;1&lt;/td&gt;
-&lt;td&gt;1&lt;/td&gt;
-&lt;td&gt;0&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;$\chi_2(n)$&lt;/td&gt;
-&lt;td&gt;1&lt;/td&gt;
-&lt;td&gt;1&lt;/td&gt;
-&lt;td&gt;-1&lt;/td&gt;
-&lt;td&gt;1&lt;/td&gt;
-&lt;td&gt;-1&lt;/td&gt;
-&lt;td&gt;-1&lt;/td&gt;
-&lt;td&gt;0&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;$\chi_3(n)$&lt;/td&gt;
-&lt;td&gt;1&lt;/td&gt;
-&lt;td&gt;$w^2$&lt;/td&gt;
-&lt;td&gt;$w$&lt;/td&gt;
-&lt;td&gt;$-w$&lt;/td&gt;
-&lt;td&gt;$-w^2$&lt;/td&gt;
-&lt;td&gt;-1&lt;/td&gt;
-&lt;td&gt;0&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;$\chi_4(n)$&lt;/td&gt;
-&lt;td&gt;1&lt;/td&gt;
-&lt;td&gt;$w^2$&lt;/td&gt;
-&lt;td&gt;$-w$&lt;/td&gt;
-&lt;td&gt;$-w$&lt;/td&gt;
-&lt;td&gt;$w^2$&lt;/td&gt;
-&lt;td&gt;1&lt;/td&gt;
-&lt;td&gt;0&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;$\chi_5(n)$&lt;/td&gt;
-&lt;td&gt;1&lt;/td&gt;
-&lt;td&gt;$-w$&lt;/td&gt;
-&lt;td&gt;$w^2$&lt;/td&gt;
-&lt;td&gt;$w^2$&lt;/td&gt;
-&lt;td&gt;$-w$&lt;/td&gt;
-&lt;td&gt;1&lt;/td&gt;
-&lt;td&gt;0&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;$\chi_6(n)$&lt;/td&gt;
-&lt;td&gt;1&lt;/td&gt;
-&lt;td&gt;$-w$&lt;/td&gt;
-&lt;td&gt;$-w^2$&lt;/td&gt;
-&lt;td&gt;$w^2$&lt;/td&gt;
-&lt;td&gt;$w$&lt;/td&gt;
-&lt;td&gt;-1&lt;/td&gt;
-&lt;td&gt;0&lt;/td&gt;
-&lt;/tr&gt;
-&lt;/tbody&gt;
+  &lt;thead&gt;
+      &lt;tr&gt;
+          &lt;th style=&#34;text-align: left&#34;&gt;n&lt;/th&gt;
+          &lt;th style=&#34;text-align: left&#34;&gt;1&lt;/th&gt;
+          &lt;th style=&#34;text-align: left&#34;&gt;2&lt;/th&gt;
+          &lt;th style=&#34;text-align: left&#34;&gt;3&lt;/th&gt;
+          &lt;th style=&#34;text-align: left&#34;&gt;4&lt;/th&gt;
+          &lt;th style=&#34;text-align: left&#34;&gt;5&lt;/th&gt;
+          &lt;th style=&#34;text-align: left&#34;&gt;6&lt;/th&gt;
+          &lt;th style=&#34;text-align: left&#34;&gt;7&lt;/th&gt;
+      &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+      &lt;tr&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;$\chi_1(n)$&lt;/td&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;1&lt;/td&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;1&lt;/td&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;1&lt;/td&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;1&lt;/td&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;1&lt;/td&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;1&lt;/td&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;0&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;$\chi_2(n)$&lt;/td&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;1&lt;/td&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;1&lt;/td&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;-1&lt;/td&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;1&lt;/td&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;-1&lt;/td&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;-1&lt;/td&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;0&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;$\chi_3(n)$&lt;/td&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;1&lt;/td&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;$w^2$&lt;/td&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;$w$&lt;/td&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;$-w$&lt;/td&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;$-w^2$&lt;/td&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;-1&lt;/td&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;0&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;$\chi_4(n)$&lt;/td&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;1&lt;/td&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;$w^2$&lt;/td&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;$-w$&lt;/td&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;$-w$&lt;/td&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;$w^2$&lt;/td&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;1&lt;/td&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;0&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;$\chi_5(n)$&lt;/td&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;1&lt;/td&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;$-w$&lt;/td&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;$w^2$&lt;/td&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;$w^2$&lt;/td&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;$-w$&lt;/td&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;1&lt;/td&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;0&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;$\chi_6(n)$&lt;/td&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;1&lt;/td&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;$-w$&lt;/td&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;$-w^2$&lt;/td&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;$w^2$&lt;/td&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;$w$&lt;/td&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;-1&lt;/td&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;0&lt;/td&gt;
+      &lt;/tr&gt;
+  &lt;/tbody&gt;
 &lt;/table&gt;
 &lt;/li&gt;
 &lt;/ul&gt;
@@ -1513,7 +1531,14 @@ $$
         
         <guid>https://dorinxl.github.io/p/%E8%A7%A3%E6%9E%90%E6%95%B0%E8%AE%BA%E4%B9%8B%E5%8E%9F%E6%A0%B9/</guid>
         <description>&lt;h1 id=&#34;解析数论之原根&#34;&gt;解析数论之原根
-&lt;/h1&gt;&lt;h2 id=&#34;目录&#34;&gt;目录
+&lt;/h1&gt;
+
+
+&lt;div class=&#34;notice notice-info&#34; &gt;
+    &lt;div class=&#34;notice-title&#34;&gt;&lt;svg xmlns=&#34;http://www.w3.org/2000/svg&#34; class=&#34;icon notice-icon&#34; viewBox=&#34;0 0 512 512&#34; fill=&#34;hsl(30, 80%, 70%)&#34;&gt;&lt;path d=&#34;M256 8a248 248 0 100 496 248 248 0 000-496zm0 110a42 42 0 110 84 42 42 0 010-84zm56 254c0 7-5 12-12 12h-88c-7 0-12-5-12-12v-24c0-7 5-12 12-12h12v-64h-12c-7 0-12-5-12-12v-24c0-7 5-12 12-12h64c7 0 12 5 12 12v100h12c7 0 12 5 12 12v24z&#34;/&gt;&lt;/svg&gt;&lt;/div&gt;&lt;p&gt;本文使用&lt;strong&gt;Typora&lt;/strong&gt;编写，但Hugo使用&lt;strong&gt;KaTex&lt;/strong&gt;渲染，可能会出现不兼容状态，如需最佳体验请前往&lt;a class=&#34;link&#34; href=&#34;https://www.cnblogs.com/DorinXL/p/17602094.html&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;这里&lt;/a&gt;&lt;/p&gt;&lt;/div&gt;
+
+&lt;h2 id=&#34;目录&#34;&gt;目录
 &lt;/h2&gt;&lt;ul&gt;
 &lt;li&gt;Chapter1 什么是整数的次数，什么是原根&lt;/li&gt;
 &lt;li&gt;Chapter2 谁有原根？&lt;/li&gt;
@@ -1538,9 +1563,9 @@ $$
 &lt;p&gt;&lt;strong&gt;Proof&lt;/strong&gt;:&lt;/p&gt;
 &lt;p&gt;使用反证法，如果$l$不能整除$n$，那么有$n=ql+r,0\le r\le l$，那么
 $$
-a^n\equiv a^{ql+r}\equiv1\mod{m}\
-而\exp_m(a)=l意味着a^l\equiv1\mod{m}\
-所以a^{ql+r}\equiv a^r\equiv1\mod{m}\
+a^n\equiv a^{ql+r}\equiv1\mod{m} \newline
+而\exp_m(a)=l意味着a^l\equiv1\mod{m} \newline
+所以a^{ql+r}\equiv a^r\equiv1\mod{m} \newline
 $$
 在上面的式子中$0\le r\le l$，但是根据$\exp_m(a)=l$的定义，不可能存在$0&amp;lt; r\le l$的数r使$a^r\equiv1\mod{m}$，出现矛盾，于是反证成功。&lt;/p&gt;
 &lt;p&gt;或者$r=0$，这样一来就会出现$l|n$。&lt;/p&gt;
@@ -1595,9 +1620,9 @@ $$
 &lt;p&gt;接着我们将$g^{\varphi(p^{\alpha-1})}=kp^{\alpha-1}+1$左右各自乘$p$次：
 $$
 \begin{align*}
-(g^{\varphi(p^{\alpha-1})})^p&amp;amp;=(kp^{\alpha-1}+1)^p\
-(g^{p^{\alpha-1}-p^{\alpha-2}})^p&amp;amp;=1+kp^\alpha+k^2\dfrac{p(p-1)}{2}p^{2(\alpha-1)+rp^{3(\alpha-1)}}\
-因为\alpha\ge2,所以&amp;amp;2\alpha-1\ge\alpha+1,3\alpha-3\ge\alpha+1\
+(g^{\varphi(p^{\alpha-1})})^p&amp;amp;=(kp^{\alpha-1}+1)^p \newline
+(g^{p^{\alpha-1}-p^{\alpha-2}})^p&amp;amp;=1+kp^\alpha+k^2\dfrac{p(p-1)}{2}p^{2(\alpha-1)+rp^{3(\alpha-1)}} \newline
+因为\alpha\ge2,所以&amp;amp;2\alpha-1\ge\alpha+1,3\alpha-3\ge\alpha+1 \newline
 g^{\varphi(p^\alpha)}&amp;amp;\equiv1+kp^\alpha(\mod{p^{\alpha+1}})
 \end{align*}
 $$
@@ -1656,8 +1681,8 @@ $$
 &lt;p&gt;如果$g^{p-1}\equiv1(\mod{p^2})$，我们能证明有另一个原根$g_1=g+p$满足$g_1^{p-1}\not\equiv1(\mod{p^2})$&lt;/p&gt;
 &lt;p&gt;我们展开$g_1^{p-1}$：
 $$
-g_1^{p-1}=(g+p)^{p-1}=g^{p-1}+(p-1)g^{p-2}p+tp^2\
-\equiv g^{p-1}+(p^2-p)g^{p-2}(\mod{p^2})\
+g_1^{p-1}=(g+p)^{p-1}=g^{p-1}+(p-1)g^{p-2}p+tp^2 \newline
+\equiv g^{p-1}+(p^2-p)g^{p-2}(\mod{p^2}) \newline
 \equiv 1-pg^{p-2}(\mod{p^2})
 $$
 不能有$pg^{p-2}\equiv0(\mod{p^2}) $，因为这样会出现$g^{p-2}\equiv0(\mod{p})$与$g$是模$p$的一个原根矛盾。&lt;/p&gt;
@@ -1709,7 +1734,7 @@ $$
 &lt;blockquote&gt;
 &lt;p&gt;因为当$\alpha\ge3$的时候，模$2^\alpha$没有原根，所以我们假设$m$分解为
 $$
-m=2^\alpha p_1^{\alpha_1}p_2^{\alpha_2} \cdots p_s^{\alpha_s}\
+m=2^\alpha p_1^{\alpha_1}p_2^{\alpha_2} \cdots p_s^{\alpha_s} \newline
 \varphi(m)=\varphi(2^\alpha)\varphi(p_1^{\alpha_1})\cdots\varphi(p_s^{\alpha_s})
 $$
 其中$p_i$是奇素数，$s\ge1,\alpha\ge0$。&lt;/p&gt;
@@ -1751,18 +1776,571 @@ $$
 </description>
         </item>
         <item>
+        <title>解析数论之数论函数【其二】</title>
+        <link>https://dorinxl.github.io/p/%E8%A7%A3%E6%9E%90%E6%95%B0%E8%AE%BA%E4%B9%8B%E6%95%B0%E8%AE%BA%E5%87%BD%E6%95%B0%E5%85%B6%E4%BA%8C/</link>
+        <pubDate>Mon, 24 Jul 2023 16:35:00 +0000</pubDate>
+        
+        <guid>https://dorinxl.github.io/p/%E8%A7%A3%E6%9E%90%E6%95%B0%E8%AE%BA%E4%B9%8B%E6%95%B0%E8%AE%BA%E5%87%BD%E6%95%B0%E5%85%B6%E4%BA%8C/</guid>
+        <description>
+
+
+&lt;div class=&#34;notice notice-info&#34; &gt;
+    &lt;div class=&#34;notice-title&#34;&gt;&lt;svg xmlns=&#34;http://www.w3.org/2000/svg&#34; class=&#34;icon notice-icon&#34; viewBox=&#34;0 0 512 512&#34; fill=&#34;hsl(30, 80%, 70%)&#34;&gt;&lt;path d=&#34;M256 8a248 248 0 100 496 248 248 0 000-496zm0 110a42 42 0 110 84 42 42 0 010-84zm56 254c0 7-5 12-12 12h-88c-7 0-12-5-12-12v-24c0-7 5-12 12-12h12v-64h-12c-7 0-12-5-12-12v-24c0-7 5-12 12-12h64c7 0 12 5 12 12v100h12c7 0 12 5 12 12v24z&#34;/&gt;&lt;/svg&gt;&lt;/div&gt;&lt;p&gt;本文使用&lt;strong&gt;Typora&lt;/strong&gt;编写，但Hugo使用&lt;strong&gt;KaTex&lt;/strong&gt;渲染，可能会出现不兼容状态，如需最佳体验请前往&lt;a class=&#34;link&#34; href=&#34;https://www.cnblogs.com/DorinXL/p/17572690.html&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;这里&lt;/a&gt;&lt;/p&gt;&lt;/div&gt;
+
+&lt;h2 id=&#34;目录&#34;&gt;目录
+&lt;/h2&gt;&lt;ul&gt;
+&lt;li&gt;Chapter1 积性函数与狄利克雷乘积&lt;/li&gt;
+&lt;li&gt;Chapter2 广义卷积&lt;/li&gt;
+&lt;li&gt;Chapter3 形式幂级数和数论函数的贝尔级数&lt;/li&gt;
+&lt;li&gt;Chapter4 数论函数的导数&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;chapter1-积性函数与狄利克雷乘积&#34;&gt;Chapter1 积性函数与狄利克雷乘积
+&lt;/h2&gt;&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;Definition&lt;/strong&gt;：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;有数论函数$f$,如果$f$不恒为零，且对任意的$(m,n)=1$有$f(mn)=f(m)f(n)$，那么这个数论函数$f$被称为是&lt;strong&gt;积性&lt;/strong&gt;的。&lt;/li&gt;
+&lt;li&gt;如果对于任意的$m,n$都有$f(mn)=f(m)f(n)$，那么这个数论函数$f$被称为是&lt;strong&gt;完全积性&lt;/strong&gt;的。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;Examples&lt;/strong&gt;:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;令幂函数$f_\alpha(n) = n^\alpha$,这里的$\alpha$是固定的实数或复数。这个函数是完全积性函数。$u=f_0$是完全积性的。&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;$$
+\begin{align*}
+f_\alpha(mn) &amp;amp;= (mn)^\alpha  \newline
+&amp;amp;=(m^\alpha)(n^\alpha)  \newline
+&amp;amp;=f_\alpha(m)f_\alpha(n)  \newline
+\end{align*}
+$$&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;恒等函数$I(n)=[\dfrac{1}{n}]$是完全积性的。&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;$$
+I(mn) = [\dfrac{1}{mn}]
+=\begin{cases}1,&amp;amp;\text{if $m,n=1$}  \newline
+0,&amp;amp;\text{if $m&amp;gt;1 || n&amp;gt;1$}\end{cases}
+$$&lt;/p&gt;
+&lt;p&gt;$$
+I(m)I(n) = [\dfrac{1}{m}][\dfrac{1}{n}]
+=\begin{cases}1,&amp;amp;\text{if $m,n=1$}  \newline
+0,&amp;amp;\text{if $m&amp;gt;1 || n&amp;gt;1$}\end{cases}
+$$&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;莫比乌斯函数$\mu()$是积性的但不是完全积性的.&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;考虑两个互素的整数$m,n$。&lt;/p&gt;
+&lt;p&gt;若$m,n$中任意一个的因子表示为$p^\alpha,\alpha\ge2$,那么有
+$$
+\mu(mn)=\mu(m)\mu(n) = 0
+$$
+若$m,n$中没有上述情况，那么可以将$m,n$表示为：
+$$
+m = p_1p_2 \cdots p_s  \newline
+n = q_1q_2 \cdots q_t  \newline
+\Downarrow  \newline
+\mu(m) = (-1)^s  \newline
+\mu(n) = (-1)^t  \newline
+\mu(mn) = (-1)^{(s+t)} = \mu(m)\mu(n)
+$$
+这表明莫比乌斯函数$\mu$是积性函数。但其不是完全积性函数，因为：
+$$
+\mu(4)=0  \newline
+\mu(2)\mu(2) = 1
+$$&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;欧拉函数$\varphi()$是积性函数但不是完全积性函数。&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;是积性函数：由欧拉函数的性质可以得到：
+$$
+\varphi(mn) = \varphi(m)\varphi(n)
+$$
+不是完全积性函数：
+$$
+\varphi(4) = 2 \newline
+\varphi(2)\varphi(2) = 1
+$$&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;如果$f,g$是积性函数/完全积性函数，那么$fg,\dfrac{f}{g}$也是积性函数/完全积性函数。&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;以$fg$为例：
+$$
+\begin{align*}
+fg(mn) &amp;amp;= f(mn)g(mn)  \newline
+&amp;amp;= f(m)f(n)g(m)g(n)  \newline
+&amp;amp;= f(m)g(m)f(n)g(n)  \newline
+&amp;amp;= fg(m)fg(n)
+\end{align*}
+$$&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;Theorem:&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;Th1:如果$f$是积性的，那么$f(1)=1$&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;&lt;strong&gt;Proof:&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;对任意n，有$(n,1)=1$，由积性函数的性质我们可以得到：$f$不恒为零，且有$f(n)=f(1)f(n)$，于是存在n，使$f(n)\neq0,f(1)=1$&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Th2:给定$f$，且$f(1)=1$，那么：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;$f$是积性的 $\Longleftrightarrow$ $f(p_1^{\alpha_1}p_2^{\alpha_2}\cdots p_r^{\alpha_ r}) =f(p_1^{\alpha_1})f(p_2^{\alpha_2})\cdots f(p_r^{\alpha_r})$&lt;/li&gt;
+&lt;li&gt;如果$f$是积性的，那么：$f$是完全积性的 $\Longleftrightarrow$ $f(p^\alpha) = f(p)^\alpha$&lt;/li&gt;
+&lt;/ul&gt;
+&lt;blockquote&gt;
+&lt;p&gt;&lt;strong&gt;Proof：&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;Th2.1: 如果$f$是积性的，显然$p_1^{\alpha_1}p_2^{\alpha_2}\cdots p_r^{\alpha_ r}$中的$p_1^{\alpha_1},p_2^{\alpha_2},\cdots ,p_r^{\alpha_ r}$这些数字都是互素的，那么根据积性函数的定义就有：
+$$
+f(p_1^{\alpha_1}p_2^{\alpha_2}\cdots p_r^{\alpha_ r})
+=f(p_1^{\alpha_1}p_2^{\alpha_2}\cdots p_{r-1}^{\alpha_ {r-1}})f(p_r^{\alpha_r})
+=f(p_1^{\alpha_1})f(p_2^{\alpha_2})\cdots f(p_r^{\alpha_r})
+$$
+反过来，我们有$f(p_1^{\alpha_1}p_2^{\alpha_2}\cdots p_r^{\alpha_ r}) =f(p_1^{\alpha_1})f(p_2^{\alpha_2})\cdots f(p_r^{\alpha_r})$，想证明$f$是积性函数， 我们取$(m,n)=1,m=p_1^{\alpha_1}p_2^{\alpha_2}\cdots p_r^{\alpha_ r},n=q_1^{\beta_1}q_2^{\beta_2}\cdots q_t^{\beta_ t}$.
+$$
+\begin{align*}
+f(mn)&amp;amp;=f(p_1^{\alpha_1}p_2^{\alpha_2}\cdots p_r^{\alpha_ r}q_1^{\beta_1}q_2^{\beta_2}\cdots q_t^{\beta_ t}) \newline
+&amp;amp;=f(p_1^{\alpha_1})f(p_2^{\alpha_2})\cdots f(p_r^{\alpha_r})f(q_1^{\beta_1})f(q_2^{\beta_2})\cdots f(q_r^{\beta_r}) \newline
+&amp;amp;=f(p_1^{\alpha_1}p_2^{\alpha_2}\cdots p_r^{\alpha_ r})f(q_1^{\beta_1}q_2^{\beta_2}\cdots q_t^{\beta_ t}) \newline
+&amp;amp;=f(m)f(n)
+\end{align*}
+$$
+Th2.2:如果$f$是完全积性的，那么
+$$
+f(p^\alpha) = f(p^{\alpha-1})f(p) = f(p)^\alpha
+$$
+反过来，我们有$f$是积性函数，$f(p^\alpha) = f(p)^\alpha$,想证明$f$是完全积性函数，我们取整数$m,n\ge1,m=p_1^{\alpha_1}p_2^{\alpha_2}\cdots p_r^{\alpha_ r},n=p_1^{\beta_1}p_2^{\beta_2}\cdots p_t^{\beta_ t}.\alpha和\beta可能为0$
+$$
+\begin{align*}
+f(m)f(n)&amp;amp;=f(p_1^{\alpha_1}p_2^{\alpha_2}\cdots p_r^{\alpha_ r})f(p_1^{\beta_1}p_2^{\beta_2}\cdots p_t^{\beta_ t}) \newline
+&amp;amp;=f(p_1^{\alpha_1})f(p_2^{\alpha_2})\cdots f(p_r^{\alpha_r})f(p_1^{\beta_1})f(p_2^{\beta_2})\cdots f(p_r^{\beta_r}) \newline
+&amp;amp;=f(p_1)^{\alpha_1}f(p_2)^{\alpha_2}\cdots f(p_r)^{\alpha_r}f(p_1)^{\beta_1}f(p_2)^{\beta_2}\cdots f(p_r)^{\beta_r} \newline
+&amp;amp;=f(p_1)^{\alpha_1+\beta_1}f(p_2)^{\alpha_2+\beta_2}\cdots f(p_r)^{\alpha_r+\beta_r} \newline
+&amp;amp;=f(p_1^{\alpha_1+\beta_1})f(p_2^{\alpha_2+\beta_2})\cdots f(p_r^{\alpha_r+\beta_r}) \newline
+&amp;amp;=f(mn)
+\end{align*}
+$$&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Th3:如果$f$和$g$是积性的，那么他们的狄利克雷卷积也是积性的。&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;&lt;strong&gt;Proof&lt;/strong&gt;:令$h=f&lt;em&gt;g$，选取互素的整数$m,n$，那么：
+$$
+h(mn) = \sum_{c|mn}f(c)g(\dfrac{mn}{c})
+$$
+$m,n$的每一个因子c都可以写成$c=ab$的形式，其中$a|m,b|n,(a,b)=1$
+$$
+\begin{align&lt;/em&gt;}
+h(m)h(n)&amp;amp;=f(m)g(m)f(n)g(n)  \newline
+&amp;amp;=\sum_{a|m}f(a)g(\dfrac{m}{a})\sum_{b|n}f(b)g(\dfrac{n}{b})  \newline
+&amp;amp;=\sum_{a|m \newline b|n}f(a)f(b)g(\dfrac{m}{a})g(\dfrac{n}{b})  \newline
+根据整除的推论： \newline
+(m,n)=1,mn的因子可以唯一由 \newline
+m的因子和n的因子的乘积表示
+&amp;amp;=\sum_{ab|mn}f(ab)g(\dfrac{mn}{ab})  \newline
+&amp;amp;=h(mn)
+\end{align*}
+$$
+**Node:**两个完全积性函数的狄利克雷乘积不一定是完全积性的。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Th4：如果$g$和$f*g$都是积性的，那么$f$也是积性的。&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;&lt;strong&gt;Proof：&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;假设$f$不是积性的，那么我们如果推出$f*g$不是积性的，即可通过矛盾证明该结论。&lt;/p&gt;
+&lt;p&gt;选择$(m,m)=1$使得$f(mn) \ne f(m)f(n)$，让$m,n$尽量的小。&lt;/p&gt;
+&lt;p&gt;如果$mn=1$，那么$f(1) \ne f(1)f(1),f(1)\ne 1$。因为$h(1)=(f*g)(1)=f(1)g(1)=f(1)\ne 1$，所以h不是积性函数。&lt;/p&gt;
+&lt;p&gt;如果$mn&amp;gt;1$，选择$(a,b)=1,ab&amp;lt;mn$，使得$f(ab)=f(a)f(b)$。
+$$
+\begin{align*}
+(f&lt;em&gt;g)(mn)&amp;amp;=\sum\limits_{a|m \newline b|n \newline ab&amp;lt;mn}f(ab)g(\dfrac{mn}{ab})+f(mn)g(1) \newline
+&amp;amp;=\sum_{a|m}f(a)g(\dfrac{m}{a})+\sum_{b|n}f(b)g(\dfrac{n}{b})-f(m)f(n)+f(mn) \newline
+&amp;amp;=(f&lt;/em&gt;g)(m)(f&lt;em&gt;g)(n)-f(n)f(m)+f(mn)
+\end{align&lt;/em&gt;}
+$$
+而$f(mn)\ne f(m)f(n)$，所以$h(mn)\ne h(m)h(n)$，$h$不是积性的。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Th5：如果$g$是积性的，那么它的狄利克雷逆$g^{-1}$也是积性的。&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;我们知道$g$是积性的，而$g*g^{-1}=I$也是积性的，那么根据Th4我们得出Th5。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Th6：如果$f$是积性的，那么有：$f$是完全积性的 $\Longleftrightarrow$ $f^{-1}(n) = \mu(n)f(n)$,对所有的$n\ge1$&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;&lt;strong&gt;Proof：&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;证明$\Rightarrow$:想通过“$f$是完全积性的”这一条件证明“$f^{-1}(n) = \mu(n)f(n)$”,我们设$g(n)=\mu(n)f(n)$
+$$
+\begin{align*}
+(g&lt;em&gt;f)(n)&amp;amp;=\sum_{d|n}\mu(d)f(d)f(\dfrac{n}{d}) \newline
+&amp;amp;=\sum_{d|n}\mu(d)f(n) \newline
+&amp;amp;=f(n)\sum_{d|n}\mu(d) \newline
+&amp;amp;=f(n)I(n)  \newline
+&amp;amp;=I(n)
+\end{align&lt;/em&gt;}
+$$
+既然有$(g*f)=I$，那么有$f^{-1}(n) = \mu(n)f(n)$&lt;/p&gt;
+&lt;p&gt;证明$\Leftarrow$：想通过“$f$是积性的，且$f^{-1}(n) = \mu(n)f(n)$”这一条件证明“$f$是完全积性的”,我们只需要证出对所有素数$p$有$f(p^\alpha)=f(p)^\alpha$即可。
+$$
+\begin{align*}
+我们有(f&lt;em&gt;f^{-1}&amp;amp;=I) \newline
+那么 \newline
+\sum_{d|n}f^{-1}(d)f(\dfrac{n}{d})&amp;amp;=0 \quad (n&amp;gt;1) \newline
+\sum_{d|n}\mu(d)f(d)f(\dfrac{n}{d})&amp;amp;=0 \newline
+取n=p^\alpha,有 \newline
+\mu(1)f(1)f(p^\alpha)+\mu(p)f(p)f(p^{\alpha-1})+0&amp;amp;=0 \newline
+f(p^\alpha)+(-1)f(p)f(p^{\alpha-1})&amp;amp;=0 \newline
+f(p^\alpha)&amp;amp;=f(p)f(p^{\alpha-1})
+\end{align&lt;/em&gt;}
+$$
+从$\alpha\ge2$开始递推，$f(p^2)=f(p)f(p),f(p^3)=f(p)f(p^2)=f(p)^3$，所以我们证明出对所有素数$p$有$f(p^\alpha)=f(p)^\alpha$，即$f$是完全积性的。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Th7：如果$f$是积性的，那么有：$\sum\limits_{d|n}\mu(d)f(d)=\prod\limits_{p|n}(1-f(p))$&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;&lt;strong&gt;Proof：&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;令$g(n)=\sum\limits_{d|n}\mu(d)f(d)$，$g$是积性的，利用算术基本定理，我们只需要计算$g(p^\alpha)$即可。
+$$
+\begin{align*}
+g(p^\alpha)&amp;amp;=\sum_{d|p^\alpha}\mu(d)f(d) \newline
+&amp;amp;=\mu(1)f(1)+\mu(p)f(p)+0+\cdots+0 \newline
+&amp;amp;=f(1)-f(p) \newline
+&amp;amp;=1-f(p)
+\end{align*}
+$$
+所以对于由若干素数幂乘积组成的$n$，我们有
+$$
+g(n)=g(p_1^{\alpha1}p_2^{\alpha2}\cdots p_r^{\alpha r})=(1-f(p_1))(1-f(p_2))\cdots(1-f(p_r))=\prod_{p|n}(1-f(p))
+$$&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;chapter2-广义卷积&#34;&gt;Chapter2 广义卷积
+&lt;/h2&gt;&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;Definition&lt;/strong&gt;：$F$表示一个定义在正实轴$(0,\infty)$上的实数函数，对$0&amp;lt;x&amp;lt;1$,有$F(x)=0$。我们定义出一个新函数$G$,表示为
+$$
+G = \sum_{n\le{x}}\alpha(n)F(\dfrac{x}{n})
+$$
+其中，$\alpha$是任意数论函数。对于$0&amp;lt;x&amp;lt;1$,也有$G(x)=0$。$\alpha,F,G$的关系可以表示为：
+$$
+(\alpha\circ F)(x) = \sum_{n\le{x}}\alpha(x)F(\dfrac{x}{n})
+$$&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;Theorem:&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Th1：关于$\circ$和$*$的结合性，单独的运算$\circ$是可交换但是不可以结合的，配合狄利克雷乘积和任意数论函数$\alpha$和$\beta$我们有
+$$
+\alpha \circ (\beta \circ F) = (\alpha * \beta)\circ F
+$$&lt;/li&gt;
+&lt;/ul&gt;
+&lt;blockquote&gt;
+&lt;p&gt;&lt;strong&gt;Proof&lt;/strong&gt;：&lt;/p&gt;
+&lt;p&gt;对于$x&amp;gt;0$有：
+$$
+\begin{align*}
+{\alpha \circ (\beta \circ F)}(x)&amp;amp;=\sum_{n\le x}\alpha(n)\sum_{m\le\dfrac{x}{n}}\beta(m)F(\dfrac{x}{mn}) \newline
+&amp;amp;=\sum_{mn\le x}\alpha(n)\beta(m)F(\dfrac{x}{mn}) \newline
+&amp;amp;=\sum_{k\le x}(\sum_{n|k}\alpha(n)\beta(\dfrac{k}{n}))F(\dfrac{x}{k}) \newline
+&amp;amp;=\sum_{k\le x}(\alpha*\beta)(k)F(\dfrac{x}{k}) \newline
+&amp;amp;={(\alpha*\beta)\circ F}(x)
+\end{align*}
+$$&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;ul&gt;
+&lt;li&gt;Th2：（广义反转公式）如果$\alpha$有一个狄利克雷逆函数$\alpha^{-1}$，那么有：&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;$$
+G(x) = \sum_{n\le{x}}\alpha(n)F(\dfrac{x}{n}) \newline
+\Updownarrow  \newline&lt;br&gt;
+F(x) = \sum_{n\le{x}}\alpha^{-1}(n)G(\dfrac{x}{n})
+$$&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;&lt;strong&gt;Proof：&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;已知$G= \sum_{n\le{x}}\alpha(n)F(\dfrac{x}{n})=\alpha \circ F  \newline $，
+$$
+\alpha^{-1}\circ G=\alpha^{-1}\circ(\alpha \circ F)=(\alpha^{-1}&lt;em&gt;\alpha)\circ F=I\circ F=F \newline
+F=\alpha^{-1}\circ G= \sum_{n\le{x}}\alpha^{-1}(n)G(\dfrac{x}{n})
+$$
+已知$F= \sum_{n\le{x}}\alpha^{-1}(n)G(\dfrac{x}{n})=\alpha^{-1}\circ G$，
+$$
+\alpha \circ F=\alpha \circ(\alpha^{-1}\circ G)=(\alpha^{-1}&lt;/em&gt;\alpha)\circ G=I \circ G = G \newline
+G = \alpha \circ F = \sum_{n\le{x}}\alpha(n)F(\dfrac{x}{n})
+$$&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;ul&gt;
+&lt;li&gt;Th3：（广义莫比乌斯反转）如果$\alpha$是完全积性的，那么有：&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;$$
+G(x) = \sum_{n\le{x}}\alpha(n)F(\dfrac{x}{n}) \newline
+\Updownarrow  \newline&lt;br&gt;
+F(x) = \sum_{n\le{x}}\mu(n)\alpha(n)G(\dfrac{x}{n})
+$$&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;&lt;strong&gt;Proof：&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;令$\alpha^{-1}=\alpha\mu$。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;chapter3-形式幂级数和数论函数的贝尔级数&#34;&gt;Chapter3 形式幂级数和数论函数的贝尔级数
+&lt;/h2&gt;&lt;h3 id=&#34;section1-形式幂级数&#34;&gt;Section1 形式幂级数
+&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;Definition&lt;/strong&gt;：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;我们知道，在微积分中，x的幂级数形如：
+$$
+\sum_{n=0}^{\infty}a(n)x^n = a(0)+a(1)x+a(2)x^2+a(3)x^3+\cdots+a(n)x^n+\cdots
+$$
+这样一个幂级数拥有收敛半径，在范围内会收敛或是发散。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;而从另一个角度来说，我们使用幂级数的写作形式，但不关心x的值，不关心收敛或发散的问题，而是关心幂级数的系数序列$(a(0),a(1),a(2),\cdots,a(n),\cdots)$。这些系数序列可以由幂级数中$x^n$的$n$来定位。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;形式幂级数就是通过这样一种角度来理解幂级数，把幂级数看作收敛的并在其上规定代数运算。&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;Theorem:&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;现在我们有两个形式幂级数，分别是$A(x)$和$B(x)$：
+$$
+A(x) = \sum_{n=0}^{\infty}a(n)x^n  \newline B(x)=\sum_{n=0}^{\infty}b(n)x^n
+$$&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Th1：规定相等$A(x) = B(x)$，即$a(n)=b(n),n\ge0$&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Th2：规定和$A(x)+B(x)=\sum\limits_{n=0}^{\infty}(a(n)+b(n))x^n$&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Th3：规定乘积$A(x)B(x)=\sum\limits_{n=0}^{\infty}c(n)x^n$，其中$c(n) = \sum\limits_{k=0}^{\infty}a(k)b(n-k)$。序列${c(n)}$被称为序列${a(n)}$和${b(n)}$的柯西乘积。&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;section2-贝尔级数&#34;&gt;Section2 贝尔级数
+&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;Definition&lt;/strong&gt;：给定一个数论函数$f$和一个素数$p$，我们规定形式幂级数
+$$
+f_p(x)=\sum\limits_{n=0}^{\infty}f(p^n)x^n
+$$
+是$f$关于模$p$的贝尔级数。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;Examples：&lt;/strong&gt;&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;莫比乌斯函数$\mu()$的贝尔级数：&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;由莫比乌斯函数的定义我们可知：$\mu(p)=-1$，对所有的$n\ge2,\mu(p^n)=0$。
+$$
+\begin{align*}
+\mu_p(x)&amp;amp;=\sum\limits_{n=0}^{\infty}\mu(p^n)x^n \newline
+&amp;amp;=\mu(p^0)x^0+\mu(p^1)x^1+\cdots+\mu(p^r)x^r+\cdots \newline
+&amp;amp;=\mu(1)+\mu(p)x+0  \newline
+&amp;amp;=1-x
+\end{align*}
+$$&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;欧拉函数$\varphi()$的贝尔级数：&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;由欧拉函数的性质我们可知：$\varphi(p^n)=p^n-p^{n-1}$。
+$$
+\begin{align*}
+\varphi_p(x)&amp;amp;=\sum\limits_{n=0}^{\infty}\varphi(p^n)x^n \newline
+&amp;amp;=\varphi(p^0)x^0+\varphi(p^1)x^1+\cdots+\varphi(p^r)x^r+\cdots \newline
+&amp;amp;=\varphi(1)+\sum\limits_{n=1}^{\infty}\varphi(p^n)x^n  \newline
+&amp;amp;=\varphi(1)+\sum\limits_{n=1}^{\infty}(p^n-p^{n-1})x^n  \newline
+&amp;amp;=\varphi(1)+\sum\limits_{n=1}^{\infty}p^nx^n-\sum\limits_{n=1}^{\infty}p^{n-1}x^n  \newline
+&amp;amp;=\sum\limits_{n=0}^{\infty}p^nx^n-x\sum\limits_{n=0}^{\infty}p^nx^n  \newline
+&amp;amp;=(1-x)\sum\limits_{n=0}^{\infty}p^nx^n  \newline
+&amp;amp;=\dfrac{1-x}{1-px}
+\end{align*}
+$$&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;如果$f$是完全积性的，那么对所有的$n\ge0$，都有$f(p^n)=f(p)^n$，所以其贝尔级数是几何级数：
+$$
+f_p(x)=\sum\limits_{n=0}^{\infty}f(p)^nx^n=\dfrac{1}{1-f(p)x}
+$$&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;对于恒等函数$I$,单位函数$u$，幂函数$N^\alpha$，刘维尔函数$\lambda$这些完全积性函数来说：
+$$
+I_p(x)=1  \newline
+u_p(x)=\dfrac{1}{1-x}  \newline
+N_p^\alpha(x)=\dfrac{1}{1-p^\alpha x}  \newline
+\lambda_p(x)=\dfrac{1}{1-(-x)}
+$$&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;Theorem：&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;Th1：令$f$和$g$是积性函数，则$f=g \Leftrightarrow f_p(x)=g_p(x)$对所有的素数$p$&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;&lt;strong&gt;Proof：&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;证明$\Rightarrow$：我们想要证明贝尔级数$f_p(x)=g_p(x)$，在形式幂级数中我们知道，两个形式幂级数$A(x)，B(x)$相等也就是$a(n)=b(n),n\ge0$。在此处也就是$f(p^n)=g(p^n)$。而$f=g$正好使得$f(p^n)=g(p^n)$。&lt;/p&gt;
+&lt;p&gt;证明$\Leftarrow$：如果贝尔级数$f_p(x)=g_p(x)$，那也就是说$f(p^n)=g(p^n)$。而$f$和$g$都是积性的，同时对所有素数$p$都有相等，配合算术基本定理，得出结论$f=g$。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Th2：任意两个数论函数$f$和$g$，令$h=f*g$，则对任意的素数$p$，我们有
+$$
+h_p(x)=f_p(x)g_p(x)
+$$&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;&lt;strong&gt;Proof：&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;对于$p^n$，他的因子只能有$1,p,p^2,\cdots,p^n$，所以对于狄利克雷卷积我们有：
+$$
+h(p^n)=\sum\limits_{d|p^n}f(d)g(\dfrac{p^n}{d})=\sum_{k=0}f(p^k)g(p^n-k)
+$$
+这是柯西乘积的形式，符合形式幂级数乘积的运算规则，所以证明
+$$
+h_p(x)=f_p(x)g_p(x)
+$$&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;Node：&lt;/strong&gt;&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;当$f$是积性函数时，贝尔级数特别有用。&lt;/p&gt;
+&lt;p&gt;等比数列求和公式：
+$$
+S_n = \dfrac{a_nq-a_1}{q-1} = \dfrac{a_1(1-q^n)}{1-q}  \newline
+S_\infty= \dfrac{a_1}{1-q}\quad(|q|&amp;lt;1,n\rightarrow\infty)
+$$&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;chapter4-数论函数的导数&#34;&gt;Chapter4 数论函数的导数
+&lt;/h2&gt;&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;Definition&lt;/strong&gt;：对任一数论函数$f$我们定义它的导数$f^{&amp;rsquo;}$由下面给出：
+$$
+f&amp;rsquo;(n)=f(n)log{n} \quad对n\ge1
+$$&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;Examples&lt;/strong&gt;:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;对所有的$n,I(n)logn=0$，所以有$I&amp;rsquo;=0$.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;塞尔伯格等式：$n\ge1$，我们有：
+$$
+\Lambda(n)logn+\sum_{d|n}\Lambda(d)\Lambda(\dfrac{n}{d})=\sum_{d|n}\mu(d)log^2\dfrac{n}{d}
+$$&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;首先有$\Lambda&lt;em&gt;u=u&amp;rsquo;$,对其求导有
+$$
+\Lambda&amp;rsquo;&lt;em&gt;u+\Lambda&lt;/em&gt;u&amp;rsquo;=u&amp;rsquo;&amp;rsquo;  \newline
+\Lambda&amp;rsquo;&lt;em&gt;u+\Lambda&lt;/em&gt;(\Lambda&lt;/em&gt;u)=u&amp;rsquo;&#39;
+$$
+用$\mu=u^{-1}$去乘
+$$
+\Lambda&amp;rsquo;&lt;em&gt;u&lt;/em&gt;u^{-1}+\Lambda*(\Lambda*u)&lt;em&gt;u^{-1}=u&amp;rsquo;&amp;rsquo;&lt;em&gt;u^{-1}  \newline
+\Lambda&amp;rsquo;+\Lambda&lt;/em&gt;\Lambda=u&amp;rsquo;&amp;rsquo;&lt;/em&gt;\mu  \newline
+\Lambda(n)logn+\sum_{d|n}\Lambda(d)\Lambda(\dfrac{n}{d})=\sum_{d|n}\mu(d)log^2\dfrac{n}{d}
+$$&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;Theorem:&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Th1:如果$f$和$g$是数论函数，我们有：
+&lt;ul&gt;
+&lt;li&gt;$(f+g)&amp;rsquo;=f&amp;rsquo;+g&#39;$&lt;/li&gt;
+&lt;li&gt;$(f*g)&amp;rsquo;=f&amp;rsquo;&lt;em&gt;g+f&lt;/em&gt;g&#39;$&lt;/li&gt;
+&lt;li&gt;$(f^{-1})&amp;rsquo;=-f&amp;rsquo;&lt;em&gt;(f&lt;/em&gt;f)^{-1}$&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;blockquote&gt;
+&lt;p&gt;&lt;strong&gt;Proof&lt;/strong&gt;:&lt;/p&gt;
+&lt;p&gt;1.1：对所有的n，有$(f+g)(n)=f(n)+g(n)$&lt;/p&gt;
+&lt;p&gt;1.2：
+$$
+\begin{align*}
+(f&lt;em&gt;g)&amp;rsquo;&amp;amp;=(\sum_{d|n}f(d)g(\dfrac{n}{d}))&amp;rsquo; \newline
+&amp;amp;=\sum_{d|n}f(d)g(\dfrac{n}{d})log(n) \newline
+(logn= \newline logd+log\dfrac{n}{d}= \newline logd+logn-logd)
+&amp;amp;=\sum_{d|n}f(d)g(\dfrac{n}{d})log(d) + \sum_{d|n}f(d)g(\dfrac{n}{d})log(\dfrac{n}{d}) \newline
+&amp;amp;=\sum_{d|n}f(d)log(d)g(\dfrac{n}{d}) + \sum_{d|n}f(d)g(\dfrac{n}{d})log(\dfrac{n}{d}) \newline
+&amp;amp;=\sum_{d|n}f&amp;rsquo;(d)g(\dfrac{n}{d}) + \sum_{d|n}f(d)g&amp;rsquo;(\dfrac{n}{d}) \newline
+&amp;amp;=(f&amp;rsquo;&lt;em&gt;g)+(f&lt;/em&gt;g&amp;rsquo;)
+\end{align&lt;/em&gt;}
+$$&lt;/p&gt;
+&lt;p&gt;1.3：对公式$I&amp;rsquo;=0$使用Th1.2，由$I=f*f^{-1}$,我们有&lt;/p&gt;
+&lt;p&gt;$$
+\begin{align*}
+I&amp;rsquo;&amp;amp;=(f&lt;em&gt;f^{-1})&amp;rsquo;  \newline
+0&amp;amp;=(f&lt;/em&gt;f^{-1})&amp;rsquo; \newline
+&amp;amp;=f&amp;rsquo;&lt;em&gt;f^{-1}+f&lt;/em&gt;(f^{-1})&amp;rsquo; \newline
+f*(f^{-1})&amp;rsquo;&amp;amp;=-f&amp;rsquo;&lt;em&gt;f^{-1} \newline
+f^{-1&lt;/em&gt;}f*(f^{-1})&amp;rsquo;&amp;amp;=-f&amp;rsquo;*f^{-1}&lt;em&gt;f^{-1} \newline
+(f^{-1})&amp;rsquo;&amp;amp;=-f&amp;rsquo;&lt;em&gt;f^{-1}&lt;em&gt;f^{-1}=-f&amp;rsquo;&lt;/em&gt;(f&lt;/em&gt;f)^{-1}
+\end{align&lt;/em&gt;}
+$$&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+        </item>
+        <item>
         <title>解析数论之数论函数【其一】</title>
         <link>https://dorinxl.github.io/p/%E8%A7%A3%E6%9E%90%E6%95%B0%E8%AE%BA%E4%B9%8B%E6%95%B0%E8%AE%BA%E5%87%BD%E6%95%B0%E5%85%B6%E4%B8%80/</link>
-        <pubDate>Mon, 24 Jul 2023 09:43:00 +0000</pubDate>
+        <pubDate>Fri, 21 Jul 2023 09:43:00 +0000</pubDate>
         
         <guid>https://dorinxl.github.io/p/%E8%A7%A3%E6%9E%90%E6%95%B0%E8%AE%BA%E4%B9%8B%E6%95%B0%E8%AE%BA%E5%87%BD%E6%95%B0%E5%85%B6%E4%B8%80/</guid>
-        <description>&lt;blockquote&gt;
-&lt;h6 id=&#34;coding-typoralatex&#34;&gt;@Coding: Typora+LaTeX
-&lt;/h6&gt;&lt;h6 id=&#34;author--dorinxlhttpsdorinxlgiteeio博客httpswwwcnblogscomdorinxl&#34;&gt;@Author : &lt;a class=&#34;link&#34; href=&#34;https://dorinxl.gitee.io/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
-    &gt;DorinXL&lt;/a&gt;（&lt;a class=&#34;link&#34; href=&#34;https://www.cnblogs.com/DorinXL/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
-    &gt;博客&lt;/a&gt;）
-&lt;/h6&gt;&lt;h6 id=&#34;time--2023724-1654&#34;&gt;@Time : 2023/7/24 16:54
-&lt;/h6&gt;&lt;/blockquote&gt;
+        <description>
+
+
+&lt;div class=&#34;notice notice-info&#34; &gt;
+    &lt;div class=&#34;notice-title&#34;&gt;&lt;svg xmlns=&#34;http://www.w3.org/2000/svg&#34; class=&#34;icon notice-icon&#34; viewBox=&#34;0 0 512 512&#34; fill=&#34;hsl(30, 80%, 70%)&#34;&gt;&lt;path d=&#34;M256 8a248 248 0 100 496 248 248 0 000-496zm0 110a42 42 0 110 84 42 42 0 010-84zm56 254c0 7-5 12-12 12h-88c-7 0-12-5-12-12v-24c0-7 5-12 12-12h12v-64h-12c-7 0-12-5-12-12v-24c0-7 5-12 12-12h64c7 0 12 5 12 12v100h12c7 0 12 5 12 12v24z&#34;/&gt;&lt;/svg&gt;&lt;/div&gt;&lt;p&gt;本文使用&lt;strong&gt;Typora&lt;/strong&gt;编写，但Hugo使用&lt;strong&gt;KaTex&lt;/strong&gt;渲染，可能会出现不兼容状态，如需最佳体验请前往&lt;a class=&#34;link&#34; href=&#34;https://www.cnblogs.com/DorinXL/p/17577874.html&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;这里&lt;/a&gt;&lt;/p&gt;&lt;/div&gt;
+
 &lt;h2 id=&#34;目录&#34;&gt;目录
 &lt;/h2&gt;&lt;ul&gt;
 &lt;li&gt;Chapter1 数论函数介绍&lt;/li&gt;
@@ -1794,36 +2372,36 @@ $$
 &lt;/li&gt;
 &lt;/ul&gt;
 &lt;table&gt;
-&lt;thead&gt;
-&lt;tr&gt;
-&lt;th&gt;n&lt;/th&gt;
-&lt;th&gt;1&lt;/th&gt;
-&lt;th&gt;2&lt;/th&gt;
-&lt;th&gt;3&lt;/th&gt;
-&lt;th&gt;4&lt;/th&gt;
-&lt;th&gt;5&lt;/th&gt;
-&lt;th&gt;6&lt;/th&gt;
-&lt;th&gt;7&lt;/th&gt;
-&lt;th&gt;8&lt;/th&gt;
-&lt;th&gt;9&lt;/th&gt;
-&lt;th&gt;10&lt;/th&gt;
-&lt;/tr&gt;
-&lt;/thead&gt;
-&lt;tbody&gt;
-&lt;tr&gt;
-&lt;td&gt;$\mu(n)$&lt;/td&gt;
-&lt;td&gt;1&lt;/td&gt;
-&lt;td&gt;-1&lt;/td&gt;
-&lt;td&gt;-1&lt;/td&gt;
-&lt;td&gt;0&lt;/td&gt;
-&lt;td&gt;-1&lt;/td&gt;
-&lt;td&gt;1&lt;/td&gt;
-&lt;td&gt;-1&lt;/td&gt;
-&lt;td&gt;0&lt;/td&gt;
-&lt;td&gt;0&lt;/td&gt;
-&lt;td&gt;1&lt;/td&gt;
-&lt;/tr&gt;
-&lt;/tbody&gt;
+  &lt;thead&gt;
+      &lt;tr&gt;
+          &lt;th style=&#34;text-align: left&#34;&gt;n&lt;/th&gt;
+          &lt;th style=&#34;text-align: left&#34;&gt;1&lt;/th&gt;
+          &lt;th style=&#34;text-align: left&#34;&gt;2&lt;/th&gt;
+          &lt;th style=&#34;text-align: left&#34;&gt;3&lt;/th&gt;
+          &lt;th style=&#34;text-align: left&#34;&gt;4&lt;/th&gt;
+          &lt;th style=&#34;text-align: left&#34;&gt;5&lt;/th&gt;
+          &lt;th style=&#34;text-align: left&#34;&gt;6&lt;/th&gt;
+          &lt;th style=&#34;text-align: left&#34;&gt;7&lt;/th&gt;
+          &lt;th style=&#34;text-align: left&#34;&gt;8&lt;/th&gt;
+          &lt;th style=&#34;text-align: left&#34;&gt;9&lt;/th&gt;
+          &lt;th style=&#34;text-align: left&#34;&gt;10&lt;/th&gt;
+      &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+      &lt;tr&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;$\mu(n)$&lt;/td&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;1&lt;/td&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;-1&lt;/td&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;-1&lt;/td&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;0&lt;/td&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;-1&lt;/td&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;1&lt;/td&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;-1&lt;/td&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;0&lt;/td&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;0&lt;/td&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;1&lt;/td&gt;
+      &lt;/tr&gt;
+  &lt;/tbody&gt;
 &lt;/table&gt;
 &lt;ul&gt;
 &lt;li&gt;
@@ -1874,36 +2452,36 @@ $$&lt;/p&gt;
 &lt;/li&gt;
 &lt;/ul&gt;
 &lt;table&gt;
-&lt;thead&gt;
-&lt;tr&gt;
-&lt;th&gt;n&lt;/th&gt;
-&lt;th&gt;1&lt;/th&gt;
-&lt;th&gt;2&lt;/th&gt;
-&lt;th&gt;3&lt;/th&gt;
-&lt;th&gt;4&lt;/th&gt;
-&lt;th&gt;5&lt;/th&gt;
-&lt;th&gt;6&lt;/th&gt;
-&lt;th&gt;7&lt;/th&gt;
-&lt;th&gt;8&lt;/th&gt;
-&lt;th&gt;9&lt;/th&gt;
-&lt;th&gt;10&lt;/th&gt;
-&lt;/tr&gt;
-&lt;/thead&gt;
-&lt;tbody&gt;
-&lt;tr&gt;
-&lt;td&gt;$\varphi(n)$&lt;/td&gt;
-&lt;td&gt;1&lt;/td&gt;
-&lt;td&gt;1&lt;/td&gt;
-&lt;td&gt;2&lt;/td&gt;
-&lt;td&gt;2&lt;/td&gt;
-&lt;td&gt;4&lt;/td&gt;
-&lt;td&gt;2&lt;/td&gt;
-&lt;td&gt;6&lt;/td&gt;
-&lt;td&gt;4&lt;/td&gt;
-&lt;td&gt;6&lt;/td&gt;
-&lt;td&gt;4&lt;/td&gt;
-&lt;/tr&gt;
-&lt;/tbody&gt;
+  &lt;thead&gt;
+      &lt;tr&gt;
+          &lt;th style=&#34;text-align: left&#34;&gt;n&lt;/th&gt;
+          &lt;th style=&#34;text-align: left&#34;&gt;1&lt;/th&gt;
+          &lt;th style=&#34;text-align: left&#34;&gt;2&lt;/th&gt;
+          &lt;th style=&#34;text-align: left&#34;&gt;3&lt;/th&gt;
+          &lt;th style=&#34;text-align: left&#34;&gt;4&lt;/th&gt;
+          &lt;th style=&#34;text-align: left&#34;&gt;5&lt;/th&gt;
+          &lt;th style=&#34;text-align: left&#34;&gt;6&lt;/th&gt;
+          &lt;th style=&#34;text-align: left&#34;&gt;7&lt;/th&gt;
+          &lt;th style=&#34;text-align: left&#34;&gt;8&lt;/th&gt;
+          &lt;th style=&#34;text-align: left&#34;&gt;9&lt;/th&gt;
+          &lt;th style=&#34;text-align: left&#34;&gt;10&lt;/th&gt;
+      &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+      &lt;tr&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;$\varphi(n)$&lt;/td&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;1&lt;/td&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;1&lt;/td&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;2&lt;/td&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;2&lt;/td&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;4&lt;/td&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;2&lt;/td&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;6&lt;/td&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;4&lt;/td&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;6&lt;/td&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;4&lt;/td&gt;
+      &lt;/tr&gt;
+  &lt;/tbody&gt;
 &lt;/table&gt;
 &lt;ul&gt;
 &lt;li&gt;
@@ -2054,36 +2632,36 @@ $$&lt;/p&gt;
 &lt;/li&gt;
 &lt;/ul&gt;
 &lt;table&gt;
-&lt;thead&gt;
-&lt;tr&gt;
-&lt;th&gt;n&lt;/th&gt;
-&lt;th&gt;1&lt;/th&gt;
-&lt;th&gt;2&lt;/th&gt;
-&lt;th&gt;3&lt;/th&gt;
-&lt;th&gt;4&lt;/th&gt;
-&lt;th&gt;5&lt;/th&gt;
-&lt;th&gt;6&lt;/th&gt;
-&lt;th&gt;7&lt;/th&gt;
-&lt;th&gt;8&lt;/th&gt;
-&lt;th&gt;9&lt;/th&gt;
-&lt;th&gt;10&lt;/th&gt;
-&lt;/tr&gt;
-&lt;/thead&gt;
-&lt;tbody&gt;
-&lt;tr&gt;
-&lt;td&gt;$\Lambda(n)$&lt;/td&gt;
-&lt;td&gt;0&lt;/td&gt;
-&lt;td&gt;$\log{}{2}$&lt;/td&gt;
-&lt;td&gt;$\log{}{3}$&lt;/td&gt;
-&lt;td&gt;$\log{}{2}$&lt;/td&gt;
-&lt;td&gt;$\log{}{5}$&lt;/td&gt;
-&lt;td&gt;0&lt;/td&gt;
-&lt;td&gt;$\log{}{7}$&lt;/td&gt;
-&lt;td&gt;$\log{}{2}$&lt;/td&gt;
-&lt;td&gt;$\log{}{3}$&lt;/td&gt;
-&lt;td&gt;0&lt;/td&gt;
-&lt;/tr&gt;
-&lt;/tbody&gt;
+  &lt;thead&gt;
+      &lt;tr&gt;
+          &lt;th style=&#34;text-align: left&#34;&gt;n&lt;/th&gt;
+          &lt;th style=&#34;text-align: left&#34;&gt;1&lt;/th&gt;
+          &lt;th style=&#34;text-align: left&#34;&gt;2&lt;/th&gt;
+          &lt;th style=&#34;text-align: left&#34;&gt;3&lt;/th&gt;
+          &lt;th style=&#34;text-align: left&#34;&gt;4&lt;/th&gt;
+          &lt;th style=&#34;text-align: left&#34;&gt;5&lt;/th&gt;
+          &lt;th style=&#34;text-align: left&#34;&gt;6&lt;/th&gt;
+          &lt;th style=&#34;text-align: left&#34;&gt;7&lt;/th&gt;
+          &lt;th style=&#34;text-align: left&#34;&gt;8&lt;/th&gt;
+          &lt;th style=&#34;text-align: left&#34;&gt;9&lt;/th&gt;
+          &lt;th style=&#34;text-align: left&#34;&gt;10&lt;/th&gt;
+      &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+      &lt;tr&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;$\Lambda(n)$&lt;/td&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;0&lt;/td&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;$\log{}{2}$&lt;/td&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;$\log{}{3}$&lt;/td&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;$\log{}{2}$&lt;/td&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;$\log{}{5}$&lt;/td&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;0&lt;/td&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;$\log{}{7}$&lt;/td&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;$\log{}{2}$&lt;/td&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;$\log{}{3}$&lt;/td&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;0&lt;/td&gt;
+      &lt;/tr&gt;
+  &lt;/tbody&gt;
 &lt;/table&gt;
 &lt;ul&gt;
 &lt;li&gt;
@@ -2392,565 +2970,12 @@ $$&lt;/p&gt;
 </description>
         </item>
         <item>
-        <title>解析数论之数论函数【其二】</title>
-        <link>https://dorinxl.github.io/p/%E8%A7%A3%E6%9E%90%E6%95%B0%E8%AE%BA%E4%B9%8B%E6%95%B0%E8%AE%BA%E5%87%BD%E6%95%B0%E5%85%B6%E4%BA%8C/</link>
-        <pubDate>Fri, 21 Jul 2023 16:35:00 +0000</pubDate>
-        
-        <guid>https://dorinxl.github.io/p/%E8%A7%A3%E6%9E%90%E6%95%B0%E8%AE%BA%E4%B9%8B%E6%95%B0%E8%AE%BA%E5%87%BD%E6%95%B0%E5%85%B6%E4%BA%8C/</guid>
-        <description>&lt;blockquote&gt;
-&lt;h6 id=&#34;coding-typoralatex&#34;&gt;@Coding: Typora+LaTeX
-&lt;/h6&gt;&lt;h6 id=&#34;author--dorinxlhttpsdorinxlgiteeio博客httpswwwcnblogscomdorinxl&#34;&gt;@Author : &lt;a class=&#34;link&#34; href=&#34;https://dorinxl.gitee.io/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
-    &gt;DorinXL&lt;/a&gt;（&lt;a class=&#34;link&#34; href=&#34;https://www.cnblogs.com/DorinXL/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
-    &gt;博客&lt;/a&gt;）
-&lt;/h6&gt;&lt;h6 id=&#34;time--2023720-1633&#34;&gt;@Time : 2023/7/20 16:33
-&lt;/h6&gt;&lt;/blockquote&gt;
-&lt;h2 id=&#34;目录&#34;&gt;目录
-&lt;/h2&gt;&lt;ul&gt;
-&lt;li&gt;Chapter1 积性函数与狄利克雷乘积&lt;/li&gt;
-&lt;li&gt;Chapter2 广义卷积&lt;/li&gt;
-&lt;li&gt;Chapter3 形式幂级数和数论函数的贝尔级数&lt;/li&gt;
-&lt;li&gt;Chapter4 数论函数的导数&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h2 id=&#34;chapter1-积性函数与狄利克雷乘积&#34;&gt;Chapter1 积性函数与狄利克雷乘积
-&lt;/h2&gt;&lt;ul&gt;
-&lt;li&gt;
-&lt;p&gt;&lt;strong&gt;Definition&lt;/strong&gt;：&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;有数论函数$f$,如果$f$不恒为零，且对任意的$(m,n)=1$有$f(mn)=f(m)f(n)$，那么这个数论函数$f$被称为是&lt;strong&gt;积性&lt;/strong&gt;的。&lt;/li&gt;
-&lt;li&gt;如果对于任意的$m,n$都有$f(mn)=f(m)f(n)$，那么这个数论函数$f$被称为是&lt;strong&gt;完全积性&lt;/strong&gt;的。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;&lt;strong&gt;Examples&lt;/strong&gt;:&lt;/p&gt;
-&lt;ol&gt;
-&lt;li&gt;
-&lt;p&gt;令幂函数$f_\alpha(n) = n^\alpha$,这里的$\alpha$是固定的实数或复数。这个函数是完全积性函数。$u=f_0$是完全积性的。&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;p&gt;$$
-\begin{align*}
-f_\alpha(mn) &amp;amp;= (mn)^\alpha \
-&amp;amp;=(m^\alpha)(n^\alpha) \
-&amp;amp;=f_\alpha(m)f_\alpha(n) \
-\end{align*}
-$$&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;恒等函数$I(n)=[\dfrac{1}{n}]$是完全积性的。&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;p&gt;$$
-I(mn) = [\dfrac{1}{mn}]
-=\begin{cases}1,&amp;amp;\text{if $m,n=1$} \
-0,&amp;amp;\text{if $m&amp;gt;1 || n&amp;gt;1$}\end{cases}
-$$&lt;/p&gt;
-&lt;p&gt;$$
-I(m)I(n) = [\dfrac{1}{m}][\dfrac{1}{n}]
-=\begin{cases}1,&amp;amp;\text{if $m,n=1$} \
-0,&amp;amp;\text{if $m&amp;gt;1 || n&amp;gt;1$}\end{cases}
-$$&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;莫比乌斯函数$\mu()$是积性的但不是完全积性的.&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;p&gt;考虑两个互素的整数$m,n$。&lt;/p&gt;
-&lt;p&gt;若$m,n$中任意一个的因子表示为$p^\alpha,\alpha\ge2$,那么有
-$$
-\mu(mn)=\mu(m)\mu(n) = 0
-$$
-若$m,n$中没有上述情况，那么可以将$m,n$表示为：
-$$
-m = p_1p_2 \cdots p_s \
-n = q_1q_2 \cdots q_t \
-\Downarrow \
-\mu(m) = (-1)^s \
-\mu(n) = (-1)^t \
-\mu(mn) = (-1)^{(s+t)} = \mu(m)\mu(n)
-$$
-这表明莫比乌斯函数$\mu$是积性函数。但其不是完全积性函数，因为：
-$$
-\mu(4)=0 \
-\mu(2)\mu(2) = 1
-$$&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;欧拉函数$\varphi()$是积性函数但不是完全积性函数。&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;p&gt;是积性函数：由欧拉函数的性质可以得到：
-$$
-\varphi(mn) = \varphi(m)\varphi(n)
-$$
-不是完全积性函数：
-$$
-\varphi(4) = 2\
-\varphi(2)\varphi(2) = 1
-$$&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;如果$f,g$是积性函数/完全积性函数，那么$fg,\dfrac{f}{g}$也是积性函数/完全积性函数。&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;p&gt;以$fg$为例：
-$$
-\begin{align*}
-fg(mn) &amp;amp;= f(mn)g(mn) \
-&amp;amp;= f(m)f(n)g(m)g(n) \
-&amp;amp;= f(m)g(m)f(n)g(n) \
-&amp;amp;= fg(m)fg(n)
-\end{align*}
-$$&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;/li&gt;
-&lt;/ol&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;&lt;strong&gt;Theorem:&lt;/strong&gt;&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;
-&lt;p&gt;Th1:如果$f$是积性的，那么$f(1)=1$&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;p&gt;&lt;strong&gt;Proof:&lt;/strong&gt;&lt;/p&gt;
-&lt;p&gt;对任意n，有$(n,1)=1$，由积性函数的性质我们可以得到：$f$不恒为零，且有$f(n)=f(1)f(n)$，于是存在n，使$f(n)\neq0,f(1)=1$&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;Th2:给定$f$，且$f(1)=1$，那么：&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;$f$是积性的 $\Longleftrightarrow$ $f(p_1^{\alpha_1}p_2^{\alpha_2}\cdots p_r^{\alpha_ r}) =f(p_1^{\alpha_1})f(p_2^{\alpha_2})\cdots f(p_r^{\alpha_r})$&lt;/li&gt;
-&lt;li&gt;如果$f$是积性的，那么：$f$是完全积性的 $\Longleftrightarrow$ $f(p^\alpha) = f(p)^\alpha$&lt;/li&gt;
-&lt;/ul&gt;
-&lt;blockquote&gt;
-&lt;p&gt;&lt;strong&gt;Proof：&lt;/strong&gt;&lt;/p&gt;
-&lt;p&gt;Th2.1: 如果$f$是积性的，显然$p_1^{\alpha_1}p_2^{\alpha_2}\cdots p_r^{\alpha_ r}$中的$p_1^{\alpha_1},p_2^{\alpha_2},\cdots ,p_r^{\alpha_ r}$这些数字都是互素的，那么根据积性函数的定义就有：
-$$
-f(p_1^{\alpha_1}p_2^{\alpha_2}\cdots p_r^{\alpha_ r})
-=f(p_1^{\alpha_1}p_2^{\alpha_2}\cdots p_{r-1}^{\alpha_ {r-1}})f(p_r^{\alpha_r})
-=f(p_1^{\alpha_1})f(p_2^{\alpha_2})\cdots f(p_r^{\alpha_r})
-$$
-反过来，我们有$f(p_1^{\alpha_1}p_2^{\alpha_2}\cdots p_r^{\alpha_ r}) =f(p_1^{\alpha_1})f(p_2^{\alpha_2})\cdots f(p_r^{\alpha_r})$，想证明$f$是积性函数， 我们取$(m,n)=1,m=p_1^{\alpha_1}p_2^{\alpha_2}\cdots p_r^{\alpha_ r},n=q_1^{\beta_1}q_2^{\beta_2}\cdots q_t^{\beta_ t}$.
-$$
-\begin{align*}
-f(mn)&amp;amp;=f(p_1^{\alpha_1}p_2^{\alpha_2}\cdots p_r^{\alpha_ r}q_1^{\beta_1}q_2^{\beta_2}\cdots q_t^{\beta_ t})\
-&amp;amp;=f(p_1^{\alpha_1})f(p_2^{\alpha_2})\cdots f(p_r^{\alpha_r})f(q_1^{\beta_1})f(q_2^{\beta_2})\cdots f(q_r^{\beta_r})\
-&amp;amp;=f(p_1^{\alpha_1}p_2^{\alpha_2}\cdots p_r^{\alpha_ r})f(q_1^{\beta_1}q_2^{\beta_2}\cdots q_t^{\beta_ t})\
-&amp;amp;=f(m)f(n)
-\end{align*}
-$$
-Th2.2:如果$f$是完全积性的，那么
-$$
-f(p^\alpha) = f(p^{\alpha-1})f(p) = f(p)^\alpha
-$$
-反过来，我们有$f$是积性函数，$f(p^\alpha) = f(p)^\alpha$,想证明$f$是完全积性函数，我们取整数$m,n\ge1,m=p_1^{\alpha_1}p_2^{\alpha_2}\cdots p_r^{\alpha_ r},n=p_1^{\beta_1}p_2^{\beta_2}\cdots p_t^{\beta_ t}.\alpha和\beta可能为0$
-$$
-\begin{align*}
-f(m)f(n)&amp;amp;=f(p_1^{\alpha_1}p_2^{\alpha_2}\cdots p_r^{\alpha_ r})f(p_1^{\beta_1}p_2^{\beta_2}\cdots p_t^{\beta_ t})\
-&amp;amp;=f(p_1^{\alpha_1})f(p_2^{\alpha_2})\cdots f(p_r^{\alpha_r})f(p_1^{\beta_1})f(p_2^{\beta_2})\cdots f(p_r^{\beta_r})\
-&amp;amp;=f(p_1)^{\alpha_1}f(p_2)^{\alpha_2}\cdots f(p_r)^{\alpha_r}f(p_1)^{\beta_1}f(p_2)^{\beta_2}\cdots f(p_r)^{\beta_r}\
-&amp;amp;=f(p_1)^{\alpha_1+\beta_1}f(p_2)^{\alpha_2+\beta_2}\cdots f(p_r)^{\alpha_r+\beta_r}\
-&amp;amp;=f(p_1^{\alpha_1+\beta_1})f(p_2^{\alpha_2+\beta_2})\cdots f(p_r^{\alpha_r+\beta_r})\
-&amp;amp;=f(mn)
-\end{align*}
-$$&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;Th3:如果$f$和$g$是积性的，那么他们的狄利克雷卷积也是积性的。&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;p&gt;&lt;strong&gt;Proof&lt;/strong&gt;:令$h=f&lt;em&gt;g$，选取互素的整数$m,n$，那么：
-$$
-h(mn) = \sum_{c|mn}f(c)g(\dfrac{mn}{c})
-$$
-$m,n$的每一个因子c都可以写成$c=ab$的形式，其中$a|m,b|n,(a,b)=1$
-$$
-\begin{align&lt;/em&gt;}
-h(m)h(n)&amp;amp;=f(m)g(m)f(n)g(n) \
-&amp;amp;=\sum_{a|m}f(a)g(\dfrac{m}{a})\sum_{b|n}f(b)g(\dfrac{n}{b}) \
-&amp;amp;=\sum_{a|m\b|n}f(a)f(b)g(\dfrac{m}{a})g(\dfrac{n}{b}) \
-根据整除的推论：\
-(m,n)=1,mn的因子可以唯一由\
-m的因子和n的因子的乘积表示
-&amp;amp;=\sum_{ab|mn}f(ab)g(\dfrac{mn}{ab}) \
-&amp;amp;=h(mn)
-\end{align*}
-$$
-**Node:**两个完全积性函数的狄利克雷乘积不一定是完全积性的。&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;Th4：如果$g$和$f*g$都是积性的，那么$f$也是积性的。&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;p&gt;&lt;strong&gt;Proof：&lt;/strong&gt;&lt;/p&gt;
-&lt;p&gt;假设$f$不是积性的，那么我们如果推出$f*g$不是积性的，即可通过矛盾证明该结论。&lt;/p&gt;
-&lt;p&gt;选择$(m,m)=1$使得$f(mn) \ne f(m)f(n)$，让$m,n$尽量的小。&lt;/p&gt;
-&lt;p&gt;如果$mn=1$，那么$f(1) \ne f(1)f(1),f(1)\ne 1$。因为$h(1)=(f*g)(1)=f(1)g(1)=f(1)\ne 1$，所以h不是积性函数。&lt;/p&gt;
-&lt;p&gt;如果$mn&amp;gt;1$，选择$(a,b)=1,ab&amp;lt;mn$，使得$f(ab)=f(a)f(b)$。
-$$
-\begin{align*}
-(f&lt;em&gt;g)(mn)&amp;amp;=\sum\limits_{a|m\b|n\ab&amp;lt;mn}f(ab)g(\dfrac{mn}{ab})+f(mn)g(1)\
-&amp;amp;=\sum_{a|m}f(a)g(\dfrac{m}{a})+\sum_{b|n}f(b)g(\dfrac{n}{b})-f(m)f(n)+f(mn)\
-&amp;amp;=(f&lt;/em&gt;g)(m)(f&lt;em&gt;g)(n)-f(n)f(m)+f(mn)
-\end{align&lt;/em&gt;}
-$$
-而$f(mn)\ne f(m)f(n)$，所以$h(mn)\ne h(m)h(n)$，$h$不是积性的。&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;Th5：如果$g$是积性的，那么它的狄利克雷逆$g^{-1}$也是积性的。&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;p&gt;我们知道$g$是积性的，而$g*g^{-1}=I$也是积性的，那么根据Th4我们得出Th5。&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;Th6：如果$f$是积性的，那么有：$f$是完全积性的 $\Longleftrightarrow$ $f^{-1}(n) = \mu(n)f(n)$,对所有的$n\ge1$&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;p&gt;&lt;strong&gt;Proof：&lt;/strong&gt;&lt;/p&gt;
-&lt;p&gt;证明$\Rightarrow$:想通过“$f$是完全积性的”这一条件证明“$f^{-1}(n) = \mu(n)f(n)$”,我们设$g(n)=\mu(n)f(n)$
-$$
-\begin{align*}
-(g&lt;em&gt;f)(n)&amp;amp;=\sum_{d|n}\mu(d)f(d)f(\dfrac{n}{d})\
-&amp;amp;=\sum_{d|n}\mu(d)f(n)\
-&amp;amp;=f(n)\sum_{d|n}\mu(d)\
-&amp;amp;=f(n)I(n) \
-&amp;amp;=I(n)
-\end{align&lt;/em&gt;}
-$$
-既然有$(g*f)=I$，那么有$f^{-1}(n) = \mu(n)f(n)$&lt;/p&gt;
-&lt;p&gt;证明$\Leftarrow$：想通过“$f$是积性的，且$f^{-1}(n) = \mu(n)f(n)$”这一条件证明“$f$是完全积性的”,我们只需要证出对所有素数$p$有$f(p^\alpha)=f(p)^\alpha$即可。
-$$
-\begin{align*}
-我们有(f&lt;em&gt;f^{-1}&amp;amp;=I)\
-那么\
-\sum_{d|n}f^{-1}(d)f(\dfrac{n}{d})&amp;amp;=0 \quad (n&amp;gt;1)\
-\sum_{d|n}\mu(d)f(d)f(\dfrac{n}{d})&amp;amp;=0\
-取n=p^\alpha,有\
-\mu(1)f(1)f(p^\alpha)+\mu(p)f(p)f(p^{\alpha-1})+0&amp;amp;=0\
-f(p^\alpha)+(-1)f(p)f(p^{\alpha-1})&amp;amp;=0\
-f(p^\alpha)&amp;amp;=f(p)f(p^{\alpha-1})
-\end{align&lt;/em&gt;}
-$$
-从$\alpha\ge2$开始递推，$f(p^2)=f(p)f(p),f(p^3)=f(p)f(p^2)=f(p)^3$，所以我们证明出对所有素数$p$有$f(p^\alpha)=f(p)^\alpha$，即$f$是完全积性的。&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;Th7：如果$f$是积性的，那么有：$\sum\limits_{d|n}\mu(d)f(d)=\prod\limits_{p|n}(1-f(p))$&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;p&gt;&lt;strong&gt;Proof：&lt;/strong&gt;&lt;/p&gt;
-&lt;p&gt;令$g(n)=\sum\limits_{d|n}\mu(d)f(d)$，$g$是积性的，利用算术基本定理，我们只需要计算$g(p^\alpha)$即可。
-$$
-\begin{align*}
-g(p^\alpha)&amp;amp;=\sum_{d|p^\alpha}\mu(d)f(d)\
-&amp;amp;=\mu(1)f(1)+\mu(p)f(p)+0+\cdots+0\
-&amp;amp;=f(1)-f(p)\
-&amp;amp;=1-f(p)
-\end{align*}
-$$
-所以对于由若干素数幂乘积组成的$n$，我们有
-$$
-g(n)=g(p_1^{\alpha1}p_2^{\alpha2}\cdots p_r^{\alpha r})=(1-f(p_1))(1-f(p_2))\cdots(1-f(p_r))=\prod_{p|n}(1-f(p))
-$$&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h2 id=&#34;chapter2-广义卷积&#34;&gt;Chapter2 广义卷积
-&lt;/h2&gt;&lt;ul&gt;
-&lt;li&gt;
-&lt;p&gt;&lt;strong&gt;Definition&lt;/strong&gt;：$F$表示一个定义在正实轴$(0,\infty)$上的实数函数，对$0&amp;lt;x&amp;lt;1$,有$F(x)=0$。我们定义出一个新函数$G$,表示为
-$$
-G = \sum_{n\le{x}}\alpha(n)F(\dfrac{x}{n})
-$$
-其中，$\alpha$是任意数论函数。对于$0&amp;lt;x&amp;lt;1$,也有$G(x)=0$。$\alpha,F,G$的关系可以表示为：
-$$
-(\alpha\circ F)(x) = \sum_{n\le{x}}\alpha(x)F(\dfrac{x}{n})
-$$&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;&lt;strong&gt;Theorem:&lt;/strong&gt;&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;Th1：关于$\circ$和$*$的结合性，单独的运算$\circ$是可交换但是不可以结合的，配合狄利克雷乘积和任意数论函数$\alpha$和$\beta$我们有
-$$
-\alpha \circ (\beta \circ F) = (\alpha * \beta)\circ F
-$$&lt;/li&gt;
-&lt;/ul&gt;
-&lt;blockquote&gt;
-&lt;p&gt;&lt;strong&gt;Proof&lt;/strong&gt;：&lt;/p&gt;
-&lt;p&gt;对于$x&amp;gt;0$有：
-$$
-\begin{align*}
-{\alpha \circ (\beta \circ F)}(x)&amp;amp;=\sum_{n\le x}\alpha(n)\sum_{m\le\dfrac{x}{n}}\beta(m)F(\dfrac{x}{mn})\
-&amp;amp;=\sum_{mn\le x}\alpha(n)\beta(m)F(\dfrac{x}{mn})\
-&amp;amp;=\sum_{k\le x}(\sum_{n|k}\alpha(n)\beta(\dfrac{k}{n}))F(\dfrac{x}{k})\
-&amp;amp;=\sum_{k\le x}(\alpha*\beta)(k)F(\dfrac{x}{k})\
-&amp;amp;={(\alpha*\beta)\circ F}(x)
-\end{align*}
-$$&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;ul&gt;
-&lt;li&gt;Th2：（广义反转公式）如果$\alpha$有一个狄利克雷逆函数$\alpha^{-1}$，那么有：&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;$$
-G(x) = \sum_{n\le{x}}\alpha(n)F(\dfrac{x}{n})\
-\Updownarrow \
-F(x) = \sum_{n\le{x}}\alpha^{-1}(n)G(\dfrac{x}{n})
-$$&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;p&gt;&lt;strong&gt;Proof：&lt;/strong&gt;&lt;/p&gt;
-&lt;p&gt;已知$G= \sum_{n\le{x}}\alpha(n)F(\dfrac{x}{n})=\alpha \circ F \$，
-$$
-\alpha^{-1}\circ G=\alpha^{-1}\circ(\alpha \circ F)=(\alpha^{-1}&lt;em&gt;\alpha)\circ F=I\circ F=F\
-F=\alpha^{-1}\circ G= \sum_{n\le{x}}\alpha^{-1}(n)G(\dfrac{x}{n})
-$$
-已知$F= \sum_{n\le{x}}\alpha^{-1}(n)G(\dfrac{x}{n})=\alpha^{-1}\circ G$，
-$$
-\alpha \circ F=\alpha \circ(\alpha^{-1}\circ G)=(\alpha^{-1}&lt;/em&gt;\alpha)\circ G=I \circ G = G\
-G = \alpha \circ F = \sum_{n\le{x}}\alpha(n)F(\dfrac{x}{n})
-$$&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;ul&gt;
-&lt;li&gt;Th3：（广义莫比乌斯反转）如果$\alpha$是完全积性的，那么有：&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;$$
-G(x) = \sum_{n\le{x}}\alpha(n)F(\dfrac{x}{n})\
-\Updownarrow \
-F(x) = \sum_{n\le{x}}\mu(n)\alpha(n)G(\dfrac{x}{n})
-$$&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;p&gt;&lt;strong&gt;Proof：&lt;/strong&gt;&lt;/p&gt;
-&lt;p&gt;令$\alpha^{-1}=\alpha\mu$。&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h2 id=&#34;chapter3-形式幂级数和数论函数的贝尔级数&#34;&gt;Chapter3 形式幂级数和数论函数的贝尔级数
-&lt;/h2&gt;&lt;h3 id=&#34;section1-形式幂级数&#34;&gt;Section1 形式幂级数
-&lt;/h3&gt;&lt;ul&gt;
-&lt;li&gt;
-&lt;p&gt;&lt;strong&gt;Definition&lt;/strong&gt;：&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;
-&lt;p&gt;我们知道，在微积分中，x的幂级数形如：
-$$
-\sum_{n=0}^{\infty}a(n)x^n = a(0)+a(1)x+a(2)x^2+a(3)x^3+\cdots+a(n)x^n+\cdots
-$$
-这样一个幂级数拥有收敛半径，在范围内会收敛或是发散。&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;而从另一个角度来说，我们使用幂级数的写作形式，但不关心x的值，不关心收敛或发散的问题，而是关心幂级数的系数序列$(a(0),a(1),a(2),\cdots,a(n),\cdots)$。这些系数序列可以由幂级数中$x^n$的$n$来定位。&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;形式幂级数就是通过这样一种角度来理解幂级数，把幂级数看作收敛的并在其上规定代数运算。&lt;/p&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;&lt;strong&gt;Theorem:&lt;/strong&gt;&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;
-&lt;p&gt;现在我们有两个形式幂级数，分别是$A(x)$和$B(x)$：
-$$
-A(x) = \sum_{n=0}^{\infty}a(n)x^n \B(x)=\sum_{n=0}^{\infty}b(n)x^n
-$$&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;Th1：规定相等$A(x) = B(x)$，即$a(n)=b(n),n\ge0$&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;Th2：规定和$A(x)+B(x)=\sum\limits_{n=0}^{\infty}(a(n)+b(n))x^n$&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;Th3：规定乘积$A(x)B(x)=\sum\limits_{n=0}^{\infty}c(n)x^n$，其中$c(n) = \sum\limits_{k=0}^{\infty}a(k)b(n-k)$。序列${c(n)}$被称为序列${a(n)}$和${b(n)}$的柯西乘积。&lt;/p&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h3 id=&#34;section2-贝尔级数&#34;&gt;Section2 贝尔级数
-&lt;/h3&gt;&lt;ul&gt;
-&lt;li&gt;
-&lt;p&gt;&lt;strong&gt;Definition&lt;/strong&gt;：给定一个数论函数$f$和一个素数$p$，我们规定形式幂级数
-$$
-f_p(x)=\sum\limits_{n=0}^{\infty}f(p^n)x^n
-$$
-是$f$关于模$p$的贝尔级数。&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;&lt;strong&gt;Examples：&lt;/strong&gt;&lt;/p&gt;
-&lt;ol&gt;
-&lt;li&gt;
-&lt;p&gt;莫比乌斯函数$\mu()$的贝尔级数：&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;p&gt;由莫比乌斯函数的定义我们可知：$\mu(p)=-1$，对所有的$n\ge2,\mu(p^n)=0$。
-$$
-\begin{align*}
-\mu_p(x)&amp;amp;=\sum\limits_{n=0}^{\infty}\mu(p^n)x^n\
-&amp;amp;=\mu(p^0)x^0+\mu(p^1)x^1+\cdots+\mu(p^r)x^r+\cdots\
-&amp;amp;=\mu(1)+\mu(p)x+0 \
-&amp;amp;=1-x
-\end{align*}
-$$&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;欧拉函数$\varphi()$的贝尔级数：&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;p&gt;由欧拉函数的性质我们可知：$\varphi(p^n)=p^n-p^{n-1}$。
-$$
-\begin{align*}
-\varphi_p(x)&amp;amp;=\sum\limits_{n=0}^{\infty}\varphi(p^n)x^n\
-&amp;amp;=\varphi(p^0)x^0+\varphi(p^1)x^1+\cdots+\varphi(p^r)x^r+\cdots\
-&amp;amp;=\varphi(1)+\sum\limits_{n=1}^{\infty}\varphi(p^n)x^n \
-&amp;amp;=\varphi(1)+\sum\limits_{n=1}^{\infty}(p^n-p^{n-1})x^n \
-&amp;amp;=\varphi(1)+\sum\limits_{n=1}^{\infty}p^nx^n-\sum\limits_{n=1}^{\infty}p^{n-1}x^n \
-&amp;amp;=\sum\limits_{n=0}^{\infty}p^nx^n-x\sum\limits_{n=0}^{\infty}p^nx^n \
-&amp;amp;=(1-x)\sum\limits_{n=0}^{\infty}p^nx^n \
-&amp;amp;=\dfrac{1-x}{1-px}
-\end{align*}
-$$&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;如果$f$是完全积性的，那么对所有的$n\ge0$，都有$f(p^n)=f(p)^n$，所以其贝尔级数是几何级数：
-$$
-f_p(x)=\sum\limits_{n=0}^{\infty}f(p)^nx^n=\dfrac{1}{1-f(p)x}
-$$&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;p&gt;对于恒等函数$I$,单位函数$u$，幂函数$N^\alpha$，刘维尔函数$\lambda$这些完全积性函数来说：
-$$
-I_p(x)=1 \
-u_p(x)=\dfrac{1}{1-x} \
-N_p^\alpha(x)=\dfrac{1}{1-p^\alpha x} \
-\lambda_p(x)=\dfrac{1}{1-(-x)}
-$$&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;/li&gt;
-&lt;/ol&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;&lt;strong&gt;Theorem：&lt;/strong&gt;&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;
-&lt;p&gt;Th1：令$f$和$g$是积性函数，则$f=g \Leftrightarrow f_p(x)=g_p(x)$对所有的素数$p$&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;p&gt;&lt;strong&gt;Proof：&lt;/strong&gt;&lt;/p&gt;
-&lt;p&gt;证明$\Rightarrow$：我们想要证明贝尔级数$f_p(x)=g_p(x)$，在形式幂级数中我们知道，两个形式幂级数$A(x)，B(x)$相等也就是$a(n)=b(n),n\ge0$。在此处也就是$f(p^n)=g(p^n)$。而$f=g$正好使得$f(p^n)=g(p^n)$。&lt;/p&gt;
-&lt;p&gt;证明$\Leftarrow$：如果贝尔级数$f_p(x)=g_p(x)$，那也就是说$f(p^n)=g(p^n)$。而$f$和$g$都是积性的，同时对所有素数$p$都有相等，配合算术基本定理，得出结论$f=g$。&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;Th2：任意两个数论函数$f$和$g$，令$h=f*g$，则对任意的素数$p$，我们有
-$$
-h_p(x)=f_p(x)g_p(x)
-$$&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;p&gt;&lt;strong&gt;Proof：&lt;/strong&gt;&lt;/p&gt;
-&lt;p&gt;对于$p^n$，他的因子只能有$1,p,p^2,\cdots,p^n$，所以对于狄利克雷卷积我们有：
-$$
-h(p^n)=\sum\limits_{d|p^n}f(d)g(\dfrac{p^n}{d})=\sum_{k=0}f(p^k)g(p^n-k)
-$$
-这是柯西乘积的形式，符合形式幂级数乘积的运算规则，所以证明
-$$
-h_p(x)=f_p(x)g_p(x)
-$$&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;&lt;strong&gt;Node：&lt;/strong&gt;&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;p&gt;当$f$是积性函数时，贝尔级数特别有用。&lt;/p&gt;
-&lt;p&gt;等比数列求和公式：
-$$
-S_n = \dfrac{a_nq-a_1}{q-1} = \dfrac{a_1(1-q^n)}{1-q} \
-S_\infty= \dfrac{a_1}{1-q}\quad(|q|&amp;lt;1,n\rightarrow\infty)
-$$&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h2 id=&#34;chapter4-数论函数的导数&#34;&gt;Chapter4 数论函数的导数
-&lt;/h2&gt;&lt;ul&gt;
-&lt;li&gt;
-&lt;p&gt;&lt;strong&gt;Definition&lt;/strong&gt;：对任一数论函数$f$我们定义它的导数$f^{&amp;rsquo;}$由下面给出：
-$$
-f&amp;rsquo;(n)=f(n)log{n} \quad对n\ge1
-$$&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;&lt;strong&gt;Examples&lt;/strong&gt;:&lt;/p&gt;
-&lt;ol&gt;
-&lt;li&gt;
-&lt;p&gt;对所有的$n,I(n)logn=0$，所以有$I&amp;rsquo;=0$.&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;塞尔伯格等式：$n\ge1$，我们有：
-$$
-\Lambda(n)logn+\sum_{d|n}\Lambda(d)\Lambda(\dfrac{n}{d})=\sum_{d|n}\mu(d)log^2\dfrac{n}{d}
-$$&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;p&gt;首先有$\Lambda&lt;em&gt;u=u&amp;rsquo;$,对其求导有
-$$
-\Lambda&amp;rsquo;&lt;em&gt;u+\Lambda&lt;/em&gt;u&amp;rsquo;=u&amp;rsquo;&amp;rsquo; \
-\Lambda&amp;rsquo;&lt;em&gt;u+\Lambda&lt;/em&gt;(\Lambda&lt;/em&gt;u)=u&amp;rsquo;&#39;
-$$
-用$\mu=u^{-1}$去乘
-$$
-\Lambda&amp;rsquo;&lt;em&gt;u&lt;/em&gt;u^{-1}+\Lambda*(\Lambda*u)&lt;em&gt;u^{-1}=u&amp;rsquo;&amp;rsquo;&lt;em&gt;u^{-1} \
-\Lambda&amp;rsquo;+\Lambda&lt;/em&gt;\Lambda=u&amp;rsquo;&amp;rsquo;&lt;/em&gt;\mu \
-\Lambda(n)logn+\sum_{d|n}\Lambda(d)\Lambda(\dfrac{n}{d})=\sum_{d|n}\mu(d)log^2\dfrac{n}{d}
-$$&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;/li&gt;
-&lt;/ol&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;&lt;strong&gt;Theorem:&lt;/strong&gt;&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;Th1:如果$f$和$g$是数论函数，我们有：
-&lt;ul&gt;
-&lt;li&gt;$(f+g)&amp;rsquo;=f&amp;rsquo;+g&#39;$&lt;/li&gt;
-&lt;li&gt;$(f*g)&amp;rsquo;=f&amp;rsquo;&lt;em&gt;g+f&lt;/em&gt;g&#39;$&lt;/li&gt;
-&lt;li&gt;$(f^{-1})&amp;rsquo;=-f&amp;rsquo;&lt;em&gt;(f&lt;/em&gt;f)^{-1}$&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;blockquote&gt;
-&lt;p&gt;&lt;strong&gt;Proof&lt;/strong&gt;:&lt;/p&gt;
-&lt;p&gt;1.1：对所有的n，有$(f+g)(n)=f(n)+g(n)$&lt;/p&gt;
-&lt;p&gt;1.2：
-$$
-\begin{align*}
-(f&lt;em&gt;g)&amp;rsquo;&amp;amp;=(\sum_{d|n}f(d)g(\dfrac{n}{d}))&amp;rsquo;\
-&amp;amp;=\sum_{d|n}f(d)g(\dfrac{n}{d})log(n)\
-(logn=\logd+log\dfrac{n}{d}=\logd+logn-logd)
-&amp;amp;=\sum_{d|n}f(d)g(\dfrac{n}{d})log(d) + \sum_{d|n}f(d)g(\dfrac{n}{d})log(\dfrac{n}{d})\
-&amp;amp;=\sum_{d|n}f(d)log(d)g(\dfrac{n}{d}) + \sum_{d|n}f(d)g(\dfrac{n}{d})log(\dfrac{n}{d})\
-&amp;amp;=\sum_{d|n}f&amp;rsquo;(d)g(\dfrac{n}{d}) + \sum_{d|n}f(d)g&amp;rsquo;(\dfrac{n}{d})\
-&amp;amp;=(f&amp;rsquo;&lt;em&gt;g)+(f&lt;/em&gt;g&amp;rsquo;)
-\end{align&lt;/em&gt;}
-$$
-1.3：对公式$I&amp;rsquo;=0$使用Th1.2，由$I=f&lt;em&gt;f^{-1}$,我们有
-$$
-\begin{align&lt;/em&gt;}
-I&amp;rsquo;&amp;amp;=(f&lt;em&gt;f^{-1})&amp;rsquo; \
-0&amp;amp;=(f&lt;/em&gt;f^{-1})&amp;rsquo;\
-&amp;amp;=f&amp;rsquo;&lt;em&gt;f^{-1}+f&lt;/em&gt;(f^{-1})&amp;rsquo;\
-f*(f^{-1})&amp;rsquo;&amp;amp;=-f&amp;rsquo;&lt;em&gt;f^{-1}\
-f^{-1&lt;/em&gt;}f*(f^{-1})&amp;rsquo;&amp;amp;=-f&amp;rsquo;*f^{-1}&lt;em&gt;f^{-1}\
-(f^{-1})&amp;rsquo;&amp;amp;=-f&amp;rsquo;&lt;em&gt;f^{-1}&lt;em&gt;f^{-1}=-f&amp;rsquo;&lt;/em&gt;(f&lt;/em&gt;f)^{-1}
-\end{align&lt;/em&gt;}
-$$&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-</description>
-        </item>
-        <item>
         <title>使用mixamo为obj文件绑骨并导入unity</title>
         <link>https://dorinxl.github.io/p/%E4%BD%BF%E7%94%A8mixamo%E4%B8%BAobj%E6%96%87%E4%BB%B6%E7%BB%91%E9%AA%A8%E5%B9%B6%E5%AF%BC%E5%85%A5unity/</link>
         <pubDate>Fri, 23 Sep 2022 07:50:00 +0000</pubDate>
         
         <guid>https://dorinxl.github.io/p/%E4%BD%BF%E7%94%A8mixamo%E4%B8%BAobj%E6%96%87%E4%BB%B6%E7%BB%91%E9%AA%A8%E5%B9%B6%E5%AF%BC%E5%85%A5unity/</guid>
-        <description>&lt;h2 id=&#34;绑骨&#34;&gt;绑骨
+        <description>&lt;img src="https://dorinxl.github.io/p/%E4%BD%BF%E7%94%A8mixamo%E4%B8%BAobj%E6%96%87%E4%BB%B6%E7%BB%91%E9%AA%A8%E5%B9%B6%E5%AF%BC%E5%85%A5unity/mixamo.png" alt="Featured image of post 使用mixamo为obj文件绑骨并导入unity" /&gt;&lt;h2 id=&#34;绑骨&#34;&gt;绑骨
 &lt;/h2&gt;&lt;p&gt;首先我们手里要准备好模型文件，mixamo支持FBX/OBJ/ZIP压缩包，这里以obj文件为例。&lt;/p&gt;
 &lt;p&gt;我们手中的obj文件一般由贴图文件、obj文件和mtl文件组成（素材来源于网络）：&lt;/p&gt;
 &lt;p&gt;&lt;img src=&#34;https://dorinxl.github.io/p/%E4%BD%BF%E7%94%A8mixamo%E4%B8%BAobj%E6%96%87%E4%BB%B6%E7%BB%91%E9%AA%A8%E5%B9%B6%E5%AF%BC%E5%85%A5unity/1858293-20220923154639130-340735990.png&#34;
@@ -3112,26 +3137,26 @@ $$&lt;/p&gt;
 &lt;p&gt;​	在创建Unity Shader时，unity为我们提供了四种模板：&lt;/p&gt;
 &lt;p&gt;​&lt;/p&gt;
 &lt;table&gt;
-&lt;thead&gt;
-&lt;tr&gt;
-&lt;th&gt;Standard Surface Shader&lt;/th&gt;
-&lt;th&gt;产生一个包含标准光照模型的表面着色器模板&lt;/th&gt;
-&lt;/tr&gt;
-&lt;/thead&gt;
-&lt;tbody&gt;
-&lt;tr&gt;
-&lt;td&gt;Unlit Shader&lt;/td&gt;
-&lt;td&gt;不包含光照（但包含雾效）的基本的顶点/片元着色器&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;Image Effect Shader&lt;/td&gt;
-&lt;td&gt;为各种屏幕后处理效果提供基本模板&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;Compute Shader&lt;/td&gt;
-&lt;td&gt;利用GPC的并行性来进行一些与常规渲染流水线无关的计算&lt;/td&gt;
-&lt;/tr&gt;
-&lt;/tbody&gt;
+  &lt;thead&gt;
+      &lt;tr&gt;
+          &lt;th style=&#34;text-align: left&#34;&gt;Standard Surface Shader&lt;/th&gt;
+          &lt;th style=&#34;text-align: left&#34;&gt;产生一个包含标准光照模型的表面着色器模板&lt;/th&gt;
+      &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+      &lt;tr&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;Unlit Shader&lt;/td&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;不包含光照（但包含雾效）的基本的顶点/片元着色器&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;Image Effect Shader&lt;/td&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;为各种屏幕后处理效果提供基本模板&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;Compute Shader&lt;/td&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;利用GPC的并行性来进行一些与常规渲染流水线无关的计算&lt;/td&gt;
+      &lt;/tr&gt;
+  &lt;/tbody&gt;
 &lt;/table&gt;
 &lt;p&gt;​	由于《入门精要》这本书重点在如何在Unity中编写顶点/片元着色器，后续学习中通常会用Unlit Shader来生成一个基本的顶点/片元着色器模板。&lt;/p&gt;
 &lt;p&gt;​	单独的Unity Shader不能发挥作用，必须同材质material结合起来。其本质上是一个文本文件，Unity Shader的导入设置面板可以看到该shader的一些相关信息（例如是否是固定函数着色器(fixed function)、是否投射阴影(cast shadows)、使用的渲染队列(Render queue)、属性(properties)列表等）。&lt;/p&gt;
@@ -3223,55 +3248,55 @@ $$&lt;/p&gt;
 &lt;/div&gt;&lt;p&gt;​	属性的名字通常用一个&lt;strong&gt;下划线&lt;/strong&gt;开始。显示名字是出现在材质面板上的名字，同时需要指定类型和默认值。&lt;/p&gt;
 &lt;p&gt;​	以下是Properties语义块支持的属性类型:&lt;/p&gt;
 &lt;table&gt;
-&lt;thead&gt;
-&lt;tr&gt;
-&lt;th style=&#34;text-align:left&#34;&gt;属性类型&lt;/th&gt;
-&lt;th style=&#34;text-align:left&#34;&gt;默认值的定义语法&lt;/th&gt;
-&lt;th style=&#34;text-align:left&#34;&gt;例子&lt;/th&gt;
-&lt;/tr&gt;
-&lt;/thead&gt;
-&lt;tbody&gt;
-&lt;tr&gt;
-&lt;td style=&#34;text-align:left&#34;&gt;Int&lt;/td&gt;
-&lt;td style=&#34;text-align:left&#34;&gt;number&lt;/td&gt;
-&lt;td style=&#34;text-align:left&#34;&gt;_Int(&amp;ldquo;Int&amp;rdquo;,Int) = 2&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td style=&#34;text-align:left&#34;&gt;Float&lt;/td&gt;
-&lt;td style=&#34;text-align:left&#34;&gt;number&lt;/td&gt;
-&lt;td style=&#34;text-align:left&#34;&gt;_Float(&amp;ldquo;Float&amp;rdquo;,Float) = 1.5&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td style=&#34;text-align:left&#34;&gt;Range(min,max)&lt;/td&gt;
-&lt;td style=&#34;text-align:left&#34;&gt;number&lt;/td&gt;
-&lt;td style=&#34;text-align:left&#34;&gt;_Range(&amp;ldquo;Range&amp;rdquo;,Range(0.0,5.0)) = 3.0&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td style=&#34;text-align:left&#34;&gt;Color&lt;/td&gt;
-&lt;td style=&#34;text-align:left&#34;&gt;(number,number,number,number)&lt;/td&gt;
-&lt;td style=&#34;text-align:left&#34;&gt;_Color(&amp;ldquo;Color&amp;rdquo;,Color) = (1,1,1,1)&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td style=&#34;text-align:left&#34;&gt;Vector&lt;/td&gt;
-&lt;td style=&#34;text-align:left&#34;&gt;(number,number,number,number)&lt;/td&gt;
-&lt;td style=&#34;text-align:left&#34;&gt;_Vector(&amp;ldquo;Vector&amp;rdquo;,Vector) = (6,2,3,1)&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td style=&#34;text-align:left&#34;&gt;2D&lt;/td&gt;
-&lt;td style=&#34;text-align:left&#34;&gt;&amp;ldquo;defaulttexture&amp;rdquo;{}&lt;/td&gt;
-&lt;td style=&#34;text-align:left&#34;&gt;_2D(&amp;ldquo;2D&amp;rdquo;,2D) = &amp;ldquo;&amp;rdquo;{}&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td style=&#34;text-align:left&#34;&gt;Cube&lt;/td&gt;
-&lt;td style=&#34;text-align:left&#34;&gt;&amp;ldquo;defaulttexture&amp;rdquo;{}&lt;/td&gt;
-&lt;td style=&#34;text-align:left&#34;&gt;_Cube(“Cube”,Cube) = &amp;ldquo;white&amp;rdquo;{}&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td style=&#34;text-align:left&#34;&gt;3D&lt;/td&gt;
-&lt;td style=&#34;text-align:left&#34;&gt;&amp;ldquo;defaulttexture&amp;rdquo;{}&lt;/td&gt;
-&lt;td style=&#34;text-align:left&#34;&gt;_3D(&amp;ldquo;3D&amp;rdquo;,3D) = &amp;ldquo;black&amp;rdquo;{}&lt;/td&gt;
-&lt;/tr&gt;
-&lt;/tbody&gt;
+  &lt;thead&gt;
+      &lt;tr&gt;
+          &lt;th style=&#34;text-align: left&#34;&gt;属性类型&lt;/th&gt;
+          &lt;th style=&#34;text-align: left&#34;&gt;默认值的定义语法&lt;/th&gt;
+          &lt;th style=&#34;text-align: left&#34;&gt;例子&lt;/th&gt;
+      &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+      &lt;tr&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;Int&lt;/td&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;number&lt;/td&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;_Int(&amp;ldquo;Int&amp;rdquo;,Int) = 2&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;Float&lt;/td&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;number&lt;/td&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;_Float(&amp;ldquo;Float&amp;rdquo;,Float) = 1.5&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;Range(min,max)&lt;/td&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;number&lt;/td&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;_Range(&amp;ldquo;Range&amp;rdquo;,Range(0.0,5.0)) = 3.0&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;Color&lt;/td&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;(number,number,number,number)&lt;/td&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;_Color(&amp;ldquo;Color&amp;rdquo;,Color) = (1,1,1,1)&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;Vector&lt;/td&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;(number,number,number,number)&lt;/td&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;_Vector(&amp;ldquo;Vector&amp;rdquo;,Vector) = (6,2,3,1)&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;2D&lt;/td&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;&amp;ldquo;defaulttexture&amp;rdquo;{}&lt;/td&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;_2D(&amp;ldquo;2D&amp;rdquo;,2D) = &amp;ldquo;&amp;rdquo;{}&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;Cube&lt;/td&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;&amp;ldquo;defaulttexture&amp;rdquo;{}&lt;/td&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;_Cube(“Cube”,Cube) = &amp;ldquo;white&amp;rdquo;{}&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;3D&lt;/td&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;&amp;ldquo;defaulttexture&amp;rdquo;{}&lt;/td&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;_3D(&amp;ldquo;3D&amp;rdquo;,3D) = &amp;ldquo;black&amp;rdquo;{}&lt;/td&gt;
+      &lt;/tr&gt;
+  &lt;/tbody&gt;
 &lt;/table&gt;
 &lt;p&gt;​	Int、Float、Range：数字类型的属性，默认值是单独的数字。&lt;/p&gt;
 &lt;p&gt;​	Color、Vector：默认值是括号包围的四维向量。&lt;/p&gt;
@@ -3902,9 +3927,9 @@ Hybrid端口和Trunk 端口的不同之处在于：Hybrid 端口可以允许多�
 &lt;/li&gt;
 &lt;li&gt;
 &lt;table&gt;
-&lt;thead&gt;
-&lt;tr&gt;
-&lt;th&gt;&lt;img src=&#34;https://dorinxl.github.io/p/%E7%89%A9%E8%81%94%E7%BD%91%E5%A4%8D%E4%B9%A0%E6%8F%90%E7%BA%B2/1858293-20220619152015947-169413653.png&#34;
+  &lt;thead&gt;
+      &lt;tr&gt;
+          &lt;th style=&#34;text-align: left&#34;&gt;&lt;img src=&#34;https://dorinxl.github.io/p/%E7%89%A9%E8%81%94%E7%BD%91%E5%A4%8D%E4%B9%A0%E6%8F%90%E7%BA%B2/1858293-20220619152015947-169413653.png&#34;
 	width=&#34;485&#34;
 	height=&#34;383&#34;
 	srcset=&#34;https://dorinxl.github.io/p/%E7%89%A9%E8%81%94%E7%BD%91%E5%A4%8D%E4%B9%A0%E6%8F%90%E7%BA%B2/1858293-20220619152015947-169413653_hu10263591739782148005.png 480w, https://dorinxl.github.io/p/%E7%89%A9%E8%81%94%E7%BD%91%E5%A4%8D%E4%B9%A0%E6%8F%90%E7%BA%B2/1858293-20220619152015947-169413653_hu5699055121971467158.png 1024w&#34;
@@ -3918,15 +3943,15 @@ Hybrid端口和Trunk 端口的不同之处在于：Hybrid 端口可以允许多�
 		data-flex-basis=&#34;303px&#34;
 	
 &gt;&lt;/th&gt;
-&lt;th&gt;&lt;strong&gt;传感器技术&lt;/strong&gt;：把物理量转化为计算机能识别和处理的数字量的一种技术&lt;strong&gt;条形码技术****RFID技术&lt;/strong&gt;：射频识别，通过无线电信号识别特定目标并读写相关数据&lt;strong&gt;EPC技术&lt;/strong&gt;：电子产品代码，为每个产品提供唯一的电子标识符&lt;strong&gt;移动定位技术&lt;/strong&gt;：通过与多个已知坐标位置的固定基站交互，获得启动目标在空间中的技术&lt;strong&gt;无线传感器网络&lt;/strong&gt;：分布式传感网络&lt;strong&gt;物联网控制技术&lt;/strong&gt;&lt;/th&gt;
-&lt;/tr&gt;
-&lt;/thead&gt;
-&lt;tbody&gt;
-&lt;tr&gt;
-&lt;td&gt;&lt;/td&gt;
-&lt;td&gt;&lt;/td&gt;
-&lt;/tr&gt;
-&lt;/tbody&gt;
+          &lt;th style=&#34;text-align: left&#34;&gt;&lt;strong&gt;传感器技术&lt;/strong&gt;：把物理量转化为计算机能识别和处理的数字量的一种技术&lt;strong&gt;条形码技术****RFID技术&lt;/strong&gt;：射频识别，通过无线电信号识别特定目标并读写相关数据&lt;strong&gt;EPC技术&lt;/strong&gt;：电子产品代码，为每个产品提供唯一的电子标识符&lt;strong&gt;移动定位技术&lt;/strong&gt;：通过与多个已知坐标位置的固定基站交互，获得启动目标在空间中的技术&lt;strong&gt;无线传感器网络&lt;/strong&gt;：分布式传感网络&lt;strong&gt;物联网控制技术&lt;/strong&gt;&lt;/th&gt;
+      &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+      &lt;tr&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;&lt;/td&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;&lt;/td&gt;
+      &lt;/tr&gt;
+  &lt;/tbody&gt;
 &lt;/table&gt;
 &lt;/li&gt;
 &lt;/ol&gt;
@@ -3951,9 +3976,9 @@ Hybrid端口和Trunk 端口的不同之处在于：Hybrid 端口可以允许多�
 &lt;/li&gt;
 &lt;li&gt;
 &lt;table&gt;
-&lt;thead&gt;
-&lt;tr&gt;
-&lt;th&gt;&lt;img src=&#34;https://dorinxl.github.io/p/%E7%89%A9%E8%81%94%E7%BD%91%E5%A4%8D%E4%B9%A0%E6%8F%90%E7%BA%B2/1858293-20220619152016335-289353677.png&#34;
+  &lt;thead&gt;
+      &lt;tr&gt;
+          &lt;th style=&#34;text-align: left&#34;&gt;&lt;img src=&#34;https://dorinxl.github.io/p/%E7%89%A9%E8%81%94%E7%BD%91%E5%A4%8D%E4%B9%A0%E6%8F%90%E7%BA%B2/1858293-20220619152016335-289353677.png&#34;
 	width=&#34;351&#34;
 	height=&#34;386&#34;
 	srcset=&#34;https://dorinxl.github.io/p/%E7%89%A9%E8%81%94%E7%BD%91%E5%A4%8D%E4%B9%A0%E6%8F%90%E7%BA%B2/1858293-20220619152016335-289353677_hu7468320594995887088.png 480w, https://dorinxl.github.io/p/%E7%89%A9%E8%81%94%E7%BD%91%E5%A4%8D%E4%B9%A0%E6%8F%90%E7%BA%B2/1858293-20220619152016335-289353677_hu14230738314758837320.png 1024w&#34;
@@ -3967,15 +3992,15 @@ Hybrid端口和Trunk 端口的不同之处在于：Hybrid 端口可以允许多�
 		data-flex-basis=&#34;218px&#34;
 	
 &gt;&lt;/th&gt;
-&lt;th&gt;短距离无线通信技术长距离无线通信技术有线通信技术&lt;/th&gt;
-&lt;/tr&gt;
-&lt;/thead&gt;
-&lt;tbody&gt;
-&lt;tr&gt;
-&lt;td&gt;&lt;/td&gt;
-&lt;td&gt;&lt;/td&gt;
-&lt;/tr&gt;
-&lt;/tbody&gt;
+          &lt;th style=&#34;text-align: left&#34;&gt;短距离无线通信技术长距离无线通信技术有线通信技术&lt;/th&gt;
+      &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+      &lt;tr&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;&lt;/td&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;&lt;/td&gt;
+      &lt;/tr&gt;
+  &lt;/tbody&gt;
 &lt;/table&gt;
 &lt;/li&gt;
 &lt;li&gt;&lt;/li&gt;
@@ -5335,9 +5360,9 @@ Hybrid端口和Trunk 端口的不同之处在于：Hybrid 端口可以允许多�
 &lt;/li&gt;
 &lt;li&gt;
 &lt;table&gt;
-&lt;thead&gt;
-&lt;tr&gt;
-&lt;th&gt;&lt;img src=&#34;https://dorinxl.github.io/p/%E7%89%A9%E8%81%94%E7%BD%91%E6%8A%80%E6%9C%AF%E5%8E%9F%E7%90%86%E5%A4%8D%E4%B9%A0%E6%8F%90%E7%BA%B2/1858293-20220619152015947-169413653.png&#34;
+  &lt;thead&gt;
+      &lt;tr&gt;
+          &lt;th style=&#34;text-align: left&#34;&gt;&lt;img src=&#34;https://dorinxl.github.io/p/%E7%89%A9%E8%81%94%E7%BD%91%E6%8A%80%E6%9C%AF%E5%8E%9F%E7%90%86%E5%A4%8D%E4%B9%A0%E6%8F%90%E7%BA%B2/1858293-20220619152015947-169413653.png&#34;
 	width=&#34;485&#34;
 	height=&#34;383&#34;
 	srcset=&#34;https://dorinxl.github.io/p/%E7%89%A9%E8%81%94%E7%BD%91%E6%8A%80%E6%9C%AF%E5%8E%9F%E7%90%86%E5%A4%8D%E4%B9%A0%E6%8F%90%E7%BA%B2/1858293-20220619152015947-169413653_hu10263591739782148005.png 480w, https://dorinxl.github.io/p/%E7%89%A9%E8%81%94%E7%BD%91%E6%8A%80%E6%9C%AF%E5%8E%9F%E7%90%86%E5%A4%8D%E4%B9%A0%E6%8F%90%E7%BA%B2/1858293-20220619152015947-169413653_hu5699055121971467158.png 1024w&#34;
@@ -5351,15 +5376,15 @@ Hybrid端口和Trunk 端口的不同之处在于：Hybrid 端口可以允许多�
 		data-flex-basis=&#34;303px&#34;
 	
 &gt;&lt;/th&gt;
-&lt;th&gt;&lt;strong&gt;传感器技术&lt;/strong&gt;：把物理量转化为计算机能识别和处理的数字量的一种技术&lt;strong&gt;条形码技术****RFID技术&lt;/strong&gt;：射频识别，通过无线电信号识别特定目标并读写相关数据&lt;strong&gt;EPC技术&lt;/strong&gt;：电子产品代码，为每个产品提供唯一的电子标识符&lt;strong&gt;移动定位技术&lt;/strong&gt;：通过与多个已知坐标位置的固定基站交互，获得启动目标在空间中的技术&lt;strong&gt;无线传感器网络&lt;/strong&gt;：分布式传感网络&lt;strong&gt;物联网控制技术&lt;/strong&gt;&lt;/th&gt;
-&lt;/tr&gt;
-&lt;/thead&gt;
-&lt;tbody&gt;
-&lt;tr&gt;
-&lt;td&gt;&lt;/td&gt;
-&lt;td&gt;&lt;/td&gt;
-&lt;/tr&gt;
-&lt;/tbody&gt;
+          &lt;th style=&#34;text-align: left&#34;&gt;&lt;strong&gt;传感器技术&lt;/strong&gt;：把物理量转化为计算机能识别和处理的数字量的一种技术&lt;strong&gt;条形码技术****RFID技术&lt;/strong&gt;：射频识别，通过无线电信号识别特定目标并读写相关数据&lt;strong&gt;EPC技术&lt;/strong&gt;：电子产品代码，为每个产品提供唯一的电子标识符&lt;strong&gt;移动定位技术&lt;/strong&gt;：通过与多个已知坐标位置的固定基站交互，获得启动目标在空间中的技术&lt;strong&gt;无线传感器网络&lt;/strong&gt;：分布式传感网络&lt;strong&gt;物联网控制技术&lt;/strong&gt;&lt;/th&gt;
+      &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+      &lt;tr&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;&lt;/td&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;&lt;/td&gt;
+      &lt;/tr&gt;
+  &lt;/tbody&gt;
 &lt;/table&gt;
 &lt;/li&gt;
 &lt;/ol&gt;
@@ -5384,9 +5409,9 @@ Hybrid端口和Trunk 端口的不同之处在于：Hybrid 端口可以允许多�
 &lt;/li&gt;
 &lt;li&gt;
 &lt;table&gt;
-&lt;thead&gt;
-&lt;tr&gt;
-&lt;th&gt;&lt;img src=&#34;https://dorinxl.github.io/p/%E7%89%A9%E8%81%94%E7%BD%91%E6%8A%80%E6%9C%AF%E5%8E%9F%E7%90%86%E5%A4%8D%E4%B9%A0%E6%8F%90%E7%BA%B2/1858293-20220619152016335-289353677.png&#34;
+  &lt;thead&gt;
+      &lt;tr&gt;
+          &lt;th style=&#34;text-align: left&#34;&gt;&lt;img src=&#34;https://dorinxl.github.io/p/%E7%89%A9%E8%81%94%E7%BD%91%E6%8A%80%E6%9C%AF%E5%8E%9F%E7%90%86%E5%A4%8D%E4%B9%A0%E6%8F%90%E7%BA%B2/1858293-20220619152016335-289353677.png&#34;
 	width=&#34;351&#34;
 	height=&#34;386&#34;
 	srcset=&#34;https://dorinxl.github.io/p/%E7%89%A9%E8%81%94%E7%BD%91%E6%8A%80%E6%9C%AF%E5%8E%9F%E7%90%86%E5%A4%8D%E4%B9%A0%E6%8F%90%E7%BA%B2/1858293-20220619152016335-289353677_hu7468320594995887088.png 480w, https://dorinxl.github.io/p/%E7%89%A9%E8%81%94%E7%BD%91%E6%8A%80%E6%9C%AF%E5%8E%9F%E7%90%86%E5%A4%8D%E4%B9%A0%E6%8F%90%E7%BA%B2/1858293-20220619152016335-289353677_hu14230738314758837320.png 1024w&#34;
@@ -5400,15 +5425,15 @@ Hybrid端口和Trunk 端口的不同之处在于：Hybrid 端口可以允许多�
 		data-flex-basis=&#34;218px&#34;
 	
 &gt;&lt;/th&gt;
-&lt;th&gt;短距离无线通信技术长距离无线通信技术有线通信技术&lt;/th&gt;
-&lt;/tr&gt;
-&lt;/thead&gt;
-&lt;tbody&gt;
-&lt;tr&gt;
-&lt;td&gt;&lt;/td&gt;
-&lt;td&gt;&lt;/td&gt;
-&lt;/tr&gt;
-&lt;/tbody&gt;
+          &lt;th style=&#34;text-align: left&#34;&gt;短距离无线通信技术长距离无线通信技术有线通信技术&lt;/th&gt;
+      &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+      &lt;tr&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;&lt;/td&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;&lt;/td&gt;
+      &lt;/tr&gt;
+  &lt;/tbody&gt;
 &lt;/table&gt;
 &lt;/li&gt;
 &lt;li&gt;&lt;/li&gt;
@@ -6725,7 +6750,7 @@ Hybrid端口和Trunk 端口的不同之处在于：Hybrid 端口可以允许多�
         <pubDate>Sat, 21 May 2022 14:23:00 +0000</pubDate>
         
         <guid>https://dorinxl.github.io/p/2022javaweb%E8%AF%BE%E8%AE%BE%E5%9F%BA%E4%BA%8E%E8%B4%AD%E7%89%A9%E7%B3%BB%E7%BB%9F%E7%9A%84%E6%B8%B8%E6%88%8F%E5%8E%9F%E5%9E%8B%E8%AE%BE%E8%AE%A1/</guid>
-        <description>&lt;h2 id=&#34;会议记录&#34;&gt;会议记录
+        <description>&lt;img src="https://dorinxl.github.io/p/2022javaweb%E8%AF%BE%E8%AE%BE%E5%9F%BA%E4%BA%8E%E8%B4%AD%E7%89%A9%E7%B3%BB%E7%BB%9F%E7%9A%84%E6%B8%B8%E6%88%8F%E5%8E%9F%E5%9E%8B%E8%AE%BE%E8%AE%A1/Welcome2.jpg" alt="Featured image of post 【2022javaweb课设】基于购物系统的游戏原型设计" /&gt;&lt;h2 id=&#34;会议记录&#34;&gt;会议记录
 &lt;/h2&gt;&lt;h3 id=&#34;day1-2022520-晚&#34;&gt;Day1 2022/5/20 晚
 &lt;/h3&gt;&lt;p&gt;确定小组成员。&lt;/p&gt;
 &lt;p&gt;确定立项题目与方向：基于商城系统的游戏原型设计。&lt;/p&gt;
@@ -6841,7 +6866,7 @@ Hybrid端口和Trunk 端口的不同之处在于：Hybrid 端口可以允许多�
 	srcset=&#34;https://dorinxl.github.io/p/2022javaweb%E8%AF%BE%E8%AE%BE%E5%9F%BA%E4%BA%8E%E8%B4%AD%E7%89%A9%E7%B3%BB%E7%BB%9F%E7%9A%84%E6%B8%B8%E6%88%8F%E5%8E%9F%E5%9E%8B%E8%AE%BE%E8%AE%A1/1858293-20220604154345852-1297586329_hu9882075956850767550.png 480w, https://dorinxl.github.io/p/2022javaweb%E8%AF%BE%E8%AE%BE%E5%9F%BA%E4%BA%8E%E8%B4%AD%E7%89%A9%E7%B3%BB%E7%BB%9F%E7%9A%84%E6%B8%B8%E6%88%8F%E5%8E%9F%E5%9E%8B%E8%AE%BE%E8%AE%A1/1858293-20220604154345852-1297586329_hu12541126382259433949.png 1024w&#34;
 	loading=&#34;lazy&#34;
 	
-		alt=&#34;登录&#34;
+		alt=&#34;逻辑&#34;
 	
 	
 		class=&#34;gallery-image&#34; 
@@ -6856,20 +6881,6 @@ Hybrid端口和Trunk 端口的不同之处在于：Hybrid 端口可以允许多�
 &lt;li&gt;url导入背景图片，改变其背景透明，透明度通过rgba（）实现。&lt;/li&gt;
 &lt;li&gt;界面布局高度不一致，尝试用flex修改&lt;/li&gt;
 &lt;/ol&gt;
-&lt;p&gt;&lt;img src=&#34;https://dorinxl.github.io/p/2022javaweb%E8%AF%BE%E8%AE%BE%E5%9F%BA%E4%BA%8E%E8%B4%AD%E7%89%A9%E7%B3%BB%E7%BB%9F%E7%9A%84%E6%B8%B8%E6%88%8F%E5%8E%9F%E5%9E%8B%E8%AE%BE%E8%AE%A1/1858293-20220604154347919-1098005980.png&#34;
-	width=&#34;1061&#34;
-	height=&#34;718&#34;
-	srcset=&#34;https://dorinxl.github.io/p/2022javaweb%E8%AF%BE%E8%AE%BE%E5%9F%BA%E4%BA%8E%E8%B4%AD%E7%89%A9%E7%B3%BB%E7%BB%9F%E7%9A%84%E6%B8%B8%E6%88%8F%E5%8E%9F%E5%9E%8B%E8%AE%BE%E8%AE%A1/1858293-20220604154347919-1098005980_hu6873870499846169469.png 480w, https://dorinxl.github.io/p/2022javaweb%E8%AF%BE%E8%AE%BE%E5%9F%BA%E4%BA%8E%E8%B4%AD%E7%89%A9%E7%B3%BB%E7%BB%9F%E7%9A%84%E6%B8%B8%E6%88%8F%E5%8E%9F%E5%9E%8B%E8%AE%BE%E8%AE%A1/1858293-20220604154347919-1098005980_hu12237455489209668512.png 1024w&#34;
-	loading=&#34;lazy&#34;
-	
-		alt=&#34;进入商店&#34;
-	
-	
-		class=&#34;gallery-image&#34; 
-		data-flex-grow=&#34;147&#34;
-		data-flex-basis=&#34;354px&#34;
-	
-&gt;&lt;/p&gt;
 &lt;h3 id=&#34;day7-2022526&#34;&gt;Day7 2022/5/26
 &lt;/h3&gt;&lt;h4 id=&#34;今日任务-5&#34;&gt;今日任务：
 &lt;/h4&gt;&lt;ol&gt;
@@ -6883,16 +6894,6 @@ Hybrid端口和Trunk 端口的不同之处在于：Hybrid 端口可以允许多�
 &lt;p&gt;装备刷新使用正态分布生成概率5% 12% 25% 28% 30%（线性）&lt;/p&gt;
 &lt;p&gt;500 500&lt;del&gt;1700 1700&lt;/del&gt;4200 4200&lt;del&gt;7000 7000&lt;/del&gt;10000&lt;/p&gt;
 &lt;p&gt;整体流程：Store.jsp-&amp;gt;GachaServlet-&amp;gt;DAO-&amp;gt;Servlet-&amp;gt;Store.jsp&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;C:%5cUsers%5c97478%5cAppData%5cRoaming%5cTypora%5ctypora-user-images%5cimage-20220604150807588.png&#34;
-	
-	
-	
-	loading=&#34;lazy&#34;
-	
-		alt=&#34;image-20220604150807588&#34;
-	
-	
-&gt;&lt;/p&gt;
 &lt;/li&gt;
 &lt;/ol&gt;
 &lt;h3 id=&#34;day8-2022527&#34;&gt;Day8 2022/5/27
@@ -6905,15 +6906,61 @@ Hybrid端口和Trunk 端口的不同之处在于：Hybrid 端口可以允许多�
 &lt;li&gt;完成PPT，完成视频展示，丰富数据库，找背景图以及怪物图。&lt;/li&gt;
 &lt;li&gt;顺利完成答辩。&lt;/li&gt;
 &lt;/ol&gt;
-&lt;h3 id=&#34;一些自己编的数据库&#34;&gt;一些自己编的数据库：
-&lt;/h3&gt;&lt;p&gt;&lt;img src=&#34;C:%5cUsers%5c97478%5cAppData%5cRoaming%5cTypora%5ctypora-user-images%5cimage-20220604151755876.png&#34;
-	
-	
-	
+&lt;h3 id=&#34;最终界面&#34;&gt;最终界面：
+&lt;/h3&gt;&lt;p&gt;&lt;img src=&#34;https://dorinxl.github.io/p/2022javaweb%E8%AF%BE%E8%AE%BE%E5%9F%BA%E4%BA%8E%E8%B4%AD%E7%89%A9%E7%B3%BB%E7%BB%9F%E7%9A%84%E6%B8%B8%E6%88%8F%E5%8E%9F%E5%9E%8B%E8%AE%BE%E8%AE%A1/%E6%AC%A2%E8%BF%8E%E9%A1%B5%E9%9D%A2.png&#34;
+	width=&#34;1920&#34;
+	height=&#34;1080&#34;
+	srcset=&#34;https://dorinxl.github.io/p/2022javaweb%E8%AF%BE%E8%AE%BE%E5%9F%BA%E4%BA%8E%E8%B4%AD%E7%89%A9%E7%B3%BB%E7%BB%9F%E7%9A%84%E6%B8%B8%E6%88%8F%E5%8E%9F%E5%9E%8B%E8%AE%BE%E8%AE%A1/%E6%AC%A2%E8%BF%8E%E9%A1%B5%E9%9D%A2_hu17482875312594590690.png 480w, https://dorinxl.github.io/p/2022javaweb%E8%AF%BE%E8%AE%BE%E5%9F%BA%E4%BA%8E%E8%B4%AD%E7%89%A9%E7%B3%BB%E7%BB%9F%E7%9A%84%E6%B8%B8%E6%88%8F%E5%8E%9F%E5%9E%8B%E8%AE%BE%E8%AE%A1/%E6%AC%A2%E8%BF%8E%E9%A1%B5%E9%9D%A2_hu3318891287527836638.png 1024w&#34;
 	loading=&#34;lazy&#34;
 	
-		alt=&#34;image-20220604151755876&#34;
+		alt=&#34;欢迎页面&#34;
 	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;177&#34;
+		data-flex-basis=&#34;426px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://dorinxl.github.io/p/2022javaweb%E8%AF%BE%E8%AE%BE%E5%9F%BA%E4%BA%8E%E8%B4%AD%E7%89%A9%E7%B3%BB%E7%BB%9F%E7%9A%84%E6%B8%B8%E6%88%8F%E5%8E%9F%E5%9E%8B%E8%AE%BE%E8%AE%A1/%E5%95%86%E5%BA%97%E9%A1%B5%E9%9D%A2.png&#34;
+	width=&#34;1920&#34;
+	height=&#34;1080&#34;
+	srcset=&#34;https://dorinxl.github.io/p/2022javaweb%E8%AF%BE%E8%AE%BE%E5%9F%BA%E4%BA%8E%E8%B4%AD%E7%89%A9%E7%B3%BB%E7%BB%9F%E7%9A%84%E6%B8%B8%E6%88%8F%E5%8E%9F%E5%9E%8B%E8%AE%BE%E8%AE%A1/%E5%95%86%E5%BA%97%E9%A1%B5%E9%9D%A2_hu13555428504231686975.png 480w, https://dorinxl.github.io/p/2022javaweb%E8%AF%BE%E8%AE%BE%E5%9F%BA%E4%BA%8E%E8%B4%AD%E7%89%A9%E7%B3%BB%E7%BB%9F%E7%9A%84%E6%B8%B8%E6%88%8F%E5%8E%9F%E5%9E%8B%E8%AE%BE%E8%AE%A1/%E5%95%86%E5%BA%97%E9%A1%B5%E9%9D%A2_hu4719192686265754263.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;商店页面&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;177&#34;
+		data-flex-basis=&#34;426px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://dorinxl.github.io/p/2022javaweb%E8%AF%BE%E8%AE%BE%E5%9F%BA%E4%BA%8E%E8%B4%AD%E7%89%A9%E7%B3%BB%E7%BB%9F%E7%9A%84%E6%B8%B8%E6%88%8F%E5%8E%9F%E5%9E%8B%E8%AE%BE%E8%AE%A1/%E6%88%98%E6%96%97%E9%A1%B5%E9%9D%A2.png&#34;
+	width=&#34;1899&#34;
+	height=&#34;889&#34;
+	srcset=&#34;https://dorinxl.github.io/p/2022javaweb%E8%AF%BE%E8%AE%BE%E5%9F%BA%E4%BA%8E%E8%B4%AD%E7%89%A9%E7%B3%BB%E7%BB%9F%E7%9A%84%E6%B8%B8%E6%88%8F%E5%8E%9F%E5%9E%8B%E8%AE%BE%E8%AE%A1/%E6%88%98%E6%96%97%E9%A1%B5%E9%9D%A2_hu13589104296129632743.png 480w, https://dorinxl.github.io/p/2022javaweb%E8%AF%BE%E8%AE%BE%E5%9F%BA%E4%BA%8E%E8%B4%AD%E7%89%A9%E7%B3%BB%E7%BB%9F%E7%9A%84%E6%B8%B8%E6%88%8F%E5%8E%9F%E5%9E%8B%E8%AE%BE%E8%AE%A1/%E6%88%98%E6%96%97%E9%A1%B5%E9%9D%A2_hu10292648484601390534.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;战斗页面&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;213&#34;
+		data-flex-basis=&#34;512px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://dorinxl.github.io/p/2022javaweb%E8%AF%BE%E8%AE%BE%E5%9F%BA%E4%BA%8E%E8%B4%AD%E7%89%A9%E7%B3%BB%E7%BB%9F%E7%9A%84%E6%B8%B8%E6%88%8F%E5%8E%9F%E5%9E%8B%E8%AE%BE%E8%AE%A1/1858293-20220604154347919-1098005980.png&#34;
+	width=&#34;1061&#34;
+	height=&#34;718&#34;
+	srcset=&#34;https://dorinxl.github.io/p/2022javaweb%E8%AF%BE%E8%AE%BE%E5%9F%BA%E4%BA%8E%E8%B4%AD%E7%89%A9%E7%B3%BB%E7%BB%9F%E7%9A%84%E6%B8%B8%E6%88%8F%E5%8E%9F%E5%9E%8B%E8%AE%BE%E8%AE%A1/1858293-20220604154347919-1098005980_hu6873870499846169469.png 480w, https://dorinxl.github.io/p/2022javaweb%E8%AF%BE%E8%AE%BE%E5%9F%BA%E4%BA%8E%E8%B4%AD%E7%89%A9%E7%B3%BB%E7%BB%9F%E7%9A%84%E6%B8%B8%E6%88%8F%E5%8E%9F%E5%9E%8B%E8%AE%BE%E8%AE%A1/1858293-20220604154347919-1098005980_hu12237455489209668512.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;装备数据库&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;147&#34;
+		data-flex-basis=&#34;354px&#34;
 	
 &gt;&lt;/p&gt;
 &lt;h3 id=&#34;使用的素材&#34;&gt;使用的素材：
@@ -6933,7 +6980,7 @@ Hybrid端口和Trunk 端口的不同之处在于：Hybrid 端口可以允许多�
         <pubDate>Mon, 01 Nov 2021 09:03:00 +0000</pubDate>
         
         <guid>https://dorinxl.github.io/p/%E5%BC%80%E5%8F%91%E5%A4%8D%E7%9B%982021%E7%BD%91%E6%98%93%E6%B8%B8%E6%88%8F%E9%AB%98%E6%A0%A1mini-game%E6%8C%91%E6%88%98%E8%B5%9B%E4%BD%9C%E5%93%81%E6%88%8F%E5%B9%95%E6%9C%AA%E8%90%BD/</guid>
-        <description>&lt;h1 id=&#34;开发复盘2021网易游戏高校mini-game挑战赛作品戏幕未落&#34;&gt;【开发复盘】2021网易游戏高校MINI-GAME挑战赛作品《戏幕未落》
+        <description>&lt;img src="https://dorinxl.github.io/p/%E5%BC%80%E5%8F%91%E5%A4%8D%E7%9B%982021%E7%BD%91%E6%98%93%E6%B8%B8%E6%88%8F%E9%AB%98%E6%A0%A1mini-game%E6%8C%91%E6%88%98%E8%B5%9B%E4%BD%9C%E5%93%81%E6%88%8F%E5%B9%95%E6%9C%AA%E8%90%BD/%E6%88%8F%E5%B9%95%E6%9C%AA%E8%90%BD.jpg" alt="Featured image of post 【开发复盘】2021网易游戏高校MINI-GAME挑战赛作品《戏幕未落》" /&gt;&lt;h1 id=&#34;开发复盘2021网易游戏高校mini-game挑战赛作品戏幕未落&#34;&gt;【开发复盘】2021网易游戏高校MINI-GAME挑战赛作品《戏幕未落》
 &lt;/h1&gt;&lt;p&gt;欢迎大家给我们投票！
 &lt;a class=&#34;link&#34; href=&#34;https://game.academy.163.com/event/mg?page=works&amp;amp;id=2443&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
     &gt;https://game.academy.163.com/event/mg?page=works&amp;id=2443&lt;/a&gt;&lt;/p&gt;
@@ -7260,7 +7307,7 @@ Hybrid端口和Trunk 端口的不同之处在于：Hybrid 端口可以允许多�
         <pubDate>Tue, 27 Jul 2021 15:51:00 +0000</pubDate>
         
         <guid>https://dorinxl.github.io/p/ugdap%E4%B8%8A%E6%B5%B7%E4%B8%80%E5%91%A8%E8%87%AA%E7%94%B1%E8%A1%8C%E7%BB%93%E6%9D%9F/</guid>
-        <description>&lt;h1 id=&#34;上海一周自由行结束&#34;&gt;上海一周自由行结束!
+        <description>&lt;img src="https://dorinxl.github.io/p/ugdap%E4%B8%8A%E6%B5%B7%E4%B8%80%E5%91%A8%E8%87%AA%E7%94%B1%E8%A1%8C%E7%BB%93%E6%9D%9F/b&amp;ek=1&amp;kp=1&amp;pt=0&amp;bo=WAIgA1gCIAMRECc%21&amp;t=5&amp;tl=3&amp;su=0196274450&amp;tm=1627398000&amp;sce=0-12-12&amp;rf=2-9.jpg" alt="Featured image of post 【UGDAP】上海一周自由行结束!" /&gt;&lt;h1 id=&#34;上海一周自由行结束&#34;&gt;上海一周自由行结束!
 &lt;/h1&gt;&lt;h5 id=&#34;指每天在宾馆爆肝代码好不容易有时间了还遇上台风哪也没去的一周&#34;&gt;指每天在宾馆爆肝代码，好不容易有时间了还遇上台风哪也没去的一周。
 &lt;/h5&gt;&lt;p&gt;​                                                &lt;img src=&#34;https://dorinxl.github.io/p/ugdap%E4%B8%8A%E6%B5%B7%E4%B8%80%E5%91%A8%E8%87%AA%E7%94%B1%E8%A1%8C%E7%BB%93%E6%9D%9F/b&amp;amp;ek=1&amp;amp;kp=1&amp;amp;pt=0&amp;amp;bo=WAIgA1gCIAMRECc%21&amp;amp;t=5&amp;amp;tl=3&amp;amp;su=056548530&amp;amp;tm=1627398000&amp;amp;sce=0-12-12&amp;amp;rf=2-9.jpg&#34;
 	width=&#34;600&#34;
@@ -13437,7 +13484,7 @@ CSharp.dll&lt;img src=&#34;https://dorinxl.github.io/p/bjdctf2020bjd-hamburger-c
         <pubDate>Sat, 16 May 2020 09:08:00 +0000</pubDate>
         
         <guid>https://dorinxl.github.io/p/2020.5.16-1506/</guid>
-        <description>&lt;p&gt;天气阴沉闷热，像是要下雨，不想写物理了就来照顾一下博客。&lt;/p&gt;
+        <description>&lt;img src="https://dorinxl.github.io/p/2020.5.16-1506/1858293-20200516170806738-310589045.png" alt="Featured image of post 2020.5.16 15：06" /&gt;&lt;p&gt;天气阴沉闷热，像是要下雨，不想写物理了就来照顾一下博客。&lt;/p&gt;
 &lt;p&gt;在此之前，我花了一个星期的时间专注于补作业，ctf的知识一点没有进展。&lt;/p&gt;
 &lt;p&gt;疫情关系，在家慢慢刷题，参加了各种线上赛事，包括但不限于协会内部赛、其他学校公开赛、高校战疫、xctf、安恒月赛、网鼎杯等。&lt;/p&gt;
 &lt;p&gt;基本就是在BUU和XCTF上刷题。&lt;/p&gt;
@@ -18326,9 +18373,9 @@ dechiffre(&amp;quot;\x35\x35\x2c\x35\x36\x2c\x35\x34\x2c\x37\x39\x2c\x31\x31\x35
         <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
         
         <guid>https://dorinxl.github.io/%E5%85%B3%E4%BA%8E/</guid>
-        <description>&lt;h1 id=&#34;关于我&#34;&gt;关于我
+        <description>&lt;img src="https://dorinxl.github.io/%E5%85%B3%E4%BA%8E/about.jpeg" alt="Featured image of post 关于" /&gt;&lt;h1 id=&#34;我&#34;&gt;我
 &lt;/h1&gt;&lt;p&gt;我是DorinXL，取自「荡影」的谐音，两个都是我的名字。英文名的适用范围更广泛就常用英文了。&lt;/p&gt;
-&lt;p&gt;“缄默慎独，事在人为，不破不立，疑行无成”是我在各种经历后总结的真言，随着阅历的增加我还会总结更多，并切身践行。&lt;/p&gt;
+&lt;p&gt;“缄默慎独，事在人为，不破不立，疑行无成”是我在各种经历后总结的真言，随着体会的增加我还会总结更多，并切身践行。&lt;/p&gt;
 &lt;h1 id=&#34;一些经历&#34;&gt;一些经历
 &lt;/h1&gt;&lt;p&gt;最开始我在网络安全的领域摸爬滚打，遗憾的是安全并不适合我。&lt;/p&gt;
 &lt;p&gt;2021年正式开始学习Unity，找回最开始选择计算机的初心。&lt;/p&gt;
@@ -18371,7 +18418,8 @@ dechiffre(&amp;quot;\x35\x35\x2c\x35\x36\x2c\x35\x34\x2c\x37\x39\x2c\x31\x31\x35
     &lt;div class=&#34;title&#34;&gt;
       
         &lt;a href=&#34;https://gameinstitute.qq.com/open-courses-2023/classical&#34; target=&#34;_blank&#34; class=&#34;title-link&#34;&gt;
-          2023腾讯游戏高校策划公开课&lt;span class=&#34;arrow&#34;&gt;➚&lt;/span&gt;
+          2023腾讯游戏高校策划公开课
+          
         &lt;/a&gt;
       
     &lt;/div&gt;
@@ -18431,9 +18479,15 @@ dechiffre(&amp;quot;\x35\x35\x2c\x35\x36\x2c\x35\x34\x2c\x37\x39\x2c\x31\x31\x35
 &lt;style&gt;
  
 .title-link {
-  text-decoration: none;
+  text-decoration: underline;
   color: inherit;  
   position: relative;  
+}
+
+ 
+.title-link:hover {
+  text-decoration: underline;
+  color: #ffffff;  
 }
 
 .arrow {
@@ -18484,8 +18538,9 @@ dechiffre(&amp;quot;\x35\x35\x2c\x35\x36\x2c\x35\x34\x2c\x37\x39\x2c\x31\x31\x35
   &lt;div class=&#34;content&#34;&gt;
     &lt;div class=&#34;title&#34;&gt;
       
-        &lt;a href=&#34;&#34; target=&#34;_blank&#34; class=&#34;title-link&#34;&gt;
-          2021腾讯游戏高校公开课&lt;span class=&#34;arrow&#34;&gt;➚&lt;/span&gt;
+        &lt;a href=&#34;https://gameinstitute.qq.com/open-courses/2021&#34; target=&#34;_blank&#34; class=&#34;title-link&#34;&gt;
+          2021腾讯游戏高校公开课
+          
         &lt;/a&gt;
       
     &lt;/div&gt;
@@ -18512,9 +18567,15 @@ dechiffre(&amp;quot;\x35\x35\x2c\x35\x36\x2c\x35\x34\x2c\x37\x39\x2c\x31\x31\x35
 &lt;style&gt;
  
 .title-link {
-  text-decoration: none;
+  text-decoration: underline;
   color: inherit;  
   position: relative;  
+}
+
+ 
+.title-link:hover {
+  text-decoration: underline;
+  color: #ffffff;  
 }
 
 .arrow {
@@ -18591,9 +18652,15 @@ dechiffre(&amp;quot;\x35\x35\x2c\x35\x36\x2c\x35\x34\x2c\x37\x39\x2c\x31\x31\x35
 &lt;style&gt;
  
 .title-link {
-  text-decoration: none;
+  text-decoration: underline;
   color: inherit;  
   position: relative;  
+}
+
+ 
+.title-link:hover {
+  text-decoration: underline;
+  color: #ffffff;  
 }
 
 .arrow {
@@ -18645,7 +18712,8 @@ dechiffre(&amp;quot;\x35\x35\x2c\x35\x36\x2c\x35\x34\x2c\x37\x39\x2c\x31\x31\x35
     &lt;div class=&#34;title&#34;&gt;
       
         &lt;a href=&#34;https://dorinxl.github.io/p/ugdap%E4%B8%8A%E6%B5%B7%E4%B8%80%E5%91%A8%E8%87%AA%E7%94%B1%E8%A1%8C%E7%BB%93%E6%9D%9F/&#34; target=&#34;_blank&#34; class=&#34;title-link&#34;&gt;
-          UGDAP中国大学生游戏开发联盟&lt;span class=&#34;arrow&#34;&gt;➚&lt;/span&gt;
+          UGDAP中国大学生游戏开发联盟
+          
         &lt;/a&gt;
       
     &lt;/div&gt;
@@ -18674,9 +18742,15 @@ dechiffre(&amp;quot;\x35\x35\x2c\x35\x36\x2c\x35\x34\x2c\x37\x39\x2c\x31\x31\x35
 &lt;style&gt;
  
 .title-link {
-  text-decoration: none;
+  text-decoration: underline;
   color: inherit;  
   position: relative;  
+}
+
+ 
+.title-link:hover {
+  text-decoration: underline;
+  color: #ffffff;  
 }
 
 .arrow {
@@ -18748,9 +18822,9 @@ dechiffre(&amp;quot;\x35\x35\x2c\x35\x36\x2c\x35\x34\x2c\x37\x39\x2c\x31\x31\x35
  
 .timeline .container .date {
   position: absolute;
-  top: 22px;
+  top: 2px;
   z-index: 1;
-  left: -10%;
+  left: -7%;
   font-size: large;
 }
 
@@ -18833,7 +18907,7 @@ dechiffre(&amp;quot;\x35\x35\x2c\x35\x36\x2c\x35\x34\x2c\x37\x39\x2c\x31\x31\x35
   .timeline .container .date {
     font-size: small;
     transform: rotate(-90deg);
-    left: -5%;
+    left: -7%;
     top: 30px;
   }
   .timeline .container::after {
@@ -18879,7 +18953,9 @@ dechiffre(&amp;quot;\x35\x35\x2c\x35\x36\x2c\x35\x34\x2c\x37\x39\x2c\x31\x31\x35
 &lt;/style&gt;
 
 &lt;h1 id=&#34;一些作品&#34;&gt;一些作品
-&lt;/h1&gt;&lt;div class=&#34;game-gallery&#34; style=&#34;--columns: 2;&#34;&gt;
+&lt;/h1&gt;&lt;p&gt;从闭门造车到与人组队、走进游戏圈，一路陪伴我的除了梦想、热爱还有或惺惺相惜，或萍水相逢的开发者们。&lt;/p&gt;
+&lt;p&gt;在以后的时间里，希望能慢慢搭建出自己的世界。&lt;/p&gt;
+&lt;div class=&#34;game-gallery&#34;&gt;
 &lt;div class=&#34;game-card&#34;&gt;
   &lt;div class=&#34;game-image-container&#34;&gt;
     &lt;img src=&#34;ColorfulYou.png&#34; alt=&#34;Colorful You：颜色予你&#34; class=&#34;game-image&#34; /&gt;
@@ -18921,31 +18997,34 @@ dechiffre(&amp;quot;\x35\x35\x2c\x35\x36\x2c\x35\x34\x2c\x37\x39\x2c\x31\x31\x35
  
 .game-gallery {
   display: grid;
-  grid-template-columns: repeat(var(--columns), 1fr);  
+  grid-template-columns: repeat(var(--columns), auto);
+   
   gap: 20px;  
   max-width: 100%;  
   margin: 0 auto;  
 }
 
+
+
+
  
-@media (max-width: 1200px) {
-  .game-gallery {
-    --columns: 2;  
-  }
-}
-
-@media (max-width: 900px) {
-  .game-gallery {
-    --columns: 2;  
-  }
-}
-
-@media (max-width: 600px) {
+@media (min-width: 600px) {
   .game-gallery {
     --columns: 1;  
   }
 }
 
+@media (min-width: 900px) {
+  .game-gallery {
+    --columns: 2;  
+  }
+}
+
+@media (min-width: 1200px) {
+  .game-gallery {
+    --columns: 2;  
+  }
+}
 
  
 .game-card {
@@ -19012,7 +19091,7 @@ dechiffre(&amp;quot;\x35\x35\x2c\x35\x36\x2c\x35\x34\x2c\x37\x39\x2c\x31\x31\x35
  
 .game-title {
    
-  font-size: clamp(1em, 2vw, 1.8em);  
+  font-size: clamp(1.2em, 2vw, 1.8em);  
   font-weight: bold;
   color: #dddddd;  
   text-decoration: underline;
@@ -19030,7 +19109,8 @@ dechiffre(&amp;quot;\x35\x35\x2c\x35\x36\x2c\x35\x34\x2c\x37\x39\x2c\x31\x31\x35
  
 .game-description {
    
-  font-size: clamp(0.75em, 1.5vw, 0.95em);  
+  font-size: clamp(0.65em, 3vw, 1em); 
+   
   max-width: 100%;
   margin: 0 auto;
   max-height: 150px;  
@@ -19050,8 +19130,47 @@ dechiffre(&amp;quot;\x35\x35\x2c\x35\x36\x2c\x35\x34\x2c\x37\x39\x2c\x31\x31\x35
 }
 
 &lt;/style&gt;
-&lt;p&gt;从闭门造车到与人组队、走进游戏圈，一路陪伴我的除了梦想、热爱还有或惺惺相惜，或萍水相逢的开发者们。&lt;/p&gt;
-&lt;p&gt;在以后的时间里，希望能慢慢搭建出自己的世界。&lt;/p&gt;
+&lt;h1 id=&#34;建站记录&#34;&gt;建站记录
+&lt;/h1&gt;&lt;p&gt;是的，我不想备案，还喜欢白嫖，GitHub Pages最适合我了。&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;2020.05.27&lt;/strong&gt;：开始第一次使用GitHub Pages，主题为jekyll-theme-hacker&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;2022.09.20&lt;/strong&gt;：在GitHub Pages使用个人主题，并重新布置内容&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;2024.08.25&lt;/strong&gt;：开新项目，使用Hugo前端Stack主题，并用私有仓库+workflow存储并更新博客数据。&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;备份博客园博客并导出xml，解析后按文件夹创建Hugo形式的post文章及本地图片&lt;/li&gt;
+&lt;li&gt;添加统计信息（网站运行时间、字数统计）&lt;/li&gt;
+&lt;li&gt;更新分类设置，分配底色和图片标识&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;strong&gt;2024.08.28&lt;/strong&gt;: 更新友链,更好看的双列，更新不再上线的链接：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;参考： &lt;a class=&#34;link&#34; href=&#34;https://blog.echosec.top/p/custom-hugo-theme-styles/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;Echosec的博客&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;strong&gt;2024.08.30&lt;/strong&gt;:更新about界面，添加了时间轴和卡片两个短链接&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;时间轴参考： &lt;a class=&#34;link&#34; href=&#34;https://metalblueberry.github.io/post/howto/2021-02-28_hugo_timeline_shortcode/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;metalblueberry&amp;rsquo;s Blog&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;更多shortcode： &lt;a class=&#34;link&#34; href=&#34;https://www.sleepymoon.cyou/2023/hugo-shortcodes/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;眠于水月间的博客&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;strong&gt;2024.08.31&lt;/strong&gt;: 美化时间轴css&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;2024.09.01&lt;/strong&gt;：时间轴适配移动端，跳转链接标识、全站字体、About更新、页面布局、头像与站点描述居中显示&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;参考： &lt;a class=&#34;link&#34; href=&#34;https://www.sleepymoon.cyou/2023/hugo-first-build-furnish/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;眠于水月间的博客&lt;/a&gt;、&lt;a class=&#34;link&#34; href=&#34;https://xrg.fj.cn/p/hugo-stack%E4%B8%BB%E9%A2%98%E6%9B%B4%E6%96%B0%E5%B0%8F%E8%AE%B0/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;XR_G&amp;rsquo;s Blog&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;strong&gt;2024.09.02&lt;/strong&gt;：整个博客基本搭建完毕。&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;调整category的背景图片和字体&lt;/li&gt;
+&lt;li&gt;About界面基本完成&lt;/li&gt;
+&lt;li&gt;更多图片&lt;/li&gt;
+&lt;li&gt;博客背景颜色&lt;/li&gt;
+&lt;li&gt;标签块样式&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h1 id=&#34;最后&#34;&gt;最后
+&lt;/h1&gt;&lt;p&gt;喜欢折腾，建站就很能享受折腾的乐趣。事事都有反馈，并乐此不疲，我喜欢做这样的事情。&lt;/p&gt;
+&lt;p&gt;建站的动机我也说不好，但现实生活难以建功立业，至少可以让数字生命永垂不朽。&lt;/p&gt;
+&lt;p&gt;在互联网找一片角落支个小摊，与有缘人相识，当赛博行者，递电子名片。&lt;/p&gt;
 </description>
         </item>
         <item>
@@ -19068,8 +19187,9 @@ dechiffre(&amp;quot;\x35\x35\x2c\x35\x36\x2c\x35\x34\x2c\x37\x39\x2c\x31\x31\x35
         <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
         
         <guid>https://dorinxl.github.io/%E5%8F%8B%E9%93%BE/</guid>
-        <description>&lt;h1 id=&#34;群贤毕至&#34;&gt;群贤毕至
-&lt;/h1&gt;&lt;a href=&#34;https://www.klned.com/&#34; title=&#34;klned&#34; class=&#34;friend-link&#34; target=&#34;_blank&#34; rel=&#34;friend&#34;&gt;
+        <description>&lt;img src="https://dorinxl.github.io/%E5%8F%8B%E9%93%BE/friends-bg.jpg" alt="Featured image of post 友链" /&gt;&lt;h1 id=&#34;群贤毕至&#34;&gt;群贤毕至
+&lt;/h1&gt;&lt;p&gt;少长咸集，我的朋友们👋&lt;/p&gt;
+&lt;a href=&#34;https://www.klned.com/&#34; title=&#34;klned&#34; class=&#34;friend-link&#34; target=&#34;_blank&#34; rel=&#34;friend&#34;&gt;
     &lt;div class=&#34;friend-link-div&#34;&gt;
         &lt;div class=&#34;friend-link-avatar&#34;&gt;
             &lt;img src=klned.png class=&#34;friend-avatar&#34; loading=&#34;lazy&#34; alt=&#34;Avatar&#34;&gt;
@@ -19268,20 +19388,19 @@ dechiffre(&amp;quot;\x35\x35\x2c\x35\x36\x2c\x35\x34\x2c\x37\x39\x2c\x31\x31\x35
 &lt;/a&gt;
 
 &lt;h1 id=&#34;自成一格&#34;&gt;自成一格
-&lt;/h1&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;/h1&gt;&lt;p&gt;欢迎和我交换友链💖，以下是本站信息：&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
 &lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
 &lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
 &lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;2
 &lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;3
 &lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;4
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;5
 &lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
 &lt;td class=&#34;lntd&#34;&gt;
-&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-yaml&#34; data-lang=&#34;yaml&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;nt&#34;&gt;links&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;w&#34;&gt;  &lt;/span&gt;- &lt;span class=&#34;nt&#34;&gt;title&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;l&#34;&gt;DorinXL&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;w&#34;&gt;    &lt;/span&gt;&lt;span class=&#34;nt&#34;&gt;description&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;l&#34;&gt;缄默慎独，不破不立，事在人为&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;w&#34;&gt;    &lt;/span&gt;&lt;span class=&#34;nt&#34;&gt;website&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;l&#34;&gt;https://dorinxl.github.io/&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;w&#34;&gt;    &lt;/span&gt;&lt;span class=&#34;nt&#34;&gt;image&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;l&#34;&gt;https://dorinxl.github.io/img/avatar_hu6744900124519508638.png&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-yaml&#34; data-lang=&#34;yaml&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;w&#34;&gt;  &lt;/span&gt;&lt;span class=&#34;nt&#34;&gt;title&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;l&#34;&gt;DorinXL&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;w&#34;&gt;  &lt;/span&gt;&lt;span class=&#34;nt&#34;&gt;description&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;l&#34;&gt;缄默慎独，事在人为，不破不立，疑行无成。&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;w&#34;&gt;  &lt;/span&gt;&lt;span class=&#34;nt&#34;&gt;website&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;l&#34;&gt;https://dorinxl.github.io/&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;w&#34;&gt;  &lt;/span&gt;&lt;span class=&#34;nt&#34;&gt;image&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;l&#34;&gt;https://dorinxl.github.io/img/avatar_hu6744900124519508638.png&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
 &lt;/div&gt;
 &lt;/div&gt;</description>
