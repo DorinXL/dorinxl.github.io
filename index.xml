@@ -18663,8 +18663,8 @@ dechiffre(&amp;quot;\x35\x35\x2c\x35\x36\x2c\x35\x34\x2c\x37\x39\x2c\x31\x31\x35
         <description>&lt;img src="https://dorinxl.github.io/%E5%85%B3%E4%BA%8E/about.jpeg" alt="Featured image of post 关于" /&gt;&lt;h1 id=&#34;我&#34;&gt;我
 &lt;/h1&gt;&lt;p&gt;我是DorinXL，取自「荡影」的谐音，两个都是我的名字。英文名的适用范围更广泛就常用英文了。&lt;/p&gt;
 &lt;p&gt;“缄默慎独，事在人为，不破不立，疑行无成”是我在各种经历后总结的真言，随着体会的增加我还会总结更多，并切身践行。&lt;/p&gt;
-&lt;h1 id=&#34;一些经历&#34;&gt;一些经历
-&lt;/h1&gt;&lt;p&gt;最开始我在网络安全的领域摸爬滚打，遗憾的是安全并不适合我。&lt;/p&gt;
+&lt;h2 id=&#34;一些经历&#34;&gt;一些经历
+&lt;/h2&gt;&lt;p&gt;最开始我在网络安全的领域摸爬滚打，遗憾的是安全并不适合我。&lt;/p&gt;
 &lt;p&gt;2021年正式开始学习Unity，找回最开始选择计算机的初心。&lt;/p&gt;
 &lt;div class=&#34;timeline&#34;&gt;
 
@@ -19239,8 +19239,8 @@ dechiffre(&amp;quot;\x35\x35\x2c\x35\x36\x2c\x35\x34\x2c\x37\x39\x2c\x31\x31\x35
   }
 &lt;/style&gt;
 
-&lt;h1 id=&#34;一些作品&#34;&gt;一些作品
-&lt;/h1&gt;&lt;p&gt;从闭门造车到与人组队、走进游戏圈，一路陪伴我的除了梦想、热爱还有或惺惺相惜，或萍水相逢的开发者们。&lt;/p&gt;
+&lt;h2 id=&#34;一些作品&#34;&gt;一些作品
+&lt;/h2&gt;&lt;p&gt;从闭门造车到与人组队、走进游戏圈，一路陪伴我的除了梦想、热爱还有或惺惺相惜，或萍水相逢的开发者们。&lt;/p&gt;
 &lt;p&gt;在以后的时间里，希望能慢慢搭建出自己的世界。&lt;/p&gt;
 &lt;div class=&#34;game-gallery&#34;&gt;
 &lt;div class=&#34;game-card&#34;&gt;
@@ -19417,8 +19417,8 @@ dechiffre(&amp;quot;\x35\x35\x2c\x35\x36\x2c\x35\x34\x2c\x37\x39\x2c\x31\x31\x35
 }
 
 &lt;/style&gt;
-&lt;h1 id=&#34;建站记录&#34;&gt;建站记录
-&lt;/h1&gt;&lt;p&gt;是的，我不想备案，还喜欢白嫖，GitHub Pages最适合我了。&lt;/p&gt;
+&lt;h2 id=&#34;建站记录&#34;&gt;建站记录
+&lt;/h2&gt;&lt;p&gt;是的，我不想备案，还喜欢白嫖，GitHub Pages最适合我了。&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;2020.05.27&lt;/strong&gt;：开始第一次使用GitHub Pages，主题为jekyll-theme-hacker&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;2022.09.20&lt;/strong&gt;：在GitHub Pages使用个人主题，并重新布置内容&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;2024.08.25&lt;/strong&gt;：开新项目，使用Hugo前端Stack主题，并用私有仓库+workflow存储并更新博客数据。&lt;/p&gt;
@@ -19454,8 +19454,8 @@ dechiffre(&amp;quot;\x35\x35\x2c\x35\x36\x2c\x35\x34\x2c\x37\x39\x2c\x31\x31\x35
 &lt;li&gt;博客背景颜色&lt;/li&gt;
 &lt;li&gt;标签块样式&lt;/li&gt;
 &lt;/ul&gt;
-&lt;h1 id=&#34;最后&#34;&gt;最后
-&lt;/h1&gt;&lt;p&gt;喜欢折腾，建站就很能享受折腾的乐趣。事事都有反馈，并乐此不疲，我喜欢做这样的事情。&lt;/p&gt;
+&lt;h2 id=&#34;最后&#34;&gt;最后
+&lt;/h2&gt;&lt;p&gt;喜欢折腾，建站就很能享受折腾的乐趣。事事都有反馈，并乐此不疲，我喜欢做这样的事情。&lt;/p&gt;
 &lt;p&gt;建站的动机我也说不好，但现实生活难以建功立业，至少可以让数字生命永垂不朽。&lt;/p&gt;
 &lt;p&gt;在互联网找一片角落支个小摊，与有缘人相识，当赛博行者，递电子名片。&lt;/p&gt;
 </description>
