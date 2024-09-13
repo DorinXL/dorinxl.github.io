@@ -1,18 +1,18 @@
 <!DOCTYPE html>
 <html lang="zh-cn" dir="ltr">
     <head><meta charset='utf-8'>
-<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content="第八节 字符输入/输出和输入验证 8.1 单字符I/O：getchar()和putchar() getchar()和putchar()包含在stdio.h头文件中 8.2 缓冲区 无缓冲输入： 直接回复用户 缓冲输入： 暂缓回复 缓冲区：收集用户输入字符的临时存储区 节省时间 可以修正输入 完全缓冲I/o：当缓冲区被填满时才刷新缓冲区 行缓冲I/O：出现换行符时刷新缓冲区 8.3 结束键盘输入 8.3.1 文件、流和键盘输入 8.3.2 文件结尾 文件结尾的一种方法：在文件的末尾放置一个特殊的字符文件标记（ctrl+z) 另一种方法：储存文件大小的信息 getchar()和scanf()读取到文件末尾返回EOF EOF在stdio.h中被预处理定义 UNIX中Ctrl+D PC中Ctrl+Z 8.4 重定向和文件 8.4.1 UNIX、Linux和DOS的重定向 重定向输入让程序使用文件而不是程序输入 重定向输出让程序输出到文件而不是屏幕 重定向输入 &gt; 重定向输出 &lt; 组合重定向 &gt;输出文件 &lt;输入文件 关于重定向的要求： 程序与文件放在同同一路径下 cmd窗口使用时用cd指令来改变路径 一对一原则 &laquo; 可以将字符加在文件之后而不覆盖 8.5 创建更友好的用户界面 8.5.1 使用缓冲输入 考虑用户各种输入情况 处理好输入结尾\\n 8.5.2 混合数值和字符输入 getchar()读取每个字符，包括空格、制表符和换行符，而scanf()则会跳过这些 scanf()输入会返回数值，数值代表成功读取个数 8.6 输入验证 8.6.1 分析程序 程序遵循模块化的编程思想，使用独立函数（模块）来验证输入和管理显示。 8.6.2 输入流和数字 gatchar()和%c的scanf()可以接受所有的字符 8.7 菜单浏览 switch语句 解决缓冲输入带来的麻烦，跳过多余输入和换行符 1 2 ">
+<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content="第八节 字符输入/输出和输入验证 8.1 单字符I/O：getchar()和putchar() getchar()和putchar()包含在stdio.h头文件中 8.2 缓冲区 无缓冲输入： 直接回复用户 缓冲输入： 暂缓回复 缓冲区：收集用户输入字符的临时存储区 节省时间 可以修正输入 完全缓冲I/o：当缓冲区被填满时才刷新缓冲区 行缓冲I/O：出现换行符时刷新缓冲区 8.3 结束键盘输入 8.3.1 文件、流和键盘输入 8.3.2 文件结尾 文件结尾的一种方法：在文件的末尾放置一个特殊的字符文件标记（ctrl+z) 另一种方法：储存文件大小的信息 getchar()和scanf()读取到文件末尾返回EOF EOF在stdio.h中被预处理定义 UNIX中Ctrl+D PC中Ctrl+Z 8.4 重定向和文件 8.4.1 UNIX、Linux和DOS的重定向 重定向输入让程序使用文件而不是程序输入 重定向输出让程序输出到文件而不是屏幕 重定向输入 &gt; 重定向输出 &lt; 组合重定向 &gt;输出文件 &lt;输入文件 关于重定向的要求： 程序与文件放在同同一路径下 cmd窗口使用时用cd指令来改变路径 一对一原则 &laquo; 可以将字符加在文件之后而不覆盖 8.5 创建更友好的用户界面 8.5.1 使用缓冲输入 考虑用户各种输入情况 处理好输入结尾\\n 8.5.2 混合数值和字符输入 getchar()读取每个字符，包括空格、制表符和换行符，而scanf()则会跳过这些 scanf()输入会返回数值，数值代表成功读取个数 8.6 输入验证 8.6.1 分析程序 程序遵循模块化的编程思想，使用独立函数（模块）来验证输入和管理显示。 8.6.2 输入流和数字 gatchar()和%c的scanf()可以接受所有的字符 8.7 菜单浏览 switch语句 解决缓冲输入带来的麻烦，跳过多余输入和换行符 1 2 while(getchar()!=&#39;\\n&#39;) continue; ">
 <title>《C Prime Plus》第八节笔记</title>
 
 <link rel='canonical' href='https://dorinxl.github.io/p/c-prime-plus%E7%AC%AC%E5%85%AB%E8%8A%82%E7%AC%94%E8%AE%B0/'>
 
-<link rel="stylesheet" href="/scss/style.min.268288e5cfa8c8814c1a8a30629397513d1a4bd176b35c523829bf967cf060df.css"><meta property='og:title' content="《C Prime Plus》第八节笔记">
-<meta property='og:description' content="第八节 字符输入/输出和输入验证 8.1 单字符I/O：getchar()和putchar() getchar()和putchar()包含在stdio.h头文件中 8.2 缓冲区 无缓冲输入： 直接回复用户 缓冲输入： 暂缓回复 缓冲区：收集用户输入字符的临时存储区 节省时间 可以修正输入 完全缓冲I/o：当缓冲区被填满时才刷新缓冲区 行缓冲I/O：出现换行符时刷新缓冲区 8.3 结束键盘输入 8.3.1 文件、流和键盘输入 8.3.2 文件结尾 文件结尾的一种方法：在文件的末尾放置一个特殊的字符文件标记（ctrl+z) 另一种方法：储存文件大小的信息 getchar()和scanf()读取到文件末尾返回EOF EOF在stdio.h中被预处理定义 UNIX中Ctrl+D PC中Ctrl+Z 8.4 重定向和文件 8.4.1 UNIX、Linux和DOS的重定向 重定向输入让程序使用文件而不是程序输入 重定向输出让程序输出到文件而不是屏幕 重定向输入 &gt; 重定向输出 &lt; 组合重定向 &gt;输出文件 &lt;输入文件 关于重定向的要求： 程序与文件放在同同一路径下 cmd窗口使用时用cd指令来改变路径 一对一原则 &laquo; 可以将字符加在文件之后而不覆盖 8.5 创建更友好的用户界面 8.5.1 使用缓冲输入 考虑用户各种输入情况 处理好输入结尾\\n 8.5.2 混合数值和字符输入 getchar()读取每个字符，包括空格、制表符和换行符，而scanf()则会跳过这些 scanf()输入会返回数值，数值代表成功读取个数 8.6 输入验证 8.6.1 分析程序 程序遵循模块化的编程思想，使用独立函数（模块）来验证输入和管理显示。 8.6.2 输入流和数字 gatchar()和%c的scanf()可以接受所有的字符 8.7 菜单浏览 switch语句 解决缓冲输入带来的麻烦，跳过多余输入和换行符 1 2 ">
+<link rel="stylesheet" href="/scss/style.min.a6720a4dc55e402d6e2a44e0cdc52b84ac3e5dfc56cd78c2f6bed89508b6be57.css"><meta property='og:title' content="《C Prime Plus》第八节笔记">
+<meta property='og:description' content="第八节 字符输入/输出和输入验证 8.1 单字符I/O：getchar()和putchar() getchar()和putchar()包含在stdio.h头文件中 8.2 缓冲区 无缓冲输入： 直接回复用户 缓冲输入： 暂缓回复 缓冲区：收集用户输入字符的临时存储区 节省时间 可以修正输入 完全缓冲I/o：当缓冲区被填满时才刷新缓冲区 行缓冲I/O：出现换行符时刷新缓冲区 8.3 结束键盘输入 8.3.1 文件、流和键盘输入 8.3.2 文件结尾 文件结尾的一种方法：在文件的末尾放置一个特殊的字符文件标记（ctrl+z) 另一种方法：储存文件大小的信息 getchar()和scanf()读取到文件末尾返回EOF EOF在stdio.h中被预处理定义 UNIX中Ctrl+D PC中Ctrl+Z 8.4 重定向和文件 8.4.1 UNIX、Linux和DOS的重定向 重定向输入让程序使用文件而不是程序输入 重定向输出让程序输出到文件而不是屏幕 重定向输入 &gt; 重定向输出 &lt; 组合重定向 &gt;输出文件 &lt;输入文件 关于重定向的要求： 程序与文件放在同同一路径下 cmd窗口使用时用cd指令来改变路径 一对一原则 &laquo; 可以将字符加在文件之后而不覆盖 8.5 创建更友好的用户界面 8.5.1 使用缓冲输入 考虑用户各种输入情况 处理好输入结尾\\n 8.5.2 混合数值和字符输入 getchar()读取每个字符，包括空格、制表符和换行符，而scanf()则会跳过这些 scanf()输入会返回数值，数值代表成功读取个数 8.6 输入验证 8.6.1 分析程序 程序遵循模块化的编程思想，使用独立函数（模块）来验证输入和管理显示。 8.6.2 输入流和数字 gatchar()和%c的scanf()可以接受所有的字符 8.7 菜单浏览 switch语句 解决缓冲输入带来的麻烦，跳过多余输入和换行符 1 2 while(getchar()!=&#39;\\n&#39;) continue; ">
 <meta property='og:url' content='https://dorinxl.github.io/p/c-prime-plus%E7%AC%AC%E5%85%AB%E8%8A%82%E7%AC%94%E8%AE%B0/'>
 <meta property='og:site_name' content='DorinXL-荡影'>
 <meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:published_time' content='2019-11-06T02:36:00&#43;00:00'/><meta property='article:modified_time' content='2019-11-06T02:36:00&#43;00:00'/>
 <meta name="twitter:title" content="《C Prime Plus》第八节笔记">
-<meta name="twitter:description" content="第八节 字符输入/输出和输入验证 8.1 单字符I/O：getchar()和putchar() getchar()和putchar()包含在stdio.h头文件中 8.2 缓冲区 无缓冲输入： 直接回复用户 缓冲输入： 暂缓回复 缓冲区：收集用户输入字符的临时存储区 节省时间 可以修正输入 完全缓冲I/o：当缓冲区被填满时才刷新缓冲区 行缓冲I/O：出现换行符时刷新缓冲区 8.3 结束键盘输入 8.3.1 文件、流和键盘输入 8.3.2 文件结尾 文件结尾的一种方法：在文件的末尾放置一个特殊的字符文件标记（ctrl+z) 另一种方法：储存文件大小的信息 getchar()和scanf()读取到文件末尾返回EOF EOF在stdio.h中被预处理定义 UNIX中Ctrl+D PC中Ctrl+Z 8.4 重定向和文件 8.4.1 UNIX、Linux和DOS的重定向 重定向输入让程序使用文件而不是程序输入 重定向输出让程序输出到文件而不是屏幕 重定向输入 &gt; 重定向输出 &lt; 组合重定向 &gt;输出文件 &lt;输入文件 关于重定向的要求： 程序与文件放在同同一路径下 cmd窗口使用时用cd指令来改变路径 一对一原则 &laquo; 可以将字符加在文件之后而不覆盖 8.5 创建更友好的用户界面 8.5.1 使用缓冲输入 考虑用户各种输入情况 处理好输入结尾\\n 8.5.2 混合数值和字符输入 getchar()读取每个字符，包括空格、制表符和换行符，而scanf()则会跳过这些 scanf()输入会返回数值，数值代表成功读取个数 8.6 输入验证 8.6.1 分析程序 程序遵循模块化的编程思想，使用独立函数（模块）来验证输入和管理显示。 8.6.2 输入流和数字 gatchar()和%c的scanf()可以接受所有的字符 8.7 菜单浏览 switch语句 解决缓冲输入带来的麻烦，跳过多余输入和换行符 1 2 ">
+<meta name="twitter:description" content="第八节 字符输入/输出和输入验证 8.1 单字符I/O：getchar()和putchar() getchar()和putchar()包含在stdio.h头文件中 8.2 缓冲区 无缓冲输入： 直接回复用户 缓冲输入： 暂缓回复 缓冲区：收集用户输入字符的临时存储区 节省时间 可以修正输入 完全缓冲I/o：当缓冲区被填满时才刷新缓冲区 行缓冲I/O：出现换行符时刷新缓冲区 8.3 结束键盘输入 8.3.1 文件、流和键盘输入 8.3.2 文件结尾 文件结尾的一种方法：在文件的末尾放置一个特殊的字符文件标记（ctrl+z) 另一种方法：储存文件大小的信息 getchar()和scanf()读取到文件末尾返回EOF EOF在stdio.h中被预处理定义 UNIX中Ctrl+D PC中Ctrl+Z 8.4 重定向和文件 8.4.1 UNIX、Linux和DOS的重定向 重定向输入让程序使用文件而不是程序输入 重定向输出让程序输出到文件而不是屏幕 重定向输入 &gt; 重定向输出 &lt; 组合重定向 &gt;输出文件 &lt;输入文件 关于重定向的要求： 程序与文件放在同同一路径下 cmd窗口使用时用cd指令来改变路径 一对一原则 &laquo; 可以将字符加在文件之后而不覆盖 8.5 创建更友好的用户界面 8.5.1 使用缓冲输入 考虑用户各种输入情况 处理好输入结尾\\n 8.5.2 混合数值和字符输入 getchar()读取每个字符，包括空格、制表符和换行符，而scanf()则会跳过这些 scanf()输入会返回数值，数值代表成功读取个数 8.6 输入验证 8.6.1 分析程序 程序遵循模块化的编程思想，使用独立函数（模块）来验证输入和管理显示。 8.6.2 输入流和数字 gatchar()和%c的scanf()可以接受所有的字符 8.7 菜单浏览 switch语句 解决缓冲输入带来的麻烦，跳过多余输入和换行符 1 2 while(getchar()!=&#39;\\n&#39;) continue; ">
     <link rel="shortcut icon" href="/favicon.ico" />
 
 
@@ -829,8 +829,10 @@
     
         
     
-    发表了71篇文章 · 
-    总计105.19k字
+        
+    
+    发表了72篇文章 · 
+    总计105.96k字
 </section>
 
 
