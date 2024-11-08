@@ -7,7 +7,86 @@
         <generator>Hugo -- gohugo.io</generator>
         <language>zh-cn</language>
         <copyright>荡影-DorinXL</copyright>
-        <lastBuildDate>Wed, 04 Sep 2024 00:00:00 +0000</lastBuildDate><atom:link href="https://dorinxl.github.io/categories/%E6%9D%82%E8%B0%88/index.xml" rel="self" type="application/rss+xml" /><item>
+        <lastBuildDate>Fri, 08 Nov 2024 00:00:00 +0000</lastBuildDate><atom:link href="https://dorinxl.github.io/categories/%E6%9D%82%E8%B0%88/index.xml" rel="self" type="application/rss+xml" /><item>
+        <title>程序、进程、线程和协程</title>
+        <link>https://dorinxl.github.io/p/%E7%A8%8B%E5%BA%8F%E8%BF%9B%E7%A8%8B%E7%BA%BF%E7%A8%8B%E5%92%8C%E5%8D%8F%E7%A8%8B/</link>
+        <pubDate>Fri, 08 Nov 2024 00:00:00 +0000</pubDate>
+        
+        <guid>https://dorinxl.github.io/p/%E7%A8%8B%E5%BA%8F%E8%BF%9B%E7%A8%8B%E7%BA%BF%E7%A8%8B%E5%92%8C%E5%8D%8F%E7%A8%8B/</guid>
+        <description>&lt;p&gt;程序：包含作为文件存储在磁盘上的代码或一组处理器指令。当程序中的代码被加载到内存并由处理器执行，就生产出了一个进程。&lt;/p&gt;
+&lt;p&gt;进程：&lt;strong&gt;进程&lt;/strong&gt;是由一个或多个&lt;strong&gt;线程&lt;/strong&gt;执行的计算机程序的&lt;strong&gt;实例&lt;/strong&gt;。是系统进⾏资源分配的最⼩单位。&lt;/p&gt;
+&lt;p&gt;线程：由调度程序独立管理的编程指令的最小单元。通常情况下，线程是进程的一个组件。&lt;/p&gt;
+&lt;p&gt;协程：可以暂停执行的函数。&lt;/p&gt;
+&lt;h2 id=&#34;程序和进程&#34;&gt;程序和进程
+&lt;/h2&gt;&lt;p&gt;程序和进程类似于类和对象。多个进程可以指向同一个程序。&lt;/p&gt;
+&lt;p&gt;用户下达执行程序的命令后，就会产生进程。同一程序可产生多个进程（一对多关系），以允许同时有多位用户执行同一程序，却不会相冲突。&lt;/p&gt;
+&lt;p&gt;运行程序时，先把程序加载到磁盘中，供CPU读取指令和数据。可执行代码的部分加载到.text区，全局变量和常量这类数据被加载到.data区。除了这两个部分，还需要在内存空间开辟一些空间来存放运行时的数据，比如用户的输入输出等，这部分属于堆栈区。&lt;/p&gt;
+&lt;p&gt;这个时候，全部的这些区域就构成了进程的内存布局，脱离了程序的概念。&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://dorinxl.github.io/p/%E7%A8%8B%E5%BA%8F%E8%BF%9B%E7%A8%8B%E7%BA%BF%E7%A8%8B%E5%92%8C%E5%8D%8F%E7%A8%8B/20241108175105.png&#34;
+	width=&#34;1346&#34;
+	height=&#34;757&#34;
+	srcset=&#34;https://dorinxl.github.io/p/%E7%A8%8B%E5%BA%8F%E8%BF%9B%E7%A8%8B%E7%BA%BF%E7%A8%8B%E5%92%8C%E5%8D%8F%E7%A8%8B/20241108175105_hu15702044919894808171.png 480w, https://dorinxl.github.io/p/%E7%A8%8B%E5%BA%8F%E8%BF%9B%E7%A8%8B%E7%BA%BF%E7%A8%8B%E5%92%8C%E5%8D%8F%E7%A8%8B/20241108175105_hu16888396399056490958.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;内存布局&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;177&#34;
+		data-flex-basis=&#34;426px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;对于像是C或是Rust这类编译语言，编译的结果就是一个程序本身。
+对于py或是js这样的解释性语言，想要运行就需要告诉计算机解释器的选择，比如python main.py或是node main.js。这个时候，main.py并不是一个程序，他就是一段计算机不能理解的源代码，加载到内存.text的是python本身，main.py会被当做数据。&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://dorinxl.github.io/p/%E7%A8%8B%E5%BA%8F%E8%BF%9B%E7%A8%8B%E7%BA%BF%E7%A8%8B%E5%92%8C%E5%8D%8F%E7%A8%8B/20241108175135.png&#34;
+	width=&#34;1346&#34;
+	height=&#34;757&#34;
+	srcset=&#34;https://dorinxl.github.io/p/%E7%A8%8B%E5%BA%8F%E8%BF%9B%E7%A8%8B%E7%BA%BF%E7%A8%8B%E5%92%8C%E5%8D%8F%E7%A8%8B/20241108175135_hu10204695384706385571.png 480w, https://dorinxl.github.io/p/%E7%A8%8B%E5%BA%8F%E8%BF%9B%E7%A8%8B%E7%BA%BF%E7%A8%8B%E5%92%8C%E5%8D%8F%E7%A8%8B/20241108175135_hu10473982621398257490.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;内存布局&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;177&#34;
+		data-flex-basis=&#34;426px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;h2 id=&#34;进程process和线程thread&#34;&gt;进程（process）和线程（thread）
+&lt;/h2&gt;&lt;p&gt;一个场景：&lt;strong&gt;公司&lt;/strong&gt;中有很多&lt;strong&gt;项目组&lt;/strong&gt;，每个项目组有许多&lt;strong&gt;员工&lt;/strong&gt;。每个员工有自己的&lt;em&gt;资源&lt;/em&gt;（笔记本），每个员工也可以使用公司的&lt;em&gt;公共资源&lt;/em&gt;（服务器）。当公司分配任务给项目组时，所有员工都应该能独立完成各自的任务，并最终合作完成一个完整的项目。&lt;/p&gt;
+&lt;p&gt;公司：程序
+项目组：进程
+员工：线程&lt;/p&gt;
+&lt;p&gt;那么可以把公司看作程序，项目组作为进程（并不恰当），员工就是公司内部能做出贡献的最小单位。员工对项目组就是thread对process的关系。&lt;/p&gt;
+&lt;p&gt;一个组可以只有一个员工，也可以有多个员工，所以我们有单线程进程和多线程进程：
+单线程进程：一个线程执行所有的操作序列。
+多线程进程：多个线程的共同结果。
+可以说，不存在没有线程的进程（上古时期没有线程的概念，那时的进程可以被看做单个线程）&lt;/p&gt;
+&lt;p&gt;线程一出生就被分配好资源（注册表、栈内存等），类似于给员工配的笔记本。同时所有的线程都共享进程的代码，或是堆内存，类似于项目组的茶歇。&lt;/p&gt;
+&lt;p&gt;多线程的意义在于⼀个应⽤程序中，有多个执⾏部分可以&lt;em&gt;同时&lt;/em&gt;执⾏。但操作系统并没有将多个线程看做多个独⽴的应⽤，来实现进程的调度和管理以及资源分配。
+为了不让线程资源被浪费，就会出现调度器来调度各个线程的执行内容和顺序。这个时候就涉及到并发和并行的内容：&lt;/p&gt;
+&lt;h3 id=&#34;线程的并发和并行&#34;&gt;线程的并发和并行
+&lt;/h3&gt;&lt;p&gt;并发（Concurrency）指的是在同一时间段内处理多个任务，但每个任务不会真正地同时执行。
+并行（Parallelism）则是指在&lt;strong&gt;同一时刻&lt;/strong&gt;同时执行多个任务。&lt;/p&gt;
+&lt;p&gt;在单核处理器上，只能实现并发，单核处理器可以通过操作系统的任务切换（上下文切换）实现并发运行。例如，它可以在短时间内不断切换执行不同的任务，使得看起来多个任务在同一时间段都在进行，但实际上每次只有一个任务在被执行；不能实现并行，因为只有一个核心，无法在同一时刻同时执行两个任务。&lt;/p&gt;
+&lt;p&gt;多核处理器能真正实现并行处理。每个核心可以同时执行不同的任务，因此可以同时处理多个线程或进程。&lt;/p&gt;
+&lt;h2 id=&#34;线程和协程&#34;&gt;线程和协程
+&lt;/h2&gt;&lt;p&gt;一个进程中能有多个线程，一个线程中也可以有多个协程。&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;协程（Coroutine）&lt;/strong&gt; 可以看成是可以暂停的函数。 作为一种轻量级的并发编程方式，通常用于处理需要等待的操作，比如 I/O 操作、网络请求或动画效果等，它通过让出控制权的方式来实现任务的异步执行，从而避免阻塞主线程。&lt;/p&gt;
+&lt;p&gt;协程的暂停完全由程序控制，发生在用户态上；而线程是由操作系统内核来进行切换，发生在内核态上。所以协程比线程资源占用少。&lt;/p&gt;
+&lt;p&gt;Unity中经常会用到协程，是使用&lt;code&gt;IEnumerator&lt;/code&gt;接口实现迭代器来完成的。不同的语言底层实现不一样，但都离不开&lt;code&gt;yield return&lt;/code&gt;。&lt;/p&gt;
+&lt;p&gt;参考：&lt;/p&gt;
+&lt;p&gt;&lt;a class=&#34;link&#34; href=&#34;https://www.youtube.com/watch?v=7ge7u5VUSbE&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;A PROGRAM is not a PROCESS &lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a class=&#34;link&#34; href=&#34;https://www.cnblogs.com/Survivalist/p/11527949.html&#34;  title=&#34;发布于 2019-09-16 16:19&#34;
+     target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;一文读懂什么是进程、线程、协程&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a class=&#34;link&#34; href=&#34;https://www.cnblogs.com/yespi/p/9847533.html&#34;  title=&#34;发布于 2018-10-25 01:20&#34;
+     target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;Unity 协程原理探究与实现&lt;/a&gt;&lt;/p&gt;
+</description>
+        </item>
+        <item>
         <title>博客园备份迁移到Hugo及Build错误解决方法</title>
         <link>https://dorinxl.github.io/p/%E5%8D%9A%E5%AE%A2%E5%9B%AD%E5%A4%87%E4%BB%BD%E8%BF%81%E7%A7%BB%E5%88%B0hugo%E5%8F%8Abuild%E9%94%99%E8%AF%AF%E8%A7%A3%E5%86%B3%E6%96%B9%E6%B3%95/</link>
         <pubDate>Wed, 04 Sep 2024 00:00:00 +0000</pubDate>

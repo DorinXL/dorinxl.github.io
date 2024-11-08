@@ -1,18 +1,18 @@
 <!DOCTYPE html>
 <html lang="zh-cn" dir="ltr">
     <head><meta charset='utf-8'>
-<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content="\n下载是exe文件，运行一下：\n很简单，依旧是输入-处理-判断。\n查壳：\n没壳，扔进IDA：\n只有一处判断，将其范围内的字符处理后对比。\n">
-<title>【ACTF新生赛2020】rome</title>
+<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content="Program, process, thread, and coroutine">
+<title>程序、进程、线程和协程</title>
 
-<link rel='canonical' href='https://dorinxl.github.io/p/actf%E6%96%B0%E7%94%9F%E8%B5%9B2020rome/'>
+<link rel='canonical' href='https://dorinxl.github.io/p/%E7%A8%8B%E5%BA%8F%E8%BF%9B%E7%A8%8B%E7%BA%BF%E7%A8%8B%E5%92%8C%E5%8D%8F%E7%A8%8B/'>
 
-<link rel="stylesheet" href="/scss/style.min.a6720a4dc55e402d6e2a44e0cdc52b84ac3e5dfc56cd78c2f6bed89508b6be57.css"><meta property='og:title' content="【ACTF新生赛2020】rome">
-<meta property='og:description' content="\n下载是exe文件，运行一下：\n很简单，依旧是输入-处理-判断。\n查壳：\n没壳，扔进IDA：\n只有一处判断，将其范围内的字符处理后对比。\n">
-<meta property='og:url' content='https://dorinxl.github.io/p/actf%E6%96%B0%E7%94%9F%E8%B5%9B2020rome/'>
+<link rel="stylesheet" href="/scss/style.min.a6720a4dc55e402d6e2a44e0cdc52b84ac3e5dfc56cd78c2f6bed89508b6be57.css"><meta property='og:title' content="程序、进程、线程和协程">
+<meta property='og:description' content="Program, process, thread, and coroutine">
+<meta property='og:url' content='https://dorinxl.github.io/p/%E7%A8%8B%E5%BA%8F%E8%BF%9B%E7%A8%8B%E7%BA%BF%E7%A8%8B%E5%92%8C%E5%8D%8F%E7%A8%8B/'>
 <meta property='og:site_name' content='DorinXL-荡影'>
-<meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:published_time' content='2020-05-21T13:12:00&#43;00:00'/><meta property='article:modified_time' content='2020-05-21T13:12:00&#43;00:00'/>
-<meta name="twitter:title" content="【ACTF新生赛2020】rome">
-<meta name="twitter:description" content="\n下载是exe文件，运行一下：\n很简单，依旧是输入-处理-判断。\n查壳：\n没壳，扔进IDA：\n只有一处判断，将其范围内的字符处理后对比。\n">
+<meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:published_time' content='2024-11-08T00:00:00&#43;00:00'/><meta property='article:modified_time' content='2024-11-08T00:00:00&#43;00:00'/>
+<meta name="twitter:title" content="程序、进程、线程和协程">
+<meta name="twitter:description" content="Program, process, thread, and coroutine">
     <link rel="shortcut icon" href="/favicon.ico" />
 
 
@@ -271,7 +271,44 @@
     </ol>
 </aside>
 
-    
+    <aside class="sidebar right-sidebar sticky">
+        
+            
+                
+    <section class="widget archives">
+        <div class="widget-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-hash" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <line x1="5" y1="9" x2="19" y2="9" />
+  <line x1="5" y1="15" x2="19" y2="15" />
+  <line x1="11" y1="4" x2="7" y2="20" />
+  <line x1="17" y1="4" x2="13" y2="20" />
+</svg>
+
+
+
+        </div>
+        <h2 class="widget-title section-title">目录</h2>
+        
+        <div class="widget--toc">
+            <nav id="TableOfContents">
+  <ol>
+    <li><a href="#程序和进程">程序和进程</a></li>
+    <li><a href="#进程process和线程thread">进程（process）和线程（thread）</a>
+      <ol>
+        <li><a href="#线程的并发和并行">线程的并发和并行</a></li>
+      </ol>
+    </li>
+    <li><a href="#线程和协程">线程和协程</a></li>
+  </ol>
+</nav>
+        </div>
+    </section>
+
+            
+        
+    </aside>
+
 
             <main class="main full-width">
     <article class="main-article">
@@ -281,12 +318,8 @@
     
     <header class="article-category">
         
-            <a href="/categories/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8/" style="background-color: #88d7f6; color: #000;">
-                网络安全
-            </a>
-        
-            <a href="/categories/ctf/" style="background-color: #7ebe5d; color: #000;">
-                CTF
+            <a href="/categories/%E6%9D%82%E8%B0%88/" style="background-color: #787e83; color: #000;">
+                杂谈
             </a>
         
     </header>
@@ -294,9 +327,13 @@
 
     <div class="article-title-wrapper">
         <h2 class="article-title">
-            <a href="/p/actf%E6%96%B0%E7%94%9F%E8%B5%9B2020rome/">【ACTF新生赛2020】rome</a>
+            <a href="/p/%E7%A8%8B%E5%BA%8F%E8%BF%9B%E7%A8%8B%E7%BA%BF%E7%A8%8B%E5%92%8C%E5%8D%8F%E7%A8%8B/">程序、进程、线程和协程</a>
         </h2>
     
+        
+        <h3 class="article-subtitle">
+            Program, process, thread, and coroutine
+        </h3>
         
     </div>
 
@@ -317,7 +354,7 @@
   <path d="M3 11h16" />
   <path d="M18 16.496v1.504l1 1" />
 </svg>
-                <time class="article-time--published">2020-05-21</time>
+                <time class="article-time--published">2024-11-08</time>
             </div>
 	
 
@@ -338,90 +375,77 @@
     <section class="article-content">
     
     
-    <p><img src="/p/actf%E6%96%B0%E7%94%9F%E8%B5%9B2020rome/1858293-20200521211221676-993740297.png"
-	width="500"
-	height="378"
-	srcset="/p/actf%E6%96%B0%E7%94%9F%E8%B5%9B2020rome/1858293-20200521211221676-993740297_hu2169677216020499638.png 480w, /p/actf%E6%96%B0%E7%94%9F%E8%B5%9B2020rome/1858293-20200521211221676-993740297_hu342570434759119049.png 1024w"
+    <p>程序：包含作为文件存储在磁盘上的代码或一组处理器指令。当程序中的代码被加载到内存并由处理器执行，就生产出了一个进程。</p>
+<p>进程：<strong>进程</strong>是由一个或多个<strong>线程</strong>执行的计算机程序的<strong>实例</strong>。是系统进⾏资源分配的最⼩单位。</p>
+<p>线程：由调度程序独立管理的编程指令的最小单元。通常情况下，线程是进程的一个组件。</p>
+<p>协程：可以暂停执行的函数。</p>
+<h2 id="程序和进程">程序和进程
+</h2><p>程序和进程类似于类和对象。多个进程可以指向同一个程序。</p>
+<p>用户下达执行程序的命令后，就会产生进程。同一程序可产生多个进程（一对多关系），以允许同时有多位用户执行同一程序，却不会相冲突。</p>
+<p>运行程序时，先把程序加载到磁盘中，供CPU读取指令和数据。可执行代码的部分加载到.text区，全局变量和常量这类数据被加载到.data区。除了这两个部分，还需要在内存空间开辟一些空间来存放运行时的数据，比如用户的输入输出等，这部分属于堆栈区。</p>
+<p>这个时候，全部的这些区域就构成了进程的内存布局，脱离了程序的概念。</p>
+<p><img src="/p/%E7%A8%8B%E5%BA%8F%E8%BF%9B%E7%A8%8B%E7%BA%BF%E7%A8%8B%E5%92%8C%E5%8D%8F%E7%A8%8B/20241108175105.png"
+	width="1346"
+	height="757"
+	srcset="/p/%E7%A8%8B%E5%BA%8F%E8%BF%9B%E7%A8%8B%E7%BA%BF%E7%A8%8B%E5%92%8C%E5%8D%8F%E7%A8%8B/20241108175105_hu15702044919894808171.png 480w, /p/%E7%A8%8B%E5%BA%8F%E8%BF%9B%E7%A8%8B%E7%BA%BF%E7%A8%8B%E5%92%8C%E5%8D%8F%E7%A8%8B/20241108175105_hu16888396399056490958.png 1024w"
 	loading="lazy"
+	
+		alt="内存布局"
 	
 	
 		class="gallery-image" 
-		data-flex-grow="132"
-		data-flex-basis="317px"
+		data-flex-grow="177"
+		data-flex-basis="426px"
 	
 ></p>
-<p>下载是exe文件，运行一下：</p>
-<p><img src="/p/actf%E6%96%B0%E7%94%9F%E8%B5%9B2020rome/1858293-20200521211221902-1379421674.png"
-	width="162"
-	height="30"
-	srcset="/p/actf%E6%96%B0%E7%94%9F%E8%B5%9B2020rome/1858293-20200521211221902-1379421674_hu9030468568245916547.png 480w, /p/actf%E6%96%B0%E7%94%9F%E8%B5%9B2020rome/1858293-20200521211221902-1379421674_hu7239479121772899235.png 1024w"
+<p>对于像是C或是Rust这类编译语言，编译的结果就是一个程序本身。
+对于py或是js这样的解释性语言，想要运行就需要告诉计算机解释器的选择，比如python main.py或是node main.js。这个时候，main.py并不是一个程序，他就是一段计算机不能理解的源代码，加载到内存.text的是python本身，main.py会被当做数据。</p>
+<p><img src="/p/%E7%A8%8B%E5%BA%8F%E8%BF%9B%E7%A8%8B%E7%BA%BF%E7%A8%8B%E5%92%8C%E5%8D%8F%E7%A8%8B/20241108175135.png"
+	width="1346"
+	height="757"
+	srcset="/p/%E7%A8%8B%E5%BA%8F%E8%BF%9B%E7%A8%8B%E7%BA%BF%E7%A8%8B%E5%92%8C%E5%8D%8F%E7%A8%8B/20241108175135_hu10204695384706385571.png 480w, /p/%E7%A8%8B%E5%BA%8F%E8%BF%9B%E7%A8%8B%E7%BA%BF%E7%A8%8B%E5%92%8C%E5%8D%8F%E7%A8%8B/20241108175135_hu10473982621398257490.png 1024w"
 	loading="lazy"
+	
+		alt="内存布局"
 	
 	
 		class="gallery-image" 
-		data-flex-grow="540"
-		data-flex-basis="1296px"
+		data-flex-grow="177"
+		data-flex-basis="426px"
 	
 ></p>
-<p>很简单，依旧是输入-处理-判断。</p>
-<p>查壳：</p>
-<p><img src="/p/actf%E6%96%B0%E7%94%9F%E8%B5%9B2020rome/1858293-20200521211222353-29194234.png"
-	width="518"
-	height="254"
-	srcset="/p/actf%E6%96%B0%E7%94%9F%E8%B5%9B2020rome/1858293-20200521211222353-29194234_hu12966662444500724205.png 480w, /p/actf%E6%96%B0%E7%94%9F%E8%B5%9B2020rome/1858293-20200521211222353-29194234_hu17888536994100345547.png 1024w"
-	loading="lazy"
-	
-	
-		class="gallery-image" 
-		data-flex-grow="203"
-		data-flex-basis="489px"
-	
-></p>
-<p>没壳，扔进IDA：</p>
-<p><img src="/p/actf%E6%96%B0%E7%94%9F%E8%B5%9B2020rome/1858293-20200521211222781-321951986.png"
-	width="507"
-	height="828"
-	srcset="/p/actf%E6%96%B0%E7%94%9F%E8%B5%9B2020rome/1858293-20200521211222781-321951986_hu17124569494279452779.png 480w, /p/actf%E6%96%B0%E7%94%9F%E8%B5%9B2020rome/1858293-20200521211222781-321951986_hu14229189224167518353.png 1024w"
-	loading="lazy"
-	
-	
-		class="gallery-image" 
-		data-flex-grow="61"
-		data-flex-basis="146px"
-	
-></p>
-<p>只有一处判断，将其范围内的字符处理后对比。</p>
-<p>很简单，我一开始的思路是精准打击，找出被处理的字符串的ascii范围，写了一半感觉有点麻烦，不如直接爆破：</p>
-<p>就硬对应：</p>
-<p><img src="/p/actf%E6%96%B0%E7%94%9F%E8%B5%9B2020rome/1858293-20200521211223370-1089910148.png"
-	width="760"
-	height="366"
-	srcset="/p/actf%E6%96%B0%E7%94%9F%E8%B5%9B2020rome/1858293-20200521211223370-1089910148_hu14584635649823704320.png 480w, /p/actf%E6%96%B0%E7%94%9F%E8%B5%9B2020rome/1858293-20200521211223370-1089910148_hu5979025482336652573.png 1024w"
-	loading="lazy"
-	
-	
-		class="gallery-image" 
-		data-flex-grow="207"
-		data-flex-basis="498px"
-	
-></p>
-<p><img src="/p/actf%E6%96%B0%E7%94%9F%E8%B5%9B2020rome/1858293-20200521211223670-1409155968.png"
-	width="150"
-	height="27"
-	srcset="/p/actf%E6%96%B0%E7%94%9F%E8%B5%9B2020rome/1858293-20200521211223670-1409155968_hu5300459045222259012.png 480w, /p/actf%E6%96%B0%E7%94%9F%E8%B5%9B2020rome/1858293-20200521211223670-1409155968_hu15067134660504273874.png 1024w"
-	loading="lazy"
-	
-	
-		class="gallery-image" 
-		data-flex-grow="555"
-		data-flex-basis="1333px"
-	
-></p>
-<p>Cae3ar_th4_Gre@t</p>
-<p>最后bb两句：</p>
-<p>521我也在勤勉的做题啊！（懒狗，水博客还好意思说）</p>
-<p>现在上着选修，讲的是算法竞赛的知识。还是年少轻狂觉得自己可以驾驭这种比赛。其实已经没有在听了。</p>
-<p>了解了一下自由选修挂科的后果，好像除了白上一学期没别的了。白上就白上吧，实在不合适。只要不影响我的总成绩就好。</p>
+<h2 id="进程process和线程thread">进程（process）和线程（thread）
+</h2><p>一个场景：<strong>公司</strong>中有很多<strong>项目组</strong>，每个项目组有许多<strong>员工</strong>。每个员工有自己的<em>资源</em>（笔记本），每个员工也可以使用公司的<em>公共资源</em>（服务器）。当公司分配任务给项目组时，所有员工都应该能独立完成各自的任务，并最终合作完成一个完整的项目。</p>
+<p>公司：程序
+项目组：进程
+员工：线程</p>
+<p>那么可以把公司看作程序，项目组作为进程（并不恰当），员工就是公司内部能做出贡献的最小单位。员工对项目组就是thread对process的关系。</p>
+<p>一个组可以只有一个员工，也可以有多个员工，所以我们有单线程进程和多线程进程：
+单线程进程：一个线程执行所有的操作序列。
+多线程进程：多个线程的共同结果。
+可以说，不存在没有线程的进程（上古时期没有线程的概念，那时的进程可以被看做单个线程）</p>
+<p>线程一出生就被分配好资源（注册表、栈内存等），类似于给员工配的笔记本。同时所有的线程都共享进程的代码，或是堆内存，类似于项目组的茶歇。</p>
+<p>多线程的意义在于⼀个应⽤程序中，有多个执⾏部分可以<em>同时</em>执⾏。但操作系统并没有将多个线程看做多个独⽴的应⽤，来实现进程的调度和管理以及资源分配。
+为了不让线程资源被浪费，就会出现调度器来调度各个线程的执行内容和顺序。这个时候就涉及到并发和并行的内容：</p>
+<h3 id="线程的并发和并行">线程的并发和并行
+</h3><p>并发（Concurrency）指的是在同一时间段内处理多个任务，但每个任务不会真正地同时执行。
+并行（Parallelism）则是指在<strong>同一时刻</strong>同时执行多个任务。</p>
+<p>在单核处理器上，只能实现并发，单核处理器可以通过操作系统的任务切换（上下文切换）实现并发运行。例如，它可以在短时间内不断切换执行不同的任务，使得看起来多个任务在同一时间段都在进行，但实际上每次只有一个任务在被执行；不能实现并行，因为只有一个核心，无法在同一时刻同时执行两个任务。</p>
+<p>多核处理器能真正实现并行处理。每个核心可以同时执行不同的任务，因此可以同时处理多个线程或进程。</p>
+<h2 id="线程和协程">线程和协程
+</h2><p>一个进程中能有多个线程，一个线程中也可以有多个协程。</p>
+<p><strong>协程（Coroutine）</strong> 可以看成是可以暂停的函数。 作为一种轻量级的并发编程方式，通常用于处理需要等待的操作，比如 I/O 操作、网络请求或动画效果等，它通过让出控制权的方式来实现任务的异步执行，从而避免阻塞主线程。</p>
+<p>协程的暂停完全由程序控制，发生在用户态上；而线程是由操作系统内核来进行切换，发生在内核态上。所以协程比线程资源占用少。</p>
+<p>Unity中经常会用到协程，是使用<code>IEnumerator</code>接口实现迭代器来完成的。不同的语言底层实现不一样，但都离不开<code>yield return</code>。</p>
+<p>参考：</p>
+<p><a class="link" href="https://www.youtube.com/watch?v=7ge7u5VUSbE"  target="_blank" rel="noopener"
+    >A PROGRAM is not a PROCESS </a></p>
+<p><a class="link" href="https://www.cnblogs.com/Survivalist/p/11527949.html"  title="发布于 2019-09-16 16:19"
+     target="_blank" rel="noopener"
+    >一文读懂什么是进程、线程、协程</a></p>
+<p><a class="link" href="https://www.cnblogs.com/yespi/p/9847533.html"  title="发布于 2018-10-25 01:20"
+     target="_blank" rel="noopener"
+    >Unity 协程原理探究与实现</a></p>
 
 </section>
 
@@ -470,12 +494,36 @@
             
                 
 <article class="">
-    <a href="/p/%E4%B8%AA%E4%BA%BA%E5%90%91ctf%E6%AF%94%E8%B5%9B%E5%87%BA%E7%9A%84%E4%B8%80%E9%81%93%E9%80%86%E5%90%91%E6%B8%B8%E6%88%8F%E9%A2%98gametime%E9%A2%98%E8%A7%A3/">
+    <a href="/p/%E5%8D%9A%E5%AE%A2%E5%9B%AD%E5%A4%87%E4%BB%BD%E8%BF%81%E7%A7%BB%E5%88%B0hugo%E5%8F%8Abuild%E9%94%99%E8%AF%AF%E8%A7%A3%E5%86%B3%E6%96%B9%E6%B3%95/">
         
         
 
         <div class="article-details">
-            <h2 class="article-title">【个人向】ctf比赛出的一道逆向游戏题——GameTime题解</h2>
+            <h2 class="article-title">博客园备份迁移到Hugo及Build错误解决方法</h2>
+        </div>
+    </a>
+</article>
+
+            
+                
+<article class="has-image">
+    <a href="/p/%E5%BC%80%E5%8F%91%E5%A4%8D%E7%9B%982021%E7%BD%91%E6%98%93%E6%B8%B8%E6%88%8F%E9%AB%98%E6%A0%A1mini-game%E6%8C%91%E6%88%98%E8%B5%9B%E4%BD%9C%E5%93%81%E6%88%8F%E5%B9%95%E6%9C%AA%E8%90%BD/">
+        
+        
+            <div class="article-image">
+                <img src="/p/%E5%BC%80%E5%8F%91%E5%A4%8D%E7%9B%982021%E7%BD%91%E6%98%93%E6%B8%B8%E6%88%8F%E9%AB%98%E6%A0%A1mini-game%E6%8C%91%E6%88%98%E8%B5%9B%E4%BD%9C%E5%93%81%E6%88%8F%E5%B9%95%E6%9C%AA%E8%90%BD/%E6%88%8F%E5%B9%95%E6%9C%AA%E8%90%BD.93e1e4bbfe54701dcb24e8caeeb4800f_hu700569818454659224.jpg" 
+                        width="250" 
+                        height="150" 
+                        loading="lazy"
+                        alt="Featured image of post 【开发复盘】2021网易游戏高校MINI-GAME挑战赛作品《戏幕未落》"
+                        
+                        data-hash="md5-k&#43;Hku/5UcB3LJOjK7rSADw==">
+                
+            </div>
+        
+
+        <div class="article-details">
+            <h2 class="article-title">【开发复盘】2021网易游戏高校MINI-GAME挑战赛作品《戏幕未落》</h2>
         </div>
     </a>
 </article>
@@ -483,51 +531,60 @@
             
                 
 <article class="">
-    <a href="/p/handler%E8%BF%9B%E8%A1%8C%E5%A0%86%E5%8F%A0%E6%B3%A8%E5%85%A5/">
+    <a href="/p/gamejam%E6%9C%BA%E6%A0%B8%E7%BD%91booom%E6%B8%B8%E6%88%8F%E5%88%9B%E4%BD%9C%E6%8C%91%E6%88%98%E5%BC%80%E5%8F%91%E5%A4%8D%E7%9B%98/">
         
         
 
         <div class="article-details">
-            <h2 class="article-title">HANDLER进行堆叠注入</h2>
+            <h2 class="article-title">【GameJam】机核网BOOOM游戏创作挑战开发复盘</h2>
         </div>
     </a>
 </article>
 
             
                 
-<article class="">
-    <a href="/p/cdut%E7%AC%AC%E4%B8%80%E5%B1%8A%E4%BF%A1%E5%AE%89%E5%A4%A7%E6%8C%91%E6%88%98re-wp/">
+<article class="has-image">
+    <a href="/p/ugdap%E4%B8%8A%E6%B5%B7%E4%B8%80%E5%91%A8%E8%87%AA%E7%94%B1%E8%A1%8C%E7%BB%93%E6%9D%9F/">
         
+        
+            <div class="article-image">
+                <img src="/p/ugdap%E4%B8%8A%E6%B5%B7%E4%B8%80%E5%91%A8%E8%87%AA%E7%94%B1%E8%A1%8C%E7%BB%93%E6%9D%9F/b&amp;ek=1&amp;kp=1&amp;pt=0&amp;bo=WAIgA1gCIAMRECc%21&amp;t=5&amp;tl=3&amp;su=0196274450&amp;tm=1627398000&amp;sce=0-12-12&amp;rf=2-9.3832abf24754f476e3c3788cbadeacfc_hu14119147950291987449.jpg" 
+                        width="250" 
+                        height="150" 
+                        loading="lazy"
+                        alt="Featured image of post 【UGDAP】上海一周自由行结束!"
+                        
+                        data-hash="md5-ODKr8kdU9Hbjw3iMut6s/A==">
+                
+            </div>
         
 
         <div class="article-details">
-            <h2 class="article-title">CDUT第一届信安大挑战Re-wp</h2>
+            <h2 class="article-title">【UGDAP】上海一周自由行结束!</h2>
         </div>
     </a>
 </article>
 
             
                 
-<article class="">
-    <a href="/p/nu1lbook%E7%AC%AC%E4%B8%80%E7%AB%A0wp/">
+<article class="has-image">
+    <a href="/p/2020.5.16-1506/">
         
         
-
-        <div class="article-details">
-            <h2 class="article-title">Nu1LBook第一章wp</h2>
-        </div>
-    </a>
-</article>
-
-            
+            <div class="article-image">
+                <img src="/p/2020.5.16-1506/1858293-20200516170806738-310589045.5dd304ffb5a6798a172cf34b54aa7c05_hu9196685420218468122.png" 
+                        width="250" 
+                        height="150" 
+                        loading="lazy"
+                        alt="Featured image of post 2020.5.16 15：06"
+                        
+                        data-hash="md5-XdME/7WmeYoXLPNLVKp8BQ==">
                 
-<article class="">
-    <a href="/p/mrctfxor/">
-        
+            </div>
         
 
         <div class="article-details">
-            <h2 class="article-title">【MRCTF】Xor</h2>
+            <h2 class="article-title">2020.5.16 15：06</h2>
         </div>
     </a>
 </article>
