@@ -76,7 +76,7 @@
                     
                     
                         
-                        <img src="/img/avatar_hu6744900124519508638.png" width="300"
+                        <img src="/img/avatar_hu_bab235462535cb78.png" width="300"
                             height="283" class="site-logo" loading="lazy" alt="Avatar">
                     
                 
@@ -167,7 +167,7 @@
         
         
         <li >
-            <a href='/%E5%85%B3%E4%BA%8E/' >
+            <a href='/about/' >
                 
                 
                 
@@ -225,7 +225,7 @@
         
         
         <li >
-            <a href='/%E5%8F%8B%E9%93%BE/' >
+            <a href='/links/' >
                 
                 
                 
@@ -306,7 +306,7 @@
     </li>
     <li><a href="#chapter2-数论函数的狄利克雷乘积">Chapter2 数论函数的狄利克雷乘积</a>
       <ol>
-        <li><a href="#section1-a-idsection1狄利克雷卷积a">Section1 <a id="section1">狄利克雷卷积</a></a></li>
+        <li><a href="#section1-狄利克雷卷积">Section1 <a id="section1">狄利克雷卷积</a></a></li>
         <li><a href="#section2-狄利克雷逆">Section2 狄利克雷逆</a></li>
       </ol>
     </li>
@@ -401,8 +401,7 @@
 </ul>
 <h2 id="chapter1-数论函数介绍">Chapter1 数论函数介绍
 </h2><blockquote>
-<p>在正整数上定义的实数或复数的函数称为数论函数。</p>
-</blockquote>
+<p>在正整数上定义的实数或复数的函数称为数论函数。</p></blockquote>
 <h3 id="section1-莫比乌斯函数mun">Section1 莫比乌斯函数$\mu(n)$
 </h3><ul>
 <li>
@@ -480,8 +479,7 @@ $$
 &amp;=(1-1)^k(二项式定理)\
 &amp;=0\
 \end{align*}
-$$</p>
-</blockquote>
+$$</p></blockquote>
 </li>
 <li>
 <p><strong>Note</strong>:</p>
@@ -489,8 +487,7 @@ $$</p>
 <p>二项式定理：
 $$
 (x+y)^n=\tbinom{n}{0}x^ny^0+\tbinom{n}{1}x^{n-1}y^1+\cdots+\tbinom{n}{n}x^0y^n
-$$</p>
-</blockquote>
+$$</p></blockquote>
 </li>
 </ul>
 <h3 id="section2-欧拉函数varphin">Section2 欧拉函数$\varphi(n)$
@@ -561,8 +558,7 @@ $$
 现在我们把$(k,n)=d,0 &lt; k \le n$转化为$(\dfrac{k}{d},\dfrac{n}{d})=1,0 &lt; \dfrac{k}{d} \le \dfrac{n}{d}$，如此一来我们就可以找到$A(d)$的数量与$\varphi(\dfrac{k}{d})$之间的关系：$f(d)=\varphi(\dfrac{n}{d})$，于是
 $$
 \sum_{d|n}\varphi(\dfrac{n}{d})=n=\sum_{d|n}\varphi(d)
-$$</p>
-</blockquote>
+$$</p></blockquote>
 <ul>
 <li>Th2：如果$n\ge1$，我们有：
 $$
@@ -582,8 +578,7 @@ $$
 如何解读上面的求和条件呢？对于n的一个固定的因子d，我们需要满足$k,1\le k \le n$是d的倍数求和。所以我们用$k=qd$代替：
 $$
 \varphi(n)=\sum_{d|n}\sum_{q=1}^{\dfrac{n}{d}}\mu(d)=\sum_{d|n}\mu(d)\sum_{q=1}^{\dfrac{n}{d}}1=\sum_{d|n}\mu(d)\dfrac{n}{d}
-$$</p>
-</blockquote>
+$$</p></blockquote>
 <ul>
 <li>Th3：如果$n&gt;1$，我们有：
 $$
@@ -605,8 +600,7 @@ $$
 所以有
 $$
 \varphi(n)=\sum_{d|n}\mu(d)\dfrac{n}{d}=n\sum_{d|n}\dfrac{\mu(d)}{d}=n\prod_{p|n}(1-\dfrac{1}{p})
-$$</p>
-</blockquote>
+$$</p></blockquote>
 <ul>
 <li>Th4：欧拉函数有如下性质：
 <ol>
@@ -637,8 +631,7 @@ $$
 \varphi(n)=n\prod_{p|n}\dfrac{p-1}{p}=\dfrac{n}{\prod_{p|n}p}\prod_{p|n}(p-1)=C(n)\prod_{p|n}(p-1)
 $$
 对于上面的式子，$C(n)$是一个整数，而$\prod_{p|n}(p-1)$是一个偶数（因为有至少一个素因子的贡献），所以$\varphi(n)$是偶数。</p>
-<p>如果$n$有$r$个不同的奇素因子时，每个素因子都能在上面的式子$\prod_{p|n}(p-1)$中提供一个因子2，于是就有$2^r|\varphi(n)$</p>
-</blockquote>
+<p>如果$n$有$r$个不同的奇素因子时，每个素因子都能在上面的式子$\prod_{p|n}(p-1)$中提供一个因子2，于是就有$2^r|\varphi(n)$</p></blockquote>
 </li>
 </ul>
 <h3 id="section3-恒等函数in单位函数un">Section3 恒等函数$I(n)$、单位函数$u(n)$
@@ -663,8 +656,7 @@ $$</p>
 <p><strong>Proof</strong>：</p>
 <p>$$
 (f*I)(n)=\sum_{d|n}f(d)I(\dfrac{n}{d})=\sum_{d|n}f(d)[\dfrac{d}{n}]=f(n)
-$$</p>
-</blockquote>
+$$</p></blockquote>
 </li>
 </ul>
 <h3 id="section4-mangoldt曼戈尔特函数lambdan">Section4 Mangoldt(曼戈尔特函数)$\Lambda(n)$
@@ -734,8 +726,7 @@ $$
 现在我们关注要证明的式子的右端$\log{}{n}=\sum_{d|n}\Lambda(d)$,对于$\Lambda()$来说，非零的项来自$p_k^{m}(m=1,2,\cdots,\alpha_k;k=1,2,\cdots,r)$，于是
 $$
 \sum_{d|n}\Lambda(d)=\sum_{k=1}^{r}\sum_{m=1}^{\alpha_k}\Lambda(p_k^m)=\sum_{k=1}^{r}\sum_{m=1}^{\alpha_k}\log{p_k}=\sum_{k=1}^{r}\alpha_k\log{p_k}=\log{n}
-$$</p>
-</blockquote>
+$$</p></blockquote>
 <ul>
 <li>Th2：若$n\ge1$，我们有
 $$
@@ -750,8 +741,7 @@ $$
 \Updownarrow\
 \Lambda(d)=\sum_{d|n}\mu(d)log(\dfrac{n}{d})=\log{n}\sum_{d|n}\mu(d)-\sum_{d|n}\mu(d)\log{d}=\log{n}\cdot I(n)-\sum_{d|n}\mu(d)\log{d}
 $$
-对于所有的n，$\log{n}\cdot I(n)=0$，所以证明完毕。</p>
-</blockquote>
+对于所有的n，$\log{n}\cdot I(n)=0$，所以证明完毕。</p></blockquote>
 </li>
 </ul>
 <h3 id="section5-liouville刘维尔函数lambdan">Section5 Liouville(刘维尔函数)$\lambda(n)$
@@ -789,8 +779,7 @@ g(p^\alpha)&amp;=\sum_{d|p^\alpha}\lambda(d)\
 \end{cases}
 \end{align*}
 $$
-在这种情况下，$n=\prod\limits_{k=1}^{r}p_k^{\alpha_k},g(n)=\prod\limits_{k=1}^{r}g(p_k^{\alpha_k})$，如果有指数$\alpha$是奇数，那么$g(n)=0$，如果所有的$\alpha$都是偶数，那么$g(n)=1$。</p>
-</blockquote>
+在这种情况下，$n=\prod\limits_{k=1}^{r}p_k^{\alpha_k},g(n)=\prod\limits_{k=1}^{r}g(p_k^{\alpha_k})$，如果有指数$\alpha$是奇数，那么$g(n)=0$，如果所有的$\alpha$都是偶数，那么$g(n)=1$。</p></blockquote>
 </li>
 </ul>
 <h3 id="section6-除数函数sigma_alphan">Section6 除数函数$\sigma_{\alpha}(n)$
@@ -817,8 +806,7 @@ $$</li>
 <p>$\sigma_{\alpha}(n)=N^\alpha * u$
 $$
 \sigma_{\alpha}^{-1}(n)=(N^\alpha * u)^{-1}=(\mu N^\alpha)<em>u^{-1}=(\mu N^\alpha)</em>\mu
-$$</p>
-</blockquote>
+$$</p></blockquote>
 <ul>
 <li>Th2：
 $$
@@ -837,12 +825,11 @@ $$
 a+1&amp;\text{if $\alpha=1$},\
 \dfrac{p^{\alpha(a+1)}-1}{p^{\alpha}-1}&amp;\text{if $\alpha \ne 1$}
 \end{cases}
-$$</p>
-</blockquote>
+$$</p></blockquote>
 </li>
 </ul>
 <h2 id="chapter2-数论函数的狄利克雷乘积">Chapter2 数论函数的狄利克雷乘积
-</h2><h3 id="section1-a-idsection1狄利克雷卷积a">Section1 <a id="section1">狄利克雷卷积</a>
+</h2><h3 id="section1-狄利克雷卷积">Section1 <a id="section1">狄利克雷卷积</a>
 </h3><ul>
 <li>
 <p>**Definition：**如果$f$和$g$是两个数论函数，我们规定他们的狄利克雷卷积由下面的等式确定：
@@ -863,8 +850,7 @@ $$</p>
 <p><strong>Proof：</strong>
 $$
 \mu*u=\sum_{d|n}\mu(d)u(\dfrac{n}{d})=\sum_{d|n}\mu(d)=I
-$$</p>
-</blockquote>
+$$</p></blockquote>
 </li>
 <li>
 <p>Ex2：$\mu*N=\varphi$</p>
@@ -872,8 +858,7 @@ $$</p>
 <p><strong>Proof：</strong>
 $$
 \mu*N=\sum_{d|n}\mu(d)N(\dfrac{n}{d})=\sum_{d|n}\mu(d)\dfrac{n}{d}=\varphi
-$$</p>
-</blockquote>
+$$</p></blockquote>
 </li>
 <li>
 <p>Ex3：$u*N=\sigma_1$</p>
@@ -881,8 +866,7 @@ $$</p>
 <p><strong>Proof：</strong>
 $$
 u*N=\sum_{d|n}u(d)N(\dfrac{n}{d})=\sum_{d|n}(d)=\sigma_1
-$$</p>
-</blockquote>
+$$</p></blockquote>
 </li>
 <li>
 <p>Ex4：$u*u=\sigma_0$</p>
@@ -890,8 +874,7 @@ $$</p>
 <p><strong>Proof：</strong>
 $$
 u*u=\sum_{d|n}u(d)u(\dfrac{n}{d})=\sum_{d|n}1=\sigma_0
-$$</p>
-</blockquote>
+$$</p></blockquote>
 </li>
 <li>
 <p>Ex5：$u*\varphi=N$</p>
@@ -899,8 +882,7 @@ $$</p>
 <p><strong>Proof：</strong>
 $$
 u*\varphi=\sum_{d|n}u(d)\varphi(\dfrac{n}{d})=\sum_{d|n}\varphi(d)=N
-$$</p>
-</blockquote>
+$$</p></blockquote>
 </li>
 </ul>
 </li>
@@ -917,8 +899,7 @@ f<em>g&amp;=\sum_{xy=n}f(x)g(y)\
 &amp;=\sum_{xy=n}g(x)f(y)\
 &amp;=f</em>g\
 \end{align*}
-$$</p>
-</blockquote>
+$$</p></blockquote>
 <ul>
 <li>Th2：狄利克雷卷积满足结合律，即$（f<em>g）<em>h=f</em>(g</em>h)$</li>
 </ul>
@@ -931,8 +912,7 @@ $$
 &amp;=\sum_{abc=n}f(a)g(b)h(c)\
 &amp;=f</em>(g<em>h)(展开过程同上)
 \end{align</em>}
-$$</p>
-</blockquote>
+$$</p></blockquote>
 <ul>
 <li>Th3：狄利克雷卷积满足分配律，即$f*(g+h)=f<em>g+f</em>h$</li>
 </ul>
@@ -945,8 +925,7 @@ f*(g+h)&amp;=\sum_{xy=n}f(x)(g+h)(y)\
 &amp;=\sum_{xy=n}f(x)g(y)+\sum_{xy=n}f(x)h(y)\
 &amp;=f<em>g+f</em>h
 \end{align*}
-$$</p>
-</blockquote>
+$$</p></blockquote>
 </li>
 </ul>
 <h3 id="section2-狄利克雷逆">Section2 狄利克雷逆
@@ -979,8 +958,7 @@ $$
 f(1)f^{-1}(n)+\sum_{d|n\d&lt;n}f(\dfrac{n}{d})f^{-1}(d)&amp;=0\
 \end{align</em>}
 \f^{-1}(n)=\dfrac{-1}{f(1)}\sum_{d|n\d&lt;n}f(\dfrac{n}{d})f^{-1}(d)
-$$</p>
-</blockquote>
+$$</p></blockquote>
 <ul>
 <li>Th2：$(f*g)^{-1}=f^{-1}*g^{-1}$</li>
 </ul>
@@ -991,8 +969,7 @@ $$
 (f</em>g)</em>(f<em>g)^{-1}=f^{-1}<em>g^{-1}</em>(f</em>g)\
 I=f^{-1}<em>f</em>g<em>g^{-1}\
 I=I</em>I=I
-$$</p>
-</blockquote>
+$$</p></blockquote>
 </li>
 </ul>
 <h2 id="chapter3-莫比乌斯反转">Chapter3 莫比乌斯反转
@@ -1015,8 +992,7 @@ $$
 $$
 g(n)=\sum_{d|n}f(d)\mu(\dfrac{n}{d})即g=f</em>\mu\
 u<em>g=u</em>f*\mu=(u*\mu)<em>f=I</em>f=f
-$$</p>
-</blockquote>
+$$</p></blockquote>
 </li>
 </ul>
 
@@ -1071,7 +1047,7 @@ $$</p>
         
         
             <div class="article-image">
-                <img src="/p/%E7%B4%A0%E6%95%B0%E5%88%86%E5%B8%83%E7%9A%84%E5%9F%BA%E6%9C%AC%E5%AE%9A%E7%90%86%E4%B8%80/number%20theory.60f03abb4d2e2b9a17c71c3a376643fd_hu16510225325710322437.jpg" 
+                <img src="/p/%E7%B4%A0%E6%95%B0%E5%88%86%E5%B8%83%E7%9A%84%E5%9F%BA%E6%9C%AC%E5%AE%9A%E7%90%86%E4%B8%80/number%20theory.60f03abb4d2e2b9a17c71c3a376643fd_hu_20281129dfe164da.jpg" 
                         width="250" 
                         height="150" 
                         loading="lazy"
@@ -1200,7 +1176,9 @@ $$</p>
     <section class="copyright">
         &copy; 
         
-        2024 荡影-DorinXL
+            2024 - 
+        
+        2026 荡影-DorinXL
     </section>
 
 

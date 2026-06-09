@@ -76,7 +76,7 @@
                     
                     
                         
-                        <img src="/img/avatar_hu6744900124519508638.png" width="300"
+                        <img src="/img/avatar_hu_bab235462535cb78.png" width="300"
                             height="283" class="site-logo" loading="lazy" alt="Avatar">
                     
                 
@@ -167,7 +167,7 @@
         
         
         <li >
-            <a href='/%E5%85%B3%E4%BA%8E/' >
+            <a href='/about/' >
                 
                 
                 
@@ -225,7 +225,7 @@
         
         
         <li >
-            <a href='/%E5%8F%8B%E9%93%BE/' >
+            <a href='/links/' >
                 
                 
                 
@@ -409,15 +409,13 @@ a^n\equiv a^{ql+r}\equiv1\mod{m} \newline
 所以a^{ql+r}\equiv a^r\equiv1\mod{m} \newline
 $$
 在上面的式子中$0\le r\le l$，但是根据$\exp_m(a)=l$的定义，不可能存在$0&lt; r\le l$的数r使$a^r\equiv1\mod{m}$，出现矛盾，于是反证成功。</p>
-<p>或者$r=0$，这样一来就会出现$l|n$。</p>
-</blockquote>
+<p>或者$r=0$，这样一来就会出现$l|n$。</p></blockquote>
 <p>推论：如果$\exp_m(a)=l$，一定有$l|\varphi(m)$</p>
 <ul>
 <li>**Th2：**如果$\exp_m(a)=l$，那么${1,a,a^2,\cdots,a^{l-1}}$中的元素两两不同余</li>
 </ul>
 <blockquote>
-<p>假设$a^m\equiv a^n\mod{m}, 0\le n\le m\le l-1$，那么根据$(a,m)=1$，我们有$a^{m-n} \equiv 1\mod{m}$，但是$0\le m-n \le l-1$，出现矛盾，反证成功。</p>
-</blockquote>
+<p>假设$a^m\equiv a^n\mod{m}, 0\le n\le m\le l-1$，那么根据$(a,m)=1$，我们有$a^{m-n} \equiv 1\mod{m}$，但是$0\le m-n \le l-1$，出现矛盾，反证成功。</p></blockquote>
 <ul>
 <li>**Th3：**如果$\exp_m(a)=l$，那么$a^k\equiv a^h\mod{m}$，当且仅当$k \equiv h\mod{l}$。</li>
 </ul>
@@ -426,8 +424,7 @@ $$
 <p>如果$a^k\equiv a^h\mod{m}$，那么根据$(a,m)=1$有$a^{k-h}\equiv1\mod{m}$。</p>
 <p>根据Th1有$k-h=ql+r,0\le r\le l$，使用Th1的方式我们可以推导出$r=0$，从而有$k-h=ql \Rightarrow l|(k-h) \Rightarrow k\equiv h\mod{l}$</p>
 <p>证明$\Leftarrow$：</p>
-<p>如果$k\equiv h\mod{l}$，那么$k-h=ql$，所以$a^{k-h}\equiv1\mod{m}$，于是$a^k\equiv a^h\mod{m}$。</p>
-</blockquote>
+<p>如果$k\equiv h\mod{l}$，那么$k-h=ql$，所以$a^{k-h}\equiv1\mod{m}$，于是$a^k\equiv a^h\mod{m}$。</p></blockquote>
 <p>Th3还可以用于证明Th2，$k$和$h$选自${0,1,2\cdots,l-1}$中的不同元素，于是${1,a,a^2,\cdots,a^{l-1}}$中的元素两两互不同余。</p>
 <p>推论：如果$\exp_m(a)=l$，那么$a^k\equiv 1\mod{m}$，当且仅当$k \equiv 0\mod{f}$。所以有$l|\varphi(m)$</p>
 <ul>
@@ -437,8 +434,7 @@ $$
 <p>证明$\Rightarrow$：</p>
 <p>如果$a$是一个原根，那么有$a^{\varphi(m)} \equiv \mod{m}$,那么根据Th2，我们有${1,a,a^2,\cdots,a^{\varphi(m)-1}}$，即${a,a^2,\cdots,a^{\varphi(m)}}$两两互不同余，而这样的数正好有$\varphi(m)$个，于是构成$m$的一个简化剩余系。</p>
 <p>证明$\Leftarrow$：</p>
-<p>有$(a,m)=1$，那么根据欧拉定理有$a^{\varphi(m)} \equiv \mod{m}$，而${a,a^2,\cdots,a^{\varphi(m)}}$构成简化剩余系，且其中的元素两两互不同余，那么不会出现比$\varphi(m)$更小的方幂同余1。</p>
-</blockquote>
+<p>有$(a,m)=1$，那么根据欧拉定理有$a^{\varphi(m)} \equiv \mod{m}$，而${a,a^2,\cdots,a^{\varphi(m)}}$构成简化剩余系，且其中的元素两两互不同余，那么不会出现比$\varphi(m)$更小的方幂同余1。</p></blockquote>
 <ul>
 <li>**Th5：**已知$(a.m)=1$，令$\exp_m(a)=f$，则有
 $$
@@ -448,8 +444,7 @@ $$
 </ul>
 <blockquote>
 <p>从定义我们知道，$\exp_m(a^k)$即是$a^k$的次数，也就是满足$a^{xk}\equiv1\mod{m}$的最小的$x$，使$xk\equiv1\mod{f}$。</p>
-<p>$xk\equiv1\mod{f}$等价于$x\equiv0\mod{\dfrac{f}{d}}，d=(k,f)$。这个同余式的最小正整数解为$x=\dfrac{f}{d}$，所以$\exp_m(a^k)=\dfrac{f}{d}=\dfrac{\exp_m(a)}{(k,f)}$</p>
-</blockquote>
+<p>$xk\equiv1\mod{f}$等价于$x\equiv0\mod{\dfrac{f}{d}}，d=(k,f)$。这个同余式的最小正整数解为$x=\dfrac{f}{d}$，所以$\exp_m(a^k)=\dfrac{f}{d}=\dfrac{\exp_m(a)}{(k,f)}$</p></blockquote>
 <ul>
 <li>**Th6：**令$g$是模$p$的一个原根，使$g^{p-1}\not\equiv1(\mod{p^2})$，那么对每个$\alpha\ge2$，我们有$g^{\varphi(p^{\alpha-1})}\not\equiv1(\mod{p^\alpha})$</li>
 </ul>
@@ -468,8 +463,7 @@ g^{\varphi(p^\alpha)}&amp;\equiv1+kp^\alpha(\mod{p^{\alpha+1}})
 \end{align*}
 $$
 而前面证明了$k$中不含因子$p$，所以$kp^\alpha\not\equiv0(\mod{p^{\alpha+1}})$，所以$g^{\varphi(p^\alpha)}-1\not\equiv0(\mod{p^{\alpha+1}})$。</p>
-<p>所以我们证明了对于$\alpha=n+1$这个结论也成立，归纳证明完毕。</p>
-</blockquote>
+<p>所以我们证明了对于$\alpha=n+1$这个结论也成立，归纳证明完毕。</p></blockquote>
 </li>
 </ul>
 <h2 id="chapter2-谁有原根">Chapter2 谁有原根？
@@ -480,8 +474,7 @@ $$
 <p>只有当$m=1,2,4,p^\alpha,2p^\alpha$的时候，模才有原根。</p>
 <p>前三种情形容易确定：</p>
 <blockquote>
-<p>1的原根是0，2的原根是1，4的原根3：$3^2\equiv 1 \mod{4}$。</p>
-</blockquote>
+<p>1的原根是0，2的原根是1，4的原根3：$3^2\equiv 1 \mod{4}$。</p></blockquote>
 <ul>
 <li>
 <p><strong>Theorem:</strong></p>
@@ -508,8 +501,7 @@ $$
 <p>换言之，什么时候$\exp_p(a^k)=d$呢？</p>
 <p>我们有Th5的推论可以知道，想要$\exp_p(a^k)=\exp_p(a)=d$，那就需要$(k,d)=1$。</p>
 <p>换言之，${a,a^2,\cdots,a^d}$中只有$\varphi(d)$个数，满足$(a^k)^d\equiv1(\mod{p})$.</p>
-<p>所以，在模$p$的每一个简化剩余系中，恰有$\varphi(d)$个$a$使得$\exp_p(a)=d$。</p>
-</blockquote>
+<p>所以，在模$p$的每一个简化剩余系中，恰有$\varphi(d)$个$a$使得$\exp_p(a)=d$。</p></blockquote>
 <ul>
 <li><strong>2.证明对模$p^\alpha$的原根存在：</strong></li>
 </ul>
@@ -539,8 +531,7 @@ $$
 <p>如果我们能证明$\beta=\alpha-1$，那么就是说$t=p^{\alpha-1}(p-1)=\varphi(p^{\alpha})$</p>
 <p>假设法证明，如果$\beta&lt;\alpha-1$，那么$\beta\le\alpha-2，t=p^\beta(p-1)|p^{\alpha-2}(p-1)=\varphi(p^{\alpha-1})$</p>
 <p>我们有$t=\exp_{p^\alpha}(g)$，而$\varphi(p^{\alpha-1})$是$t$的倍数，所以$g^{\varphi(p^{\alpha-1})}\equiv1(\mod{p^\alpha})$</p>
-<p>Th6证明了这个式子是不成立的，所以出现矛盾，证明完毕。</p>
-</blockquote>
+<p>Th6证明了这个式子是不成立的，所以出现矛盾，证明完毕。</p></blockquote>
 <ul>
 <li>
 <p><strong>模$2p^\alpha$的原根存在：</strong></p>
@@ -553,8 +544,7 @@ $$
 <p>$\varphi(2p^\alpha)=\varphi(2)\varphi(p^\alpha)=\varphi(p^\alpha)$，所以$f|\varphi(p^\alpha)$，证明$f=\varphi(2p^\alpha)$变成了证明$f=\exp_{p^\alpha}(g)$。</p>
 <p>而$g^f\equiv1(\mod{2p^\alpha})$，所以$g^f\equiv1(\mod{p^\alpha})$。(定义)</p>
 <p>所以根据Th1：$\varphi(p^\alpha)|f$。</p>
-<p>所以$f=\varphi(p^\alpha)=\varphi(2p^\alpha)$</p>
-</blockquote>
+<p>所以$f=\varphi(p^\alpha)=\varphi(2p^\alpha)$</p></blockquote>
 <ul>
 <li>
 <p><strong>$2^\alpha$没有原根</strong></p>
@@ -566,8 +556,7 @@ $$
 <p>对$\alpha$成立的话，$x^{\dfrac{\varphi(2^\alpha)}{2}}=t2^\alpha+1$。</p>
 <p>平方得到$x^{\varphi(2^\alpha)}=1+t^22^{2\alpha}+t2^{\alpha+1} \equiv 1(\mod{2^{\alpha+1}})$</p>
 <p>又因为$\varphi(2^\alpha)=2^{\alpha-1}=\dfrac{\varphi(2^{\alpha+1})}{2}$</p>
-<p>所以$x^{\varphi(2^\alpha)} \equiv x^{\dfrac{\varphi(2^\alpha)}{2}}\equiv 1(\mod{2^{\alpha+1}})$</p>
-</blockquote>
+<p>所以$x^{\varphi(2^\alpha)} \equiv x^{\dfrac{\varphi(2^\alpha)}{2}}\equiv 1(\mod{2^{\alpha+1}})$</p></blockquote>
 </li>
 <li>
 <p><strong>其他情况下原根不存在：</strong></p>
@@ -608,8 +597,7 @@ $$
 $$
 a^{\dfrac{\varphi(m)}{2}}\equiv1(\mod{m})
 $$
-这证明，$a$不能是模$m$的原根。</p>
-</blockquote>
+这证明，$a$不能是模$m$的原根。</p></blockquote>
 </li>
 </ul>
 </li>
@@ -666,7 +654,7 @@ $$
         
         
             <div class="article-image">
-                <img src="/p/%E7%B4%A0%E6%95%B0%E5%88%86%E5%B8%83%E7%9A%84%E5%9F%BA%E6%9C%AC%E5%AE%9A%E7%90%86%E4%B8%80/number%20theory.60f03abb4d2e2b9a17c71c3a376643fd_hu16510225325710322437.jpg" 
+                <img src="/p/%E7%B4%A0%E6%95%B0%E5%88%86%E5%B8%83%E7%9A%84%E5%9F%BA%E6%9C%AC%E5%AE%9A%E7%90%86%E4%B8%80/number%20theory.60f03abb4d2e2b9a17c71c3a376643fd_hu_20281129dfe164da.jpg" 
                         width="250" 
                         height="150" 
                         loading="lazy"
@@ -795,7 +783,9 @@ $$
     <section class="copyright">
         &copy; 
         
-        2024 荡影-DorinXL
+            2024 - 
+        
+        2026 荡影-DorinXL
     </section>
 
 
